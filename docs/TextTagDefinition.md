@@ -1,0 +1,58 @@
+
+
+# TextTagDefinition
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**definitionId** | **String** |  |  |
+|**type** | [**TypeEnum**](#TypeEnum) |  |  |
+|**signerIndex** | **Integer** |  |  |
+|**isRequired** | **Boolean** |  |  [optional] |
+|**placeholder** | **String** |  |  [optional] |
+|**fieldId** | **String** |  |  [optional] |
+|**font** | [**Font**](Font.md) |  |  [optional] |
+|**validation** | [**Validation**](Validation.md) |  |  [optional] |
+|**size** | [**Size**](Size.md) |  |  [optional] |
+|**dateFormat** | **String** |  |  [optional] |
+|**timeFormat** | **String** |  |  [optional] |
+|**radioGroupName** | **String** |  |  [optional] |
+|**groupName** | **String** |  |  [optional] |
+|**value** | **String** |  |  [optional] |
+|**dropdownOptions** | **List&lt;String&gt;** |  |  [optional] |
+|**imageInfo** | [**ImageInfo**](ImageInfo.md) |  |  [optional] |
+|**hyperlinkText** | **String** |  |  [optional] |
+|**attachmentInfo** | [**AttachmentInfo**](AttachmentInfo.md) |  |  [optional] |
+|**backgroundHexColor** | **String** |  |  [optional] |
+|**isReadOnly** | **Boolean** |  |  [optional] |
+|**offset** | [**TextTagOffset**](TextTagOffset.md) |  |  [optional] |
+|**label** | **String** |  |  [optional] |
+|**tabIndex** | **Integer** |  |  [optional] |
+|**formulaFieldSettings** | [**FormulaFieldSettings**](FormulaFieldSettings.md) |  |  [optional] |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+|---- | -----|
+| SIGNATURE | &quot;Signature&quot; |
+| INITIAL | &quot;Initial&quot; |
+| CHECK_BOX | &quot;CheckBox&quot; |
+| TEXT_BOX | &quot;TextBox&quot; |
+| LABEL | &quot;Label&quot; |
+| DATE_SIGNED | &quot;DateSigned&quot; |
+| RADIO_BUTTON | &quot;RadioButton&quot; |
+| IMAGE | &quot;Image&quot; |
+| ATTACHMENT | &quot;Attachment&quot; |
+| EDITABLE_DATE | &quot;EditableDate&quot; |
+| HYPERLINK | &quot;Hyperlink&quot; |
+| DROPDOWN | &quot;Dropdown&quot; |
+| TITLE | &quot;Title&quot; |
+| COMPANY | &quot;Company&quot; |
+| FORMULA | &quot;Formula&quot; |
+
+
+
