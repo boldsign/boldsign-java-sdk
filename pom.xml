@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.boldsign</groupId>
-    <artifactId>boldsign-java-sdk</artifactId>
+    <artifactId>boldsign-java</artifactId>
     <packaging>jar</packaging>
-    <name>boldsign-java-sdk</name>
+    <name>boldsign-java</name>
     <version>1.0.0-beta.1</version>
     <url>https://github.com/boldsign/boldsign-java-sdk</url>
     <description>This client library lets you initiate and track e-signature requests through Syncfusion&#39;s BoldSign API service.</description>
@@ -204,6 +204,20 @@
               </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                <execution>
+                    <id>sign-artifacts</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>sign</goal>
+                    </goals>
+                </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
                 <version>0.7.0</version>
@@ -215,29 +229,6 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>sign-artifacts</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.1</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <dependencies>
         <!-- @Nullable annotation -->

@@ -1,7 +1,7 @@
 lazy val root = (project in file(".")).
   settings(
     organization := "com.boldsign",
-    name := "boldsign-java-sdk",
+    name := "boldsign-java",
     version := "1.0.0-beta.1",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),

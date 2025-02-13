@@ -1,4 +1,4 @@
-# boldsign-java-sdk
+# boldsign-java
 
 Easily integrate BoldSign's e-signature features into your Java applications. This package simplifies sending documents for signature, embedding signing ceremonies, tracking document status, downloading signed documents, and managing e-signature workflows.
 
@@ -31,7 +31,7 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
   <groupId>com.boldsign</groupId>
-  <artifactId>boldsign-java-sdk</artifactId>
+  <artifactId>boldsign-java</artifactId>
   <version>1.0.0-beta.1</version>
   <scope>compile</scope>
 </dependency>
@@ -43,12 +43,12 @@ Add this dependency to your project's build file:
 
 ```groovy
   repositories {
-    mavenCentral()     // Needed if the 'boldsign-java-sdk' jar has been published to maven central.
-    mavenLocal()       // Needed if the 'boldsign-java-sdk' jar has been published to the local maven repo.
+    mavenCentral()     // Needed if the 'boldsign-java' jar has been published to maven central.
+    mavenLocal()       // Needed if the 'boldsign-java' jar has been published to the local maven repo.
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java-sdk:1.0.0-beta.1"
+     implementation "com.boldsign:boldsign-java:1.0.0-beta.1"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-sdk-1.0.0-beta.1.jar`
+* `target/boldsign-java-1.0.0-beta.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
