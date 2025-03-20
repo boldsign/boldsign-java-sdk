@@ -29,23 +29,14 @@ import com.boldsign.api.CustomFieldApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    CustomFieldApi apiInstance = new CustomFieldApi(defaultClient);
+    CustomFieldApi apiInstance = new CustomFieldApi(apiClient);
+
     BrandCustomFieldDetails brandCustomFieldDetails = new BrandCustomFieldDetails(); // BrandCustomFieldDetails | The custom field details.
+    
     try {
       CustomFieldMessage result = apiInstance.createCustomField(brandCustomFieldDetails);
       System.out.println(result);
@@ -104,23 +95,14 @@ import com.boldsign.api.CustomFieldApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    CustomFieldApi apiInstance = new CustomFieldApi(defaultClient);
+    CustomFieldApi apiInstance = new CustomFieldApi(apiClient);
+
     String brandId = "brandId_example"; // String | The brand id.
+    
     try {
       CustomFieldCollection result = apiInstance.customFieldsList(brandId);
       System.out.println(result);
@@ -179,23 +161,14 @@ import com.boldsign.api.CustomFieldApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    CustomFieldApi apiInstance = new CustomFieldApi(defaultClient);
+    CustomFieldApi apiInstance = new CustomFieldApi(apiClient);
+
     String customFieldId = "customFieldId_example"; // String | The custom field id.
+    
     try {
       DeleteCustomFieldReply result = apiInstance.deleteCustomField(customFieldId);
       System.out.println(result);
@@ -254,24 +227,15 @@ import com.boldsign.api.CustomFieldApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    CustomFieldApi apiInstance = new CustomFieldApi(defaultClient);
+    CustomFieldApi apiInstance = new CustomFieldApi(apiClient);
+
     String customFieldId = "customFieldId_example"; // String | The custom field id.
     BrandCustomFieldDetails brandCustomFieldDetails = new BrandCustomFieldDetails(); // BrandCustomFieldDetails | The custom field details.
+    
     try {
       CustomFieldMessage result = apiInstance.editCustomField(customFieldId, brandCustomFieldDetails);
       System.out.println(result);
@@ -331,24 +295,15 @@ import com.boldsign.api.CustomFieldApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    CustomFieldApi apiInstance = new CustomFieldApi(defaultClient);
+    CustomFieldApi apiInstance = new CustomFieldApi(apiClient);
+
     String brandId = "brandId_example"; // String | The Brand ID for custom fields must be configured
     OffsetDateTime linkValidTill = OffsetDateTime.now(); // OffsetDateTime | This property is used to set the validity of the generated URL. Its maximum validity is 30 days
+    
     try {
       EmbeddedCustomFieldCreated result = apiInstance.embedCustomField(brandId, linkValidTill);
       System.out.println(result);

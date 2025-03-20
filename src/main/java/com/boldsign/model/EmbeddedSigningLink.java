@@ -124,17 +124,6 @@ public class EmbeddedSigningLink {
     } catch (Exception e) {
         throw new ApiException(e);
     }
-
-    if(!fileTypeFound) {
-        Field[] fields = EmbeddedSigningLink.class.getDeclaredFields();
-        for (Field field : fields) {
-            if ("files".equals(field.getName())) {
-                fileTypeFound = true;
-                break;
-            }
-        }
-    }
-
     return fileTypeFound ? map : new HashMap<>();
   }
 

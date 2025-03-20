@@ -37,23 +37,14 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     TemplateTag templateTag = new TemplateTag(); // TemplateTag | ContainsTemplateId and Label Names for AddingTags.
+    
     try {
       apiInstance.addTag(templateTag);
     } catch (ApiException e) {
@@ -111,24 +102,15 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     String templateId = "templateId_example"; // String | The template id.
     EmbeddedSendTemplateFormRequest embeddedSendTemplateFormRequest = new EmbeddedSendTemplateFormRequest(); // EmbeddedSendTemplateFormRequest | Embedded send template json request.
+    
     try {
       EmbeddedSendCreated result = apiInstance.createEmbeddedRequestUrlTemplate(templateId, embeddedSendTemplateFormRequest);
       System.out.println(result);
@@ -187,23 +169,14 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     EmbeddedCreateTemplateRequest embeddedCreateTemplateRequest = new EmbeddedCreateTemplateRequest(); // EmbeddedCreateTemplateRequest | The create embedded template request body.
+    
     try {
       EmbeddedTemplateCreated result = apiInstance.createEmbeddedTemplateUrl(embeddedCreateTemplateRequest);
       System.out.println(result);
@@ -261,23 +234,14 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     CreateTemplateRequest createTemplateRequest = new CreateTemplateRequest(); // CreateTemplateRequest | The create template request body.
+    
     try {
       TemplateCreated result = apiInstance.createTemplate(createTemplateRequest);
       System.out.println(result);
@@ -336,23 +300,14 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     TemplateTag templateTag = new TemplateTag(); // TemplateTag | Contains TemplateId and LabelNames for Adding Tags.
+    
     try {
       apiInstance.deleteTag(templateTag);
     } catch (ApiException e) {
@@ -410,24 +365,15 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     String templateId = "templateId_example"; // String | The template id.
     String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    
     try {
       apiInstance.deleteTemplate(templateId, onBehalfOf);
     } catch (ApiException e) {
@@ -486,24 +432,15 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     String templateId = "templateId_example"; // String | Template Id.
     String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    
     try {
       File result = apiInstance.download(templateId, onBehalfOf);
       System.out.println(result);
@@ -563,24 +500,15 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     String templateId = "templateId_example"; // String | The template id.
     EditTemplateRequest editTemplateRequest = new EditTemplateRequest(); // EditTemplateRequest | The edit template request body.
+    
     try {
       apiInstance.editTemplate(templateId, editTemplateRequest);
     } catch (ApiException e) {
@@ -637,24 +565,15 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     String templateId = "templateId_example"; // String | The template id.
     EmbeddedTemplateEditRequest embeddedTemplateEditRequest = new EmbeddedTemplateEditRequest(); // EmbeddedTemplateEditRequest | The embedded edit template request body.
+    
     try {
       EmbeddedTemplateEdited result = apiInstance.getEmbeddedTemplateEditUrl(templateId, embeddedTemplateEditRequest);
       System.out.println(result);
@@ -713,23 +632,14 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     String templateId = "templateId_example"; // String | Template Id.
+    
     try {
       TemplateProperties result = apiInstance.getProperties(templateId);
       System.out.println(result);
@@ -788,22 +698,12 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     Integer page = 1; // Integer | 
     String templateType = "mytemplates"; // String | 
     Integer pageSize = 10; // Integer | 
@@ -814,6 +714,7 @@ public class Example {
     OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Start date of the template
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | End date of the template
     List<String> brandIds = Arrays.asList(); // List<String> | BrandId(s) of the template.
+    
     try {
       TemplateRecords result = apiInstance.listTemplates(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds);
       System.out.println(result);
@@ -880,23 +781,14 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     MergeAndSendForSignForm mergeAndSendForSignForm = new MergeAndSendForSignForm(); // MergeAndSendForSignForm | The merge and send details as JSON.
+    
     try {
       apiInstance.mergeAndSend(mergeAndSendForSignForm);
     } catch (ApiException e) {
@@ -952,24 +844,15 @@ import com.boldsign.api.TemplateApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    TemplateApi apiInstance = new TemplateApi(defaultClient);
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
     String templateId = "templateId_example"; // String | The template id.
     SendForSignFromTemplateForm sendForSignFromTemplateForm = new SendForSignFromTemplateForm(); // SendForSignFromTemplateForm | The send template details as JSON.
+    
     try {
       DocumentCreated result = apiInstance.sendUsingTemplate(templateId, sendForSignFromTemplateForm);
       System.out.println(result);

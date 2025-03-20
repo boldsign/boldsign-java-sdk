@@ -5,13 +5,9 @@ import com.boldsign.ApiException;
 import com.boldsign.api.DocumentApi;
 import com.boldsign.model.*;
 import org.junit.jupiter.api.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
+import java.io.*;
 import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -28,11 +24,26 @@ public class DocumentApiTest {
     private static String senderEmail;
     private static String createdDocumentId;
 
-    public byte[] readFile(String path) throws IOException {
-        try (FileInputStream fis = new FileInputStream(path)) {
-            return fis.readAllBytes();
+public byte[] readFile(String path) throws IOException {
+    FileInputStream fis = null;
+    try {
+        fis = new FileInputStream(path);
+        BufferedInputStream bis = new BufferedInputStream(fis);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int bytesRead;
+        while ((bytesRead = bis.read(buffer)) != -1) {
+            byteArrayOutputStream.write(buffer, 0, bytesRead);
+        }
+        return byteArrayOutputStream.toByteArray();
+    } finally
+    {
+        if (fis != null)
+        {
+            fis.close();
         }
     }
+}
 
     public String imageToBase64(String imagePath) throws IOException {
         byte[] imageContent = readFile(imagePath);
@@ -1619,5 +1630,31 @@ public class DocumentApiTest {
         } catch (Exception e) {
             Assertions.fail("An unexpected error occurred: " + e.getMessage());
         }
+    }
+
+    @Test
+    @Order(55)
+    public void testDynamicDocs(){
+       try{
+           DocumentSigner signer = new DocumentSigner();
+           signer.setName("David");
+           signer.setEmailAddress("david@cubeflakes.com");
+           signer.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
+           List<DocumentSigner> signers = new ArrayList<DocumentSigner>();
+           signers.add(signer);
+           File file = new File("examples/documents/agreement.pdf");
+           List<File> files = new ArrayList<File>();
+           files.add(file);
+           SendForSign sendForSign = new SendForSign();
+           sendForSign.setTitle("Agreement");
+           sendForSign.setSigners(signers);
+           sendForSign.setFiles(files);
+           sendForSign.setUseTextTags(true);
+           DocumentCreated documentCreated = DocumentApiTest.documentApi.sendDocument(sendForSign);
+       } catch (ApiException e) {
+           Assertions.fail("API call failed: " + e.getMessage());
+       } catch (Exception e) {
+           Assertions.fail("An unexpected error occurred: " + e.getMessage());
+       }
     }
 }

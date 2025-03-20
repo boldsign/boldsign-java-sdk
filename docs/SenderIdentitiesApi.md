@@ -30,23 +30,14 @@ import com.boldsign.api.SenderIdentitiesApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(defaultClient);
+    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
+
     CreateSenderIdentityRequest createSenderIdentityRequest = new CreateSenderIdentityRequest(); // CreateSenderIdentityRequest | The create sender identity request.
+    
     try {
       apiInstance.createSenderIdentities(createSenderIdentityRequest);
     } catch (ApiException e) {
@@ -104,23 +95,14 @@ import com.boldsign.api.SenderIdentitiesApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(defaultClient);
+    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
+
     String email = "email_example"; // String | The email address.
+    
     try {
       apiInstance.deleteSenderIdentities(email);
     } catch (ApiException e) {
@@ -178,26 +160,17 @@ import com.boldsign.api.SenderIdentitiesApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(defaultClient);
+    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
+
     Integer page = 1; // Integer | Page index specified in get sender identity request.
     Integer pageSize = 10; // Integer | Page size specified in get sender identity list request.
     String search = "search_example"; // String | Users can be listed by the search key present in the sender identity like sender identity name and email address
     List<String> brandIds = Arrays.asList(); // List<String> | A list of brand IDs to filter associated with the sender identity.
+    
     try {
       SenderIdentityList result = apiInstance.listSenderIdentities(page, pageSize, search, brandIds);
       System.out.println(result);
@@ -259,23 +232,14 @@ import com.boldsign.api.SenderIdentitiesApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(defaultClient);
+    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
+
     String email = "email_example"; // String | The email address.
+    
     try {
       apiInstance.reRequestSenderIdentities(email);
     } catch (ApiException e) {
@@ -333,23 +297,14 @@ import com.boldsign.api.SenderIdentitiesApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(defaultClient);
+    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
+
     String email = "email_example"; // String | The email address.
+    
     try {
       apiInstance.resendInvitationSenderIdentities(email);
     } catch (ApiException e) {
@@ -407,24 +362,15 @@ import com.boldsign.api.SenderIdentitiesApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(defaultClient);
+    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
+
     String email = "email_example"; // String | The email address.
     EditSenderIdentityRequest editSenderIdentityRequest = new EditSenderIdentityRequest(); // EditSenderIdentityRequest | The create sender identity request.
+    
     try {
       apiInstance.updateSenderIdentities(email, editSenderIdentityRequest);
     } catch (ApiException e) {

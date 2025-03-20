@@ -5,11 +5,8 @@ import com.boldsign.ApiException;
 import com.boldsign.api.ContactsApi;
 import com.boldsign.model.*;
 import org.junit.jupiter.api.*;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

@@ -113,7 +113,7 @@ public class UsersApiTest {
         System.out.println("TestUserID: " + emailId);
         int page = 1;
         int pageSize = 20;
-        String search = "";
+        String search = emailId;
         UserRecords userListResponse = userApi.listUsers(page, pageSize, search);
         Assertions.assertNotNull(userListResponse);
         Assertions.assertNotNull(userListResponse.getResult());

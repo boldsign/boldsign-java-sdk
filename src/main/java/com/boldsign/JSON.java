@@ -39,6 +39,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
 import java.util.HashMap;
+import java.io.File;
 
 /*
  * A JSON utility class
@@ -54,6 +55,7 @@ public class JSON {
     private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
     private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
     private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
+    private static FileTypeAdapter fileTypeAdapter = new FileTypeAdapter();
 
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
@@ -93,6 +95,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter);
         gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
+        gsonBuilder.registerTypeAdapter(File.class, fileTypeAdapter);
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AccessCodeDetail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AccessCodeDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AttachmentInfo.CustomTypeAdapterFactory());
@@ -513,5 +516,22 @@ public class JSON {
 
     public static void setSqlDateFormat(DateFormat dateFormat) {
         sqlDateTypeAdapter.setFormat(dateFormat);
+    }
+
+    public static void setFileTypeAdapter(FileTypeAdapter adapter) {
+        fileTypeAdapter = adapter;
+    }
+
+    private static class FileTypeAdapter extends TypeAdapter<File> {
+        @Override
+        public void write(JsonWriter out, File value) throws IOException {
+            if (value == null) {
+                out.nullValue(); 
+            }
+        }
+        @Override
+        public File read(JsonReader in) throws IOException {
+            return null; 
+        }
     }
 }

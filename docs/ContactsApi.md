@@ -29,26 +29,17 @@ import com.boldsign.api.ContactsApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    ContactsApi apiInstance = new ContactsApi(apiClient);
+
     Integer page = 1; // Integer | Page index specified in get user contact list request. Default value is 1.
     Integer pageSize = 10; // Integer | Page size specified in get user contact list request. Default value is 10.
     String searchKey = "searchKey_example"; // String | Contacts can be listed by the search  based on the Name or Email
     String contactType = "MyContacts"; // String | Contact type whether the contact is My Contacts or All Contacts. Default value is AllContacts.
+    
     try {
       ContactsList result = apiInstance.contactUserList(page, pageSize, searchKey, contactType);
       System.out.println(result);
@@ -110,23 +101,14 @@ import com.boldsign.api.ContactsApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    ContactsApi apiInstance = new ContactsApi(apiClient);
+
     List<ContactDetails> contactDetails = Arrays.asList(); // List<ContactDetails> | The contact details.
+    
     try {
       CreateContactResponse result = apiInstance.createContact(contactDetails);
       System.out.println(result);
@@ -185,23 +167,14 @@ import com.boldsign.api.ContactsApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    ContactsApi apiInstance = new ContactsApi(apiClient);
+
     String id = "id_example"; // String | The contact id.
+    
     try {
       apiInstance.deleteContacts(id);
     } catch (ApiException e) {
@@ -259,23 +232,14 @@ import com.boldsign.api.ContactsApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    ContactsApi apiInstance = new ContactsApi(apiClient);
+
     String id = "id_example"; // String | Contact Id.
+    
     try {
       ContactsDetails result = apiInstance.getContact(id);
       System.out.println(result);
@@ -334,24 +298,15 @@ import com.boldsign.api.ContactsApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    ContactsApi apiInstance = new ContactsApi(defaultClient);
+    ContactsApi apiInstance = new ContactsApi(apiClient);
+
     String id = "id_example"; // String | The contactId.
     ContactDetails contactDetails = new ContactDetails(); // ContactDetails | The contact details.
+    
     try {
       apiInstance.updateContact(id, contactDetails);
     } catch (ApiException e) {

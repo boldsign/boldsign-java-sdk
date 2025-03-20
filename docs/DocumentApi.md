@@ -45,24 +45,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | The DocumentId.
     AccessCodeDetail accessCodeDetail = new AccessCodeDetail(); // AccessCodeDetail | Access code details.
+    
     try {
       apiInstance.addAuthentication(documentId, accessCodeDetail);
     } catch (ApiException e) {
@@ -121,23 +112,14 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     DocumentTags documentTags = new DocumentTags(); // DocumentTags | Contains DocumentId and LabelNames for Adding Tags.
+    
     try {
       apiInstance.addTag(documentTags);
     } catch (ApiException e) {
@@ -195,22 +177,12 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     Integer page = 1; // Integer | Page index specified in get document list request.
     String pageType = "BehalfOfOthers"; // String | The filter used to differentiate between documents sent on the user's behalf and documents sent by the user on behalf of others. The API will return documents based on the specified value.
     List<String> emailAddress = Arrays.asList(); // List<String> | The sender identity's email used to filter the documents returned in the API. The API will return documents that were sent on behalf of the specified email address.
@@ -223,6 +195,7 @@ public class Example {
     List<String> labels = Arrays.asList(); // List<String> | Labels of the document.
     Long nextCursor = 56L; // Long | Next cursor value for pagination, required for fetching the next set of documents beyond 10,000 records.
     List<String> brandIds = Arrays.asList(); // List<String> | BrandId(s) of the document.
+    
     try {
       BehalfDocumentRecords result = apiInstance.behalfDocuments(page, pageType, emailAddress, signers, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
       System.out.println(result);
@@ -292,26 +265,17 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | 
     AccessCodeDetails accessCodeDetails = new AccessCodeDetails(); // AccessCodeDetails | The new access code.
     String emailId = "emailId_example"; // String | 
     Integer zorder = 56; // Integer | 
+    
     try {
       apiInstance.changeAccessCode(documentId, accessCodeDetails, emailId, zorder);
     } catch (ApiException e) {
@@ -372,24 +336,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | The documentID details.
     ChangeRecipient changeRecipient = new ChangeRecipient(); // ChangeRecipient | The new recipient details.
+    
     try {
       ErrorResult result = apiInstance.changeRecipient(documentId, changeRecipient);
       System.out.println(result);
@@ -448,23 +403,14 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     EmbeddedDocumentRequest embeddedDocumentRequest = new EmbeddedDocumentRequest(); // EmbeddedDocumentRequest | The embedded send document request body.
+    
     try {
       EmbeddedSendCreated result = apiInstance.createEmbeddedRequestUrlDocument(embeddedDocumentRequest);
       System.out.println(result);
@@ -523,24 +469,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document Id.
     Boolean deletePermanently = false; // Boolean | Delete Permanently.
+    
     try {
       apiInstance.deleteDocument(documentId, deletePermanently);
     } catch (ApiException e) {
@@ -599,23 +536,14 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     DocumentTags documentTags = new DocumentTags(); // DocumentTags | Contains DocumentId and LabelNames for Adding Tags.
+    
     try {
       apiInstance.deleteTag(documentTags);
     } catch (ApiException e) {
@@ -673,25 +601,16 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document Id.
     String attachmentId = "attachmentId_example"; // String | Attachment Id(Get attachment ID from Properties API).
     String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    
     try {
       File result = apiInstance.downloadAttachment(documentId, attachmentId, onBehalfOf);
       System.out.println(result);
@@ -752,24 +671,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document Id.
     String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    
     try {
       File result = apiInstance.downloadAuditLog(documentId, onBehalfOf);
       System.out.println(result);
@@ -829,24 +739,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document Id.
     String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    
     try {
       File result = apiInstance.downloadDocument(documentId, onBehalfOf);
       System.out.println(result);
@@ -906,24 +807,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document Id.
     ExtendExpiry extendExpiry = new ExtendExpiry(); // ExtendExpiry | The new expiry value should be specified in yyyy-MM-dd format for days type, ISO date time format for specific date time and integer for hours type.
+    
     try {
       apiInstance.extendExpiry(documentId, extendExpiry);
     } catch (ApiException e) {
@@ -982,28 +874,19 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | 
     String signerEmail = "signerEmail_example"; // String | 
     String countryCode = "countryCode_example"; // String | 
     String phoneNumber = "phoneNumber_example"; // String | 
     OffsetDateTime signLinkValidTill = OffsetDateTime.now(); // OffsetDateTime | 
     URI redirectUrl = new URI(); // URI | 
+    
     try {
       EmbeddedSigningLink result = apiInstance.getEmbeddedSignLink(documentId, signerEmail, countryCode, phoneNumber, signLinkValidTill, redirectUrl);
       System.out.println(result);
@@ -1067,23 +950,14 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document Id.
+    
     try {
       DocumentProperties result = apiInstance.getProperties(documentId);
       System.out.println(result);
@@ -1142,22 +1016,12 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     Integer page = 1; // Integer | Page index specified in get document list request.
     List<String> sentBy = Arrays.asList(); // List<String> | 
     List<String> recipients = Arrays.asList(); // List<String> | 
@@ -1170,6 +1034,7 @@ public class Example {
     List<String> labels = Arrays.asList(); // List<String> | Labels of the document.
     Long nextCursor = 56L; // Long | Next cursor value for pagination, required for fetching the next set of documents beyond 10,000 records.
     List<String> brandIds = Arrays.asList(); // List<String> | BrandId(s) of the document.
+    
     try {
       DocumentRecords result = apiInstance.listDocuments(page, sentBy, recipients, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
       System.out.println(result);
@@ -1238,24 +1103,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | The DocumentId.
     PrefillFieldRequest prefillFieldRequest = new PrefillFieldRequest(); // PrefillFieldRequest | The prefill field request.
+    
     try {
       apiInstance.prefillFields(documentId, prefillFieldRequest);
     } catch (ApiException e) {
@@ -1314,25 +1170,16 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document Id.
     List<String> receiverEmails = Arrays.asList(); // List<String> | Signer emails.
     ReminderMessage reminderMessage = new ReminderMessage(); // ReminderMessage | Reminder Message for signers.
+    
     try {
       apiInstance.remindDocument(documentId, receiverEmails, reminderMessage);
     } catch (ApiException e) {
@@ -1392,24 +1239,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document ID of the signature request
     RemoveAuthentication removeAuthentication = new RemoveAuthentication(); // RemoveAuthentication | To remove access code.
+    
     try {
       apiInstance.removeAuthentication(documentId, removeAuthentication);
     } catch (ApiException e) {
@@ -1468,24 +1306,15 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     String documentId = "documentId_example"; // String | Document Id.
     RevokeDocument revokeDocument = new RevokeDocument(); // RevokeDocument | RevokeDetails.
+    
     try {
       apiInstance.revokeDocument(documentId, revokeDocument);
     } catch (ApiException e) {
@@ -1544,23 +1373,14 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     SendForSign sendForSign = new SendForSign(); // SendForSign | The send for sign request body.
+    
     try {
       DocumentCreated result = apiInstance.sendDocument(sendForSign);
       System.out.println(result);
@@ -1619,22 +1439,12 @@ import com.boldsign.api.DocumentApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.boldsign.com");
-    
-    // Configure API key authorization: X-API-KEY
-    ApiKeyAuth X-API-KEY = (ApiKeyAuth) defaultClient.getAuthentication("X-API-KEY");
-    X-API-KEY.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //X-API-KEY.setApiKeyPrefix("Token");
 
-    // Configure API key authorization: Bearer
-    ApiKeyAuth Bearer = (ApiKeyAuth) defaultClient.getAuthentication("Bearer");
-    Bearer.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Bearer.setApiKeyPrefix("Token");
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
 
-    DocumentApi apiInstance = new DocumentApi(defaultClient);
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
     Integer page = 1; // Integer | Page index specified in get document list request.
     List<String> userId = Arrays.asList(); // List<String> | UserId of the  Team document.
     List<String> teamId = Arrays.asList(); // List<String> | TeamId  of the  Team document.
@@ -1647,6 +1457,7 @@ public class Example {
     List<String> labels = Arrays.asList(); // List<String> | Labels of the document.
     Long nextCursor = 56L; // Long | Next cursor value for pagination, required for fetching the next set of documents beyond 10,000 records.
     List<String> brandIds = Arrays.asList(); // List<String> | BrandId(s) of the document.
+    
     try {
       TeamDocumentRecords result = apiInstance.teamDocuments(page, userId, teamId, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
       System.out.println(result);

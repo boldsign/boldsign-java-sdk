@@ -211,17 +211,6 @@ public class ContactPageDetails {
     } catch (Exception e) {
         throw new ApiException(e);
     }
-
-    if(!fileTypeFound) {
-        Field[] fields = ContactPageDetails.class.getDeclaredFields();
-        for (Field field : fields) {
-            if ("files".equals(field.getName())) {
-                fileTypeFound = true;
-                break;
-            }
-        }
-    }
-
     return fileTypeFound ? map : new HashMap<>();
   }
 

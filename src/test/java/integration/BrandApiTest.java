@@ -3,8 +3,6 @@ package integration;
 import com.boldsign.ApiClient;
 import com.boldsign.ApiException;
 import com.boldsign.api.BrandingApi;
-import com.boldsign.api.ContactsApi;
-import com.boldsign.api.TemplateApi;
 import com.boldsign.model.BrandCreated;
 import com.boldsign.model.BrandingMessage;
 import com.boldsign.model.BrandingRecords;
@@ -12,7 +10,6 @@ import com.boldsign.model.ViewBrandDetails;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.File;
-import java.time.Duration;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BrandApiTest

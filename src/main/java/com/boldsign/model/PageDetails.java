@@ -343,17 +343,6 @@ public class PageDetails {
     } catch (Exception e) {
         throw new ApiException(e);
     }
-
-    if(!fileTypeFound) {
-        Field[] fields = PageDetails.class.getDeclaredFields();
-        for (Field field : fields) {
-            if ("files".equals(field.getName())) {
-                fileTypeFound = true;
-                break;
-            }
-        }
-    }
-
     return fileTypeFound ? map : new HashMap<>();
   }
 

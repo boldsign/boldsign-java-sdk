@@ -188,17 +188,6 @@ public class PrefillFieldRequest {
     } catch (Exception e) {
         throw new ApiException(e);
     }
-
-    if(!fileTypeFound) {
-        Field[] fields = PrefillFieldRequest.class.getDeclaredFields();
-        for (Field field : fields) {
-            if ("files".equals(field.getName())) {
-                fileTypeFound = true;
-                break;
-            }
-        }
-    }
-
     return fileTypeFound ? map : new HashMap<>();
   }
 

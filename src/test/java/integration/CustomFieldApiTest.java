@@ -1,7 +1,6 @@
 package integration;
 
 import com.boldsign.ApiClient;
-import com.boldsign.Configuration;
 import com.boldsign.api.BrandingApi;
 import com.boldsign.api.CustomFieldApi;
 import com.boldsign.model.*;
@@ -9,8 +8,7 @@ import com.boldsign.ApiException;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.File;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -310,31 +308,31 @@ public class CustomFieldApiTest
     public void testCreateEmbeddedCustomFieldPositive() throws ApiException
     {
         String brandId = createdBrandId;
-        String linkValidTillStr = "2025-02-10T09%3A12%3A28Z";
-        String decodedLinkValidTillStr = URLDecoder.decode(linkValidTillStr, StandardCharsets.UTF_8);
-        OffsetDateTime linkValidTill = OffsetDateTime.parse(decodedLinkValidTillStr, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        String linkValidTillStr = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
+        OffsetDateTime linkValidTill = OffsetDateTime.parse(linkValidTillStr, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
         EmbeddedCustomFieldCreated embeddedCustomFieldResponse = customFieldApi.embedCustomField(brandId, linkValidTill);
-        Assertions.assertNotNull(embeddedCustomFieldResponse, "Embedded custom field response should not be null");
-        Assertions.assertNotNull(embeddedCustomFieldResponse.getCreateUrl(), "Custom field ID should be returned");
+        Assertions.assertNotNull(embeddedCustomFieldResponse);
+        Assertions.assertNotNull(embeddedCustomFieldResponse.getCreateUrl());
     }
 
     @Test
     @Order(9)
-    public void testCreateEmbeddedCustomFieldNegative()throws ApiException
+    public void testCreateEmbeddedCustomFieldNegative_InvalidBrandId() throws ApiException
     {
-        String brandId = "1200c48a-c97c-4933-ab73-db377bf4a7a8";
-        String linkValidTillStr = "2025-02-10T09%3A12%3A28Z";
-        String decodedLinkValidTillStr = URLDecoder.decode(linkValidTillStr, StandardCharsets.UTF_8);
-        OffsetDateTime linkValidTill = OffsetDateTime.parse(decodedLinkValidTillStr, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+        String brandId = "invalid-brand-id";
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        String linkValidTillStr = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
+        OffsetDateTime linkValidTill = OffsetDateTime.parse(linkValidTillStr, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
         try
         {
             EmbeddedCustomFieldCreated embeddedCustomFieldResponse = customFieldApi.embedCustomField(brandId, linkValidTill);
-            Assertions.fail("Expected ApiException due to invalid brand ID, but the request was successful.");
+            Assertions.fail("Expected ApiException due to invalid brand ID, but the API call succeeded.");
         }
         catch (ApiException e)
         {
             assertTrue(e.getCode() == 400 , "Expected error code 400: " + e.getCode());
-            assertTrue(e.getMessage().contains("Invalid brand id"));
+            assertTrue(e.getMessage().contains("Provide a valid brand ID"));
         }
     }
 

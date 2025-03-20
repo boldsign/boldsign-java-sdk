@@ -2,14 +2,11 @@ package integration;
 
 import com.boldsign.model.*;
 import com.boldsign.ApiClient;
-import com.boldsign.Configuration;
 import com.boldsign.api.TemplateApi;
 import com.boldsign.ApiException;
 import org.junit.jupiter.api.*;
 import java.io.File;
 import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -848,7 +845,7 @@ public class TemplateApiTest
 
     @Test
     @Order(23)
-    public void testSendDocumentFromTemplate()
+    public void testSendDocumentFromTemplateWithFile()
     {
         try
         {
@@ -897,9 +894,58 @@ public class TemplateApiTest
             fail("Error occurred during API call: " + e.getMessage());
         }
     }
-
     @Test
     @Order(24)
+    public void testSendDocumentFromTemplateWithoutFile()
+    {
+        try
+        {
+            FormField formField = new FormField();
+            formField.setFieldType(FormField.FieldTypeEnum.SIGNATURE);
+            formField.setPageNumber(1);
+            Rectangle bounds = new Rectangle();
+            bounds.setX(100f);
+            bounds.setY(50f);
+            bounds.setWidth(100f);
+            bounds.setHeight(100f);
+            formField.setBounds(bounds);
+            Role role = new Role();
+            role.setRoleIndex(50);
+            role.setSignerName("Richard");
+            role.setSignerEmail("mohammedmushraf.abuthakir+29292@syncfusion.com");
+            role.setSignerOrder(1);
+            role.setEnableEmailOTP(false);
+            role.setSignerType(Role.SignerTypeEnum.SIGNER);
+            role.setSignerRole("Manager");
+            role.setPrivateMessage("Please check and sign the document");
+            role.setFormFields(Arrays.asList(formField));
+            SendForSignFromTemplateForm sendForSignFromTemplate = new SendForSignFromTemplateForm();
+            sendForSignFromTemplate.setTitle("Invitation form");
+            sendForSignFromTemplate.setMessage("Kindly review and sign this.");
+            sendForSignFromTemplate.setRoles(Arrays.asList(role));
+            sendForSignFromTemplate.setLabels(Arrays.asList("Invitation", "Form", "Test"));
+            sendForSignFromTemplate.setDisableEmails(false);
+            sendForSignFromTemplate.setDisableSMS(false);
+            sendForSignFromTemplate.setHideDocumentId(true);
+            ReminderSettings reminderSettings = new ReminderSettings();
+            reminderSettings.setReminderDays(3);
+            reminderSettings.setReminderCount(5);
+            reminderSettings.setEnableAutoReminder(false);
+            sendForSignFromTemplate.setReminderSettings(reminderSettings);
+            sendForSignFromTemplate.setExpiryValue(60L);
+            sendForSignFromTemplate.setDisableExpiryAlert(true);
+            sendForSignFromTemplate.setEnablePrintAndSign(true);
+            sendForSignFromTemplate.setEnableReassign(true);
+            sendForSignFromTemplate.setEnableSigningOrder(true);
+            templateApi.sendUsingTemplate(createdTemplateId, sendForSignFromTemplate);
+        } catch (ApiException e)
+        {
+            fail("Error occurred during API call: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(25)
     public void testTemplateSendDocumentWithMultipleCCs() throws ApiException
     {
         try
@@ -963,7 +1009,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(25)
+    @Order(26)
     public void testTemplateSendDocumentNegative() throws ApiException
     {
         try
@@ -1025,7 +1071,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(26)
+    @Order(27)
     public void testSendDocumentFromMultipleTemplates()
     {
         try
@@ -1082,7 +1128,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(27)
+    @Order(28)
     public void testDeleteTemplatePositive() throws ApiException
     {
         try
@@ -1097,7 +1143,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(28)
+    @Order(29)
     public void testDeleteTemplateNegative() throws ApiException
     {
         try
@@ -1114,7 +1160,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(29)
+    @Order(30)
     public void testCreateEmbeddedTemplatePositive()
     {
         try
@@ -1172,7 +1218,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(30)
+    @Order(31)
     public void testCreateEmbeddedTemplateWithEmptyTitleNegative() throws ApiException
     {
         try
@@ -1201,7 +1247,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(31)
+    @Order(32)
     public void testEditEmbeddedTemplatePositive()
     {
         try
@@ -1225,7 +1271,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(32)
+    @Order(33)
     public void testEditEmbeddedTemplateNegative()
     {
         try
@@ -1248,7 +1294,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(33)
+    @Order(34)
     public void testCreateEmbeddedTemplateRequestLink()
     {
         try
@@ -1284,7 +1330,7 @@ public class TemplateApiTest
     }
 
     @Test
-    @Order(34)
+    @Order(35)
     public void testCreateEmbeddedTemplateRequestLinkWithEmptyTitleNegative()
     {
         try
