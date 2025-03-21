@@ -95,6 +95,11 @@
 | EDITING_INITIATED | &quot;EditingInitiated&quot; |
 | EDITING_CANCELLED | &quot;EditingCancelled&quot; |
 | EDITING_COMPLETED | &quot;EditingCompleted&quot; |
+| QES_VERIFICATION_INITIATED | &quot;QESVerificationInitiated&quot; |
+| QES_VERIFIED | &quot;QESVerified&quot; |
+| QES_REJECTED | &quot;QESRejected&quot; |
+| QES_EXPIRED | &quot;QESExpired&quot; |
+| QES_WITHDRAWN | &quot;QESWithdrawn&quot; |
 
 
 

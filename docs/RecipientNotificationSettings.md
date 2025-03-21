@@ -18,6 +18,7 @@
 |**reminders** | **Boolean** |  |  [optional] |
 |**editRecipient** | **Boolean** |  |  [optional] |
 |**editDocument** | **Boolean** |  |  [optional] |
+|**viewed** | **Boolean** |  |  [optional] |
 
 
 

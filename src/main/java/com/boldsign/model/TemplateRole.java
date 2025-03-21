@@ -439,6 +439,10 @@ public class TemplateRole {
   @SerializedName(SERIALIZED_NAME_ALLOW_ROLE_DELETE)
   private Boolean allowRoleDelete;
 
+  public static final String SERIALIZED_NAME_ENABLE_QES = "enableQes";
+  @SerializedName(SERIALIZED_NAME_ENABLE_QES)
+  private Boolean enableQes;
+
   public TemplateRole() {
   }
 
@@ -756,6 +760,25 @@ public class TemplateRole {
   }
 
 
+  public TemplateRole enableQes(Boolean enableQes) {
+    this.enableQes = enableQes;
+    return this;
+  }
+
+  /**
+   * Get enableQes
+   * @return enableQes
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableQes() {
+    return enableQes;
+  }
+
+  public void setEnableQes(Boolean enableQes) {
+    this.enableQes = enableQes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -781,12 +804,13 @@ public class TemplateRole {
         Objects.equals(this.allowFieldConfiguration, templateRole.allowFieldConfiguration) &&
         Objects.equals(this.formFields, templateRole.formFields) &&
         Objects.equals(this.allowRoleEdit, templateRole.allowRoleEdit) &&
-        Objects.equals(this.allowRoleDelete, templateRole.allowRoleDelete);
+        Objects.equals(this.allowRoleDelete, templateRole.allowRoleDelete) &&
+        Objects.equals(this.enableQes, templateRole.enableQes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, name, defaultSignerName, defaultSignerEmail, signerOrder, signerType, hostEmail, language, locale, imposeAuthentication, phoneNumber, deliveryMode, allowFieldConfiguration, formFields, allowRoleEdit, allowRoleDelete);
+    return Objects.hash(index, name, defaultSignerName, defaultSignerEmail, signerOrder, signerType, hostEmail, language, locale, imposeAuthentication, phoneNumber, deliveryMode, allowFieldConfiguration, formFields, allowRoleEdit, allowRoleDelete, enableQes);
   }
 
   @Override
@@ -809,6 +833,7 @@ public class TemplateRole {
     sb.append("    formFields: ").append(toIndentedString(formFields)).append("\n");
     sb.append("    allowRoleEdit: ").append(toIndentedString(allowRoleEdit)).append("\n");
     sb.append("    allowRoleDelete: ").append(toIndentedString(allowRoleDelete)).append("\n");
+    sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1130,6 +1155,25 @@ public class TemplateRole {
           map.put("allowRoleDelete", allowRoleDelete);
         }
     }
+    if (enableQes != null) {
+        if (isFileTypeOrListOfFiles(enableQes)) {
+            fileTypeFound = true;
+        }
+
+        if (enableQes.getClass().equals(java.io.File.class) ||
+            enableQes.getClass().equals(Integer.class) ||
+            enableQes.getClass().equals(String.class) ||
+            enableQes.getClass().isEnum()) {
+            map.put("enableQes", enableQes);
+        } else if (isListOfFile(enableQes)) {
+            for(int i = 0; i< getListSize(enableQes); i++) {
+                map.put("enableQes", enableQes);
+            }
+        }
+        else {
+          map.put("enableQes", enableQes);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1191,6 +1235,7 @@ public class TemplateRole {
     openapiFields.add("formFields");
     openapiFields.add("allowRoleEdit");
     openapiFields.add("allowRoleDelete");
+    openapiFields.add("enableQes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

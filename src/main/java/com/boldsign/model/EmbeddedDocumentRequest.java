@@ -446,6 +446,10 @@ public class EmbeddedDocumentRequest {
   @SerializedName(SERIALIZED_NAME_DOCUMENT_DOWNLOAD_OPTION)
   private DocumentDownloadOptionEnum documentDownloadOption;
 
+  public static final String SERIALIZED_NAME_IS_SANDBOX = "isSandbox";
+  @SerializedName(SERIALIZED_NAME_IS_SANDBOX)
+  private Boolean isSandbox;
+
   public static final String SERIALIZED_NAME_META_DATA = "metaData";
   @SerializedName(SERIALIZED_NAME_META_DATA)
   private Map<String, String> metaData;
@@ -1232,6 +1236,25 @@ public class EmbeddedDocumentRequest {
   }
 
 
+  public EmbeddedDocumentRequest isSandbox(Boolean isSandbox) {
+    this.isSandbox = isSandbox;
+    return this;
+  }
+
+  /**
+   * Get isSandbox
+   * @return isSandbox
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsSandbox() {
+    return isSandbox;
+  }
+
+  public void setIsSandbox(Boolean isSandbox) {
+    this.isSandbox = isSandbox;
+  }
+
+
   public EmbeddedDocumentRequest metaData(Map<String, String> metaData) {
     this.metaData = metaData;
     return this;
@@ -1371,6 +1394,7 @@ public class EmbeddedDocumentRequest {
         Objects.equals(this.onBehalfOf, embeddedDocumentRequest.onBehalfOf) &&
         Objects.equals(this.autoDetectFields, embeddedDocumentRequest.autoDetectFields) &&
         Objects.equals(this.documentDownloadOption, embeddedDocumentRequest.documentDownloadOption) &&
+        Objects.equals(this.isSandbox, embeddedDocumentRequest.isSandbox) &&
         Objects.equals(this.metaData, embeddedDocumentRequest.metaData) &&
         Objects.equals(this.formGroups, embeddedDocumentRequest.formGroups) &&
         Objects.equals(this.enableAuditTrailLocalization, embeddedDocumentRequest.enableAuditTrailLocalization) &&
@@ -1379,7 +1403,7 @@ public class EmbeddedDocumentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, showTooltip, embeddedSendLinkValidTill, files, title, message, signers, cc, enableSigningOrder, expiryDays, expiryDateType, expiryValue, reminderSettings, enableEmbeddedSigning, disableEmails, disableSMS, brandId, hideDocumentId, labels, fileUrls, sendLinkValidTill, useTextTags, textTagDefinitions, enablePrintAndSign, enableReassign, disableExpiryAlert, documentInfo, onBehalfOf, autoDetectFields, documentDownloadOption, metaData, formGroups, enableAuditTrailLocalization, downloadFileName);
+    return Objects.hash(redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, showTooltip, embeddedSendLinkValidTill, files, title, message, signers, cc, enableSigningOrder, expiryDays, expiryDateType, expiryValue, reminderSettings, enableEmbeddedSigning, disableEmails, disableSMS, brandId, hideDocumentId, labels, fileUrls, sendLinkValidTill, useTextTags, textTagDefinitions, enablePrintAndSign, enableReassign, disableExpiryAlert, documentInfo, onBehalfOf, autoDetectFields, documentDownloadOption, isSandbox, metaData, formGroups, enableAuditTrailLocalization, downloadFileName);
   }
 
   @Override
@@ -1423,6 +1447,7 @@ public class EmbeddedDocumentRequest {
     sb.append("    onBehalfOf: ").append(toIndentedString(onBehalfOf)).append("\n");
     sb.append("    autoDetectFields: ").append(toIndentedString(autoDetectFields)).append("\n");
     sb.append("    documentDownloadOption: ").append(toIndentedString(documentDownloadOption)).append("\n");
+    sb.append("    isSandbox: ").append(toIndentedString(isSandbox)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    formGroups: ").append(toIndentedString(formGroups)).append("\n");
     sb.append("    enableAuditTrailLocalization: ").append(toIndentedString(enableAuditTrailLocalization)).append("\n");
@@ -2207,6 +2232,25 @@ public class EmbeddedDocumentRequest {
           map.put("documentDownloadOption", documentDownloadOption);
         }
     }
+    if (isSandbox != null) {
+        if (isFileTypeOrListOfFiles(isSandbox)) {
+            fileTypeFound = true;
+        }
+
+        if (isSandbox.getClass().equals(java.io.File.class) ||
+            isSandbox.getClass().equals(Integer.class) ||
+            isSandbox.getClass().equals(String.class) ||
+            isSandbox.getClass().isEnum()) {
+            map.put("isSandbox", isSandbox);
+        } else if (isListOfFile(isSandbox)) {
+            for(int i = 0; i< getListSize(isSandbox); i++) {
+                map.put("isSandbox", isSandbox);
+            }
+        }
+        else {
+          map.put("isSandbox", isSandbox);
+        }
+    }
     if (metaData != null) {
         if (isFileTypeOrListOfFiles(metaData)) {
             fileTypeFound = true;
@@ -2375,6 +2419,7 @@ public class EmbeddedDocumentRequest {
     openapiFields.add("onBehalfOf");
     openapiFields.add("AutoDetectFields");
     openapiFields.add("documentDownloadOption");
+    openapiFields.add("isSandbox");
     openapiFields.add("metaData");
     openapiFields.add("formGroups");
     openapiFields.add("enableAuditTrailLocalization");

@@ -103,7 +103,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -160,8 +160,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -195,7 +219,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -214,7 +238,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -235,7 +259,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -255,7 +279,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
@@ -300,9 +324,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -323,8 +371,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -352,7 +424,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
@@ -370,7 +442,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
@@ -390,7 +462,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
@@ -421,7 +493,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -550,7 +622,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -580,7 +652,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -612,7 +684,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -693,9 +765,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -716,8 +812,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -824,7 +944,7 @@ public class DocumentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call changeRecipientCall(String documentId, ChangeRecipient changeRecipient, final ApiCallback _callback) throws ApiException {
@@ -871,9 +991,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -894,8 +1038,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -936,7 +1104,7 @@ public class DocumentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public ErrorResult changeRecipient(String documentId, ChangeRecipient changeRecipient) throws ApiException {
@@ -955,7 +1123,7 @@ public class DocumentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ErrorResult> changeRecipientWithHttpInfo(String documentId, ChangeRecipient changeRecipient) throws ApiException {
@@ -976,7 +1144,7 @@ public class DocumentApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call changeRecipientAsync(String documentId, ChangeRecipient changeRecipient, final ApiCallback<ErrorResult> _callback) throws ApiException {
@@ -1178,9 +1346,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1279,7 +1471,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
@@ -1324,9 +1516,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1347,8 +1563,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -1376,7 +1616,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
@@ -1394,7 +1634,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
@@ -1414,7 +1654,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
@@ -1436,7 +1676,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1492,9 +1732,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1540,7 +1804,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1561,7 +1825,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1584,7 +1848,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1606,7 +1870,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1658,9 +1922,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1700,7 +1988,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1720,7 +2008,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1742,7 +2030,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1764,7 +2052,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1816,9 +2104,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1858,7 +2170,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1878,7 +2190,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1900,7 +2212,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1922,7 +2234,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -1971,9 +2283,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1994,8 +2330,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -2029,7 +2389,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2048,7 +2408,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2069,7 +2429,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2094,7 +2454,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2162,9 +2522,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -2208,7 +2592,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2232,7 +2616,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2258,7 +2642,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2279,7 +2663,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2353,7 +2737,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2372,7 +2756,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2393,7 +2777,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2425,7 +2809,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
@@ -2553,7 +2937,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
@@ -2582,7 +2966,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
@@ -2613,7 +2997,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
@@ -2634,7 +3018,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2691,8 +3075,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -2731,7 +3139,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2750,7 +3158,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2771,7 +3179,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -2846,9 +3254,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -2869,8 +3301,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -3017,9 +3473,33 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
             "text/plain",
+            "application/octet-stream",
             "text/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -3040,8 +3520,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -3193,8 +3697,32 @@ public class DocumentApi {
             "application/json;odata.streaming=true",
             "application/json;odata.streaming=false",
             "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
             "application/xml",
-            "application/prs.odatatestxx-odata",
+            "text/plain",
             "application/json-patch+json",
             "text/json",
             "application/*+json"
@@ -3434,7 +3962,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -3563,7 +4091,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -3593,7 +4121,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
@@ -3625,7 +4153,7 @@ public class DocumentApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>

@@ -218,7 +218,17 @@ public class AuditTrail {
     
     EDITING_CANCELLED("EditingCancelled"),
     
-    EDITING_COMPLETED("EditingCompleted");
+    EDITING_COMPLETED("EditingCompleted"),
+    
+    QES_VERIFICATION_INITIATED("QESVerificationInitiated"),
+    
+    QES_VERIFIED("QESVerified"),
+    
+    QES_REJECTED("QESRejected"),
+    
+    QES_EXPIRED("QESExpired"),
+    
+    QES_WITHDRAWN("QESWithdrawn");
 
     private String value;
 

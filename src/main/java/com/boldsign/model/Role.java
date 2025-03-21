@@ -457,6 +457,10 @@ public class Role {
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_RETRY_COUNT)
   private Integer authenticationRetryCount;
 
+  public static final String SERIALIZED_NAME_ENABLE_QES = "enableQes";
+  @SerializedName(SERIALIZED_NAME_ENABLE_QES)
+  private Boolean enableQes;
+
   public Role() {
   }
 
@@ -860,6 +864,25 @@ public class Role {
   }
 
 
+  public Role enableQes(Boolean enableQes) {
+    this.enableQes = enableQes;
+    return this;
+  }
+
+  /**
+   * Get enableQes
+   * @return enableQes
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableQes() {
+    return enableQes;
+  }
+
+  public void setEnableQes(Boolean enableQes) {
+    this.enableQes = enableQes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -889,12 +912,13 @@ public class Role {
         Objects.equals(this.identityVerificationSettings, role.identityVerificationSettings) &&
         Objects.equals(this.language, role.language) &&
         Objects.equals(this.locale, role.locale) &&
-        Objects.equals(this.authenticationRetryCount, role.authenticationRetryCount);
+        Objects.equals(this.authenticationRetryCount, role.authenticationRetryCount) &&
+        Objects.equals(this.enableQes, role.enableQes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleIndex, signerName, signerOrder, signerEmail, hostEmail, privateMessage, authenticationCode, enableEmailOTP, authenticationType, phoneNumber, deliveryMode, signerType, signerRole, allowFieldConfiguration, formFields, existingFormFields, identityVerificationSettings, language, locale, authenticationRetryCount);
+    return Objects.hash(roleIndex, signerName, signerOrder, signerEmail, hostEmail, privateMessage, authenticationCode, enableEmailOTP, authenticationType, phoneNumber, deliveryMode, signerType, signerRole, allowFieldConfiguration, formFields, existingFormFields, identityVerificationSettings, language, locale, authenticationRetryCount, enableQes);
   }
 
   @Override
@@ -921,6 +945,7 @@ public class Role {
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    authenticationRetryCount: ").append(toIndentedString(authenticationRetryCount)).append("\n");
+    sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1328,6 +1353,25 @@ public class Role {
           map.put("authenticationRetryCount", authenticationRetryCount);
         }
     }
+    if (enableQes != null) {
+        if (isFileTypeOrListOfFiles(enableQes)) {
+            fileTypeFound = true;
+        }
+
+        if (enableQes.getClass().equals(java.io.File.class) ||
+            enableQes.getClass().equals(Integer.class) ||
+            enableQes.getClass().equals(String.class) ||
+            enableQes.getClass().isEnum()) {
+            map.put("enableQes", enableQes);
+        } else if (isListOfFile(enableQes)) {
+            for(int i = 0; i< getListSize(enableQes); i++) {
+                map.put("enableQes", enableQes);
+            }
+        }
+        else {
+          map.put("enableQes", enableQes);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1393,6 +1437,7 @@ public class Role {
     openapiFields.add("language");
     openapiFields.add("locale");
     openapiFields.add("authenticationRetryCount");
+    openapiFields.add("enableQes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

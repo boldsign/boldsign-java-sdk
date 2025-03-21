@@ -89,6 +89,10 @@ public class RecipientNotificationSettings {
   @SerializedName(SERIALIZED_NAME_EDIT_DOCUMENT)
   private Boolean editDocument = true;
 
+  public static final String SERIALIZED_NAME_VIEWED = "viewed";
+  @SerializedName(SERIALIZED_NAME_VIEWED)
+  private Boolean viewed;
+
   public RecipientNotificationSettings() {
   }
 
@@ -301,6 +305,25 @@ public class RecipientNotificationSettings {
   }
 
 
+  public RecipientNotificationSettings viewed(Boolean viewed) {
+    this.viewed = viewed;
+    return this;
+  }
+
+  /**
+   * Get viewed
+   * @return viewed
+   */
+  @javax.annotation.Nullable
+  public Boolean getViewed() {
+    return viewed;
+  }
+
+  public void setViewed(Boolean viewed) {
+    this.viewed = viewed;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -321,12 +344,13 @@ public class RecipientNotificationSettings {
         Objects.equals(this.deleted, recipientNotificationSettings.deleted) &&
         Objects.equals(this.reminders, recipientNotificationSettings.reminders) &&
         Objects.equals(this.editRecipient, recipientNotificationSettings.editRecipient) &&
-        Objects.equals(this.editDocument, recipientNotificationSettings.editDocument);
+        Objects.equals(this.editDocument, recipientNotificationSettings.editDocument) &&
+        Objects.equals(this.viewed, recipientNotificationSettings.viewed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signatureRequest, declined, revoked, signed, completed, expired, reassigned, deleted, reminders, editRecipient, editDocument);
+    return Objects.hash(signatureRequest, declined, revoked, signed, completed, expired, reassigned, deleted, reminders, editRecipient, editDocument, viewed);
   }
 
   @Override
@@ -344,6 +368,7 @@ public class RecipientNotificationSettings {
     sb.append("    reminders: ").append(toIndentedString(reminders)).append("\n");
     sb.append("    editRecipient: ").append(toIndentedString(editRecipient)).append("\n");
     sb.append("    editDocument: ").append(toIndentedString(editDocument)).append("\n");
+    sb.append("    viewed: ").append(toIndentedString(viewed)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -560,6 +585,25 @@ public class RecipientNotificationSettings {
           map.put("editDocument", editDocument);
         }
     }
+    if (viewed != null) {
+        if (isFileTypeOrListOfFiles(viewed)) {
+            fileTypeFound = true;
+        }
+
+        if (viewed.getClass().equals(java.io.File.class) ||
+            viewed.getClass().equals(Integer.class) ||
+            viewed.getClass().equals(String.class) ||
+            viewed.getClass().isEnum()) {
+            map.put("viewed", viewed);
+        } else if (isListOfFile(viewed)) {
+            for(int i = 0; i< getListSize(viewed); i++) {
+                map.put("viewed", viewed);
+            }
+        }
+        else {
+          map.put("viewed", viewed);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -616,6 +660,7 @@ public class RecipientNotificationSettings {
     openapiFields.add("reminders");
     openapiFields.add("editRecipient");
     openapiFields.add("editDocument");
+    openapiFields.add("viewed");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

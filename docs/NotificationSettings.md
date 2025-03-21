@@ -18,6 +18,7 @@
 |**expired** | **Boolean** |  |  [optional] |
 |**authenticationFailed** | **Boolean** |  |  [optional] |
 |**reminders** | **Boolean** |  |  [optional] |
+|**attachSignedDocument** | **Boolean** |  |  [optional] |
 
 
 

@@ -89,6 +89,10 @@ public class NotificationSettings {
   @SerializedName(SERIALIZED_NAME_REMINDERS)
   private Boolean reminders = true;
 
+  public static final String SERIALIZED_NAME_ATTACH_SIGNED_DOCUMENT = "attachSignedDocument";
+  @SerializedName(SERIALIZED_NAME_ATTACH_SIGNED_DOCUMENT)
+  private Boolean attachSignedDocument = false;
+
   public NotificationSettings() {
   }
 
@@ -301,6 +305,25 @@ public class NotificationSettings {
   }
 
 
+  public NotificationSettings attachSignedDocument(Boolean attachSignedDocument) {
+    this.attachSignedDocument = attachSignedDocument;
+    return this;
+  }
+
+  /**
+   * Get attachSignedDocument
+   * @return attachSignedDocument
+   */
+  @javax.annotation.Nullable
+  public Boolean getAttachSignedDocument() {
+    return attachSignedDocument;
+  }
+
+  public void setAttachSignedDocument(Boolean attachSignedDocument) {
+    this.attachSignedDocument = attachSignedDocument;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -321,12 +344,13 @@ public class NotificationSettings {
         Objects.equals(this.signed, notificationSettings.signed) &&
         Objects.equals(this.expired, notificationSettings.expired) &&
         Objects.equals(this.authenticationFailed, notificationSettings.authenticationFailed) &&
-        Objects.equals(this.reminders, notificationSettings.reminders);
+        Objects.equals(this.reminders, notificationSettings.reminders) &&
+        Objects.equals(this.attachSignedDocument, notificationSettings.attachSignedDocument);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(viewed, sent, deliveryFailed, declined, revoked, reassigned, completed, signed, expired, authenticationFailed, reminders);
+    return Objects.hash(viewed, sent, deliveryFailed, declined, revoked, reassigned, completed, signed, expired, authenticationFailed, reminders, attachSignedDocument);
   }
 
   @Override
@@ -344,6 +368,7 @@ public class NotificationSettings {
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
     sb.append("    authenticationFailed: ").append(toIndentedString(authenticationFailed)).append("\n");
     sb.append("    reminders: ").append(toIndentedString(reminders)).append("\n");
+    sb.append("    attachSignedDocument: ").append(toIndentedString(attachSignedDocument)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -560,6 +585,25 @@ public class NotificationSettings {
           map.put("reminders", reminders);
         }
     }
+    if (attachSignedDocument != null) {
+        if (isFileTypeOrListOfFiles(attachSignedDocument)) {
+            fileTypeFound = true;
+        }
+
+        if (attachSignedDocument.getClass().equals(java.io.File.class) ||
+            attachSignedDocument.getClass().equals(Integer.class) ||
+            attachSignedDocument.getClass().equals(String.class) ||
+            attachSignedDocument.getClass().isEnum()) {
+            map.put("attachSignedDocument", attachSignedDocument);
+        } else if (isListOfFile(attachSignedDocument)) {
+            for(int i = 0; i< getListSize(attachSignedDocument); i++) {
+                map.put("attachSignedDocument", attachSignedDocument);
+            }
+        }
+        else {
+          map.put("attachSignedDocument", attachSignedDocument);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -616,6 +660,7 @@ public class NotificationSettings {
     openapiFields.add("expired");
     openapiFields.add("authenticationFailed");
     openapiFields.add("reminders");
+    openapiFields.add("attachSignedDocument");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

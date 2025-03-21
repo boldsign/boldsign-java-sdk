@@ -31,6 +31,7 @@
 |**idVerification** | [**IdVerification**](IdVerification.md) |  |  [optional] |
 |**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**authenticationRetryCount** | **Integer** |  |  [optional] |
+|**enableQes** | **Boolean** |  |  [optional] |
 
 
 

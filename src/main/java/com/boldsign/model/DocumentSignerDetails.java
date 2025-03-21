@@ -479,6 +479,10 @@ public class DocumentSignerDetails {
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_RETRY_COUNT)
   private Integer authenticationRetryCount;
 
+  public static final String SERIALIZED_NAME_ENABLE_QES = "enableQes";
+  @SerializedName(SERIALIZED_NAME_ENABLE_QES)
+  private Boolean enableQes;
+
   public DocumentSignerDetails() {
   }
 
@@ -946,6 +950,25 @@ public class DocumentSignerDetails {
   }
 
 
+  public DocumentSignerDetails enableQes(Boolean enableQes) {
+    this.enableQes = enableQes;
+    return this;
+  }
+
+  /**
+   * Get enableQes
+   * @return enableQes
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableQes() {
+    return enableQes;
+  }
+
+  public void setEnableQes(Boolean enableQes) {
+    this.enableQes = enableQes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -979,12 +1002,13 @@ public class DocumentSignerDetails {
         Objects.equals(this.phoneNumber, documentSignerDetails.phoneNumber) &&
         Objects.equals(this.idVerification, documentSignerDetails.idVerification) &&
         Objects.equals(this.recipientNotificationSettings, documentSignerDetails.recipientNotificationSettings) &&
-        Objects.equals(this.authenticationRetryCount, documentSignerDetails.authenticationRetryCount);
+        Objects.equals(this.authenticationRetryCount, documentSignerDetails.authenticationRetryCount) &&
+        Objects.equals(this.enableQes, documentSignerDetails.enableQes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signerName, signerRole, signerEmail, status, enableAccessCode, isAuthenticationFailed, enableEmailOTP, authenticationType, isDeliveryFailed, isViewed, order, signerType, hostEmail, hostName, isReassigned, privateMessage, allowFieldConfiguration, formFields, language, locale, phoneNumber, idVerification, recipientNotificationSettings, authenticationRetryCount);
+    return Objects.hash(signerName, signerRole, signerEmail, status, enableAccessCode, isAuthenticationFailed, enableEmailOTP, authenticationType, isDeliveryFailed, isViewed, order, signerType, hostEmail, hostName, isReassigned, privateMessage, allowFieldConfiguration, formFields, language, locale, phoneNumber, idVerification, recipientNotificationSettings, authenticationRetryCount, enableQes);
   }
 
   @Override
@@ -1015,6 +1039,7 @@ public class DocumentSignerDetails {
     sb.append("    idVerification: ").append(toIndentedString(idVerification)).append("\n");
     sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    authenticationRetryCount: ").append(toIndentedString(authenticationRetryCount)).append("\n");
+    sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1488,6 +1513,25 @@ public class DocumentSignerDetails {
           map.put("authenticationRetryCount", authenticationRetryCount);
         }
     }
+    if (enableQes != null) {
+        if (isFileTypeOrListOfFiles(enableQes)) {
+            fileTypeFound = true;
+        }
+
+        if (enableQes.getClass().equals(java.io.File.class) ||
+            enableQes.getClass().equals(Integer.class) ||
+            enableQes.getClass().equals(String.class) ||
+            enableQes.getClass().isEnum()) {
+            map.put("enableQes", enableQes);
+        } else if (isListOfFile(enableQes)) {
+            for(int i = 0; i< getListSize(enableQes); i++) {
+                map.put("enableQes", enableQes);
+            }
+        }
+        else {
+          map.put("enableQes", enableQes);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1557,6 +1601,7 @@ public class DocumentSignerDetails {
     openapiFields.add("idVerification");
     openapiFields.add("recipientNotificationSettings");
     openapiFields.add("authenticationRetryCount");
+    openapiFields.add("enableQes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

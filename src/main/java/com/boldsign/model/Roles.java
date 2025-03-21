@@ -464,6 +464,10 @@ public class Roles {
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
   private RecipientNotificationSettings recipientNotificationSettings;
 
+  public static final String SERIALIZED_NAME_ENABLE_QES = "enableQes";
+  @SerializedName(SERIALIZED_NAME_ENABLE_QES)
+  private Boolean enableQes;
+
   public Roles() {
   }
 
@@ -893,6 +897,25 @@ public class Roles {
   }
 
 
+  public Roles enableQes(Boolean enableQes) {
+    this.enableQes = enableQes;
+    return this;
+  }
+
+  /**
+   * Get enableQes
+   * @return enableQes
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableQes() {
+    return enableQes;
+  }
+
+  public void setEnableQes(Boolean enableQes) {
+    this.enableQes = enableQes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -924,12 +947,13 @@ public class Roles {
         Objects.equals(this.formFields, roles.formFields) &&
         Objects.equals(this.enableEditRecipients, roles.enableEditRecipients) &&
         Objects.equals(this.enableDeleteRecipients, roles.enableDeleteRecipients) &&
-        Objects.equals(this.recipientNotificationSettings, roles.recipientNotificationSettings);
+        Objects.equals(this.recipientNotificationSettings, roles.recipientNotificationSettings) &&
+        Objects.equals(this.enableQes, roles.enableQes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, index, defaultSignerName, defaultSignerEmail, phoneNumber, signerOrder, signerType, hostEmail, hostName, language, locale, allowRoleEdit, allowRoleDelete, enableAccessCode, enableEmailOTP, imposeAuthentication, deliveryMode, allowFieldConfiguration, formFields, enableEditRecipients, enableDeleteRecipients, recipientNotificationSettings);
+    return Objects.hash(name, index, defaultSignerName, defaultSignerEmail, phoneNumber, signerOrder, signerType, hostEmail, hostName, language, locale, allowRoleEdit, allowRoleDelete, enableAccessCode, enableEmailOTP, imposeAuthentication, deliveryMode, allowFieldConfiguration, formFields, enableEditRecipients, enableDeleteRecipients, recipientNotificationSettings, enableQes);
   }
 
   @Override
@@ -958,6 +982,7 @@ public class Roles {
     sb.append("    enableEditRecipients: ").append(toIndentedString(enableEditRecipients)).append("\n");
     sb.append("    enableDeleteRecipients: ").append(toIndentedString(enableDeleteRecipients)).append("\n");
     sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
+    sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1393,6 +1418,25 @@ public class Roles {
           map.put("recipientNotificationSettings", recipientNotificationSettings);
         }
     }
+    if (enableQes != null) {
+        if (isFileTypeOrListOfFiles(enableQes)) {
+            fileTypeFound = true;
+        }
+
+        if (enableQes.getClass().equals(java.io.File.class) ||
+            enableQes.getClass().equals(Integer.class) ||
+            enableQes.getClass().equals(String.class) ||
+            enableQes.getClass().isEnum()) {
+            map.put("enableQes", enableQes);
+        } else if (isListOfFile(enableQes)) {
+            for(int i = 0; i< getListSize(enableQes); i++) {
+                map.put("enableQes", enableQes);
+            }
+        }
+        else {
+          map.put("enableQes", enableQes);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1460,6 +1504,7 @@ public class Roles {
     openapiFields.add("enableEditRecipients");
     openapiFields.add("enableDeleteRecipients");
     openapiFields.add("recipientNotificationSettings");
+    openapiFields.add("enableQes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

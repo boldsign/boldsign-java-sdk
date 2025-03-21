@@ -10,6 +10,8 @@
 |**files** | **List&lt;File&gt;** |  |  [optional] |
 |**fileUrls** | **List&lt;URI&gt;** |  |  [optional] |
 |**templateIds** | **List&lt;String&gt;** |  |  [optional] |
+|**useTextTags** | **Boolean** |  |  [optional] |
+|**textTagDefinitions** | [**List&lt;TextTagDefinition&gt;**](TextTagDefinition.md) |  |  [optional] |
 |**documentId** | **String** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**message** | **String** |  |  [optional] |

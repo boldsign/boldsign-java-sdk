@@ -44,6 +44,7 @@
 |**onBehalfOf** | **String** |  |  [optional] |
 |**autoDetectFields** | **Boolean** |  |  [optional] |
 |**documentDownloadOption** | [**DocumentDownloadOptionEnum**](#DocumentDownloadOptionEnum) |  |  [optional] |
+|**isSandbox** | **Boolean** |  |  [optional] |
 |**metaData** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**formGroups** | [**List&lt;FormGroup&gt;**](FormGroup.md) |  |  [optional] |
 |**enableAuditTrailLocalization** | **Boolean** |  |  [optional] |

@@ -29,6 +29,7 @@
 |**enableEditRecipients** | **Boolean** |  |  [optional] |
 |**enableDeleteRecipients** | **Boolean** |  |  [optional] |
 |**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
+|**enableQes** | **Boolean** |  |  [optional] |
 
 
 

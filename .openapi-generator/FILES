@@ -10,6 +10,7 @@ docs/AccessCodeDetail.md
 docs/AccessCodeDetails.md
 docs/AttachmentInfo.md
 docs/AuditTrail.md
+docs/Base64File.md
 docs/BehalfDocument.md
 docs/BehalfDocumentRecords.md
 docs/BehalfOf.md
@@ -172,6 +173,7 @@ src/main/java/com/boldsign/model/AccessCodeDetail.java
 src/main/java/com/boldsign/model/AccessCodeDetails.java
 src/main/java/com/boldsign/model/AttachmentInfo.java
 src/main/java/com/boldsign/model/AuditTrail.java
+src/main/java/com/boldsign/model/Base64File.java
 src/main/java/com/boldsign/model/BehalfDocument.java
 src/main/java/com/boldsign/model/BehalfDocumentRecords.java
 src/main/java/com/boldsign/model/BehalfOf.java

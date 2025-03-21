@@ -19,6 +19,7 @@ import com.boldsign.model.DocumentInfo;
 import com.boldsign.model.FormGroup;
 import com.boldsign.model.ReminderSettings;
 import com.boldsign.model.Role;
+import com.boldsign.model.TextTagDefinition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -67,6 +68,14 @@ public class MergeAndSendForSignForm {
   public static final String SERIALIZED_NAME_TEMPLATE_IDS = "templateIds";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_IDS)
   private List<String> templateIds;
+
+  public static final String SERIALIZED_NAME_USE_TEXT_TAGS = "useTextTags";
+  @SerializedName(SERIALIZED_NAME_USE_TEXT_TAGS)
+  private Boolean useTextTags;
+
+  public static final String SERIALIZED_NAME_TEXT_TAG_DEFINITIONS = "textTagDefinitions";
+  @SerializedName(SERIALIZED_NAME_TEXT_TAG_DEFINITIONS)
+  private List<TextTagDefinition> textTagDefinitions;
 
   public static final String SERIALIZED_NAME_DOCUMENT_ID = "documentId";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_ID)
@@ -368,6 +377,52 @@ public class MergeAndSendForSignForm {
 
   public void setTemplateIds(List<String> templateIds) {
     this.templateIds = templateIds;
+  }
+
+
+  public MergeAndSendForSignForm useTextTags(Boolean useTextTags) {
+    this.useTextTags = useTextTags;
+    return this;
+  }
+
+  /**
+   * Get useTextTags
+   * @return useTextTags
+   */
+  @javax.annotation.Nullable
+  public Boolean getUseTextTags() {
+    return useTextTags;
+  }
+
+  public void setUseTextTags(Boolean useTextTags) {
+    this.useTextTags = useTextTags;
+  }
+
+
+  public MergeAndSendForSignForm textTagDefinitions(List<TextTagDefinition> textTagDefinitions) {
+    this.textTagDefinitions = textTagDefinitions;
+    return this;
+  }
+
+  public MergeAndSendForSignForm addTextTagDefinitionsItem(TextTagDefinition textTagDefinitionsItem) {
+    if (this.textTagDefinitions == null) {
+      this.textTagDefinitions = new ArrayList<>();
+    }
+    this.textTagDefinitions.add(textTagDefinitionsItem);
+    return this;
+  }
+
+  /**
+   * Get textTagDefinitions
+   * @return textTagDefinitions
+   */
+  @javax.annotation.Nullable
+  public List<TextTagDefinition> getTextTagDefinitions() {
+    return textTagDefinitions;
+  }
+
+  public void setTextTagDefinitions(List<TextTagDefinition> textTagDefinitions) {
+    this.textTagDefinitions = textTagDefinitions;
   }
 
 
@@ -984,6 +1039,8 @@ public class MergeAndSendForSignForm {
     return Objects.equals(this.files, mergeAndSendForSignForm.files) &&
         Objects.equals(this.fileUrls, mergeAndSendForSignForm.fileUrls) &&
         Objects.equals(this.templateIds, mergeAndSendForSignForm.templateIds) &&
+        Objects.equals(this.useTextTags, mergeAndSendForSignForm.useTextTags) &&
+        Objects.equals(this.textTagDefinitions, mergeAndSendForSignForm.textTagDefinitions) &&
         Objects.equals(this.documentId, mergeAndSendForSignForm.documentId) &&
         Objects.equals(this.title, mergeAndSendForSignForm.title) &&
         Objects.equals(this.message, mergeAndSendForSignForm.message) &&
@@ -1016,7 +1073,7 @@ public class MergeAndSendForSignForm {
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, templateIds, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, enableAuditTrailLocalization, downloadFileName);
+    return Objects.hash(files, fileUrls, templateIds, useTextTags, textTagDefinitions, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, enableAuditTrailLocalization, downloadFileName);
   }
 
   @Override
@@ -1026,6 +1083,8 @@ public class MergeAndSendForSignForm {
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    fileUrls: ").append(toIndentedString(fileUrls)).append("\n");
     sb.append("    templateIds: ").append(toIndentedString(templateIds)).append("\n");
+    sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
+    sb.append("    textTagDefinitions: ").append(toIndentedString(textTagDefinitions)).append("\n");
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -1146,6 +1205,54 @@ public class MergeAndSendForSignForm {
             }
           }
           map.put("templateIds", objectList);
+        }
+    }
+    if (useTextTags != null) {
+        if (isFileTypeOrListOfFiles(useTextTags)) {
+            fileTypeFound = true;
+        }
+
+        if (useTextTags.getClass().equals(java.io.File.class) ||
+            useTextTags.getClass().equals(Integer.class) ||
+            useTextTags.getClass().equals(String.class) ||
+            useTextTags.getClass().isEnum()) {
+            map.put("useTextTags", useTextTags);
+        } else if (isListOfFile(useTextTags)) {
+            for(int i = 0; i< getListSize(useTextTags); i++) {
+                map.put("useTextTags", useTextTags);
+            }
+        }
+        else {
+          map.put("useTextTags", useTextTags);
+        }
+    }
+    if (textTagDefinitions != null) {
+        if (isFileTypeOrListOfFiles(textTagDefinitions)) {
+            fileTypeFound = true;
+        }
+
+        if (textTagDefinitions.getClass().equals(java.io.File.class) ||
+            textTagDefinitions.getClass().equals(Integer.class) ||
+            textTagDefinitions.getClass().equals(String.class) ||
+            textTagDefinitions.getClass().isEnum()) {
+            map.put("textTagDefinitions", textTagDefinitions);
+        } else if (isListOfFile(textTagDefinitions)) {
+            for(int i = 0; i< getListSize(textTagDefinitions); i++) {
+                map.put("textTagDefinitions", textTagDefinitions);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : textTagDefinitions) {
+            if(item instanceof URI) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("textTagDefinitions", objectList);
         }
     }
     if (documentId != null) {
@@ -1798,6 +1905,8 @@ public class MergeAndSendForSignForm {
     openapiFields.add("files");
     openapiFields.add("fileUrls");
     openapiFields.add("templateIds");
+    openapiFields.add("useTextTags");
+    openapiFields.add("textTagDefinitions");
     openapiFields.add("documentId");
     openapiFields.add("title");
     openapiFields.add("message");
@@ -1856,6 +1965,20 @@ public class MergeAndSendForSignForm {
       // ensure the optional json data is an array if present
       if (jsonObj.get("templateIds") != null && !jsonObj.get("templateIds").isJsonNull() && !jsonObj.get("templateIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `templateIds` to be an array in the JSON string but got `%s`", jsonObj.get("templateIds").toString()));
+      }
+      if (jsonObj.get("textTagDefinitions") != null && !jsonObj.get("textTagDefinitions").isJsonNull()) {
+        JsonArray jsonArraytextTagDefinitions = jsonObj.getAsJsonArray("textTagDefinitions");
+        if (jsonArraytextTagDefinitions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("textTagDefinitions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `textTagDefinitions` to be an array in the JSON string but got `%s`", jsonObj.get("textTagDefinitions").toString()));
+          }
+
+          // validate the optional field `textTagDefinitions` (array)
+          for (int i = 0; i < jsonArraytextTagDefinitions.size(); i++) {
+            TextTagDefinition.validateJsonElement(jsonArraytextTagDefinitions.get(i));
+          };
+        }
       }
       if ((jsonObj.get("documentId") != null && !jsonObj.get("documentId").isJsonNull()) && !jsonObj.get("documentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `documentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentId").toString()));

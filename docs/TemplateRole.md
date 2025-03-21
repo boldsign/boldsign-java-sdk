@@ -23,6 +23,7 @@
 |**formFields** | [**List&lt;FormField&gt;**](FormField.md) |  |  [optional] |
 |**allowRoleEdit** | **Boolean** |  |  [optional] |
 |**allowRoleDelete** | **Boolean** |  |  [optional] |
+|**enableQes** | **Boolean** |  |  [optional] |
 
 
 
