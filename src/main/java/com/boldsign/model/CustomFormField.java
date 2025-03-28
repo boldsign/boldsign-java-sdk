@@ -476,6 +476,68 @@ public class CustomFormField {
   @SerializedName(SERIALIZED_NAME_BACKGROUND_HEX_COLOR)
   private String backgroundHexColor;
 
+  /**
+   * Gets or Sets resizeOption
+   */
+  @JsonAdapter(ResizeOptionEnum.Adapter.class)
+  public enum ResizeOptionEnum {
+    GROW_VERTICALLY("GrowVertically"),
+    
+    GROW_HORIZONTALLY("GrowHorizontally"),
+    
+    GROW_BOTH("GrowBoth"),
+    
+    FIXED("Fixed"),
+    
+    AUTO_RESIZE_FONT("AutoResizeFont");
+
+    private String value;
+
+    ResizeOptionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ResizeOptionEnum fromValue(String value) {
+      for (ResizeOptionEnum b : ResizeOptionEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ResizeOptionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ResizeOptionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ResizeOptionEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ResizeOptionEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ResizeOptionEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_RESIZE_OPTION = "resizeOption";
+  @SerializedName(SERIALIZED_NAME_RESIZE_OPTION)
+  private ResizeOptionEnum resizeOption;
+
   public CustomFormField() {
   }
 
@@ -1100,6 +1162,25 @@ public class CustomFormField {
   }
 
 
+  public CustomFormField resizeOption(ResizeOptionEnum resizeOption) {
+    this.resizeOption = resizeOption;
+    return this;
+  }
+
+  /**
+   * Get resizeOption
+   * @return resizeOption
+   */
+  @javax.annotation.Nullable
+  public ResizeOptionEnum getResizeOption() {
+    return resizeOption;
+  }
+
+  public void setResizeOption(ResizeOptionEnum resizeOption) {
+    this.resizeOption = resizeOption;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1141,12 +1222,13 @@ public class CustomFormField {
         Objects.equals(this.characterSpacing, customFormField.characterSpacing) &&
         Objects.equals(this.idPrefix, customFormField.idPrefix) &&
         Objects.equals(this.restrictIdPrefixChange, customFormField.restrictIdPrefixChange) &&
-        Objects.equals(this.backgroundHexColor, customFormField.backgroundHexColor);
+        Objects.equals(this.backgroundHexColor, customFormField.backgroundHexColor) &&
+        Objects.equals(this.resizeOption, customFormField.resizeOption);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldType, width, height, isRequired, isReadOnly, value, fontSize, font, fontHexColor, isBoldFont, isItalicFont, isUnderLineFont, lineHeight, characterLimit, placeHolder, validationType, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, hyperlinkText, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, idPrefix, restrictIdPrefixChange, backgroundHexColor);
+    return Objects.hash(fieldType, width, height, isRequired, isReadOnly, value, fontSize, font, fontHexColor, isBoldFont, isItalicFont, isUnderLineFont, lineHeight, characterLimit, placeHolder, validationType, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, hyperlinkText, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, idPrefix, restrictIdPrefixChange, backgroundHexColor, resizeOption);
   }
 
   @Override
@@ -1185,6 +1267,7 @@ public class CustomFormField {
     sb.append("    idPrefix: ").append(toIndentedString(idPrefix)).append("\n");
     sb.append("    restrictIdPrefixChange: ").append(toIndentedString(restrictIdPrefixChange)).append("\n");
     sb.append("    backgroundHexColor: ").append(toIndentedString(backgroundHexColor)).append("\n");
+    sb.append("    resizeOption: ").append(toIndentedString(resizeOption)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1810,6 +1893,25 @@ public class CustomFormField {
           map.put("backgroundHexColor", backgroundHexColor);
         }
     }
+    if (resizeOption != null) {
+        if (isFileTypeOrListOfFiles(resizeOption)) {
+            fileTypeFound = true;
+        }
+
+        if (resizeOption.getClass().equals(java.io.File.class) ||
+            resizeOption.getClass().equals(Integer.class) ||
+            resizeOption.getClass().equals(String.class) ||
+            resizeOption.getClass().isEnum()) {
+            map.put("resizeOption", resizeOption);
+        } else if (isListOfFile(resizeOption)) {
+            for(int i = 0; i< getListSize(resizeOption); i++) {
+                map.put("resizeOption", resizeOption);
+            }
+        }
+        else {
+          map.put("resizeOption", resizeOption);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1887,6 +1989,7 @@ public class CustomFormField {
     openapiFields.add("idPrefix");
     openapiFields.add("restrictIdPrefixChange");
     openapiFields.add("backgroundHexColor");
+    openapiFields.add("resizeOption");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1995,6 +2098,13 @@ public class CustomFormField {
       }
       if ((jsonObj.get("backgroundHexColor") != null && !jsonObj.get("backgroundHexColor").isJsonNull()) && !jsonObj.get("backgroundHexColor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `backgroundHexColor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backgroundHexColor").toString()));
+      }
+      if ((jsonObj.get("resizeOption") != null && !jsonObj.get("resizeOption").isJsonNull()) && !jsonObj.get("resizeOption").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `resizeOption` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resizeOption").toString()));
+      }
+      // validate the optional field `resizeOption`
+      if (jsonObj.get("resizeOption") != null && !jsonObj.get("resizeOption").isJsonNull()) {
+        ResizeOptionEnum.validateJsonElement(jsonObj.get("resizeOption"));
       }
   }
 

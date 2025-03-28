@@ -93,7 +93,9 @@ public class Document {
     
     REVOKED("Revoked"),
     
-    DRAFT("Draft");
+    DRAFT("Draft"),
+    
+    SCHEDULED("Scheduled");
 
     private String value;
 
@@ -169,6 +171,10 @@ public class Document {
   public static final String SERIALIZED_NAME_BRAND_ID = "brandId";
   @SerializedName(SERIALIZED_NAME_BRAND_ID)
   private String brandId;
+
+  public static final String SERIALIZED_NAME_SCHEDULED_SEND_TIME = "scheduledSendTime";
+  @SerializedName(SERIALIZED_NAME_SCHEDULED_SEND_TIME)
+  private Long scheduledSendTime;
 
   public Document() {
   }
@@ -482,6 +488,25 @@ public class Document {
   }
 
 
+  public Document scheduledSendTime(Long scheduledSendTime) {
+    this.scheduledSendTime = scheduledSendTime;
+    return this;
+  }
+
+  /**
+   * Get scheduledSendTime
+   * @return scheduledSendTime
+   */
+  @javax.annotation.Nullable
+  public Long getScheduledSendTime() {
+    return scheduledSendTime;
+  }
+
+  public void setScheduledSendTime(Long scheduledSendTime) {
+    this.scheduledSendTime = scheduledSendTime;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -506,12 +531,13 @@ public class Document {
         Objects.equals(this.isDeleted, document.isDeleted) &&
         Objects.equals(this.labels, document.labels) &&
         Objects.equals(this.cursor, document.cursor) &&
-        Objects.equals(this.brandId, document.brandId);
+        Objects.equals(this.brandId, document.brandId) &&
+        Objects.equals(this.scheduledSendTime, document.scheduledSendTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, senderDetail, ccDetails, createdDate, activityDate, activityBy, messageTitle, status, signerDetails, expiryDate, enableSigningOrder, isDeleted, labels, cursor, brandId);
+    return Objects.hash(documentId, senderDetail, ccDetails, createdDate, activityDate, activityBy, messageTitle, status, signerDetails, expiryDate, enableSigningOrder, isDeleted, labels, cursor, brandId, scheduledSendTime);
   }
 
   @Override
@@ -533,6 +559,7 @@ public class Document {
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
     sb.append("    brandId: ").append(toIndentedString(brandId)).append("\n");
+    sb.append("    scheduledSendTime: ").append(toIndentedString(scheduledSendTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -855,6 +882,25 @@ public class Document {
           map.put("brandId", brandId);
         }
     }
+    if (scheduledSendTime != null) {
+        if (isFileTypeOrListOfFiles(scheduledSendTime)) {
+            fileTypeFound = true;
+        }
+
+        if (scheduledSendTime.getClass().equals(java.io.File.class) ||
+            scheduledSendTime.getClass().equals(Integer.class) ||
+            scheduledSendTime.getClass().equals(String.class) ||
+            scheduledSendTime.getClass().isEnum()) {
+            map.put("scheduledSendTime", scheduledSendTime);
+        } else if (isListOfFile(scheduledSendTime)) {
+            for(int i = 0; i< getListSize(scheduledSendTime); i++) {
+                map.put("scheduledSendTime", scheduledSendTime);
+            }
+        }
+        else {
+          map.put("scheduledSendTime", scheduledSendTime);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -915,6 +961,7 @@ public class Document {
     openapiFields.add("labels");
     openapiFields.add("cursor");
     openapiFields.add("brandId");
+    openapiFields.add("scheduledSendTime");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

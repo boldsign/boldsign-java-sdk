@@ -39,6 +39,7 @@
 |**idPrefix** | **String** |  |  [optional] |
 |**restrictIdPrefixChange** | **Boolean** |  |  [optional] |
 |**backgroundHexColor** | **String** |  |  [optional] |
+|**resizeOption** | [**ResizeOptionEnum**](#ResizeOptionEnum) |  |  [optional] |
 
 
 
@@ -103,6 +104,18 @@
 |---- | -----|
 | LTR | &quot;LTR&quot; |
 | RTL | &quot;RTL&quot; |
+
+
+
+## Enum: ResizeOptionEnum
+
+| Name | Value |
+|---- | -----|
+| GROW_VERTICALLY | &quot;GrowVertically&quot; |
+| GROW_HORIZONTALLY | &quot;GrowHorizontally&quot; |
+| GROW_BOTH | &quot;GrowBoth&quot; |
+| FIXED | &quot;Fixed&quot; |
+| AUTO_RESIZE_FONT | &quot;AutoResizeFont&quot; |
 
 
 

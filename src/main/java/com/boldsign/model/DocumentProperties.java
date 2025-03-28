@@ -91,7 +91,9 @@ public class DocumentProperties {
     
     REVOKED("Revoked"),
     
-    DRAFT("Draft");
+    DRAFT("Draft"),
+    
+    SCHEDULED("Scheduled");
 
     private String value;
 
@@ -225,7 +227,9 @@ public class DocumentProperties {
     
     EDITING_CANCELLED("EditingCancelled"),
     
-    EDITING_COMPLETED("EditingCompleted");
+    EDITING_COMPLETED("EditingCompleted"),
+    
+    DOCUMENT_SCHEDULED("DocumentScheduled");
 
     private String value;
 
@@ -452,6 +456,10 @@ public class DocumentProperties {
   @SerializedName(SERIALIZED_NAME_META_DATA)
   private Map<String, String> metaData;
 
+  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
+  private RecipientNotificationSettings recipientNotificationSettings;
+
   public static final String SERIALIZED_NAME_ENABLE_AUDIT_TRAIL_LOCALIZATION = "enableAuditTrailLocalization";
   @SerializedName(SERIALIZED_NAME_ENABLE_AUDIT_TRAIL_LOCALIZATION)
   private Boolean enableAuditTrailLocalization;
@@ -460,9 +468,9 @@ public class DocumentProperties {
   @SerializedName(SERIALIZED_NAME_DOWNLOAD_FILE_NAME)
   private String downloadFileName;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
-  private RecipientNotificationSettings recipientNotificationSettings;
+  public static final String SERIALIZED_NAME_SCHEDULED_SEND_TIME = "scheduledSendTime";
+  @SerializedName(SERIALIZED_NAME_SCHEDULED_SEND_TIME)
+  private Long scheduledSendTime;
 
   public DocumentProperties() {
   }
@@ -1223,6 +1231,25 @@ public class DocumentProperties {
   }
 
 
+  public DocumentProperties recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+  }
+
+
   public DocumentProperties enableAuditTrailLocalization(Boolean enableAuditTrailLocalization) {
     this.enableAuditTrailLocalization = enableAuditTrailLocalization;
     return this;
@@ -1261,22 +1288,22 @@ public class DocumentProperties {
   }
 
 
-  public DocumentProperties recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
-    this.recipientNotificationSettings = recipientNotificationSettings;
+  public DocumentProperties scheduledSendTime(Long scheduledSendTime) {
+    this.scheduledSendTime = scheduledSendTime;
     return this;
   }
 
   /**
-   * Get recipientNotificationSettings
-   * @return recipientNotificationSettings
+   * Get scheduledSendTime
+   * @return scheduledSendTime
    */
   @javax.annotation.Nullable
-  public RecipientNotificationSettings getRecipientNotificationSettings() {
-    return recipientNotificationSettings;
+  public Long getScheduledSendTime() {
+    return scheduledSendTime;
   }
 
-  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
-    this.recipientNotificationSettings = recipientNotificationSettings;
+  public void setScheduledSendTime(Long scheduledSendTime) {
+    this.scheduledSendTime = scheduledSendTime;
   }
 
 
@@ -1326,14 +1353,15 @@ public class DocumentProperties {
         Objects.equals(this.expiryValue, documentProperties.expiryValue) &&
         Objects.equals(this.documentDownloadOption, documentProperties.documentDownloadOption) &&
         Objects.equals(this.metaData, documentProperties.metaData) &&
+        Objects.equals(this.recipientNotificationSettings, documentProperties.recipientNotificationSettings) &&
         Objects.equals(this.enableAuditTrailLocalization, documentProperties.enableAuditTrailLocalization) &&
         Objects.equals(this.downloadFileName, documentProperties.downloadFileName) &&
-        Objects.equals(this.recipientNotificationSettings, documentProperties.recipientNotificationSettings);
+        Objects.equals(this.scheduledSendTime, documentProperties.scheduledSendTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, enableAuditTrailLocalization, downloadFileName, recipientNotificationSettings);
+    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime);
   }
 
   @Override
@@ -1376,9 +1404,10 @@ public class DocumentProperties {
     sb.append("    expiryValue: ").append(toIndentedString(expiryValue)).append("\n");
     sb.append("    documentDownloadOption: ").append(toIndentedString(documentDownloadOption)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    enableAuditTrailLocalization: ").append(toIndentedString(enableAuditTrailLocalization)).append("\n");
     sb.append("    downloadFileName: ").append(toIndentedString(downloadFileName)).append("\n");
-    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
+    sb.append("    scheduledSendTime: ").append(toIndentedString(scheduledSendTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2150,6 +2179,25 @@ public class DocumentProperties {
           map.put("metaData", metaData);
         }
     }
+    if (recipientNotificationSettings != null) {
+        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
+            recipientNotificationSettings.getClass().equals(Integer.class) ||
+            recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().isEnum()) {
+            map.put("recipientNotificationSettings", recipientNotificationSettings);
+        } else if (isListOfFile(recipientNotificationSettings)) {
+            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
+                map.put("recipientNotificationSettings", recipientNotificationSettings);
+            }
+        }
+        else {
+          map.put("recipientNotificationSettings", recipientNotificationSettings);
+        }
+    }
     if (enableAuditTrailLocalization != null) {
         if (isFileTypeOrListOfFiles(enableAuditTrailLocalization)) {
             fileTypeFound = true;
@@ -2188,23 +2236,23 @@ public class DocumentProperties {
           map.put("downloadFileName", downloadFileName);
         }
     }
-    if (recipientNotificationSettings != null) {
-        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+    if (scheduledSendTime != null) {
+        if (isFileTypeOrListOfFiles(scheduledSendTime)) {
             fileTypeFound = true;
         }
 
-        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
-            recipientNotificationSettings.getClass().equals(Integer.class) ||
-            recipientNotificationSettings.getClass().equals(String.class) ||
-            recipientNotificationSettings.getClass().isEnum()) {
-            map.put("recipientNotificationSettings", recipientNotificationSettings);
-        } else if (isListOfFile(recipientNotificationSettings)) {
-            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
-                map.put("recipientNotificationSettings", recipientNotificationSettings);
+        if (scheduledSendTime.getClass().equals(java.io.File.class) ||
+            scheduledSendTime.getClass().equals(Integer.class) ||
+            scheduledSendTime.getClass().equals(String.class) ||
+            scheduledSendTime.getClass().isEnum()) {
+            map.put("scheduledSendTime", scheduledSendTime);
+        } else if (isListOfFile(scheduledSendTime)) {
+            for(int i = 0; i< getListSize(scheduledSendTime); i++) {
+                map.put("scheduledSendTime", scheduledSendTime);
             }
         }
         else {
-          map.put("recipientNotificationSettings", recipientNotificationSettings);
+          map.put("scheduledSendTime", scheduledSendTime);
         }
     }
     } catch (Exception e) {
@@ -2288,9 +2336,10 @@ public class DocumentProperties {
     openapiFields.add("expiryValue");
     openapiFields.add("documentDownloadOption");
     openapiFields.add("metaData");
+    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("enableAuditTrailLocalization");
     openapiFields.add("downloadFileName");
-    openapiFields.add("recipientNotificationSettings");
+    openapiFields.add("scheduledSendTime");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2476,12 +2525,12 @@ public class DocumentProperties {
       if (jsonObj.get("documentDownloadOption") != null && !jsonObj.get("documentDownloadOption").isJsonNull()) {
         DocumentDownloadOptionEnum.validateJsonElement(jsonObj.get("documentDownloadOption"));
       }
-      if ((jsonObj.get("downloadFileName") != null && !jsonObj.get("downloadFileName").isJsonNull()) && !jsonObj.get("downloadFileName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `downloadFileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("downloadFileName").toString()));
-      }
       // validate the optional field `recipientNotificationSettings`
       if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
         RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
+      }
+      if ((jsonObj.get("downloadFileName") != null && !jsonObj.get("downloadFileName").isJsonNull()) && !jsonObj.get("downloadFileName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `downloadFileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("downloadFileName").toString()));
       }
   }
 

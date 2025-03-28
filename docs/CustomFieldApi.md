@@ -76,6 +76,7 @@ public class Example {
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="customFieldsList"></a>
 # **customFieldsList**
@@ -208,6 +209,7 @@ public class Example {
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="editCustomField"></a>
 # **editCustomField**
@@ -276,6 +278,7 @@ public class Example {
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="embedCustomField"></a>
 # **embedCustomField**

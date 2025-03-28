@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.boldsign.model.DocumentCC;
 import com.boldsign.model.DocumentInfo;
 import com.boldsign.model.FormGroup;
+import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.TemplateRole;
 import com.boldsign.model.TextTagDefinition;
 import com.google.gson.TypeAdapter;
@@ -145,6 +146,10 @@ public class CreateTemplateRequest {
   public static final String SERIALIZED_NAME_TEMPLATE_LABELS = "templateLabels";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_LABELS)
   private List<String> templateLabels;
+
+  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
+  private RecipientNotificationSettings recipientNotificationSettings;
 
   public static final String SERIALIZED_NAME_FORM_GROUPS = "formGroups";
   @SerializedName(SERIALIZED_NAME_FORM_GROUPS)
@@ -654,6 +659,25 @@ public class CreateTemplateRequest {
   }
 
 
+  public CreateTemplateRequest recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+  }
+
+
   public CreateTemplateRequest formGroups(List<FormGroup> formGroups) {
     this.formGroups = formGroups;
     return this;
@@ -714,12 +738,13 @@ public class CreateTemplateRequest {
         Objects.equals(this.onBehalfOf, createTemplateRequest.onBehalfOf) &&
         Objects.equals(this.labels, createTemplateRequest.labels) &&
         Objects.equals(this.templateLabels, createTemplateRequest.templateLabels) &&
+        Objects.equals(this.recipientNotificationSettings, createTemplateRequest.recipientNotificationSettings) &&
         Objects.equals(this.formGroups, createTemplateRequest.formGroups);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndAssign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, formGroups);
+    return Objects.hash(title, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndAssign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, recipientNotificationSettings, formGroups);
   }
 
   @Override
@@ -749,6 +774,7 @@ public class CreateTemplateRequest {
     sb.append("    onBehalfOf: ").append(toIndentedString(onBehalfOf)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    templateLabels: ").append(toIndentedString(templateLabels)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    formGroups: ").append(toIndentedString(formGroups)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1274,6 +1300,25 @@ public class CreateTemplateRequest {
           map.put("templateLabels", objectList);
         }
     }
+    if (recipientNotificationSettings != null) {
+        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
+            recipientNotificationSettings.getClass().equals(Integer.class) ||
+            recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().isEnum()) {
+            map.put("recipientNotificationSettings", recipientNotificationSettings);
+        } else if (isListOfFile(recipientNotificationSettings)) {
+            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
+                map.put("recipientNotificationSettings", recipientNotificationSettings);
+            }
+        }
+        else {
+          map.put("recipientNotificationSettings", recipientNotificationSettings);
+        }
+    }
     if (formGroups != null) {
         if (isFileTypeOrListOfFiles(formGroups)) {
             fileTypeFound = true;
@@ -1371,6 +1416,7 @@ public class CreateTemplateRequest {
     openapiFields.add("onBehalfOf");
     openapiFields.add("labels");
     openapiFields.add("templateLabels");
+    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("formGroups");
 
     // a set of required properties/fields (JSON key names)
@@ -1488,6 +1534,10 @@ public class CreateTemplateRequest {
       // ensure the optional json data is an array if present
       if (jsonObj.get("templateLabels") != null && !jsonObj.get("templateLabels").isJsonNull() && !jsonObj.get("templateLabels").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `templateLabels` to be an array in the JSON string but got `%s`", jsonObj.get("templateLabels").toString()));
+      }
+      // validate the optional field `recipientNotificationSettings`
+      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
+        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
       }
       if (jsonObj.get("formGroups") != null && !jsonObj.get("formGroups").isJsonNull()) {
         JsonArray jsonArrayformGroups = jsonObj.getAsJsonArray("formGroups");

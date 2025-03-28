@@ -443,6 +443,129 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "422":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Create the brand.
       tags:
       - Branding
@@ -933,6 +1056,129 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "422":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Edit the brand.
       tags:
       - Branding
@@ -1010,6 +1256,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Get the specific brand details.
       tags:
       - Branding
@@ -1883,8 +2135,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProblemDetails'
+                $ref: '#/components/schemas/ErrorResult'
           description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Forbidden
       summary: List all the brands.
       tags:
       - Branding
@@ -2971,6 +3229,129 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "422":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Create the custom field.
       tags:
       - Custom Field
@@ -3526,6 +3907,129 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "422":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Edit the custom field.
       tags:
       - Custom Field
@@ -3954,6 +4458,129 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "422":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Delete the custom field.
       tags:
       - Custom Field
@@ -4118,6 +4745,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Sends the document for sign.
       tags:
       - Document
@@ -4593,6 +5232,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Generates a send URL which embeds document sending process into your
         application.
       tags:
@@ -4688,6 +5339,7 @@ paths:
             - Revoked
             - Expired
             - Draft
+            - Scheduled
             title: Status
             type: string
           title: List`1
@@ -4857,6 +5509,7 @@ paths:
             - Revoked
             - Expired
             - Draft
+            - Scheduled
             title: Status
             type: string
           title: List`1
@@ -5037,6 +5690,7 @@ paths:
             - Revoked
             - Expired
             - Draft
+            - Scheduled
             title: Status
             type: string
           title: List`1
@@ -8228,6 +8882,8 @@ paths:
         description: The new recipient details.
         required: true
       responses:
+        "204":
+          description: No Content
         "401":
           content:
             application/json;odata.metadata=minimal;odata.streaming=true:
@@ -8351,7 +9007,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Unauthorized
-        "200":
+        "403":
           content:
             application/json;odata.metadata=minimal;odata.streaming=true:
               schema:
@@ -8473,7 +9129,7 @@ paths:
             text/json:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
-          description: OK
+          description: Forbidden
       summary: Change recipient details of a document.
       tags:
       - Document
@@ -10753,6 +11409,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
       summary: Creates sender identity.
       tags:
       - Sender Identities
@@ -11618,7 +12280,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProblemDetails'
+                $ref: '#/components/schemas/ErrorResult'
           description: Unauthorized
       summary: List all the templates.
       tags:
@@ -11659,6 +12321,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Creates a new template.
       tags:
       - Template
@@ -11681,18 +12349,24 @@ paths:
               $ref: '#/components/schemas/EmbeddedCreateTemplateRequest'
         description: The create embedded template request body.
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmbeddedTemplateCreated'
-          description: OK
         "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EmbeddedTemplateCreated'
           description: Created
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
       summary: Generates a create URL to embeds template create process into your
         application.
       tags:
@@ -11726,18 +12400,24 @@ paths:
               $ref: '#/components/schemas/EmbeddedTemplateEditRequest'
         description: The embedded edit template request body.
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmbeddedTemplateEdited'
-          description: OK
         "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EmbeddedTemplateEdited'
           description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
       summary: Generates a edit URL to embeds template edit process into your application.
       tags:
       - Template
@@ -11773,13 +12453,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProblemDetails'
+                $ref: '#/components/schemas/ErrorResult'
           description: Unauthorized
         "403":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProblemDetails'
+                $ref: '#/components/schemas/ErrorResult'
           description: Forbidden
       summary: Deletes a template.
       tags:
@@ -11812,18 +12492,18 @@ paths:
               $ref: '#/components/schemas/SendForSignFromTemplateForm'
         description: The send template details as JSON.
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DocumentCreated'
-          description: OK
         "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DocumentCreated'
           description: Created
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
         "422":
           content:
             application/json:
@@ -11854,6 +12534,18 @@ paths:
       responses:
         "200":
           description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
       summary: Send the document by merging multiple templates.
       tags:
       - Template
@@ -11886,18 +12578,24 @@ paths:
               $ref: '#/components/schemas/EmbeddedSendTemplateFormRequest'
         description: Embedded send template json request.
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmbeddedSendCreated'
-          description: OK
         "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EmbeddedSendCreated'
           description: Created
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
       summary: Generates a send URL using a template which embeds document sending
         process into your application.
       tags:
@@ -12133,6 +12831,24 @@ paths:
       responses:
         "204":
           description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
       summary: Edit and updates an existing template.
       tags:
       - Template
@@ -13938,6 +14654,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -14004,6 +14721,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -14117,6 +14835,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -14183,6 +14902,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -14207,6 +14927,7 @@ components:
           privateMessage: privateMessage
           isViewed: false
         activityBy: activityBy
+        scheduledSendTime: 5
         ccDetails:
         - emailAddress: emailAddress
           isViewed: false
@@ -14252,6 +14973,7 @@ components:
           - Expired
           - Revoked
           - Draft
+          - Scheduled
           title: DocumentStatus
           type: string
         signerDetails:
@@ -14285,6 +15007,11 @@ components:
           nullable: true
           title: String
           type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
       title: BehalfDocument
       type: object
     BehalfDocumentRecords:
@@ -14402,6 +15129,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -14468,6 +15196,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -14581,6 +15310,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -14647,6 +15377,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -14671,6 +15402,7 @@ components:
             privateMessage: privateMessage
             isViewed: false
           activityBy: activityBy
+          scheduledSendTime: 5
           ccDetails:
           - emailAddress: emailAddress
             isViewed: false
@@ -14788,6 +15520,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -14854,6 +15587,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -14967,6 +15701,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -15033,6 +15768,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -15057,6 +15793,7 @@ components:
             privateMessage: privateMessage
             isViewed: false
           activityBy: activityBy
+          scheduledSendTime: 5
           ccDetails:
           - emailAddress: emailAddress
             isViewed: false
@@ -15162,6 +15899,7 @@ components:
           validationCustomRegexMessage: validationCustomRegexMessage
           characterLimit: 494379917
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           dropdownOptions:
           - dropdownOptions
           - dropdownOptions
@@ -15584,9 +16322,6 @@ components:
     CreateTemplateRequest:
       additionalProperties: false
       example:
-        cc:
-        - emailAddress: emailAddress
-        - emailAddress: emailAddress
         documentInfo:
         - description: description
           language: 6
@@ -15597,17 +16332,13 @@ components:
           locale: EN
           title: title
         textTagDefinitions:
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -15615,20 +16346,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -15639,23 +16360,34 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
             name: Helvetica
             style: Regular
             lineHeight: 9
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -15663,20 +16395,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -15687,6 +16409,21 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
@@ -15708,6 +16445,19 @@ components:
           index: 4
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -15764,6 +16514,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -15827,6 +16578,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -15853,6 +16605,19 @@ components:
           index: 4
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -15909,6 +16674,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -15972,6 +16738,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -15989,6 +16756,17 @@ components:
             fieldType: Signature
             isUnderLineFont: true
             font: Helvetica
+        onBehalfOf: onBehalfOf
+        description: description
+        title: title
+        allowModifyFiles: true
+        enablePrintAndAssign: false
+        allowNewRoles: true
+        autoDetectFields: false
+        documentTitle: documentTitle
+        cc:
+        - emailAddress: emailAddress
+        - emailAddress: emailAddress
         allowNewFiles: true
         formGroups:
         - groupNames:
@@ -16005,27 +16783,32 @@ components:
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
           minimumCount: 275878420
-        onBehalfOf: onBehalfOf
-        description: description
         fileUrls:
         - https://openapi-generator.tech
         - https://openapi-generator.tech
         enableSigningOrder: false
-        title: title
         allowMessageEditing: true
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableReassign: true
         labels:
         - labels
         - labels
-        allowModifyFiles: true
-        enablePrintAndAssign: false
-        allowNewRoles: true
-        autoDetectFields: false
         brandId: brandId
         files:
         - ""
         - ""
-        documentTitle: documentTitle
       properties:
         title:
           maxLength: 256
@@ -16148,6 +16931,8 @@ components:
           nullable: true
           title: IEnumerable`1
           type: array
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         formGroups:
           items:
             $ref: '#/components/schemas/FormGroup'
@@ -16256,6 +17041,7 @@ components:
             validationCustomRegexMessage: validationCustomRegexMessage
             characterLimit: 494379917
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             dropdownOptions:
             - dropdownOptions
             - dropdownOptions
@@ -16309,6 +17095,7 @@ components:
             validationCustomRegexMessage: validationCustomRegexMessage
             characterLimit: 494379917
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             dropdownOptions:
             - dropdownOptions
             - dropdownOptions
@@ -16383,6 +17170,7 @@ components:
         validationCustomRegexMessage: validationCustomRegexMessage
         characterLimit: 494379917
         dataSyncTag: dataSyncTag
+        resizeOption: GrowVertically
         dropdownOptions:
         - dropdownOptions
         - dropdownOptions
@@ -16553,6 +17341,16 @@ components:
           nullable: true
           title: String
           type: string
+        resizeOption:
+          enum:
+          - GrowVertically
+          - GrowHorizontally
+          - GrowBoth
+          - Fixed
+          - AutoResizeFont
+          nullable: true
+          title: Nullable`1
+          type: string
       required:
       - fieldType
       title: CustomFormField
@@ -16679,6 +17477,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -16745,6 +17544,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -16858,6 +17658,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -16924,6 +17725,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -16948,6 +17750,7 @@ components:
           privateMessage: privateMessage
           isViewed: false
         activityBy: activityBy
+        scheduledSendTime: 4
         ccDetails:
         - emailAddress: emailAddress
           isViewed: false
@@ -16991,6 +17794,7 @@ components:
           - Expired
           - Revoked
           - Draft
+          - Scheduled
           title: DocumentStatus
           type: string
         signerDetails:
@@ -17024,6 +17828,11 @@ components:
           nullable: true
           title: String
           type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
       title: Document
       type: object
     DocumentCC:
@@ -17186,6 +17995,7 @@ components:
         label: label
         dataSyncTag: dataSyncTag
         isBold: true
+        resizeOption: GrowVertically
         groupName: groupName
         dropdownOptions:
         - dropdownOptions
@@ -17344,6 +18154,16 @@ components:
           type: integer
         formulaFieldSettings:
           $ref: '#/components/schemas/FormulaFieldSettings'
+        resizeOption:
+          enum:
+          - GrowVertically
+          - GrowHorizontally
+          - GrowBoth
+          - Fixed
+          - AutoResizeFont
+          nullable: true
+          title: Nullable`1
+          type: string
       title: DocumentFormFields
       type: object
     DocumentInfo:
@@ -17548,6 +18368,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -17614,6 +18435,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -17727,6 +18549,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -17793,6 +18616,7 @@ components:
             label: label
             dataSyncTag: dataSyncTag
             isBold: true
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -17818,6 +18642,7 @@ components:
           privateMessage: privateMessage
           isViewed: false
         activityBy: activityBy
+        scheduledSendTime: 2
         ccDetails:
         - emailAddress: emailAddress
           isViewed: false
@@ -17931,6 +18756,7 @@ components:
           label: label
           dataSyncTag: dataSyncTag
           isBold: true
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -17997,6 +18823,7 @@ components:
           label: label
           dataSyncTag: dataSyncTag
           isBold: true
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -18041,6 +18868,7 @@ components:
           - Expired
           - Revoked
           - Draft
+          - Scheduled
           title: DocumentStatus
           type: string
         files:
@@ -18118,6 +18946,7 @@ components:
           - EditingInitiated
           - EditingCancelled
           - EditingCompleted
+          - DocumentScheduled
           title: ActivityAction
           type: string
         createdDate:
@@ -18198,6 +19027,8 @@ components:
           nullable: true
           title: Dictionary`2
           type: object
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         enableAuditTrailLocalization:
           title: Boolean
           type: boolean
@@ -18205,8 +19036,11 @@ components:
           nullable: true
           title: String
           type: string
-        recipientNotificationSettings:
-          $ref: '#/components/schemas/RecipientNotificationSettings'
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
       title: DocumentProperties
       type: object
     DocumentReassign:
@@ -18343,6 +19177,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -18409,6 +19244,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -18522,6 +19358,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -18588,6 +19425,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -18612,6 +19450,7 @@ components:
             privateMessage: privateMessage
             isViewed: false
           activityBy: activityBy
+          scheduledSendTime: 4
           ccDetails:
           - emailAddress: emailAddress
             isViewed: false
@@ -18726,6 +19565,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -18792,6 +19632,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -18905,6 +19746,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -18971,6 +19813,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -18995,6 +19838,7 @@ components:
             privateMessage: privateMessage
             isViewed: false
           activityBy: activityBy
+          scheduledSendTime: 4
           ccDetails:
           - emailAddress: emailAddress
             isViewed: false
@@ -19053,6 +19897,19 @@ components:
         authenticationCode: authenticationCode
         language: 1
         locale: EN
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableEmailOTP: true
         emailAddress: emailAddress
         phoneNumber:
@@ -19112,6 +19969,7 @@ components:
           characterLimit: 435321354
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -19175,6 +20033,7 @@ components:
           characterLimit: 435321354
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -19318,6 +20177,8 @@ components:
           - Default
           title: Locales
           type: string
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         authenticationRetryCount:
           format: int32
           maximum: 10
@@ -19431,6 +20292,7 @@ components:
           label: label
           dataSyncTag: dataSyncTag
           isBold: true
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -19497,6 +20359,7 @@ components:
           label: label
           dataSyncTag: dataSyncTag
           isBold: true
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -19754,6 +20617,19 @@ components:
           index: 4
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -19810,6 +20686,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -19873,6 +20750,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -19899,6 +20777,19 @@ components:
           index: 4
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -19955,6 +20846,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -20018,6 +20910,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -20056,6 +20949,19 @@ components:
         enableSigningOrder: true
         title: title
         allowMessageEditing: true
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableReassign: true
         labels:
         - labels
@@ -20158,6 +21064,8 @@ components:
           nullable: true
           title: List`1
           type: array
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
       title: EditTemplateRequest
       type: object
     EditableDateFieldSettings:
@@ -20199,17 +21107,13 @@ components:
           title: title
         redirectUrl: https://openapi-generator.tech
         textTagDefinitions:
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -20217,20 +21121,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -20241,23 +21135,34 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
             name: Helvetica
             style: Regular
             lineHeight: 9
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -20265,20 +21170,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -20289,6 +21184,21 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
@@ -20311,6 +21221,19 @@ components:
           index: 4
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -20367,6 +21290,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -20430,6 +21354,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -20456,6 +21381,19 @@ components:
           index: 4
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -20512,6 +21450,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -20575,6 +21514,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -20630,6 +21570,19 @@ components:
         - https://openapi-generator.tech
         enableSigningOrder: false
         allowMessageEditing: true
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableReassign: true
         labels:
         - labels
@@ -20830,6 +21783,8 @@ components:
           nullable: true
           title: IEnumerable`1
           type: array
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         formGroups:
           items:
             $ref: '#/components/schemas/FormGroup'
@@ -20855,6 +21810,7 @@ components:
     EmbeddedDocumentRequest:
       additionalProperties: false
       example:
+        allowScheduledSend: false
         documentInfo:
         - description: description
           language: 6
@@ -20866,17 +21822,13 @@ components:
           title: title
         redirectUrl: https://openapi-generator.tech
         textTagDefinitions:
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -20884,20 +21836,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -20908,23 +21850,34 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
             name: Helvetica
             style: Regular
             lineHeight: 9
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -20932,20 +21885,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -20956,6 +21899,21 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
@@ -20983,6 +21941,7 @@ components:
           reminderDays: 1
         disableExpiryAlert: true
         isSandbox: true
+        scheduledSendTime: 1
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
@@ -21014,6 +21973,19 @@ components:
         - https://openapi-generator.tech
         enableSigningOrder: false
         message: message
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableReassign: true
         labels:
         - labels
@@ -21024,6 +21996,19 @@ components:
           authenticationCode: authenticationCode
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           enableEmailOTP: true
           emailAddress: emailAddress
           phoneNumber:
@@ -21083,6 +22068,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -21146,6 +22132,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -21177,6 +22164,19 @@ components:
           authenticationCode: authenticationCode
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           enableEmailOTP: true
           emailAddress: emailAddress
           phoneNumber:
@@ -21236,6 +22236,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -21299,6 +22300,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -21549,6 +22551,8 @@ components:
           nullable: true
           title: Dictionary`2
           type: object
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         formGroups:
           items:
             $ref: '#/components/schemas/FormGroup'
@@ -21565,6 +22569,15 @@ components:
           nullable: true
           title: String
           type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        allowScheduledSend:
+          default: false
+          title: Boolean
+          type: boolean
       title: EmbeddedDocumentRequest
       type: object
     EmbeddedSendCreated:
@@ -21587,6 +22600,7 @@ components:
     EmbeddedSendTemplateFormRequest:
       additionalProperties: false
       example:
+        allowScheduledSend: false
         documentInfo:
         - description: description
           language: 6
@@ -21615,6 +22629,19 @@ components:
             value: value
           language: 5
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -21675,6 +22702,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -21738,6 +22766,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -21780,6 +22809,19 @@ components:
             value: value
           language: 5
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -21840,6 +22882,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -21903,6 +22946,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -21949,6 +22993,7 @@ components:
         - removeFormFields
         disableExpiryAlert: true
         isSandbox: true
+        scheduledSendTime: 5
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
@@ -21982,6 +23027,19 @@ components:
         - https://openapi-generator.tech
         enableSigningOrder: true
         message: message
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableReassign: true
         labels:
         - labels
@@ -22189,6 +23247,8 @@ components:
           nullable: true
           title: Dictionary`2
           type: object
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         formGroups:
           items:
             $ref: '#/components/schemas/FormGroup'
@@ -22212,6 +23272,15 @@ components:
           nullable: true
           title: String
           type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        allowScheduledSend:
+          default: false
+          title: Boolean
+          type: boolean
       title: EmbeddedSendTemplateFormRequest
       type: object
     EmbeddedSigningLink:
@@ -22524,6 +23593,7 @@ components:
         characterLimit: 435321354
         label: label
         dataSyncTag: dataSyncTag
+        resizeOption: GrowVertically
         groupName: groupName
         dropdownOptions:
         - dropdownOptions
@@ -22717,6 +23787,16 @@ components:
           type: integer
         formulaFieldSettings:
           $ref: '#/components/schemas/FormulaFieldSettings'
+        resizeOption:
+          enum:
+          - GrowVertically
+          - GrowHorizontally
+          - GrowBoth
+          - Fixed
+          - AutoResizeFont
+          nullable: true
+          title: Nullable`1
+          type: string
       required:
       - bounds
       - fieldType
@@ -22909,6 +23989,7 @@ components:
     MergeAndSendForSignForm:
       additionalProperties: false
       example:
+        allowScheduledSend: false
         documentInfo:
         - description: description
           language: 6
@@ -22919,17 +24000,13 @@ components:
           locale: EN
           title: title
         textTagDefinitions:
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -22937,20 +24014,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -22961,23 +24028,34 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
             name: Helvetica
             style: Regular
             lineHeight: 9
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -22985,20 +24063,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -23009,6 +24077,21 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
@@ -23033,6 +24116,19 @@ components:
             value: value
           language: 5
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -23093,6 +24189,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -23156,6 +24253,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -23198,6 +24296,19 @@ components:
             value: value
           language: 5
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -23258,6 +24369,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -23321,6 +24433,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -23363,6 +24476,7 @@ components:
         - removeFormFields
         disableExpiryAlert: true
         isSandbox: true
+        scheduledSendTime: 5
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
@@ -23397,6 +24511,19 @@ components:
         - https://openapi-generator.tech
         enableSigningOrder: true
         message: message
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableReassign: true
         labels:
         - labels
@@ -23564,6 +24691,8 @@ components:
           nullable: true
           title: Dictionary`2
           type: object
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         formGroups:
           items:
             $ref: '#/components/schemas/FormGroup'
@@ -23587,6 +24716,15 @@ components:
           nullable: true
           title: String
           type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        allowScheduledSend:
+          default: false
+          title: Boolean
+          type: boolean
       title: MergeAndSendForSignForm
       type: object
     NotificationSettings:
@@ -23748,39 +24886,6 @@ components:
       required:
       - fields
       title: PrefillFieldRequest
-      type: object
-    ProblemDetails:
-      additionalProperties:
-        title: Object
-      example:
-        instance: instance
-        detail: detail
-        type: type
-        title: title
-        status: 0
-      properties:
-        type:
-          nullable: true
-          title: String
-          type: string
-        title:
-          nullable: true
-          title: String
-          type: string
-        status:
-          format: int32
-          nullable: true
-          title: Nullable`1
-          type: integer
-        detail:
-          nullable: true
-          title: String
-          type: string
-        instance:
-          nullable: true
-          title: String
-          type: string
-      title: ProblemDetails
       type: object
     RecipientNotificationSettings:
       additionalProperties: false
@@ -23995,6 +25100,19 @@ components:
           value: value
         language: 5
         locale: EN
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         signerName: signerName
         enableEmailOTP: true
         signerEmail: signerEmail
@@ -24055,6 +25173,7 @@ components:
           characterLimit: 435321354
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -24118,6 +25237,7 @@ components:
           characterLimit: 435321354
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -24276,6 +25396,8 @@ components:
           - Default
           title: Locales
           type: string
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         authenticationRetryCount:
           format: int32
           maximum: 10
@@ -24375,6 +25497,7 @@ components:
           characterLimit: 9
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -24438,6 +25561,7 @@ components:
           characterLimit: 9
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -24593,6 +25717,7 @@ components:
     SendForSign:
       additionalProperties: false
       example:
+        allowScheduledSend: false
         documentInfo:
         - description: description
           language: 6
@@ -24603,17 +25728,13 @@ components:
           locale: EN
           title: title
         textTagDefinitions:
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -24621,20 +25742,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -24645,23 +25756,34 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
             name: Helvetica
             style: Regular
             lineHeight: 9
-        - isRequired: true
-          attachmentInfo:
+        - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
             description: description
             title: title
             allowedFileTypes: allowedFileTypes
-          offset:
-            offsetX: 9.018348186070783
-            offsetY: 6.438423552598547
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           imageInfo:
@@ -24669,20 +25791,10 @@ components:
             description: description
             title: title
           tabIndex: 763901857
-          label: label
           type: Signature
           radioGroupName: radioGroupName
-          groupName: groupName
-          dropdownOptions:
-          - dropdownOptions
-          - dropdownOptions
-          signerIndex: 25
           hyperlinkText: hyperlinkText
           isReadOnly: true
-          size:
-            width: 0.66835624
-            height: 0.8762042
-          timeFormat: timeFormat
           placeholder: placeholder
           value: value
           validation:
@@ -24693,6 +25805,21 @@ components:
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          label: label
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
           font:
             color: color
             size: 9.965781
@@ -24715,6 +25842,7 @@ components:
           reminderDays: 1
         disableExpiryAlert: true
         isSandbox: true
+        scheduledSendTime: 6
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
@@ -24744,6 +25872,19 @@ components:
         - https://openapi-generator.tech
         enableSigningOrder: false
         message: message
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableReassign: true
         labels:
         - labels
@@ -24754,6 +25895,19 @@ components:
           authenticationCode: authenticationCode
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           enableEmailOTP: true
           emailAddress: emailAddress
           phoneNumber:
@@ -24813,6 +25967,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -24876,6 +26031,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -24907,6 +26063,19 @@ components:
           authenticationCode: authenticationCode
           language: 1
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           enableEmailOTP: true
           emailAddress: emailAddress
           phoneNumber:
@@ -24966,6 +26135,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -25029,6 +26199,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -25216,6 +26387,8 @@ components:
           nullable: true
           title: Dictionary`2
           type: object
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         formGroups:
           items:
             $ref: '#/components/schemas/FormGroup'
@@ -25232,11 +26405,21 @@ components:
           nullable: true
           title: String
           type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        allowScheduledSend:
+          default: false
+          title: Boolean
+          type: boolean
       title: SendForSign
       type: object
     SendForSignFromTemplateForm:
       additionalProperties: false
       example:
+        allowScheduledSend: false
         documentInfo:
         - description: description
           language: 6
@@ -25263,6 +26446,19 @@ components:
             value: value
           language: 5
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -25323,6 +26519,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -25386,6 +26583,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -25428,6 +26626,19 @@ components:
             value: value
           language: 5
           locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -25488,6 +26699,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -25551,6 +26763,7 @@ components:
             characterLimit: 435321354
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -25593,6 +26806,7 @@ components:
         - removeFormFields
         disableExpiryAlert: true
         isSandbox: true
+        scheduledSendTime: 3
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
@@ -25624,6 +26838,19 @@ components:
         - https://openapi-generator.tech
         enableSigningOrder: true
         message: message
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         enableReassign: true
         labels:
         - labels
@@ -25775,6 +27002,8 @@ components:
           nullable: true
           title: Dictionary`2
           type: object
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         formGroups:
           items:
             $ref: '#/components/schemas/FormGroup'
@@ -25798,6 +27027,15 @@ components:
           nullable: true
           title: String
           type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        allowScheduledSend:
+          default: false
+          title: Boolean
+          type: boolean
       title: SendForSignFromTemplateForm
       type: object
     SenderIdentityList:
@@ -26061,6 +27299,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -26127,6 +27366,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -26240,6 +27480,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -26306,6 +27547,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -26330,6 +27572,7 @@ components:
             privateMessage: privateMessage
             isViewed: false
           activityBy: activityBy
+          scheduledSendTime: 4
           ccDetails:
           - emailAddress: emailAddress
             isViewed: false
@@ -26444,6 +27687,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -26510,6 +27754,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -26623,6 +27868,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -26689,6 +27935,7 @@ components:
               label: label
               dataSyncTag: dataSyncTag
               isBold: true
+              resizeOption: GrowVertically
               groupName: groupName
               dropdownOptions:
               - dropdownOptions
@@ -26713,6 +27960,7 @@ components:
             privateMessage: privateMessage
             isViewed: false
           activityBy: activityBy
+          scheduledSendTime: 4
           ccDetails:
           - emailAddress: emailAddress
             isViewed: false
@@ -27022,6 +28270,7 @@ components:
           - Expired
           - Revoked
           - Draft
+          - Scheduled
           title: DocumentStatus
           type: string
         signerDetails:
@@ -27155,6 +28404,7 @@ components:
         characterLimit: 9
         label: label
         dataSyncTag: dataSyncTag
+        resizeOption: GrowVertically
         groupName: groupName
         dropdownOptions:
         - dropdownOptions
@@ -27320,6 +28570,16 @@ components:
           type: integer
         formulaFieldSettings:
           $ref: '#/components/schemas/FormulaFieldSettings'
+        resizeOption:
+          enum:
+          - GrowVertically
+          - GrowHorizontally
+          - GrowBoth
+          - Fixed
+          - AutoResizeFont
+          nullable: true
+          title: Nullable`1
+          type: string
       title: TemplateFormFields
       type: object
     TemplateProperties:
@@ -27422,6 +28682,7 @@ components:
             characterLimit: 9
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -27485,6 +28746,7 @@ components:
             characterLimit: 9
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -27585,6 +28847,7 @@ components:
             characterLimit: 9
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -27648,6 +28911,7 @@ components:
             characterLimit: 9
             label: label
             dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -27779,6 +29043,7 @@ components:
           characterLimit: 9
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -27842,6 +29107,7 @@ components:
           characterLimit: 9
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -28153,6 +29419,19 @@ components:
         index: 4
         language: 1
         locale: EN
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
         phoneNumber:
           number: number
           countryCode: countryCode
@@ -28209,6 +29488,7 @@ components:
           characterLimit: 435321354
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -28272,6 +29552,7 @@ components:
           characterLimit: 435321354
           label: label
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -28409,6 +29690,8 @@ components:
         allowRoleDelete:
           title: Boolean
           type: boolean
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
         enableQes:
           nullable: true
           title: Nullable`1
@@ -28622,7 +29905,6 @@ components:
     TextTagDefinition:
       additionalProperties: false
       example:
-        isRequired: true
         attachmentInfo:
           acceptedFileTypes:
           - acceptedFileTypes
@@ -28630,9 +29912,6 @@ components:
           description: description
           title: title
           allowedFileTypes: allowedFileTypes
-        offset:
-          offsetX: 9.018348186070783
-          offsetY: 6.438423552598547
         dateFormat: dateFormat
         backgroundHexColor: backgroundHexColor
         imageInfo:
@@ -28640,20 +29919,10 @@ components:
           description: description
           title: title
         tabIndex: 763901857
-        label: label
         type: Signature
         radioGroupName: radioGroupName
-        groupName: groupName
-        dropdownOptions:
-        - dropdownOptions
-        - dropdownOptions
-        signerIndex: 25
         hyperlinkText: hyperlinkText
         isReadOnly: true
-        size:
-          width: 0.66835624
-          height: 0.8762042
-        timeFormat: timeFormat
         placeholder: placeholder
         value: value
         validation:
@@ -28664,6 +29933,21 @@ components:
           decimalPrecision: 1
         definitionId: definitionId
         fieldId: fieldId
+        isRequired: true
+        offset:
+          offsetX: 9.018348186070783
+          offsetY: 6.438423552598547
+        label: label
+        resizeOption: GrowVertically
+        groupName: groupName
+        dropdownOptions:
+        - dropdownOptions
+        - dropdownOptions
+        signerIndex: 25
+        size:
+          width: 0.66835624
+          height: 0.8762042
+        timeFormat: timeFormat
         font:
           color: color
           size: 9.965781
@@ -28774,6 +30058,16 @@ components:
           type: integer
         formulaFieldSettings:
           $ref: '#/components/schemas/FormulaFieldSettings'
+        resizeOption:
+          enum:
+          - GrowVertically
+          - GrowHorizontally
+          - GrowBoth
+          - Fixed
+          - AutoResizeFont
+          nullable: true
+          title: Nullable`1
+          type: string
       required:
       - definitionId
       - signerIndex
@@ -29207,6 +30501,7 @@ components:
           validationCustomRegexMessage: validationCustomRegexMessage
           characterLimit: 494379917
           dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
           dropdownOptions:
           - dropdownOptions
           - dropdownOptions

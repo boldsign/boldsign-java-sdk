@@ -22,6 +22,7 @@
 |**labels** | **List&lt;String&gt;** |  |  [optional] |
 |**cursor** | **Long** |  |  [optional] |
 |**brandId** | **String** |  |  [optional] |
+|**scheduledSendTime** | **Long** |  |  [optional] |
 
 
 
@@ -35,6 +36,7 @@
 | EXPIRED | &quot;Expired&quot; |
 | REVOKED | &quot;Revoked&quot; |
 | DRAFT | &quot;Draft&quot; |
+| SCHEDULED | &quot;Scheduled&quot; |
 
 
 

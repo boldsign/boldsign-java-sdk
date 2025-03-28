@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.boldsign.model.DocumentCC;
 import com.boldsign.model.DocumentInfo;
 import com.boldsign.model.FormGroup;
+import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.TemplateRole;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -122,6 +123,10 @@ public class EditTemplateRequest {
   public static final String SERIALIZED_NAME_FORM_GROUPS = "formGroups";
   @SerializedName(SERIALIZED_NAME_FORM_GROUPS)
   private List<FormGroup> formGroups;
+
+  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
+  private RecipientNotificationSettings recipientNotificationSettings;
 
   public EditTemplateRequest() {
   }
@@ -516,6 +521,25 @@ public class EditTemplateRequest {
   }
 
 
+  public EditTemplateRequest recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -543,12 +567,13 @@ public class EditTemplateRequest {
         Objects.equals(this.onBehalfOf, editTemplateRequest.onBehalfOf) &&
         Objects.equals(this.labels, editTemplateRequest.labels) &&
         Objects.equals(this.templateLabels, editTemplateRequest.templateLabels) &&
-        Objects.equals(this.formGroups, editTemplateRequest.formGroups);
+        Objects.equals(this.formGroups, editTemplateRequest.formGroups) &&
+        Objects.equals(this.recipientNotificationSettings, editTemplateRequest.recipientNotificationSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, documentTitle, documentMessage, roles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, onBehalfOf, labels, templateLabels, formGroups);
+    return Objects.hash(title, description, documentTitle, documentMessage, roles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, onBehalfOf, labels, templateLabels, formGroups, recipientNotificationSettings);
   }
 
   @Override
@@ -573,6 +598,7 @@ public class EditTemplateRequest {
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    templateLabels: ").append(toIndentedString(templateLabels)).append("\n");
     sb.append("    formGroups: ").append(toIndentedString(formGroups)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -982,6 +1008,25 @@ public class EditTemplateRequest {
           map.put("formGroups", objectList);
         }
     }
+    if (recipientNotificationSettings != null) {
+        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
+            recipientNotificationSettings.getClass().equals(Integer.class) ||
+            recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().isEnum()) {
+            map.put("recipientNotificationSettings", recipientNotificationSettings);
+        } else if (isListOfFile(recipientNotificationSettings)) {
+            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
+                map.put("recipientNotificationSettings", recipientNotificationSettings);
+            }
+        }
+        else {
+          map.put("recipientNotificationSettings", recipientNotificationSettings);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1045,6 +1090,7 @@ public class EditTemplateRequest {
     openapiFields.add("labels");
     openapiFields.add("templateLabels");
     openapiFields.add("formGroups");
+    openapiFields.add("recipientNotificationSettings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1145,6 +1191,10 @@ public class EditTemplateRequest {
             FormGroup.validateJsonElement(jsonArrayformGroups.get(i));
           };
         }
+      }
+      // validate the optional field `recipientNotificationSettings`
+      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
+        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
       }
   }
 

@@ -16,6 +16,7 @@ package com.boldsign.model;
 import java.util.Objects;
 import com.boldsign.model.FormField;
 import com.boldsign.model.PhoneNumber;
+import com.boldsign.model.RecipientNotificationSettings;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -439,6 +440,10 @@ public class TemplateRole {
   @SerializedName(SERIALIZED_NAME_ALLOW_ROLE_DELETE)
   private Boolean allowRoleDelete;
 
+  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
+  private RecipientNotificationSettings recipientNotificationSettings;
+
   public static final String SERIALIZED_NAME_ENABLE_QES = "enableQes";
   @SerializedName(SERIALIZED_NAME_ENABLE_QES)
   private Boolean enableQes;
@@ -760,6 +765,25 @@ public class TemplateRole {
   }
 
 
+  public TemplateRole recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+  }
+
+
   public TemplateRole enableQes(Boolean enableQes) {
     this.enableQes = enableQes;
     return this;
@@ -805,12 +829,13 @@ public class TemplateRole {
         Objects.equals(this.formFields, templateRole.formFields) &&
         Objects.equals(this.allowRoleEdit, templateRole.allowRoleEdit) &&
         Objects.equals(this.allowRoleDelete, templateRole.allowRoleDelete) &&
+        Objects.equals(this.recipientNotificationSettings, templateRole.recipientNotificationSettings) &&
         Objects.equals(this.enableQes, templateRole.enableQes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, name, defaultSignerName, defaultSignerEmail, signerOrder, signerType, hostEmail, language, locale, imposeAuthentication, phoneNumber, deliveryMode, allowFieldConfiguration, formFields, allowRoleEdit, allowRoleDelete, enableQes);
+    return Objects.hash(index, name, defaultSignerName, defaultSignerEmail, signerOrder, signerType, hostEmail, language, locale, imposeAuthentication, phoneNumber, deliveryMode, allowFieldConfiguration, formFields, allowRoleEdit, allowRoleDelete, recipientNotificationSettings, enableQes);
   }
 
   @Override
@@ -833,6 +858,7 @@ public class TemplateRole {
     sb.append("    formFields: ").append(toIndentedString(formFields)).append("\n");
     sb.append("    allowRoleEdit: ").append(toIndentedString(allowRoleEdit)).append("\n");
     sb.append("    allowRoleDelete: ").append(toIndentedString(allowRoleDelete)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1155,6 +1181,25 @@ public class TemplateRole {
           map.put("allowRoleDelete", allowRoleDelete);
         }
     }
+    if (recipientNotificationSettings != null) {
+        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
+            recipientNotificationSettings.getClass().equals(Integer.class) ||
+            recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().isEnum()) {
+            map.put("recipientNotificationSettings", recipientNotificationSettings);
+        } else if (isListOfFile(recipientNotificationSettings)) {
+            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
+                map.put("recipientNotificationSettings", recipientNotificationSettings);
+            }
+        }
+        else {
+          map.put("recipientNotificationSettings", recipientNotificationSettings);
+        }
+    }
     if (enableQes != null) {
         if (isFileTypeOrListOfFiles(enableQes)) {
             fileTypeFound = true;
@@ -1235,6 +1280,7 @@ public class TemplateRole {
     openapiFields.add("formFields");
     openapiFields.add("allowRoleEdit");
     openapiFields.add("allowRoleDelete");
+    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("enableQes");
 
     // a set of required properties/fields (JSON key names)
@@ -1324,6 +1370,10 @@ public class TemplateRole {
             FormField.validateJsonElement(jsonArrayformFields.get(i));
           };
         }
+      }
+      // validate the optional field `recipientNotificationSettings`
+      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
+        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
       }
   }
 

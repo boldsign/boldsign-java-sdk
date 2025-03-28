@@ -18,6 +18,7 @@ import com.boldsign.model.DocumentCC;
 import com.boldsign.model.DocumentInfo;
 import com.boldsign.model.DocumentSigner;
 import com.boldsign.model.FormGroup;
+import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.ReminderSettings;
 import com.boldsign.model.TextTagDefinition;
 import com.google.gson.TypeAdapter;
@@ -282,6 +283,10 @@ public class SendForSign {
   @SerializedName(SERIALIZED_NAME_META_DATA)
   private Map<String, String> metaData;
 
+  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
+  private RecipientNotificationSettings recipientNotificationSettings;
+
   public static final String SERIALIZED_NAME_FORM_GROUPS = "formGroups";
   @SerializedName(SERIALIZED_NAME_FORM_GROUPS)
   private List<FormGroup> formGroups;
@@ -293,6 +298,14 @@ public class SendForSign {
   public static final String SERIALIZED_NAME_DOWNLOAD_FILE_NAME = "downloadFileName";
   @SerializedName(SERIALIZED_NAME_DOWNLOAD_FILE_NAME)
   private String downloadFileName;
+
+  public static final String SERIALIZED_NAME_SCHEDULED_SEND_TIME = "scheduledSendTime";
+  @SerializedName(SERIALIZED_NAME_SCHEDULED_SEND_TIME)
+  private Long scheduledSendTime;
+
+  public static final String SERIALIZED_NAME_ALLOW_SCHEDULED_SEND = "allowScheduledSend";
+  @SerializedName(SERIALIZED_NAME_ALLOW_SCHEDULED_SEND)
+  private Boolean allowScheduledSend = false;
 
   public SendForSign() {
   }
@@ -920,6 +933,25 @@ public class SendForSign {
   }
 
 
+  public SendForSign recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+  }
+
+
   public SendForSign formGroups(List<FormGroup> formGroups) {
     this.formGroups = formGroups;
     return this;
@@ -985,6 +1017,44 @@ public class SendForSign {
   }
 
 
+  public SendForSign scheduledSendTime(Long scheduledSendTime) {
+    this.scheduledSendTime = scheduledSendTime;
+    return this;
+  }
+
+  /**
+   * Get scheduledSendTime
+   * @return scheduledSendTime
+   */
+  @javax.annotation.Nullable
+  public Long getScheduledSendTime() {
+    return scheduledSendTime;
+  }
+
+  public void setScheduledSendTime(Long scheduledSendTime) {
+    this.scheduledSendTime = scheduledSendTime;
+  }
+
+
+  public SendForSign allowScheduledSend(Boolean allowScheduledSend) {
+    this.allowScheduledSend = allowScheduledSend;
+    return this;
+  }
+
+  /**
+   * Get allowScheduledSend
+   * @return allowScheduledSend
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowScheduledSend() {
+    return allowScheduledSend;
+  }
+
+  public void setAllowScheduledSend(Boolean allowScheduledSend) {
+    this.allowScheduledSend = allowScheduledSend;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1024,14 +1094,17 @@ public class SendForSign {
         Objects.equals(this.documentDownloadOption, sendForSign.documentDownloadOption) &&
         Objects.equals(this.isSandbox, sendForSign.isSandbox) &&
         Objects.equals(this.metaData, sendForSign.metaData) &&
+        Objects.equals(this.recipientNotificationSettings, sendForSign.recipientNotificationSettings) &&
         Objects.equals(this.formGroups, sendForSign.formGroups) &&
         Objects.equals(this.enableAuditTrailLocalization, sendForSign.enableAuditTrailLocalization) &&
-        Objects.equals(this.downloadFileName, sendForSign.downloadFileName);
+        Objects.equals(this.downloadFileName, sendForSign.downloadFileName) &&
+        Objects.equals(this.scheduledSendTime, sendForSign.scheduledSendTime) &&
+        Objects.equals(this.allowScheduledSend, sendForSign.allowScheduledSend);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, title, message, signers, cc, enableSigningOrder, expiryDays, expiryDateType, expiryValue, reminderSettings, enableEmbeddedSigning, disableEmails, disableSMS, brandId, hideDocumentId, labels, fileUrls, sendLinkValidTill, useTextTags, textTagDefinitions, enablePrintAndSign, enableReassign, disableExpiryAlert, documentInfo, onBehalfOf, autoDetectFields, documentDownloadOption, isSandbox, metaData, formGroups, enableAuditTrailLocalization, downloadFileName);
+    return Objects.hash(files, title, message, signers, cc, enableSigningOrder, expiryDays, expiryDateType, expiryValue, reminderSettings, enableEmbeddedSigning, disableEmails, disableSMS, brandId, hideDocumentId, labels, fileUrls, sendLinkValidTill, useTextTags, textTagDefinitions, enablePrintAndSign, enableReassign, disableExpiryAlert, documentInfo, onBehalfOf, autoDetectFields, documentDownloadOption, isSandbox, metaData, recipientNotificationSettings, formGroups, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend);
   }
 
   @Override
@@ -1067,9 +1140,12 @@ public class SendForSign {
     sb.append("    documentDownloadOption: ").append(toIndentedString(documentDownloadOption)).append("\n");
     sb.append("    isSandbox: ").append(toIndentedString(isSandbox)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    formGroups: ").append(toIndentedString(formGroups)).append("\n");
     sb.append("    enableAuditTrailLocalization: ").append(toIndentedString(enableAuditTrailLocalization)).append("\n");
     sb.append("    downloadFileName: ").append(toIndentedString(downloadFileName)).append("\n");
+    sb.append("    scheduledSendTime: ").append(toIndentedString(scheduledSendTime)).append("\n");
+    sb.append("    allowScheduledSend: ").append(toIndentedString(allowScheduledSend)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1698,6 +1774,25 @@ public class SendForSign {
           map.put("metaData", metaData);
         }
     }
+    if (recipientNotificationSettings != null) {
+        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
+            recipientNotificationSettings.getClass().equals(Integer.class) ||
+            recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().isEnum()) {
+            map.put("recipientNotificationSettings", recipientNotificationSettings);
+        } else if (isListOfFile(recipientNotificationSettings)) {
+            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
+                map.put("recipientNotificationSettings", recipientNotificationSettings);
+            }
+        }
+        else {
+          map.put("recipientNotificationSettings", recipientNotificationSettings);
+        }
+    }
     if (formGroups != null) {
         if (isFileTypeOrListOfFiles(formGroups)) {
             fileTypeFound = true;
@@ -1763,6 +1858,44 @@ public class SendForSign {
         }
         else {
           map.put("downloadFileName", downloadFileName);
+        }
+    }
+    if (scheduledSendTime != null) {
+        if (isFileTypeOrListOfFiles(scheduledSendTime)) {
+            fileTypeFound = true;
+        }
+
+        if (scheduledSendTime.getClass().equals(java.io.File.class) ||
+            scheduledSendTime.getClass().equals(Integer.class) ||
+            scheduledSendTime.getClass().equals(String.class) ||
+            scheduledSendTime.getClass().isEnum()) {
+            map.put("scheduledSendTime", scheduledSendTime);
+        } else if (isListOfFile(scheduledSendTime)) {
+            for(int i = 0; i< getListSize(scheduledSendTime); i++) {
+                map.put("scheduledSendTime", scheduledSendTime);
+            }
+        }
+        else {
+          map.put("scheduledSendTime", scheduledSendTime);
+        }
+    }
+    if (allowScheduledSend != null) {
+        if (isFileTypeOrListOfFiles(allowScheduledSend)) {
+            fileTypeFound = true;
+        }
+
+        if (allowScheduledSend.getClass().equals(java.io.File.class) ||
+            allowScheduledSend.getClass().equals(Integer.class) ||
+            allowScheduledSend.getClass().equals(String.class) ||
+            allowScheduledSend.getClass().isEnum()) {
+            map.put("allowScheduledSend", allowScheduledSend);
+        } else if (isListOfFile(allowScheduledSend)) {
+            for(int i = 0; i< getListSize(allowScheduledSend); i++) {
+                map.put("allowScheduledSend", allowScheduledSend);
+            }
+        }
+        else {
+          map.put("allowScheduledSend", allowScheduledSend);
         }
     }
     } catch (Exception e) {
@@ -1839,9 +1972,12 @@ public class SendForSign {
     openapiFields.add("documentDownloadOption");
     openapiFields.add("isSandbox");
     openapiFields.add("metaData");
+    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("formGroups");
     openapiFields.add("enableAuditTrailLocalization");
     openapiFields.add("downloadFileName");
+    openapiFields.add("scheduledSendTime");
+    openapiFields.add("allowScheduledSend");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1958,6 +2094,10 @@ public class SendForSign {
       // validate the optional field `documentDownloadOption`
       if (jsonObj.get("documentDownloadOption") != null && !jsonObj.get("documentDownloadOption").isJsonNull()) {
         DocumentDownloadOptionEnum.validateJsonElement(jsonObj.get("documentDownloadOption"));
+      }
+      // validate the optional field `recipientNotificationSettings`
+      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
+        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
       }
       if (jsonObj.get("formGroups") != null && !jsonObj.get("formGroups").isJsonNull()) {
         JsonArray jsonArrayformGroups = jsonObj.getAsJsonArray("formGroups");

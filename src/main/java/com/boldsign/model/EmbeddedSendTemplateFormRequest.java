@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.boldsign.model.DocumentCC;
 import com.boldsign.model.DocumentInfo;
 import com.boldsign.model.FormGroup;
+import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.ReminderSettings;
 import com.boldsign.model.Role;
 import com.google.gson.TypeAdapter;
@@ -440,6 +441,10 @@ public class EmbeddedSendTemplateFormRequest {
   @SerializedName(SERIALIZED_NAME_META_DATA)
   private Map<String, String> metaData;
 
+  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
+  private RecipientNotificationSettings recipientNotificationSettings;
+
   public static final String SERIALIZED_NAME_FORM_GROUPS = "formGroups";
   @SerializedName(SERIALIZED_NAME_FORM_GROUPS)
   private List<FormGroup> formGroups;
@@ -455,6 +460,14 @@ public class EmbeddedSendTemplateFormRequest {
   public static final String SERIALIZED_NAME_DOWNLOAD_FILE_NAME = "downloadFileName";
   @SerializedName(SERIALIZED_NAME_DOWNLOAD_FILE_NAME)
   private String downloadFileName;
+
+  public static final String SERIALIZED_NAME_SCHEDULED_SEND_TIME = "scheduledSendTime";
+  @SerializedName(SERIALIZED_NAME_SCHEDULED_SEND_TIME)
+  private Long scheduledSendTime;
+
+  public static final String SERIALIZED_NAME_ALLOW_SCHEDULED_SEND = "allowScheduledSend";
+  @SerializedName(SERIALIZED_NAME_ALLOW_SCHEDULED_SEND)
+  private Boolean allowScheduledSend = false;
 
   public EmbeddedSendTemplateFormRequest() {
   }
@@ -1211,6 +1224,25 @@ public class EmbeddedSendTemplateFormRequest {
   }
 
 
+  public EmbeddedSendTemplateFormRequest recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+  }
+
+
   public EmbeddedSendTemplateFormRequest formGroups(List<FormGroup> formGroups) {
     this.formGroups = formGroups;
     return this;
@@ -1303,6 +1335,44 @@ public class EmbeddedSendTemplateFormRequest {
   }
 
 
+  public EmbeddedSendTemplateFormRequest scheduledSendTime(Long scheduledSendTime) {
+    this.scheduledSendTime = scheduledSendTime;
+    return this;
+  }
+
+  /**
+   * Get scheduledSendTime
+   * @return scheduledSendTime
+   */
+  @javax.annotation.Nullable
+  public Long getScheduledSendTime() {
+    return scheduledSendTime;
+  }
+
+  public void setScheduledSendTime(Long scheduledSendTime) {
+    this.scheduledSendTime = scheduledSendTime;
+  }
+
+
+  public EmbeddedSendTemplateFormRequest allowScheduledSend(Boolean allowScheduledSend) {
+    this.allowScheduledSend = allowScheduledSend;
+    return this;
+  }
+
+  /**
+   * Get allowScheduledSend
+   * @return allowScheduledSend
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowScheduledSend() {
+    return allowScheduledSend;
+  }
+
+  public void setAllowScheduledSend(Boolean allowScheduledSend) {
+    this.allowScheduledSend = allowScheduledSend;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1349,15 +1419,18 @@ public class EmbeddedSendTemplateFormRequest {
         Objects.equals(this.roleRemovalIndices, embeddedSendTemplateFormRequest.roleRemovalIndices) &&
         Objects.equals(this.documentDownloadOption, embeddedSendTemplateFormRequest.documentDownloadOption) &&
         Objects.equals(this.metaData, embeddedSendTemplateFormRequest.metaData) &&
+        Objects.equals(this.recipientNotificationSettings, embeddedSendTemplateFormRequest.recipientNotificationSettings) &&
         Objects.equals(this.formGroups, embeddedSendTemplateFormRequest.formGroups) &&
         Objects.equals(this.removeFormFields, embeddedSendTemplateFormRequest.removeFormFields) &&
         Objects.equals(this.enableAuditTrailLocalization, embeddedSendTemplateFormRequest.enableAuditTrailLocalization) &&
-        Objects.equals(this.downloadFileName, embeddedSendTemplateFormRequest.downloadFileName);
+        Objects.equals(this.downloadFileName, embeddedSendTemplateFormRequest.downloadFileName) &&
+        Objects.equals(this.scheduledSendTime, embeddedSendTemplateFormRequest.scheduledSendTime) &&
+        Objects.equals(this.allowScheduledSend, embeddedSendTemplateFormRequest.allowScheduledSend);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, sendLinkValidTill, showTooltip, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, enableAuditTrailLocalization, downloadFileName);
+    return Objects.hash(files, fileUrls, redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, sendLinkValidTill, showTooltip, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, recipientNotificationSettings, formGroups, removeFormFields, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend);
   }
 
   @Override
@@ -1400,10 +1473,13 @@ public class EmbeddedSendTemplateFormRequest {
     sb.append("    roleRemovalIndices: ").append(toIndentedString(roleRemovalIndices)).append("\n");
     sb.append("    documentDownloadOption: ").append(toIndentedString(documentDownloadOption)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    formGroups: ").append(toIndentedString(formGroups)).append("\n");
     sb.append("    removeFormFields: ").append(toIndentedString(removeFormFields)).append("\n");
     sb.append("    enableAuditTrailLocalization: ").append(toIndentedString(enableAuditTrailLocalization)).append("\n");
     sb.append("    downloadFileName: ").append(toIndentedString(downloadFileName)).append("\n");
+    sb.append("    scheduledSendTime: ").append(toIndentedString(scheduledSendTime)).append("\n");
+    sb.append("    allowScheduledSend: ").append(toIndentedString(allowScheduledSend)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2165,6 +2241,25 @@ public class EmbeddedSendTemplateFormRequest {
           map.put("metaData", metaData);
         }
     }
+    if (recipientNotificationSettings != null) {
+        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
+            recipientNotificationSettings.getClass().equals(Integer.class) ||
+            recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().isEnum()) {
+            map.put("recipientNotificationSettings", recipientNotificationSettings);
+        } else if (isListOfFile(recipientNotificationSettings)) {
+            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
+                map.put("recipientNotificationSettings", recipientNotificationSettings);
+            }
+        }
+        else {
+          map.put("recipientNotificationSettings", recipientNotificationSettings);
+        }
+    }
     if (formGroups != null) {
         if (isFileTypeOrListOfFiles(formGroups)) {
             fileTypeFound = true;
@@ -2261,6 +2356,44 @@ public class EmbeddedSendTemplateFormRequest {
           map.put("downloadFileName", downloadFileName);
         }
     }
+    if (scheduledSendTime != null) {
+        if (isFileTypeOrListOfFiles(scheduledSendTime)) {
+            fileTypeFound = true;
+        }
+
+        if (scheduledSendTime.getClass().equals(java.io.File.class) ||
+            scheduledSendTime.getClass().equals(Integer.class) ||
+            scheduledSendTime.getClass().equals(String.class) ||
+            scheduledSendTime.getClass().isEnum()) {
+            map.put("scheduledSendTime", scheduledSendTime);
+        } else if (isListOfFile(scheduledSendTime)) {
+            for(int i = 0; i< getListSize(scheduledSendTime); i++) {
+                map.put("scheduledSendTime", scheduledSendTime);
+            }
+        }
+        else {
+          map.put("scheduledSendTime", scheduledSendTime);
+        }
+    }
+    if (allowScheduledSend != null) {
+        if (isFileTypeOrListOfFiles(allowScheduledSend)) {
+            fileTypeFound = true;
+        }
+
+        if (allowScheduledSend.getClass().equals(java.io.File.class) ||
+            allowScheduledSend.getClass().equals(Integer.class) ||
+            allowScheduledSend.getClass().equals(String.class) ||
+            allowScheduledSend.getClass().isEnum()) {
+            map.put("allowScheduledSend", allowScheduledSend);
+        } else if (isListOfFile(allowScheduledSend)) {
+            for(int i = 0; i< getListSize(allowScheduledSend); i++) {
+                map.put("allowScheduledSend", allowScheduledSend);
+            }
+        }
+        else {
+          map.put("allowScheduledSend", allowScheduledSend);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2342,10 +2475,13 @@ public class EmbeddedSendTemplateFormRequest {
     openapiFields.add("roleRemovalIndices");
     openapiFields.add("documentDownloadOption");
     openapiFields.add("metaData");
+    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("formGroups");
     openapiFields.add("removeFormFields");
     openapiFields.add("enableAuditTrailLocalization");
     openapiFields.add("downloadFileName");
+    openapiFields.add("scheduledSendTime");
+    openapiFields.add("allowScheduledSend");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2472,6 +2608,10 @@ public class EmbeddedSendTemplateFormRequest {
       // validate the optional field `documentDownloadOption`
       if (jsonObj.get("documentDownloadOption") != null && !jsonObj.get("documentDownloadOption").isJsonNull()) {
         DocumentDownloadOptionEnum.validateJsonElement(jsonObj.get("documentDownloadOption"));
+      }
+      // validate the optional field `recipientNotificationSettings`
+      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
+        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
       }
       if (jsonObj.get("formGroups") != null && !jsonObj.get("formGroups").isJsonNull()) {
         JsonArray jsonArrayformGroups = jsonObj.getAsJsonArray("formGroups");

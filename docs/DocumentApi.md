@@ -220,7 +220,7 @@ public class Example {
 | **signers** | [**List&lt;String&gt;**](String.md)| A list of signer email addresses used to filter the documents returned in the API. The API will return documents where the signer&#39;s email address matches one of the email addresses provided in this list | [optional] |
 | **pageSize** | **Integer**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **OffsetDateTime**| Start date of the document | [optional] |
-| **status** | [**List&lt;String&gt;**](String.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] [enum: None, WaitingForMe, WaitingForOthers, NeedAttention, Completed, Declined, Revoked, Expired, Draft] |
+| **status** | [**List&lt;String&gt;**](String.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] [enum: None, WaitingForMe, WaitingForOthers, NeedAttention, Completed, Declined, Revoked, Expired, Draft, Scheduled] |
 | **endDate** | **OffsetDateTime**| End date of the document | [optional] |
 | **searchKey** | **String**| Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc., | [optional] |
 | **labels** | [**List&lt;String&gt;**](String.md)| Labels of the document. | [optional] |
@@ -320,7 +320,7 @@ null (empty response body)
 
 <a id="changeRecipient"></a>
 # **changeRecipient**
-> ErrorResult changeRecipient(documentId, changeRecipient)
+> changeRecipient(documentId, changeRecipient)
 
 Change recipient details of a document.
 
@@ -346,8 +346,7 @@ public class Example {
     ChangeRecipient changeRecipient = new ChangeRecipient(); // ChangeRecipient | The new recipient details.
     
     try {
-      ErrorResult result = apiInstance.changeRecipient(documentId, changeRecipient);
-      System.out.println(result);
+      apiInstance.changeRecipient(documentId, changeRecipient);
     } catch (ApiException e) {
       System.err.println("Exception when calling DocumentApi#changeRecipient");
       System.err.println("Status code: " + e.getCode());
@@ -368,7 +367,7 @@ public class Example {
 
 ### Return type
 
-[**ErrorResult**](ErrorResult.md)
+null (empty response body)
 
 ### Authorization
 
@@ -382,8 +381,9 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **401** | Unauthorized |  -  |
-| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
 
 <a id="createEmbeddedRequestUrlDocument"></a>
 # **createEmbeddedRequestUrlDocument**
@@ -450,6 +450,8 @@ public class Example {
 | **201** | Created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **400** | Bad Request |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="deleteDocument"></a>
 # **deleteDocument**
@@ -1059,7 +1061,7 @@ public class Example {
 | **transmitType** | **String**|  | [optional] [enum: Sent, Received,  Both] |
 | **pageSize** | **Integer**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **OffsetDateTime**| Start date of the document | [optional] |
-| **status** | [**List&lt;String&gt;**](String.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] [enum: None, WaitingForMe, WaitingForOthers, NeedAttention, Completed, Declined, Revoked, Expired, Draft] |
+| **status** | [**List&lt;String&gt;**](String.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] [enum: None, WaitingForMe, WaitingForOthers, NeedAttention, Completed, Declined, Revoked, Expired, Draft, Scheduled] |
 | **endDate** | **OffsetDateTime**| End date of the document | [optional] |
 | **searchKey** | **String**| Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc., | [optional] |
 | **labels** | [**List&lt;String&gt;**](String.md)| Labels of the document. | [optional] |
@@ -1420,6 +1422,8 @@ public class Example {
 | **201** | Created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **400** | Bad Request |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="teamDocuments"></a>
 # **teamDocuments**
@@ -1482,7 +1486,7 @@ public class Example {
 | **transmitType** | **String**| Transmit type as Sent, Received and Both. | [optional] [enum: Sent, Received,  Both] |
 | **pageSize** | **Integer**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **OffsetDateTime**| Start date of the document | [optional] |
-| **status** | [**List&lt;String&gt;**](String.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] [enum: None, WaitingForMe, WaitingForOthers, NeedAttention, Completed, Declined, Revoked, Expired, Draft] |
+| **status** | [**List&lt;String&gt;**](String.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] [enum: None, WaitingForMe, WaitingForOthers, NeedAttention, Completed, Declined, Revoked, Expired, Draft, Scheduled] |
 | **endDate** | **OffsetDateTime**| End date of the document | [optional] |
 | **searchKey** | **String**| Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc., | [optional] |
 | **labels** | [**List&lt;String&gt;**](String.md)| Labels of the document. | [optional] |

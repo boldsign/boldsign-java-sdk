@@ -30,6 +30,7 @@
 |**onBehalfOf** | **String** |  |  [optional] |
 |**labels** | **List&lt;String&gt;** |  |  [optional] |
 |**templateLabels** | **List&lt;String&gt;** |  |  [optional] |
+|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**formGroups** | [**List&lt;FormGroup&gt;**](FormGroup.md) |  |  [optional] |
 
 

@@ -32,7 +32,6 @@ import com.boldsign.model.BrandingMessage;
 import com.boldsign.model.BrandingRecords;
 import com.boldsign.model.ErrorResult;
 import java.io.File;
-import com.boldsign.model.ProblemDetails;
 import com.boldsign.model.ViewBrandDetails;
 
 import java.lang.reflect.Type;
@@ -88,6 +87,7 @@ public class BrandingApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call brandListCall(final ApiCallback _callback) throws ApiException {
@@ -151,6 +151,7 @@ public class BrandingApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public BrandingRecords brandList() throws ApiException {
@@ -168,6 +169,7 @@ public class BrandingApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BrandingRecords> brandListWithHttpInfo() throws ApiException {
@@ -187,6 +189,7 @@ public class BrandingApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call brandListAsync(final ApiCallback<BrandingRecords> _callback) throws ApiException {
@@ -235,6 +238,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createBrandCall(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback _callback) throws ApiException {
@@ -489,6 +493,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public BrandCreated createBrand(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName) throws ApiException {
@@ -535,6 +540,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BrandCreated> createBrandWithHttpInfo(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName) throws ApiException {
@@ -583,6 +589,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createBrandAsync(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback<BrandCreated> _callback) throws ApiException {
@@ -806,6 +813,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call editBrandCall(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback _callback) throws ApiException {
@@ -1060,6 +1068,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public BrandCreated editBrand(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName) throws ApiException {
@@ -1107,6 +1116,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BrandCreated> editBrandWithHttpInfo(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName) throws ApiException {
@@ -1156,6 +1166,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call editBrandAsync(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback<BrandCreated> _callback) throws ApiException {
@@ -1177,6 +1188,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getBrandCall(String brandId, final ApiCallback _callback) throws ApiException {
@@ -1251,6 +1263,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public ViewBrandDetails getBrand(String brandId) throws ApiException {
@@ -1270,6 +1283,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ViewBrandDetails> getBrandWithHttpInfo(String brandId) throws ApiException {
@@ -1291,6 +1305,7 @@ public class BrandingApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getBrandAsync(String brandId, final ApiCallback<ViewBrandDetails> _callback) throws ApiException {

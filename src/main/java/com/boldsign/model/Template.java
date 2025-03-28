@@ -94,7 +94,9 @@ public class Template {
     
     REVOKED("Revoked"),
     
-    DRAFT("Draft");
+    DRAFT("Draft"),
+    
+    SCHEDULED("Scheduled");
 
     private String value;
 

@@ -72,6 +72,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 
 <a id="createBrand"></a>
 # **createBrand**
@@ -192,6 +193,7 @@ public class Example {
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="deleteBrand"></a>
 # **deleteBrand**
@@ -380,6 +382,7 @@ public class Example {
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="getBrand"></a>
 # **getBrand**
@@ -446,6 +449,7 @@ public class Example {
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="resetDefaultBrand"></a>
 # **resetDefaultBrand**

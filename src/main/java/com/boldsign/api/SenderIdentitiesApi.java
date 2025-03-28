@@ -87,6 +87,7 @@ public class SenderIdentitiesApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSenderIdentitiesCall(CreateSenderIdentityRequest createSenderIdentityRequest, final ApiCallback _callback) throws ApiException {
@@ -198,6 +199,7 @@ public class SenderIdentitiesApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public void createSenderIdentities(CreateSenderIdentityRequest createSenderIdentityRequest) throws ApiException {
@@ -216,6 +218,7 @@ public class SenderIdentitiesApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> createSenderIdentitiesWithHttpInfo(CreateSenderIdentityRequest createSenderIdentityRequest) throws ApiException {
@@ -236,6 +239,7 @@ public class SenderIdentitiesApi {
         <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSenderIdentitiesAsync(CreateSenderIdentityRequest createSenderIdentityRequest, final ApiCallback<Void> _callback) throws ApiException {

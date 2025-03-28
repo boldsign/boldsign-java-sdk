@@ -36,9 +36,12 @@
 |**documentDownloadOption** | [**DocumentDownloadOptionEnum**](#DocumentDownloadOptionEnum) |  |  [optional] |
 |**isSandbox** | **Boolean** |  |  [optional] |
 |**metaData** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**formGroups** | [**List&lt;FormGroup&gt;**](FormGroup.md) |  |  [optional] |
 |**enableAuditTrailLocalization** | **Boolean** |  |  [optional] |
 |**downloadFileName** | **String** |  |  [optional] |
+|**scheduledSendTime** | **Long** |  |  [optional] |
+|**allowScheduledSend** | **Boolean** |  |  [optional] |
 
 
 

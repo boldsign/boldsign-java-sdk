@@ -25,6 +25,7 @@
 |**labels** | **List&lt;String&gt;** |  |  [optional] |
 |**templateLabels** | **List&lt;String&gt;** |  |  [optional] |
 |**formGroups** | [**List&lt;FormGroup&gt;**](FormGroup.md) |  |  [optional] |
+|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 
 
 

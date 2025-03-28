@@ -39,6 +39,7 @@
 | EXPIRED | &quot;Expired&quot; |
 | REVOKED | &quot;Revoked&quot; |
 | DRAFT | &quot;Draft&quot; |
+| SCHEDULED | &quot;Scheduled&quot; |
 
 
 

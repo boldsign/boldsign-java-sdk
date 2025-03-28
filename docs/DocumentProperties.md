@@ -43,9 +43,10 @@
 |**expiryValue** | **Long** |  |  [optional] |
 |**documentDownloadOption** | [**DocumentDownloadOptionEnum**](#DocumentDownloadOptionEnum) |  |  [optional] |
 |**metaData** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**enableAuditTrailLocalization** | **Boolean** |  |  [optional] |
 |**downloadFileName** | **String** |  |  [optional] |
-|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
+|**scheduledSendTime** | **Long** |  |  [optional] |
 
 
 
@@ -59,6 +60,7 @@
 | EXPIRED | &quot;Expired&quot; |
 | REVOKED | &quot;Revoked&quot; |
 | DRAFT | &quot;Draft&quot; |
+| SCHEDULED | &quot;Scheduled&quot; |
 
 
 
@@ -83,6 +85,7 @@
 | EDITING_INITIATED | &quot;EditingInitiated&quot; |
 | EDITING_CANCELLED | &quot;EditingCancelled&quot; |
 | EDITING_COMPLETED | &quot;EditingCompleted&quot; |
+| DOCUMENT_SCHEDULED | &quot;DocumentScheduled&quot; |
 
 
 

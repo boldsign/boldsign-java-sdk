@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>1.0.0-beta.3</version>
+  <version>1.0.0-beta.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:1.0.0-beta.3"
+     implementation "com.boldsign:boldsign-java:1.0.0-beta.4"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-1.0.0-beta.3.jar`
+* `target/boldsign-java-1.0.0-beta.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -271,7 +271,6 @@ Class | Method | HTTP request | Description
  - [PhoneNumber](docs/PhoneNumber.md)
  - [PrefillField](docs/PrefillField.md)
  - [PrefillFieldRequest](docs/PrefillFieldRequest.md)
- - [ProblemDetails](docs/ProblemDetails.md)
  - [RecipientNotificationSettings](docs/RecipientNotificationSettings.md)
  - [Rectangle](docs/Rectangle.md)
  - [ReminderMessage](docs/ReminderMessage.md)

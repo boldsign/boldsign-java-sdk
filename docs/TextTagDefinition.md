@@ -31,6 +31,7 @@
 |**label** | **String** |  |  [optional] |
 |**tabIndex** | **Integer** |  |  [optional] |
 |**formulaFieldSettings** | [**FormulaFieldSettings**](FormulaFieldSettings.md) |  |  [optional] |
+|**resizeOption** | [**ResizeOptionEnum**](#ResizeOptionEnum) |  |  [optional] |
 
 
 
@@ -53,6 +54,18 @@
 | TITLE | &quot;Title&quot; |
 | COMPANY | &quot;Company&quot; |
 | FORMULA | &quot;Formula&quot; |
+
+
+
+## Enum: ResizeOptionEnum
+
+| Name | Value |
+|---- | -----|
+| GROW_VERTICALLY | &quot;GrowVertically&quot; |
+| GROW_HORIZONTALLY | &quot;GrowHorizontally&quot; |
+| GROW_BOTH | &quot;GrowBoth&quot; |
+| FIXED | &quot;Fixed&quot; |
+| AUTO_RESIZE_FONT | &quot;AutoResizeFont&quot; |
 
 
 

@@ -85,7 +85,6 @@ docs/PhoneNumber.md
 docs/PlanApi.md
 docs/PrefillField.md
 docs/PrefillFieldRequest.md
-docs/ProblemDetails.md
 docs/RecipientNotificationSettings.md
 docs/Rectangle.md
 docs/ReminderMessage.md
@@ -243,7 +242,6 @@ src/main/java/com/boldsign/model/PageDetails.java
 src/main/java/com/boldsign/model/PhoneNumber.java
 src/main/java/com/boldsign/model/PrefillField.java
 src/main/java/com/boldsign/model/PrefillFieldRequest.java
-src/main/java/com/boldsign/model/ProblemDetails.java
 src/main/java/com/boldsign/model/RecipientNotificationSettings.java
 src/main/java/com/boldsign/model/Rectangle.java
 src/main/java/com/boldsign/model/ReminderMessage.java

@@ -90,6 +90,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCustomFieldCall(BrandCustomFieldDetails brandCustomFieldDetails, final ApiCallback _callback) throws ApiException {
@@ -241,6 +242,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public CustomFieldMessage createCustomField(BrandCustomFieldDetails brandCustomFieldDetails) throws ApiException {
@@ -260,6 +262,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CustomFieldMessage> createCustomFieldWithHttpInfo(BrandCustomFieldDetails brandCustomFieldDetails) throws ApiException {
@@ -281,6 +284,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createCustomFieldAsync(BrandCustomFieldDetails brandCustomFieldDetails, final ApiCallback<CustomFieldMessage> _callback) throws ApiException {
@@ -437,6 +441,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteCustomFieldCall(String customFieldId, final ApiCallback _callback) throws ApiException {
@@ -550,6 +555,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public DeleteCustomFieldReply deleteCustomField(String customFieldId) throws ApiException {
@@ -569,6 +575,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<DeleteCustomFieldReply> deleteCustomFieldWithHttpInfo(String customFieldId) throws ApiException {
@@ -590,6 +597,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteCustomFieldAsync(String customFieldId, final ApiCallback<DeleteCustomFieldReply> _callback) throws ApiException {
@@ -612,6 +620,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call editCustomFieldCall(String customFieldId, BrandCustomFieldDetails brandCustomFieldDetails, final ApiCallback _callback) throws ApiException {
@@ -773,6 +782,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public CustomFieldMessage editCustomField(String customFieldId, BrandCustomFieldDetails brandCustomFieldDetails) throws ApiException {
@@ -793,6 +803,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CustomFieldMessage> editCustomFieldWithHttpInfo(String customFieldId, BrandCustomFieldDetails brandCustomFieldDetails) throws ApiException {
@@ -815,6 +826,7 @@ public class CustomFieldApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call editCustomFieldAsync(String customFieldId, BrandCustomFieldDetails brandCustomFieldDetails, final ApiCallback<CustomFieldMessage> _callback) throws ApiException {

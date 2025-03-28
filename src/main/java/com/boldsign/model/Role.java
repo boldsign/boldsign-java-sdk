@@ -18,6 +18,7 @@ import com.boldsign.model.ExistingFormField;
 import com.boldsign.model.FormField;
 import com.boldsign.model.IdentityVerificationSettings;
 import com.boldsign.model.PhoneNumber;
+import com.boldsign.model.RecipientNotificationSettings;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -453,6 +454,10 @@ public class Role {
   @SerializedName(SERIALIZED_NAME_LOCALE)
   private LocaleEnum locale;
 
+  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
+  private RecipientNotificationSettings recipientNotificationSettings;
+
   public static final String SERIALIZED_NAME_AUTHENTICATION_RETRY_COUNT = "authenticationRetryCount";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_RETRY_COUNT)
   private Integer authenticationRetryCount;
@@ -843,6 +848,25 @@ public class Role {
   }
 
 
+  public Role recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+  }
+
+
   public Role authenticationRetryCount(Integer authenticationRetryCount) {
     this.authenticationRetryCount = authenticationRetryCount;
     return this;
@@ -912,13 +936,14 @@ public class Role {
         Objects.equals(this.identityVerificationSettings, role.identityVerificationSettings) &&
         Objects.equals(this.language, role.language) &&
         Objects.equals(this.locale, role.locale) &&
+        Objects.equals(this.recipientNotificationSettings, role.recipientNotificationSettings) &&
         Objects.equals(this.authenticationRetryCount, role.authenticationRetryCount) &&
         Objects.equals(this.enableQes, role.enableQes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleIndex, signerName, signerOrder, signerEmail, hostEmail, privateMessage, authenticationCode, enableEmailOTP, authenticationType, phoneNumber, deliveryMode, signerType, signerRole, allowFieldConfiguration, formFields, existingFormFields, identityVerificationSettings, language, locale, authenticationRetryCount, enableQes);
+    return Objects.hash(roleIndex, signerName, signerOrder, signerEmail, hostEmail, privateMessage, authenticationCode, enableEmailOTP, authenticationType, phoneNumber, deliveryMode, signerType, signerRole, allowFieldConfiguration, formFields, existingFormFields, identityVerificationSettings, language, locale, recipientNotificationSettings, authenticationRetryCount, enableQes);
   }
 
   @Override
@@ -944,6 +969,7 @@ public class Role {
     sb.append("    identityVerificationSettings: ").append(toIndentedString(identityVerificationSettings)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    authenticationRetryCount: ").append(toIndentedString(authenticationRetryCount)).append("\n");
     sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
     sb.append("}");
@@ -1334,6 +1360,25 @@ public class Role {
           map.put("locale", locale);
         }
     }
+    if (recipientNotificationSettings != null) {
+        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
+            recipientNotificationSettings.getClass().equals(Integer.class) ||
+            recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().isEnum()) {
+            map.put("recipientNotificationSettings", recipientNotificationSettings);
+        } else if (isListOfFile(recipientNotificationSettings)) {
+            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
+                map.put("recipientNotificationSettings", recipientNotificationSettings);
+            }
+        }
+        else {
+          map.put("recipientNotificationSettings", recipientNotificationSettings);
+        }
+    }
     if (authenticationRetryCount != null) {
         if (isFileTypeOrListOfFiles(authenticationRetryCount)) {
             fileTypeFound = true;
@@ -1436,6 +1481,7 @@ public class Role {
     openapiFields.add("identityVerificationSettings");
     openapiFields.add("language");
     openapiFields.add("locale");
+    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("authenticationRetryCount");
     openapiFields.add("enableQes");
 
@@ -1542,6 +1588,10 @@ public class Role {
       // validate the optional field `locale`
       if (jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) {
         LocaleEnum.validateJsonElement(jsonObj.get("locale"));
+      }
+      // validate the optional field `recipientNotificationSettings`
+      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
+        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
       }
   }
 

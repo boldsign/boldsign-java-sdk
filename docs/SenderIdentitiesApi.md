@@ -76,6 +76,7 @@ null (empty response body)
 | **201** | Created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **400** | Bad Request |  -  |
 
 <a id="deleteSenderIdentities"></a>
 # **deleteSenderIdentities**
