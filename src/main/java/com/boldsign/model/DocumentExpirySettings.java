@@ -290,6 +290,7 @@ public class DocumentExpirySettings {
         if (expiryDateType.getClass().equals(java.io.File.class) ||
             expiryDateType.getClass().equals(Integer.class) ||
             expiryDateType.getClass().equals(String.class) ||
+            expiryDateType.getClass().equals(java.net.URI.class)||
             expiryDateType.getClass().isEnum()) {
             map.put("expiryDateType", expiryDateType);
         } else if (isListOfFile(expiryDateType)) {
@@ -298,7 +299,7 @@ public class DocumentExpirySettings {
             }
         }
         else {
-          map.put("expiryDateType", expiryDateType);
+          map.put("expiryDateType", JSON.serialize(expiryDateType));
         }
     }
     if (expiryValue != null) {
@@ -309,6 +310,7 @@ public class DocumentExpirySettings {
         if (expiryValue.getClass().equals(java.io.File.class) ||
             expiryValue.getClass().equals(Integer.class) ||
             expiryValue.getClass().equals(String.class) ||
+            expiryValue.getClass().equals(java.net.URI.class)||
             expiryValue.getClass().isEnum()) {
             map.put("expiryValue", expiryValue);
         } else if (isListOfFile(expiryValue)) {
@@ -317,7 +319,7 @@ public class DocumentExpirySettings {
             }
         }
         else {
-          map.put("expiryValue", expiryValue);
+          map.put("expiryValue", JSON.serialize(expiryValue));
         }
     }
     if (enableDefaultExpiryAlert != null) {
@@ -328,6 +330,7 @@ public class DocumentExpirySettings {
         if (enableDefaultExpiryAlert.getClass().equals(java.io.File.class) ||
             enableDefaultExpiryAlert.getClass().equals(Integer.class) ||
             enableDefaultExpiryAlert.getClass().equals(String.class) ||
+            enableDefaultExpiryAlert.getClass().equals(java.net.URI.class)||
             enableDefaultExpiryAlert.getClass().isEnum()) {
             map.put("enableDefaultExpiryAlert", enableDefaultExpiryAlert);
         } else if (isListOfFile(enableDefaultExpiryAlert)) {
@@ -336,7 +339,7 @@ public class DocumentExpirySettings {
             }
         }
         else {
-          map.put("enableDefaultExpiryAlert", enableDefaultExpiryAlert);
+          map.put("enableDefaultExpiryAlert", JSON.serialize(enableDefaultExpiryAlert));
         }
     }
     if (enableAutoReminder != null) {
@@ -347,6 +350,7 @@ public class DocumentExpirySettings {
         if (enableAutoReminder.getClass().equals(java.io.File.class) ||
             enableAutoReminder.getClass().equals(Integer.class) ||
             enableAutoReminder.getClass().equals(String.class) ||
+            enableAutoReminder.getClass().equals(java.net.URI.class)||
             enableAutoReminder.getClass().isEnum()) {
             map.put("enableAutoReminder", enableAutoReminder);
         } else if (isListOfFile(enableAutoReminder)) {
@@ -355,7 +359,7 @@ public class DocumentExpirySettings {
             }
         }
         else {
-          map.put("enableAutoReminder", enableAutoReminder);
+          map.put("enableAutoReminder", JSON.serialize(enableAutoReminder));
         }
     }
     if (reminderDays != null) {
@@ -366,6 +370,7 @@ public class DocumentExpirySettings {
         if (reminderDays.getClass().equals(java.io.File.class) ||
             reminderDays.getClass().equals(Integer.class) ||
             reminderDays.getClass().equals(String.class) ||
+            reminderDays.getClass().equals(java.net.URI.class)||
             reminderDays.getClass().isEnum()) {
             map.put("reminderDays", reminderDays);
         } else if (isListOfFile(reminderDays)) {
@@ -374,7 +379,7 @@ public class DocumentExpirySettings {
             }
         }
         else {
-          map.put("reminderDays", reminderDays);
+          map.put("reminderDays", JSON.serialize(reminderDays));
         }
     }
     if (reminderCount != null) {
@@ -385,6 +390,7 @@ public class DocumentExpirySettings {
         if (reminderCount.getClass().equals(java.io.File.class) ||
             reminderCount.getClass().equals(Integer.class) ||
             reminderCount.getClass().equals(String.class) ||
+            reminderCount.getClass().equals(java.net.URI.class)||
             reminderCount.getClass().isEnum()) {
             map.put("reminderCount", reminderCount);
         } else if (isListOfFile(reminderCount)) {
@@ -393,7 +399,7 @@ public class DocumentExpirySettings {
             }
         }
         else {
-          map.put("reminderCount", reminderCount);
+          map.put("reminderCount", JSON.serialize(reminderCount));
         }
     }
     } catch (Exception e) {

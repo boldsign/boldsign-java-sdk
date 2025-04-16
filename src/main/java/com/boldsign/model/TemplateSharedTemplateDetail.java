@@ -186,6 +186,7 @@ public class TemplateSharedTemplateDetail {
         if (teamId.getClass().equals(java.io.File.class) ||
             teamId.getClass().equals(Integer.class) ||
             teamId.getClass().equals(String.class) ||
+            teamId.getClass().equals(java.net.URI.class)||
             teamId.getClass().isEnum()) {
             map.put("teamId", teamId);
         } else if (isListOfFile(teamId)) {
@@ -194,7 +195,7 @@ public class TemplateSharedTemplateDetail {
             }
         }
         else {
-          map.put("teamId", teamId);
+          map.put("teamId", JSON.serialize(teamId));
         }
     }
     if (accessType != null) {
@@ -205,6 +206,7 @@ public class TemplateSharedTemplateDetail {
         if (accessType.getClass().equals(java.io.File.class) ||
             accessType.getClass().equals(Integer.class) ||
             accessType.getClass().equals(String.class) ||
+            accessType.getClass().equals(java.net.URI.class)||
             accessType.getClass().isEnum()) {
             map.put("accessType", accessType);
         } else if (isListOfFile(accessType)) {
@@ -213,7 +215,7 @@ public class TemplateSharedTemplateDetail {
             }
         }
         else {
-          map.put("accessType", accessType);
+          map.put("accessType", JSON.serialize(accessType));
         }
     }
     } catch (Exception e) {

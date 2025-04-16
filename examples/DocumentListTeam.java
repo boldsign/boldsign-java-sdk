@@ -39,6 +39,7 @@ public class DocumentListTeam
                 userId,
                 teamId,
                 transmitType,
+                null,
                 pageSize,
                 startDate,
                 status,

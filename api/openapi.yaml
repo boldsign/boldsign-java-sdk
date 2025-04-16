@@ -5289,6 +5289,18 @@ paths:
           title: TransmitType
           type: string
         style: form
+      - description: Date Filter as SentBetween and ExpiresOn.
+        explode: true
+        in: query
+        name: DateFilterType
+        required: false
+        schema:
+          enum:
+          - SentBetween
+          - Expiring
+          title: DateFilterType
+          type: string
+        style: form
       - description: Page size specified in get document list request.
         explode: true
         in: query
@@ -5457,6 +5469,18 @@ paths:
           - Received
           - ' Both'
           title: TransmitType
+          type: string
+        style: form
+      - description: Date Filter as SentBetween and Expiring.
+        explode: true
+        in: query
+        name: DateFilterType
+        required: false
+        schema:
+          enum:
+          - SentBetween
+          - Expiring
+          title: DateFilterType
           type: string
         style: form
       - description: Page size specified in get document list request.
@@ -14568,6 +14592,7 @@ components:
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
+          deliveryMode: Email
           isReassigned: true
           signerType: Signer
           hostEmail: hostEmail
@@ -14749,6 +14774,7 @@ components:
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
+          deliveryMode: Email
           isReassigned: true
           signerType: Signer
           hostEmail: hostEmail
@@ -15043,6 +15069,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -15224,6 +15251,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -15434,6 +15462,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -15615,6 +15644,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -16261,6 +16291,8 @@ components:
     CreateSenderIdentityRequest:
       additionalProperties: false
       example:
+        metaData:
+          key: metaData
         redirectUrl: https://openapi-generator.tech
         brandId: brandId
         name: name
@@ -16280,7 +16312,7 @@ components:
           sent: false
       properties:
         name:
-          maxLength: 50
+          maxLength: 80
           minLength: 0
           nullable: true
           title: String
@@ -16301,6 +16333,15 @@ components:
           nullable: true
           title: Uri
           type: string
+        metaData:
+          additionalProperties:
+            nullable: true
+            title: String
+            type: string
+          maxLength: 50
+          nullable: true
+          title: Dictionary`2
+          type: object
       required:
       - email
       title: CreateSenderIdentityRequest
@@ -17391,6 +17432,7 @@ components:
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
+          deliveryMode: Email
           isReassigned: true
           signerType: Signer
           hostEmail: hostEmail
@@ -17572,6 +17614,7 @@ components:
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
+          deliveryMode: Email
           isReassigned: true
           signerType: Signer
           hostEmail: hostEmail
@@ -18282,6 +18325,7 @@ components:
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
+          deliveryMode: Email
           isReassigned: true
           signerType: Signer
           hostEmail: hostEmail
@@ -18463,6 +18507,7 @@ components:
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
+          deliveryMode: Email
           isReassigned: true
           signerType: Signer
           hostEmail: hostEmail
@@ -19091,6 +19136,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -19272,6 +19318,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -19479,6 +19526,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -19660,6 +19708,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -20090,6 +20139,7 @@ components:
           - Email
           - SMS
           - EmailAndSMS
+          - WhatsApp
           title: DeliveryMode
           type: string
         authenticationCode:
@@ -20206,6 +20256,7 @@ components:
         signerName: signerName
         enableEmailOTP: true
         signerEmail: signerEmail
+        deliveryMode: Email
         isReassigned: true
         signerType: Signer
         hostEmail: hostEmail
@@ -20528,6 +20579,14 @@ components:
           nullable: true
           title: Nullable`1
           type: boolean
+        deliveryMode:
+          enum:
+          - Email
+          - SMS
+          - EmailAndSMS
+          - WhatsApp
+          title: DeliveryMode
+          type: string
       title: DocumentSignerDetails
       type: object
     DocumentTags:
@@ -20556,6 +20615,8 @@ components:
     EditSenderIdentityRequest:
       additionalProperties: false
       example:
+        metaData:
+          key: metaData
         redirectUrl: https://openapi-generator.tech
         name: name
         notificationSettings:
@@ -20573,7 +20634,7 @@ components:
           sent: false
       properties:
         name:
-          maxLength: 50
+          maxLength: 80
           minLength: 0
           nullable: true
           title: String
@@ -20585,6 +20646,15 @@ components:
           nullable: true
           title: Uri
           type: string
+        metaData:
+          additionalProperties:
+            nullable: true
+            title: String
+            type: string
+          maxLength: 50
+          nullable: true
+          title: Dictionary`2
+          type: object
       title: EditSenderIdentityRequest
       type: object
     EditTemplateRequest:
@@ -25317,6 +25387,7 @@ components:
           - Email
           - SMS
           - EmailAndSMS
+          - WhatsApp
           title: DeliveryMode
           type: string
         signerType:
@@ -25690,6 +25761,7 @@ components:
           - Email
           - SMS
           - EmailAndSMS
+          - WhatsApp
           title: DeliveryMode
           type: string
         allowFieldConfiguration:
@@ -27043,6 +27115,8 @@ components:
       example:
         result:
         - approvedDate: approvedDate
+          metaData:
+            key: metaData
           redirectUrl: redirectUrl
           createdBy: createdBy
           brandId: brandId
@@ -27063,6 +27137,8 @@ components:
             revoked: true
             sent: false
         - approvedDate: approvedDate
+          metaData:
+            key: metaData
           redirectUrl: redirectUrl
           createdBy: createdBy
           brandId: brandId
@@ -27104,6 +27180,8 @@ components:
       additionalProperties: false
       example:
         approvedDate: approvedDate
+        metaData:
+          key: metaData
         redirectUrl: redirectUrl
         createdBy: createdBy
         brandId: brandId
@@ -27154,6 +27232,14 @@ components:
           nullable: true
           title: String
           type: string
+        metaData:
+          additionalProperties:
+            nullable: true
+            title: String
+            type: string
+          nullable: true
+          title: Dictionary`2
+          type: object
       title: SenderIdentityViewModel
       type: object
     Size:
@@ -27213,6 +27299,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -27394,6 +27481,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -27601,6 +27689,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -27782,6 +27871,7 @@ components:
             signerName: signerName
             enableEmailOTP: true
             signerEmail: signerEmail
+            deliveryMode: Email
             isReassigned: true
             signerType: Signer
             hostEmail: hostEmail
@@ -29673,6 +29763,7 @@ components:
           - Email
           - SMS
           - EmailAndSMS
+          - WhatsApp
           title: DeliveryMode
           type: string
         allowFieldConfiguration:
@@ -29822,6 +29913,7 @@ components:
           - Email
           - SMS
           - EmailAndSMS
+          - WhatsApp
           title: DeliveryMode
           type: string
         allowFieldConfiguration:

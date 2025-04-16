@@ -120,6 +120,7 @@ public class CreateContactResponse {
         if (createdContacts.getClass().equals(java.io.File.class) ||
             createdContacts.getClass().equals(Integer.class) ||
             createdContacts.getClass().equals(String.class) ||
+            createdContacts.getClass().equals(java.net.URI.class)||
             createdContacts.getClass().isEnum()) {
             map.put("createdContacts", createdContacts);
         } else if (isListOfFile(createdContacts)) {
@@ -130,7 +131,7 @@ public class CreateContactResponse {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : createdContacts) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {

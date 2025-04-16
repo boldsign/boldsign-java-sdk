@@ -344,6 +344,7 @@ public class DocumentInfo {
         if (locale.getClass().equals(java.io.File.class) ||
             locale.getClass().equals(Integer.class) ||
             locale.getClass().equals(String.class) ||
+            locale.getClass().equals(java.net.URI.class)||
             locale.getClass().isEnum()) {
             map.put("locale", locale);
         } else if (isListOfFile(locale)) {
@@ -352,7 +353,7 @@ public class DocumentInfo {
             }
         }
         else {
-          map.put("locale", locale);
+          map.put("locale", JSON.serialize(locale));
         }
     }
     if (title != null) {
@@ -363,6 +364,7 @@ public class DocumentInfo {
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
             title.getClass().equals(String.class) ||
+            title.getClass().equals(java.net.URI.class)||
             title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
@@ -371,7 +373,7 @@ public class DocumentInfo {
             }
         }
         else {
-          map.put("title", title);
+          map.put("title", JSON.serialize(title));
         }
     }
     if (language != null) {
@@ -382,6 +384,7 @@ public class DocumentInfo {
         if (language.getClass().equals(java.io.File.class) ||
             language.getClass().equals(Integer.class) ||
             language.getClass().equals(String.class) ||
+            language.getClass().equals(java.net.URI.class)||
             language.getClass().isEnum()) {
             map.put("language", language);
         } else if (isListOfFile(language)) {
@@ -390,7 +393,7 @@ public class DocumentInfo {
             }
         }
         else {
-          map.put("language", language);
+          map.put("language", JSON.serialize(language));
         }
     }
     if (description != null) {
@@ -401,6 +404,7 @@ public class DocumentInfo {
         if (description.getClass().equals(java.io.File.class) ||
             description.getClass().equals(Integer.class) ||
             description.getClass().equals(String.class) ||
+            description.getClass().equals(java.net.URI.class)||
             description.getClass().isEnum()) {
             map.put("description", description);
         } else if (isListOfFile(description)) {
@@ -409,7 +413,7 @@ public class DocumentInfo {
             }
         }
         else {
-          map.put("description", description);
+          map.put("description", JSON.serialize(description));
         }
     }
     } catch (Exception e) {

@@ -138,7 +138,9 @@ public class DocumentSigner {
     
     SMS("SMS"),
     
-    EMAIL_AND_SMS("EmailAndSMS");
+    EMAIL_AND_SMS("EmailAndSMS"),
+    
+    WHATS_APP("WhatsApp");
 
     private String value;
 
@@ -926,6 +928,7 @@ public class DocumentSigner {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -934,7 +937,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (emailAddress != null) {
@@ -945,6 +948,7 @@ public class DocumentSigner {
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
             emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().equals(java.net.URI.class)||
             emailAddress.getClass().isEnum()) {
             map.put("emailAddress", emailAddress);
         } else if (isListOfFile(emailAddress)) {
@@ -953,7 +957,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("emailAddress", emailAddress);
+          map.put("emailAddress", JSON.serialize(emailAddress));
         }
     }
     if (privateMessage != null) {
@@ -964,6 +968,7 @@ public class DocumentSigner {
         if (privateMessage.getClass().equals(java.io.File.class) ||
             privateMessage.getClass().equals(Integer.class) ||
             privateMessage.getClass().equals(String.class) ||
+            privateMessage.getClass().equals(java.net.URI.class)||
             privateMessage.getClass().isEnum()) {
             map.put("privateMessage", privateMessage);
         } else if (isListOfFile(privateMessage)) {
@@ -972,7 +977,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("privateMessage", privateMessage);
+          map.put("privateMessage", JSON.serialize(privateMessage));
         }
     }
     if (authenticationType != null) {
@@ -983,6 +988,7 @@ public class DocumentSigner {
         if (authenticationType.getClass().equals(java.io.File.class) ||
             authenticationType.getClass().equals(Integer.class) ||
             authenticationType.getClass().equals(String.class) ||
+            authenticationType.getClass().equals(java.net.URI.class)||
             authenticationType.getClass().isEnum()) {
             map.put("authenticationType", authenticationType);
         } else if (isListOfFile(authenticationType)) {
@@ -991,7 +997,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("authenticationType", authenticationType);
+          map.put("authenticationType", JSON.serialize(authenticationType));
         }
     }
     if (phoneNumber != null) {
@@ -1002,6 +1008,7 @@ public class DocumentSigner {
         if (phoneNumber.getClass().equals(java.io.File.class) ||
             phoneNumber.getClass().equals(Integer.class) ||
             phoneNumber.getClass().equals(String.class) ||
+            phoneNumber.getClass().equals(java.net.URI.class)||
             phoneNumber.getClass().isEnum()) {
             map.put("phoneNumber", phoneNumber);
         } else if (isListOfFile(phoneNumber)) {
@@ -1010,7 +1017,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("phoneNumber", phoneNumber);
+          map.put("phoneNumber", JSON.serialize(phoneNumber));
         }
     }
     if (deliveryMode != null) {
@@ -1021,6 +1028,7 @@ public class DocumentSigner {
         if (deliveryMode.getClass().equals(java.io.File.class) ||
             deliveryMode.getClass().equals(Integer.class) ||
             deliveryMode.getClass().equals(String.class) ||
+            deliveryMode.getClass().equals(java.net.URI.class)||
             deliveryMode.getClass().isEnum()) {
             map.put("deliveryMode", deliveryMode);
         } else if (isListOfFile(deliveryMode)) {
@@ -1029,7 +1037,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("deliveryMode", deliveryMode);
+          map.put("deliveryMode", JSON.serialize(deliveryMode));
         }
     }
     if (authenticationCode != null) {
@@ -1040,6 +1048,7 @@ public class DocumentSigner {
         if (authenticationCode.getClass().equals(java.io.File.class) ||
             authenticationCode.getClass().equals(Integer.class) ||
             authenticationCode.getClass().equals(String.class) ||
+            authenticationCode.getClass().equals(java.net.URI.class)||
             authenticationCode.getClass().isEnum()) {
             map.put("authenticationCode", authenticationCode);
         } else if (isListOfFile(authenticationCode)) {
@@ -1048,7 +1057,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("authenticationCode", authenticationCode);
+          map.put("authenticationCode", JSON.serialize(authenticationCode));
         }
     }
     if (identityVerificationSettings != null) {
@@ -1059,6 +1068,7 @@ public class DocumentSigner {
         if (identityVerificationSettings.getClass().equals(java.io.File.class) ||
             identityVerificationSettings.getClass().equals(Integer.class) ||
             identityVerificationSettings.getClass().equals(String.class) ||
+            identityVerificationSettings.getClass().equals(java.net.URI.class)||
             identityVerificationSettings.getClass().isEnum()) {
             map.put("identityVerificationSettings", identityVerificationSettings);
         } else if (isListOfFile(identityVerificationSettings)) {
@@ -1067,7 +1077,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("identityVerificationSettings", identityVerificationSettings);
+          map.put("identityVerificationSettings", JSON.serialize(identityVerificationSettings));
         }
     }
     if (signerOrder != null) {
@@ -1078,6 +1088,7 @@ public class DocumentSigner {
         if (signerOrder.getClass().equals(java.io.File.class) ||
             signerOrder.getClass().equals(Integer.class) ||
             signerOrder.getClass().equals(String.class) ||
+            signerOrder.getClass().equals(java.net.URI.class)||
             signerOrder.getClass().isEnum()) {
             map.put("signerOrder", signerOrder);
         } else if (isListOfFile(signerOrder)) {
@@ -1086,7 +1097,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("signerOrder", signerOrder);
+          map.put("signerOrder", JSON.serialize(signerOrder));
         }
     }
     if (enableEmailOTP != null) {
@@ -1097,6 +1108,7 @@ public class DocumentSigner {
         if (enableEmailOTP.getClass().equals(java.io.File.class) ||
             enableEmailOTP.getClass().equals(Integer.class) ||
             enableEmailOTP.getClass().equals(String.class) ||
+            enableEmailOTP.getClass().equals(java.net.URI.class)||
             enableEmailOTP.getClass().isEnum()) {
             map.put("enableEmailOTP", enableEmailOTP);
         } else if (isListOfFile(enableEmailOTP)) {
@@ -1105,7 +1117,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("enableEmailOTP", enableEmailOTP);
+          map.put("enableEmailOTP", JSON.serialize(enableEmailOTP));
         }
     }
     if (signerType != null) {
@@ -1116,6 +1128,7 @@ public class DocumentSigner {
         if (signerType.getClass().equals(java.io.File.class) ||
             signerType.getClass().equals(Integer.class) ||
             signerType.getClass().equals(String.class) ||
+            signerType.getClass().equals(java.net.URI.class)||
             signerType.getClass().isEnum()) {
             map.put("signerType", signerType);
         } else if (isListOfFile(signerType)) {
@@ -1124,7 +1137,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("signerType", signerType);
+          map.put("signerType", JSON.serialize(signerType));
         }
     }
     if (hostEmail != null) {
@@ -1135,6 +1148,7 @@ public class DocumentSigner {
         if (hostEmail.getClass().equals(java.io.File.class) ||
             hostEmail.getClass().equals(Integer.class) ||
             hostEmail.getClass().equals(String.class) ||
+            hostEmail.getClass().equals(java.net.URI.class)||
             hostEmail.getClass().isEnum()) {
             map.put("hostEmail", hostEmail);
         } else if (isListOfFile(hostEmail)) {
@@ -1143,7 +1157,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("hostEmail", hostEmail);
+          map.put("hostEmail", JSON.serialize(hostEmail));
         }
     }
     if (signerRole != null) {
@@ -1154,6 +1168,7 @@ public class DocumentSigner {
         if (signerRole.getClass().equals(java.io.File.class) ||
             signerRole.getClass().equals(Integer.class) ||
             signerRole.getClass().equals(String.class) ||
+            signerRole.getClass().equals(java.net.URI.class)||
             signerRole.getClass().isEnum()) {
             map.put("signerRole", signerRole);
         } else if (isListOfFile(signerRole)) {
@@ -1162,7 +1177,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("signerRole", signerRole);
+          map.put("signerRole", JSON.serialize(signerRole));
         }
     }
     if (allowFieldConfiguration != null) {
@@ -1173,6 +1188,7 @@ public class DocumentSigner {
         if (allowFieldConfiguration.getClass().equals(java.io.File.class) ||
             allowFieldConfiguration.getClass().equals(Integer.class) ||
             allowFieldConfiguration.getClass().equals(String.class) ||
+            allowFieldConfiguration.getClass().equals(java.net.URI.class)||
             allowFieldConfiguration.getClass().isEnum()) {
             map.put("allowFieldConfiguration", allowFieldConfiguration);
         } else if (isListOfFile(allowFieldConfiguration)) {
@@ -1181,7 +1197,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("allowFieldConfiguration", allowFieldConfiguration);
+          map.put("allowFieldConfiguration", JSON.serialize(allowFieldConfiguration));
         }
     }
     if (formFields != null) {
@@ -1192,6 +1208,7 @@ public class DocumentSigner {
         if (formFields.getClass().equals(java.io.File.class) ||
             formFields.getClass().equals(Integer.class) ||
             formFields.getClass().equals(String.class) ||
+            formFields.getClass().equals(java.net.URI.class)||
             formFields.getClass().isEnum()) {
             map.put("formFields", formFields);
         } else if (isListOfFile(formFields)) {
@@ -1202,7 +1219,7 @@ public class DocumentSigner {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formFields) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1221,6 +1238,7 @@ public class DocumentSigner {
         if (language.getClass().equals(java.io.File.class) ||
             language.getClass().equals(Integer.class) ||
             language.getClass().equals(String.class) ||
+            language.getClass().equals(java.net.URI.class)||
             language.getClass().isEnum()) {
             map.put("language", language);
         } else if (isListOfFile(language)) {
@@ -1229,7 +1247,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("language", language);
+          map.put("language", JSON.serialize(language));
         }
     }
     if (locale != null) {
@@ -1240,6 +1258,7 @@ public class DocumentSigner {
         if (locale.getClass().equals(java.io.File.class) ||
             locale.getClass().equals(Integer.class) ||
             locale.getClass().equals(String.class) ||
+            locale.getClass().equals(java.net.URI.class)||
             locale.getClass().isEnum()) {
             map.put("locale", locale);
         } else if (isListOfFile(locale)) {
@@ -1248,7 +1267,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("locale", locale);
+          map.put("locale", JSON.serialize(locale));
         }
     }
     if (recipientNotificationSettings != null) {
@@ -1259,6 +1278,7 @@ public class DocumentSigner {
         if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
             recipientNotificationSettings.getClass().equals(Integer.class) ||
             recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().equals(java.net.URI.class)||
             recipientNotificationSettings.getClass().isEnum()) {
             map.put("recipientNotificationSettings", recipientNotificationSettings);
         } else if (isListOfFile(recipientNotificationSettings)) {
@@ -1267,7 +1287,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("recipientNotificationSettings", recipientNotificationSettings);
+          map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
         }
     }
     if (authenticationRetryCount != null) {
@@ -1278,6 +1298,7 @@ public class DocumentSigner {
         if (authenticationRetryCount.getClass().equals(java.io.File.class) ||
             authenticationRetryCount.getClass().equals(Integer.class) ||
             authenticationRetryCount.getClass().equals(String.class) ||
+            authenticationRetryCount.getClass().equals(java.net.URI.class)||
             authenticationRetryCount.getClass().isEnum()) {
             map.put("authenticationRetryCount", authenticationRetryCount);
         } else if (isListOfFile(authenticationRetryCount)) {
@@ -1286,7 +1307,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("authenticationRetryCount", authenticationRetryCount);
+          map.put("authenticationRetryCount", JSON.serialize(authenticationRetryCount));
         }
     }
     if (enableQes != null) {
@@ -1297,6 +1318,7 @@ public class DocumentSigner {
         if (enableQes.getClass().equals(java.io.File.class) ||
             enableQes.getClass().equals(Integer.class) ||
             enableQes.getClass().equals(String.class) ||
+            enableQes.getClass().equals(java.net.URI.class)||
             enableQes.getClass().isEnum()) {
             map.put("enableQes", enableQes);
         } else if (isListOfFile(enableQes)) {
@@ -1305,7 +1327,7 @@ public class DocumentSigner {
             }
         }
         else {
-          map.put("enableQes", enableQes);
+          map.put("enableQes", JSON.serialize(enableQes));
         }
     }
     } catch (Exception e) {

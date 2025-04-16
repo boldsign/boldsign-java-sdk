@@ -159,6 +159,7 @@ public class ReminderSettings {
         if (enableAutoReminder.getClass().equals(java.io.File.class) ||
             enableAutoReminder.getClass().equals(Integer.class) ||
             enableAutoReminder.getClass().equals(String.class) ||
+            enableAutoReminder.getClass().equals(java.net.URI.class)||
             enableAutoReminder.getClass().isEnum()) {
             map.put("enableAutoReminder", enableAutoReminder);
         } else if (isListOfFile(enableAutoReminder)) {
@@ -167,7 +168,7 @@ public class ReminderSettings {
             }
         }
         else {
-          map.put("enableAutoReminder", enableAutoReminder);
+          map.put("enableAutoReminder", JSON.serialize(enableAutoReminder));
         }
     }
     if (reminderDays != null) {
@@ -178,6 +179,7 @@ public class ReminderSettings {
         if (reminderDays.getClass().equals(java.io.File.class) ||
             reminderDays.getClass().equals(Integer.class) ||
             reminderDays.getClass().equals(String.class) ||
+            reminderDays.getClass().equals(java.net.URI.class)||
             reminderDays.getClass().isEnum()) {
             map.put("reminderDays", reminderDays);
         } else if (isListOfFile(reminderDays)) {
@@ -186,7 +188,7 @@ public class ReminderSettings {
             }
         }
         else {
-          map.put("reminderDays", reminderDays);
+          map.put("reminderDays", JSON.serialize(reminderDays));
         }
     }
     if (reminderCount != null) {
@@ -197,6 +199,7 @@ public class ReminderSettings {
         if (reminderCount.getClass().equals(java.io.File.class) ||
             reminderCount.getClass().equals(Integer.class) ||
             reminderCount.getClass().equals(String.class) ||
+            reminderCount.getClass().equals(java.net.URI.class)||
             reminderCount.getClass().isEnum()) {
             map.put("reminderCount", reminderCount);
         } else if (isListOfFile(reminderCount)) {
@@ -205,7 +208,7 @@ public class ReminderSettings {
             }
         }
         else {
-          map.put("reminderCount", reminderCount);
+          map.put("reminderCount", JSON.serialize(reminderCount));
         }
     }
     } catch (Exception e) {

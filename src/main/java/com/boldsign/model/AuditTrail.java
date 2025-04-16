@@ -488,6 +488,7 @@ public class AuditTrail {
         if (id.getClass().equals(java.io.File.class) ||
             id.getClass().equals(Integer.class) ||
             id.getClass().equals(String.class) ||
+            id.getClass().equals(java.net.URI.class)||
             id.getClass().isEnum()) {
             map.put("id", id);
         } else if (isListOfFile(id)) {
@@ -496,7 +497,7 @@ public class AuditTrail {
             }
         }
         else {
-          map.put("id", id);
+          map.put("id", JSON.serialize(id));
         }
     }
     if (name != null) {
@@ -507,6 +508,7 @@ public class AuditTrail {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -515,7 +517,7 @@ public class AuditTrail {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (email != null) {
@@ -526,6 +528,7 @@ public class AuditTrail {
         if (email.getClass().equals(java.io.File.class) ||
             email.getClass().equals(Integer.class) ||
             email.getClass().equals(String.class) ||
+            email.getClass().equals(java.net.URI.class)||
             email.getClass().isEnum()) {
             map.put("email", email);
         } else if (isListOfFile(email)) {
@@ -534,7 +537,7 @@ public class AuditTrail {
             }
         }
         else {
-          map.put("email", email);
+          map.put("email", JSON.serialize(email));
         }
     }
     if (toName != null) {
@@ -545,6 +548,7 @@ public class AuditTrail {
         if (toName.getClass().equals(java.io.File.class) ||
             toName.getClass().equals(Integer.class) ||
             toName.getClass().equals(String.class) ||
+            toName.getClass().equals(java.net.URI.class)||
             toName.getClass().isEnum()) {
             map.put("toName", toName);
         } else if (isListOfFile(toName)) {
@@ -553,7 +557,7 @@ public class AuditTrail {
             }
         }
         else {
-          map.put("toName", toName);
+          map.put("toName", JSON.serialize(toName));
         }
     }
     if (toEmail != null) {
@@ -564,6 +568,7 @@ public class AuditTrail {
         if (toEmail.getClass().equals(java.io.File.class) ||
             toEmail.getClass().equals(Integer.class) ||
             toEmail.getClass().equals(String.class) ||
+            toEmail.getClass().equals(java.net.URI.class)||
             toEmail.getClass().isEnum()) {
             map.put("toEmail", toEmail);
         } else if (isListOfFile(toEmail)) {
@@ -572,7 +577,7 @@ public class AuditTrail {
             }
         }
         else {
-          map.put("toEmail", toEmail);
+          map.put("toEmail", JSON.serialize(toEmail));
         }
     }
     if (ipaddress != null) {
@@ -583,6 +588,7 @@ public class AuditTrail {
         if (ipaddress.getClass().equals(java.io.File.class) ||
             ipaddress.getClass().equals(Integer.class) ||
             ipaddress.getClass().equals(String.class) ||
+            ipaddress.getClass().equals(java.net.URI.class)||
             ipaddress.getClass().isEnum()) {
             map.put("ipaddress", ipaddress);
         } else if (isListOfFile(ipaddress)) {
@@ -591,7 +597,7 @@ public class AuditTrail {
             }
         }
         else {
-          map.put("ipaddress", ipaddress);
+          map.put("ipaddress", JSON.serialize(ipaddress));
         }
     }
     if (action != null) {
@@ -602,6 +608,7 @@ public class AuditTrail {
         if (action.getClass().equals(java.io.File.class) ||
             action.getClass().equals(Integer.class) ||
             action.getClass().equals(String.class) ||
+            action.getClass().equals(java.net.URI.class)||
             action.getClass().isEnum()) {
             map.put("action", action);
         } else if (isListOfFile(action)) {
@@ -610,7 +617,7 @@ public class AuditTrail {
             }
         }
         else {
-          map.put("action", action);
+          map.put("action", JSON.serialize(action));
         }
     }
     if (timestamp != null) {
@@ -621,6 +628,7 @@ public class AuditTrail {
         if (timestamp.getClass().equals(java.io.File.class) ||
             timestamp.getClass().equals(Integer.class) ||
             timestamp.getClass().equals(String.class) ||
+            timestamp.getClass().equals(java.net.URI.class)||
             timestamp.getClass().isEnum()) {
             map.put("timestamp", timestamp);
         } else if (isListOfFile(timestamp)) {
@@ -629,7 +637,7 @@ public class AuditTrail {
             }
         }
         else {
-          map.put("timestamp", timestamp);
+          map.put("timestamp", JSON.serialize(timestamp));
         }
     }
     } catch (Exception e) {

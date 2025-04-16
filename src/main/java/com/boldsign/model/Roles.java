@@ -395,7 +395,9 @@ public class Roles {
     
     SMS("SMS"),
     
-    EMAIL_AND_SMS("EmailAndSMS");
+    EMAIL_AND_SMS("EmailAndSMS"),
+    
+    WHATS_APP("WhatsApp");
 
     private String value;
 
@@ -998,6 +1000,7 @@ public class Roles {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -1006,7 +1009,7 @@ public class Roles {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (index != null) {
@@ -1017,6 +1020,7 @@ public class Roles {
         if (index.getClass().equals(java.io.File.class) ||
             index.getClass().equals(Integer.class) ||
             index.getClass().equals(String.class) ||
+            index.getClass().equals(java.net.URI.class)||
             index.getClass().isEnum()) {
             map.put("index", index);
         } else if (isListOfFile(index)) {
@@ -1025,7 +1029,7 @@ public class Roles {
             }
         }
         else {
-          map.put("index", index);
+          map.put("index", JSON.serialize(index));
         }
     }
     if (defaultSignerName != null) {
@@ -1036,6 +1040,7 @@ public class Roles {
         if (defaultSignerName.getClass().equals(java.io.File.class) ||
             defaultSignerName.getClass().equals(Integer.class) ||
             defaultSignerName.getClass().equals(String.class) ||
+            defaultSignerName.getClass().equals(java.net.URI.class)||
             defaultSignerName.getClass().isEnum()) {
             map.put("defaultSignerName", defaultSignerName);
         } else if (isListOfFile(defaultSignerName)) {
@@ -1044,7 +1049,7 @@ public class Roles {
             }
         }
         else {
-          map.put("defaultSignerName", defaultSignerName);
+          map.put("defaultSignerName", JSON.serialize(defaultSignerName));
         }
     }
     if (defaultSignerEmail != null) {
@@ -1055,6 +1060,7 @@ public class Roles {
         if (defaultSignerEmail.getClass().equals(java.io.File.class) ||
             defaultSignerEmail.getClass().equals(Integer.class) ||
             defaultSignerEmail.getClass().equals(String.class) ||
+            defaultSignerEmail.getClass().equals(java.net.URI.class)||
             defaultSignerEmail.getClass().isEnum()) {
             map.put("defaultSignerEmail", defaultSignerEmail);
         } else if (isListOfFile(defaultSignerEmail)) {
@@ -1063,7 +1069,7 @@ public class Roles {
             }
         }
         else {
-          map.put("defaultSignerEmail", defaultSignerEmail);
+          map.put("defaultSignerEmail", JSON.serialize(defaultSignerEmail));
         }
     }
     if (phoneNumber != null) {
@@ -1074,6 +1080,7 @@ public class Roles {
         if (phoneNumber.getClass().equals(java.io.File.class) ||
             phoneNumber.getClass().equals(Integer.class) ||
             phoneNumber.getClass().equals(String.class) ||
+            phoneNumber.getClass().equals(java.net.URI.class)||
             phoneNumber.getClass().isEnum()) {
             map.put("phoneNumber", phoneNumber);
         } else if (isListOfFile(phoneNumber)) {
@@ -1082,7 +1089,7 @@ public class Roles {
             }
         }
         else {
-          map.put("phoneNumber", phoneNumber);
+          map.put("phoneNumber", JSON.serialize(phoneNumber));
         }
     }
     if (signerOrder != null) {
@@ -1093,6 +1100,7 @@ public class Roles {
         if (signerOrder.getClass().equals(java.io.File.class) ||
             signerOrder.getClass().equals(Integer.class) ||
             signerOrder.getClass().equals(String.class) ||
+            signerOrder.getClass().equals(java.net.URI.class)||
             signerOrder.getClass().isEnum()) {
             map.put("signerOrder", signerOrder);
         } else if (isListOfFile(signerOrder)) {
@@ -1101,7 +1109,7 @@ public class Roles {
             }
         }
         else {
-          map.put("signerOrder", signerOrder);
+          map.put("signerOrder", JSON.serialize(signerOrder));
         }
     }
     if (signerType != null) {
@@ -1112,6 +1120,7 @@ public class Roles {
         if (signerType.getClass().equals(java.io.File.class) ||
             signerType.getClass().equals(Integer.class) ||
             signerType.getClass().equals(String.class) ||
+            signerType.getClass().equals(java.net.URI.class)||
             signerType.getClass().isEnum()) {
             map.put("signerType", signerType);
         } else if (isListOfFile(signerType)) {
@@ -1120,7 +1129,7 @@ public class Roles {
             }
         }
         else {
-          map.put("signerType", signerType);
+          map.put("signerType", JSON.serialize(signerType));
         }
     }
     if (hostEmail != null) {
@@ -1131,6 +1140,7 @@ public class Roles {
         if (hostEmail.getClass().equals(java.io.File.class) ||
             hostEmail.getClass().equals(Integer.class) ||
             hostEmail.getClass().equals(String.class) ||
+            hostEmail.getClass().equals(java.net.URI.class)||
             hostEmail.getClass().isEnum()) {
             map.put("hostEmail", hostEmail);
         } else if (isListOfFile(hostEmail)) {
@@ -1139,7 +1149,7 @@ public class Roles {
             }
         }
         else {
-          map.put("hostEmail", hostEmail);
+          map.put("hostEmail", JSON.serialize(hostEmail));
         }
     }
     if (hostName != null) {
@@ -1150,6 +1160,7 @@ public class Roles {
         if (hostName.getClass().equals(java.io.File.class) ||
             hostName.getClass().equals(Integer.class) ||
             hostName.getClass().equals(String.class) ||
+            hostName.getClass().equals(java.net.URI.class)||
             hostName.getClass().isEnum()) {
             map.put("hostName", hostName);
         } else if (isListOfFile(hostName)) {
@@ -1158,7 +1169,7 @@ public class Roles {
             }
         }
         else {
-          map.put("hostName", hostName);
+          map.put("hostName", JSON.serialize(hostName));
         }
     }
     if (language != null) {
@@ -1169,6 +1180,7 @@ public class Roles {
         if (language.getClass().equals(java.io.File.class) ||
             language.getClass().equals(Integer.class) ||
             language.getClass().equals(String.class) ||
+            language.getClass().equals(java.net.URI.class)||
             language.getClass().isEnum()) {
             map.put("language", language);
         } else if (isListOfFile(language)) {
@@ -1177,7 +1189,7 @@ public class Roles {
             }
         }
         else {
-          map.put("language", language);
+          map.put("language", JSON.serialize(language));
         }
     }
     if (locale != null) {
@@ -1188,6 +1200,7 @@ public class Roles {
         if (locale.getClass().equals(java.io.File.class) ||
             locale.getClass().equals(Integer.class) ||
             locale.getClass().equals(String.class) ||
+            locale.getClass().equals(java.net.URI.class)||
             locale.getClass().isEnum()) {
             map.put("locale", locale);
         } else if (isListOfFile(locale)) {
@@ -1196,7 +1209,7 @@ public class Roles {
             }
         }
         else {
-          map.put("locale", locale);
+          map.put("locale", JSON.serialize(locale));
         }
     }
     if (allowRoleEdit != null) {
@@ -1207,6 +1220,7 @@ public class Roles {
         if (allowRoleEdit.getClass().equals(java.io.File.class) ||
             allowRoleEdit.getClass().equals(Integer.class) ||
             allowRoleEdit.getClass().equals(String.class) ||
+            allowRoleEdit.getClass().equals(java.net.URI.class)||
             allowRoleEdit.getClass().isEnum()) {
             map.put("allowRoleEdit", allowRoleEdit);
         } else if (isListOfFile(allowRoleEdit)) {
@@ -1215,7 +1229,7 @@ public class Roles {
             }
         }
         else {
-          map.put("allowRoleEdit", allowRoleEdit);
+          map.put("allowRoleEdit", JSON.serialize(allowRoleEdit));
         }
     }
     if (allowRoleDelete != null) {
@@ -1226,6 +1240,7 @@ public class Roles {
         if (allowRoleDelete.getClass().equals(java.io.File.class) ||
             allowRoleDelete.getClass().equals(Integer.class) ||
             allowRoleDelete.getClass().equals(String.class) ||
+            allowRoleDelete.getClass().equals(java.net.URI.class)||
             allowRoleDelete.getClass().isEnum()) {
             map.put("allowRoleDelete", allowRoleDelete);
         } else if (isListOfFile(allowRoleDelete)) {
@@ -1234,7 +1249,7 @@ public class Roles {
             }
         }
         else {
-          map.put("allowRoleDelete", allowRoleDelete);
+          map.put("allowRoleDelete", JSON.serialize(allowRoleDelete));
         }
     }
     if (enableAccessCode != null) {
@@ -1245,6 +1260,7 @@ public class Roles {
         if (enableAccessCode.getClass().equals(java.io.File.class) ||
             enableAccessCode.getClass().equals(Integer.class) ||
             enableAccessCode.getClass().equals(String.class) ||
+            enableAccessCode.getClass().equals(java.net.URI.class)||
             enableAccessCode.getClass().isEnum()) {
             map.put("enableAccessCode", enableAccessCode);
         } else if (isListOfFile(enableAccessCode)) {
@@ -1253,7 +1269,7 @@ public class Roles {
             }
         }
         else {
-          map.put("enableAccessCode", enableAccessCode);
+          map.put("enableAccessCode", JSON.serialize(enableAccessCode));
         }
     }
     if (enableEmailOTP != null) {
@@ -1264,6 +1280,7 @@ public class Roles {
         if (enableEmailOTP.getClass().equals(java.io.File.class) ||
             enableEmailOTP.getClass().equals(Integer.class) ||
             enableEmailOTP.getClass().equals(String.class) ||
+            enableEmailOTP.getClass().equals(java.net.URI.class)||
             enableEmailOTP.getClass().isEnum()) {
             map.put("enableEmailOTP", enableEmailOTP);
         } else if (isListOfFile(enableEmailOTP)) {
@@ -1272,7 +1289,7 @@ public class Roles {
             }
         }
         else {
-          map.put("enableEmailOTP", enableEmailOTP);
+          map.put("enableEmailOTP", JSON.serialize(enableEmailOTP));
         }
     }
     if (imposeAuthentication != null) {
@@ -1283,6 +1300,7 @@ public class Roles {
         if (imposeAuthentication.getClass().equals(java.io.File.class) ||
             imposeAuthentication.getClass().equals(Integer.class) ||
             imposeAuthentication.getClass().equals(String.class) ||
+            imposeAuthentication.getClass().equals(java.net.URI.class)||
             imposeAuthentication.getClass().isEnum()) {
             map.put("imposeAuthentication", imposeAuthentication);
         } else if (isListOfFile(imposeAuthentication)) {
@@ -1291,7 +1309,7 @@ public class Roles {
             }
         }
         else {
-          map.put("imposeAuthentication", imposeAuthentication);
+          map.put("imposeAuthentication", JSON.serialize(imposeAuthentication));
         }
     }
     if (deliveryMode != null) {
@@ -1302,6 +1320,7 @@ public class Roles {
         if (deliveryMode.getClass().equals(java.io.File.class) ||
             deliveryMode.getClass().equals(Integer.class) ||
             deliveryMode.getClass().equals(String.class) ||
+            deliveryMode.getClass().equals(java.net.URI.class)||
             deliveryMode.getClass().isEnum()) {
             map.put("deliveryMode", deliveryMode);
         } else if (isListOfFile(deliveryMode)) {
@@ -1310,7 +1329,7 @@ public class Roles {
             }
         }
         else {
-          map.put("deliveryMode", deliveryMode);
+          map.put("deliveryMode", JSON.serialize(deliveryMode));
         }
     }
     if (allowFieldConfiguration != null) {
@@ -1321,6 +1340,7 @@ public class Roles {
         if (allowFieldConfiguration.getClass().equals(java.io.File.class) ||
             allowFieldConfiguration.getClass().equals(Integer.class) ||
             allowFieldConfiguration.getClass().equals(String.class) ||
+            allowFieldConfiguration.getClass().equals(java.net.URI.class)||
             allowFieldConfiguration.getClass().isEnum()) {
             map.put("allowFieldConfiguration", allowFieldConfiguration);
         } else if (isListOfFile(allowFieldConfiguration)) {
@@ -1329,7 +1349,7 @@ public class Roles {
             }
         }
         else {
-          map.put("allowFieldConfiguration", allowFieldConfiguration);
+          map.put("allowFieldConfiguration", JSON.serialize(allowFieldConfiguration));
         }
     }
     if (formFields != null) {
@@ -1340,6 +1360,7 @@ public class Roles {
         if (formFields.getClass().equals(java.io.File.class) ||
             formFields.getClass().equals(Integer.class) ||
             formFields.getClass().equals(String.class) ||
+            formFields.getClass().equals(java.net.URI.class)||
             formFields.getClass().isEnum()) {
             map.put("formFields", formFields);
         } else if (isListOfFile(formFields)) {
@@ -1350,7 +1371,7 @@ public class Roles {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formFields) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1369,6 +1390,7 @@ public class Roles {
         if (enableEditRecipients.getClass().equals(java.io.File.class) ||
             enableEditRecipients.getClass().equals(Integer.class) ||
             enableEditRecipients.getClass().equals(String.class) ||
+            enableEditRecipients.getClass().equals(java.net.URI.class)||
             enableEditRecipients.getClass().isEnum()) {
             map.put("enableEditRecipients", enableEditRecipients);
         } else if (isListOfFile(enableEditRecipients)) {
@@ -1377,7 +1399,7 @@ public class Roles {
             }
         }
         else {
-          map.put("enableEditRecipients", enableEditRecipients);
+          map.put("enableEditRecipients", JSON.serialize(enableEditRecipients));
         }
     }
     if (enableDeleteRecipients != null) {
@@ -1388,6 +1410,7 @@ public class Roles {
         if (enableDeleteRecipients.getClass().equals(java.io.File.class) ||
             enableDeleteRecipients.getClass().equals(Integer.class) ||
             enableDeleteRecipients.getClass().equals(String.class) ||
+            enableDeleteRecipients.getClass().equals(java.net.URI.class)||
             enableDeleteRecipients.getClass().isEnum()) {
             map.put("enableDeleteRecipients", enableDeleteRecipients);
         } else if (isListOfFile(enableDeleteRecipients)) {
@@ -1396,7 +1419,7 @@ public class Roles {
             }
         }
         else {
-          map.put("enableDeleteRecipients", enableDeleteRecipients);
+          map.put("enableDeleteRecipients", JSON.serialize(enableDeleteRecipients));
         }
     }
     if (recipientNotificationSettings != null) {
@@ -1407,6 +1430,7 @@ public class Roles {
         if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
             recipientNotificationSettings.getClass().equals(Integer.class) ||
             recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().equals(java.net.URI.class)||
             recipientNotificationSettings.getClass().isEnum()) {
             map.put("recipientNotificationSettings", recipientNotificationSettings);
         } else if (isListOfFile(recipientNotificationSettings)) {
@@ -1415,7 +1439,7 @@ public class Roles {
             }
         }
         else {
-          map.put("recipientNotificationSettings", recipientNotificationSettings);
+          map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
         }
     }
     if (enableQes != null) {
@@ -1426,6 +1450,7 @@ public class Roles {
         if (enableQes.getClass().equals(java.io.File.class) ||
             enableQes.getClass().equals(Integer.class) ||
             enableQes.getClass().equals(String.class) ||
+            enableQes.getClass().equals(java.net.URI.class)||
             enableQes.getClass().isEnum()) {
             map.put("enableQes", enableQes);
         } else if (isListOfFile(enableQes)) {
@@ -1434,7 +1459,7 @@ public class Roles {
             }
         }
         else {
-          map.put("enableQes", enableQes);
+          map.put("enableQes", JSON.serialize(enableQes));
         }
     }
     } catch (Exception e) {

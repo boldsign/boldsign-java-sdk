@@ -290,6 +290,7 @@ public class UpdateUser {
         if (userId.getClass().equals(java.io.File.class) ||
             userId.getClass().equals(Integer.class) ||
             userId.getClass().equals(String.class) ||
+            userId.getClass().equals(java.net.URI.class)||
             userId.getClass().isEnum()) {
             map.put("userId", userId);
         } else if (isListOfFile(userId)) {
@@ -298,7 +299,7 @@ public class UpdateUser {
             }
         }
         else {
-          map.put("userId", userId);
+          map.put("userId", JSON.serialize(userId));
         }
     }
     if (userRole != null) {
@@ -309,6 +310,7 @@ public class UpdateUser {
         if (userRole.getClass().equals(java.io.File.class) ||
             userRole.getClass().equals(Integer.class) ||
             userRole.getClass().equals(String.class) ||
+            userRole.getClass().equals(java.net.URI.class)||
             userRole.getClass().isEnum()) {
             map.put("userRole", userRole);
         } else if (isListOfFile(userRole)) {
@@ -317,7 +319,7 @@ public class UpdateUser {
             }
         }
         else {
-          map.put("userRole", userRole);
+          map.put("userRole", JSON.serialize(userRole));
         }
     }
     if (userStatus != null) {
@@ -328,6 +330,7 @@ public class UpdateUser {
         if (userStatus.getClass().equals(java.io.File.class) ||
             userStatus.getClass().equals(Integer.class) ||
             userStatus.getClass().equals(String.class) ||
+            userStatus.getClass().equals(java.net.URI.class)||
             userStatus.getClass().isEnum()) {
             map.put("userStatus", userStatus);
         } else if (isListOfFile(userStatus)) {
@@ -336,7 +339,7 @@ public class UpdateUser {
             }
         }
         else {
-          map.put("userStatus", userStatus);
+          map.put("userStatus", JSON.serialize(userStatus));
         }
     }
     if (toUserId != null) {
@@ -347,6 +350,7 @@ public class UpdateUser {
         if (toUserId.getClass().equals(java.io.File.class) ||
             toUserId.getClass().equals(Integer.class) ||
             toUserId.getClass().equals(String.class) ||
+            toUserId.getClass().equals(java.net.URI.class)||
             toUserId.getClass().isEnum()) {
             map.put("toUserId", toUserId);
         } else if (isListOfFile(toUserId)) {
@@ -355,7 +359,7 @@ public class UpdateUser {
             }
         }
         else {
-          map.put("toUserId", toUserId);
+          map.put("toUserId", JSON.serialize(toUserId));
         }
     }
     } catch (Exception e) {

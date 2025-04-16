@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -77,6 +79,10 @@ public class SenderIdentityViewModel {
   public static final String SERIALIZED_NAME_REDIRECT_URL = "redirectUrl";
   @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
   private String redirectUrl;
+
+  public static final String SERIALIZED_NAME_META_DATA = "metaData";
+  @SerializedName(SERIALIZED_NAME_META_DATA)
+  private Map<String, String> metaData;
 
   public SenderIdentityViewModel() {
   }
@@ -233,6 +239,33 @@ public class SenderIdentityViewModel {
   }
 
 
+  public SenderIdentityViewModel metaData(Map<String, String> metaData) {
+    this.metaData = metaData;
+    return this;
+  }
+
+  public SenderIdentityViewModel putMetaDataItem(String key, String metaDataItem) {
+    if (this.metaData == null) {
+      this.metaData = new HashMap<>();
+    }
+    this.metaData.put(key, metaDataItem);
+    return this;
+  }
+
+  /**
+   * Get metaData
+   * @return metaData
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getMetaData() {
+    return metaData;
+  }
+
+  public void setMetaData(Map<String, String> metaData) {
+    this.metaData = metaData;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -250,12 +283,13 @@ public class SenderIdentityViewModel {
         Objects.equals(this.approvedDate, senderIdentityViewModel.approvedDate) &&
         Objects.equals(this.notificationSettings, senderIdentityViewModel.notificationSettings) &&
         Objects.equals(this.brandId, senderIdentityViewModel.brandId) &&
-        Objects.equals(this.redirectUrl, senderIdentityViewModel.redirectUrl);
+        Objects.equals(this.redirectUrl, senderIdentityViewModel.redirectUrl) &&
+        Objects.equals(this.metaData, senderIdentityViewModel.metaData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, status, createdBy, approvedDate, notificationSettings, brandId, redirectUrl);
+    return Objects.hash(name, email, status, createdBy, approvedDate, notificationSettings, brandId, redirectUrl, metaData);
   }
 
   @Override
@@ -270,6 +304,7 @@ public class SenderIdentityViewModel {
     sb.append("    notificationSettings: ").append(toIndentedString(notificationSettings)).append("\n");
     sb.append("    brandId: ").append(toIndentedString(brandId)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -285,6 +320,7 @@ public class SenderIdentityViewModel {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -293,7 +329,7 @@ public class SenderIdentityViewModel {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (email != null) {
@@ -304,6 +340,7 @@ public class SenderIdentityViewModel {
         if (email.getClass().equals(java.io.File.class) ||
             email.getClass().equals(Integer.class) ||
             email.getClass().equals(String.class) ||
+            email.getClass().equals(java.net.URI.class)||
             email.getClass().isEnum()) {
             map.put("email", email);
         } else if (isListOfFile(email)) {
@@ -312,7 +349,7 @@ public class SenderIdentityViewModel {
             }
         }
         else {
-          map.put("email", email);
+          map.put("email", JSON.serialize(email));
         }
     }
     if (status != null) {
@@ -323,6 +360,7 @@ public class SenderIdentityViewModel {
         if (status.getClass().equals(java.io.File.class) ||
             status.getClass().equals(Integer.class) ||
             status.getClass().equals(String.class) ||
+            status.getClass().equals(java.net.URI.class)||
             status.getClass().isEnum()) {
             map.put("status", status);
         } else if (isListOfFile(status)) {
@@ -331,7 +369,7 @@ public class SenderIdentityViewModel {
             }
         }
         else {
-          map.put("status", status);
+          map.put("status", JSON.serialize(status));
         }
     }
     if (createdBy != null) {
@@ -342,6 +380,7 @@ public class SenderIdentityViewModel {
         if (createdBy.getClass().equals(java.io.File.class) ||
             createdBy.getClass().equals(Integer.class) ||
             createdBy.getClass().equals(String.class) ||
+            createdBy.getClass().equals(java.net.URI.class)||
             createdBy.getClass().isEnum()) {
             map.put("createdBy", createdBy);
         } else if (isListOfFile(createdBy)) {
@@ -350,7 +389,7 @@ public class SenderIdentityViewModel {
             }
         }
         else {
-          map.put("createdBy", createdBy);
+          map.put("createdBy", JSON.serialize(createdBy));
         }
     }
     if (approvedDate != null) {
@@ -361,6 +400,7 @@ public class SenderIdentityViewModel {
         if (approvedDate.getClass().equals(java.io.File.class) ||
             approvedDate.getClass().equals(Integer.class) ||
             approvedDate.getClass().equals(String.class) ||
+            approvedDate.getClass().equals(java.net.URI.class)||
             approvedDate.getClass().isEnum()) {
             map.put("approvedDate", approvedDate);
         } else if (isListOfFile(approvedDate)) {
@@ -369,7 +409,7 @@ public class SenderIdentityViewModel {
             }
         }
         else {
-          map.put("approvedDate", approvedDate);
+          map.put("approvedDate", JSON.serialize(approvedDate));
         }
     }
     if (notificationSettings != null) {
@@ -380,6 +420,7 @@ public class SenderIdentityViewModel {
         if (notificationSettings.getClass().equals(java.io.File.class) ||
             notificationSettings.getClass().equals(Integer.class) ||
             notificationSettings.getClass().equals(String.class) ||
+            notificationSettings.getClass().equals(java.net.URI.class)||
             notificationSettings.getClass().isEnum()) {
             map.put("notificationSettings", notificationSettings);
         } else if (isListOfFile(notificationSettings)) {
@@ -388,7 +429,7 @@ public class SenderIdentityViewModel {
             }
         }
         else {
-          map.put("notificationSettings", notificationSettings);
+          map.put("notificationSettings", JSON.serialize(notificationSettings));
         }
     }
     if (brandId != null) {
@@ -399,6 +440,7 @@ public class SenderIdentityViewModel {
         if (brandId.getClass().equals(java.io.File.class) ||
             brandId.getClass().equals(Integer.class) ||
             brandId.getClass().equals(String.class) ||
+            brandId.getClass().equals(java.net.URI.class)||
             brandId.getClass().isEnum()) {
             map.put("brandId", brandId);
         } else if (isListOfFile(brandId)) {
@@ -407,7 +449,7 @@ public class SenderIdentityViewModel {
             }
         }
         else {
-          map.put("brandId", brandId);
+          map.put("brandId", JSON.serialize(brandId));
         }
     }
     if (redirectUrl != null) {
@@ -418,6 +460,7 @@ public class SenderIdentityViewModel {
         if (redirectUrl.getClass().equals(java.io.File.class) ||
             redirectUrl.getClass().equals(Integer.class) ||
             redirectUrl.getClass().equals(String.class) ||
+            redirectUrl.getClass().equals(java.net.URI.class)||
             redirectUrl.getClass().isEnum()) {
             map.put("redirectUrl", redirectUrl);
         } else if (isListOfFile(redirectUrl)) {
@@ -426,7 +469,27 @@ public class SenderIdentityViewModel {
             }
         }
         else {
-          map.put("redirectUrl", redirectUrl);
+          map.put("redirectUrl", JSON.serialize(redirectUrl));
+        }
+    }
+    if (metaData != null) {
+        if (isFileTypeOrListOfFiles(metaData)) {
+            fileTypeFound = true;
+        }
+
+        if (metaData.getClass().equals(java.io.File.class) ||
+            metaData.getClass().equals(Integer.class) ||
+            metaData.getClass().equals(String.class) ||
+            metaData.getClass().equals(java.net.URI.class)||
+            metaData.getClass().isEnum()) {
+            map.put("metaData", metaData);
+        } else if (isListOfFile(metaData)) {
+            for(int i = 0; i< getListSize(metaData); i++) {
+                map.put("metaData", metaData);
+            }
+        }
+        else {
+          map.put("metaData", JSON.serialize(metaData));
         }
     }
     } catch (Exception e) {
@@ -482,6 +545,7 @@ public class SenderIdentityViewModel {
     openapiFields.add("notificationSettings");
     openapiFields.add("brandId");
     openapiFields.add("redirectUrl");
+    openapiFields.add("metaData");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

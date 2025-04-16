@@ -12,6 +12,7 @@
 |**notificationSettings** | [**NotificationSettings**](NotificationSettings.md) |  |  [optional] |
 |**brandId** | **String** |  |  [optional] |
 |**redirectUrl** | **URI** |  |  [optional] |
+|**metaData** | **Map&lt;String, String&gt;** |  |  [optional] |
 
 
 

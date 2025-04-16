@@ -234,6 +234,7 @@ public class PageDetails {
         if (pageSize.getClass().equals(java.io.File.class) ||
             pageSize.getClass().equals(Integer.class) ||
             pageSize.getClass().equals(String.class) ||
+            pageSize.getClass().equals(java.net.URI.class)||
             pageSize.getClass().isEnum()) {
             map.put("pageSize", pageSize);
         } else if (isListOfFile(pageSize)) {
@@ -242,7 +243,7 @@ public class PageDetails {
             }
         }
         else {
-          map.put("pageSize", pageSize);
+          map.put("pageSize", JSON.serialize(pageSize));
         }
     }
     if (page != null) {
@@ -253,6 +254,7 @@ public class PageDetails {
         if (page.getClass().equals(java.io.File.class) ||
             page.getClass().equals(Integer.class) ||
             page.getClass().equals(String.class) ||
+            page.getClass().equals(java.net.URI.class)||
             page.getClass().isEnum()) {
             map.put("page", page);
         } else if (isListOfFile(page)) {
@@ -261,7 +263,7 @@ public class PageDetails {
             }
         }
         else {
-          map.put("page", page);
+          map.put("page", JSON.serialize(page));
         }
     }
     if (totalRecordsCount != null) {
@@ -272,6 +274,7 @@ public class PageDetails {
         if (totalRecordsCount.getClass().equals(java.io.File.class) ||
             totalRecordsCount.getClass().equals(Integer.class) ||
             totalRecordsCount.getClass().equals(String.class) ||
+            totalRecordsCount.getClass().equals(java.net.URI.class)||
             totalRecordsCount.getClass().isEnum()) {
             map.put("totalRecordsCount", totalRecordsCount);
         } else if (isListOfFile(totalRecordsCount)) {
@@ -280,7 +283,7 @@ public class PageDetails {
             }
         }
         else {
-          map.put("totalRecordsCount", totalRecordsCount);
+          map.put("totalRecordsCount", JSON.serialize(totalRecordsCount));
         }
     }
     if (totalPages != null) {
@@ -291,6 +294,7 @@ public class PageDetails {
         if (totalPages.getClass().equals(java.io.File.class) ||
             totalPages.getClass().equals(Integer.class) ||
             totalPages.getClass().equals(String.class) ||
+            totalPages.getClass().equals(java.net.URI.class)||
             totalPages.getClass().isEnum()) {
             map.put("totalPages", totalPages);
         } else if (isListOfFile(totalPages)) {
@@ -299,7 +303,7 @@ public class PageDetails {
             }
         }
         else {
-          map.put("totalPages", totalPages);
+          map.put("totalPages", JSON.serialize(totalPages));
         }
     }
     if (sortedColumn != null) {
@@ -310,6 +314,7 @@ public class PageDetails {
         if (sortedColumn.getClass().equals(java.io.File.class) ||
             sortedColumn.getClass().equals(Integer.class) ||
             sortedColumn.getClass().equals(String.class) ||
+            sortedColumn.getClass().equals(java.net.URI.class)||
             sortedColumn.getClass().isEnum()) {
             map.put("sortedColumn", sortedColumn);
         } else if (isListOfFile(sortedColumn)) {
@@ -318,7 +323,7 @@ public class PageDetails {
             }
         }
         else {
-          map.put("sortedColumn", sortedColumn);
+          map.put("sortedColumn", JSON.serialize(sortedColumn));
         }
     }
     if (sortDirection != null) {
@@ -329,6 +334,7 @@ public class PageDetails {
         if (sortDirection.getClass().equals(java.io.File.class) ||
             sortDirection.getClass().equals(Integer.class) ||
             sortDirection.getClass().equals(String.class) ||
+            sortDirection.getClass().equals(java.net.URI.class)||
             sortDirection.getClass().isEnum()) {
             map.put("sortDirection", sortDirection);
         } else if (isListOfFile(sortDirection)) {
@@ -337,7 +343,7 @@ public class PageDetails {
             }
         }
         else {
-          map.put("sortDirection", sortDirection);
+          map.put("sortDirection", JSON.serialize(sortDirection));
         }
     }
     } catch (Exception e) {

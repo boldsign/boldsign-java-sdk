@@ -5,7 +5,7 @@
     <artifactId>boldsign-java</artifactId>
     <packaging>jar</packaging>
     <name>boldsign-java</name>
-    <version>1.0.0-beta.4</version>
+    <version>1.0.0-beta.6</version>
     <url>https://github.com/boldsign/boldsign-java-sdk</url>
     <description>This client library lets you initiate and track e-signature requests through Syncfusion&#39;s BoldSign API service.</description>
     <scm>

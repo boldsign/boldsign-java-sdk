@@ -284,6 +284,7 @@ public class IdVerification {
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
             type.getClass().equals(String.class) ||
+            type.getClass().equals(java.net.URI.class)||
             type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
@@ -292,7 +293,7 @@ public class IdVerification {
             }
         }
         else {
-          map.put("type", type);
+          map.put("type", JSON.serialize(type));
         }
     }
     if (maximumRetryCount != null) {
@@ -303,6 +304,7 @@ public class IdVerification {
         if (maximumRetryCount.getClass().equals(java.io.File.class) ||
             maximumRetryCount.getClass().equals(Integer.class) ||
             maximumRetryCount.getClass().equals(String.class) ||
+            maximumRetryCount.getClass().equals(java.net.URI.class)||
             maximumRetryCount.getClass().isEnum()) {
             map.put("maximumRetryCount", maximumRetryCount);
         } else if (isListOfFile(maximumRetryCount)) {
@@ -311,7 +313,7 @@ public class IdVerification {
             }
         }
         else {
-          map.put("maximumRetryCount", maximumRetryCount);
+          map.put("maximumRetryCount", JSON.serialize(maximumRetryCount));
         }
     }
     if (status != null) {
@@ -322,6 +324,7 @@ public class IdVerification {
         if (status.getClass().equals(java.io.File.class) ||
             status.getClass().equals(Integer.class) ||
             status.getClass().equals(String.class) ||
+            status.getClass().equals(java.net.URI.class)||
             status.getClass().isEnum()) {
             map.put("status", status);
         } else if (isListOfFile(status)) {
@@ -330,7 +333,7 @@ public class IdVerification {
             }
         }
         else {
-          map.put("status", status);
+          map.put("status", JSON.serialize(status));
         }
     }
     if (nameMatcher != null) {
@@ -341,6 +344,7 @@ public class IdVerification {
         if (nameMatcher.getClass().equals(java.io.File.class) ||
             nameMatcher.getClass().equals(Integer.class) ||
             nameMatcher.getClass().equals(String.class) ||
+            nameMatcher.getClass().equals(java.net.URI.class)||
             nameMatcher.getClass().isEnum()) {
             map.put("nameMatcher", nameMatcher);
         } else if (isListOfFile(nameMatcher)) {
@@ -349,7 +353,7 @@ public class IdVerification {
             }
         }
         else {
-          map.put("nameMatcher", nameMatcher);
+          map.put("nameMatcher", JSON.serialize(nameMatcher));
         }
     }
     if (requireLiveCapture != null) {
@@ -360,6 +364,7 @@ public class IdVerification {
         if (requireLiveCapture.getClass().equals(java.io.File.class) ||
             requireLiveCapture.getClass().equals(Integer.class) ||
             requireLiveCapture.getClass().equals(String.class) ||
+            requireLiveCapture.getClass().equals(java.net.URI.class)||
             requireLiveCapture.getClass().isEnum()) {
             map.put("requireLiveCapture", requireLiveCapture);
         } else if (isListOfFile(requireLiveCapture)) {
@@ -368,7 +373,7 @@ public class IdVerification {
             }
         }
         else {
-          map.put("requireLiveCapture", requireLiveCapture);
+          map.put("requireLiveCapture", JSON.serialize(requireLiveCapture));
         }
     }
     if (requireMatchingSelfie != null) {
@@ -379,6 +384,7 @@ public class IdVerification {
         if (requireMatchingSelfie.getClass().equals(java.io.File.class) ||
             requireMatchingSelfie.getClass().equals(Integer.class) ||
             requireMatchingSelfie.getClass().equals(String.class) ||
+            requireMatchingSelfie.getClass().equals(java.net.URI.class)||
             requireMatchingSelfie.getClass().isEnum()) {
             map.put("requireMatchingSelfie", requireMatchingSelfie);
         } else if (isListOfFile(requireMatchingSelfie)) {
@@ -387,7 +393,7 @@ public class IdVerification {
             }
         }
         else {
-          map.put("requireMatchingSelfie", requireMatchingSelfie);
+          map.put("requireMatchingSelfie", JSON.serialize(requireMatchingSelfie));
         }
     }
     if (holdForPrefill != null) {
@@ -398,6 +404,7 @@ public class IdVerification {
         if (holdForPrefill.getClass().equals(java.io.File.class) ||
             holdForPrefill.getClass().equals(Integer.class) ||
             holdForPrefill.getClass().equals(String.class) ||
+            holdForPrefill.getClass().equals(java.net.URI.class)||
             holdForPrefill.getClass().isEnum()) {
             map.put("holdForPrefill", holdForPrefill);
         } else if (isListOfFile(holdForPrefill)) {
@@ -406,7 +413,7 @@ public class IdVerification {
             }
         }
         else {
-          map.put("holdForPrefill", holdForPrefill);
+          map.put("holdForPrefill", JSON.serialize(holdForPrefill));
         }
     }
     if (prefillCompleted != null) {
@@ -417,6 +424,7 @@ public class IdVerification {
         if (prefillCompleted.getClass().equals(java.io.File.class) ||
             prefillCompleted.getClass().equals(Integer.class) ||
             prefillCompleted.getClass().equals(String.class) ||
+            prefillCompleted.getClass().equals(java.net.URI.class)||
             prefillCompleted.getClass().isEnum()) {
             map.put("prefillCompleted", prefillCompleted);
         } else if (isListOfFile(prefillCompleted)) {
@@ -425,7 +433,7 @@ public class IdVerification {
             }
         }
         else {
-          map.put("prefillCompleted", prefillCompleted);
+          map.put("prefillCompleted", JSON.serialize(prefillCompleted));
         }
     }
     } catch (Exception e) {

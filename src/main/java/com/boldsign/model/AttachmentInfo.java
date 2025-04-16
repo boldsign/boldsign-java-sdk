@@ -199,6 +199,7 @@ public class AttachmentInfo {
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
             title.getClass().equals(String.class) ||
+            title.getClass().equals(java.net.URI.class)||
             title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
@@ -207,7 +208,7 @@ public class AttachmentInfo {
             }
         }
         else {
-          map.put("title", title);
+          map.put("title", JSON.serialize(title));
         }
     }
     if (allowedFileTypes != null) {
@@ -218,6 +219,7 @@ public class AttachmentInfo {
         if (allowedFileTypes.getClass().equals(java.io.File.class) ||
             allowedFileTypes.getClass().equals(Integer.class) ||
             allowedFileTypes.getClass().equals(String.class) ||
+            allowedFileTypes.getClass().equals(java.net.URI.class)||
             allowedFileTypes.getClass().isEnum()) {
             map.put("allowedFileTypes", allowedFileTypes);
         } else if (isListOfFile(allowedFileTypes)) {
@@ -226,7 +228,7 @@ public class AttachmentInfo {
             }
         }
         else {
-          map.put("allowedFileTypes", allowedFileTypes);
+          map.put("allowedFileTypes", JSON.serialize(allowedFileTypes));
         }
     }
     if (description != null) {
@@ -237,6 +239,7 @@ public class AttachmentInfo {
         if (description.getClass().equals(java.io.File.class) ||
             description.getClass().equals(Integer.class) ||
             description.getClass().equals(String.class) ||
+            description.getClass().equals(java.net.URI.class)||
             description.getClass().isEnum()) {
             map.put("description", description);
         } else if (isListOfFile(description)) {
@@ -245,7 +248,7 @@ public class AttachmentInfo {
             }
         }
         else {
-          map.put("description", description);
+          map.put("description", JSON.serialize(description));
         }
     }
     if (acceptedFileTypes != null) {
@@ -256,6 +259,7 @@ public class AttachmentInfo {
         if (acceptedFileTypes.getClass().equals(java.io.File.class) ||
             acceptedFileTypes.getClass().equals(Integer.class) ||
             acceptedFileTypes.getClass().equals(String.class) ||
+            acceptedFileTypes.getClass().equals(java.net.URI.class)||
             acceptedFileTypes.getClass().isEnum()) {
             map.put("acceptedFileTypes", acceptedFileTypes);
         } else if (isListOfFile(acceptedFileTypes)) {
@@ -266,7 +270,7 @@ public class AttachmentInfo {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : acceptedFileTypes) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {

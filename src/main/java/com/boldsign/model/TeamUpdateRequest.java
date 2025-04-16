@@ -134,6 +134,7 @@ public class TeamUpdateRequest {
         if (teamId.getClass().equals(java.io.File.class) ||
             teamId.getClass().equals(Integer.class) ||
             teamId.getClass().equals(String.class) ||
+            teamId.getClass().equals(java.net.URI.class)||
             teamId.getClass().isEnum()) {
             map.put("teamId", teamId);
         } else if (isListOfFile(teamId)) {
@@ -142,7 +143,7 @@ public class TeamUpdateRequest {
             }
         }
         else {
-          map.put("teamId", teamId);
+          map.put("teamId", JSON.serialize(teamId));
         }
     }
     if (teamName != null) {
@@ -153,6 +154,7 @@ public class TeamUpdateRequest {
         if (teamName.getClass().equals(java.io.File.class) ||
             teamName.getClass().equals(Integer.class) ||
             teamName.getClass().equals(String.class) ||
+            teamName.getClass().equals(java.net.URI.class)||
             teamName.getClass().isEnum()) {
             map.put("teamName", teamName);
         } else if (isListOfFile(teamName)) {
@@ -161,7 +163,7 @@ public class TeamUpdateRequest {
             }
         }
         else {
-          map.put("teamName", teamName);
+          map.put("teamName", JSON.serialize(teamName));
         }
     }
     } catch (Exception e) {

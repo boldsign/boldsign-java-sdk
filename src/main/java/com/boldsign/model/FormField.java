@@ -1421,6 +1421,7 @@ public class FormField {
         if (fieldType.getClass().equals(java.io.File.class) ||
             fieldType.getClass().equals(Integer.class) ||
             fieldType.getClass().equals(String.class) ||
+            fieldType.getClass().equals(java.net.URI.class)||
             fieldType.getClass().isEnum()) {
             map.put("fieldType", fieldType);
         } else if (isListOfFile(fieldType)) {
@@ -1429,7 +1430,7 @@ public class FormField {
             }
         }
         else {
-          map.put("fieldType", fieldType);
+          map.put("fieldType", JSON.serialize(fieldType));
         }
     }
     if (pageNumber != null) {
@@ -1440,6 +1441,7 @@ public class FormField {
         if (pageNumber.getClass().equals(java.io.File.class) ||
             pageNumber.getClass().equals(Integer.class) ||
             pageNumber.getClass().equals(String.class) ||
+            pageNumber.getClass().equals(java.net.URI.class)||
             pageNumber.getClass().isEnum()) {
             map.put("pageNumber", pageNumber);
         } else if (isListOfFile(pageNumber)) {
@@ -1448,7 +1450,7 @@ public class FormField {
             }
         }
         else {
-          map.put("pageNumber", pageNumber);
+          map.put("pageNumber", JSON.serialize(pageNumber));
         }
     }
     if (bounds != null) {
@@ -1459,6 +1461,7 @@ public class FormField {
         if (bounds.getClass().equals(java.io.File.class) ||
             bounds.getClass().equals(Integer.class) ||
             bounds.getClass().equals(String.class) ||
+            bounds.getClass().equals(java.net.URI.class)||
             bounds.getClass().isEnum()) {
             map.put("bounds", bounds);
         } else if (isListOfFile(bounds)) {
@@ -1467,7 +1470,7 @@ public class FormField {
             }
         }
         else {
-          map.put("bounds", bounds);
+          map.put("bounds", JSON.serialize(bounds));
         }
     }
     if (id != null) {
@@ -1478,6 +1481,7 @@ public class FormField {
         if (id.getClass().equals(java.io.File.class) ||
             id.getClass().equals(Integer.class) ||
             id.getClass().equals(String.class) ||
+            id.getClass().equals(java.net.URI.class)||
             id.getClass().isEnum()) {
             map.put("id", id);
         } else if (isListOfFile(id)) {
@@ -1486,7 +1490,7 @@ public class FormField {
             }
         }
         else {
-          map.put("id", id);
+          map.put("id", JSON.serialize(id));
         }
     }
     if (name != null) {
@@ -1497,6 +1501,7 @@ public class FormField {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -1505,7 +1510,7 @@ public class FormField {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (isRequired != null) {
@@ -1516,6 +1521,7 @@ public class FormField {
         if (isRequired.getClass().equals(java.io.File.class) ||
             isRequired.getClass().equals(Integer.class) ||
             isRequired.getClass().equals(String.class) ||
+            isRequired.getClass().equals(java.net.URI.class)||
             isRequired.getClass().isEnum()) {
             map.put("isRequired", isRequired);
         } else if (isListOfFile(isRequired)) {
@@ -1524,7 +1530,7 @@ public class FormField {
             }
         }
         else {
-          map.put("isRequired", isRequired);
+          map.put("isRequired", JSON.serialize(isRequired));
         }
     }
     if (isReadOnly != null) {
@@ -1535,6 +1541,7 @@ public class FormField {
         if (isReadOnly.getClass().equals(java.io.File.class) ||
             isReadOnly.getClass().equals(Integer.class) ||
             isReadOnly.getClass().equals(String.class) ||
+            isReadOnly.getClass().equals(java.net.URI.class)||
             isReadOnly.getClass().isEnum()) {
             map.put("isReadOnly", isReadOnly);
         } else if (isListOfFile(isReadOnly)) {
@@ -1543,7 +1550,7 @@ public class FormField {
             }
         }
         else {
-          map.put("isReadOnly", isReadOnly);
+          map.put("isReadOnly", JSON.serialize(isReadOnly));
         }
     }
     if (value != null) {
@@ -1554,6 +1561,7 @@ public class FormField {
         if (value.getClass().equals(java.io.File.class) ||
             value.getClass().equals(Integer.class) ||
             value.getClass().equals(String.class) ||
+            value.getClass().equals(java.net.URI.class)||
             value.getClass().isEnum()) {
             map.put("value", value);
         } else if (isListOfFile(value)) {
@@ -1562,7 +1570,7 @@ public class FormField {
             }
         }
         else {
-          map.put("value", value);
+          map.put("value", JSON.serialize(value));
         }
     }
     if (fontSize != null) {
@@ -1573,6 +1581,7 @@ public class FormField {
         if (fontSize.getClass().equals(java.io.File.class) ||
             fontSize.getClass().equals(Integer.class) ||
             fontSize.getClass().equals(String.class) ||
+            fontSize.getClass().equals(java.net.URI.class)||
             fontSize.getClass().isEnum()) {
             map.put("fontSize", fontSize);
         } else if (isListOfFile(fontSize)) {
@@ -1581,7 +1590,7 @@ public class FormField {
             }
         }
         else {
-          map.put("fontSize", fontSize);
+          map.put("fontSize", JSON.serialize(fontSize));
         }
     }
     if (font != null) {
@@ -1592,6 +1601,7 @@ public class FormField {
         if (font.getClass().equals(java.io.File.class) ||
             font.getClass().equals(Integer.class) ||
             font.getClass().equals(String.class) ||
+            font.getClass().equals(java.net.URI.class)||
             font.getClass().isEnum()) {
             map.put("font", font);
         } else if (isListOfFile(font)) {
@@ -1600,7 +1610,7 @@ public class FormField {
             }
         }
         else {
-          map.put("font", font);
+          map.put("font", JSON.serialize(font));
         }
     }
     if (fontHexColor != null) {
@@ -1611,6 +1621,7 @@ public class FormField {
         if (fontHexColor.getClass().equals(java.io.File.class) ||
             fontHexColor.getClass().equals(Integer.class) ||
             fontHexColor.getClass().equals(String.class) ||
+            fontHexColor.getClass().equals(java.net.URI.class)||
             fontHexColor.getClass().isEnum()) {
             map.put("fontHexColor", fontHexColor);
         } else if (isListOfFile(fontHexColor)) {
@@ -1619,7 +1630,7 @@ public class FormField {
             }
         }
         else {
-          map.put("fontHexColor", fontHexColor);
+          map.put("fontHexColor", JSON.serialize(fontHexColor));
         }
     }
     if (isBoldFont != null) {
@@ -1630,6 +1641,7 @@ public class FormField {
         if (isBoldFont.getClass().equals(java.io.File.class) ||
             isBoldFont.getClass().equals(Integer.class) ||
             isBoldFont.getClass().equals(String.class) ||
+            isBoldFont.getClass().equals(java.net.URI.class)||
             isBoldFont.getClass().isEnum()) {
             map.put("isBoldFont", isBoldFont);
         } else if (isListOfFile(isBoldFont)) {
@@ -1638,7 +1650,7 @@ public class FormField {
             }
         }
         else {
-          map.put("isBoldFont", isBoldFont);
+          map.put("isBoldFont", JSON.serialize(isBoldFont));
         }
     }
     if (isItalicFont != null) {
@@ -1649,6 +1661,7 @@ public class FormField {
         if (isItalicFont.getClass().equals(java.io.File.class) ||
             isItalicFont.getClass().equals(Integer.class) ||
             isItalicFont.getClass().equals(String.class) ||
+            isItalicFont.getClass().equals(java.net.URI.class)||
             isItalicFont.getClass().isEnum()) {
             map.put("isItalicFont", isItalicFont);
         } else if (isListOfFile(isItalicFont)) {
@@ -1657,7 +1670,7 @@ public class FormField {
             }
         }
         else {
-          map.put("isItalicFont", isItalicFont);
+          map.put("isItalicFont", JSON.serialize(isItalicFont));
         }
     }
     if (isUnderLineFont != null) {
@@ -1668,6 +1681,7 @@ public class FormField {
         if (isUnderLineFont.getClass().equals(java.io.File.class) ||
             isUnderLineFont.getClass().equals(Integer.class) ||
             isUnderLineFont.getClass().equals(String.class) ||
+            isUnderLineFont.getClass().equals(java.net.URI.class)||
             isUnderLineFont.getClass().isEnum()) {
             map.put("isUnderLineFont", isUnderLineFont);
         } else if (isListOfFile(isUnderLineFont)) {
@@ -1676,7 +1690,7 @@ public class FormField {
             }
         }
         else {
-          map.put("isUnderLineFont", isUnderLineFont);
+          map.put("isUnderLineFont", JSON.serialize(isUnderLineFont));
         }
     }
     if (lineHeight != null) {
@@ -1687,6 +1701,7 @@ public class FormField {
         if (lineHeight.getClass().equals(java.io.File.class) ||
             lineHeight.getClass().equals(Integer.class) ||
             lineHeight.getClass().equals(String.class) ||
+            lineHeight.getClass().equals(java.net.URI.class)||
             lineHeight.getClass().isEnum()) {
             map.put("lineHeight", lineHeight);
         } else if (isListOfFile(lineHeight)) {
@@ -1695,7 +1710,7 @@ public class FormField {
             }
         }
         else {
-          map.put("lineHeight", lineHeight);
+          map.put("lineHeight", JSON.serialize(lineHeight));
         }
     }
     if (characterLimit != null) {
@@ -1706,6 +1721,7 @@ public class FormField {
         if (characterLimit.getClass().equals(java.io.File.class) ||
             characterLimit.getClass().equals(Integer.class) ||
             characterLimit.getClass().equals(String.class) ||
+            characterLimit.getClass().equals(java.net.URI.class)||
             characterLimit.getClass().isEnum()) {
             map.put("characterLimit", characterLimit);
         } else if (isListOfFile(characterLimit)) {
@@ -1714,7 +1730,7 @@ public class FormField {
             }
         }
         else {
-          map.put("characterLimit", characterLimit);
+          map.put("characterLimit", JSON.serialize(characterLimit));
         }
     }
     if (groupName != null) {
@@ -1725,6 +1741,7 @@ public class FormField {
         if (groupName.getClass().equals(java.io.File.class) ||
             groupName.getClass().equals(Integer.class) ||
             groupName.getClass().equals(String.class) ||
+            groupName.getClass().equals(java.net.URI.class)||
             groupName.getClass().isEnum()) {
             map.put("groupName", groupName);
         } else if (isListOfFile(groupName)) {
@@ -1733,7 +1750,7 @@ public class FormField {
             }
         }
         else {
-          map.put("groupName", groupName);
+          map.put("groupName", JSON.serialize(groupName));
         }
     }
     if (label != null) {
@@ -1744,6 +1761,7 @@ public class FormField {
         if (label.getClass().equals(java.io.File.class) ||
             label.getClass().equals(Integer.class) ||
             label.getClass().equals(String.class) ||
+            label.getClass().equals(java.net.URI.class)||
             label.getClass().isEnum()) {
             map.put("label", label);
         } else if (isListOfFile(label)) {
@@ -1752,7 +1770,7 @@ public class FormField {
             }
         }
         else {
-          map.put("label", label);
+          map.put("label", JSON.serialize(label));
         }
     }
     if (placeHolder != null) {
@@ -1763,6 +1781,7 @@ public class FormField {
         if (placeHolder.getClass().equals(java.io.File.class) ||
             placeHolder.getClass().equals(Integer.class) ||
             placeHolder.getClass().equals(String.class) ||
+            placeHolder.getClass().equals(java.net.URI.class)||
             placeHolder.getClass().isEnum()) {
             map.put("placeHolder", placeHolder);
         } else if (isListOfFile(placeHolder)) {
@@ -1771,7 +1790,7 @@ public class FormField {
             }
         }
         else {
-          map.put("placeHolder", placeHolder);
+          map.put("placeHolder", JSON.serialize(placeHolder));
         }
     }
     if (validationType != null) {
@@ -1782,6 +1801,7 @@ public class FormField {
         if (validationType.getClass().equals(java.io.File.class) ||
             validationType.getClass().equals(Integer.class) ||
             validationType.getClass().equals(String.class) ||
+            validationType.getClass().equals(java.net.URI.class)||
             validationType.getClass().isEnum()) {
             map.put("validationType", validationType);
         } else if (isListOfFile(validationType)) {
@@ -1790,7 +1810,7 @@ public class FormField {
             }
         }
         else {
-          map.put("validationType", validationType);
+          map.put("validationType", JSON.serialize(validationType));
         }
     }
     if (validationCustomRegex != null) {
@@ -1801,6 +1821,7 @@ public class FormField {
         if (validationCustomRegex.getClass().equals(java.io.File.class) ||
             validationCustomRegex.getClass().equals(Integer.class) ||
             validationCustomRegex.getClass().equals(String.class) ||
+            validationCustomRegex.getClass().equals(java.net.URI.class)||
             validationCustomRegex.getClass().isEnum()) {
             map.put("validationCustomRegex", validationCustomRegex);
         } else if (isListOfFile(validationCustomRegex)) {
@@ -1809,7 +1830,7 @@ public class FormField {
             }
         }
         else {
-          map.put("validationCustomRegex", validationCustomRegex);
+          map.put("validationCustomRegex", JSON.serialize(validationCustomRegex));
         }
     }
     if (validationCustomRegexMessage != null) {
@@ -1820,6 +1841,7 @@ public class FormField {
         if (validationCustomRegexMessage.getClass().equals(java.io.File.class) ||
             validationCustomRegexMessage.getClass().equals(Integer.class) ||
             validationCustomRegexMessage.getClass().equals(String.class) ||
+            validationCustomRegexMessage.getClass().equals(java.net.URI.class)||
             validationCustomRegexMessage.getClass().isEnum()) {
             map.put("validationCustomRegexMessage", validationCustomRegexMessage);
         } else if (isListOfFile(validationCustomRegexMessage)) {
@@ -1828,7 +1850,7 @@ public class FormField {
             }
         }
         else {
-          map.put("validationCustomRegexMessage", validationCustomRegexMessage);
+          map.put("validationCustomRegexMessage", JSON.serialize(validationCustomRegexMessage));
         }
     }
     if (dateFormat != null) {
@@ -1839,6 +1861,7 @@ public class FormField {
         if (dateFormat.getClass().equals(java.io.File.class) ||
             dateFormat.getClass().equals(Integer.class) ||
             dateFormat.getClass().equals(String.class) ||
+            dateFormat.getClass().equals(java.net.URI.class)||
             dateFormat.getClass().isEnum()) {
             map.put("dateFormat", dateFormat);
         } else if (isListOfFile(dateFormat)) {
@@ -1847,7 +1870,7 @@ public class FormField {
             }
         }
         else {
-          map.put("dateFormat", dateFormat);
+          map.put("dateFormat", JSON.serialize(dateFormat));
         }
     }
     if (timeFormat != null) {
@@ -1858,6 +1881,7 @@ public class FormField {
         if (timeFormat.getClass().equals(java.io.File.class) ||
             timeFormat.getClass().equals(Integer.class) ||
             timeFormat.getClass().equals(String.class) ||
+            timeFormat.getClass().equals(java.net.URI.class)||
             timeFormat.getClass().isEnum()) {
             map.put("timeFormat", timeFormat);
         } else if (isListOfFile(timeFormat)) {
@@ -1866,7 +1890,7 @@ public class FormField {
             }
         }
         else {
-          map.put("timeFormat", timeFormat);
+          map.put("timeFormat", JSON.serialize(timeFormat));
         }
     }
     if (imageInfo != null) {
@@ -1877,6 +1901,7 @@ public class FormField {
         if (imageInfo.getClass().equals(java.io.File.class) ||
             imageInfo.getClass().equals(Integer.class) ||
             imageInfo.getClass().equals(String.class) ||
+            imageInfo.getClass().equals(java.net.URI.class)||
             imageInfo.getClass().isEnum()) {
             map.put("imageInfo", imageInfo);
         } else if (isListOfFile(imageInfo)) {
@@ -1885,7 +1910,7 @@ public class FormField {
             }
         }
         else {
-          map.put("imageInfo", imageInfo);
+          map.put("imageInfo", JSON.serialize(imageInfo));
         }
     }
     if (attachmentInfo != null) {
@@ -1896,6 +1921,7 @@ public class FormField {
         if (attachmentInfo.getClass().equals(java.io.File.class) ||
             attachmentInfo.getClass().equals(Integer.class) ||
             attachmentInfo.getClass().equals(String.class) ||
+            attachmentInfo.getClass().equals(java.net.URI.class)||
             attachmentInfo.getClass().isEnum()) {
             map.put("attachmentInfo", attachmentInfo);
         } else if (isListOfFile(attachmentInfo)) {
@@ -1904,7 +1930,7 @@ public class FormField {
             }
         }
         else {
-          map.put("attachmentInfo", attachmentInfo);
+          map.put("attachmentInfo", JSON.serialize(attachmentInfo));
         }
     }
     if (editableDateFieldSettings != null) {
@@ -1915,6 +1941,7 @@ public class FormField {
         if (editableDateFieldSettings.getClass().equals(java.io.File.class) ||
             editableDateFieldSettings.getClass().equals(Integer.class) ||
             editableDateFieldSettings.getClass().equals(String.class) ||
+            editableDateFieldSettings.getClass().equals(java.net.URI.class)||
             editableDateFieldSettings.getClass().isEnum()) {
             map.put("editableDateFieldSettings", editableDateFieldSettings);
         } else if (isListOfFile(editableDateFieldSettings)) {
@@ -1923,7 +1950,7 @@ public class FormField {
             }
         }
         else {
-          map.put("editableDateFieldSettings", editableDateFieldSettings);
+          map.put("editableDateFieldSettings", JSON.serialize(editableDateFieldSettings));
         }
     }
     if (hyperlinkText != null) {
@@ -1934,6 +1961,7 @@ public class FormField {
         if (hyperlinkText.getClass().equals(java.io.File.class) ||
             hyperlinkText.getClass().equals(Integer.class) ||
             hyperlinkText.getClass().equals(String.class) ||
+            hyperlinkText.getClass().equals(java.net.URI.class)||
             hyperlinkText.getClass().isEnum()) {
             map.put("hyperlinkText", hyperlinkText);
         } else if (isListOfFile(hyperlinkText)) {
@@ -1942,7 +1970,7 @@ public class FormField {
             }
         }
         else {
-          map.put("hyperlinkText", hyperlinkText);
+          map.put("hyperlinkText", JSON.serialize(hyperlinkText));
         }
     }
     if (conditionalRules != null) {
@@ -1953,6 +1981,7 @@ public class FormField {
         if (conditionalRules.getClass().equals(java.io.File.class) ||
             conditionalRules.getClass().equals(Integer.class) ||
             conditionalRules.getClass().equals(String.class) ||
+            conditionalRules.getClass().equals(java.net.URI.class)||
             conditionalRules.getClass().isEnum()) {
             map.put("conditionalRules", conditionalRules);
         } else if (isListOfFile(conditionalRules)) {
@@ -1963,7 +1992,7 @@ public class FormField {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : conditionalRules) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1982,6 +2011,7 @@ public class FormField {
         if (dataSyncTag.getClass().equals(java.io.File.class) ||
             dataSyncTag.getClass().equals(Integer.class) ||
             dataSyncTag.getClass().equals(String.class) ||
+            dataSyncTag.getClass().equals(java.net.URI.class)||
             dataSyncTag.getClass().isEnum()) {
             map.put("dataSyncTag", dataSyncTag);
         } else if (isListOfFile(dataSyncTag)) {
@@ -1990,7 +2020,7 @@ public class FormField {
             }
         }
         else {
-          map.put("dataSyncTag", dataSyncTag);
+          map.put("dataSyncTag", JSON.serialize(dataSyncTag));
         }
     }
     if (dropdownOptions != null) {
@@ -2001,6 +2031,7 @@ public class FormField {
         if (dropdownOptions.getClass().equals(java.io.File.class) ||
             dropdownOptions.getClass().equals(Integer.class) ||
             dropdownOptions.getClass().equals(String.class) ||
+            dropdownOptions.getClass().equals(java.net.URI.class)||
             dropdownOptions.getClass().isEnum()) {
             map.put("dropdownOptions", dropdownOptions);
         } else if (isListOfFile(dropdownOptions)) {
@@ -2011,7 +2042,7 @@ public class FormField {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : dropdownOptions) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -2030,6 +2061,7 @@ public class FormField {
         if (textAlign.getClass().equals(java.io.File.class) ||
             textAlign.getClass().equals(Integer.class) ||
             textAlign.getClass().equals(String.class) ||
+            textAlign.getClass().equals(java.net.URI.class)||
             textAlign.getClass().isEnum()) {
             map.put("textAlign", textAlign);
         } else if (isListOfFile(textAlign)) {
@@ -2038,7 +2070,7 @@ public class FormField {
             }
         }
         else {
-          map.put("textAlign", textAlign);
+          map.put("textAlign", JSON.serialize(textAlign));
         }
     }
     if (textDirection != null) {
@@ -2049,6 +2081,7 @@ public class FormField {
         if (textDirection.getClass().equals(java.io.File.class) ||
             textDirection.getClass().equals(Integer.class) ||
             textDirection.getClass().equals(String.class) ||
+            textDirection.getClass().equals(java.net.URI.class)||
             textDirection.getClass().isEnum()) {
             map.put("textDirection", textDirection);
         } else if (isListOfFile(textDirection)) {
@@ -2057,7 +2090,7 @@ public class FormField {
             }
         }
         else {
-          map.put("textDirection", textDirection);
+          map.put("textDirection", JSON.serialize(textDirection));
         }
     }
     if (characterSpacing != null) {
@@ -2068,6 +2101,7 @@ public class FormField {
         if (characterSpacing.getClass().equals(java.io.File.class) ||
             characterSpacing.getClass().equals(Integer.class) ||
             characterSpacing.getClass().equals(String.class) ||
+            characterSpacing.getClass().equals(java.net.URI.class)||
             characterSpacing.getClass().isEnum()) {
             map.put("characterSpacing", characterSpacing);
         } else if (isListOfFile(characterSpacing)) {
@@ -2076,7 +2110,7 @@ public class FormField {
             }
         }
         else {
-          map.put("characterSpacing", characterSpacing);
+          map.put("characterSpacing", JSON.serialize(characterSpacing));
         }
     }
     if (backgroundHexColor != null) {
@@ -2087,6 +2121,7 @@ public class FormField {
         if (backgroundHexColor.getClass().equals(java.io.File.class) ||
             backgroundHexColor.getClass().equals(Integer.class) ||
             backgroundHexColor.getClass().equals(String.class) ||
+            backgroundHexColor.getClass().equals(java.net.URI.class)||
             backgroundHexColor.getClass().isEnum()) {
             map.put("backgroundHexColor", backgroundHexColor);
         } else if (isListOfFile(backgroundHexColor)) {
@@ -2095,7 +2130,7 @@ public class FormField {
             }
         }
         else {
-          map.put("backgroundHexColor", backgroundHexColor);
+          map.put("backgroundHexColor", JSON.serialize(backgroundHexColor));
         }
     }
     if (tabIndex != null) {
@@ -2106,6 +2141,7 @@ public class FormField {
         if (tabIndex.getClass().equals(java.io.File.class) ||
             tabIndex.getClass().equals(Integer.class) ||
             tabIndex.getClass().equals(String.class) ||
+            tabIndex.getClass().equals(java.net.URI.class)||
             tabIndex.getClass().isEnum()) {
             map.put("tabIndex", tabIndex);
         } else if (isListOfFile(tabIndex)) {
@@ -2114,7 +2150,7 @@ public class FormField {
             }
         }
         else {
-          map.put("tabIndex", tabIndex);
+          map.put("tabIndex", JSON.serialize(tabIndex));
         }
     }
     if (formulaFieldSettings != null) {
@@ -2125,6 +2161,7 @@ public class FormField {
         if (formulaFieldSettings.getClass().equals(java.io.File.class) ||
             formulaFieldSettings.getClass().equals(Integer.class) ||
             formulaFieldSettings.getClass().equals(String.class) ||
+            formulaFieldSettings.getClass().equals(java.net.URI.class)||
             formulaFieldSettings.getClass().isEnum()) {
             map.put("formulaFieldSettings", formulaFieldSettings);
         } else if (isListOfFile(formulaFieldSettings)) {
@@ -2133,7 +2170,7 @@ public class FormField {
             }
         }
         else {
-          map.put("formulaFieldSettings", formulaFieldSettings);
+          map.put("formulaFieldSettings", JSON.serialize(formulaFieldSettings));
         }
     }
     if (resizeOption != null) {
@@ -2144,6 +2181,7 @@ public class FormField {
         if (resizeOption.getClass().equals(java.io.File.class) ||
             resizeOption.getClass().equals(Integer.class) ||
             resizeOption.getClass().equals(String.class) ||
+            resizeOption.getClass().equals(java.net.URI.class)||
             resizeOption.getClass().isEnum()) {
             map.put("resizeOption", resizeOption);
         } else if (isListOfFile(resizeOption)) {
@@ -2152,7 +2190,7 @@ public class FormField {
             }
         }
         else {
-          map.put("resizeOption", resizeOption);
+          map.put("resizeOption", JSON.serialize(resizeOption));
         }
     }
     } catch (Exception e) {

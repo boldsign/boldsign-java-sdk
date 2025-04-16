@@ -190,6 +190,7 @@ public class Validation {
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
             type.getClass().equals(String.class) ||
+            type.getClass().equals(java.net.URI.class)||
             type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
@@ -198,7 +199,7 @@ public class Validation {
             }
         }
         else {
-          map.put("type", type);
+          map.put("type", JSON.serialize(type));
         }
     }
     if (regex != null) {
@@ -209,6 +210,7 @@ public class Validation {
         if (regex.getClass().equals(java.io.File.class) ||
             regex.getClass().equals(Integer.class) ||
             regex.getClass().equals(String.class) ||
+            regex.getClass().equals(java.net.URI.class)||
             regex.getClass().isEnum()) {
             map.put("regex", regex);
         } else if (isListOfFile(regex)) {
@@ -217,7 +219,7 @@ public class Validation {
             }
         }
         else {
-          map.put("regex", regex);
+          map.put("regex", JSON.serialize(regex));
         }
     }
     } catch (Exception e) {

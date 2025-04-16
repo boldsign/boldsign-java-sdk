@@ -189,6 +189,7 @@ public class ExtendExpiry {
         if (newExpiryValue.getClass().equals(java.io.File.class) ||
             newExpiryValue.getClass().equals(Integer.class) ||
             newExpiryValue.getClass().equals(String.class) ||
+            newExpiryValue.getClass().equals(java.net.URI.class)||
             newExpiryValue.getClass().isEnum()) {
             map.put("newExpiryValue", newExpiryValue);
         } else if (isListOfFile(newExpiryValue)) {
@@ -197,7 +198,7 @@ public class ExtendExpiry {
             }
         }
         else {
-          map.put("newExpiryValue", newExpiryValue);
+          map.put("newExpiryValue", JSON.serialize(newExpiryValue));
         }
     }
     if (newExpiryDate != null) {
@@ -208,6 +209,7 @@ public class ExtendExpiry {
         if (newExpiryDate.getClass().equals(java.io.File.class) ||
             newExpiryDate.getClass().equals(Integer.class) ||
             newExpiryDate.getClass().equals(String.class) ||
+            newExpiryDate.getClass().equals(java.net.URI.class)||
             newExpiryDate.getClass().isEnum()) {
             map.put("newExpiryDate", newExpiryDate);
         } else if (isListOfFile(newExpiryDate)) {
@@ -216,7 +218,7 @@ public class ExtendExpiry {
             }
         }
         else {
-          map.put("newExpiryDate", newExpiryDate);
+          map.put("newExpiryDate", JSON.serialize(newExpiryDate));
         }
     }
     if (warnPrior != null) {
@@ -227,6 +229,7 @@ public class ExtendExpiry {
         if (warnPrior.getClass().equals(java.io.File.class) ||
             warnPrior.getClass().equals(Integer.class) ||
             warnPrior.getClass().equals(String.class) ||
+            warnPrior.getClass().equals(java.net.URI.class)||
             warnPrior.getClass().isEnum()) {
             map.put("warnPrior", warnPrior);
         } else if (isListOfFile(warnPrior)) {
@@ -235,7 +238,7 @@ public class ExtendExpiry {
             }
         }
         else {
-          map.put("warnPrior", warnPrior);
+          map.put("warnPrior", JSON.serialize(warnPrior));
         }
     }
     if (onBehalfOf != null) {
@@ -246,6 +249,7 @@ public class ExtendExpiry {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -254,7 +258,7 @@ public class ExtendExpiry {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     } catch (Exception e) {

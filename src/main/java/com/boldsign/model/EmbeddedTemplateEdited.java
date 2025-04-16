@@ -110,6 +110,7 @@ public class EmbeddedTemplateEdited {
         if (editUrl.getClass().equals(java.io.File.class) ||
             editUrl.getClass().equals(Integer.class) ||
             editUrl.getClass().equals(String.class) ||
+            editUrl.getClass().equals(java.net.URI.class)||
             editUrl.getClass().isEnum()) {
             map.put("editUrl", editUrl);
         } else if (isListOfFile(editUrl)) {
@@ -118,7 +119,7 @@ public class EmbeddedTemplateEdited {
             }
         }
         else {
-          map.put("editUrl", editUrl);
+          map.put("editUrl", JSON.serialize(editUrl));
         }
     }
     } catch (Exception e) {

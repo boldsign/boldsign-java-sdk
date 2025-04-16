@@ -159,6 +159,7 @@ public class TemplateSenderDetails {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -167,7 +168,7 @@ public class TemplateSenderDetails {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (emailAddress != null) {
@@ -178,6 +179,7 @@ public class TemplateSenderDetails {
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
             emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().equals(java.net.URI.class)||
             emailAddress.getClass().isEnum()) {
             map.put("emailAddress", emailAddress);
         } else if (isListOfFile(emailAddress)) {
@@ -186,7 +188,7 @@ public class TemplateSenderDetails {
             }
         }
         else {
-          map.put("emailAddress", emailAddress);
+          map.put("emailAddress", JSON.serialize(emailAddress));
         }
     }
     if (userId != null) {
@@ -197,6 +199,7 @@ public class TemplateSenderDetails {
         if (userId.getClass().equals(java.io.File.class) ||
             userId.getClass().equals(Integer.class) ||
             userId.getClass().equals(String.class) ||
+            userId.getClass().equals(java.net.URI.class)||
             userId.getClass().isEnum()) {
             map.put("userId", userId);
         } else if (isListOfFile(userId)) {
@@ -205,7 +208,7 @@ public class TemplateSenderDetails {
             }
         }
         else {
-          map.put("userId", userId);
+          map.put("userId", JSON.serialize(userId));
         }
     }
     } catch (Exception e) {

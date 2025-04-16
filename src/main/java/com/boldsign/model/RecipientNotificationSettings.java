@@ -384,6 +384,7 @@ public class RecipientNotificationSettings {
         if (signatureRequest.getClass().equals(java.io.File.class) ||
             signatureRequest.getClass().equals(Integer.class) ||
             signatureRequest.getClass().equals(String.class) ||
+            signatureRequest.getClass().equals(java.net.URI.class)||
             signatureRequest.getClass().isEnum()) {
             map.put("signatureRequest", signatureRequest);
         } else if (isListOfFile(signatureRequest)) {
@@ -392,7 +393,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("signatureRequest", signatureRequest);
+          map.put("signatureRequest", JSON.serialize(signatureRequest));
         }
     }
     if (declined != null) {
@@ -403,6 +404,7 @@ public class RecipientNotificationSettings {
         if (declined.getClass().equals(java.io.File.class) ||
             declined.getClass().equals(Integer.class) ||
             declined.getClass().equals(String.class) ||
+            declined.getClass().equals(java.net.URI.class)||
             declined.getClass().isEnum()) {
             map.put("declined", declined);
         } else if (isListOfFile(declined)) {
@@ -411,7 +413,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("declined", declined);
+          map.put("declined", JSON.serialize(declined));
         }
     }
     if (revoked != null) {
@@ -422,6 +424,7 @@ public class RecipientNotificationSettings {
         if (revoked.getClass().equals(java.io.File.class) ||
             revoked.getClass().equals(Integer.class) ||
             revoked.getClass().equals(String.class) ||
+            revoked.getClass().equals(java.net.URI.class)||
             revoked.getClass().isEnum()) {
             map.put("revoked", revoked);
         } else if (isListOfFile(revoked)) {
@@ -430,7 +433,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("revoked", revoked);
+          map.put("revoked", JSON.serialize(revoked));
         }
     }
     if (signed != null) {
@@ -441,6 +444,7 @@ public class RecipientNotificationSettings {
         if (signed.getClass().equals(java.io.File.class) ||
             signed.getClass().equals(Integer.class) ||
             signed.getClass().equals(String.class) ||
+            signed.getClass().equals(java.net.URI.class)||
             signed.getClass().isEnum()) {
             map.put("signed", signed);
         } else if (isListOfFile(signed)) {
@@ -449,7 +453,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("signed", signed);
+          map.put("signed", JSON.serialize(signed));
         }
     }
     if (completed != null) {
@@ -460,6 +464,7 @@ public class RecipientNotificationSettings {
         if (completed.getClass().equals(java.io.File.class) ||
             completed.getClass().equals(Integer.class) ||
             completed.getClass().equals(String.class) ||
+            completed.getClass().equals(java.net.URI.class)||
             completed.getClass().isEnum()) {
             map.put("completed", completed);
         } else if (isListOfFile(completed)) {
@@ -468,7 +473,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("completed", completed);
+          map.put("completed", JSON.serialize(completed));
         }
     }
     if (expired != null) {
@@ -479,6 +484,7 @@ public class RecipientNotificationSettings {
         if (expired.getClass().equals(java.io.File.class) ||
             expired.getClass().equals(Integer.class) ||
             expired.getClass().equals(String.class) ||
+            expired.getClass().equals(java.net.URI.class)||
             expired.getClass().isEnum()) {
             map.put("expired", expired);
         } else if (isListOfFile(expired)) {
@@ -487,7 +493,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("expired", expired);
+          map.put("expired", JSON.serialize(expired));
         }
     }
     if (reassigned != null) {
@@ -498,6 +504,7 @@ public class RecipientNotificationSettings {
         if (reassigned.getClass().equals(java.io.File.class) ||
             reassigned.getClass().equals(Integer.class) ||
             reassigned.getClass().equals(String.class) ||
+            reassigned.getClass().equals(java.net.URI.class)||
             reassigned.getClass().isEnum()) {
             map.put("reassigned", reassigned);
         } else if (isListOfFile(reassigned)) {
@@ -506,7 +513,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("reassigned", reassigned);
+          map.put("reassigned", JSON.serialize(reassigned));
         }
     }
     if (deleted != null) {
@@ -517,6 +524,7 @@ public class RecipientNotificationSettings {
         if (deleted.getClass().equals(java.io.File.class) ||
             deleted.getClass().equals(Integer.class) ||
             deleted.getClass().equals(String.class) ||
+            deleted.getClass().equals(java.net.URI.class)||
             deleted.getClass().isEnum()) {
             map.put("deleted", deleted);
         } else if (isListOfFile(deleted)) {
@@ -525,7 +533,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("deleted", deleted);
+          map.put("deleted", JSON.serialize(deleted));
         }
     }
     if (reminders != null) {
@@ -536,6 +544,7 @@ public class RecipientNotificationSettings {
         if (reminders.getClass().equals(java.io.File.class) ||
             reminders.getClass().equals(Integer.class) ||
             reminders.getClass().equals(String.class) ||
+            reminders.getClass().equals(java.net.URI.class)||
             reminders.getClass().isEnum()) {
             map.put("reminders", reminders);
         } else if (isListOfFile(reminders)) {
@@ -544,7 +553,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("reminders", reminders);
+          map.put("reminders", JSON.serialize(reminders));
         }
     }
     if (editRecipient != null) {
@@ -555,6 +564,7 @@ public class RecipientNotificationSettings {
         if (editRecipient.getClass().equals(java.io.File.class) ||
             editRecipient.getClass().equals(Integer.class) ||
             editRecipient.getClass().equals(String.class) ||
+            editRecipient.getClass().equals(java.net.URI.class)||
             editRecipient.getClass().isEnum()) {
             map.put("editRecipient", editRecipient);
         } else if (isListOfFile(editRecipient)) {
@@ -563,7 +573,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("editRecipient", editRecipient);
+          map.put("editRecipient", JSON.serialize(editRecipient));
         }
     }
     if (editDocument != null) {
@@ -574,6 +584,7 @@ public class RecipientNotificationSettings {
         if (editDocument.getClass().equals(java.io.File.class) ||
             editDocument.getClass().equals(Integer.class) ||
             editDocument.getClass().equals(String.class) ||
+            editDocument.getClass().equals(java.net.URI.class)||
             editDocument.getClass().isEnum()) {
             map.put("editDocument", editDocument);
         } else if (isListOfFile(editDocument)) {
@@ -582,7 +593,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("editDocument", editDocument);
+          map.put("editDocument", JSON.serialize(editDocument));
         }
     }
     if (viewed != null) {
@@ -593,6 +604,7 @@ public class RecipientNotificationSettings {
         if (viewed.getClass().equals(java.io.File.class) ||
             viewed.getClass().equals(Integer.class) ||
             viewed.getClass().equals(String.class) ||
+            viewed.getClass().equals(java.net.URI.class)||
             viewed.getClass().isEnum()) {
             map.put("viewed", viewed);
         } else if (isListOfFile(viewed)) {
@@ -601,7 +613,7 @@ public class RecipientNotificationSettings {
             }
         }
         else {
-          map.put("viewed", viewed);
+          map.put("viewed", JSON.serialize(viewed));
         }
     }
     } catch (Exception e) {

@@ -159,6 +159,7 @@ public class ImageInfo {
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
             title.getClass().equals(String.class) ||
+            title.getClass().equals(java.net.URI.class)||
             title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
@@ -167,7 +168,7 @@ public class ImageInfo {
             }
         }
         else {
-          map.put("title", title);
+          map.put("title", JSON.serialize(title));
         }
     }
     if (allowedFileExtensions != null) {
@@ -178,6 +179,7 @@ public class ImageInfo {
         if (allowedFileExtensions.getClass().equals(java.io.File.class) ||
             allowedFileExtensions.getClass().equals(Integer.class) ||
             allowedFileExtensions.getClass().equals(String.class) ||
+            allowedFileExtensions.getClass().equals(java.net.URI.class)||
             allowedFileExtensions.getClass().isEnum()) {
             map.put("allowedFileExtensions", allowedFileExtensions);
         } else if (isListOfFile(allowedFileExtensions)) {
@@ -186,7 +188,7 @@ public class ImageInfo {
             }
         }
         else {
-          map.put("allowedFileExtensions", allowedFileExtensions);
+          map.put("allowedFileExtensions", JSON.serialize(allowedFileExtensions));
         }
     }
     if (description != null) {
@@ -197,6 +199,7 @@ public class ImageInfo {
         if (description.getClass().equals(java.io.File.class) ||
             description.getClass().equals(Integer.class) ||
             description.getClass().equals(String.class) ||
+            description.getClass().equals(java.net.URI.class)||
             description.getClass().isEnum()) {
             map.put("description", description);
         } else if (isListOfFile(description)) {
@@ -205,7 +208,7 @@ public class ImageInfo {
             }
         }
         else {
-          map.put("description", description);
+          map.put("description", JSON.serialize(description));
         }
     }
     } catch (Exception e) {

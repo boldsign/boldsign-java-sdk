@@ -348,6 +348,7 @@ public class AccessCodeDetail {
         if (authenticationType.getClass().equals(java.io.File.class) ||
             authenticationType.getClass().equals(Integer.class) ||
             authenticationType.getClass().equals(String.class) ||
+            authenticationType.getClass().equals(java.net.URI.class)||
             authenticationType.getClass().isEnum()) {
             map.put("authenticationType", authenticationType);
         } else if (isListOfFile(authenticationType)) {
@@ -356,7 +357,7 @@ public class AccessCodeDetail {
             }
         }
         else {
-          map.put("authenticationType", authenticationType);
+          map.put("authenticationType", JSON.serialize(authenticationType));
         }
     }
     if (emailId != null) {
@@ -367,6 +368,7 @@ public class AccessCodeDetail {
         if (emailId.getClass().equals(java.io.File.class) ||
             emailId.getClass().equals(Integer.class) ||
             emailId.getClass().equals(String.class) ||
+            emailId.getClass().equals(java.net.URI.class)||
             emailId.getClass().isEnum()) {
             map.put("emailId", emailId);
         } else if (isListOfFile(emailId)) {
@@ -375,7 +377,7 @@ public class AccessCodeDetail {
             }
         }
         else {
-          map.put("emailId", emailId);
+          map.put("emailId", JSON.serialize(emailId));
         }
     }
     if (order != null) {
@@ -386,6 +388,7 @@ public class AccessCodeDetail {
         if (order.getClass().equals(java.io.File.class) ||
             order.getClass().equals(Integer.class) ||
             order.getClass().equals(String.class) ||
+            order.getClass().equals(java.net.URI.class)||
             order.getClass().isEnum()) {
             map.put("order", order);
         } else if (isListOfFile(order)) {
@@ -394,7 +397,7 @@ public class AccessCodeDetail {
             }
         }
         else {
-          map.put("order", order);
+          map.put("order", JSON.serialize(order));
         }
     }
     if (accessCode != null) {
@@ -405,6 +408,7 @@ public class AccessCodeDetail {
         if (accessCode.getClass().equals(java.io.File.class) ||
             accessCode.getClass().equals(Integer.class) ||
             accessCode.getClass().equals(String.class) ||
+            accessCode.getClass().equals(java.net.URI.class)||
             accessCode.getClass().isEnum()) {
             map.put("accessCode", accessCode);
         } else if (isListOfFile(accessCode)) {
@@ -413,7 +417,7 @@ public class AccessCodeDetail {
             }
         }
         else {
-          map.put("accessCode", accessCode);
+          map.put("accessCode", JSON.serialize(accessCode));
         }
     }
     if (onBehalfOf != null) {
@@ -424,6 +428,7 @@ public class AccessCodeDetail {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -432,7 +437,7 @@ public class AccessCodeDetail {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     if (phoneNumber != null) {
@@ -443,6 +448,7 @@ public class AccessCodeDetail {
         if (phoneNumber.getClass().equals(java.io.File.class) ||
             phoneNumber.getClass().equals(Integer.class) ||
             phoneNumber.getClass().equals(String.class) ||
+            phoneNumber.getClass().equals(java.net.URI.class)||
             phoneNumber.getClass().isEnum()) {
             map.put("phoneNumber", phoneNumber);
         } else if (isListOfFile(phoneNumber)) {
@@ -451,7 +457,7 @@ public class AccessCodeDetail {
             }
         }
         else {
-          map.put("phoneNumber", phoneNumber);
+          map.put("phoneNumber", JSON.serialize(phoneNumber));
         }
     }
     if (identityVerificationSettings != null) {
@@ -462,6 +468,7 @@ public class AccessCodeDetail {
         if (identityVerificationSettings.getClass().equals(java.io.File.class) ||
             identityVerificationSettings.getClass().equals(Integer.class) ||
             identityVerificationSettings.getClass().equals(String.class) ||
+            identityVerificationSettings.getClass().equals(java.net.URI.class)||
             identityVerificationSettings.getClass().isEnum()) {
             map.put("identityVerificationSettings", identityVerificationSettings);
         } else if (isListOfFile(identityVerificationSettings)) {
@@ -470,7 +477,7 @@ public class AccessCodeDetail {
             }
         }
         else {
-          map.put("identityVerificationSettings", identityVerificationSettings);
+          map.put("identityVerificationSettings", JSON.serialize(identityVerificationSettings));
         }
     }
     if (authenticationRetryCount != null) {
@@ -481,6 +488,7 @@ public class AccessCodeDetail {
         if (authenticationRetryCount.getClass().equals(java.io.File.class) ||
             authenticationRetryCount.getClass().equals(Integer.class) ||
             authenticationRetryCount.getClass().equals(String.class) ||
+            authenticationRetryCount.getClass().equals(java.net.URI.class)||
             authenticationRetryCount.getClass().isEnum()) {
             map.put("authenticationRetryCount", authenticationRetryCount);
         } else if (isListOfFile(authenticationRetryCount)) {
@@ -489,7 +497,7 @@ public class AccessCodeDetail {
             }
         }
         else {
-          map.put("authenticationRetryCount", authenticationRetryCount);
+          map.put("authenticationRetryCount", JSON.serialize(authenticationRetryCount));
         }
     }
     } catch (Exception e) {

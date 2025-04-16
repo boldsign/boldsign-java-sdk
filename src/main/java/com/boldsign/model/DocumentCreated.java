@@ -109,6 +109,7 @@ public class DocumentCreated {
         if (documentId.getClass().equals(java.io.File.class) ||
             documentId.getClass().equals(Integer.class) ||
             documentId.getClass().equals(String.class) ||
+            documentId.getClass().equals(java.net.URI.class)||
             documentId.getClass().isEnum()) {
             map.put("documentId", documentId);
         } else if (isListOfFile(documentId)) {
@@ -117,7 +118,7 @@ public class DocumentCreated {
             }
         }
         else {
-          map.put("documentId", documentId);
+          map.put("documentId", JSON.serialize(documentId));
         }
     }
     } catch (Exception e) {

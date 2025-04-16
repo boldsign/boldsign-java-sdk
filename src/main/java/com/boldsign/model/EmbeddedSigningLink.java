@@ -110,6 +110,7 @@ public class EmbeddedSigningLink {
         if (signLink.getClass().equals(java.io.File.class) ||
             signLink.getClass().equals(Integer.class) ||
             signLink.getClass().equals(String.class) ||
+            signLink.getClass().equals(java.net.URI.class)||
             signLink.getClass().isEnum()) {
             map.put("signLink", signLink);
         } else if (isListOfFile(signLink)) {
@@ -118,7 +119,7 @@ public class EmbeddedSigningLink {
             }
         }
         else {
-          map.put("signLink", signLink);
+          map.put("signLink", JSON.serialize(signLink));
         }
     }
     } catch (Exception e) {

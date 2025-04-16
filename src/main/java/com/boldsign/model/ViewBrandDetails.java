@@ -738,6 +738,7 @@ public class ViewBrandDetails {
         if (brandId.getClass().equals(java.io.File.class) ||
             brandId.getClass().equals(Integer.class) ||
             brandId.getClass().equals(String.class) ||
+            brandId.getClass().equals(java.net.URI.class)||
             brandId.getClass().isEnum()) {
             map.put("brandId", brandId);
         } else if (isListOfFile(brandId)) {
@@ -746,7 +747,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("brandId", brandId);
+          map.put("brandId", JSON.serialize(brandId));
         }
     }
     if (brandLogo != null) {
@@ -757,6 +758,7 @@ public class ViewBrandDetails {
         if (brandLogo.getClass().equals(java.io.File.class) ||
             brandLogo.getClass().equals(Integer.class) ||
             brandLogo.getClass().equals(String.class) ||
+            brandLogo.getClass().equals(java.net.URI.class)||
             brandLogo.getClass().isEnum()) {
             map.put("brandLogo", brandLogo);
         } else if (isListOfFile(brandLogo)) {
@@ -765,7 +767,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("brandLogo", brandLogo);
+          map.put("brandLogo", JSON.serialize(brandLogo));
         }
     }
     if (brandName != null) {
@@ -776,6 +778,7 @@ public class ViewBrandDetails {
         if (brandName.getClass().equals(java.io.File.class) ||
             brandName.getClass().equals(Integer.class) ||
             brandName.getClass().equals(String.class) ||
+            brandName.getClass().equals(java.net.URI.class)||
             brandName.getClass().isEnum()) {
             map.put("brandName", brandName);
         } else if (isListOfFile(brandName)) {
@@ -784,7 +787,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("brandName", brandName);
+          map.put("brandName", JSON.serialize(brandName));
         }
     }
     if (backgroundColor != null) {
@@ -795,6 +798,7 @@ public class ViewBrandDetails {
         if (backgroundColor.getClass().equals(java.io.File.class) ||
             backgroundColor.getClass().equals(Integer.class) ||
             backgroundColor.getClass().equals(String.class) ||
+            backgroundColor.getClass().equals(java.net.URI.class)||
             backgroundColor.getClass().isEnum()) {
             map.put("backgroundColor", backgroundColor);
         } else if (isListOfFile(backgroundColor)) {
@@ -803,7 +807,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("backgroundColor", backgroundColor);
+          map.put("backgroundColor", JSON.serialize(backgroundColor));
         }
     }
     if (buttonColor != null) {
@@ -814,6 +818,7 @@ public class ViewBrandDetails {
         if (buttonColor.getClass().equals(java.io.File.class) ||
             buttonColor.getClass().equals(Integer.class) ||
             buttonColor.getClass().equals(String.class) ||
+            buttonColor.getClass().equals(java.net.URI.class)||
             buttonColor.getClass().isEnum()) {
             map.put("buttonColor", buttonColor);
         } else if (isListOfFile(buttonColor)) {
@@ -822,7 +827,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("buttonColor", buttonColor);
+          map.put("buttonColor", JSON.serialize(buttonColor));
         }
     }
     if (buttonTextColor != null) {
@@ -833,6 +838,7 @@ public class ViewBrandDetails {
         if (buttonTextColor.getClass().equals(java.io.File.class) ||
             buttonTextColor.getClass().equals(Integer.class) ||
             buttonTextColor.getClass().equals(String.class) ||
+            buttonTextColor.getClass().equals(java.net.URI.class)||
             buttonTextColor.getClass().isEnum()) {
             map.put("buttonTextColor", buttonTextColor);
         } else if (isListOfFile(buttonTextColor)) {
@@ -841,7 +847,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("buttonTextColor", buttonTextColor);
+          map.put("buttonTextColor", JSON.serialize(buttonTextColor));
         }
     }
     if (emailDisplayName != null) {
@@ -852,6 +858,7 @@ public class ViewBrandDetails {
         if (emailDisplayName.getClass().equals(java.io.File.class) ||
             emailDisplayName.getClass().equals(Integer.class) ||
             emailDisplayName.getClass().equals(String.class) ||
+            emailDisplayName.getClass().equals(java.net.URI.class)||
             emailDisplayName.getClass().isEnum()) {
             map.put("emailDisplayName", emailDisplayName);
         } else if (isListOfFile(emailDisplayName)) {
@@ -860,7 +867,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("emailDisplayName", emailDisplayName);
+          map.put("emailDisplayName", JSON.serialize(emailDisplayName));
         }
     }
     if (disclaimerTitle != null) {
@@ -871,6 +878,7 @@ public class ViewBrandDetails {
         if (disclaimerTitle.getClass().equals(java.io.File.class) ||
             disclaimerTitle.getClass().equals(Integer.class) ||
             disclaimerTitle.getClass().equals(String.class) ||
+            disclaimerTitle.getClass().equals(java.net.URI.class)||
             disclaimerTitle.getClass().isEnum()) {
             map.put("disclaimerTitle", disclaimerTitle);
         } else if (isListOfFile(disclaimerTitle)) {
@@ -879,7 +887,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("disclaimerTitle", disclaimerTitle);
+          map.put("disclaimerTitle", JSON.serialize(disclaimerTitle));
         }
     }
     if (disclaimerDescription != null) {
@@ -890,6 +898,7 @@ public class ViewBrandDetails {
         if (disclaimerDescription.getClass().equals(java.io.File.class) ||
             disclaimerDescription.getClass().equals(Integer.class) ||
             disclaimerDescription.getClass().equals(String.class) ||
+            disclaimerDescription.getClass().equals(java.net.URI.class)||
             disclaimerDescription.getClass().isEnum()) {
             map.put("disclaimerDescription", disclaimerDescription);
         } else if (isListOfFile(disclaimerDescription)) {
@@ -898,7 +907,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("disclaimerDescription", disclaimerDescription);
+          map.put("disclaimerDescription", JSON.serialize(disclaimerDescription));
         }
     }
     if (redirectUrl != null) {
@@ -909,6 +918,7 @@ public class ViewBrandDetails {
         if (redirectUrl.getClass().equals(java.io.File.class) ||
             redirectUrl.getClass().equals(Integer.class) ||
             redirectUrl.getClass().equals(String.class) ||
+            redirectUrl.getClass().equals(java.net.URI.class)||
             redirectUrl.getClass().isEnum()) {
             map.put("redirectUrl", redirectUrl);
         } else if (isListOfFile(redirectUrl)) {
@@ -917,7 +927,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("redirectUrl", redirectUrl);
+          map.put("redirectUrl", JSON.serialize(redirectUrl));
         }
     }
     if (isDefault != null) {
@@ -928,6 +938,7 @@ public class ViewBrandDetails {
         if (isDefault.getClass().equals(java.io.File.class) ||
             isDefault.getClass().equals(Integer.class) ||
             isDefault.getClass().equals(String.class) ||
+            isDefault.getClass().equals(java.net.URI.class)||
             isDefault.getClass().isEnum()) {
             map.put("isDefault", isDefault);
         } else if (isListOfFile(isDefault)) {
@@ -936,7 +947,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("isDefault", isDefault);
+          map.put("isDefault", JSON.serialize(isDefault));
         }
     }
     if (canHideTagLine != null) {
@@ -947,6 +958,7 @@ public class ViewBrandDetails {
         if (canHideTagLine.getClass().equals(java.io.File.class) ||
             canHideTagLine.getClass().equals(Integer.class) ||
             canHideTagLine.getClass().equals(String.class) ||
+            canHideTagLine.getClass().equals(java.net.URI.class)||
             canHideTagLine.getClass().isEnum()) {
             map.put("canHideTagLine", canHideTagLine);
         } else if (isListOfFile(canHideTagLine)) {
@@ -955,7 +967,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("canHideTagLine", canHideTagLine);
+          map.put("canHideTagLine", JSON.serialize(canHideTagLine));
         }
     }
     if (combineAuditTrail != null) {
@@ -966,6 +978,7 @@ public class ViewBrandDetails {
         if (combineAuditTrail.getClass().equals(java.io.File.class) ||
             combineAuditTrail.getClass().equals(Integer.class) ||
             combineAuditTrail.getClass().equals(String.class) ||
+            combineAuditTrail.getClass().equals(java.net.URI.class)||
             combineAuditTrail.getClass().isEnum()) {
             map.put("combineAuditTrail", combineAuditTrail);
         } else if (isListOfFile(combineAuditTrail)) {
@@ -974,7 +987,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("combineAuditTrail", combineAuditTrail);
+          map.put("combineAuditTrail", JSON.serialize(combineAuditTrail));
         }
     }
     if (excludeAuditTrailFromEmail != null) {
@@ -985,6 +998,7 @@ public class ViewBrandDetails {
         if (excludeAuditTrailFromEmail.getClass().equals(java.io.File.class) ||
             excludeAuditTrailFromEmail.getClass().equals(Integer.class) ||
             excludeAuditTrailFromEmail.getClass().equals(String.class) ||
+            excludeAuditTrailFromEmail.getClass().equals(java.net.URI.class)||
             excludeAuditTrailFromEmail.getClass().isEnum()) {
             map.put("excludeAuditTrailFromEmail", excludeAuditTrailFromEmail);
         } else if (isListOfFile(excludeAuditTrailFromEmail)) {
@@ -993,7 +1007,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("excludeAuditTrailFromEmail", excludeAuditTrailFromEmail);
+          map.put("excludeAuditTrailFromEmail", JSON.serialize(excludeAuditTrailFromEmail));
         }
     }
     if (emailSignedDocument != null) {
@@ -1004,6 +1018,7 @@ public class ViewBrandDetails {
         if (emailSignedDocument.getClass().equals(java.io.File.class) ||
             emailSignedDocument.getClass().equals(Integer.class) ||
             emailSignedDocument.getClass().equals(String.class) ||
+            emailSignedDocument.getClass().equals(java.net.URI.class)||
             emailSignedDocument.getClass().isEnum()) {
             map.put("emailSignedDocument", emailSignedDocument);
         } else if (isListOfFile(emailSignedDocument)) {
@@ -1012,7 +1027,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("emailSignedDocument", emailSignedDocument);
+          map.put("emailSignedDocument", JSON.serialize(emailSignedDocument));
         }
     }
     if (documentTimeZone != null) {
@@ -1023,6 +1038,7 @@ public class ViewBrandDetails {
         if (documentTimeZone.getClass().equals(java.io.File.class) ||
             documentTimeZone.getClass().equals(Integer.class) ||
             documentTimeZone.getClass().equals(String.class) ||
+            documentTimeZone.getClass().equals(java.net.URI.class)||
             documentTimeZone.getClass().isEnum()) {
             map.put("documentTimeZone", documentTimeZone);
         } else if (isListOfFile(documentTimeZone)) {
@@ -1031,7 +1047,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("documentTimeZone", documentTimeZone);
+          map.put("documentTimeZone", JSON.serialize(documentTimeZone));
         }
     }
     if (showBuiltInFormFields != null) {
@@ -1042,6 +1058,7 @@ public class ViewBrandDetails {
         if (showBuiltInFormFields.getClass().equals(java.io.File.class) ||
             showBuiltInFormFields.getClass().equals(Integer.class) ||
             showBuiltInFormFields.getClass().equals(String.class) ||
+            showBuiltInFormFields.getClass().equals(java.net.URI.class)||
             showBuiltInFormFields.getClass().isEnum()) {
             map.put("showBuiltInFormFields", showBuiltInFormFields);
         } else if (isListOfFile(showBuiltInFormFields)) {
@@ -1050,7 +1067,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("showBuiltInFormFields", showBuiltInFormFields);
+          map.put("showBuiltInFormFields", JSON.serialize(showBuiltInFormFields));
         }
     }
     if (allowCustomFieldCreation != null) {
@@ -1061,6 +1078,7 @@ public class ViewBrandDetails {
         if (allowCustomFieldCreation.getClass().equals(java.io.File.class) ||
             allowCustomFieldCreation.getClass().equals(Integer.class) ||
             allowCustomFieldCreation.getClass().equals(String.class) ||
+            allowCustomFieldCreation.getClass().equals(java.net.URI.class)||
             allowCustomFieldCreation.getClass().isEnum()) {
             map.put("allowCustomFieldCreation", allowCustomFieldCreation);
         } else if (isListOfFile(allowCustomFieldCreation)) {
@@ -1069,7 +1087,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("allowCustomFieldCreation", allowCustomFieldCreation);
+          map.put("allowCustomFieldCreation", JSON.serialize(allowCustomFieldCreation));
         }
     }
     if (showSharedCustomFields != null) {
@@ -1080,6 +1098,7 @@ public class ViewBrandDetails {
         if (showSharedCustomFields.getClass().equals(java.io.File.class) ||
             showSharedCustomFields.getClass().equals(Integer.class) ||
             showSharedCustomFields.getClass().equals(String.class) ||
+            showSharedCustomFields.getClass().equals(java.net.URI.class)||
             showSharedCustomFields.getClass().isEnum()) {
             map.put("showSharedCustomFields", showSharedCustomFields);
         } else if (isListOfFile(showSharedCustomFields)) {
@@ -1088,7 +1107,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("showSharedCustomFields", showSharedCustomFields);
+          map.put("showSharedCustomFields", JSON.serialize(showSharedCustomFields));
         }
     }
     if (hideDecline != null) {
@@ -1099,6 +1118,7 @@ public class ViewBrandDetails {
         if (hideDecline.getClass().equals(java.io.File.class) ||
             hideDecline.getClass().equals(Integer.class) ||
             hideDecline.getClass().equals(String.class) ||
+            hideDecline.getClass().equals(java.net.URI.class)||
             hideDecline.getClass().isEnum()) {
             map.put("hideDecline", hideDecline);
         } else if (isListOfFile(hideDecline)) {
@@ -1107,7 +1127,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("hideDecline", hideDecline);
+          map.put("hideDecline", JSON.serialize(hideDecline));
         }
     }
     if (hideSave != null) {
@@ -1118,6 +1138,7 @@ public class ViewBrandDetails {
         if (hideSave.getClass().equals(java.io.File.class) ||
             hideSave.getClass().equals(Integer.class) ||
             hideSave.getClass().equals(String.class) ||
+            hideSave.getClass().equals(java.net.URI.class)||
             hideSave.getClass().isEnum()) {
             map.put("hideSave", hideSave);
         } else if (isListOfFile(hideSave)) {
@@ -1126,7 +1147,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("hideSave", hideSave);
+          map.put("hideSave", JSON.serialize(hideSave));
         }
     }
     if (documentExpirySettings != null) {
@@ -1137,6 +1158,7 @@ public class ViewBrandDetails {
         if (documentExpirySettings.getClass().equals(java.io.File.class) ||
             documentExpirySettings.getClass().equals(Integer.class) ||
             documentExpirySettings.getClass().equals(String.class) ||
+            documentExpirySettings.getClass().equals(java.net.URI.class)||
             documentExpirySettings.getClass().isEnum()) {
             map.put("documentExpirySettings", documentExpirySettings);
         } else if (isListOfFile(documentExpirySettings)) {
@@ -1145,7 +1167,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("documentExpirySettings", documentExpirySettings);
+          map.put("documentExpirySettings", JSON.serialize(documentExpirySettings));
         }
     }
     if (customDomainSettings != null) {
@@ -1156,6 +1178,7 @@ public class ViewBrandDetails {
         if (customDomainSettings.getClass().equals(java.io.File.class) ||
             customDomainSettings.getClass().equals(Integer.class) ||
             customDomainSettings.getClass().equals(String.class) ||
+            customDomainSettings.getClass().equals(java.net.URI.class)||
             customDomainSettings.getClass().isEnum()) {
             map.put("customDomainSettings", customDomainSettings);
         } else if (isListOfFile(customDomainSettings)) {
@@ -1164,7 +1187,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("customDomainSettings", customDomainSettings);
+          map.put("customDomainSettings", JSON.serialize(customDomainSettings));
         }
     }
     if (isDomainVerified != null) {
@@ -1175,6 +1198,7 @@ public class ViewBrandDetails {
         if (isDomainVerified.getClass().equals(java.io.File.class) ||
             isDomainVerified.getClass().equals(Integer.class) ||
             isDomainVerified.getClass().equals(String.class) ||
+            isDomainVerified.getClass().equals(java.net.URI.class)||
             isDomainVerified.getClass().isEnum()) {
             map.put("isDomainVerified", isDomainVerified);
         } else if (isListOfFile(isDomainVerified)) {
@@ -1183,7 +1207,7 @@ public class ViewBrandDetails {
             }
         }
         else {
-          map.put("isDomainVerified", isDomainVerified);
+          map.put("isDomainVerified", JSON.serialize(isDomainVerified));
         }
     }
     } catch (Exception e) {

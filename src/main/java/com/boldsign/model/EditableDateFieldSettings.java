@@ -160,6 +160,7 @@ public class EditableDateFieldSettings {
         if (dateFormat.getClass().equals(java.io.File.class) ||
             dateFormat.getClass().equals(Integer.class) ||
             dateFormat.getClass().equals(String.class) ||
+            dateFormat.getClass().equals(java.net.URI.class)||
             dateFormat.getClass().isEnum()) {
             map.put("dateFormat", dateFormat);
         } else if (isListOfFile(dateFormat)) {
@@ -168,7 +169,7 @@ public class EditableDateFieldSettings {
             }
         }
         else {
-          map.put("dateFormat", dateFormat);
+          map.put("dateFormat", JSON.serialize(dateFormat));
         }
     }
     if (minDate != null) {
@@ -179,6 +180,7 @@ public class EditableDateFieldSettings {
         if (minDate.getClass().equals(java.io.File.class) ||
             minDate.getClass().equals(Integer.class) ||
             minDate.getClass().equals(String.class) ||
+            minDate.getClass().equals(java.net.URI.class)||
             minDate.getClass().isEnum()) {
             map.put("minDate", minDate);
         } else if (isListOfFile(minDate)) {
@@ -187,7 +189,7 @@ public class EditableDateFieldSettings {
             }
         }
         else {
-          map.put("minDate", minDate);
+          map.put("minDate", JSON.serialize(minDate));
         }
     }
     if (maxDate != null) {
@@ -198,6 +200,7 @@ public class EditableDateFieldSettings {
         if (maxDate.getClass().equals(java.io.File.class) ||
             maxDate.getClass().equals(Integer.class) ||
             maxDate.getClass().equals(String.class) ||
+            maxDate.getClass().equals(java.net.URI.class)||
             maxDate.getClass().isEnum()) {
             map.put("maxDate", maxDate);
         } else if (isListOfFile(maxDate)) {
@@ -206,7 +209,7 @@ public class EditableDateFieldSettings {
             }
         }
         else {
-          map.put("maxDate", maxDate);
+          map.put("maxDate", JSON.serialize(maxDate));
         }
     }
     } catch (Exception e) {

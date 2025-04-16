@@ -109,6 +109,7 @@ public class BrandingMessage {
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
             message.getClass().equals(String.class) ||
+            message.getClass().equals(java.net.URI.class)||
             message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
@@ -117,7 +118,7 @@ public class BrandingMessage {
             }
         }
         else {
-          map.put("message", message);
+          map.put("message", JSON.serialize(message));
         }
     }
     } catch (Exception e) {

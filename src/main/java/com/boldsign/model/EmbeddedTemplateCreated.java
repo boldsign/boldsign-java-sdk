@@ -135,6 +135,7 @@ public class EmbeddedTemplateCreated {
         if (templateId.getClass().equals(java.io.File.class) ||
             templateId.getClass().equals(Integer.class) ||
             templateId.getClass().equals(String.class) ||
+            templateId.getClass().equals(java.net.URI.class)||
             templateId.getClass().isEnum()) {
             map.put("templateId", templateId);
         } else if (isListOfFile(templateId)) {
@@ -143,7 +144,7 @@ public class EmbeddedTemplateCreated {
             }
         }
         else {
-          map.put("templateId", templateId);
+          map.put("templateId", JSON.serialize(templateId));
         }
     }
     if (createUrl != null) {
@@ -154,6 +155,7 @@ public class EmbeddedTemplateCreated {
         if (createUrl.getClass().equals(java.io.File.class) ||
             createUrl.getClass().equals(Integer.class) ||
             createUrl.getClass().equals(String.class) ||
+            createUrl.getClass().equals(java.net.URI.class)||
             createUrl.getClass().isEnum()) {
             map.put("createUrl", createUrl);
         } else if (isListOfFile(createUrl)) {
@@ -162,7 +164,7 @@ public class EmbeddedTemplateCreated {
             }
         }
         else {
-          map.put("createUrl", createUrl);
+          map.put("createUrl", JSON.serialize(createUrl));
         }
     }
     } catch (Exception e) {

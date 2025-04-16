@@ -146,6 +146,7 @@ public class TeamListResponse {
         if (pageDetails.getClass().equals(java.io.File.class) ||
             pageDetails.getClass().equals(Integer.class) ||
             pageDetails.getClass().equals(String.class) ||
+            pageDetails.getClass().equals(java.net.URI.class)||
             pageDetails.getClass().isEnum()) {
             map.put("pageDetails", pageDetails);
         } else if (isListOfFile(pageDetails)) {
@@ -154,7 +155,7 @@ public class TeamListResponse {
             }
         }
         else {
-          map.put("pageDetails", pageDetails);
+          map.put("pageDetails", JSON.serialize(pageDetails));
         }
     }
     if (results != null) {
@@ -165,6 +166,7 @@ public class TeamListResponse {
         if (results.getClass().equals(java.io.File.class) ||
             results.getClass().equals(Integer.class) ||
             results.getClass().equals(String.class) ||
+            results.getClass().equals(java.net.URI.class)||
             results.getClass().isEnum()) {
             map.put("results", results);
         } else if (isListOfFile(results)) {
@@ -175,7 +177,7 @@ public class TeamListResponse {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : results) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {

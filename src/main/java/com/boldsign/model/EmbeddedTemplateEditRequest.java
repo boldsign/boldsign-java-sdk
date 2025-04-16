@@ -493,6 +493,7 @@ public class EmbeddedTemplateEditRequest {
         if (redirectUrl.getClass().equals(java.io.File.class) ||
             redirectUrl.getClass().equals(Integer.class) ||
             redirectUrl.getClass().equals(String.class) ||
+            redirectUrl.getClass().equals(java.net.URI.class)||
             redirectUrl.getClass().isEnum()) {
             map.put("redirectUrl", redirectUrl);
         } else if (isListOfFile(redirectUrl)) {
@@ -501,7 +502,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("redirectUrl", redirectUrl);
+          map.put("redirectUrl", JSON.serialize(redirectUrl));
         }
     }
     if (showToolbar != null) {
@@ -512,6 +513,7 @@ public class EmbeddedTemplateEditRequest {
         if (showToolbar.getClass().equals(java.io.File.class) ||
             showToolbar.getClass().equals(Integer.class) ||
             showToolbar.getClass().equals(String.class) ||
+            showToolbar.getClass().equals(java.net.URI.class)||
             showToolbar.getClass().isEnum()) {
             map.put("showToolbar", showToolbar);
         } else if (isListOfFile(showToolbar)) {
@@ -520,7 +522,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("showToolbar", showToolbar);
+          map.put("showToolbar", JSON.serialize(showToolbar));
         }
     }
     if (viewOption != null) {
@@ -531,6 +533,7 @@ public class EmbeddedTemplateEditRequest {
         if (viewOption.getClass().equals(java.io.File.class) ||
             viewOption.getClass().equals(Integer.class) ||
             viewOption.getClass().equals(String.class) ||
+            viewOption.getClass().equals(java.net.URI.class)||
             viewOption.getClass().isEnum()) {
             map.put("viewOption", viewOption);
         } else if (isListOfFile(viewOption)) {
@@ -539,7 +542,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("viewOption", viewOption);
+          map.put("viewOption", JSON.serialize(viewOption));
         }
     }
     if (showSaveButton != null) {
@@ -550,6 +553,7 @@ public class EmbeddedTemplateEditRequest {
         if (showSaveButton.getClass().equals(java.io.File.class) ||
             showSaveButton.getClass().equals(Integer.class) ||
             showSaveButton.getClass().equals(String.class) ||
+            showSaveButton.getClass().equals(java.net.URI.class)||
             showSaveButton.getClass().isEnum()) {
             map.put("showSaveButton", showSaveButton);
         } else if (isListOfFile(showSaveButton)) {
@@ -558,7 +562,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("showSaveButton", showSaveButton);
+          map.put("showSaveButton", JSON.serialize(showSaveButton));
         }
     }
     if (locale != null) {
@@ -569,6 +573,7 @@ public class EmbeddedTemplateEditRequest {
         if (locale.getClass().equals(java.io.File.class) ||
             locale.getClass().equals(Integer.class) ||
             locale.getClass().equals(String.class) ||
+            locale.getClass().equals(java.net.URI.class)||
             locale.getClass().isEnum()) {
             map.put("locale", locale);
         } else if (isListOfFile(locale)) {
@@ -577,7 +582,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("locale", locale);
+          map.put("locale", JSON.serialize(locale));
         }
     }
     if (showCreateButton != null) {
@@ -588,6 +593,7 @@ public class EmbeddedTemplateEditRequest {
         if (showCreateButton.getClass().equals(java.io.File.class) ||
             showCreateButton.getClass().equals(Integer.class) ||
             showCreateButton.getClass().equals(String.class) ||
+            showCreateButton.getClass().equals(java.net.URI.class)||
             showCreateButton.getClass().isEnum()) {
             map.put("showCreateButton", showCreateButton);
         } else if (isListOfFile(showCreateButton)) {
@@ -596,7 +602,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("showCreateButton", showCreateButton);
+          map.put("showCreateButton", JSON.serialize(showCreateButton));
         }
     }
     if (showPreviewButton != null) {
@@ -607,6 +613,7 @@ public class EmbeddedTemplateEditRequest {
         if (showPreviewButton.getClass().equals(java.io.File.class) ||
             showPreviewButton.getClass().equals(Integer.class) ||
             showPreviewButton.getClass().equals(String.class) ||
+            showPreviewButton.getClass().equals(java.net.URI.class)||
             showPreviewButton.getClass().isEnum()) {
             map.put("showPreviewButton", showPreviewButton);
         } else if (isListOfFile(showPreviewButton)) {
@@ -615,7 +622,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("showPreviewButton", showPreviewButton);
+          map.put("showPreviewButton", JSON.serialize(showPreviewButton));
         }
     }
     if (showNavigationButtons != null) {
@@ -626,6 +633,7 @@ public class EmbeddedTemplateEditRequest {
         if (showNavigationButtons.getClass().equals(java.io.File.class) ||
             showNavigationButtons.getClass().equals(Integer.class) ||
             showNavigationButtons.getClass().equals(String.class) ||
+            showNavigationButtons.getClass().equals(java.net.URI.class)||
             showNavigationButtons.getClass().isEnum()) {
             map.put("showNavigationButtons", showNavigationButtons);
         } else if (isListOfFile(showNavigationButtons)) {
@@ -634,7 +642,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("showNavigationButtons", showNavigationButtons);
+          map.put("showNavigationButtons", JSON.serialize(showNavigationButtons));
         }
     }
     if (linkValidTill != null) {
@@ -645,6 +653,7 @@ public class EmbeddedTemplateEditRequest {
         if (linkValidTill.getClass().equals(java.io.File.class) ||
             linkValidTill.getClass().equals(Integer.class) ||
             linkValidTill.getClass().equals(String.class) ||
+            linkValidTill.getClass().equals(java.net.URI.class)||
             linkValidTill.getClass().isEnum()) {
             map.put("linkValidTill", linkValidTill);
         } else if (isListOfFile(linkValidTill)) {
@@ -653,7 +662,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("linkValidTill", linkValidTill);
+          map.put("linkValidTill", JSON.serialize(linkValidTill));
         }
     }
     if (showTooltip != null) {
@@ -664,6 +673,7 @@ public class EmbeddedTemplateEditRequest {
         if (showTooltip.getClass().equals(java.io.File.class) ||
             showTooltip.getClass().equals(Integer.class) ||
             showTooltip.getClass().equals(String.class) ||
+            showTooltip.getClass().equals(java.net.URI.class)||
             showTooltip.getClass().isEnum()) {
             map.put("showTooltip", showTooltip);
         } else if (isListOfFile(showTooltip)) {
@@ -672,7 +682,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("showTooltip", showTooltip);
+          map.put("showTooltip", JSON.serialize(showTooltip));
         }
     }
     if (onBehalfOf != null) {
@@ -683,6 +693,7 @@ public class EmbeddedTemplateEditRequest {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -691,7 +702,7 @@ public class EmbeddedTemplateEditRequest {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     } catch (Exception e) {

@@ -235,6 +235,7 @@ public class BrandCustomFieldDetails {
         if (fieldName.getClass().equals(java.io.File.class) ||
             fieldName.getClass().equals(Integer.class) ||
             fieldName.getClass().equals(String.class) ||
+            fieldName.getClass().equals(java.net.URI.class)||
             fieldName.getClass().isEnum()) {
             map.put("fieldName", fieldName);
         } else if (isListOfFile(fieldName)) {
@@ -243,7 +244,7 @@ public class BrandCustomFieldDetails {
             }
         }
         else {
-          map.put("fieldName", fieldName);
+          map.put("fieldName", JSON.serialize(fieldName));
         }
     }
     if (fieldDescription != null) {
@@ -254,6 +255,7 @@ public class BrandCustomFieldDetails {
         if (fieldDescription.getClass().equals(java.io.File.class) ||
             fieldDescription.getClass().equals(Integer.class) ||
             fieldDescription.getClass().equals(String.class) ||
+            fieldDescription.getClass().equals(java.net.URI.class)||
             fieldDescription.getClass().isEnum()) {
             map.put("fieldDescription", fieldDescription);
         } else if (isListOfFile(fieldDescription)) {
@@ -262,7 +264,7 @@ public class BrandCustomFieldDetails {
             }
         }
         else {
-          map.put("fieldDescription", fieldDescription);
+          map.put("fieldDescription", JSON.serialize(fieldDescription));
         }
     }
     if (fieldOrder != null) {
@@ -273,6 +275,7 @@ public class BrandCustomFieldDetails {
         if (fieldOrder.getClass().equals(java.io.File.class) ||
             fieldOrder.getClass().equals(Integer.class) ||
             fieldOrder.getClass().equals(String.class) ||
+            fieldOrder.getClass().equals(java.net.URI.class)||
             fieldOrder.getClass().isEnum()) {
             map.put("fieldOrder", fieldOrder);
         } else if (isListOfFile(fieldOrder)) {
@@ -281,7 +284,7 @@ public class BrandCustomFieldDetails {
             }
         }
         else {
-          map.put("fieldOrder", fieldOrder);
+          map.put("fieldOrder", JSON.serialize(fieldOrder));
         }
     }
     if (brandId != null) {
@@ -292,6 +295,7 @@ public class BrandCustomFieldDetails {
         if (brandId.getClass().equals(java.io.File.class) ||
             brandId.getClass().equals(Integer.class) ||
             brandId.getClass().equals(String.class) ||
+            brandId.getClass().equals(java.net.URI.class)||
             brandId.getClass().isEnum()) {
             map.put("brandId", brandId);
         } else if (isListOfFile(brandId)) {
@@ -300,7 +304,7 @@ public class BrandCustomFieldDetails {
             }
         }
         else {
-          map.put("brandId", brandId);
+          map.put("brandId", JSON.serialize(brandId));
         }
     }
     if (sharedField != null) {
@@ -311,6 +315,7 @@ public class BrandCustomFieldDetails {
         if (sharedField.getClass().equals(java.io.File.class) ||
             sharedField.getClass().equals(Integer.class) ||
             sharedField.getClass().equals(String.class) ||
+            sharedField.getClass().equals(java.net.URI.class)||
             sharedField.getClass().isEnum()) {
             map.put("sharedField", sharedField);
         } else if (isListOfFile(sharedField)) {
@@ -319,7 +324,7 @@ public class BrandCustomFieldDetails {
             }
         }
         else {
-          map.put("sharedField", sharedField);
+          map.put("sharedField", JSON.serialize(sharedField));
         }
     }
     if (formField != null) {
@@ -330,6 +335,7 @@ public class BrandCustomFieldDetails {
         if (formField.getClass().equals(java.io.File.class) ||
             formField.getClass().equals(Integer.class) ||
             formField.getClass().equals(String.class) ||
+            formField.getClass().equals(java.net.URI.class)||
             formField.getClass().isEnum()) {
             map.put("formField", formField);
         } else if (isListOfFile(formField)) {
@@ -338,7 +344,7 @@ public class BrandCustomFieldDetails {
             }
         }
         else {
-          map.put("formField", formField);
+          map.put("formField", JSON.serialize(formField));
         }
     }
     } catch (Exception e) {

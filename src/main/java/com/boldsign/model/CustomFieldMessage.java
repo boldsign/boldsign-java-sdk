@@ -134,6 +134,7 @@ public class CustomFieldMessage {
         if (customFieldId.getClass().equals(java.io.File.class) ||
             customFieldId.getClass().equals(Integer.class) ||
             customFieldId.getClass().equals(String.class) ||
+            customFieldId.getClass().equals(java.net.URI.class)||
             customFieldId.getClass().isEnum()) {
             map.put("customFieldId", customFieldId);
         } else if (isListOfFile(customFieldId)) {
@@ -142,7 +143,7 @@ public class CustomFieldMessage {
             }
         }
         else {
-          map.put("customFieldId", customFieldId);
+          map.put("customFieldId", JSON.serialize(customFieldId));
         }
     }
     if (message != null) {
@@ -153,6 +154,7 @@ public class CustomFieldMessage {
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
             message.getClass().equals(String.class) ||
+            message.getClass().equals(java.net.URI.class)||
             message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
@@ -161,7 +163,7 @@ public class CustomFieldMessage {
             }
         }
         else {
-          map.put("message", message);
+          map.put("message", JSON.serialize(message));
         }
     }
     } catch (Exception e) {

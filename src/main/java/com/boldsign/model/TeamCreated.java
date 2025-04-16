@@ -109,6 +109,7 @@ public class TeamCreated {
         if (teamId.getClass().equals(java.io.File.class) ||
             teamId.getClass().equals(Integer.class) ||
             teamId.getClass().equals(String.class) ||
+            teamId.getClass().equals(java.net.URI.class)||
             teamId.getClass().isEnum()) {
             map.put("teamId", teamId);
         } else if (isListOfFile(teamId)) {
@@ -117,7 +118,7 @@ public class TeamCreated {
             }
         }
         else {
-          map.put("teamId", teamId);
+          map.put("teamId", JSON.serialize(teamId));
         }
     }
     } catch (Exception e) {

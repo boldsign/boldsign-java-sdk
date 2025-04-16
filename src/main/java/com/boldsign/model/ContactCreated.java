@@ -134,6 +134,7 @@ public class ContactCreated {
         if (id.getClass().equals(java.io.File.class) ||
             id.getClass().equals(Integer.class) ||
             id.getClass().equals(String.class) ||
+            id.getClass().equals(java.net.URI.class)||
             id.getClass().isEnum()) {
             map.put("id", id);
         } else if (isListOfFile(id)) {
@@ -142,7 +143,7 @@ public class ContactCreated {
             }
         }
         else {
-          map.put("id", id);
+          map.put("id", JSON.serialize(id));
         }
     }
     if (email != null) {
@@ -153,6 +154,7 @@ public class ContactCreated {
         if (email.getClass().equals(java.io.File.class) ||
             email.getClass().equals(Integer.class) ||
             email.getClass().equals(String.class) ||
+            email.getClass().equals(java.net.URI.class)||
             email.getClass().isEnum()) {
             map.put("email", email);
         } else if (isListOfFile(email)) {
@@ -161,7 +163,7 @@ public class ContactCreated {
             }
         }
         else {
-          map.put("email", email);
+          map.put("email", JSON.serialize(email));
         }
     }
     } catch (Exception e) {

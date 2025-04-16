@@ -370,6 +370,7 @@ public class UsersDetails {
         if (userId.getClass().equals(java.io.File.class) ||
             userId.getClass().equals(Integer.class) ||
             userId.getClass().equals(String.class) ||
+            userId.getClass().equals(java.net.URI.class)||
             userId.getClass().isEnum()) {
             map.put("userId", userId);
         } else if (isListOfFile(userId)) {
@@ -378,7 +379,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("userId", userId);
+          map.put("userId", JSON.serialize(userId));
         }
     }
     if (email != null) {
@@ -389,6 +390,7 @@ public class UsersDetails {
         if (email.getClass().equals(java.io.File.class) ||
             email.getClass().equals(Integer.class) ||
             email.getClass().equals(String.class) ||
+            email.getClass().equals(java.net.URI.class)||
             email.getClass().isEnum()) {
             map.put("email", email);
         } else if (isListOfFile(email)) {
@@ -397,7 +399,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("email", email);
+          map.put("email", JSON.serialize(email));
         }
     }
     if (firstName != null) {
@@ -408,6 +410,7 @@ public class UsersDetails {
         if (firstName.getClass().equals(java.io.File.class) ||
             firstName.getClass().equals(Integer.class) ||
             firstName.getClass().equals(String.class) ||
+            firstName.getClass().equals(java.net.URI.class)||
             firstName.getClass().isEnum()) {
             map.put("firstName", firstName);
         } else if (isListOfFile(firstName)) {
@@ -416,7 +419,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("firstName", firstName);
+          map.put("firstName", JSON.serialize(firstName));
         }
     }
     if (lastName != null) {
@@ -427,6 +430,7 @@ public class UsersDetails {
         if (lastName.getClass().equals(java.io.File.class) ||
             lastName.getClass().equals(Integer.class) ||
             lastName.getClass().equals(String.class) ||
+            lastName.getClass().equals(java.net.URI.class)||
             lastName.getClass().isEnum()) {
             map.put("lastName", lastName);
         } else if (isListOfFile(lastName)) {
@@ -435,7 +439,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("lastName", lastName);
+          map.put("lastName", JSON.serialize(lastName));
         }
     }
     if (teamId != null) {
@@ -446,6 +450,7 @@ public class UsersDetails {
         if (teamId.getClass().equals(java.io.File.class) ||
             teamId.getClass().equals(Integer.class) ||
             teamId.getClass().equals(String.class) ||
+            teamId.getClass().equals(java.net.URI.class)||
             teamId.getClass().isEnum()) {
             map.put("teamId", teamId);
         } else if (isListOfFile(teamId)) {
@@ -454,7 +459,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("teamId", teamId);
+          map.put("teamId", JSON.serialize(teamId));
         }
     }
     if (teamName != null) {
@@ -465,6 +470,7 @@ public class UsersDetails {
         if (teamName.getClass().equals(java.io.File.class) ||
             teamName.getClass().equals(Integer.class) ||
             teamName.getClass().equals(String.class) ||
+            teamName.getClass().equals(java.net.URI.class)||
             teamName.getClass().isEnum()) {
             map.put("teamName", teamName);
         } else if (isListOfFile(teamName)) {
@@ -473,7 +479,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("teamName", teamName);
+          map.put("teamName", JSON.serialize(teamName));
         }
     }
     if (role != null) {
@@ -484,6 +490,7 @@ public class UsersDetails {
         if (role.getClass().equals(java.io.File.class) ||
             role.getClass().equals(Integer.class) ||
             role.getClass().equals(String.class) ||
+            role.getClass().equals(java.net.URI.class)||
             role.getClass().isEnum()) {
             map.put("role", role);
         } else if (isListOfFile(role)) {
@@ -492,7 +499,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("role", role);
+          map.put("role", JSON.serialize(role));
         }
     }
     if (userStatus != null) {
@@ -503,6 +510,7 @@ public class UsersDetails {
         if (userStatus.getClass().equals(java.io.File.class) ||
             userStatus.getClass().equals(Integer.class) ||
             userStatus.getClass().equals(String.class) ||
+            userStatus.getClass().equals(java.net.URI.class)||
             userStatus.getClass().isEnum()) {
             map.put("userStatus", userStatus);
         } else if (isListOfFile(userStatus)) {
@@ -511,7 +519,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("userStatus", userStatus);
+          map.put("userStatus", JSON.serialize(userStatus));
         }
     }
     if (createdDate != null) {
@@ -522,6 +530,7 @@ public class UsersDetails {
         if (createdDate.getClass().equals(java.io.File.class) ||
             createdDate.getClass().equals(Integer.class) ||
             createdDate.getClass().equals(String.class) ||
+            createdDate.getClass().equals(java.net.URI.class)||
             createdDate.getClass().isEnum()) {
             map.put("createdDate", createdDate);
         } else if (isListOfFile(createdDate)) {
@@ -530,7 +539,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("createdDate", createdDate);
+          map.put("createdDate", JSON.serialize(createdDate));
         }
     }
     if (modifiedDate != null) {
@@ -541,6 +550,7 @@ public class UsersDetails {
         if (modifiedDate.getClass().equals(java.io.File.class) ||
             modifiedDate.getClass().equals(Integer.class) ||
             modifiedDate.getClass().equals(String.class) ||
+            modifiedDate.getClass().equals(java.net.URI.class)||
             modifiedDate.getClass().isEnum()) {
             map.put("modifiedDate", modifiedDate);
         } else if (isListOfFile(modifiedDate)) {
@@ -549,7 +559,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("modifiedDate", modifiedDate);
+          map.put("modifiedDate", JSON.serialize(modifiedDate));
         }
     }
     if (metaData != null) {
@@ -560,6 +570,7 @@ public class UsersDetails {
         if (metaData.getClass().equals(java.io.File.class) ||
             metaData.getClass().equals(Integer.class) ||
             metaData.getClass().equals(String.class) ||
+            metaData.getClass().equals(java.net.URI.class)||
             metaData.getClass().isEnum()) {
             map.put("metaData", metaData);
         } else if (isListOfFile(metaData)) {
@@ -568,7 +579,7 @@ public class UsersDetails {
             }
         }
         else {
-          map.put("metaData", metaData);
+          map.put("metaData", JSON.serialize(metaData));
         }
     }
     } catch (Exception e) {

@@ -134,6 +134,7 @@ public class PhoneNumber {
         if (countryCode.getClass().equals(java.io.File.class) ||
             countryCode.getClass().equals(Integer.class) ||
             countryCode.getClass().equals(String.class) ||
+            countryCode.getClass().equals(java.net.URI.class)||
             countryCode.getClass().isEnum()) {
             map.put("countryCode", countryCode);
         } else if (isListOfFile(countryCode)) {
@@ -142,7 +143,7 @@ public class PhoneNumber {
             }
         }
         else {
-          map.put("countryCode", countryCode);
+          map.put("countryCode", JSON.serialize(countryCode));
         }
     }
     if (number != null) {
@@ -153,6 +154,7 @@ public class PhoneNumber {
         if (number.getClass().equals(java.io.File.class) ||
             number.getClass().equals(Integer.class) ||
             number.getClass().equals(String.class) ||
+            number.getClass().equals(java.net.URI.class)||
             number.getClass().isEnum()) {
             map.put("number", number);
         } else if (isListOfFile(number)) {
@@ -161,7 +163,7 @@ public class PhoneNumber {
             }
         }
         else {
-          map.put("number", number);
+          map.put("number", JSON.serialize(number));
         }
     }
     } catch (Exception e) {

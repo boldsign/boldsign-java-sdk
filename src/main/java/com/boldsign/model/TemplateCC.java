@@ -134,6 +134,7 @@ public class TemplateCC {
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
             emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().equals(java.net.URI.class)||
             emailAddress.getClass().isEnum()) {
             map.put("emailAddress", emailAddress);
         } else if (isListOfFile(emailAddress)) {
@@ -142,7 +143,7 @@ public class TemplateCC {
             }
         }
         else {
-          map.put("emailAddress", emailAddress);
+          map.put("emailAddress", JSON.serialize(emailAddress));
         }
     }
     if (userId != null) {
@@ -153,6 +154,7 @@ public class TemplateCC {
         if (userId.getClass().equals(java.io.File.class) ||
             userId.getClass().equals(Integer.class) ||
             userId.getClass().equals(String.class) ||
+            userId.getClass().equals(java.net.URI.class)||
             userId.getClass().isEnum()) {
             map.put("userId", userId);
         } else if (isListOfFile(userId)) {
@@ -161,7 +163,7 @@ public class TemplateCC {
             }
         }
         else {
-          map.put("userId", userId);
+          map.put("userId", JSON.serialize(userId));
         }
     }
     } catch (Exception e) {

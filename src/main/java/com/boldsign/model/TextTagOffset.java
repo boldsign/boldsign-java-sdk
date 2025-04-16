@@ -134,6 +134,7 @@ public class TextTagOffset {
         if (offsetX.getClass().equals(java.io.File.class) ||
             offsetX.getClass().equals(Integer.class) ||
             offsetX.getClass().equals(String.class) ||
+            offsetX.getClass().equals(java.net.URI.class)||
             offsetX.getClass().isEnum()) {
             map.put("offsetX", offsetX);
         } else if (isListOfFile(offsetX)) {
@@ -142,7 +143,7 @@ public class TextTagOffset {
             }
         }
         else {
-          map.put("offsetX", offsetX);
+          map.put("offsetX", JSON.serialize(offsetX));
         }
     }
     if (offsetY != null) {
@@ -153,6 +154,7 @@ public class TextTagOffset {
         if (offsetY.getClass().equals(java.io.File.class) ||
             offsetY.getClass().equals(Integer.class) ||
             offsetY.getClass().equals(String.class) ||
+            offsetY.getClass().equals(java.net.URI.class)||
             offsetY.getClass().isEnum()) {
             map.put("offsetY", offsetY);
         } else if (isListOfFile(offsetY)) {
@@ -161,7 +163,7 @@ public class TextTagOffset {
             }
         }
         else {
-          map.put("offsetY", offsetY);
+          map.put("offsetY", JSON.serialize(offsetY));
         }
     }
     } catch (Exception e) {

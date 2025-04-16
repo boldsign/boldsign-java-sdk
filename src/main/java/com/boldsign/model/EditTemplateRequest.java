@@ -614,6 +614,7 @@ public class EditTemplateRequest {
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
             title.getClass().equals(String.class) ||
+            title.getClass().equals(java.net.URI.class)||
             title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
@@ -622,7 +623,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("title", title);
+          map.put("title", JSON.serialize(title));
         }
     }
     if (description != null) {
@@ -633,6 +634,7 @@ public class EditTemplateRequest {
         if (description.getClass().equals(java.io.File.class) ||
             description.getClass().equals(Integer.class) ||
             description.getClass().equals(String.class) ||
+            description.getClass().equals(java.net.URI.class)||
             description.getClass().isEnum()) {
             map.put("description", description);
         } else if (isListOfFile(description)) {
@@ -641,7 +643,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("description", description);
+          map.put("description", JSON.serialize(description));
         }
     }
     if (documentTitle != null) {
@@ -652,6 +654,7 @@ public class EditTemplateRequest {
         if (documentTitle.getClass().equals(java.io.File.class) ||
             documentTitle.getClass().equals(Integer.class) ||
             documentTitle.getClass().equals(String.class) ||
+            documentTitle.getClass().equals(java.net.URI.class)||
             documentTitle.getClass().isEnum()) {
             map.put("documentTitle", documentTitle);
         } else if (isListOfFile(documentTitle)) {
@@ -660,7 +663,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("documentTitle", documentTitle);
+          map.put("documentTitle", JSON.serialize(documentTitle));
         }
     }
     if (documentMessage != null) {
@@ -671,6 +674,7 @@ public class EditTemplateRequest {
         if (documentMessage.getClass().equals(java.io.File.class) ||
             documentMessage.getClass().equals(Integer.class) ||
             documentMessage.getClass().equals(String.class) ||
+            documentMessage.getClass().equals(java.net.URI.class)||
             documentMessage.getClass().isEnum()) {
             map.put("documentMessage", documentMessage);
         } else if (isListOfFile(documentMessage)) {
@@ -679,7 +683,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("documentMessage", documentMessage);
+          map.put("documentMessage", JSON.serialize(documentMessage));
         }
     }
     if (roles != null) {
@@ -690,6 +694,7 @@ public class EditTemplateRequest {
         if (roles.getClass().equals(java.io.File.class) ||
             roles.getClass().equals(Integer.class) ||
             roles.getClass().equals(String.class) ||
+            roles.getClass().equals(java.net.URI.class)||
             roles.getClass().isEnum()) {
             map.put("roles", roles);
         } else if (isListOfFile(roles)) {
@@ -700,7 +705,7 @@ public class EditTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : roles) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -719,6 +724,7 @@ public class EditTemplateRequest {
         if (cc.getClass().equals(java.io.File.class) ||
             cc.getClass().equals(Integer.class) ||
             cc.getClass().equals(String.class) ||
+            cc.getClass().equals(java.net.URI.class)||
             cc.getClass().isEnum()) {
             map.put("cc", cc);
         } else if (isListOfFile(cc)) {
@@ -729,7 +735,7 @@ public class EditTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : cc) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -748,6 +754,7 @@ public class EditTemplateRequest {
         if (brandId.getClass().equals(java.io.File.class) ||
             brandId.getClass().equals(Integer.class) ||
             brandId.getClass().equals(String.class) ||
+            brandId.getClass().equals(java.net.URI.class)||
             brandId.getClass().isEnum()) {
             map.put("brandId", brandId);
         } else if (isListOfFile(brandId)) {
@@ -756,7 +763,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("brandId", brandId);
+          map.put("brandId", JSON.serialize(brandId));
         }
     }
     if (allowMessageEditing != null) {
@@ -767,6 +774,7 @@ public class EditTemplateRequest {
         if (allowMessageEditing.getClass().equals(java.io.File.class) ||
             allowMessageEditing.getClass().equals(Integer.class) ||
             allowMessageEditing.getClass().equals(String.class) ||
+            allowMessageEditing.getClass().equals(java.net.URI.class)||
             allowMessageEditing.getClass().isEnum()) {
             map.put("allowMessageEditing", allowMessageEditing);
         } else if (isListOfFile(allowMessageEditing)) {
@@ -775,7 +783,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("allowMessageEditing", allowMessageEditing);
+          map.put("allowMessageEditing", JSON.serialize(allowMessageEditing));
         }
     }
     if (allowNewRoles != null) {
@@ -786,6 +794,7 @@ public class EditTemplateRequest {
         if (allowNewRoles.getClass().equals(java.io.File.class) ||
             allowNewRoles.getClass().equals(Integer.class) ||
             allowNewRoles.getClass().equals(String.class) ||
+            allowNewRoles.getClass().equals(java.net.URI.class)||
             allowNewRoles.getClass().isEnum()) {
             map.put("allowNewRoles", allowNewRoles);
         } else if (isListOfFile(allowNewRoles)) {
@@ -794,7 +803,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("allowNewRoles", allowNewRoles);
+          map.put("allowNewRoles", JSON.serialize(allowNewRoles));
         }
     }
     if (allowNewFiles != null) {
@@ -805,6 +814,7 @@ public class EditTemplateRequest {
         if (allowNewFiles.getClass().equals(java.io.File.class) ||
             allowNewFiles.getClass().equals(Integer.class) ||
             allowNewFiles.getClass().equals(String.class) ||
+            allowNewFiles.getClass().equals(java.net.URI.class)||
             allowNewFiles.getClass().isEnum()) {
             map.put("allowNewFiles", allowNewFiles);
         } else if (isListOfFile(allowNewFiles)) {
@@ -813,7 +823,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("allowNewFiles", allowNewFiles);
+          map.put("allowNewFiles", JSON.serialize(allowNewFiles));
         }
     }
     if (enableReassign != null) {
@@ -824,6 +834,7 @@ public class EditTemplateRequest {
         if (enableReassign.getClass().equals(java.io.File.class) ||
             enableReassign.getClass().equals(Integer.class) ||
             enableReassign.getClass().equals(String.class) ||
+            enableReassign.getClass().equals(java.net.URI.class)||
             enableReassign.getClass().isEnum()) {
             map.put("enableReassign", enableReassign);
         } else if (isListOfFile(enableReassign)) {
@@ -832,7 +843,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("enableReassign", enableReassign);
+          map.put("enableReassign", JSON.serialize(enableReassign));
         }
     }
     if (enablePrintAndSign != null) {
@@ -843,6 +854,7 @@ public class EditTemplateRequest {
         if (enablePrintAndSign.getClass().equals(java.io.File.class) ||
             enablePrintAndSign.getClass().equals(Integer.class) ||
             enablePrintAndSign.getClass().equals(String.class) ||
+            enablePrintAndSign.getClass().equals(java.net.URI.class)||
             enablePrintAndSign.getClass().isEnum()) {
             map.put("enablePrintAndSign", enablePrintAndSign);
         } else if (isListOfFile(enablePrintAndSign)) {
@@ -851,7 +863,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("enablePrintAndSign", enablePrintAndSign);
+          map.put("enablePrintAndSign", JSON.serialize(enablePrintAndSign));
         }
     }
     if (enableSigningOrder != null) {
@@ -862,6 +874,7 @@ public class EditTemplateRequest {
         if (enableSigningOrder.getClass().equals(java.io.File.class) ||
             enableSigningOrder.getClass().equals(Integer.class) ||
             enableSigningOrder.getClass().equals(String.class) ||
+            enableSigningOrder.getClass().equals(java.net.URI.class)||
             enableSigningOrder.getClass().isEnum()) {
             map.put("enableSigningOrder", enableSigningOrder);
         } else if (isListOfFile(enableSigningOrder)) {
@@ -870,7 +883,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("enableSigningOrder", enableSigningOrder);
+          map.put("enableSigningOrder", JSON.serialize(enableSigningOrder));
         }
     }
     if (documentInfo != null) {
@@ -881,6 +894,7 @@ public class EditTemplateRequest {
         if (documentInfo.getClass().equals(java.io.File.class) ||
             documentInfo.getClass().equals(Integer.class) ||
             documentInfo.getClass().equals(String.class) ||
+            documentInfo.getClass().equals(java.net.URI.class)||
             documentInfo.getClass().isEnum()) {
             map.put("documentInfo", documentInfo);
         } else if (isListOfFile(documentInfo)) {
@@ -891,7 +905,7 @@ public class EditTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : documentInfo) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -910,6 +924,7 @@ public class EditTemplateRequest {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -918,7 +933,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     if (labels != null) {
@@ -929,6 +944,7 @@ public class EditTemplateRequest {
         if (labels.getClass().equals(java.io.File.class) ||
             labels.getClass().equals(Integer.class) ||
             labels.getClass().equals(String.class) ||
+            labels.getClass().equals(java.net.URI.class)||
             labels.getClass().isEnum()) {
             map.put("labels", labels);
         } else if (isListOfFile(labels)) {
@@ -939,7 +955,7 @@ public class EditTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : labels) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -958,6 +974,7 @@ public class EditTemplateRequest {
         if (templateLabels.getClass().equals(java.io.File.class) ||
             templateLabels.getClass().equals(Integer.class) ||
             templateLabels.getClass().equals(String.class) ||
+            templateLabels.getClass().equals(java.net.URI.class)||
             templateLabels.getClass().isEnum()) {
             map.put("templateLabels", templateLabels);
         } else if (isListOfFile(templateLabels)) {
@@ -968,7 +985,7 @@ public class EditTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : templateLabels) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -987,6 +1004,7 @@ public class EditTemplateRequest {
         if (formGroups.getClass().equals(java.io.File.class) ||
             formGroups.getClass().equals(Integer.class) ||
             formGroups.getClass().equals(String.class) ||
+            formGroups.getClass().equals(java.net.URI.class)||
             formGroups.getClass().isEnum()) {
             map.put("formGroups", formGroups);
         } else if (isListOfFile(formGroups)) {
@@ -997,7 +1015,7 @@ public class EditTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formGroups) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1016,6 +1034,7 @@ public class EditTemplateRequest {
         if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
             recipientNotificationSettings.getClass().equals(Integer.class) ||
             recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().equals(java.net.URI.class)||
             recipientNotificationSettings.getClass().isEnum()) {
             map.put("recipientNotificationSettings", recipientNotificationSettings);
         } else if (isListOfFile(recipientNotificationSettings)) {
@@ -1024,7 +1043,7 @@ public class EditTemplateRequest {
             }
         }
         else {
-          map.put("recipientNotificationSettings", recipientNotificationSettings);
+          map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
         }
     }
     } catch (Exception e) {

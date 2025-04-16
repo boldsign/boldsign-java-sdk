@@ -713,6 +713,7 @@ public class Template {
         if (documentId.getClass().equals(java.io.File.class) ||
             documentId.getClass().equals(Integer.class) ||
             documentId.getClass().equals(String.class) ||
+            documentId.getClass().equals(java.net.URI.class)||
             documentId.getClass().isEnum()) {
             map.put("documentId", documentId);
         } else if (isListOfFile(documentId)) {
@@ -721,7 +722,7 @@ public class Template {
             }
         }
         else {
-          map.put("documentId", documentId);
+          map.put("documentId", JSON.serialize(documentId));
         }
     }
     if (senderDetail != null) {
@@ -732,6 +733,7 @@ public class Template {
         if (senderDetail.getClass().equals(java.io.File.class) ||
             senderDetail.getClass().equals(Integer.class) ||
             senderDetail.getClass().equals(String.class) ||
+            senderDetail.getClass().equals(java.net.URI.class)||
             senderDetail.getClass().isEnum()) {
             map.put("senderDetail", senderDetail);
         } else if (isListOfFile(senderDetail)) {
@@ -740,7 +742,7 @@ public class Template {
             }
         }
         else {
-          map.put("senderDetail", senderDetail);
+          map.put("senderDetail", JSON.serialize(senderDetail));
         }
     }
     if (ccDetails != null) {
@@ -751,6 +753,7 @@ public class Template {
         if (ccDetails.getClass().equals(java.io.File.class) ||
             ccDetails.getClass().equals(Integer.class) ||
             ccDetails.getClass().equals(String.class) ||
+            ccDetails.getClass().equals(java.net.URI.class)||
             ccDetails.getClass().isEnum()) {
             map.put("ccDetails", ccDetails);
         } else if (isListOfFile(ccDetails)) {
@@ -761,7 +764,7 @@ public class Template {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : ccDetails) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -780,6 +783,7 @@ public class Template {
         if (createdDate.getClass().equals(java.io.File.class) ||
             createdDate.getClass().equals(Integer.class) ||
             createdDate.getClass().equals(String.class) ||
+            createdDate.getClass().equals(java.net.URI.class)||
             createdDate.getClass().isEnum()) {
             map.put("createdDate", createdDate);
         } else if (isListOfFile(createdDate)) {
@@ -788,7 +792,7 @@ public class Template {
             }
         }
         else {
-          map.put("createdDate", createdDate);
+          map.put("createdDate", JSON.serialize(createdDate));
         }
     }
     if (activityDate != null) {
@@ -799,6 +803,7 @@ public class Template {
         if (activityDate.getClass().equals(java.io.File.class) ||
             activityDate.getClass().equals(Integer.class) ||
             activityDate.getClass().equals(String.class) ||
+            activityDate.getClass().equals(java.net.URI.class)||
             activityDate.getClass().isEnum()) {
             map.put("activityDate", activityDate);
         } else if (isListOfFile(activityDate)) {
@@ -807,7 +812,7 @@ public class Template {
             }
         }
         else {
-          map.put("activityDate", activityDate);
+          map.put("activityDate", JSON.serialize(activityDate));
         }
     }
     if (activityBy != null) {
@@ -818,6 +823,7 @@ public class Template {
         if (activityBy.getClass().equals(java.io.File.class) ||
             activityBy.getClass().equals(Integer.class) ||
             activityBy.getClass().equals(String.class) ||
+            activityBy.getClass().equals(java.net.URI.class)||
             activityBy.getClass().isEnum()) {
             map.put("activityBy", activityBy);
         } else if (isListOfFile(activityBy)) {
@@ -826,7 +832,7 @@ public class Template {
             }
         }
         else {
-          map.put("activityBy", activityBy);
+          map.put("activityBy", JSON.serialize(activityBy));
         }
     }
     if (messageTitle != null) {
@@ -837,6 +843,7 @@ public class Template {
         if (messageTitle.getClass().equals(java.io.File.class) ||
             messageTitle.getClass().equals(Integer.class) ||
             messageTitle.getClass().equals(String.class) ||
+            messageTitle.getClass().equals(java.net.URI.class)||
             messageTitle.getClass().isEnum()) {
             map.put("messageTitle", messageTitle);
         } else if (isListOfFile(messageTitle)) {
@@ -845,7 +852,7 @@ public class Template {
             }
         }
         else {
-          map.put("messageTitle", messageTitle);
+          map.put("messageTitle", JSON.serialize(messageTitle));
         }
     }
     if (status != null) {
@@ -856,6 +863,7 @@ public class Template {
         if (status.getClass().equals(java.io.File.class) ||
             status.getClass().equals(Integer.class) ||
             status.getClass().equals(String.class) ||
+            status.getClass().equals(java.net.URI.class)||
             status.getClass().isEnum()) {
             map.put("status", status);
         } else if (isListOfFile(status)) {
@@ -864,7 +872,7 @@ public class Template {
             }
         }
         else {
-          map.put("status", status);
+          map.put("status", JSON.serialize(status));
         }
     }
     if (signerDetails != null) {
@@ -875,6 +883,7 @@ public class Template {
         if (signerDetails.getClass().equals(java.io.File.class) ||
             signerDetails.getClass().equals(Integer.class) ||
             signerDetails.getClass().equals(String.class) ||
+            signerDetails.getClass().equals(java.net.URI.class)||
             signerDetails.getClass().isEnum()) {
             map.put("signerDetails", signerDetails);
         } else if (isListOfFile(signerDetails)) {
@@ -885,7 +894,7 @@ public class Template {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : signerDetails) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -904,6 +913,7 @@ public class Template {
         if (enableSigningOrder.getClass().equals(java.io.File.class) ||
             enableSigningOrder.getClass().equals(Integer.class) ||
             enableSigningOrder.getClass().equals(String.class) ||
+            enableSigningOrder.getClass().equals(java.net.URI.class)||
             enableSigningOrder.getClass().isEnum()) {
             map.put("enableSigningOrder", enableSigningOrder);
         } else if (isListOfFile(enableSigningOrder)) {
@@ -912,7 +922,7 @@ public class Template {
             }
         }
         else {
-          map.put("enableSigningOrder", enableSigningOrder);
+          map.put("enableSigningOrder", JSON.serialize(enableSigningOrder));
         }
     }
     if (templateName != null) {
@@ -923,6 +933,7 @@ public class Template {
         if (templateName.getClass().equals(java.io.File.class) ||
             templateName.getClass().equals(Integer.class) ||
             templateName.getClass().equals(String.class) ||
+            templateName.getClass().equals(java.net.URI.class)||
             templateName.getClass().isEnum()) {
             map.put("templateName", templateName);
         } else if (isListOfFile(templateName)) {
@@ -931,7 +942,7 @@ public class Template {
             }
         }
         else {
-          map.put("templateName", templateName);
+          map.put("templateName", JSON.serialize(templateName));
         }
     }
     if (templateDescription != null) {
@@ -942,6 +953,7 @@ public class Template {
         if (templateDescription.getClass().equals(java.io.File.class) ||
             templateDescription.getClass().equals(Integer.class) ||
             templateDescription.getClass().equals(String.class) ||
+            templateDescription.getClass().equals(java.net.URI.class)||
             templateDescription.getClass().isEnum()) {
             map.put("templateDescription", templateDescription);
         } else if (isListOfFile(templateDescription)) {
@@ -950,7 +962,7 @@ public class Template {
             }
         }
         else {
-          map.put("templateDescription", templateDescription);
+          map.put("templateDescription", JSON.serialize(templateDescription));
         }
     }
     if (accessType != null) {
@@ -961,6 +973,7 @@ public class Template {
         if (accessType.getClass().equals(java.io.File.class) ||
             accessType.getClass().equals(Integer.class) ||
             accessType.getClass().equals(String.class) ||
+            accessType.getClass().equals(java.net.URI.class)||
             accessType.getClass().isEnum()) {
             map.put("accessType", accessType);
         } else if (isListOfFile(accessType)) {
@@ -969,7 +982,7 @@ public class Template {
             }
         }
         else {
-          map.put("accessType", accessType);
+          map.put("accessType", JSON.serialize(accessType));
         }
     }
     if (accessTid != null) {
@@ -980,6 +993,7 @@ public class Template {
         if (accessTid.getClass().equals(java.io.File.class) ||
             accessTid.getClass().equals(Integer.class) ||
             accessTid.getClass().equals(String.class) ||
+            accessTid.getClass().equals(java.net.URI.class)||
             accessTid.getClass().isEnum()) {
             map.put("accessTid", accessTid);
         } else if (isListOfFile(accessTid)) {
@@ -988,7 +1002,7 @@ public class Template {
             }
         }
         else {
-          map.put("accessTid", accessTid);
+          map.put("accessTid", JSON.serialize(accessTid));
         }
     }
     if (isTemplate != null) {
@@ -999,6 +1013,7 @@ public class Template {
         if (isTemplate.getClass().equals(java.io.File.class) ||
             isTemplate.getClass().equals(Integer.class) ||
             isTemplate.getClass().equals(String.class) ||
+            isTemplate.getClass().equals(java.net.URI.class)||
             isTemplate.getClass().isEnum()) {
             map.put("isTemplate", isTemplate);
         } else if (isListOfFile(isTemplate)) {
@@ -1007,7 +1022,7 @@ public class Template {
             }
         }
         else {
-          map.put("isTemplate", isTemplate);
+          map.put("isTemplate", JSON.serialize(isTemplate));
         }
     }
     if (behalfOf != null) {
@@ -1018,6 +1033,7 @@ public class Template {
         if (behalfOf.getClass().equals(java.io.File.class) ||
             behalfOf.getClass().equals(Integer.class) ||
             behalfOf.getClass().equals(String.class) ||
+            behalfOf.getClass().equals(java.net.URI.class)||
             behalfOf.getClass().isEnum()) {
             map.put("behalfOf", behalfOf);
         } else if (isListOfFile(behalfOf)) {
@@ -1026,7 +1042,7 @@ public class Template {
             }
         }
         else {
-          map.put("behalfOf", behalfOf);
+          map.put("behalfOf", JSON.serialize(behalfOf));
         }
     }
     if (templateLabels != null) {
@@ -1037,6 +1053,7 @@ public class Template {
         if (templateLabels.getClass().equals(java.io.File.class) ||
             templateLabels.getClass().equals(Integer.class) ||
             templateLabels.getClass().equals(String.class) ||
+            templateLabels.getClass().equals(java.net.URI.class)||
             templateLabels.getClass().isEnum()) {
             map.put("templateLabels", templateLabels);
         } else if (isListOfFile(templateLabels)) {
@@ -1047,7 +1064,7 @@ public class Template {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : templateLabels) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1066,6 +1083,7 @@ public class Template {
         if (labels.getClass().equals(java.io.File.class) ||
             labels.getClass().equals(Integer.class) ||
             labels.getClass().equals(String.class) ||
+            labels.getClass().equals(java.net.URI.class)||
             labels.getClass().isEnum()) {
             map.put("labels", labels);
         } else if (isListOfFile(labels)) {
@@ -1076,7 +1094,7 @@ public class Template {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : labels) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1095,6 +1113,7 @@ public class Template {
         if (brandId.getClass().equals(java.io.File.class) ||
             brandId.getClass().equals(Integer.class) ||
             brandId.getClass().equals(String.class) ||
+            brandId.getClass().equals(java.net.URI.class)||
             brandId.getClass().isEnum()) {
             map.put("brandId", brandId);
         } else if (isListOfFile(brandId)) {
@@ -1103,7 +1122,7 @@ public class Template {
             }
         }
         else {
-          map.put("brandId", brandId);
+          map.put("brandId", JSON.serialize(brandId));
         }
     }
     } catch (Exception e) {

@@ -144,6 +144,7 @@ public class DocumentTags {
         if (documentId.getClass().equals(java.io.File.class) ||
             documentId.getClass().equals(Integer.class) ||
             documentId.getClass().equals(String.class) ||
+            documentId.getClass().equals(java.net.URI.class)||
             documentId.getClass().isEnum()) {
             map.put("documentId", documentId);
         } else if (isListOfFile(documentId)) {
@@ -152,7 +153,7 @@ public class DocumentTags {
             }
         }
         else {
-          map.put("documentId", documentId);
+          map.put("documentId", JSON.serialize(documentId));
         }
     }
     if (tags != null) {
@@ -163,6 +164,7 @@ public class DocumentTags {
         if (tags.getClass().equals(java.io.File.class) ||
             tags.getClass().equals(Integer.class) ||
             tags.getClass().equals(String.class) ||
+            tags.getClass().equals(java.net.URI.class)||
             tags.getClass().isEnum()) {
             map.put("tags", tags);
         } else if (isListOfFile(tags)) {
@@ -173,7 +175,7 @@ public class DocumentTags {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : tags) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {

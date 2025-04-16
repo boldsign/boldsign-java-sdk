@@ -109,6 +109,7 @@ public class DocumentCC {
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
             emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().equals(java.net.URI.class)||
             emailAddress.getClass().isEnum()) {
             map.put("emailAddress", emailAddress);
         } else if (isListOfFile(emailAddress)) {
@@ -117,7 +118,7 @@ public class DocumentCC {
             }
         }
         else {
-          map.put("emailAddress", emailAddress);
+          map.put("emailAddress", JSON.serialize(emailAddress));
         }
     }
     } catch (Exception e) {

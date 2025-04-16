@@ -248,6 +248,7 @@ public class CreateUser {
         if (emailId.getClass().equals(java.io.File.class) ||
             emailId.getClass().equals(Integer.class) ||
             emailId.getClass().equals(String.class) ||
+            emailId.getClass().equals(java.net.URI.class)||
             emailId.getClass().isEnum()) {
             map.put("emailId", emailId);
         } else if (isListOfFile(emailId)) {
@@ -256,7 +257,7 @@ public class CreateUser {
             }
         }
         else {
-          map.put("emailId", emailId);
+          map.put("emailId", JSON.serialize(emailId));
         }
     }
     if (teamId != null) {
@@ -267,6 +268,7 @@ public class CreateUser {
         if (teamId.getClass().equals(java.io.File.class) ||
             teamId.getClass().equals(Integer.class) ||
             teamId.getClass().equals(String.class) ||
+            teamId.getClass().equals(java.net.URI.class)||
             teamId.getClass().isEnum()) {
             map.put("teamId", teamId);
         } else if (isListOfFile(teamId)) {
@@ -275,7 +277,7 @@ public class CreateUser {
             }
         }
         else {
-          map.put("teamId", teamId);
+          map.put("teamId", JSON.serialize(teamId));
         }
     }
     if (userRole != null) {
@@ -286,6 +288,7 @@ public class CreateUser {
         if (userRole.getClass().equals(java.io.File.class) ||
             userRole.getClass().equals(Integer.class) ||
             userRole.getClass().equals(String.class) ||
+            userRole.getClass().equals(java.net.URI.class)||
             userRole.getClass().isEnum()) {
             map.put("userRole", userRole);
         } else if (isListOfFile(userRole)) {
@@ -294,7 +297,7 @@ public class CreateUser {
             }
         }
         else {
-          map.put("userRole", userRole);
+          map.put("userRole", JSON.serialize(userRole));
         }
     }
     if (metaData != null) {
@@ -305,6 +308,7 @@ public class CreateUser {
         if (metaData.getClass().equals(java.io.File.class) ||
             metaData.getClass().equals(Integer.class) ||
             metaData.getClass().equals(String.class) ||
+            metaData.getClass().equals(java.net.URI.class)||
             metaData.getClass().isEnum()) {
             map.put("metaData", metaData);
         } else if (isListOfFile(metaData)) {
@@ -313,7 +317,7 @@ public class CreateUser {
             }
         }
         else {
-          map.put("metaData", metaData);
+          map.put("metaData", JSON.serialize(metaData));
         }
     }
     } catch (Exception e) {

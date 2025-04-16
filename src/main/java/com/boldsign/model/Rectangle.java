@@ -188,6 +188,7 @@ public class Rectangle {
         if (x.getClass().equals(java.io.File.class) ||
             x.getClass().equals(Integer.class) ||
             x.getClass().equals(String.class) ||
+            x.getClass().equals(java.net.URI.class)||
             x.getClass().isEnum()) {
             map.put("x", x);
         } else if (isListOfFile(x)) {
@@ -196,7 +197,7 @@ public class Rectangle {
             }
         }
         else {
-          map.put("x", x);
+          map.put("x", JSON.serialize(x));
         }
     }
     if (y != null) {
@@ -207,6 +208,7 @@ public class Rectangle {
         if (y.getClass().equals(java.io.File.class) ||
             y.getClass().equals(Integer.class) ||
             y.getClass().equals(String.class) ||
+            y.getClass().equals(java.net.URI.class)||
             y.getClass().isEnum()) {
             map.put("y", y);
         } else if (isListOfFile(y)) {
@@ -215,7 +217,7 @@ public class Rectangle {
             }
         }
         else {
-          map.put("y", y);
+          map.put("y", JSON.serialize(y));
         }
     }
     if (width != null) {
@@ -226,6 +228,7 @@ public class Rectangle {
         if (width.getClass().equals(java.io.File.class) ||
             width.getClass().equals(Integer.class) ||
             width.getClass().equals(String.class) ||
+            width.getClass().equals(java.net.URI.class)||
             width.getClass().isEnum()) {
             map.put("width", width);
         } else if (isListOfFile(width)) {
@@ -234,7 +237,7 @@ public class Rectangle {
             }
         }
         else {
-          map.put("width", width);
+          map.put("width", JSON.serialize(width));
         }
     }
     if (height != null) {
@@ -245,6 +248,7 @@ public class Rectangle {
         if (height.getClass().equals(java.io.File.class) ||
             height.getClass().equals(Integer.class) ||
             height.getClass().equals(String.class) ||
+            height.getClass().equals(java.net.URI.class)||
             height.getClass().isEnum()) {
             map.put("height", height);
         } else if (isListOfFile(height)) {
@@ -253,7 +257,7 @@ public class Rectangle {
             }
         }
         else {
-          map.put("height", height);
+          map.put("height", JSON.serialize(height));
         }
     }
     } catch (Exception e) {

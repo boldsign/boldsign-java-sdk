@@ -134,6 +134,7 @@ public class DocumentCcDetails {
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
             emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().equals(java.net.URI.class)||
             emailAddress.getClass().isEnum()) {
             map.put("emailAddress", emailAddress);
         } else if (isListOfFile(emailAddress)) {
@@ -142,7 +143,7 @@ public class DocumentCcDetails {
             }
         }
         else {
-          map.put("emailAddress", emailAddress);
+          map.put("emailAddress", JSON.serialize(emailAddress));
         }
     }
     if (isViewed != null) {
@@ -153,6 +154,7 @@ public class DocumentCcDetails {
         if (isViewed.getClass().equals(java.io.File.class) ||
             isViewed.getClass().equals(Integer.class) ||
             isViewed.getClass().equals(String.class) ||
+            isViewed.getClass().equals(java.net.URI.class)||
             isViewed.getClass().isEnum()) {
             map.put("isViewed", isViewed);
         } else if (isListOfFile(isViewed)) {
@@ -161,7 +163,7 @@ public class DocumentCcDetails {
             }
         }
         else {
-          map.put("isViewed", isViewed);
+          map.put("isViewed", JSON.serialize(isViewed));
         }
     }
     } catch (Exception e) {

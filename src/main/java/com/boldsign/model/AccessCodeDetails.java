@@ -160,6 +160,7 @@ public class AccessCodeDetails {
         if (accessCode.getClass().equals(java.io.File.class) ||
             accessCode.getClass().equals(Integer.class) ||
             accessCode.getClass().equals(String.class) ||
+            accessCode.getClass().equals(java.net.URI.class)||
             accessCode.getClass().isEnum()) {
             map.put("accessCode", accessCode);
         } else if (isListOfFile(accessCode)) {
@@ -168,7 +169,7 @@ public class AccessCodeDetails {
             }
         }
         else {
-          map.put("accessCode", accessCode);
+          map.put("accessCode", JSON.serialize(accessCode));
         }
     }
     if (phoneNumber != null) {
@@ -179,6 +180,7 @@ public class AccessCodeDetails {
         if (phoneNumber.getClass().equals(java.io.File.class) ||
             phoneNumber.getClass().equals(Integer.class) ||
             phoneNumber.getClass().equals(String.class) ||
+            phoneNumber.getClass().equals(java.net.URI.class)||
             phoneNumber.getClass().isEnum()) {
             map.put("phoneNumber", phoneNumber);
         } else if (isListOfFile(phoneNumber)) {
@@ -187,7 +189,7 @@ public class AccessCodeDetails {
             }
         }
         else {
-          map.put("phoneNumber", phoneNumber);
+          map.put("phoneNumber", JSON.serialize(phoneNumber));
         }
     }
     if (onBehalfOf != null) {
@@ -198,6 +200,7 @@ public class AccessCodeDetails {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -206,7 +209,7 @@ public class AccessCodeDetails {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     } catch (Exception e) {

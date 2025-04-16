@@ -8,6 +8,7 @@ import org.junit.jupiter.api.*;
 
 import java.io.*;
 import java.net.URI;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -74,6 +75,7 @@ public byte[] readFile(String path) throws IOException {
             Integer pageSize = 10;
             DocumentRecords listDocumentsResponse = documentApi.listDocuments(
                     page,
+                    null,
                     null,
                     null,
                     null,
@@ -735,13 +737,30 @@ public byte[] readFile(String path) throws IOException {
     @Order(30)
     public void testExtendExpiryPositive() throws Exception {
         try {
-            LocalDate currentDate = LocalDate.now();
-            LocalDate newExpiryDate = currentDate.plusMonths(3);
-            String newExpiryDateStr = newExpiryDate.toString();
+            DocumentProperties documentDetails = documentApi.getProperties(documentId);
+            DocumentProperties.ExpiryDateTypeEnum expiryType = documentDetails.getExpiryDateType();
+            System.out.println("Document expiry type: " + expiryType);
+
             ExtendExpiry extendExpiry = new ExtendExpiry();
-            extendExpiry.setNewExpiryValue(newExpiryDateStr);
+
+            if (expiryType == DocumentProperties.ExpiryDateTypeEnum.DAYS) {
+                // Format: yyyy-MM-dd
+                String newDate = LocalDate.now().plusMonths(3).toString();
+                extendExpiry.setNewExpiryValue(newDate);
+            } else if (expiryType == DocumentProperties.ExpiryDateTypeEnum.HOURS) {
+                // Format: integer as string
+                extendExpiry.setNewExpiryValue("48");
+            } else if (expiryType == DocumentProperties.ExpiryDateTypeEnum.SPECIFIC_DATE_TIME) {
+                // Format: ISO 8601
+                String isoDate = OffsetDateTime.now().plusMonths(3).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+                extendExpiry.setNewExpiryValue(isoDate);
+            } else {
+                fail("Unsupported expiry type: " + expiryType);
+            }
             documentApi.extendExpiry(documentId, extendExpiry);
-            assertNull(null);
+            System.out.println("New expiry set to: " + extendExpiry.getNewExpiryValue());
+            assertTrue(true);
+
         } catch (ApiException e) {
             fail("API Exception occurred: " + e.getMessage());
         } catch (Exception e) {
@@ -779,6 +798,7 @@ public byte[] readFile(String path) throws IOException {
                         null,
                         null,
                         null,
+                        null,
                         pageSize,
                         null,
                         null,
@@ -810,6 +830,7 @@ public byte[] readFile(String path) throws IOException {
             Integer invalidPageSize = 250;
             DocumentRecords listDocumentsResponse = documentApi.listDocuments(
                     page,
+                    null,
                     null,
                     null,
                     null,
@@ -851,6 +872,7 @@ public byte[] readFile(String path) throws IOException {
                     null,
                     null,
                     transmitType,
+                    null,
                     pageSize,
                     startDate,
                     status,
@@ -894,6 +916,7 @@ public byte[] readFile(String path) throws IOException {
                     userId,
                     teamId,
                     transmitType,
+                    null,
                     pageSize,
                     startDate,
                     status,

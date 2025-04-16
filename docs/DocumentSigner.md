@@ -49,6 +49,7 @@
 | EMAIL | &quot;Email&quot; |
 | SMS | &quot;SMS&quot; |
 | EMAIL_AND_SMS | &quot;EmailAndSMS&quot; |
+| WHATS_APP | &quot;WhatsApp&quot; |
 
 
 

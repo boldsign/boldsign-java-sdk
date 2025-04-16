@@ -287,6 +287,7 @@ public class ChangeRecipient {
         if (newSignerName.getClass().equals(java.io.File.class) ||
             newSignerName.getClass().equals(Integer.class) ||
             newSignerName.getClass().equals(String.class) ||
+            newSignerName.getClass().equals(java.net.URI.class)||
             newSignerName.getClass().isEnum()) {
             map.put("newSignerName", newSignerName);
         } else if (isListOfFile(newSignerName)) {
@@ -295,7 +296,7 @@ public class ChangeRecipient {
             }
         }
         else {
-          map.put("newSignerName", newSignerName);
+          map.put("newSignerName", JSON.serialize(newSignerName));
         }
     }
     if (reason != null) {
@@ -306,6 +307,7 @@ public class ChangeRecipient {
         if (reason.getClass().equals(java.io.File.class) ||
             reason.getClass().equals(Integer.class) ||
             reason.getClass().equals(String.class) ||
+            reason.getClass().equals(java.net.URI.class)||
             reason.getClass().isEnum()) {
             map.put("reason", reason);
         } else if (isListOfFile(reason)) {
@@ -314,7 +316,7 @@ public class ChangeRecipient {
             }
         }
         else {
-          map.put("reason", reason);
+          map.put("reason", JSON.serialize(reason));
         }
     }
     if (order != null) {
@@ -325,6 +327,7 @@ public class ChangeRecipient {
         if (order.getClass().equals(java.io.File.class) ||
             order.getClass().equals(Integer.class) ||
             order.getClass().equals(String.class) ||
+            order.getClass().equals(java.net.URI.class)||
             order.getClass().isEnum()) {
             map.put("order", order);
         } else if (isListOfFile(order)) {
@@ -333,7 +336,7 @@ public class ChangeRecipient {
             }
         }
         else {
-          map.put("order", order);
+          map.put("order", JSON.serialize(order));
         }
     }
     if (newSignerEmail != null) {
@@ -344,6 +347,7 @@ public class ChangeRecipient {
         if (newSignerEmail.getClass().equals(java.io.File.class) ||
             newSignerEmail.getClass().equals(Integer.class) ||
             newSignerEmail.getClass().equals(String.class) ||
+            newSignerEmail.getClass().equals(java.net.URI.class)||
             newSignerEmail.getClass().isEnum()) {
             map.put("newSignerEmail", newSignerEmail);
         } else if (isListOfFile(newSignerEmail)) {
@@ -352,7 +356,7 @@ public class ChangeRecipient {
             }
         }
         else {
-          map.put("newSignerEmail", newSignerEmail);
+          map.put("newSignerEmail", JSON.serialize(newSignerEmail));
         }
     }
     if (oldSignerEmail != null) {
@@ -363,6 +367,7 @@ public class ChangeRecipient {
         if (oldSignerEmail.getClass().equals(java.io.File.class) ||
             oldSignerEmail.getClass().equals(Integer.class) ||
             oldSignerEmail.getClass().equals(String.class) ||
+            oldSignerEmail.getClass().equals(java.net.URI.class)||
             oldSignerEmail.getClass().isEnum()) {
             map.put("oldSignerEmail", oldSignerEmail);
         } else if (isListOfFile(oldSignerEmail)) {
@@ -371,7 +376,7 @@ public class ChangeRecipient {
             }
         }
         else {
-          map.put("oldSignerEmail", oldSignerEmail);
+          map.put("oldSignerEmail", JSON.serialize(oldSignerEmail));
         }
     }
     if (onBehalfOf != null) {
@@ -382,6 +387,7 @@ public class ChangeRecipient {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -390,7 +396,7 @@ public class ChangeRecipient {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     if (phoneNumber != null) {
@@ -401,6 +407,7 @@ public class ChangeRecipient {
         if (phoneNumber.getClass().equals(java.io.File.class) ||
             phoneNumber.getClass().equals(Integer.class) ||
             phoneNumber.getClass().equals(String.class) ||
+            phoneNumber.getClass().equals(java.net.URI.class)||
             phoneNumber.getClass().isEnum()) {
             map.put("phoneNumber", phoneNumber);
         } else if (isListOfFile(phoneNumber)) {
@@ -409,7 +416,7 @@ public class ChangeRecipient {
             }
         }
         else {
-          map.put("phoneNumber", phoneNumber);
+          map.put("phoneNumber", JSON.serialize(phoneNumber));
         }
     }
     if (oldPhoneNumber != null) {
@@ -420,6 +427,7 @@ public class ChangeRecipient {
         if (oldPhoneNumber.getClass().equals(java.io.File.class) ||
             oldPhoneNumber.getClass().equals(Integer.class) ||
             oldPhoneNumber.getClass().equals(String.class) ||
+            oldPhoneNumber.getClass().equals(java.net.URI.class)||
             oldPhoneNumber.getClass().isEnum()) {
             map.put("oldPhoneNumber", oldPhoneNumber);
         } else if (isListOfFile(oldPhoneNumber)) {
@@ -428,7 +436,7 @@ public class ChangeRecipient {
             }
         }
         else {
-          map.put("oldPhoneNumber", oldPhoneNumber);
+          map.put("oldPhoneNumber", JSON.serialize(oldPhoneNumber));
         }
     }
     } catch (Exception e) {

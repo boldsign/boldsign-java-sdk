@@ -109,6 +109,7 @@ public class TemplateCreated {
         if (templateId.getClass().equals(java.io.File.class) ||
             templateId.getClass().equals(Integer.class) ||
             templateId.getClass().equals(String.class) ||
+            templateId.getClass().equals(java.net.URI.class)||
             templateId.getClass().isEnum()) {
             map.put("templateId", templateId);
         } else if (isListOfFile(templateId)) {
@@ -117,7 +118,7 @@ public class TemplateCreated {
             }
         }
         else {
-          map.put("templateId", templateId);
+          map.put("templateId", JSON.serialize(templateId));
         }
     }
     } catch (Exception e) {

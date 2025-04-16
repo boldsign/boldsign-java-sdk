@@ -159,6 +159,7 @@ public class ConditionalRule {
         if (fieldId.getClass().equals(java.io.File.class) ||
             fieldId.getClass().equals(Integer.class) ||
             fieldId.getClass().equals(String.class) ||
+            fieldId.getClass().equals(java.net.URI.class)||
             fieldId.getClass().isEnum()) {
             map.put("fieldId", fieldId);
         } else if (isListOfFile(fieldId)) {
@@ -167,7 +168,7 @@ public class ConditionalRule {
             }
         }
         else {
-          map.put("fieldId", fieldId);
+          map.put("fieldId", JSON.serialize(fieldId));
         }
     }
     if (isChecked != null) {
@@ -178,6 +179,7 @@ public class ConditionalRule {
         if (isChecked.getClass().equals(java.io.File.class) ||
             isChecked.getClass().equals(Integer.class) ||
             isChecked.getClass().equals(String.class) ||
+            isChecked.getClass().equals(java.net.URI.class)||
             isChecked.getClass().isEnum()) {
             map.put("isChecked", isChecked);
         } else if (isListOfFile(isChecked)) {
@@ -186,7 +188,7 @@ public class ConditionalRule {
             }
         }
         else {
-          map.put("isChecked", isChecked);
+          map.put("isChecked", JSON.serialize(isChecked));
         }
     }
     if (value != null) {
@@ -197,6 +199,7 @@ public class ConditionalRule {
         if (value.getClass().equals(java.io.File.class) ||
             value.getClass().equals(Integer.class) ||
             value.getClass().equals(String.class) ||
+            value.getClass().equals(java.net.URI.class)||
             value.getClass().isEnum()) {
             map.put("value", value);
         } else if (isListOfFile(value)) {
@@ -205,7 +208,7 @@ public class ConditionalRule {
             }
         }
         else {
-          map.put("value", value);
+          map.put("value", JSON.serialize(value));
         }
     }
     } catch (Exception e) {

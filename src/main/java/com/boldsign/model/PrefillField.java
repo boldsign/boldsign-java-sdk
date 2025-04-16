@@ -134,6 +134,7 @@ public class PrefillField {
         if (id.getClass().equals(java.io.File.class) ||
             id.getClass().equals(Integer.class) ||
             id.getClass().equals(String.class) ||
+            id.getClass().equals(java.net.URI.class)||
             id.getClass().isEnum()) {
             map.put("id", id);
         } else if (isListOfFile(id)) {
@@ -142,7 +143,7 @@ public class PrefillField {
             }
         }
         else {
-          map.put("id", id);
+          map.put("id", JSON.serialize(id));
         }
     }
     if (value != null) {
@@ -153,6 +154,7 @@ public class PrefillField {
         if (value.getClass().equals(java.io.File.class) ||
             value.getClass().equals(Integer.class) ||
             value.getClass().equals(String.class) ||
+            value.getClass().equals(java.net.URI.class)||
             value.getClass().isEnum()) {
             map.put("value", value);
         } else if (isListOfFile(value)) {
@@ -161,7 +163,7 @@ public class PrefillField {
             }
         }
         else {
-          map.put("value", value);
+          map.put("value", JSON.serialize(value));
         }
     }
     } catch (Exception e) {

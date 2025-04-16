@@ -136,6 +136,7 @@ public class Size {
         if (width.getClass().equals(java.io.File.class) ||
             width.getClass().equals(Integer.class) ||
             width.getClass().equals(String.class) ||
+            width.getClass().equals(java.net.URI.class)||
             width.getClass().isEnum()) {
             map.put("width", width);
         } else if (isListOfFile(width)) {
@@ -144,7 +145,7 @@ public class Size {
             }
         }
         else {
-          map.put("width", width);
+          map.put("width", JSON.serialize(width));
         }
     }
     if (height != null) {
@@ -155,6 +156,7 @@ public class Size {
         if (height.getClass().equals(java.io.File.class) ||
             height.getClass().equals(Integer.class) ||
             height.getClass().equals(String.class) ||
+            height.getClass().equals(java.net.URI.class)||
             height.getClass().isEnum()) {
             map.put("height", height);
         } else if (isListOfFile(height)) {
@@ -163,7 +165,7 @@ public class Size {
             }
         }
         else {
-          map.put("height", height);
+          map.put("height", JSON.serialize(height));
         }
     }
     } catch (Exception e) {

@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -58,6 +60,10 @@ public class EditSenderIdentityRequest {
   public static final String SERIALIZED_NAME_REDIRECT_URL = "redirectUrl";
   @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
   private URI redirectUrl;
+
+  public static final String SERIALIZED_NAME_META_DATA = "metaData";
+  @SerializedName(SERIALIZED_NAME_META_DATA)
+  private Map<String, String> metaData;
 
   public EditSenderIdentityRequest() {
   }
@@ -119,6 +125,33 @@ public class EditSenderIdentityRequest {
   }
 
 
+  public EditSenderIdentityRequest metaData(Map<String, String> metaData) {
+    this.metaData = metaData;
+    return this;
+  }
+
+  public EditSenderIdentityRequest putMetaDataItem(String key, String metaDataItem) {
+    if (this.metaData == null) {
+      this.metaData = new HashMap<>();
+    }
+    this.metaData.put(key, metaDataItem);
+    return this;
+  }
+
+  /**
+   * Get metaData
+   * @return metaData
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getMetaData() {
+    return metaData;
+  }
+
+  public void setMetaData(Map<String, String> metaData) {
+    this.metaData = metaData;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -131,12 +164,13 @@ public class EditSenderIdentityRequest {
     EditSenderIdentityRequest editSenderIdentityRequest = (EditSenderIdentityRequest) o;
     return Objects.equals(this.name, editSenderIdentityRequest.name) &&
         Objects.equals(this.notificationSettings, editSenderIdentityRequest.notificationSettings) &&
-        Objects.equals(this.redirectUrl, editSenderIdentityRequest.redirectUrl);
+        Objects.equals(this.redirectUrl, editSenderIdentityRequest.redirectUrl) &&
+        Objects.equals(this.metaData, editSenderIdentityRequest.metaData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, notificationSettings, redirectUrl);
+    return Objects.hash(name, notificationSettings, redirectUrl, metaData);
   }
 
   @Override
@@ -146,6 +180,7 @@ public class EditSenderIdentityRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notificationSettings: ").append(toIndentedString(notificationSettings)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -161,6 +196,7 @@ public class EditSenderIdentityRequest {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -169,7 +205,7 @@ public class EditSenderIdentityRequest {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (notificationSettings != null) {
@@ -180,6 +216,7 @@ public class EditSenderIdentityRequest {
         if (notificationSettings.getClass().equals(java.io.File.class) ||
             notificationSettings.getClass().equals(Integer.class) ||
             notificationSettings.getClass().equals(String.class) ||
+            notificationSettings.getClass().equals(java.net.URI.class)||
             notificationSettings.getClass().isEnum()) {
             map.put("notificationSettings", notificationSettings);
         } else if (isListOfFile(notificationSettings)) {
@@ -188,7 +225,7 @@ public class EditSenderIdentityRequest {
             }
         }
         else {
-          map.put("notificationSettings", notificationSettings);
+          map.put("notificationSettings", JSON.serialize(notificationSettings));
         }
     }
     if (redirectUrl != null) {
@@ -199,6 +236,7 @@ public class EditSenderIdentityRequest {
         if (redirectUrl.getClass().equals(java.io.File.class) ||
             redirectUrl.getClass().equals(Integer.class) ||
             redirectUrl.getClass().equals(String.class) ||
+            redirectUrl.getClass().equals(java.net.URI.class)||
             redirectUrl.getClass().isEnum()) {
             map.put("redirectUrl", redirectUrl);
         } else if (isListOfFile(redirectUrl)) {
@@ -207,7 +245,27 @@ public class EditSenderIdentityRequest {
             }
         }
         else {
-          map.put("redirectUrl", redirectUrl);
+          map.put("redirectUrl", JSON.serialize(redirectUrl));
+        }
+    }
+    if (metaData != null) {
+        if (isFileTypeOrListOfFiles(metaData)) {
+            fileTypeFound = true;
+        }
+
+        if (metaData.getClass().equals(java.io.File.class) ||
+            metaData.getClass().equals(Integer.class) ||
+            metaData.getClass().equals(String.class) ||
+            metaData.getClass().equals(java.net.URI.class)||
+            metaData.getClass().isEnum()) {
+            map.put("metaData", metaData);
+        } else if (isListOfFile(metaData)) {
+            for(int i = 0; i< getListSize(metaData); i++) {
+                map.put("metaData", metaData);
+            }
+        }
+        else {
+          map.put("metaData", JSON.serialize(metaData));
         }
     }
     } catch (Exception e) {
@@ -258,6 +316,7 @@ public class EditSenderIdentityRequest {
     openapiFields.add("name");
     openapiFields.add("notificationSettings");
     openapiFields.add("redirectUrl");
+    openapiFields.add("metaData");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

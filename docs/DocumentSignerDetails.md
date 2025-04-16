@@ -32,6 +32,7 @@
 |**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**authenticationRetryCount** | **Integer** |  |  [optional] |
 |**enableQes** | **Boolean** |  |  [optional] |
+|**deliveryMode** | [**DeliveryModeEnum**](#DeliveryModeEnum) |  |  [optional] |
 
 
 
@@ -113,6 +114,17 @@
 | RU | &quot;RU&quot; |
 | SV | &quot;SV&quot; |
 | DEFAULT | &quot;Default&quot; |
+
+
+
+## Enum: DeliveryModeEnum
+
+| Name | Value |
+|---- | -----|
+| EMAIL | &quot;Email&quot; |
+| SMS | &quot;SMS&quot; |
+| EMAIL_AND_SMS | &quot;EmailAndSMS&quot; |
+| WHATS_APP | &quot;WhatsApp&quot; |
 
 
 

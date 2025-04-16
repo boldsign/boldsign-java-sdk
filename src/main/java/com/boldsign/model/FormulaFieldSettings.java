@@ -134,6 +134,7 @@ public class FormulaFieldSettings {
         if (formulaExpression.getClass().equals(java.io.File.class) ||
             formulaExpression.getClass().equals(Integer.class) ||
             formulaExpression.getClass().equals(String.class) ||
+            formulaExpression.getClass().equals(java.net.URI.class)||
             formulaExpression.getClass().isEnum()) {
             map.put("formulaExpression", formulaExpression);
         } else if (isListOfFile(formulaExpression)) {
@@ -142,7 +143,7 @@ public class FormulaFieldSettings {
             }
         }
         else {
-          map.put("formulaExpression", formulaExpression);
+          map.put("formulaExpression", JSON.serialize(formulaExpression));
         }
     }
     if (decimalPrecision != null) {
@@ -153,6 +154,7 @@ public class FormulaFieldSettings {
         if (decimalPrecision.getClass().equals(java.io.File.class) ||
             decimalPrecision.getClass().equals(Integer.class) ||
             decimalPrecision.getClass().equals(String.class) ||
+            decimalPrecision.getClass().equals(java.net.URI.class)||
             decimalPrecision.getClass().isEnum()) {
             map.put("decimalPrecision", decimalPrecision);
         } else if (isListOfFile(decimalPrecision)) {
@@ -161,7 +163,7 @@ public class FormulaFieldSettings {
             }
         }
         else {
-          map.put("decimalPrecision", decimalPrecision);
+          map.put("decimalPrecision", JSON.serialize(decimalPrecision));
         }
     }
     } catch (Exception e) {

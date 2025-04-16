@@ -109,6 +109,7 @@ public class BillingViewModel {
         if (balanceCredits.getClass().equals(java.io.File.class) ||
             balanceCredits.getClass().equals(Integer.class) ||
             balanceCredits.getClass().equals(String.class) ||
+            balanceCredits.getClass().equals(java.net.URI.class)||
             balanceCredits.getClass().isEnum()) {
             map.put("BalanceCredits", balanceCredits);
         } else if (isListOfFile(balanceCredits)) {
@@ -117,7 +118,7 @@ public class BillingViewModel {
             }
         }
         else {
-          map.put("BalanceCredits", balanceCredits);
+          map.put("BalanceCredits", JSON.serialize(balanceCredits));
         }
     }
     } catch (Exception e) {

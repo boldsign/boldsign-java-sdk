@@ -184,6 +184,7 @@ public class DocumentSenderDetail {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -192,7 +193,7 @@ public class DocumentSenderDetail {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (privateMessage != null) {
@@ -203,6 +204,7 @@ public class DocumentSenderDetail {
         if (privateMessage.getClass().equals(java.io.File.class) ||
             privateMessage.getClass().equals(Integer.class) ||
             privateMessage.getClass().equals(String.class) ||
+            privateMessage.getClass().equals(java.net.URI.class)||
             privateMessage.getClass().isEnum()) {
             map.put("privateMessage", privateMessage);
         } else if (isListOfFile(privateMessage)) {
@@ -211,7 +213,7 @@ public class DocumentSenderDetail {
             }
         }
         else {
-          map.put("privateMessage", privateMessage);
+          map.put("privateMessage", JSON.serialize(privateMessage));
         }
     }
     if (emailAddress != null) {
@@ -222,6 +224,7 @@ public class DocumentSenderDetail {
         if (emailAddress.getClass().equals(java.io.File.class) ||
             emailAddress.getClass().equals(Integer.class) ||
             emailAddress.getClass().equals(String.class) ||
+            emailAddress.getClass().equals(java.net.URI.class)||
             emailAddress.getClass().isEnum()) {
             map.put("emailAddress", emailAddress);
         } else if (isListOfFile(emailAddress)) {
@@ -230,7 +233,7 @@ public class DocumentSenderDetail {
             }
         }
         else {
-          map.put("emailAddress", emailAddress);
+          map.put("emailAddress", JSON.serialize(emailAddress));
         }
     }
     if (isViewed != null) {
@@ -241,6 +244,7 @@ public class DocumentSenderDetail {
         if (isViewed.getClass().equals(java.io.File.class) ||
             isViewed.getClass().equals(Integer.class) ||
             isViewed.getClass().equals(String.class) ||
+            isViewed.getClass().equals(java.net.URI.class)||
             isViewed.getClass().isEnum()) {
             map.put("isViewed", isViewed);
         } else if (isListOfFile(isViewed)) {
@@ -249,7 +253,7 @@ public class DocumentSenderDetail {
             }
         }
         else {
-          map.put("isViewed", isViewed);
+          map.put("isViewed", JSON.serialize(isViewed));
         }
     }
     } catch (Exception e) {

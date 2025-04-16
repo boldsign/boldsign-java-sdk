@@ -134,6 +134,7 @@ public class UserPageDetails {
         if (pageSize.getClass().equals(java.io.File.class) ||
             pageSize.getClass().equals(Integer.class) ||
             pageSize.getClass().equals(String.class) ||
+            pageSize.getClass().equals(java.net.URI.class)||
             pageSize.getClass().isEnum()) {
             map.put("pageSize", pageSize);
         } else if (isListOfFile(pageSize)) {
@@ -142,7 +143,7 @@ public class UserPageDetails {
             }
         }
         else {
-          map.put("pageSize", pageSize);
+          map.put("pageSize", JSON.serialize(pageSize));
         }
     }
     if (page != null) {
@@ -153,6 +154,7 @@ public class UserPageDetails {
         if (page.getClass().equals(java.io.File.class) ||
             page.getClass().equals(Integer.class) ||
             page.getClass().equals(String.class) ||
+            page.getClass().equals(java.net.URI.class)||
             page.getClass().isEnum()) {
             map.put("page", page);
         } else if (isListOfFile(page)) {
@@ -161,7 +163,7 @@ public class UserPageDetails {
             }
         }
         else {
-          map.put("page", page);
+          map.put("page", JSON.serialize(page));
         }
     }
     } catch (Exception e) {

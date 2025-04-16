@@ -279,6 +279,7 @@ public class FormGroup {
         if (groupNames.getClass().equals(java.io.File.class) ||
             groupNames.getClass().equals(Integer.class) ||
             groupNames.getClass().equals(String.class) ||
+            groupNames.getClass().equals(java.net.URI.class)||
             groupNames.getClass().isEnum()) {
             map.put("groupNames", groupNames);
         } else if (isListOfFile(groupNames)) {
@@ -289,7 +290,7 @@ public class FormGroup {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : groupNames) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -308,6 +309,7 @@ public class FormGroup {
         if (groupValidation.getClass().equals(java.io.File.class) ||
             groupValidation.getClass().equals(Integer.class) ||
             groupValidation.getClass().equals(String.class) ||
+            groupValidation.getClass().equals(java.net.URI.class)||
             groupValidation.getClass().isEnum()) {
             map.put("groupValidation", groupValidation);
         } else if (isListOfFile(groupValidation)) {
@@ -316,7 +318,7 @@ public class FormGroup {
             }
         }
         else {
-          map.put("groupValidation", groupValidation);
+          map.put("groupValidation", JSON.serialize(groupValidation));
         }
     }
     if (minimumCount != null) {
@@ -327,6 +329,7 @@ public class FormGroup {
         if (minimumCount.getClass().equals(java.io.File.class) ||
             minimumCount.getClass().equals(Integer.class) ||
             minimumCount.getClass().equals(String.class) ||
+            minimumCount.getClass().equals(java.net.URI.class)||
             minimumCount.getClass().isEnum()) {
             map.put("minimumCount", minimumCount);
         } else if (isListOfFile(minimumCount)) {
@@ -335,7 +338,7 @@ public class FormGroup {
             }
         }
         else {
-          map.put("minimumCount", minimumCount);
+          map.put("minimumCount", JSON.serialize(minimumCount));
         }
     }
     if (maximumCount != null) {
@@ -346,6 +349,7 @@ public class FormGroup {
         if (maximumCount.getClass().equals(java.io.File.class) ||
             maximumCount.getClass().equals(Integer.class) ||
             maximumCount.getClass().equals(String.class) ||
+            maximumCount.getClass().equals(java.net.URI.class)||
             maximumCount.getClass().isEnum()) {
             map.put("maximumCount", maximumCount);
         } else if (isListOfFile(maximumCount)) {
@@ -354,7 +358,7 @@ public class FormGroup {
             }
         }
         else {
-          map.put("maximumCount", maximumCount);
+          map.put("maximumCount", JSON.serialize(maximumCount));
         }
     }
     if (dataSyncTag != null) {
@@ -365,6 +369,7 @@ public class FormGroup {
         if (dataSyncTag.getClass().equals(java.io.File.class) ||
             dataSyncTag.getClass().equals(Integer.class) ||
             dataSyncTag.getClass().equals(String.class) ||
+            dataSyncTag.getClass().equals(java.net.URI.class)||
             dataSyncTag.getClass().isEnum()) {
             map.put("dataSyncTag", dataSyncTag);
         } else if (isListOfFile(dataSyncTag)) {
@@ -373,7 +378,7 @@ public class FormGroup {
             }
         }
         else {
-          map.put("dataSyncTag", dataSyncTag);
+          map.put("dataSyncTag", JSON.serialize(dataSyncTag));
         }
     }
     } catch (Exception e) {

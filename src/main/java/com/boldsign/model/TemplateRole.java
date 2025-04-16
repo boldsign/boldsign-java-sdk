@@ -375,7 +375,9 @@ public class TemplateRole {
     
     SMS("SMS"),
     
-    EMAIL_AND_SMS("EmailAndSMS");
+    EMAIL_AND_SMS("EmailAndSMS"),
+    
+    WHATS_APP("WhatsApp");
 
     private String value;
 
@@ -875,6 +877,7 @@ public class TemplateRole {
         if (index.getClass().equals(java.io.File.class) ||
             index.getClass().equals(Integer.class) ||
             index.getClass().equals(String.class) ||
+            index.getClass().equals(java.net.URI.class)||
             index.getClass().isEnum()) {
             map.put("index", index);
         } else if (isListOfFile(index)) {
@@ -883,7 +886,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("index", index);
+          map.put("index", JSON.serialize(index));
         }
     }
     if (name != null) {
@@ -894,6 +897,7 @@ public class TemplateRole {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -902,7 +906,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (defaultSignerName != null) {
@@ -913,6 +917,7 @@ public class TemplateRole {
         if (defaultSignerName.getClass().equals(java.io.File.class) ||
             defaultSignerName.getClass().equals(Integer.class) ||
             defaultSignerName.getClass().equals(String.class) ||
+            defaultSignerName.getClass().equals(java.net.URI.class)||
             defaultSignerName.getClass().isEnum()) {
             map.put("defaultSignerName", defaultSignerName);
         } else if (isListOfFile(defaultSignerName)) {
@@ -921,7 +926,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("defaultSignerName", defaultSignerName);
+          map.put("defaultSignerName", JSON.serialize(defaultSignerName));
         }
     }
     if (defaultSignerEmail != null) {
@@ -932,6 +937,7 @@ public class TemplateRole {
         if (defaultSignerEmail.getClass().equals(java.io.File.class) ||
             defaultSignerEmail.getClass().equals(Integer.class) ||
             defaultSignerEmail.getClass().equals(String.class) ||
+            defaultSignerEmail.getClass().equals(java.net.URI.class)||
             defaultSignerEmail.getClass().isEnum()) {
             map.put("defaultSignerEmail", defaultSignerEmail);
         } else if (isListOfFile(defaultSignerEmail)) {
@@ -940,7 +946,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("defaultSignerEmail", defaultSignerEmail);
+          map.put("defaultSignerEmail", JSON.serialize(defaultSignerEmail));
         }
     }
     if (signerOrder != null) {
@@ -951,6 +957,7 @@ public class TemplateRole {
         if (signerOrder.getClass().equals(java.io.File.class) ||
             signerOrder.getClass().equals(Integer.class) ||
             signerOrder.getClass().equals(String.class) ||
+            signerOrder.getClass().equals(java.net.URI.class)||
             signerOrder.getClass().isEnum()) {
             map.put("signerOrder", signerOrder);
         } else if (isListOfFile(signerOrder)) {
@@ -959,7 +966,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("signerOrder", signerOrder);
+          map.put("signerOrder", JSON.serialize(signerOrder));
         }
     }
     if (signerType != null) {
@@ -970,6 +977,7 @@ public class TemplateRole {
         if (signerType.getClass().equals(java.io.File.class) ||
             signerType.getClass().equals(Integer.class) ||
             signerType.getClass().equals(String.class) ||
+            signerType.getClass().equals(java.net.URI.class)||
             signerType.getClass().isEnum()) {
             map.put("signerType", signerType);
         } else if (isListOfFile(signerType)) {
@@ -978,7 +986,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("signerType", signerType);
+          map.put("signerType", JSON.serialize(signerType));
         }
     }
     if (hostEmail != null) {
@@ -989,6 +997,7 @@ public class TemplateRole {
         if (hostEmail.getClass().equals(java.io.File.class) ||
             hostEmail.getClass().equals(Integer.class) ||
             hostEmail.getClass().equals(String.class) ||
+            hostEmail.getClass().equals(java.net.URI.class)||
             hostEmail.getClass().isEnum()) {
             map.put("hostEmail", hostEmail);
         } else if (isListOfFile(hostEmail)) {
@@ -997,7 +1006,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("hostEmail", hostEmail);
+          map.put("hostEmail", JSON.serialize(hostEmail));
         }
     }
     if (language != null) {
@@ -1008,6 +1017,7 @@ public class TemplateRole {
         if (language.getClass().equals(java.io.File.class) ||
             language.getClass().equals(Integer.class) ||
             language.getClass().equals(String.class) ||
+            language.getClass().equals(java.net.URI.class)||
             language.getClass().isEnum()) {
             map.put("language", language);
         } else if (isListOfFile(language)) {
@@ -1016,7 +1026,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("language", language);
+          map.put("language", JSON.serialize(language));
         }
     }
     if (locale != null) {
@@ -1027,6 +1037,7 @@ public class TemplateRole {
         if (locale.getClass().equals(java.io.File.class) ||
             locale.getClass().equals(Integer.class) ||
             locale.getClass().equals(String.class) ||
+            locale.getClass().equals(java.net.URI.class)||
             locale.getClass().isEnum()) {
             map.put("locale", locale);
         } else if (isListOfFile(locale)) {
@@ -1035,7 +1046,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("locale", locale);
+          map.put("locale", JSON.serialize(locale));
         }
     }
     if (imposeAuthentication != null) {
@@ -1046,6 +1057,7 @@ public class TemplateRole {
         if (imposeAuthentication.getClass().equals(java.io.File.class) ||
             imposeAuthentication.getClass().equals(Integer.class) ||
             imposeAuthentication.getClass().equals(String.class) ||
+            imposeAuthentication.getClass().equals(java.net.URI.class)||
             imposeAuthentication.getClass().isEnum()) {
             map.put("imposeAuthentication", imposeAuthentication);
         } else if (isListOfFile(imposeAuthentication)) {
@@ -1054,7 +1066,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("imposeAuthentication", imposeAuthentication);
+          map.put("imposeAuthentication", JSON.serialize(imposeAuthentication));
         }
     }
     if (phoneNumber != null) {
@@ -1065,6 +1077,7 @@ public class TemplateRole {
         if (phoneNumber.getClass().equals(java.io.File.class) ||
             phoneNumber.getClass().equals(Integer.class) ||
             phoneNumber.getClass().equals(String.class) ||
+            phoneNumber.getClass().equals(java.net.URI.class)||
             phoneNumber.getClass().isEnum()) {
             map.put("phoneNumber", phoneNumber);
         } else if (isListOfFile(phoneNumber)) {
@@ -1073,7 +1086,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("phoneNumber", phoneNumber);
+          map.put("phoneNumber", JSON.serialize(phoneNumber));
         }
     }
     if (deliveryMode != null) {
@@ -1084,6 +1097,7 @@ public class TemplateRole {
         if (deliveryMode.getClass().equals(java.io.File.class) ||
             deliveryMode.getClass().equals(Integer.class) ||
             deliveryMode.getClass().equals(String.class) ||
+            deliveryMode.getClass().equals(java.net.URI.class)||
             deliveryMode.getClass().isEnum()) {
             map.put("deliveryMode", deliveryMode);
         } else if (isListOfFile(deliveryMode)) {
@@ -1092,7 +1106,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("deliveryMode", deliveryMode);
+          map.put("deliveryMode", JSON.serialize(deliveryMode));
         }
     }
     if (allowFieldConfiguration != null) {
@@ -1103,6 +1117,7 @@ public class TemplateRole {
         if (allowFieldConfiguration.getClass().equals(java.io.File.class) ||
             allowFieldConfiguration.getClass().equals(Integer.class) ||
             allowFieldConfiguration.getClass().equals(String.class) ||
+            allowFieldConfiguration.getClass().equals(java.net.URI.class)||
             allowFieldConfiguration.getClass().isEnum()) {
             map.put("allowFieldConfiguration", allowFieldConfiguration);
         } else if (isListOfFile(allowFieldConfiguration)) {
@@ -1111,7 +1126,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("allowFieldConfiguration", allowFieldConfiguration);
+          map.put("allowFieldConfiguration", JSON.serialize(allowFieldConfiguration));
         }
     }
     if (formFields != null) {
@@ -1122,6 +1137,7 @@ public class TemplateRole {
         if (formFields.getClass().equals(java.io.File.class) ||
             formFields.getClass().equals(Integer.class) ||
             formFields.getClass().equals(String.class) ||
+            formFields.getClass().equals(java.net.URI.class)||
             formFields.getClass().isEnum()) {
             map.put("formFields", formFields);
         } else if (isListOfFile(formFields)) {
@@ -1132,7 +1148,7 @@ public class TemplateRole {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formFields) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1151,6 +1167,7 @@ public class TemplateRole {
         if (allowRoleEdit.getClass().equals(java.io.File.class) ||
             allowRoleEdit.getClass().equals(Integer.class) ||
             allowRoleEdit.getClass().equals(String.class) ||
+            allowRoleEdit.getClass().equals(java.net.URI.class)||
             allowRoleEdit.getClass().isEnum()) {
             map.put("allowRoleEdit", allowRoleEdit);
         } else if (isListOfFile(allowRoleEdit)) {
@@ -1159,7 +1176,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("allowRoleEdit", allowRoleEdit);
+          map.put("allowRoleEdit", JSON.serialize(allowRoleEdit));
         }
     }
     if (allowRoleDelete != null) {
@@ -1170,6 +1187,7 @@ public class TemplateRole {
         if (allowRoleDelete.getClass().equals(java.io.File.class) ||
             allowRoleDelete.getClass().equals(Integer.class) ||
             allowRoleDelete.getClass().equals(String.class) ||
+            allowRoleDelete.getClass().equals(java.net.URI.class)||
             allowRoleDelete.getClass().isEnum()) {
             map.put("allowRoleDelete", allowRoleDelete);
         } else if (isListOfFile(allowRoleDelete)) {
@@ -1178,7 +1196,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("allowRoleDelete", allowRoleDelete);
+          map.put("allowRoleDelete", JSON.serialize(allowRoleDelete));
         }
     }
     if (recipientNotificationSettings != null) {
@@ -1189,6 +1207,7 @@ public class TemplateRole {
         if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
             recipientNotificationSettings.getClass().equals(Integer.class) ||
             recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().equals(java.net.URI.class)||
             recipientNotificationSettings.getClass().isEnum()) {
             map.put("recipientNotificationSettings", recipientNotificationSettings);
         } else if (isListOfFile(recipientNotificationSettings)) {
@@ -1197,7 +1216,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("recipientNotificationSettings", recipientNotificationSettings);
+          map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
         }
     }
     if (enableQes != null) {
@@ -1208,6 +1227,7 @@ public class TemplateRole {
         if (enableQes.getClass().equals(java.io.File.class) ||
             enableQes.getClass().equals(Integer.class) ||
             enableQes.getClass().equals(String.class) ||
+            enableQes.getClass().equals(java.net.URI.class)||
             enableQes.getClass().isEnum()) {
             map.put("enableQes", enableQes);
         } else if (isListOfFile(enableQes)) {
@@ -1216,7 +1236,7 @@ public class TemplateRole {
             }
         }
         else {
-          map.put("enableQes", enableQes);
+          map.put("enableQes", JSON.serialize(enableQes));
         }
     }
     } catch (Exception e) {

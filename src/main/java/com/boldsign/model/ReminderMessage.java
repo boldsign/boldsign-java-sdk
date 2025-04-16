@@ -170,6 +170,7 @@ public class ReminderMessage {
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
             message.getClass().equals(String.class) ||
+            message.getClass().equals(java.net.URI.class)||
             message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
@@ -178,7 +179,7 @@ public class ReminderMessage {
             }
         }
         else {
-          map.put("message", message);
+          map.put("message", JSON.serialize(message));
         }
     }
     if (onBehalfOf != null) {
@@ -189,6 +190,7 @@ public class ReminderMessage {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -197,7 +199,7 @@ public class ReminderMessage {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     if (reminderPhoneNumbers != null) {
@@ -208,6 +210,7 @@ public class ReminderMessage {
         if (reminderPhoneNumbers.getClass().equals(java.io.File.class) ||
             reminderPhoneNumbers.getClass().equals(Integer.class) ||
             reminderPhoneNumbers.getClass().equals(String.class) ||
+            reminderPhoneNumbers.getClass().equals(java.net.URI.class)||
             reminderPhoneNumbers.getClass().isEnum()) {
             map.put("reminderPhoneNumbers", reminderPhoneNumbers);
         } else if (isListOfFile(reminderPhoneNumbers)) {
@@ -218,7 +221,7 @@ public class ReminderMessage {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : reminderPhoneNumbers) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {

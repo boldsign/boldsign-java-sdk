@@ -120,6 +120,7 @@ public class BrandingRecords {
         if (result.getClass().equals(java.io.File.class) ||
             result.getClass().equals(Integer.class) ||
             result.getClass().equals(String.class) ||
+            result.getClass().equals(java.net.URI.class)||
             result.getClass().isEnum()) {
             map.put("result", result);
         } else if (isListOfFile(result)) {
@@ -130,7 +131,7 @@ public class BrandingRecords {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : result) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {

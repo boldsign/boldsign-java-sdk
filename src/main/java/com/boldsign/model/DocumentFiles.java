@@ -159,6 +159,7 @@ public class DocumentFiles {
         if (documentName.getClass().equals(java.io.File.class) ||
             documentName.getClass().equals(Integer.class) ||
             documentName.getClass().equals(String.class) ||
+            documentName.getClass().equals(java.net.URI.class)||
             documentName.getClass().isEnum()) {
             map.put("documentName", documentName);
         } else if (isListOfFile(documentName)) {
@@ -167,7 +168,7 @@ public class DocumentFiles {
             }
         }
         else {
-          map.put("documentName", documentName);
+          map.put("documentName", JSON.serialize(documentName));
         }
     }
     if (order != null) {
@@ -178,6 +179,7 @@ public class DocumentFiles {
         if (order.getClass().equals(java.io.File.class) ||
             order.getClass().equals(Integer.class) ||
             order.getClass().equals(String.class) ||
+            order.getClass().equals(java.net.URI.class)||
             order.getClass().isEnum()) {
             map.put("order", order);
         } else if (isListOfFile(order)) {
@@ -186,7 +188,7 @@ public class DocumentFiles {
             }
         }
         else {
-          map.put("order", order);
+          map.put("order", JSON.serialize(order));
         }
     }
     if (pageCount != null) {
@@ -197,6 +199,7 @@ public class DocumentFiles {
         if (pageCount.getClass().equals(java.io.File.class) ||
             pageCount.getClass().equals(Integer.class) ||
             pageCount.getClass().equals(String.class) ||
+            pageCount.getClass().equals(java.net.URI.class)||
             pageCount.getClass().isEnum()) {
             map.put("pageCount", pageCount);
         } else if (isListOfFile(pageCount)) {
@@ -205,7 +208,7 @@ public class DocumentFiles {
             }
         }
         else {
-          map.put("pageCount", pageCount);
+          map.put("pageCount", JSON.serialize(pageCount));
         }
     }
     } catch (Exception e) {

@@ -202,6 +202,7 @@ public class TemplateTag {
         if (templateId.getClass().equals(java.io.File.class) ||
             templateId.getClass().equals(Integer.class) ||
             templateId.getClass().equals(String.class) ||
+            templateId.getClass().equals(java.net.URI.class)||
             templateId.getClass().isEnum()) {
             map.put("templateId", templateId);
         } else if (isListOfFile(templateId)) {
@@ -210,7 +211,7 @@ public class TemplateTag {
             }
         }
         else {
-          map.put("templateId", templateId);
+          map.put("templateId", JSON.serialize(templateId));
         }
     }
     if (documentLabels != null) {
@@ -221,6 +222,7 @@ public class TemplateTag {
         if (documentLabels.getClass().equals(java.io.File.class) ||
             documentLabels.getClass().equals(Integer.class) ||
             documentLabels.getClass().equals(String.class) ||
+            documentLabels.getClass().equals(java.net.URI.class)||
             documentLabels.getClass().isEnum()) {
             map.put("documentLabels", documentLabels);
         } else if (isListOfFile(documentLabels)) {
@@ -231,7 +233,7 @@ public class TemplateTag {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : documentLabels) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -250,6 +252,7 @@ public class TemplateTag {
         if (templateLabels.getClass().equals(java.io.File.class) ||
             templateLabels.getClass().equals(Integer.class) ||
             templateLabels.getClass().equals(String.class) ||
+            templateLabels.getClass().equals(java.net.URI.class)||
             templateLabels.getClass().isEnum()) {
             map.put("templateLabels", templateLabels);
         } else if (isListOfFile(templateLabels)) {
@@ -260,7 +263,7 @@ public class TemplateTag {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : templateLabels) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -279,6 +282,7 @@ public class TemplateTag {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -287,7 +291,7 @@ public class TemplateTag {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     } catch (Exception e) {

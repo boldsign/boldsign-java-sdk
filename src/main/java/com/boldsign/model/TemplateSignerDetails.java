@@ -205,7 +205,9 @@ public class TemplateSignerDetails {
     
     SMS("SMS"),
     
-    EMAIL_AND_SMS("EmailAndSMS");
+    EMAIL_AND_SMS("EmailAndSMS"),
+    
+    WHATS_APP("WhatsApp");
 
     private String value;
 
@@ -788,6 +790,7 @@ public class TemplateSignerDetails {
         if (signerName.getClass().equals(java.io.File.class) ||
             signerName.getClass().equals(Integer.class) ||
             signerName.getClass().equals(String.class) ||
+            signerName.getClass().equals(java.net.URI.class)||
             signerName.getClass().isEnum()) {
             map.put("signerName", signerName);
         } else if (isListOfFile(signerName)) {
@@ -796,7 +799,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("signerName", signerName);
+          map.put("signerName", JSON.serialize(signerName));
         }
     }
     if (signerRole != null) {
@@ -807,6 +810,7 @@ public class TemplateSignerDetails {
         if (signerRole.getClass().equals(java.io.File.class) ||
             signerRole.getClass().equals(Integer.class) ||
             signerRole.getClass().equals(String.class) ||
+            signerRole.getClass().equals(java.net.URI.class)||
             signerRole.getClass().isEnum()) {
             map.put("signerRole", signerRole);
         } else if (isListOfFile(signerRole)) {
@@ -815,7 +819,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("signerRole", signerRole);
+          map.put("signerRole", JSON.serialize(signerRole));
         }
     }
     if (signerEmail != null) {
@@ -826,6 +830,7 @@ public class TemplateSignerDetails {
         if (signerEmail.getClass().equals(java.io.File.class) ||
             signerEmail.getClass().equals(Integer.class) ||
             signerEmail.getClass().equals(String.class) ||
+            signerEmail.getClass().equals(java.net.URI.class)||
             signerEmail.getClass().isEnum()) {
             map.put("signerEmail", signerEmail);
         } else if (isListOfFile(signerEmail)) {
@@ -834,7 +839,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("signerEmail", signerEmail);
+          map.put("signerEmail", JSON.serialize(signerEmail));
         }
     }
     if (phoneNumber != null) {
@@ -845,6 +850,7 @@ public class TemplateSignerDetails {
         if (phoneNumber.getClass().equals(java.io.File.class) ||
             phoneNumber.getClass().equals(Integer.class) ||
             phoneNumber.getClass().equals(String.class) ||
+            phoneNumber.getClass().equals(java.net.URI.class)||
             phoneNumber.getClass().isEnum()) {
             map.put("phoneNumber", phoneNumber);
         } else if (isListOfFile(phoneNumber)) {
@@ -853,7 +859,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("phoneNumber", phoneNumber);
+          map.put("phoneNumber", JSON.serialize(phoneNumber));
         }
     }
     if (status != null) {
@@ -864,6 +870,7 @@ public class TemplateSignerDetails {
         if (status.getClass().equals(java.io.File.class) ||
             status.getClass().equals(Integer.class) ||
             status.getClass().equals(String.class) ||
+            status.getClass().equals(java.net.URI.class)||
             status.getClass().isEnum()) {
             map.put("status", status);
         } else if (isListOfFile(status)) {
@@ -872,7 +879,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("status", status);
+          map.put("status", JSON.serialize(status));
         }
     }
     if (enableAccessCode != null) {
@@ -883,6 +890,7 @@ public class TemplateSignerDetails {
         if (enableAccessCode.getClass().equals(java.io.File.class) ||
             enableAccessCode.getClass().equals(Integer.class) ||
             enableAccessCode.getClass().equals(String.class) ||
+            enableAccessCode.getClass().equals(java.net.URI.class)||
             enableAccessCode.getClass().isEnum()) {
             map.put("enableAccessCode", enableAccessCode);
         } else if (isListOfFile(enableAccessCode)) {
@@ -891,7 +899,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("enableAccessCode", enableAccessCode);
+          map.put("enableAccessCode", JSON.serialize(enableAccessCode));
         }
     }
     if (enableEmailOTP != null) {
@@ -902,6 +910,7 @@ public class TemplateSignerDetails {
         if (enableEmailOTP.getClass().equals(java.io.File.class) ||
             enableEmailOTP.getClass().equals(Integer.class) ||
             enableEmailOTP.getClass().equals(String.class) ||
+            enableEmailOTP.getClass().equals(java.net.URI.class)||
             enableEmailOTP.getClass().isEnum()) {
             map.put("enableEmailOTP", enableEmailOTP);
         } else if (isListOfFile(enableEmailOTP)) {
@@ -910,7 +919,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("enableEmailOTP", enableEmailOTP);
+          map.put("enableEmailOTP", JSON.serialize(enableEmailOTP));
         }
     }
     if (imposeAuthentication != null) {
@@ -921,6 +930,7 @@ public class TemplateSignerDetails {
         if (imposeAuthentication.getClass().equals(java.io.File.class) ||
             imposeAuthentication.getClass().equals(Integer.class) ||
             imposeAuthentication.getClass().equals(String.class) ||
+            imposeAuthentication.getClass().equals(java.net.URI.class)||
             imposeAuthentication.getClass().isEnum()) {
             map.put("imposeAuthentication", imposeAuthentication);
         } else if (isListOfFile(imposeAuthentication)) {
@@ -929,7 +939,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("imposeAuthentication", imposeAuthentication);
+          map.put("imposeAuthentication", JSON.serialize(imposeAuthentication));
         }
     }
     if (deliveryMode != null) {
@@ -940,6 +950,7 @@ public class TemplateSignerDetails {
         if (deliveryMode.getClass().equals(java.io.File.class) ||
             deliveryMode.getClass().equals(Integer.class) ||
             deliveryMode.getClass().equals(String.class) ||
+            deliveryMode.getClass().equals(java.net.URI.class)||
             deliveryMode.getClass().isEnum()) {
             map.put("deliveryMode", deliveryMode);
         } else if (isListOfFile(deliveryMode)) {
@@ -948,7 +959,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("deliveryMode", deliveryMode);
+          map.put("deliveryMode", JSON.serialize(deliveryMode));
         }
     }
     if (allowFieldConfiguration != null) {
@@ -959,6 +970,7 @@ public class TemplateSignerDetails {
         if (allowFieldConfiguration.getClass().equals(java.io.File.class) ||
             allowFieldConfiguration.getClass().equals(Integer.class) ||
             allowFieldConfiguration.getClass().equals(String.class) ||
+            allowFieldConfiguration.getClass().equals(java.net.URI.class)||
             allowFieldConfiguration.getClass().isEnum()) {
             map.put("allowFieldConfiguration", allowFieldConfiguration);
         } else if (isListOfFile(allowFieldConfiguration)) {
@@ -967,7 +979,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("allowFieldConfiguration", allowFieldConfiguration);
+          map.put("allowFieldConfiguration", JSON.serialize(allowFieldConfiguration));
         }
     }
     if (userId != null) {
@@ -978,6 +990,7 @@ public class TemplateSignerDetails {
         if (userId.getClass().equals(java.io.File.class) ||
             userId.getClass().equals(Integer.class) ||
             userId.getClass().equals(String.class) ||
+            userId.getClass().equals(java.net.URI.class)||
             userId.getClass().isEnum()) {
             map.put("userId", userId);
         } else if (isListOfFile(userId)) {
@@ -986,7 +999,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("userId", userId);
+          map.put("userId", JSON.serialize(userId));
         }
     }
     if (order != null) {
@@ -997,6 +1010,7 @@ public class TemplateSignerDetails {
         if (order.getClass().equals(java.io.File.class) ||
             order.getClass().equals(Integer.class) ||
             order.getClass().equals(String.class) ||
+            order.getClass().equals(java.net.URI.class)||
             order.getClass().isEnum()) {
             map.put("order", order);
         } else if (isListOfFile(order)) {
@@ -1005,7 +1019,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("order", order);
+          map.put("order", JSON.serialize(order));
         }
     }
     if (signerType != null) {
@@ -1016,6 +1030,7 @@ public class TemplateSignerDetails {
         if (signerType.getClass().equals(java.io.File.class) ||
             signerType.getClass().equals(Integer.class) ||
             signerType.getClass().equals(String.class) ||
+            signerType.getClass().equals(java.net.URI.class)||
             signerType.getClass().isEnum()) {
             map.put("signerType", signerType);
         } else if (isListOfFile(signerType)) {
@@ -1024,7 +1039,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("signerType", signerType);
+          map.put("signerType", JSON.serialize(signerType));
         }
     }
     if (hostEmail != null) {
@@ -1035,6 +1050,7 @@ public class TemplateSignerDetails {
         if (hostEmail.getClass().equals(java.io.File.class) ||
             hostEmail.getClass().equals(Integer.class) ||
             hostEmail.getClass().equals(String.class) ||
+            hostEmail.getClass().equals(java.net.URI.class)||
             hostEmail.getClass().isEnum()) {
             map.put("hostEmail", hostEmail);
         } else if (isListOfFile(hostEmail)) {
@@ -1043,7 +1059,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("hostEmail", hostEmail);
+          map.put("hostEmail", JSON.serialize(hostEmail));
         }
     }
     if (hostName != null) {
@@ -1054,6 +1070,7 @@ public class TemplateSignerDetails {
         if (hostName.getClass().equals(java.io.File.class) ||
             hostName.getClass().equals(Integer.class) ||
             hostName.getClass().equals(String.class) ||
+            hostName.getClass().equals(java.net.URI.class)||
             hostName.getClass().isEnum()) {
             map.put("hostName", hostName);
         } else if (isListOfFile(hostName)) {
@@ -1062,7 +1079,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("hostName", hostName);
+          map.put("hostName", JSON.serialize(hostName));
         }
     }
     if (hostUserId != null) {
@@ -1073,6 +1090,7 @@ public class TemplateSignerDetails {
         if (hostUserId.getClass().equals(java.io.File.class) ||
             hostUserId.getClass().equals(Integer.class) ||
             hostUserId.getClass().equals(String.class) ||
+            hostUserId.getClass().equals(java.net.URI.class)||
             hostUserId.getClass().isEnum()) {
             map.put("hostUserId", hostUserId);
         } else if (isListOfFile(hostUserId)) {
@@ -1081,7 +1099,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("hostUserId", hostUserId);
+          map.put("hostUserId", JSON.serialize(hostUserId));
         }
     }
     if (signType != null) {
@@ -1092,6 +1110,7 @@ public class TemplateSignerDetails {
         if (signType.getClass().equals(java.io.File.class) ||
             signType.getClass().equals(Integer.class) ||
             signType.getClass().equals(String.class) ||
+            signType.getClass().equals(java.net.URI.class)||
             signType.getClass().isEnum()) {
             map.put("signType", signType);
         } else if (isListOfFile(signType)) {
@@ -1100,7 +1119,7 @@ public class TemplateSignerDetails {
             }
         }
         else {
-          map.put("signType", signType);
+          map.put("signType", JSON.serialize(signType));
         }
     }
     } catch (Exception e) {

@@ -185,6 +185,7 @@ public class RemoveAuthentication {
         if (emailId.getClass().equals(java.io.File.class) ||
             emailId.getClass().equals(Integer.class) ||
             emailId.getClass().equals(String.class) ||
+            emailId.getClass().equals(java.net.URI.class)||
             emailId.getClass().isEnum()) {
             map.put("emailId", emailId);
         } else if (isListOfFile(emailId)) {
@@ -193,7 +194,7 @@ public class RemoveAuthentication {
             }
         }
         else {
-          map.put("emailId", emailId);
+          map.put("emailId", JSON.serialize(emailId));
         }
     }
     if (zOrder != null) {
@@ -204,6 +205,7 @@ public class RemoveAuthentication {
         if (zOrder.getClass().equals(java.io.File.class) ||
             zOrder.getClass().equals(Integer.class) ||
             zOrder.getClass().equals(String.class) ||
+            zOrder.getClass().equals(java.net.URI.class)||
             zOrder.getClass().isEnum()) {
             map.put("zOrder", zOrder);
         } else if (isListOfFile(zOrder)) {
@@ -212,7 +214,7 @@ public class RemoveAuthentication {
             }
         }
         else {
-          map.put("zOrder", zOrder);
+          map.put("zOrder", JSON.serialize(zOrder));
         }
     }
     if (phoneNumber != null) {
@@ -223,6 +225,7 @@ public class RemoveAuthentication {
         if (phoneNumber.getClass().equals(java.io.File.class) ||
             phoneNumber.getClass().equals(Integer.class) ||
             phoneNumber.getClass().equals(String.class) ||
+            phoneNumber.getClass().equals(java.net.URI.class)||
             phoneNumber.getClass().isEnum()) {
             map.put("phoneNumber", phoneNumber);
         } else if (isListOfFile(phoneNumber)) {
@@ -231,7 +234,7 @@ public class RemoveAuthentication {
             }
         }
         else {
-          map.put("phoneNumber", phoneNumber);
+          map.put("phoneNumber", JSON.serialize(phoneNumber));
         }
     }
     if (onBehalfOf != null) {
@@ -242,6 +245,7 @@ public class RemoveAuthentication {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -250,7 +254,7 @@ public class RemoveAuthentication {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     } catch (Exception e) {

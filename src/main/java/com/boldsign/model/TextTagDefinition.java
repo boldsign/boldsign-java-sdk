@@ -866,6 +866,7 @@ public class TextTagDefinition {
         if (definitionId.getClass().equals(java.io.File.class) ||
             definitionId.getClass().equals(Integer.class) ||
             definitionId.getClass().equals(String.class) ||
+            definitionId.getClass().equals(java.net.URI.class)||
             definitionId.getClass().isEnum()) {
             map.put("definitionId", definitionId);
         } else if (isListOfFile(definitionId)) {
@@ -874,7 +875,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("definitionId", definitionId);
+          map.put("definitionId", JSON.serialize(definitionId));
         }
     }
     if (type != null) {
@@ -885,6 +886,7 @@ public class TextTagDefinition {
         if (type.getClass().equals(java.io.File.class) ||
             type.getClass().equals(Integer.class) ||
             type.getClass().equals(String.class) ||
+            type.getClass().equals(java.net.URI.class)||
             type.getClass().isEnum()) {
             map.put("type", type);
         } else if (isListOfFile(type)) {
@@ -893,7 +895,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("type", type);
+          map.put("type", JSON.serialize(type));
         }
     }
     if (signerIndex != null) {
@@ -904,6 +906,7 @@ public class TextTagDefinition {
         if (signerIndex.getClass().equals(java.io.File.class) ||
             signerIndex.getClass().equals(Integer.class) ||
             signerIndex.getClass().equals(String.class) ||
+            signerIndex.getClass().equals(java.net.URI.class)||
             signerIndex.getClass().isEnum()) {
             map.put("signerIndex", signerIndex);
         } else if (isListOfFile(signerIndex)) {
@@ -912,7 +915,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("signerIndex", signerIndex);
+          map.put("signerIndex", JSON.serialize(signerIndex));
         }
     }
     if (isRequired != null) {
@@ -923,6 +926,7 @@ public class TextTagDefinition {
         if (isRequired.getClass().equals(java.io.File.class) ||
             isRequired.getClass().equals(Integer.class) ||
             isRequired.getClass().equals(String.class) ||
+            isRequired.getClass().equals(java.net.URI.class)||
             isRequired.getClass().isEnum()) {
             map.put("isRequired", isRequired);
         } else if (isListOfFile(isRequired)) {
@@ -931,7 +935,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("isRequired", isRequired);
+          map.put("isRequired", JSON.serialize(isRequired));
         }
     }
     if (placeholder != null) {
@@ -942,6 +946,7 @@ public class TextTagDefinition {
         if (placeholder.getClass().equals(java.io.File.class) ||
             placeholder.getClass().equals(Integer.class) ||
             placeholder.getClass().equals(String.class) ||
+            placeholder.getClass().equals(java.net.URI.class)||
             placeholder.getClass().isEnum()) {
             map.put("placeholder", placeholder);
         } else if (isListOfFile(placeholder)) {
@@ -950,7 +955,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("placeholder", placeholder);
+          map.put("placeholder", JSON.serialize(placeholder));
         }
     }
     if (fieldId != null) {
@@ -961,6 +966,7 @@ public class TextTagDefinition {
         if (fieldId.getClass().equals(java.io.File.class) ||
             fieldId.getClass().equals(Integer.class) ||
             fieldId.getClass().equals(String.class) ||
+            fieldId.getClass().equals(java.net.URI.class)||
             fieldId.getClass().isEnum()) {
             map.put("fieldId", fieldId);
         } else if (isListOfFile(fieldId)) {
@@ -969,7 +975,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("fieldId", fieldId);
+          map.put("fieldId", JSON.serialize(fieldId));
         }
     }
     if (font != null) {
@@ -980,6 +986,7 @@ public class TextTagDefinition {
         if (font.getClass().equals(java.io.File.class) ||
             font.getClass().equals(Integer.class) ||
             font.getClass().equals(String.class) ||
+            font.getClass().equals(java.net.URI.class)||
             font.getClass().isEnum()) {
             map.put("font", font);
         } else if (isListOfFile(font)) {
@@ -988,7 +995,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("font", font);
+          map.put("font", JSON.serialize(font));
         }
     }
     if (validation != null) {
@@ -999,6 +1006,7 @@ public class TextTagDefinition {
         if (validation.getClass().equals(java.io.File.class) ||
             validation.getClass().equals(Integer.class) ||
             validation.getClass().equals(String.class) ||
+            validation.getClass().equals(java.net.URI.class)||
             validation.getClass().isEnum()) {
             map.put("validation", validation);
         } else if (isListOfFile(validation)) {
@@ -1007,7 +1015,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("validation", validation);
+          map.put("validation", JSON.serialize(validation));
         }
     }
     if (size != null) {
@@ -1018,6 +1026,7 @@ public class TextTagDefinition {
         if (size.getClass().equals(java.io.File.class) ||
             size.getClass().equals(Integer.class) ||
             size.getClass().equals(String.class) ||
+            size.getClass().equals(java.net.URI.class)||
             size.getClass().isEnum()) {
             map.put("size", size);
         } else if (isListOfFile(size)) {
@@ -1026,7 +1035,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("size", size);
+          map.put("size", JSON.serialize(size));
         }
     }
     if (dateFormat != null) {
@@ -1037,6 +1046,7 @@ public class TextTagDefinition {
         if (dateFormat.getClass().equals(java.io.File.class) ||
             dateFormat.getClass().equals(Integer.class) ||
             dateFormat.getClass().equals(String.class) ||
+            dateFormat.getClass().equals(java.net.URI.class)||
             dateFormat.getClass().isEnum()) {
             map.put("dateFormat", dateFormat);
         } else if (isListOfFile(dateFormat)) {
@@ -1045,7 +1055,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("dateFormat", dateFormat);
+          map.put("dateFormat", JSON.serialize(dateFormat));
         }
     }
     if (timeFormat != null) {
@@ -1056,6 +1066,7 @@ public class TextTagDefinition {
         if (timeFormat.getClass().equals(java.io.File.class) ||
             timeFormat.getClass().equals(Integer.class) ||
             timeFormat.getClass().equals(String.class) ||
+            timeFormat.getClass().equals(java.net.URI.class)||
             timeFormat.getClass().isEnum()) {
             map.put("timeFormat", timeFormat);
         } else if (isListOfFile(timeFormat)) {
@@ -1064,7 +1075,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("timeFormat", timeFormat);
+          map.put("timeFormat", JSON.serialize(timeFormat));
         }
     }
     if (radioGroupName != null) {
@@ -1075,6 +1086,7 @@ public class TextTagDefinition {
         if (radioGroupName.getClass().equals(java.io.File.class) ||
             radioGroupName.getClass().equals(Integer.class) ||
             radioGroupName.getClass().equals(String.class) ||
+            radioGroupName.getClass().equals(java.net.URI.class)||
             radioGroupName.getClass().isEnum()) {
             map.put("radioGroupName", radioGroupName);
         } else if (isListOfFile(radioGroupName)) {
@@ -1083,7 +1095,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("radioGroupName", radioGroupName);
+          map.put("radioGroupName", JSON.serialize(radioGroupName));
         }
     }
     if (groupName != null) {
@@ -1094,6 +1106,7 @@ public class TextTagDefinition {
         if (groupName.getClass().equals(java.io.File.class) ||
             groupName.getClass().equals(Integer.class) ||
             groupName.getClass().equals(String.class) ||
+            groupName.getClass().equals(java.net.URI.class)||
             groupName.getClass().isEnum()) {
             map.put("groupName", groupName);
         } else if (isListOfFile(groupName)) {
@@ -1102,7 +1115,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("groupName", groupName);
+          map.put("groupName", JSON.serialize(groupName));
         }
     }
     if (value != null) {
@@ -1113,6 +1126,7 @@ public class TextTagDefinition {
         if (value.getClass().equals(java.io.File.class) ||
             value.getClass().equals(Integer.class) ||
             value.getClass().equals(String.class) ||
+            value.getClass().equals(java.net.URI.class)||
             value.getClass().isEnum()) {
             map.put("value", value);
         } else if (isListOfFile(value)) {
@@ -1121,7 +1135,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("value", value);
+          map.put("value", JSON.serialize(value));
         }
     }
     if (dropdownOptions != null) {
@@ -1132,6 +1146,7 @@ public class TextTagDefinition {
         if (dropdownOptions.getClass().equals(java.io.File.class) ||
             dropdownOptions.getClass().equals(Integer.class) ||
             dropdownOptions.getClass().equals(String.class) ||
+            dropdownOptions.getClass().equals(java.net.URI.class)||
             dropdownOptions.getClass().isEnum()) {
             map.put("dropdownOptions", dropdownOptions);
         } else if (isListOfFile(dropdownOptions)) {
@@ -1142,7 +1157,7 @@ public class TextTagDefinition {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : dropdownOptions) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1161,6 +1176,7 @@ public class TextTagDefinition {
         if (imageInfo.getClass().equals(java.io.File.class) ||
             imageInfo.getClass().equals(Integer.class) ||
             imageInfo.getClass().equals(String.class) ||
+            imageInfo.getClass().equals(java.net.URI.class)||
             imageInfo.getClass().isEnum()) {
             map.put("imageInfo", imageInfo);
         } else if (isListOfFile(imageInfo)) {
@@ -1169,7 +1185,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("imageInfo", imageInfo);
+          map.put("imageInfo", JSON.serialize(imageInfo));
         }
     }
     if (hyperlinkText != null) {
@@ -1180,6 +1196,7 @@ public class TextTagDefinition {
         if (hyperlinkText.getClass().equals(java.io.File.class) ||
             hyperlinkText.getClass().equals(Integer.class) ||
             hyperlinkText.getClass().equals(String.class) ||
+            hyperlinkText.getClass().equals(java.net.URI.class)||
             hyperlinkText.getClass().isEnum()) {
             map.put("hyperlinkText", hyperlinkText);
         } else if (isListOfFile(hyperlinkText)) {
@@ -1188,7 +1205,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("hyperlinkText", hyperlinkText);
+          map.put("hyperlinkText", JSON.serialize(hyperlinkText));
         }
     }
     if (attachmentInfo != null) {
@@ -1199,6 +1216,7 @@ public class TextTagDefinition {
         if (attachmentInfo.getClass().equals(java.io.File.class) ||
             attachmentInfo.getClass().equals(Integer.class) ||
             attachmentInfo.getClass().equals(String.class) ||
+            attachmentInfo.getClass().equals(java.net.URI.class)||
             attachmentInfo.getClass().isEnum()) {
             map.put("attachmentInfo", attachmentInfo);
         } else if (isListOfFile(attachmentInfo)) {
@@ -1207,7 +1225,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("attachmentInfo", attachmentInfo);
+          map.put("attachmentInfo", JSON.serialize(attachmentInfo));
         }
     }
     if (backgroundHexColor != null) {
@@ -1218,6 +1236,7 @@ public class TextTagDefinition {
         if (backgroundHexColor.getClass().equals(java.io.File.class) ||
             backgroundHexColor.getClass().equals(Integer.class) ||
             backgroundHexColor.getClass().equals(String.class) ||
+            backgroundHexColor.getClass().equals(java.net.URI.class)||
             backgroundHexColor.getClass().isEnum()) {
             map.put("backgroundHexColor", backgroundHexColor);
         } else if (isListOfFile(backgroundHexColor)) {
@@ -1226,7 +1245,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("backgroundHexColor", backgroundHexColor);
+          map.put("backgroundHexColor", JSON.serialize(backgroundHexColor));
         }
     }
     if (isReadOnly != null) {
@@ -1237,6 +1256,7 @@ public class TextTagDefinition {
         if (isReadOnly.getClass().equals(java.io.File.class) ||
             isReadOnly.getClass().equals(Integer.class) ||
             isReadOnly.getClass().equals(String.class) ||
+            isReadOnly.getClass().equals(java.net.URI.class)||
             isReadOnly.getClass().isEnum()) {
             map.put("isReadOnly", isReadOnly);
         } else if (isListOfFile(isReadOnly)) {
@@ -1245,7 +1265,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("isReadOnly", isReadOnly);
+          map.put("isReadOnly", JSON.serialize(isReadOnly));
         }
     }
     if (offset != null) {
@@ -1256,6 +1276,7 @@ public class TextTagDefinition {
         if (offset.getClass().equals(java.io.File.class) ||
             offset.getClass().equals(Integer.class) ||
             offset.getClass().equals(String.class) ||
+            offset.getClass().equals(java.net.URI.class)||
             offset.getClass().isEnum()) {
             map.put("offset", offset);
         } else if (isListOfFile(offset)) {
@@ -1264,7 +1285,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("offset", offset);
+          map.put("offset", JSON.serialize(offset));
         }
     }
     if (label != null) {
@@ -1275,6 +1296,7 @@ public class TextTagDefinition {
         if (label.getClass().equals(java.io.File.class) ||
             label.getClass().equals(Integer.class) ||
             label.getClass().equals(String.class) ||
+            label.getClass().equals(java.net.URI.class)||
             label.getClass().isEnum()) {
             map.put("label", label);
         } else if (isListOfFile(label)) {
@@ -1283,7 +1305,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("label", label);
+          map.put("label", JSON.serialize(label));
         }
     }
     if (tabIndex != null) {
@@ -1294,6 +1316,7 @@ public class TextTagDefinition {
         if (tabIndex.getClass().equals(java.io.File.class) ||
             tabIndex.getClass().equals(Integer.class) ||
             tabIndex.getClass().equals(String.class) ||
+            tabIndex.getClass().equals(java.net.URI.class)||
             tabIndex.getClass().isEnum()) {
             map.put("tabIndex", tabIndex);
         } else if (isListOfFile(tabIndex)) {
@@ -1302,7 +1325,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("tabIndex", tabIndex);
+          map.put("tabIndex", JSON.serialize(tabIndex));
         }
     }
     if (formulaFieldSettings != null) {
@@ -1313,6 +1336,7 @@ public class TextTagDefinition {
         if (formulaFieldSettings.getClass().equals(java.io.File.class) ||
             formulaFieldSettings.getClass().equals(Integer.class) ||
             formulaFieldSettings.getClass().equals(String.class) ||
+            formulaFieldSettings.getClass().equals(java.net.URI.class)||
             formulaFieldSettings.getClass().isEnum()) {
             map.put("formulaFieldSettings", formulaFieldSettings);
         } else if (isListOfFile(formulaFieldSettings)) {
@@ -1321,7 +1345,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("formulaFieldSettings", formulaFieldSettings);
+          map.put("formulaFieldSettings", JSON.serialize(formulaFieldSettings));
         }
     }
     if (resizeOption != null) {
@@ -1332,6 +1356,7 @@ public class TextTagDefinition {
         if (resizeOption.getClass().equals(java.io.File.class) ||
             resizeOption.getClass().equals(Integer.class) ||
             resizeOption.getClass().equals(String.class) ||
+            resizeOption.getClass().equals(java.net.URI.class)||
             resizeOption.getClass().isEnum()) {
             map.put("resizeOption", resizeOption);
         } else if (isListOfFile(resizeOption)) {
@@ -1340,7 +1365,7 @@ public class TextTagDefinition {
             }
         }
         else {
-          map.put("resizeOption", resizeOption);
+          map.put("resizeOption", JSON.serialize(resizeOption));
         }
     }
     } catch (Exception e) {

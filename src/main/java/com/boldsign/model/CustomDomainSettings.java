@@ -134,6 +134,7 @@ public class CustomDomainSettings {
         if (domainName.getClass().equals(java.io.File.class) ||
             domainName.getClass().equals(Integer.class) ||
             domainName.getClass().equals(String.class) ||
+            domainName.getClass().equals(java.net.URI.class)||
             domainName.getClass().isEnum()) {
             map.put("domainName", domainName);
         } else if (isListOfFile(domainName)) {
@@ -142,7 +143,7 @@ public class CustomDomainSettings {
             }
         }
         else {
-          map.put("domainName", domainName);
+          map.put("domainName", JSON.serialize(domainName));
         }
     }
     if (fromName != null) {
@@ -153,6 +154,7 @@ public class CustomDomainSettings {
         if (fromName.getClass().equals(java.io.File.class) ||
             fromName.getClass().equals(Integer.class) ||
             fromName.getClass().equals(String.class) ||
+            fromName.getClass().equals(java.net.URI.class)||
             fromName.getClass().isEnum()) {
             map.put("fromName", fromName);
         } else if (isListOfFile(fromName)) {
@@ -161,7 +163,7 @@ public class CustomDomainSettings {
             }
         }
         else {
-          map.put("fromName", fromName);
+          map.put("fromName", JSON.serialize(fromName));
         }
     }
     } catch (Exception e) {

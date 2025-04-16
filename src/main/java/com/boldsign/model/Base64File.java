@@ -134,6 +134,7 @@ public class Base64File {
         if (base64.getClass().equals(java.io.File.class) ||
             base64.getClass().equals(Integer.class) ||
             base64.getClass().equals(String.class) ||
+            base64.getClass().equals(java.net.URI.class)||
             base64.getClass().isEnum()) {
             map.put("base64", base64);
         } else if (isListOfFile(base64)) {
@@ -142,7 +143,7 @@ public class Base64File {
             }
         }
         else {
-          map.put("base64", base64);
+          map.put("base64", JSON.serialize(base64));
         }
     }
     if (fileName != null) {
@@ -153,6 +154,7 @@ public class Base64File {
         if (fileName.getClass().equals(java.io.File.class) ||
             fileName.getClass().equals(Integer.class) ||
             fileName.getClass().equals(String.class) ||
+            fileName.getClass().equals(java.net.URI.class)||
             fileName.getClass().isEnum()) {
             map.put("fileName", fileName);
         } else if (isListOfFile(fileName)) {
@@ -161,7 +163,7 @@ public class Base64File {
             }
         }
         else {
-          map.put("fileName", fileName);
+          map.put("fileName", JSON.serialize(fileName));
         }
     }
     } catch (Exception e) {

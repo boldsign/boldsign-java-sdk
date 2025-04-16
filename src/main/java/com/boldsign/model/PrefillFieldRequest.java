@@ -145,6 +145,7 @@ public class PrefillFieldRequest {
         if (fields.getClass().equals(java.io.File.class) ||
             fields.getClass().equals(Integer.class) ||
             fields.getClass().equals(String.class) ||
+            fields.getClass().equals(java.net.URI.class)||
             fields.getClass().isEnum()) {
             map.put("fields", fields);
         } else if (isListOfFile(fields)) {
@@ -155,7 +156,7 @@ public class PrefillFieldRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : fields) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -174,6 +175,7 @@ public class PrefillFieldRequest {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -182,7 +184,7 @@ public class PrefillFieldRequest {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     } catch (Exception e) {

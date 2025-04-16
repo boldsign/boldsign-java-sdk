@@ -146,6 +146,7 @@ public class SenderIdentityList {
         if (result.getClass().equals(java.io.File.class) ||
             result.getClass().equals(Integer.class) ||
             result.getClass().equals(String.class) ||
+            result.getClass().equals(java.net.URI.class)||
             result.getClass().isEnum()) {
             map.put("result", result);
         } else if (isListOfFile(result)) {
@@ -156,7 +157,7 @@ public class SenderIdentityList {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : result) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -175,6 +176,7 @@ public class SenderIdentityList {
         if (pageDetails.getClass().equals(java.io.File.class) ||
             pageDetails.getClass().equals(Integer.class) ||
             pageDetails.getClass().equals(String.class) ||
+            pageDetails.getClass().equals(java.net.URI.class)||
             pageDetails.getClass().isEnum()) {
             map.put("pageDetails", pageDetails);
         } else if (isListOfFile(pageDetails)) {
@@ -183,7 +185,7 @@ public class SenderIdentityList {
             }
         }
         else {
-          map.put("pageDetails", pageDetails);
+          map.put("pageDetails", JSON.serialize(pageDetails));
         }
     }
     } catch (Exception e) {

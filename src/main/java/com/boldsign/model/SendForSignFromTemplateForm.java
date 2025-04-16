@@ -1112,6 +1112,7 @@ public class SendForSignFromTemplateForm {
         if (files.getClass().equals(java.io.File.class) ||
             files.getClass().equals(Integer.class) ||
             files.getClass().equals(String.class) ||
+            files.getClass().equals(java.net.URI.class)||
             files.getClass().isEnum()) {
             map.put("files", files);
         } else if (isListOfFile(files)) {
@@ -1122,7 +1123,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : files) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1141,6 +1142,7 @@ public class SendForSignFromTemplateForm {
         if (fileUrls.getClass().equals(java.io.File.class) ||
             fileUrls.getClass().equals(Integer.class) ||
             fileUrls.getClass().equals(String.class) ||
+            fileUrls.getClass().equals(java.net.URI.class)||
             fileUrls.getClass().isEnum()) {
             map.put("fileUrls", fileUrls);
         } else if (isListOfFile(fileUrls)) {
@@ -1151,7 +1153,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : fileUrls) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1170,6 +1172,7 @@ public class SendForSignFromTemplateForm {
         if (documentId.getClass().equals(java.io.File.class) ||
             documentId.getClass().equals(Integer.class) ||
             documentId.getClass().equals(String.class) ||
+            documentId.getClass().equals(java.net.URI.class)||
             documentId.getClass().isEnum()) {
             map.put("documentId", documentId);
         } else if (isListOfFile(documentId)) {
@@ -1178,7 +1181,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("documentId", documentId);
+          map.put("documentId", JSON.serialize(documentId));
         }
     }
     if (title != null) {
@@ -1189,6 +1192,7 @@ public class SendForSignFromTemplateForm {
         if (title.getClass().equals(java.io.File.class) ||
             title.getClass().equals(Integer.class) ||
             title.getClass().equals(String.class) ||
+            title.getClass().equals(java.net.URI.class)||
             title.getClass().isEnum()) {
             map.put("title", title);
         } else if (isListOfFile(title)) {
@@ -1197,7 +1201,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("title", title);
+          map.put("title", JSON.serialize(title));
         }
     }
     if (message != null) {
@@ -1208,6 +1212,7 @@ public class SendForSignFromTemplateForm {
         if (message.getClass().equals(java.io.File.class) ||
             message.getClass().equals(Integer.class) ||
             message.getClass().equals(String.class) ||
+            message.getClass().equals(java.net.URI.class)||
             message.getClass().isEnum()) {
             map.put("message", message);
         } else if (isListOfFile(message)) {
@@ -1216,7 +1221,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("message", message);
+          map.put("message", JSON.serialize(message));
         }
     }
     if (roles != null) {
@@ -1227,6 +1232,7 @@ public class SendForSignFromTemplateForm {
         if (roles.getClass().equals(java.io.File.class) ||
             roles.getClass().equals(Integer.class) ||
             roles.getClass().equals(String.class) ||
+            roles.getClass().equals(java.net.URI.class)||
             roles.getClass().isEnum()) {
             map.put("roles", roles);
         } else if (isListOfFile(roles)) {
@@ -1237,7 +1243,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : roles) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1256,6 +1262,7 @@ public class SendForSignFromTemplateForm {
         if (brandId.getClass().equals(java.io.File.class) ||
             brandId.getClass().equals(Integer.class) ||
             brandId.getClass().equals(String.class) ||
+            brandId.getClass().equals(java.net.URI.class)||
             brandId.getClass().isEnum()) {
             map.put("brandId", brandId);
         } else if (isListOfFile(brandId)) {
@@ -1264,7 +1271,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("brandId", brandId);
+          map.put("brandId", JSON.serialize(brandId));
         }
     }
     if (labels != null) {
@@ -1275,6 +1282,7 @@ public class SendForSignFromTemplateForm {
         if (labels.getClass().equals(java.io.File.class) ||
             labels.getClass().equals(Integer.class) ||
             labels.getClass().equals(String.class) ||
+            labels.getClass().equals(java.net.URI.class)||
             labels.getClass().isEnum()) {
             map.put("labels", labels);
         } else if (isListOfFile(labels)) {
@@ -1285,7 +1293,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : labels) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1304,6 +1312,7 @@ public class SendForSignFromTemplateForm {
         if (disableEmails.getClass().equals(java.io.File.class) ||
             disableEmails.getClass().equals(Integer.class) ||
             disableEmails.getClass().equals(String.class) ||
+            disableEmails.getClass().equals(java.net.URI.class)||
             disableEmails.getClass().isEnum()) {
             map.put("disableEmails", disableEmails);
         } else if (isListOfFile(disableEmails)) {
@@ -1312,7 +1321,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("disableEmails", disableEmails);
+          map.put("disableEmails", JSON.serialize(disableEmails));
         }
     }
     if (disableSMS != null) {
@@ -1323,6 +1332,7 @@ public class SendForSignFromTemplateForm {
         if (disableSMS.getClass().equals(java.io.File.class) ||
             disableSMS.getClass().equals(Integer.class) ||
             disableSMS.getClass().equals(String.class) ||
+            disableSMS.getClass().equals(java.net.URI.class)||
             disableSMS.getClass().isEnum()) {
             map.put("disableSMS", disableSMS);
         } else if (isListOfFile(disableSMS)) {
@@ -1331,7 +1341,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("disableSMS", disableSMS);
+          map.put("disableSMS", JSON.serialize(disableSMS));
         }
     }
     if (hideDocumentId != null) {
@@ -1342,6 +1352,7 @@ public class SendForSignFromTemplateForm {
         if (hideDocumentId.getClass().equals(java.io.File.class) ||
             hideDocumentId.getClass().equals(Integer.class) ||
             hideDocumentId.getClass().equals(String.class) ||
+            hideDocumentId.getClass().equals(java.net.URI.class)||
             hideDocumentId.getClass().isEnum()) {
             map.put("hideDocumentId", hideDocumentId);
         } else if (isListOfFile(hideDocumentId)) {
@@ -1350,7 +1361,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("hideDocumentId", hideDocumentId);
+          map.put("hideDocumentId", JSON.serialize(hideDocumentId));
         }
     }
     if (reminderSettings != null) {
@@ -1361,6 +1372,7 @@ public class SendForSignFromTemplateForm {
         if (reminderSettings.getClass().equals(java.io.File.class) ||
             reminderSettings.getClass().equals(Integer.class) ||
             reminderSettings.getClass().equals(String.class) ||
+            reminderSettings.getClass().equals(java.net.URI.class)||
             reminderSettings.getClass().isEnum()) {
             map.put("reminderSettings", reminderSettings);
         } else if (isListOfFile(reminderSettings)) {
@@ -1369,7 +1381,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("reminderSettings", reminderSettings);
+          map.put("reminderSettings", JSON.serialize(reminderSettings));
         }
     }
     if (cc != null) {
@@ -1380,6 +1392,7 @@ public class SendForSignFromTemplateForm {
         if (cc.getClass().equals(java.io.File.class) ||
             cc.getClass().equals(Integer.class) ||
             cc.getClass().equals(String.class) ||
+            cc.getClass().equals(java.net.URI.class)||
             cc.getClass().isEnum()) {
             map.put("cc", cc);
         } else if (isListOfFile(cc)) {
@@ -1390,7 +1403,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : cc) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1409,6 +1422,7 @@ public class SendForSignFromTemplateForm {
         if (expiryDays.getClass().equals(java.io.File.class) ||
             expiryDays.getClass().equals(Integer.class) ||
             expiryDays.getClass().equals(String.class) ||
+            expiryDays.getClass().equals(java.net.URI.class)||
             expiryDays.getClass().isEnum()) {
             map.put("expiryDays", expiryDays);
         } else if (isListOfFile(expiryDays)) {
@@ -1417,7 +1431,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("expiryDays", expiryDays);
+          map.put("expiryDays", JSON.serialize(expiryDays));
         }
     }
     if (expiryDateType != null) {
@@ -1428,6 +1442,7 @@ public class SendForSignFromTemplateForm {
         if (expiryDateType.getClass().equals(java.io.File.class) ||
             expiryDateType.getClass().equals(Integer.class) ||
             expiryDateType.getClass().equals(String.class) ||
+            expiryDateType.getClass().equals(java.net.URI.class)||
             expiryDateType.getClass().isEnum()) {
             map.put("expiryDateType", expiryDateType);
         } else if (isListOfFile(expiryDateType)) {
@@ -1436,7 +1451,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("expiryDateType", expiryDateType);
+          map.put("expiryDateType", JSON.serialize(expiryDateType));
         }
     }
     if (expiryValue != null) {
@@ -1447,6 +1462,7 @@ public class SendForSignFromTemplateForm {
         if (expiryValue.getClass().equals(java.io.File.class) ||
             expiryValue.getClass().equals(Integer.class) ||
             expiryValue.getClass().equals(String.class) ||
+            expiryValue.getClass().equals(java.net.URI.class)||
             expiryValue.getClass().isEnum()) {
             map.put("expiryValue", expiryValue);
         } else if (isListOfFile(expiryValue)) {
@@ -1455,7 +1471,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("expiryValue", expiryValue);
+          map.put("expiryValue", JSON.serialize(expiryValue));
         }
     }
     if (enablePrintAndSign != null) {
@@ -1466,6 +1482,7 @@ public class SendForSignFromTemplateForm {
         if (enablePrintAndSign.getClass().equals(java.io.File.class) ||
             enablePrintAndSign.getClass().equals(Integer.class) ||
             enablePrintAndSign.getClass().equals(String.class) ||
+            enablePrintAndSign.getClass().equals(java.net.URI.class)||
             enablePrintAndSign.getClass().isEnum()) {
             map.put("enablePrintAndSign", enablePrintAndSign);
         } else if (isListOfFile(enablePrintAndSign)) {
@@ -1474,7 +1491,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("enablePrintAndSign", enablePrintAndSign);
+          map.put("enablePrintAndSign", JSON.serialize(enablePrintAndSign));
         }
     }
     if (enableReassign != null) {
@@ -1485,6 +1502,7 @@ public class SendForSignFromTemplateForm {
         if (enableReassign.getClass().equals(java.io.File.class) ||
             enableReassign.getClass().equals(Integer.class) ||
             enableReassign.getClass().equals(String.class) ||
+            enableReassign.getClass().equals(java.net.URI.class)||
             enableReassign.getClass().isEnum()) {
             map.put("enableReassign", enableReassign);
         } else if (isListOfFile(enableReassign)) {
@@ -1493,7 +1511,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("enableReassign", enableReassign);
+          map.put("enableReassign", JSON.serialize(enableReassign));
         }
     }
     if (enableSigningOrder != null) {
@@ -1504,6 +1522,7 @@ public class SendForSignFromTemplateForm {
         if (enableSigningOrder.getClass().equals(java.io.File.class) ||
             enableSigningOrder.getClass().equals(Integer.class) ||
             enableSigningOrder.getClass().equals(String.class) ||
+            enableSigningOrder.getClass().equals(java.net.URI.class)||
             enableSigningOrder.getClass().isEnum()) {
             map.put("enableSigningOrder", enableSigningOrder);
         } else if (isListOfFile(enableSigningOrder)) {
@@ -1512,7 +1531,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("enableSigningOrder", enableSigningOrder);
+          map.put("enableSigningOrder", JSON.serialize(enableSigningOrder));
         }
     }
     if (disableExpiryAlert != null) {
@@ -1523,6 +1542,7 @@ public class SendForSignFromTemplateForm {
         if (disableExpiryAlert.getClass().equals(java.io.File.class) ||
             disableExpiryAlert.getClass().equals(Integer.class) ||
             disableExpiryAlert.getClass().equals(String.class) ||
+            disableExpiryAlert.getClass().equals(java.net.URI.class)||
             disableExpiryAlert.getClass().isEnum()) {
             map.put("disableExpiryAlert", disableExpiryAlert);
         } else if (isListOfFile(disableExpiryAlert)) {
@@ -1531,7 +1551,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("disableExpiryAlert", disableExpiryAlert);
+          map.put("disableExpiryAlert", JSON.serialize(disableExpiryAlert));
         }
     }
     if (documentInfo != null) {
@@ -1542,6 +1562,7 @@ public class SendForSignFromTemplateForm {
         if (documentInfo.getClass().equals(java.io.File.class) ||
             documentInfo.getClass().equals(Integer.class) ||
             documentInfo.getClass().equals(String.class) ||
+            documentInfo.getClass().equals(java.net.URI.class)||
             documentInfo.getClass().isEnum()) {
             map.put("documentInfo", documentInfo);
         } else if (isListOfFile(documentInfo)) {
@@ -1552,7 +1573,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : documentInfo) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1571,6 +1592,7 @@ public class SendForSignFromTemplateForm {
         if (onBehalfOf.getClass().equals(java.io.File.class) ||
             onBehalfOf.getClass().equals(Integer.class) ||
             onBehalfOf.getClass().equals(String.class) ||
+            onBehalfOf.getClass().equals(java.net.URI.class)||
             onBehalfOf.getClass().isEnum()) {
             map.put("onBehalfOf", onBehalfOf);
         } else if (isListOfFile(onBehalfOf)) {
@@ -1579,7 +1601,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("onBehalfOf", onBehalfOf);
+          map.put("onBehalfOf", JSON.serialize(onBehalfOf));
         }
     }
     if (isSandbox != null) {
@@ -1590,6 +1612,7 @@ public class SendForSignFromTemplateForm {
         if (isSandbox.getClass().equals(java.io.File.class) ||
             isSandbox.getClass().equals(Integer.class) ||
             isSandbox.getClass().equals(String.class) ||
+            isSandbox.getClass().equals(java.net.URI.class)||
             isSandbox.getClass().isEnum()) {
             map.put("isSandbox", isSandbox);
         } else if (isListOfFile(isSandbox)) {
@@ -1598,7 +1621,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("isSandbox", isSandbox);
+          map.put("isSandbox", JSON.serialize(isSandbox));
         }
     }
     if (roleRemovalIndices != null) {
@@ -1609,6 +1632,7 @@ public class SendForSignFromTemplateForm {
         if (roleRemovalIndices.getClass().equals(java.io.File.class) ||
             roleRemovalIndices.getClass().equals(Integer.class) ||
             roleRemovalIndices.getClass().equals(String.class) ||
+            roleRemovalIndices.getClass().equals(java.net.URI.class)||
             roleRemovalIndices.getClass().isEnum()) {
             map.put("roleRemovalIndices", roleRemovalIndices);
         } else if (isListOfFile(roleRemovalIndices)) {
@@ -1619,7 +1643,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : roleRemovalIndices) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1638,6 +1662,7 @@ public class SendForSignFromTemplateForm {
         if (documentDownloadOption.getClass().equals(java.io.File.class) ||
             documentDownloadOption.getClass().equals(Integer.class) ||
             documentDownloadOption.getClass().equals(String.class) ||
+            documentDownloadOption.getClass().equals(java.net.URI.class)||
             documentDownloadOption.getClass().isEnum()) {
             map.put("documentDownloadOption", documentDownloadOption);
         } else if (isListOfFile(documentDownloadOption)) {
@@ -1646,7 +1671,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("documentDownloadOption", documentDownloadOption);
+          map.put("documentDownloadOption", JSON.serialize(documentDownloadOption));
         }
     }
     if (metaData != null) {
@@ -1657,6 +1682,7 @@ public class SendForSignFromTemplateForm {
         if (metaData.getClass().equals(java.io.File.class) ||
             metaData.getClass().equals(Integer.class) ||
             metaData.getClass().equals(String.class) ||
+            metaData.getClass().equals(java.net.URI.class)||
             metaData.getClass().isEnum()) {
             map.put("metaData", metaData);
         } else if (isListOfFile(metaData)) {
@@ -1665,7 +1691,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("metaData", metaData);
+          map.put("metaData", JSON.serialize(metaData));
         }
     }
     if (recipientNotificationSettings != null) {
@@ -1676,6 +1702,7 @@ public class SendForSignFromTemplateForm {
         if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
             recipientNotificationSettings.getClass().equals(Integer.class) ||
             recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().equals(java.net.URI.class)||
             recipientNotificationSettings.getClass().isEnum()) {
             map.put("recipientNotificationSettings", recipientNotificationSettings);
         } else if (isListOfFile(recipientNotificationSettings)) {
@@ -1684,7 +1711,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("recipientNotificationSettings", recipientNotificationSettings);
+          map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
         }
     }
     if (formGroups != null) {
@@ -1695,6 +1722,7 @@ public class SendForSignFromTemplateForm {
         if (formGroups.getClass().equals(java.io.File.class) ||
             formGroups.getClass().equals(Integer.class) ||
             formGroups.getClass().equals(String.class) ||
+            formGroups.getClass().equals(java.net.URI.class)||
             formGroups.getClass().isEnum()) {
             map.put("formGroups", formGroups);
         } else if (isListOfFile(formGroups)) {
@@ -1705,7 +1733,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formGroups) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1724,6 +1752,7 @@ public class SendForSignFromTemplateForm {
         if (removeFormFields.getClass().equals(java.io.File.class) ||
             removeFormFields.getClass().equals(Integer.class) ||
             removeFormFields.getClass().equals(String.class) ||
+            removeFormFields.getClass().equals(java.net.URI.class)||
             removeFormFields.getClass().isEnum()) {
             map.put("removeFormFields", removeFormFields);
         } else if (isListOfFile(removeFormFields)) {
@@ -1734,7 +1763,7 @@ public class SendForSignFromTemplateForm {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : removeFormFields) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -1753,6 +1782,7 @@ public class SendForSignFromTemplateForm {
         if (enableAuditTrailLocalization.getClass().equals(java.io.File.class) ||
             enableAuditTrailLocalization.getClass().equals(Integer.class) ||
             enableAuditTrailLocalization.getClass().equals(String.class) ||
+            enableAuditTrailLocalization.getClass().equals(java.net.URI.class)||
             enableAuditTrailLocalization.getClass().isEnum()) {
             map.put("enableAuditTrailLocalization", enableAuditTrailLocalization);
         } else if (isListOfFile(enableAuditTrailLocalization)) {
@@ -1761,7 +1791,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("enableAuditTrailLocalization", enableAuditTrailLocalization);
+          map.put("enableAuditTrailLocalization", JSON.serialize(enableAuditTrailLocalization));
         }
     }
     if (downloadFileName != null) {
@@ -1772,6 +1802,7 @@ public class SendForSignFromTemplateForm {
         if (downloadFileName.getClass().equals(java.io.File.class) ||
             downloadFileName.getClass().equals(Integer.class) ||
             downloadFileName.getClass().equals(String.class) ||
+            downloadFileName.getClass().equals(java.net.URI.class)||
             downloadFileName.getClass().isEnum()) {
             map.put("downloadFileName", downloadFileName);
         } else if (isListOfFile(downloadFileName)) {
@@ -1780,7 +1811,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("downloadFileName", downloadFileName);
+          map.put("downloadFileName", JSON.serialize(downloadFileName));
         }
     }
     if (scheduledSendTime != null) {
@@ -1791,6 +1822,7 @@ public class SendForSignFromTemplateForm {
         if (scheduledSendTime.getClass().equals(java.io.File.class) ||
             scheduledSendTime.getClass().equals(Integer.class) ||
             scheduledSendTime.getClass().equals(String.class) ||
+            scheduledSendTime.getClass().equals(java.net.URI.class)||
             scheduledSendTime.getClass().isEnum()) {
             map.put("scheduledSendTime", scheduledSendTime);
         } else if (isListOfFile(scheduledSendTime)) {
@@ -1799,7 +1831,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("scheduledSendTime", scheduledSendTime);
+          map.put("scheduledSendTime", JSON.serialize(scheduledSendTime));
         }
     }
     if (allowScheduledSend != null) {
@@ -1810,6 +1842,7 @@ public class SendForSignFromTemplateForm {
         if (allowScheduledSend.getClass().equals(java.io.File.class) ||
             allowScheduledSend.getClass().equals(Integer.class) ||
             allowScheduledSend.getClass().equals(String.class) ||
+            allowScheduledSend.getClass().equals(java.net.URI.class)||
             allowScheduledSend.getClass().isEnum()) {
             map.put("allowScheduledSend", allowScheduledSend);
         } else if (isListOfFile(allowScheduledSend)) {
@@ -1818,7 +1851,7 @@ public class SendForSignFromTemplateForm {
             }
         }
         else {
-          map.put("allowScheduledSend", allowScheduledSend);
+          map.put("allowScheduledSend", JSON.serialize(allowScheduledSend));
         }
     }
     } catch (Exception e) {

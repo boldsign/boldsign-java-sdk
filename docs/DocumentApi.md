@@ -1002,7 +1002,7 @@ public class Example {
 
 <a id="listDocuments"></a>
 # **listDocuments**
-> DocumentRecords listDocuments(page, sentBy, recipients, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds)
+> DocumentRecords listDocuments(page, sentBy, recipients, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds)
 
 List user documents.
 
@@ -1028,6 +1028,7 @@ public class Example {
     List<String> sentBy = Arrays.asList(); // List<String> | 
     List<String> recipients = Arrays.asList(); // List<String> | 
     String transmitType = "Sent"; // String | 
+    String dateFilterType = "SentBetween"; // String | Date Filter as SentBetween and ExpiresOn.
     Integer pageSize = 10; // Integer | Page size specified in get document list request.
     OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Start date of the document
     List<String> status = Arrays.asList(); // List<String> | Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft.
@@ -1038,7 +1039,7 @@ public class Example {
     List<String> brandIds = Arrays.asList(); // List<String> | BrandId(s) of the document.
     
     try {
-      DocumentRecords result = apiInstance.listDocuments(page, sentBy, recipients, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
+      DocumentRecords result = apiInstance.listDocuments(page, sentBy, recipients, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DocumentApi#listDocuments");
@@ -1059,6 +1060,7 @@ public class Example {
 | **sentBy** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **recipients** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **transmitType** | **String**|  | [optional] [enum: Sent, Received,  Both] |
+| **dateFilterType** | **String**| Date Filter as SentBetween and ExpiresOn. | [optional] [enum: SentBetween, Expiring] |
 | **pageSize** | **Integer**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **OffsetDateTime**| Start date of the document | [optional] |
 | **status** | [**List&lt;String&gt;**](String.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] [enum: None, WaitingForMe, WaitingForOthers, NeedAttention, Completed, Declined, Revoked, Expired, Draft, Scheduled] |
@@ -1427,7 +1429,7 @@ public class Example {
 
 <a id="teamDocuments"></a>
 # **teamDocuments**
-> TeamDocumentRecords teamDocuments(page, userId, teamId, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds)
+> TeamDocumentRecords teamDocuments(page, userId, teamId, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds)
 
 Get user Team documents.
 
@@ -1453,6 +1455,7 @@ public class Example {
     List<String> userId = Arrays.asList(); // List<String> | UserId of the  Team document.
     List<String> teamId = Arrays.asList(); // List<String> | TeamId  of the  Team document.
     String transmitType = "Sent"; // String | Transmit type as Sent, Received and Both.
+    String dateFilterType = "SentBetween"; // String | Date Filter as SentBetween and Expiring.
     Integer pageSize = 10; // Integer | Page size specified in get document list request.
     OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Start date of the document
     List<String> status = Arrays.asList(); // List<String> | Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft.
@@ -1463,7 +1466,7 @@ public class Example {
     List<String> brandIds = Arrays.asList(); // List<String> | BrandId(s) of the document.
     
     try {
-      TeamDocumentRecords result = apiInstance.teamDocuments(page, userId, teamId, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
+      TeamDocumentRecords result = apiInstance.teamDocuments(page, userId, teamId, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DocumentApi#teamDocuments");
@@ -1484,6 +1487,7 @@ public class Example {
 | **userId** | [**List&lt;String&gt;**](String.md)| UserId of the  Team document. | [optional] |
 | **teamId** | [**List&lt;String&gt;**](String.md)| TeamId  of the  Team document. | [optional] |
 | **transmitType** | **String**| Transmit type as Sent, Received and Both. | [optional] [enum: Sent, Received,  Both] |
+| **dateFilterType** | **String**| Date Filter as SentBetween and Expiring. | [optional] [enum: SentBetween, Expiring] |
 | **pageSize** | **Integer**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **OffsetDateTime**| Start date of the document | [optional] |
 | **status** | [**List&lt;String&gt;**](String.md)| Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. | [optional] [enum: None, WaitingForMe, WaitingForOthers, NeedAttention, Completed, Declined, Revoked, Expired, Draft, Scheduled] |

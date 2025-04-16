@@ -2803,6 +2803,7 @@ public class DocumentApi {
      * @param sentBy  (optional)
      * @param recipients  (optional)
      * @param transmitType  (optional)
+     * @param dateFilterType Date Filter as SentBetween and ExpiresOn. (optional)
      * @param pageSize Page size specified in get document list request. (optional, default to 10)
      * @param startDate Start date of the document (optional)
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. (optional)
@@ -2821,7 +2822,7 @@ public class DocumentApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDocumentsCall(Integer page, List<String> sentBy, List<String> recipients, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listDocumentsCall(Integer page, List<String> sentBy, List<String> recipients, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2857,6 +2858,10 @@ public class DocumentApi {
 
         if (transmitType != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("TransmitType", transmitType));
+        }
+
+        if (dateFilterType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("DateFilterType", dateFilterType));
         }
 
         if (pageSize != null) {
@@ -2915,13 +2920,13 @@ public class DocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDocumentsValidateBeforeCall(Integer page, List<String> sentBy, List<String> recipients, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDocumentsValidateBeforeCall(Integer page, List<String> sentBy, List<String> recipients, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'page' is set
         if (page == null) {
             throw new ApiException("Missing the required parameter 'page' when calling listDocuments(Async)");
         }
 
-        return listDocumentsCall(page, sentBy, recipients, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, _callback);
+        return listDocumentsCall(page, sentBy, recipients, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, _callback);
 
     }
 
@@ -2932,6 +2937,7 @@ public class DocumentApi {
      * @param sentBy  (optional)
      * @param recipients  (optional)
      * @param transmitType  (optional)
+     * @param dateFilterType Date Filter as SentBetween and ExpiresOn. (optional)
      * @param pageSize Page size specified in get document list request. (optional, default to 10)
      * @param startDate Start date of the document (optional)
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. (optional)
@@ -2949,8 +2955,8 @@ public class DocumentApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public DocumentRecords listDocuments(Integer page, List<String> sentBy, List<String> recipients, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds) throws ApiException {
-        ApiResponse<DocumentRecords> localVarResp = listDocumentsWithHttpInfo(page, sentBy, recipients, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
+    public DocumentRecords listDocuments(Integer page, List<String> sentBy, List<String> recipients, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds) throws ApiException {
+        ApiResponse<DocumentRecords> localVarResp = listDocumentsWithHttpInfo(page, sentBy, recipients, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
         return localVarResp.getData();
     }
 
@@ -2961,6 +2967,7 @@ public class DocumentApi {
      * @param sentBy  (optional)
      * @param recipients  (optional)
      * @param transmitType  (optional)
+     * @param dateFilterType Date Filter as SentBetween and ExpiresOn. (optional)
      * @param pageSize Page size specified in get document list request. (optional, default to 10)
      * @param startDate Start date of the document (optional)
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. (optional)
@@ -2978,8 +2985,8 @@ public class DocumentApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DocumentRecords> listDocumentsWithHttpInfo(Integer page, List<String> sentBy, List<String> recipients, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds) throws ApiException {
-        okhttp3.Call localVarCall = listDocumentsValidateBeforeCall(page, sentBy, recipients, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, null);
+    public ApiResponse<DocumentRecords> listDocumentsWithHttpInfo(Integer page, List<String> sentBy, List<String> recipients, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds) throws ApiException {
+        okhttp3.Call localVarCall = listDocumentsValidateBeforeCall(page, sentBy, recipients, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, null);
         Type localVarReturnType = new TypeToken<DocumentRecords>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2991,6 +2998,7 @@ public class DocumentApi {
      * @param sentBy  (optional)
      * @param recipients  (optional)
      * @param transmitType  (optional)
+     * @param dateFilterType Date Filter as SentBetween and ExpiresOn. (optional)
      * @param pageSize Page size specified in get document list request. (optional, default to 10)
      * @param startDate Start date of the document (optional)
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. (optional)
@@ -3009,9 +3017,9 @@ public class DocumentApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDocumentsAsync(Integer page, List<String> sentBy, List<String> recipients, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback<DocumentRecords> _callback) throws ApiException {
+    public okhttp3.Call listDocumentsAsync(Integer page, List<String> sentBy, List<String> recipients, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback<DocumentRecords> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listDocumentsValidateBeforeCall(page, sentBy, recipients, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, _callback);
+        okhttp3.Call localVarCall = listDocumentsValidateBeforeCall(page, sentBy, recipients, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, _callback);
         Type localVarReturnType = new TypeToken<DocumentRecords>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3964,6 +3972,7 @@ public class DocumentApi {
      * @param userId UserId of the  Team document. (optional)
      * @param teamId TeamId  of the  Team document. (optional)
      * @param transmitType Transmit type as Sent, Received and Both. (optional)
+     * @param dateFilterType Date Filter as SentBetween and Expiring. (optional)
      * @param pageSize Page size specified in get document list request. (optional, default to 10)
      * @param startDate Start date of the document (optional)
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. (optional)
@@ -3983,7 +3992,7 @@ public class DocumentApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call teamDocumentsCall(Integer page, List<String> userId, List<String> teamId, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call teamDocumentsCall(Integer page, List<String> userId, List<String> teamId, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4019,6 +4028,10 @@ public class DocumentApi {
 
         if (transmitType != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("TransmitType", transmitType));
+        }
+
+        if (dateFilterType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("DateFilterType", dateFilterType));
         }
 
         if (pageSize != null) {
@@ -4077,13 +4090,13 @@ public class DocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call teamDocumentsValidateBeforeCall(Integer page, List<String> userId, List<String> teamId, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call teamDocumentsValidateBeforeCall(Integer page, List<String> userId, List<String> teamId, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'page' is set
         if (page == null) {
             throw new ApiException("Missing the required parameter 'page' when calling teamDocuments(Async)");
         }
 
-        return teamDocumentsCall(page, userId, teamId, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, _callback);
+        return teamDocumentsCall(page, userId, teamId, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, _callback);
 
     }
 
@@ -4094,6 +4107,7 @@ public class DocumentApi {
      * @param userId UserId of the  Team document. (optional)
      * @param teamId TeamId  of the  Team document. (optional)
      * @param transmitType Transmit type as Sent, Received and Both. (optional)
+     * @param dateFilterType Date Filter as SentBetween and Expiring. (optional)
      * @param pageSize Page size specified in get document list request. (optional, default to 10)
      * @param startDate Start date of the document (optional)
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. (optional)
@@ -4112,8 +4126,8 @@ public class DocumentApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public TeamDocumentRecords teamDocuments(Integer page, List<String> userId, List<String> teamId, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds) throws ApiException {
-        ApiResponse<TeamDocumentRecords> localVarResp = teamDocumentsWithHttpInfo(page, userId, teamId, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
+    public TeamDocumentRecords teamDocuments(Integer page, List<String> userId, List<String> teamId, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds) throws ApiException {
+        ApiResponse<TeamDocumentRecords> localVarResp = teamDocumentsWithHttpInfo(page, userId, teamId, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds);
         return localVarResp.getData();
     }
 
@@ -4124,6 +4138,7 @@ public class DocumentApi {
      * @param userId UserId of the  Team document. (optional)
      * @param teamId TeamId  of the  Team document. (optional)
      * @param transmitType Transmit type as Sent, Received and Both. (optional)
+     * @param dateFilterType Date Filter as SentBetween and Expiring. (optional)
      * @param pageSize Page size specified in get document list request. (optional, default to 10)
      * @param startDate Start date of the document (optional)
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. (optional)
@@ -4142,8 +4157,8 @@ public class DocumentApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TeamDocumentRecords> teamDocumentsWithHttpInfo(Integer page, List<String> userId, List<String> teamId, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds) throws ApiException {
-        okhttp3.Call localVarCall = teamDocumentsValidateBeforeCall(page, userId, teamId, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, null);
+    public ApiResponse<TeamDocumentRecords> teamDocumentsWithHttpInfo(Integer page, List<String> userId, List<String> teamId, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds) throws ApiException {
+        okhttp3.Call localVarCall = teamDocumentsValidateBeforeCall(page, userId, teamId, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, null);
         Type localVarReturnType = new TypeToken<TeamDocumentRecords>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4155,6 +4170,7 @@ public class DocumentApi {
      * @param userId UserId of the  Team document. (optional)
      * @param teamId TeamId  of the  Team document. (optional)
      * @param transmitType Transmit type as Sent, Received and Both. (optional)
+     * @param dateFilterType Date Filter as SentBetween and Expiring. (optional)
      * @param pageSize Page size specified in get document list request. (optional, default to 10)
      * @param startDate Start date of the document (optional)
      * @param status Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft. (optional)
@@ -4174,9 +4190,9 @@ public class DocumentApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call teamDocumentsAsync(Integer page, List<String> userId, List<String> teamId, String transmitType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback<TeamDocumentRecords> _callback) throws ApiException {
+    public okhttp3.Call teamDocumentsAsync(Integer page, List<String> userId, List<String> teamId, String transmitType, String dateFilterType, Integer pageSize, OffsetDateTime startDate, List<String> status, OffsetDateTime endDate, String searchKey, List<String> labels, Long nextCursor, List<String> brandIds, final ApiCallback<TeamDocumentRecords> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = teamDocumentsValidateBeforeCall(page, userId, teamId, transmitType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, _callback);
+        okhttp3.Call localVarCall = teamDocumentsValidateBeforeCall(page, userId, teamId, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds, _callback);
         Type localVarReturnType = new TypeToken<TeamDocumentRecords>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

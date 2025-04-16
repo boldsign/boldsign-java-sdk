@@ -184,6 +184,7 @@ public class FileInfo {
         if (fileName.getClass().equals(java.io.File.class) ||
             fileName.getClass().equals(Integer.class) ||
             fileName.getClass().equals(String.class) ||
+            fileName.getClass().equals(java.net.URI.class)||
             fileName.getClass().isEnum()) {
             map.put("fileName", fileName);
         } else if (isListOfFile(fileName)) {
@@ -192,7 +193,7 @@ public class FileInfo {
             }
         }
         else {
-          map.put("fileName", fileName);
+          map.put("fileName", JSON.serialize(fileName));
         }
     }
     if (fileSize != null) {
@@ -203,6 +204,7 @@ public class FileInfo {
         if (fileSize.getClass().equals(java.io.File.class) ||
             fileSize.getClass().equals(Integer.class) ||
             fileSize.getClass().equals(String.class) ||
+            fileSize.getClass().equals(java.net.URI.class)||
             fileSize.getClass().isEnum()) {
             map.put("fileSize", fileSize);
         } else if (isListOfFile(fileSize)) {
@@ -211,7 +213,7 @@ public class FileInfo {
             }
         }
         else {
-          map.put("fileSize", fileSize);
+          map.put("fileSize", JSON.serialize(fileSize));
         }
     }
     if (contentType != null) {
@@ -222,6 +224,7 @@ public class FileInfo {
         if (contentType.getClass().equals(java.io.File.class) ||
             contentType.getClass().equals(Integer.class) ||
             contentType.getClass().equals(String.class) ||
+            contentType.getClass().equals(java.net.URI.class)||
             contentType.getClass().isEnum()) {
             map.put("contentType", contentType);
         } else if (isListOfFile(contentType)) {
@@ -230,7 +233,7 @@ public class FileInfo {
             }
         }
         else {
-          map.put("contentType", contentType);
+          map.put("contentType", JSON.serialize(contentType));
         }
     }
     if (extension != null) {
@@ -241,6 +244,7 @@ public class FileInfo {
         if (extension.getClass().equals(java.io.File.class) ||
             extension.getClass().equals(Integer.class) ||
             extension.getClass().equals(String.class) ||
+            extension.getClass().equals(java.net.URI.class)||
             extension.getClass().isEnum()) {
             map.put("extension", extension);
         } else if (isListOfFile(extension)) {
@@ -249,7 +253,7 @@ public class FileInfo {
             }
         }
         else {
-          map.put("extension", extension);
+          map.put("extension", JSON.serialize(extension));
         }
     }
     } catch (Exception e) {

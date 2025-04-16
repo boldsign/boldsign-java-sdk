@@ -109,6 +109,7 @@ public class ErrorResult {
         if (error.getClass().equals(java.io.File.class) ||
             error.getClass().equals(Integer.class) ||
             error.getClass().equals(String.class) ||
+            error.getClass().equals(java.net.URI.class)||
             error.getClass().isEnum()) {
             map.put("error", error);
         } else if (isListOfFile(error)) {
@@ -117,7 +118,7 @@ public class ErrorResult {
             }
         }
         else {
-          map.put("error", error);
+          map.put("error", JSON.serialize(error));
         }
     }
     } catch (Exception e) {

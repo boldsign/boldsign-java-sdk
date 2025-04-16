@@ -220,6 +220,7 @@ public class TeamResponse {
         if (teamId.getClass().equals(java.io.File.class) ||
             teamId.getClass().equals(Integer.class) ||
             teamId.getClass().equals(String.class) ||
+            teamId.getClass().equals(java.net.URI.class)||
             teamId.getClass().isEnum()) {
             map.put("teamId", teamId);
         } else if (isListOfFile(teamId)) {
@@ -228,7 +229,7 @@ public class TeamResponse {
             }
         }
         else {
-          map.put("teamId", teamId);
+          map.put("teamId", JSON.serialize(teamId));
         }
     }
     if (teamName != null) {
@@ -239,6 +240,7 @@ public class TeamResponse {
         if (teamName.getClass().equals(java.io.File.class) ||
             teamName.getClass().equals(Integer.class) ||
             teamName.getClass().equals(String.class) ||
+            teamName.getClass().equals(java.net.URI.class)||
             teamName.getClass().isEnum()) {
             map.put("teamName", teamName);
         } else if (isListOfFile(teamName)) {
@@ -247,7 +249,7 @@ public class TeamResponse {
             }
         }
         else {
-          map.put("teamName", teamName);
+          map.put("teamName", JSON.serialize(teamName));
         }
     }
     if (users != null) {
@@ -258,6 +260,7 @@ public class TeamResponse {
         if (users.getClass().equals(java.io.File.class) ||
             users.getClass().equals(Integer.class) ||
             users.getClass().equals(String.class) ||
+            users.getClass().equals(java.net.URI.class)||
             users.getClass().isEnum()) {
             map.put("users", users);
         } else if (isListOfFile(users)) {
@@ -268,7 +271,7 @@ public class TeamResponse {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : users) {
-            if(item instanceof URI) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer) {
               objectList.add(item.toString());
             }
             else {
@@ -287,6 +290,7 @@ public class TeamResponse {
         if (createdDate.getClass().equals(java.io.File.class) ||
             createdDate.getClass().equals(Integer.class) ||
             createdDate.getClass().equals(String.class) ||
+            createdDate.getClass().equals(java.net.URI.class)||
             createdDate.getClass().isEnum()) {
             map.put("createdDate", createdDate);
         } else if (isListOfFile(createdDate)) {
@@ -295,7 +299,7 @@ public class TeamResponse {
             }
         }
         else {
-          map.put("createdDate", createdDate);
+          map.put("createdDate", JSON.serialize(createdDate));
         }
     }
     if (modifiedDate != null) {
@@ -306,6 +310,7 @@ public class TeamResponse {
         if (modifiedDate.getClass().equals(java.io.File.class) ||
             modifiedDate.getClass().equals(Integer.class) ||
             modifiedDate.getClass().equals(String.class) ||
+            modifiedDate.getClass().equals(java.net.URI.class)||
             modifiedDate.getClass().isEnum()) {
             map.put("modifiedDate", modifiedDate);
         } else if (isListOfFile(modifiedDate)) {
@@ -314,7 +319,7 @@ public class TeamResponse {
             }
         }
         else {
-          map.put("modifiedDate", modifiedDate);
+          map.put("modifiedDate", JSON.serialize(modifiedDate));
         }
     }
     } catch (Exception e) {

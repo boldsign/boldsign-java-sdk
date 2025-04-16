@@ -321,6 +321,7 @@ public class Font {
         if (name.getClass().equals(java.io.File.class) ||
             name.getClass().equals(Integer.class) ||
             name.getClass().equals(String.class) ||
+            name.getClass().equals(java.net.URI.class)||
             name.getClass().isEnum()) {
             map.put("name", name);
         } else if (isListOfFile(name)) {
@@ -329,7 +330,7 @@ public class Font {
             }
         }
         else {
-          map.put("name", name);
+          map.put("name", JSON.serialize(name));
         }
     }
     if (color != null) {
@@ -340,6 +341,7 @@ public class Font {
         if (color.getClass().equals(java.io.File.class) ||
             color.getClass().equals(Integer.class) ||
             color.getClass().equals(String.class) ||
+            color.getClass().equals(java.net.URI.class)||
             color.getClass().isEnum()) {
             map.put("color", color);
         } else if (isListOfFile(color)) {
@@ -348,7 +350,7 @@ public class Font {
             }
         }
         else {
-          map.put("color", color);
+          map.put("color", JSON.serialize(color));
         }
     }
     if (size != null) {
@@ -359,6 +361,7 @@ public class Font {
         if (size.getClass().equals(java.io.File.class) ||
             size.getClass().equals(Integer.class) ||
             size.getClass().equals(String.class) ||
+            size.getClass().equals(java.net.URI.class)||
             size.getClass().isEnum()) {
             map.put("size", size);
         } else if (isListOfFile(size)) {
@@ -367,7 +370,7 @@ public class Font {
             }
         }
         else {
-          map.put("size", size);
+          map.put("size", JSON.serialize(size));
         }
     }
     if (style != null) {
@@ -378,6 +381,7 @@ public class Font {
         if (style.getClass().equals(java.io.File.class) ||
             style.getClass().equals(Integer.class) ||
             style.getClass().equals(String.class) ||
+            style.getClass().equals(java.net.URI.class)||
             style.getClass().isEnum()) {
             map.put("style", style);
         } else if (isListOfFile(style)) {
@@ -386,7 +390,7 @@ public class Font {
             }
         }
         else {
-          map.put("style", style);
+          map.put("style", JSON.serialize(style));
         }
     }
     if (lineHeight != null) {
@@ -397,6 +401,7 @@ public class Font {
         if (lineHeight.getClass().equals(java.io.File.class) ||
             lineHeight.getClass().equals(Integer.class) ||
             lineHeight.getClass().equals(String.class) ||
+            lineHeight.getClass().equals(java.net.URI.class)||
             lineHeight.getClass().isEnum()) {
             map.put("lineHeight", lineHeight);
         } else if (isListOfFile(lineHeight)) {
@@ -405,7 +410,7 @@ public class Font {
             }
         }
         else {
-          map.put("lineHeight", lineHeight);
+          map.put("lineHeight", JSON.serialize(lineHeight));
         }
     }
     } catch (Exception e) {
