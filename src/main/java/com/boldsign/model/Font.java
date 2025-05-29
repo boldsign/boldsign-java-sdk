@@ -170,12 +170,25 @@ public class Font {
   }
 
   public static final String SERIALIZED_NAME_STYLE = "style";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_STYLE)
   private StyleEnum style;
 
   public static final String SERIALIZED_NAME_LINE_HEIGHT = "lineHeight";
   @SerializedName(SERIALIZED_NAME_LINE_HEIGHT)
   private Integer lineHeight;
+
+  public static final String SERIALIZED_NAME_IS_BOLD_FONT = "isBoldFont";
+  @SerializedName(SERIALIZED_NAME_IS_BOLD_FONT)
+  private Boolean isBoldFont;
+
+  public static final String SERIALIZED_NAME_IS_ITALIC_FONT = "isItalicFont";
+  @SerializedName(SERIALIZED_NAME_IS_ITALIC_FONT)
+  private Boolean isItalicFont;
+
+  public static final String SERIALIZED_NAME_IS_UNDER_LINE_FONT = "isUnderLineFont";
+  @SerializedName(SERIALIZED_NAME_IS_UNDER_LINE_FONT)
+  private Boolean isUnderLineFont;
 
   public Font() {
   }
@@ -237,6 +250,7 @@ public class Font {
   }
 
 
+  @Deprecated
   public Font style(StyleEnum style) {
     this.style = style;
     return this;
@@ -245,12 +259,15 @@ public class Font {
   /**
    * Get style
    * @return style
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public StyleEnum getStyle() {
     return style;
   }
 
+  @Deprecated
   public void setStyle(StyleEnum style) {
     this.style = style;
   }
@@ -275,6 +292,63 @@ public class Font {
   }
 
 
+  public Font isBoldFont(Boolean isBoldFont) {
+    this.isBoldFont = isBoldFont;
+    return this;
+  }
+
+  /**
+   * Get isBoldFont
+   * @return isBoldFont
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsBoldFont() {
+    return isBoldFont;
+  }
+
+  public void setIsBoldFont(Boolean isBoldFont) {
+    this.isBoldFont = isBoldFont;
+  }
+
+
+  public Font isItalicFont(Boolean isItalicFont) {
+    this.isItalicFont = isItalicFont;
+    return this;
+  }
+
+  /**
+   * Get isItalicFont
+   * @return isItalicFont
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsItalicFont() {
+    return isItalicFont;
+  }
+
+  public void setIsItalicFont(Boolean isItalicFont) {
+    this.isItalicFont = isItalicFont;
+  }
+
+
+  public Font isUnderLineFont(Boolean isUnderLineFont) {
+    this.isUnderLineFont = isUnderLineFont;
+    return this;
+  }
+
+  /**
+   * Get isUnderLineFont
+   * @return isUnderLineFont
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsUnderLineFont() {
+    return isUnderLineFont;
+  }
+
+  public void setIsUnderLineFont(Boolean isUnderLineFont) {
+    this.isUnderLineFont = isUnderLineFont;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -289,12 +363,15 @@ public class Font {
         Objects.equals(this.color, font.color) &&
         Objects.equals(this.size, font.size) &&
         Objects.equals(this.style, font.style) &&
-        Objects.equals(this.lineHeight, font.lineHeight);
+        Objects.equals(this.lineHeight, font.lineHeight) &&
+        Objects.equals(this.isBoldFont, font.isBoldFont) &&
+        Objects.equals(this.isItalicFont, font.isItalicFont) &&
+        Objects.equals(this.isUnderLineFont, font.isUnderLineFont);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, color, size, style, lineHeight);
+    return Objects.hash(name, color, size, style, lineHeight, isBoldFont, isItalicFont, isUnderLineFont);
   }
 
   @Override
@@ -306,6 +383,9 @@ public class Font {
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    lineHeight: ").append(toIndentedString(lineHeight)).append("\n");
+    sb.append("    isBoldFont: ").append(toIndentedString(isBoldFont)).append("\n");
+    sb.append("    isItalicFont: ").append(toIndentedString(isItalicFont)).append("\n");
+    sb.append("    isUnderLineFont: ").append(toIndentedString(isUnderLineFont)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -413,6 +493,66 @@ public class Font {
           map.put("lineHeight", JSON.serialize(lineHeight));
         }
     }
+    if (isBoldFont != null) {
+        if (isFileTypeOrListOfFiles(isBoldFont)) {
+            fileTypeFound = true;
+        }
+
+        if (isBoldFont.getClass().equals(java.io.File.class) ||
+            isBoldFont.getClass().equals(Integer.class) ||
+            isBoldFont.getClass().equals(String.class) ||
+            isBoldFont.getClass().equals(java.net.URI.class)||
+            isBoldFont.getClass().isEnum()) {
+            map.put("isBoldFont", isBoldFont);
+        } else if (isListOfFile(isBoldFont)) {
+            for(int i = 0; i< getListSize(isBoldFont); i++) {
+                map.put("isBoldFont", isBoldFont);
+            }
+        }
+        else {
+          map.put("isBoldFont", JSON.serialize(isBoldFont));
+        }
+    }
+    if (isItalicFont != null) {
+        if (isFileTypeOrListOfFiles(isItalicFont)) {
+            fileTypeFound = true;
+        }
+
+        if (isItalicFont.getClass().equals(java.io.File.class) ||
+            isItalicFont.getClass().equals(Integer.class) ||
+            isItalicFont.getClass().equals(String.class) ||
+            isItalicFont.getClass().equals(java.net.URI.class)||
+            isItalicFont.getClass().isEnum()) {
+            map.put("isItalicFont", isItalicFont);
+        } else if (isListOfFile(isItalicFont)) {
+            for(int i = 0; i< getListSize(isItalicFont); i++) {
+                map.put("isItalicFont", isItalicFont);
+            }
+        }
+        else {
+          map.put("isItalicFont", JSON.serialize(isItalicFont));
+        }
+    }
+    if (isUnderLineFont != null) {
+        if (isFileTypeOrListOfFiles(isUnderLineFont)) {
+            fileTypeFound = true;
+        }
+
+        if (isUnderLineFont.getClass().equals(java.io.File.class) ||
+            isUnderLineFont.getClass().equals(Integer.class) ||
+            isUnderLineFont.getClass().equals(String.class) ||
+            isUnderLineFont.getClass().equals(java.net.URI.class)||
+            isUnderLineFont.getClass().isEnum()) {
+            map.put("isUnderLineFont", isUnderLineFont);
+        } else if (isListOfFile(isUnderLineFont)) {
+            for(int i = 0; i< getListSize(isUnderLineFont); i++) {
+                map.put("isUnderLineFont", isUnderLineFont);
+            }
+        }
+        else {
+          map.put("isUnderLineFont", JSON.serialize(isUnderLineFont));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -463,6 +603,9 @@ public class Font {
     openapiFields.add("size");
     openapiFields.add("style");
     openapiFields.add("lineHeight");
+    openapiFields.add("isBoldFont");
+    openapiFields.add("isItalicFont");
+    openapiFields.add("isUnderLineFont");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

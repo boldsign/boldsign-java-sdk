@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -50,7 +49,7 @@ import com.boldsign.ApiException;
 public class UsersDetails {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
-  private UUID userId;
+  private String userId;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -66,7 +65,7 @@ public class UsersDetails {
 
   public static final String SERIALIZED_NAME_TEAM_ID = "teamId";
   @SerializedName(SERIALIZED_NAME_TEAM_ID)
-  private UUID teamId;
+  private String teamId;
 
   public static final String SERIALIZED_NAME_TEAM_NAME = "teamName";
   @SerializedName(SERIALIZED_NAME_TEAM_NAME)
@@ -95,7 +94,7 @@ public class UsersDetails {
   public UsersDetails() {
   }
 
-  public UsersDetails userId(UUID userId) {
+  public UsersDetails userId(String userId) {
     this.userId = userId;
     return this;
   }
@@ -105,11 +104,11 @@ public class UsersDetails {
    * @return userId
    */
   @javax.annotation.Nullable
-  public UUID getUserId() {
+  public String getUserId() {
     return userId;
   }
 
-  public void setUserId(UUID userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -171,7 +170,7 @@ public class UsersDetails {
   }
 
 
-  public UsersDetails teamId(UUID teamId) {
+  public UsersDetails teamId(String teamId) {
     this.teamId = teamId;
     return this;
   }
@@ -181,11 +180,11 @@ public class UsersDetails {
    * @return teamId
    */
   @javax.annotation.Nullable
-  public UUID getTeamId() {
+  public String getTeamId() {
     return teamId;
   }
 
-  public void setTeamId(UUID teamId) {
+  public void setTeamId(String teamId) {
     this.teamId = teamId;
   }
 

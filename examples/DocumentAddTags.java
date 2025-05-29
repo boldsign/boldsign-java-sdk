@@ -14,7 +14,7 @@ public class DocumentAddTags
             apiClient.setApiKey("YOUR_API_KEY");
             DocumentApi documentApi = new DocumentApi(apiClient);
             DocumentTags documentTags = new DocumentTags();
-            documentTags.setDocumentId("6927e892-2122-4479-af62-8906d1b59f30");
+            documentTags.setDocumentId("YOUR_DOCUMENT_ID");
             documentTags.addTagsItem("test");
             documentTags.addTagsItem("api");
             documentApi.addTag(documentTags);

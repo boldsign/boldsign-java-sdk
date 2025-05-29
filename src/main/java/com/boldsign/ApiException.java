@@ -161,7 +161,14 @@ public class ApiException extends Exception {
      * @return The exception message
      */
     public String getMessage() {
-        return String.format("Message: %s%nHTTP response code: %s%nHTTP response body: %s%nHTTP response headers: %s",
-                super.getMessage(), this.getCode(), this.getResponseBody(), this.getResponseHeaders());
+        String message = super.getMessage();
+        if (this.getCode() == 401) {
+            return "Unauthorized request (401): Invalid authentication.";
+        }
+        if(message != null && !message.isEmpty()){
+            return message;
+        } else {
+            return String.format("%nHTTP response: %s",this.getResponseBody());
+        }
     }
 }

@@ -21,8 +21,8 @@ public class ContactUpdate
             updateContact.setCompanyName("Flakes");
             updateContact.setJobTitle("Test");
             PhoneNumber phone = new PhoneNumber();
-            phone.setCountryCode("+1");
-            phone.setNumber("2015550123");
+            phone.setCountryCode("+91");
+            phone.setNumber("8807799764");
             updateContact.setPhoneNumber(phone);
             contactApi.updateContact(id, updateContact);  
             System.out.println("Contact updated successfully!");

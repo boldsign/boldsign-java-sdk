@@ -10,6 +10,7 @@ import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,12 +39,12 @@ public class TemplateApiTest
         templateApi = new TemplateApi(apiClient);
     }
 
- @Test
- @Order(1)
- public void testCreateTemplatePositive() throws ApiException
-{
-     try
-     {
+    @Test
+    @Order(1)
+    public void testCreateTemplatePositive() throws ApiException
+    {
+        try
+        {
             FormField signatureField = new FormField();
             signatureField.setFieldType(FormField.FieldTypeEnum.SIGNATURE);
             signatureField.setPageNumber(1);
@@ -71,7 +72,7 @@ public class TemplateApiTest
             CreateTemplateRequest templateRequest = new CreateTemplateRequest();
             templateRequest.setEnableReassign(true);
             templateRequest.setAllowNewRoles(true);
-            templateRequest.setEnablePrintAndAssign(false);
+            templateRequest.setEnablePrintAndSign(false);
             templateRequest.setDocumentMessage("document message for signers");
             templateRequest.setEnableSigningOrder(false);
             templateRequest.setUseTextTags(false);
@@ -127,7 +128,7 @@ public class TemplateApiTest
             CreateTemplateRequest templateRequest = new CreateTemplateRequest();
             templateRequest.setEnableReassign(true);
             templateRequest.setAllowNewRoles(true);
-            templateRequest.setEnablePrintAndAssign(false);
+            templateRequest.setEnablePrintAndSign(false);
             templateRequest.setDocumentMessage("document message for signers");
             templateRequest.setEnableSigningOrder(false);
             templateRequest.setUseTextTags(false);
@@ -186,7 +187,7 @@ public class TemplateApiTest
             CreateTemplateRequest templateRequest = new CreateTemplateRequest();
             templateRequest.setEnableReassign(true);
             templateRequest.setAllowNewRoles(true);
-            templateRequest.setEnablePrintAndAssign(false);
+            templateRequest.setEnablePrintAndSign(false);
             templateRequest.setDocumentMessage("document message for signers");
             templateRequest.setEnableSigningOrder(true);
             templateRequest.setUseTextTags(false);
@@ -258,7 +259,7 @@ public class TemplateApiTest
             CreateTemplateRequest templateRequest = new CreateTemplateRequest();
             templateRequest.setEnableReassign(true);
             templateRequest.setAllowNewRoles(true);
-            templateRequest.setEnablePrintAndAssign(false);
+            templateRequest.setEnablePrintAndSign(false);
             templateRequest.setDocumentMessage("Document message for signers");
             templateRequest.setEnableSigningOrder(false);
             templateRequest.setUseTextTags(false);
@@ -316,7 +317,7 @@ public class TemplateApiTest
             CreateTemplateRequest templateRequest = new CreateTemplateRequest();
             templateRequest.setEnableReassign(true);
             templateRequest.setAllowNewRoles(true);
-            templateRequest.setEnablePrintAndAssign(false);
+            templateRequest.setEnablePrintAndSign(false);
             templateRequest.setDocumentMessage("document message for signers");
             templateRequest.setEnableSigningOrder(false);
             templateRequest.setUseTextTags(false);
@@ -374,7 +375,7 @@ public class TemplateApiTest
             CreateTemplateRequest templateRequest = new CreateTemplateRequest();
             templateRequest.setEnableReassign(true);
             templateRequest.setAllowNewRoles(true);
-            templateRequest.setEnablePrintAndAssign(false);
+            templateRequest.setEnablePrintAndSign(false);
             templateRequest.setDocumentMessage("document message for signers");
             templateRequest.setEnableSigningOrder(false);
             templateRequest.setUseTextTags(false);
@@ -429,7 +430,7 @@ public class TemplateApiTest
             CreateTemplateRequest templateRequest = new CreateTemplateRequest();
             templateRequest.setEnableReassign(true);
             templateRequest.setAllowNewRoles(true);
-            templateRequest.setEnablePrintAndAssign(false);
+            templateRequest.setEnablePrintAndSign(false);
             templateRequest.setDocumentMessage("document message for signers");
             templateRequest.setEnableSigningOrder(false);
             templateRequest.setUseTextTags(false);
@@ -1072,10 +1073,8 @@ public class TemplateApiTest
 
     @Test
     @Order(27)
-    public void testSendDocumentFromMultipleTemplates()
-    {
-        try
-        {
+    public void testSendDocumentUsingMultipleTemplates() {
+        try {
             FormField formField = new FormField();
             formField.setFieldType(FormField.FieldTypeEnum.SIGNATURE);
             formField.setPageNumber(1);
@@ -1086,44 +1085,25 @@ public class TemplateApiTest
             bounds.setHeight(100f);
             formField.setBounds(bounds);
             Role role = new Role();
-            role.setRoleIndex(50);
-            role.setSignerName("Richard");
-            role.setSignerEmail("mohammedmushraf.abuthakir+29292@syncfusion.com");
+            role.setRoleIndex(3);
+            role.setSignerName("Divya");
+            role.setSignerEmail("divya.boopathy+9989@syncfusion.com");
             role.setSignerOrder(1);
-            role.setEnableEmailOTP(false);
             role.setSignerType(Role.SignerTypeEnum.SIGNER);
             role.setSignerRole("Manager");
-            role.setPrivateMessage("Please check and sign the document");
-            role.setFormFields(Arrays.asList(formField));
-            SendForSignFromTemplateForm sendForSignFromTemplate = new SendForSignFromTemplateForm();
-            File file = new File("examples/documents/agreement.pdf");
-            sendForSignFromTemplate.setFiles(Arrays.asList(file));
-            sendForSignFromTemplate.setTitle("Invitation form");
-            sendForSignFromTemplate.setMessage("Kindly review and sign this.");
-            sendForSignFromTemplate.setRoles(Arrays.asList(role));
-            sendForSignFromTemplate.setLabels(Arrays.asList("Invitation", "Form", "Test"));
-            sendForSignFromTemplate.setDisableEmails(false);
-            sendForSignFromTemplate.setDisableSMS(false);
-            sendForSignFromTemplate.setHideDocumentId(true);
-            ReminderSettings reminderSettings = new ReminderSettings();
-            reminderSettings.setReminderDays(3);
-            reminderSettings.setReminderCount(5);
-            reminderSettings.setEnableAutoReminder(false);
-            sendForSignFromTemplate.setReminderSettings(reminderSettings);
-            sendForSignFromTemplate.setExpiryValue(60L);
-            sendForSignFromTemplate.setDisableExpiryAlert(true);
-            sendForSignFromTemplate.setEnablePrintAndSign(true);
-            sendForSignFromTemplate.setEnableReassign(true);
-            sendForSignFromTemplate.setEnableSigningOrder(true);
-            List<String> templateIds = Arrays.asList(createdTemplateId1, createdTemplateId2,createdTemplateId3,createdTemplateId);
-            for (String templateId : templateIds)
-            {
-                templateApi.sendUsingTemplate(templateId, sendForSignFromTemplate);
-            }
-        }
-        catch (ApiException e)
-        {
-            fail("Error occurred during API call: " + e.getMessage());
+            role.setFormFields(Collections.singletonList(formField));
+            MergeAndSendForSignForm mergeAndSendForm = new MergeAndSendForSignForm();
+            mergeAndSendForm.setTitle("Invitation form");
+            mergeAndSendForm.setMessage("Kindly review and sign this.");
+            mergeAndSendForm.setRoles(Collections.singletonList(role));
+            mergeAndSendForm.setTemplateIds(Arrays.asList(createdTemplateId, createdTemplateId3));
+            templateApi.mergeAndSend(mergeAndSendForm);
+        } catch (ApiException e) {
+            System.err.println("API Exception occurred: " + e.getMessage());
+            fail("API Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected Exception occurred: " + e.getMessage());
+            fail("Unexpected Exception occurred: " + e.getMessage());
         }
     }
 

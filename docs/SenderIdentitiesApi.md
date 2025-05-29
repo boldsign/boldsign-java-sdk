@@ -14,7 +14,7 @@ All URIs are relative to *https://api.boldsign.com*
 
 <a id="createSenderIdentities"></a>
 # **createSenderIdentities**
-> createSenderIdentities(createSenderIdentityRequest)
+> SenderIdentityCreated createSenderIdentities(createSenderIdentityRequest)
 
 Creates sender identity.
 
@@ -39,7 +39,8 @@ public class Example {
     CreateSenderIdentityRequest createSenderIdentityRequest = new CreateSenderIdentityRequest(); // CreateSenderIdentityRequest | The create sender identity request.
     
     try {
-      apiInstance.createSenderIdentities(createSenderIdentityRequest);
+      SenderIdentityCreated result = apiInstance.createSenderIdentities(createSenderIdentityRequest);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SenderIdentitiesApi#createSenderIdentities");
       System.err.println("Status code: " + e.getCode());
@@ -59,7 +60,7 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+[**SenderIdentityCreated**](SenderIdentityCreated.md)
 
 ### Authorization
 

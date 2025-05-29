@@ -18,7 +18,7 @@ public class DocumentDownload
             String documentId = "DOCUMENT_ID";
             String onBehalfof = "david@cubeflakes.com";
             File documentStream = documentApi.downloadDocument(documentId, onBehalfof);
-            saveFile(documentStream, "path/to/save/document.pdf");
+            saveFile(documentStream, "YOUR_FILE_PATH");
             System.out.println("Document downloaded successfully!");
         } 
         catch (Exception e) 

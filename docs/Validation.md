@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) |  |  |
 |**regex** | **String** |  |  [optional] |
+|**regexMessage** | **String** |  |  [optional] |
 
 
 
@@ -20,6 +21,7 @@
 | EMAIL | &quot;Email&quot; |
 | CURRENCY | &quot;Currency&quot; |
 | REGEX | &quot;Regex&quot; |
+| NONE | &quot;None&quot; |
 
 
 

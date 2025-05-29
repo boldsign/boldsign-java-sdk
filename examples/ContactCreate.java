@@ -24,8 +24,8 @@ public class ContactCreate
             contact.setJobTitle("Developer");
             contact.setCompanyName("CubeFlakes");
             PhoneNumber phone = new PhoneNumber();
-            phone.setCountryCode("+1");
-            phone.setNumber("2015550123");
+            phone.setCountryCode("+91");
+            phone.setNumber("8807799764");
             contact.setPhoneNumber(phone);
             contactDetailsList.add(contact);
             CreateContactResponse createContactResponse = contactsApi.createContact(contactDetailsList);

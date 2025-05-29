@@ -30,6 +30,11 @@
 |**offset** | [**TextTagOffset**](TextTagOffset.md) |  |  [optional] |
 |**label** | **String** |  |  [optional] |
 |**tabIndex** | **Integer** |  |  [optional] |
+|**dataSyncTag** | **String** |  |  [optional] |
+|**textAlign** | [**TextAlignEnum**](#TextAlignEnum) |  |  [optional] |
+|**textDirection** | [**TextDirectionEnum**](#TextDirectionEnum) |  |  [optional] |
+|**characterSpacing** | **Float** |  |  [optional] |
+|**characterLimit** | **Integer** |  |  [optional] |
 |**formulaFieldSettings** | [**FormulaFieldSettings**](FormulaFieldSettings.md) |  |  [optional] |
 |**resizeOption** | [**ResizeOptionEnum**](#ResizeOptionEnum) |  |  [optional] |
 
@@ -54,6 +59,25 @@
 | TITLE | &quot;Title&quot; |
 | COMPANY | &quot;Company&quot; |
 | FORMULA | &quot;Formula&quot; |
+
+
+
+## Enum: TextAlignEnum
+
+| Name | Value |
+|---- | -----|
+| LEFT | &quot;Left&quot; |
+| CENTER | &quot;Center&quot; |
+| RIGHT | &quot;Right&quot; |
+
+
+
+## Enum: TextDirectionEnum
+
+| Name | Value |
+|---- | -----|
+| LTR | &quot;LTR&quot; |
+| RTL | &quot;RTL&quot; |
 
 
 

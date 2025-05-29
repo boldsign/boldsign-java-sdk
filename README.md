@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:1.0.0-beta.6"
+     implementation "com.boldsign:boldsign-java:1.0.1"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-1.0.0-beta.6.jar`
+* `target/boldsign-java-1.0.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -154,8 +154,8 @@ Class | Method | HTTP request | Description
 *DocumentApi* | [**downloadAuditLog**](docs/DocumentApi.md#downloadAuditLog) | **GET** /v1/document/downloadAuditLog | Download the audit trail document.
 *DocumentApi* | [**downloadDocument**](docs/DocumentApi.md#downloadDocument) | **GET** /v1/document/download | Download the document.
 *DocumentApi* | [**extendExpiry**](docs/DocumentApi.md#extendExpiry) | **PATCH** /v1/document/extendExpiry | Extends the expiration date of the document.
-*DocumentApi* | [**getEmbeddedSignLink**](docs/DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign.
 *DocumentApi* | [**getProperties**](docs/DocumentApi.md#getProperties) | **GET** /v1/document/properties | Get summary of the document.
+*DocumentApi* | [**getEmbeddedSignLink**](docs/DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign.
 *DocumentApi* | [**listDocuments**](docs/DocumentApi.md#listDocuments) | **GET** /v1/document/list | List user documents.
 *DocumentApi* | [**prefillFields**](docs/DocumentApi.md#prefillFields) | **PATCH** /v1/document/prefillFields | Updates the value (prefill) of the fields in the document.
 *DocumentApi* | [**remindDocument**](docs/DocumentApi.md#remindDocument) | **POST** /v1/document/remind | Send reminder to pending signers.
@@ -163,6 +163,9 @@ Class | Method | HTTP request | Description
 *DocumentApi* | [**revokeDocument**](docs/DocumentApi.md#revokeDocument) | **POST** /v1/document/revoke | Revoke the document.
 *DocumentApi* | [**sendDocument**](docs/DocumentApi.md#sendDocument) | **POST** /v1/document/send | Sends the document for sign.
 *DocumentApi* | [**teamDocuments**](docs/DocumentApi.md#teamDocuments) | **GET** /v1/document/teamlist | Get user Team documents.
+*IdentityVerificationApi* | [**createEmbeddedVerificationUrl**](docs/IdentityVerificationApi.md#createEmbeddedVerificationUrl) | **POST** /v1/identityVerification/createEmbeddedVerificationUrl | Generate a URL that embeds manual ID verification for the specified document signer into your application.
+*IdentityVerificationApi* | [**image**](docs/IdentityVerificationApi.md#image) | **POST** /v1/identityVerification/image | Retrieve the uploaded ID verification document or selfie image for the specified document signer using the file ID.
+*IdentityVerificationApi* | [**report**](docs/IdentityVerificationApi.md#report) | **POST** /v1/identityVerification/report | Retrieve the ID verification report for the specified document signer.
 *PlanApi* | [**apiCreditsCount**](docs/PlanApi.md#apiCreditsCount) | **GET** /v1/plan/apiCreditsCount | Gets the Api credits details.
 *SenderIdentitiesApi* | [**createSenderIdentities**](docs/SenderIdentitiesApi.md#createSenderIdentities) | **POST** /v1/senderIdentities/create | Creates sender identity.
 *SenderIdentitiesApi* | [**deleteSenderIdentities**](docs/SenderIdentitiesApi.md#deleteSenderIdentities) | **DELETE** /v1/senderIdentities/delete | Deletes sender identity.
@@ -178,20 +181,22 @@ Class | Method | HTTP request | Description
 *TemplateApi* | [**createEmbeddedRequestUrlTemplate**](docs/TemplateApi.md#createEmbeddedRequestUrlTemplate) | **POST** /v1/template/createEmbeddedRequestUrl | Generates a send URL using a template which embeds document sending process into your application.
 *TemplateApi* | [**createEmbeddedTemplateUrl**](docs/TemplateApi.md#createEmbeddedTemplateUrl) | **POST** /v1/template/createEmbeddedTemplateUrl | Generates a create URL to embeds template create process into your application.
 *TemplateApi* | [**createTemplate**](docs/TemplateApi.md#createTemplate) | **POST** /v1/template/create | Creates a new template.
-*TemplateApi* | [**deleteTag**](docs/TemplateApi.md#deleteTag) | **DELETE** /v1/template/deleteTags | Delete the Tags in Templates.
 *TemplateApi* | [**deleteTemplate**](docs/TemplateApi.md#deleteTemplate) | **DELETE** /v1/template/delete | Deletes a template.
+*TemplateApi* | [**deleteTag**](docs/TemplateApi.md#deleteTag) | **DELETE** /v1/template/deleteTags | Delete the Tags in Templates.
 *TemplateApi* | [**download**](docs/TemplateApi.md#download) | **GET** /v1/template/download | Download the template.
 *TemplateApi* | [**editTemplate**](docs/TemplateApi.md#editTemplate) | **PUT** /v1/template/edit | Edit and updates an existing template.
 *TemplateApi* | [**getEmbeddedTemplateEditUrl**](docs/TemplateApi.md#getEmbeddedTemplateEditUrl) | **POST** /v1/template/getEmbeddedTemplateEditUrl | Generates a edit URL to embeds template edit process into your application.
 *TemplateApi* | [**getProperties**](docs/TemplateApi.md#getProperties) | **GET** /v1/template/properties | Get summary of the template.
 *TemplateApi* | [**listTemplates**](docs/TemplateApi.md#listTemplates) | **GET** /v1/template/list | List all the templates.
 *TemplateApi* | [**mergeAndSend**](docs/TemplateApi.md#mergeAndSend) | **POST** /v1/template/mergeAndSend | Send the document by merging multiple templates.
+*TemplateApi* | [**mergeCreateEmbeddedRequestUrlTemplate**](docs/TemplateApi.md#mergeCreateEmbeddedRequestUrlTemplate) | **POST** /v1/template/mergeCreateEmbeddedRequestUrl | Generates a merge request URL using a template that combines document merging and sending processes into your application.
 *TemplateApi* | [**sendUsingTemplate**](docs/TemplateApi.md#sendUsingTemplate) | **POST** /v1/template/send | Send a document for signature using a Template.
 *UserApi* | [**cancelInvitation**](docs/UserApi.md#cancelInvitation) | **POST** /v1/users/cancelInvitation | Cancel the users invitation.
 *UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /v1/users/create | Create the user.
 *UserApi* | [**getUser**](docs/UserApi.md#getUser) | **GET** /v1/users/get | Get summary of the user.
 *UserApi* | [**listUsers**](docs/UserApi.md#listUsers) | **GET** /v1/users/list | List user documents.
 *UserApi* | [**resendInvitation**](docs/UserApi.md#resendInvitation) | **POST** /v1/users/resendInvitation | Resend the users invitation.
+*UserApi* | [**updateMetaData**](docs/UserApi.md#updateMetaData) | **PUT** /v1/users/updateMetaData | Update new User meta data details.
 *UserApi* | [**updateUser**](docs/UserApi.md#updateUser) | **PUT** /v1/users/update | Update new User role.
 
 
@@ -199,6 +204,7 @@ Class | Method | HTTP request | Description
 
  - [AccessCodeDetail](docs/AccessCodeDetail.md)
  - [AccessCodeDetails](docs/AccessCodeDetails.md)
+ - [Address](docs/Address.md)
  - [AttachmentInfo](docs/AttachmentInfo.md)
  - [AuditTrail](docs/AuditTrail.md)
  - [Base64File](docs/Base64File.md)
@@ -226,6 +232,7 @@ Class | Method | HTTP request | Description
  - [CustomFieldCollection](docs/CustomFieldCollection.md)
  - [CustomFieldMessage](docs/CustomFieldMessage.md)
  - [CustomFormField](docs/CustomFormField.md)
+ - [Date](docs/Date.md)
  - [DeleteCustomFieldReply](docs/DeleteCustomFieldReply.md)
  - [Document](docs/Document.md)
  - [DocumentCC](docs/DocumentCC.md)
@@ -242,18 +249,23 @@ Class | Method | HTTP request | Description
  - [DocumentSigner](docs/DocumentSigner.md)
  - [DocumentSignerDetails](docs/DocumentSignerDetails.md)
  - [DocumentTags](docs/DocumentTags.md)
+ - [DownloadImageRequest](docs/DownloadImageRequest.md)
  - [EditSenderIdentityRequest](docs/EditSenderIdentityRequest.md)
  - [EditTemplateRequest](docs/EditTemplateRequest.md)
  - [EditableDateFieldSettings](docs/EditableDateFieldSettings.md)
  - [EmbeddedCreateTemplateRequest](docs/EmbeddedCreateTemplateRequest.md)
  - [EmbeddedCustomFieldCreated](docs/EmbeddedCustomFieldCreated.md)
  - [EmbeddedDocumentRequest](docs/EmbeddedDocumentRequest.md)
+ - [EmbeddedFileDetails](docs/EmbeddedFileDetails.md)
+ - [EmbeddedFileLink](docs/EmbeddedFileLink.md)
+ - [EmbeddedMergeTemplateFormRequest](docs/EmbeddedMergeTemplateFormRequest.md)
  - [EmbeddedSendCreated](docs/EmbeddedSendCreated.md)
  - [EmbeddedSendTemplateFormRequest](docs/EmbeddedSendTemplateFormRequest.md)
  - [EmbeddedSigningLink](docs/EmbeddedSigningLink.md)
  - [EmbeddedTemplateCreated](docs/EmbeddedTemplateCreated.md)
  - [EmbeddedTemplateEditRequest](docs/EmbeddedTemplateEditRequest.md)
  - [EmbeddedTemplateEdited](docs/EmbeddedTemplateEdited.md)
+ - [Error](docs/Error.md)
  - [ErrorResult](docs/ErrorResult.md)
  - [ExistingFormField](docs/ExistingFormField.md)
  - [ExtendExpiry](docs/ExtendExpiry.md)
@@ -262,6 +274,8 @@ Class | Method | HTTP request | Description
  - [FormField](docs/FormField.md)
  - [FormGroup](docs/FormGroup.md)
  - [FormulaFieldSettings](docs/FormulaFieldSettings.md)
+ - [IdDocument](docs/IdDocument.md)
+ - [IdReport](docs/IdReport.md)
  - [IdVerification](docs/IdVerification.md)
  - [IdentityVerificationSettings](docs/IdentityVerificationSettings.md)
  - [ImageInfo](docs/ImageInfo.md)
@@ -281,6 +295,7 @@ Class | Method | HTTP request | Description
  - [Roles](docs/Roles.md)
  - [SendForSign](docs/SendForSign.md)
  - [SendForSignFromTemplateForm](docs/SendForSignFromTemplateForm.md)
+ - [SenderIdentityCreated](docs/SenderIdentityCreated.md)
  - [SenderIdentityList](docs/SenderIdentityList.md)
  - [SenderIdentityViewModel](docs/SenderIdentityViewModel.md)
  - [Size](docs/Size.md)
@@ -307,11 +322,13 @@ Class | Method | HTTP request | Description
  - [TextTagDefinition](docs/TextTagDefinition.md)
  - [TextTagOffset](docs/TextTagOffset.md)
  - [UpdateUser](docs/UpdateUser.md)
+ - [UpdateUserMetaData](docs/UpdateUserMetaData.md)
  - [UserPageDetails](docs/UserPageDetails.md)
  - [UserProperties](docs/UserProperties.md)
  - [UserRecords](docs/UserRecords.md)
  - [UsersDetails](docs/UsersDetails.md)
  - [Validation](docs/Validation.md)
+ - [VerificationDataRequest](docs/VerificationDataRequest.md)
  - [ViewBrandDetails](docs/ViewBrandDetails.md)
  - [ViewCustomFieldDetails](docs/ViewCustomFieldDetails.md)
 

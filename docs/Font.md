@@ -12,6 +12,9 @@
 |**size** | **Float** |  |  [optional] |
 |**style** | [**StyleEnum**](#StyleEnum) |  |  [optional] |
 |**lineHeight** | **Integer** |  |  [optional] |
+|**isBoldFont** | **Boolean** |  |  [optional] |
+|**isItalicFont** | **Boolean** |  |  [optional] |
+|**isUnderLineFont** | **Boolean** |  |  [optional] |
 
 
 

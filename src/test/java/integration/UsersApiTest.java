@@ -120,7 +120,7 @@ public class UsersApiTest {
         List<UsersDetails> usersList = userListResponse.getResult();
         for (UsersDetails user : usersList) {
             if (user.getEmail().equals(emailId)) {
-                userId = String.valueOf(user.getUserId());
+                userId =user.getUserId();
                 System.out.println("TestUserID: " + userId);
                 break;
             }

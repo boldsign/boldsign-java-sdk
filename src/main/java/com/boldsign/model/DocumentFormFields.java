@@ -424,6 +424,14 @@ public class DocumentFormFields {
   @SerializedName(SERIALIZED_NAME_RESIZE_OPTION)
   private ResizeOptionEnum resizeOption;
 
+  public static final String SERIALIZED_NAME_ALLOW_EDIT_FORM_FIELD = "allowEditFormField";
+  @SerializedName(SERIALIZED_NAME_ALLOW_EDIT_FORM_FIELD)
+  private Boolean allowEditFormField;
+
+  public static final String SERIALIZED_NAME_ALLOW_DELETE_FORM_FIELD = "allowDeleteFormField";
+  @SerializedName(SERIALIZED_NAME_ALLOW_DELETE_FORM_FIELD)
+  private Boolean allowDeleteFormField;
+
   public DocumentFormFields() {
   }
 
@@ -1146,6 +1154,44 @@ public class DocumentFormFields {
   }
 
 
+  public DocumentFormFields allowEditFormField(Boolean allowEditFormField) {
+    this.allowEditFormField = allowEditFormField;
+    return this;
+  }
+
+  /**
+   * Get allowEditFormField
+   * @return allowEditFormField
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowEditFormField() {
+    return allowEditFormField;
+  }
+
+  public void setAllowEditFormField(Boolean allowEditFormField) {
+    this.allowEditFormField = allowEditFormField;
+  }
+
+
+  public DocumentFormFields allowDeleteFormField(Boolean allowDeleteFormField) {
+    this.allowDeleteFormField = allowDeleteFormField;
+    return this;
+  }
+
+  /**
+   * Get allowDeleteFormField
+   * @return allowDeleteFormField
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowDeleteFormField() {
+    return allowDeleteFormField;
+  }
+
+  public void setAllowDeleteFormField(Boolean allowDeleteFormField) {
+    this.allowDeleteFormField = allowDeleteFormField;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1192,12 +1238,14 @@ public class DocumentFormFields {
         Objects.equals(this.backgroundHexColor, documentFormFields.backgroundHexColor) &&
         Objects.equals(this.tabIndex, documentFormFields.tabIndex) &&
         Objects.equals(this.formulaFieldSettings, documentFormFields.formulaFieldSettings) &&
-        Objects.equals(this.resizeOption, documentFormFields.resizeOption);
+        Objects.equals(this.resizeOption, documentFormFields.resizeOption) &&
+        Objects.equals(this.allowEditFormField, documentFormFields.allowEditFormField) &&
+        Objects.equals(this.allowDeleteFormField, documentFormFields.allowDeleteFormField);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontColor, isUnderline, isItalic, isBold, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, fileInfo, editableDateFieldSettings, hyperlinkText, conditionalRules, bounds, pageNumber, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption);
+    return Objects.hash(id, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontColor, isUnderline, isItalic, isBold, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, fileInfo, editableDateFieldSettings, hyperlinkText, conditionalRules, bounds, pageNumber, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField);
   }
 
   @Override
@@ -1241,6 +1289,8 @@ public class DocumentFormFields {
     sb.append("    tabIndex: ").append(toIndentedString(tabIndex)).append("\n");
     sb.append("    formulaFieldSettings: ").append(toIndentedString(formulaFieldSettings)).append("\n");
     sb.append("    resizeOption: ").append(toIndentedString(resizeOption)).append("\n");
+    sb.append("    allowEditFormField: ").append(toIndentedString(allowEditFormField)).append("\n");
+    sb.append("    allowDeleteFormField: ").append(toIndentedString(allowDeleteFormField)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2008,6 +2058,46 @@ public class DocumentFormFields {
           map.put("resizeOption", JSON.serialize(resizeOption));
         }
     }
+    if (allowEditFormField != null) {
+        if (isFileTypeOrListOfFiles(allowEditFormField)) {
+            fileTypeFound = true;
+        }
+
+        if (allowEditFormField.getClass().equals(java.io.File.class) ||
+            allowEditFormField.getClass().equals(Integer.class) ||
+            allowEditFormField.getClass().equals(String.class) ||
+            allowEditFormField.getClass().equals(java.net.URI.class)||
+            allowEditFormField.getClass().isEnum()) {
+            map.put("allowEditFormField", allowEditFormField);
+        } else if (isListOfFile(allowEditFormField)) {
+            for(int i = 0; i< getListSize(allowEditFormField); i++) {
+                map.put("allowEditFormField", allowEditFormField);
+            }
+        }
+        else {
+          map.put("allowEditFormField", JSON.serialize(allowEditFormField));
+        }
+    }
+    if (allowDeleteFormField != null) {
+        if (isFileTypeOrListOfFiles(allowDeleteFormField)) {
+            fileTypeFound = true;
+        }
+
+        if (allowDeleteFormField.getClass().equals(java.io.File.class) ||
+            allowDeleteFormField.getClass().equals(Integer.class) ||
+            allowDeleteFormField.getClass().equals(String.class) ||
+            allowDeleteFormField.getClass().equals(java.net.URI.class)||
+            allowDeleteFormField.getClass().isEnum()) {
+            map.put("allowDeleteFormField", allowDeleteFormField);
+        } else if (isListOfFile(allowDeleteFormField)) {
+            for(int i = 0; i< getListSize(allowDeleteFormField); i++) {
+                map.put("allowDeleteFormField", allowDeleteFormField);
+            }
+        }
+        else {
+          map.put("allowDeleteFormField", JSON.serialize(allowDeleteFormField));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2090,6 +2180,8 @@ public class DocumentFormFields {
     openapiFields.add("tabIndex");
     openapiFields.add("formulaFieldSettings");
     openapiFields.add("resizeOption");
+    openapiFields.add("allowEditFormField");
+    openapiFields.add("allowDeleteFormField");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

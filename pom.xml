@@ -5,7 +5,7 @@
     <artifactId>boldsign-java</artifactId>
     <packaging>jar</packaging>
     <name>boldsign-java</name>
-    <version>1.0.0-beta.6</version>
+    <version>1.0.1</version>
     <url>https://github.com/boldsign/boldsign-java-sdk</url>
     <description>This client library lets you initiate and track e-signature requests through Syncfusion&#39;s BoldSign API service.</description>
     <scm>
@@ -284,6 +284,12 @@
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-runner</artifactId>
             <version>${junit-platform-runner.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.18.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

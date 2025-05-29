@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.boldsign.model.CreateUser;
 import com.boldsign.model.ErrorResult;
 import com.boldsign.model.UpdateUser;
+import com.boldsign.model.UpdateUserMetaData;
 import com.boldsign.model.UserProperties;
 import com.boldsign.model.UserRecords;
 
@@ -783,6 +784,170 @@ public class UserApi {
     public okhttp3.Call resendInvitationAsync(String userId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resendInvitationValidateBeforeCall(userId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateMetaData
+     * @param updateUserMetaData update query. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMetaDataCall(UpdateUserMetaData updateUserMetaData, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateUserMetaData;
+
+        // create path and map variables
+        String localVarPath = "/v1/users/updateMetaData";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        localVarFormParams = updateUserMetaData.createFormData();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json;odata.metadata=minimal;odata.streaming=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false",
+            "application/json;odata.metadata=minimal",
+            "application/json;odata.metadata=full;odata.streaming=true",
+            "application/json;odata.metadata=full;odata.streaming=false",
+            "application/json;odata.metadata=full",
+            "application/json;odata.metadata=none;odata.streaming=true",
+            "application/json;odata.metadata=none;odata.streaming=false",
+            "application/json;odata.metadata=none",
+            "application/json;odata.streaming=true",
+            "application/json;odata.streaming=false",
+            "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
+            "application/xml",
+            "text/plain",
+            "application/json-patch+json",
+            "text/json",
+            "application/*+json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-API-KEY", "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateMetaDataValidateBeforeCall(UpdateUserMetaData updateUserMetaData, final ApiCallback _callback) throws ApiException {
+        return updateMetaDataCall(updateUserMetaData, _callback);
+
+    }
+
+    /**
+     * Update new User meta data details.
+     * 
+     * @param updateUserMetaData update query. (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public void updateMetaData(UpdateUserMetaData updateUserMetaData) throws ApiException {
+        updateMetaDataWithHttpInfo(updateUserMetaData);
+    }
+
+    /**
+     * Update new User meta data details.
+     * 
+     * @param updateUserMetaData update query. (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> updateMetaDataWithHttpInfo(UpdateUserMetaData updateUserMetaData) throws ApiException {
+        okhttp3.Call localVarCall = updateMetaDataValidateBeforeCall(updateUserMetaData, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Update new User meta data details. (asynchronously)
+     * 
+     * @param updateUserMetaData update query. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMetaDataAsync(UpdateUserMetaData updateUserMetaData, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateMetaDataValidateBeforeCall(updateUserMetaData, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

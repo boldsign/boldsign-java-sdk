@@ -143,7 +143,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("boldsign-java-sdk/1.0.0-beta.6");
+        setUserAgent("boldsign-java-sdk/1.0.1");
 
         authentications = new HashMap<String, Authentication>();
     }

@@ -111,9 +111,9 @@ public class CreateTemplateRequest {
   @SerializedName(SERIALIZED_NAME_ENABLE_REASSIGN)
   private Boolean enableReassign = true;
 
-  public static final String SERIALIZED_NAME_ENABLE_PRINT_AND_ASSIGN = "enablePrintAndAssign";
-  @SerializedName(SERIALIZED_NAME_ENABLE_PRINT_AND_ASSIGN)
-  private Boolean enablePrintAndAssign = false;
+  public static final String SERIALIZED_NAME_ENABLE_PRINT_AND_SIGN = "enablePrintAndSign";
+  @SerializedName(SERIALIZED_NAME_ENABLE_PRINT_AND_SIGN)
+  private Boolean enablePrintAndSign = false;
 
   public static final String SERIALIZED_NAME_ENABLE_SIGNING_ORDER = "enableSigningOrder";
   @SerializedName(SERIALIZED_NAME_ENABLE_SIGNING_ORDER)
@@ -456,22 +456,22 @@ public class CreateTemplateRequest {
   }
 
 
-  public CreateTemplateRequest enablePrintAndAssign(Boolean enablePrintAndAssign) {
-    this.enablePrintAndAssign = enablePrintAndAssign;
+  public CreateTemplateRequest enablePrintAndSign(Boolean enablePrintAndSign) {
+    this.enablePrintAndSign = enablePrintAndSign;
     return this;
   }
 
   /**
-   * Get enablePrintAndAssign
-   * @return enablePrintAndAssign
+   * Get enablePrintAndSign
+   * @return enablePrintAndSign
    */
   @javax.annotation.Nullable
-  public Boolean getEnablePrintAndAssign() {
-    return enablePrintAndAssign;
+  public Boolean getEnablePrintAndSign() {
+    return enablePrintAndSign;
   }
 
-  public void setEnablePrintAndAssign(Boolean enablePrintAndAssign) {
-    this.enablePrintAndAssign = enablePrintAndAssign;
+  public void setEnablePrintAndSign(Boolean enablePrintAndSign) {
+    this.enablePrintAndSign = enablePrintAndSign;
   }
 
 
@@ -729,7 +729,7 @@ public class CreateTemplateRequest {
         Objects.equals(this.allowNewRoles, createTemplateRequest.allowNewRoles) &&
         Objects.equals(this.allowNewFiles, createTemplateRequest.allowNewFiles) &&
         Objects.equals(this.enableReassign, createTemplateRequest.enableReassign) &&
-        Objects.equals(this.enablePrintAndAssign, createTemplateRequest.enablePrintAndAssign) &&
+        Objects.equals(this.enablePrintAndSign, createTemplateRequest.enablePrintAndSign) &&
         Objects.equals(this.enableSigningOrder, createTemplateRequest.enableSigningOrder) &&
         Objects.equals(this.documentInfo, createTemplateRequest.documentInfo) &&
         Objects.equals(this.useTextTags, createTemplateRequest.useTextTags) &&
@@ -744,7 +744,7 @@ public class CreateTemplateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndAssign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, recipientNotificationSettings, formGroups);
+    return Objects.hash(title, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, recipientNotificationSettings, formGroups);
   }
 
   @Override
@@ -765,7 +765,7 @@ public class CreateTemplateRequest {
     sb.append("    allowNewRoles: ").append(toIndentedString(allowNewRoles)).append("\n");
     sb.append("    allowNewFiles: ").append(toIndentedString(allowNewFiles)).append("\n");
     sb.append("    enableReassign: ").append(toIndentedString(enableReassign)).append("\n");
-    sb.append("    enablePrintAndAssign: ").append(toIndentedString(enablePrintAndAssign)).append("\n");
+    sb.append("    enablePrintAndSign: ").append(toIndentedString(enablePrintAndSign)).append("\n");
     sb.append("    enableSigningOrder: ").append(toIndentedString(enableSigningOrder)).append("\n");
     sb.append("    documentInfo: ").append(toIndentedString(documentInfo)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
@@ -1103,24 +1103,24 @@ public class CreateTemplateRequest {
           map.put("enableReassign", JSON.serialize(enableReassign));
         }
     }
-    if (enablePrintAndAssign != null) {
-        if (isFileTypeOrListOfFiles(enablePrintAndAssign)) {
+    if (enablePrintAndSign != null) {
+        if (isFileTypeOrListOfFiles(enablePrintAndSign)) {
             fileTypeFound = true;
         }
 
-        if (enablePrintAndAssign.getClass().equals(java.io.File.class) ||
-            enablePrintAndAssign.getClass().equals(Integer.class) ||
-            enablePrintAndAssign.getClass().equals(String.class) ||
-            enablePrintAndAssign.getClass().equals(java.net.URI.class)||
-            enablePrintAndAssign.getClass().isEnum()) {
-            map.put("enablePrintAndAssign", enablePrintAndAssign);
-        } else if (isListOfFile(enablePrintAndAssign)) {
-            for(int i = 0; i< getListSize(enablePrintAndAssign); i++) {
-                map.put("enablePrintAndAssign", enablePrintAndAssign);
+        if (enablePrintAndSign.getClass().equals(java.io.File.class) ||
+            enablePrintAndSign.getClass().equals(Integer.class) ||
+            enablePrintAndSign.getClass().equals(String.class) ||
+            enablePrintAndSign.getClass().equals(java.net.URI.class)||
+            enablePrintAndSign.getClass().isEnum()) {
+            map.put("enablePrintAndSign", enablePrintAndSign);
+        } else if (isListOfFile(enablePrintAndSign)) {
+            for(int i = 0; i< getListSize(enablePrintAndSign); i++) {
+                map.put("enablePrintAndSign", enablePrintAndSign);
             }
         }
         else {
-          map.put("enablePrintAndAssign", JSON.serialize(enablePrintAndAssign));
+          map.put("enablePrintAndSign", JSON.serialize(enablePrintAndSign));
         }
     }
     if (enableSigningOrder != null) {
@@ -1432,7 +1432,7 @@ public class CreateTemplateRequest {
     openapiFields.add("allowNewRoles");
     openapiFields.add("allowNewFiles");
     openapiFields.add("enableReassign");
-    openapiFields.add("enablePrintAndAssign");
+    openapiFields.add("enablePrintAndSign");
     openapiFields.add("enableSigningOrder");
     openapiFields.add("documentInfo");
     openapiFields.add("useTextTags");

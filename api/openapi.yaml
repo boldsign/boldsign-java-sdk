@@ -5285,7 +5285,7 @@ paths:
           enum:
           - Sent
           - Received
-          - ' Both'
+          - Both
           title: TransmitType
           type: string
         style: form
@@ -5467,7 +5467,7 @@ paths:
           enum:
           - Sent
           - Received
-          - ' Both'
+          - Both
           title: TransmitType
           type: string
         style: form
@@ -5801,7 +5801,7 @@ paths:
       - application/json
   /v1/document/properties:
     get:
-      operationId: GetProperties
+      operationId: GetDocumentProperties
       parameters:
       - description: Document Id.
         explode: true
@@ -5834,6 +5834,7 @@ paths:
       summary: Get summary of the document.
       tags:
       - Document
+      x-operation-name: GetProperties
       x-accepts:
       - application/json
   /v1/document/download:
@@ -9669,7 +9670,7 @@ paths:
       - text/plain
   /v1/document/addTags:
     patch:
-      operationId: AddTag
+      operationId: AddDocumentTag
       requestBody:
         content:
           application/json;odata.metadata=minimal;odata.streaming=true:
@@ -10048,6 +10049,7 @@ paths:
       summary: Add the Tags in Documents.
       tags:
       - Document
+      x-operation-name: AddTag
       x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
       x-accepts:
       - application/json
@@ -10092,7 +10094,7 @@ paths:
       - text/plain
   /v1/document/deleteTags:
     delete:
-      operationId: DeleteTag
+      operationId: DeleteDocumentTag
       requestBody:
         content:
           application/json;odata.metadata=minimal;odata.streaming=true:
@@ -10471,6 +10473,7 @@ paths:
       summary: Delete the Tags in Documents.
       tags:
       - Document
+      x-operation-name: DeleteTag
       x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
       x-accepts:
       - application/json
@@ -11267,6 +11270,1104 @@ paths:
       x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
       x-accepts:
       - application/json
+  /v1/identityVerification/report:
+    post:
+      operationId: Report
+      parameters:
+      - description: The document id.
+        explode: true
+        in: query
+        name: documentId
+        required: true
+        schema:
+          format: uuid
+          title: Guid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json;odata.metadata=minimal;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=minimal:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=minimal;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=minimal;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=full;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.metadata=none;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/VerificationDataRequest'
+        description: The download image request.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdReport'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
+      summary: Retrieve the ID verification report for the specified document signer.
+      tags:
+      - Identity Verification
+      x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
+      x-accepts:
+      - application/json
+  /v1/identityVerification/image:
+    post:
+      operationId: Image
+      parameters:
+      - description: The document id.
+        explode: true
+        in: query
+        name: documentId
+        required: true
+        schema:
+          format: uuid
+          title: Guid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json;odata.metadata=minimal;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=minimal:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=minimal;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=minimal;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=full;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.metadata=none;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DownloadImageRequest'
+        description: The download image request.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=minimal:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.streaming=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.streaming=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;IEEE754Compatible=false:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/json;IEEE754Compatible=true:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/xml:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            text/plain:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            application/octet-stream:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+            text/json:
+              schema:
+                format: binary
+                title: FileStreamResult
+                type: string
+          description: OK
+        "401":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+        "403":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Forbidden
+        "400":
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=minimal;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=full;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.metadata=none;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=true;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;odata.streaming=false;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=false:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/json;IEEE754Compatible=true:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
+      summary: Retrieve the uploaded ID verification document or selfie image for
+        the specified document signer using the file ID.
+      tags:
+      - Identity Verification
+      x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
+      x-accepts:
+      - application/json
+      - application/json;IEEE754Compatible=false
+      - application/json;IEEE754Compatible=true
+      - application/json;odata.metadata=full
+      - application/json;odata.metadata=full;IEEE754Compatible=false
+      - application/json;odata.metadata=full;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=full;odata.streaming=true
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal
+      - application/json;odata.metadata=minimal;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=minimal;odata.streaming=true
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.metadata=none
+      - application/json;odata.metadata=none;IEEE754Compatible=false
+      - application/json;odata.metadata=none;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.metadata=none;odata.streaming=true
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true
+      - application/json;odata.streaming=false
+      - application/json;odata.streaming=false;IEEE754Compatible=false
+      - application/json;odata.streaming=false;IEEE754Compatible=true
+      - application/json;odata.streaming=true
+      - application/json;odata.streaming=true;IEEE754Compatible=false
+      - application/json;odata.streaming=true;IEEE754Compatible=true
+      - application/octet-stream
+      - application/xml
+      - text/json
+      - text/plain
+  /v1/identityVerification/createEmbeddedVerificationUrl:
+    post:
+      operationId: Create Embedded Verification Url
+      parameters:
+      - description: The document id.
+        explode: true
+        in: query
+        name: documentId
+        required: true
+        schema:
+          format: uuid
+          title: Guid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json;odata.metadata=minimal;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=minimal;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=minimal:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=minimal;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=minimal;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=full;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.metadata=none;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/EmbeddedFileDetails'
+        description: The embedded verification link request.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddedFileLink'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Forbidden
+      summary: Generate a URL that embeds manual ID verification for the specified
+        document signer into your application.
+      tags:
+      - Identity Verification
+      x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
+      x-accepts:
+      - application/json
   /v1/plan/apiCreditsCount:
     get:
       operationId: ApiCreditsCount
@@ -11420,6 +12521,10 @@ paths:
         required: true
       responses:
         "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SenderIdentityCreated'
           description: Created
         "401":
           content:
@@ -12556,8 +13661,12 @@ paths:
               $ref: '#/components/schemas/MergeAndSendForSignForm'
         description: The merge and send details as JSON.
       responses:
-        "200":
-          description: OK
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentCreated'
+          description: Created
         "422":
           content:
             application/json:
@@ -12627,9 +13736,50 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /v1/template/mergeCreateEmbeddedRequestUrl:
+    post:
+      operationId: MergeCreateEmbeddedRequestUrlTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddedMergeTemplateFormRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EmbeddedMergeTemplateFormRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EmbeddedMergeTemplateFormRequest'
+        description: Embedded merge and send template json request.
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddedSendCreated'
+          description: Created
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+      summary: Generates a merge request URL using a template that combines document
+        merging and sending processes into your application.
+      tags:
+      - Template
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /v1/template/properties:
     get:
-      operationId: GetProperties
+      operationId: GetTemplateProperties
       parameters:
       - description: Template Id.
         explode: true
@@ -12662,6 +13812,7 @@ paths:
       summary: Get summary of the template.
       tags:
       - Template
+      x-operation-name: GetProperties
       x-accepts:
       - application/json
   /v1/template/download:
@@ -12881,7 +14032,7 @@ paths:
       - application/json
   /v1/template/addTags:
     patch:
-      operationId: AddTag
+      operationId: AddTemplateTag
       requestBody:
         content:
           application/json;odata.metadata=minimal;odata.streaming=true:
@@ -13260,6 +14411,7 @@ paths:
       summary: Add the Tags in Templates.
       tags:
       - Template
+      x-operation-name: AddTag
       x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
       x-accepts:
       - application/json
@@ -13304,7 +14456,7 @@ paths:
       - text/plain
   /v1/template/deleteTags:
     delete:
-      operationId: DeleteTag
+      operationId: DeleteTemplateTag
       requestBody:
         content:
           application/json;odata.metadata=minimal;odata.streaming=true:
@@ -13683,6 +14835,7 @@ paths:
       summary: Delete the Tags in Templates.
       tags:
       - Template
+      x-operation-name: DeleteTag
       x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
       x-accepts:
       - application/json
@@ -14302,6 +15455,156 @@ paths:
       - User
       x-accepts:
       - application/json
+  /v1/users/updateMetaData:
+    put:
+      operationId: updateMetaData
+      requestBody:
+        content:
+          application/json;odata.metadata=minimal;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=minimal;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=minimal:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=minimal;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=minimal;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=full;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.metadata=none;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetaData'
+        description: update query.
+      responses:
+        "200":
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Forbidden
+      summary: Update new User meta data details.
+      tags:
+      - User
+      x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
+      x-accepts:
+      - application/json
 components:
   schemas:
     AccessCodeDetail:
@@ -14389,6 +15692,42 @@ components:
       required:
       - accessCode
       title: AccessCodeDetails
+      type: object
+    Address:
+      additionalProperties: false
+      example:
+        country: country
+        city: city
+        postalCode: postalCode
+        state: state
+        line2: line2
+        line1: line1
+      properties:
+        city:
+          nullable: true
+          title: String
+          type: string
+        country:
+          nullable: true
+          title: String
+          type: string
+        line1:
+          nullable: true
+          title: String
+          type: string
+        line2:
+          nullable: true
+          title: String
+          type: string
+        postalCode:
+          nullable: true
+          title: String
+          type: string
+        state:
+          nullable: true
+          title: String
+          type: string
+      title: Address
       type: object
     AttachmentInfo:
       additionalProperties: false
@@ -14646,6 +15985,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -14693,6 +16033,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           - conditionalRules:
@@ -14713,6 +16054,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -14760,6 +16102,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           privateMessage: privateMessage
@@ -14828,6 +16171,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -14875,6 +16219,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           - conditionalRules:
@@ -14895,6 +16240,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -14942,6 +16288,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           privateMessage: privateMessage
@@ -15123,6 +16470,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -15170,6 +16518,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -15190,6 +16539,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -15237,6 +16587,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -15305,6 +16656,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -15352,6 +16704,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -15372,6 +16725,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -15419,6 +16773,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -15516,6 +16871,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -15563,6 +16919,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -15583,6 +16940,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -15630,6 +16988,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -15698,6 +17057,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -15745,6 +17105,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -15765,6 +17126,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -15812,6 +17174,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -16365,11 +17728,11 @@ components:
       example:
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         textTagDefinitions:
@@ -16388,6 +17751,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -16395,17 +17759,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -16417,11 +17786,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
@@ -16437,6 +17809,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -16444,17 +17817,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -16466,11 +17844,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         documentMessage: documentMessage
         useTextTags: false
         templateLabels:
@@ -16527,6 +17908,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -16572,6 +17954,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -16591,6 +17974,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -16636,6 +18020,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
         - defaultSignerEmail: defaultSignerEmail
           imposeAuthentication: None
@@ -16687,6 +18072,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -16732,6 +18118,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -16751,6 +18138,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -16796,34 +18184,35 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
         onBehalfOf: onBehalfOf
         description: description
         title: title
         allowModifyFiles: true
-        enablePrintAndAssign: false
         allowNewRoles: true
         autoDetectFields: false
         documentTitle: documentTitle
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
+        enablePrintAndSign: false
         allowNewFiles: true
         formGroups:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         fileUrls:
         - https://openapi-generator.tech
         - https://openapi-generator.tech
@@ -16926,7 +18315,7 @@ components:
           default: true
           title: Boolean
           type: boolean
-        enablePrintAndAssign:
+        enablePrintAndSign:
           default: false
           title: Boolean
           type: boolean
@@ -17396,6 +18785,30 @@ components:
       - fieldType
       title: CustomFormField
       type: object
+    Date:
+      additionalProperties: false
+      example:
+        month: 6
+        year: 1
+        day: 0
+      properties:
+        day:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        month:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        year:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+      title: Date
+      type: object
     DeleteCustomFieldReply:
       additionalProperties: false
       example:
@@ -17486,6 +18899,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -17533,6 +18947,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           - conditionalRules:
@@ -17553,6 +18968,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -17600,6 +19016,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           privateMessage: privateMessage
@@ -17668,6 +19085,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -17715,6 +19133,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           - conditionalRules:
@@ -17735,6 +19154,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -17782,6 +19202,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           privateMessage: privateMessage
@@ -18005,6 +19426,7 @@ components:
         isUnderline: true
         dateFormat: dateFormat
         backgroundHexColor: backgroundHexColor
+        allowEditFormField: true
         imageInfo:
           allowedFileExtensions: allowedFileExtensions
           description: description
@@ -18052,6 +19474,7 @@ components:
           height: 1.7061402
         lineHeight: 9.301444
         fontSize: 3.6160767
+        allowDeleteFormField: true
         fontColor: fontColor
         font: font
       properties:
@@ -18207,13 +19630,19 @@ components:
           nullable: true
           title: Nullable`1
           type: string
+        allowEditFormField:
+          title: Boolean
+          type: boolean
+        allowDeleteFormField:
+          title: Boolean
+          type: boolean
       title: DocumentFormFields
       type: object
     DocumentInfo:
       additionalProperties: false
       example:
         description: description
-        language: 6
+        language: 2
         locale: EN
         title: title
       properties:
@@ -18379,6 +19808,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -18426,6 +19856,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           - conditionalRules:
@@ -18446,6 +19877,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -18493,6 +19925,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           privateMessage: privateMessage
@@ -18561,6 +19994,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -18608,6 +20042,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           - conditionalRules:
@@ -18628,6 +20063,7 @@ components:
             isUnderline: true
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -18675,6 +20111,7 @@ components:
               height: 1.7061402
             lineHeight: 9.301444
             fontSize: 3.6160767
+            allowDeleteFormField: true
             fontColor: fontColor
             font: font
           privateMessage: privateMessage
@@ -18702,17 +20139,17 @@ components:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         behalfOf:
           emailAddress: emailAddress
           name: name
@@ -18768,6 +20205,7 @@ components:
           isUnderline: true
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -18815,6 +20253,7 @@ components:
             height: 1.7061402
           lineHeight: 9.301444
           fontSize: 3.6160767
+          allowDeleteFormField: true
           fontColor: fontColor
           font: font
         - conditionalRules:
@@ -18835,6 +20274,7 @@ components:
           isUnderline: true
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -18882,6 +20322,7 @@ components:
             height: 1.7061402
           lineHeight: 9.301444
           fontSize: 3.6160767
+          allowDeleteFormField: true
           fontColor: fontColor
           font: font
         expiryDays: 7
@@ -19190,6 +20631,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -19237,6 +20679,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -19257,6 +20700,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -19304,6 +20748,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -19372,6 +20817,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -19419,6 +20865,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -19439,6 +20886,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -19486,6 +20934,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -19580,6 +21029,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -19627,6 +21077,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -19647,6 +21098,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -19694,6 +21146,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -19762,6 +21215,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -19809,6 +21263,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -19829,6 +21284,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -19876,6 +21332,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -19990,6 +21447,7 @@ components:
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           validationType: None
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -20035,6 +21493,7 @@ components:
           lineHeight: 776546568
           fieldType: Signature
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: Helvetica
         - conditionalRules:
           - isChecked: true
@@ -20054,6 +21513,7 @@ components:
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           validationType: None
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -20099,6 +21559,7 @@ components:
           lineHeight: 776546568
           fieldType: Signature
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: Helvetica
         privateMessage: privateMessage
         identityVerificationSettings:
@@ -20310,6 +21771,7 @@ components:
           isUnderline: true
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -20357,6 +21819,7 @@ components:
             height: 1.7061402
           lineHeight: 9.301444
           fontSize: 3.6160767
+          allowDeleteFormField: true
           fontColor: fontColor
           font: font
         - conditionalRules:
@@ -20377,6 +21840,7 @@ components:
           isUnderline: true
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -20424,6 +21888,7 @@ components:
             height: 1.7061402
           lineHeight: 9.301444
           fontSize: 3.6160767
+          allowDeleteFormField: true
           fontColor: fontColor
           font: font
         privateMessage: privateMessage
@@ -20612,6 +22077,42 @@ components:
       - tags
       title: DocumentTags
       type: object
+    DownloadImageRequest:
+      additionalProperties: false
+      example:
+        phoneNumber: phoneNumber
+        countryCode: countryCode
+        onBehalfOf: onBehalfOf
+        emailId: emailId
+        order: 0
+        fileId: fileId
+      properties:
+        emailId:
+          nullable: true
+          title: String
+          type: string
+        countryCode:
+          nullable: true
+          title: String
+          type: string
+        phoneNumber:
+          nullable: true
+          title: String
+          type: string
+        order:
+          format: int32
+          title: Int32
+          type: integer
+        fileId:
+          nullable: true
+          title: String
+          type: string
+        onBehalfOf:
+          nullable: true
+          title: String
+          type: string
+      title: DownloadImageRequest
+      type: object
     EditSenderIdentityRequest:
       additionalProperties: false
       example:
@@ -20665,11 +22166,11 @@ components:
         - emailAddress: emailAddress
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         documentMessage: documentMessage
@@ -20728,6 +22229,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -20773,6 +22275,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -20792,6 +22295,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -20837,6 +22341,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
         - defaultSignerEmail: defaultSignerEmail
           imposeAuthentication: None
@@ -20888,6 +22393,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -20933,6 +22439,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -20952,6 +22459,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -20997,23 +22505,24 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
         allowNewFiles: true
         formGroups:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         onBehalfOf: onBehalfOf
         description: description
         enableSigningOrder: true
@@ -21168,11 +22677,11 @@ components:
       example:
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         redirectUrl: https://openapi-generator.tech
@@ -21192,6 +22701,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -21199,17 +22709,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -21221,11 +22736,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
@@ -21241,6 +22759,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -21248,17 +22767,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -21270,11 +22794,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         documentMessage: documentMessage
         useTextTags: false
         templateLabels:
@@ -21332,6 +22859,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -21377,6 +22905,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -21396,6 +22925,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -21441,6 +22971,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
         - defaultSignerEmail: defaultSignerEmail
           imposeAuthentication: None
@@ -21492,6 +23023,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -21537,6 +23069,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -21556,6 +23089,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -21601,6 +23135,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
         onBehalfOf: onBehalfOf
         description: description
@@ -21610,7 +23145,6 @@ components:
         showSendButton: true
         showToolbar: false
         allowModifyFiles: true
-        enablePrintAndAssign: false
         allowNewRoles: true
         autoDetectFields: false
         linkValidTill: 2000-01-23T04:56:07.000+00:00
@@ -21618,22 +23152,23 @@ components:
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
+        enablePrintAndSign: false
         allowNewFiles: true
         formGroups:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         showTooltip: false
         fileUrls:
         - https://openapi-generator.tech
@@ -21807,7 +23342,7 @@ components:
           default: true
           title: Boolean
           type: boolean
-        enablePrintAndAssign:
+        enablePrintAndSign:
           default: false
           title: Boolean
           type: boolean
@@ -21883,11 +23418,11 @@ components:
         allowScheduledSend: false
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         redirectUrl: https://openapi-generator.tech
@@ -21907,6 +23442,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -21914,17 +23450,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -21936,11 +23477,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
@@ -21956,6 +23500,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -21963,17 +23508,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -21985,11 +23535,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         useTextTags: false
         showNavigationButtons: true
         embeddedSendLinkValidTill: 2000-01-23T04:56:07.000+00:00
@@ -22025,17 +23578,17 @@ components:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         showTooltip: false
         expiryDateType: Days
         fileUrls:
@@ -22110,6 +23663,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -22155,6 +23709,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -22174,6 +23729,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -22219,6 +23775,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           identityVerificationSettings:
@@ -22278,6 +23835,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -22323,6 +23881,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -22342,6 +23901,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -22387,6 +23947,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           identityVerificationSettings:
@@ -22650,6 +24211,885 @@ components:
           type: boolean
       title: EmbeddedDocumentRequest
       type: object
+    EmbeddedFileDetails:
+      additionalProperties: false
+      example:
+        phoneNumber: phoneNumber
+        redirectUrl: redirectUrl
+        countryCode: countryCode
+        onBehalfOf: onBehalfOf
+        emailId: emailId
+        order: 0
+      properties:
+        emailId:
+          nullable: true
+          title: String
+          type: string
+        countryCode:
+          nullable: true
+          title: String
+          type: string
+        phoneNumber:
+          nullable: true
+          title: String
+          type: string
+        redirectUrl:
+          nullable: true
+          title: String
+          type: string
+        order:
+          format: int32
+          title: Int32
+          type: integer
+        onBehalfOf:
+          nullable: true
+          title: String
+          type: string
+      title: EmbeddedFileDetails
+      type: object
+    EmbeddedFileLink:
+      additionalProperties: false
+      example:
+        url: https://openapi-generator.tech
+      properties:
+        url:
+          format: uri
+          nullable: true
+          title: Uri
+          type: string
+      title: EmbeddedFileLink
+      type: object
+    EmbeddedMergeTemplateFormRequest:
+      additionalProperties: false
+      example:
+        allowScheduledSend: false
+        documentInfo:
+        - description: description
+          language: 2
+          locale: EN
+          title: title
+        - description: description
+          language: 2
+          locale: EN
+          title: title
+        redirectUrl: https://openapi-generator.tech
+        textTagDefinitions:
+        - attachmentInfo:
+            acceptedFileTypes:
+            - acceptedFileTypes
+            - acceptedFileTypes
+            description: description
+            title: title
+            allowedFileTypes: allowedFileTypes
+          dateFormat: dateFormat
+          backgroundHexColor: backgroundHexColor
+          imageInfo:
+            allowedFileExtensions: allowedFileExtensions
+            description: description
+            title: title
+          tabIndex: 763901857
+          type: Signature
+          textDirection: LTR
+          radioGroupName: radioGroupName
+          hyperlinkText: hyperlinkText
+          isReadOnly: true
+          placeholder: placeholder
+          value: value
+          validation:
+            regex: regex
+            regexMessage: regexMessage
+            type: NumberOnly
+          formulaFieldSettings:
+            formulaExpression: formulaExpression
+            decimalPrecision: 1
+          definitionId: definitionId
+          fieldId: fieldId
+          characterSpacing: 6.965118
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
+          label: label
+          dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
+          font:
+            isBoldFont: true
+            color: color
+            size: 9.965781
+            name: Helvetica
+            isItalicFont: true
+            style: Regular
+            lineHeight: 9
+            isUnderLineFont: true
+        - attachmentInfo:
+            acceptedFileTypes:
+            - acceptedFileTypes
+            - acceptedFileTypes
+            description: description
+            title: title
+            allowedFileTypes: allowedFileTypes
+          dateFormat: dateFormat
+          backgroundHexColor: backgroundHexColor
+          imageInfo:
+            allowedFileExtensions: allowedFileExtensions
+            description: description
+            title: title
+          tabIndex: 763901857
+          type: Signature
+          textDirection: LTR
+          radioGroupName: radioGroupName
+          hyperlinkText: hyperlinkText
+          isReadOnly: true
+          placeholder: placeholder
+          value: value
+          validation:
+            regex: regex
+            regexMessage: regexMessage
+            type: NumberOnly
+          formulaFieldSettings:
+            formulaExpression: formulaExpression
+            decimalPrecision: 1
+          definitionId: definitionId
+          fieldId: fieldId
+          characterSpacing: 6.965118
+          isRequired: true
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
+          label: label
+          dataSyncTag: dataSyncTag
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
+          font:
+            isBoldFont: true
+            color: color
+            size: 9.965781
+            name: Helvetica
+            isItalicFont: true
+            style: Regular
+            lineHeight: 9
+            isUnderLineFont: true
+        useTextTags: true
+        showNavigationButtons: true
+        roles:
+        - authenticationRetryCount: 6
+          enableQes: true
+          authenticationCode: authenticationCode
+          existingFormFields:
+          - isReadOnly: true
+            name: name
+            index: 1
+            id: id
+            value: value
+          - isReadOnly: true
+            name: name
+            index: 1
+            id: id
+            value: value
+          language: 5
+          locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
+          signerName: signerName
+          enableEmailOTP: true
+          signerEmail: signerEmail
+          roleIndex: 4
+          phoneNumber:
+            number: number
+            countryCode: countryCode
+          deliveryMode: Email
+          signerOrder: 6
+          hostEmail: hostEmail
+          signerType: Signer
+          allowFieldConfiguration: true
+          authenticationType: None
+          formFields:
+          - conditionalRules:
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            pageNumber: 1
+            attachmentInfo:
+              acceptedFileTypes:
+              - acceptedFileTypes
+              - acceptedFileTypes
+              description: description
+              title: title
+              allowedFileTypes: allowedFileTypes
+            dateFormat: dateFormat
+            backgroundHexColor: backgroundHexColor
+            validationType: None
+            allowEditFormField: true
+            imageInfo:
+              allowedFileExtensions: allowedFileExtensions
+              description: description
+              title: title
+            tabIndex: 1586191969
+            textDirection: LTR
+            isBoldFont: true
+            isReadOnly: true
+            hyperlinkText: hyperlinkText
+            id: id
+            value: value
+            placeHolder: placeHolder
+            formulaFieldSettings:
+              formulaExpression: formulaExpression
+              decimalPrecision: 1
+            characterSpacing: 4.145608
+            isRequired: true
+            fontHexColor: fontHexColor
+            textAlign: Left
+            isItalicFont: true
+            editableDateFieldSettings:
+              minDate: 2000-01-23T04:56:07.000+00:00
+              dateFormat: dateFormat
+              maxDate: 2000-01-23T04:56:07.000+00:00
+            validationCustomRegexMessage: validationCustomRegexMessage
+            characterLimit: 435321354
+            label: label
+            dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
+            groupName: groupName
+            dropdownOptions:
+            - dropdownOptions
+            - dropdownOptions
+            validationCustomRegex: validationCustomRegex
+            timeFormat: timeFormat
+            name: name
+            bounds:
+              x: 0.5962134
+              width: 1.2302136
+              "y": 0.5637377
+              height: 1.7061402
+            fontSize: 0.9301444
+            lineHeight: 776546568
+            fieldType: Signature
+            isUnderLineFont: true
+            allowDeleteFormField: true
+            font: Helvetica
+          - conditionalRules:
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            pageNumber: 1
+            attachmentInfo:
+              acceptedFileTypes:
+              - acceptedFileTypes
+              - acceptedFileTypes
+              description: description
+              title: title
+              allowedFileTypes: allowedFileTypes
+            dateFormat: dateFormat
+            backgroundHexColor: backgroundHexColor
+            validationType: None
+            allowEditFormField: true
+            imageInfo:
+              allowedFileExtensions: allowedFileExtensions
+              description: description
+              title: title
+            tabIndex: 1586191969
+            textDirection: LTR
+            isBoldFont: true
+            isReadOnly: true
+            hyperlinkText: hyperlinkText
+            id: id
+            value: value
+            placeHolder: placeHolder
+            formulaFieldSettings:
+              formulaExpression: formulaExpression
+              decimalPrecision: 1
+            characterSpacing: 4.145608
+            isRequired: true
+            fontHexColor: fontHexColor
+            textAlign: Left
+            isItalicFont: true
+            editableDateFieldSettings:
+              minDate: 2000-01-23T04:56:07.000+00:00
+              dateFormat: dateFormat
+              maxDate: 2000-01-23T04:56:07.000+00:00
+            validationCustomRegexMessage: validationCustomRegexMessage
+            characterLimit: 435321354
+            label: label
+            dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
+            groupName: groupName
+            dropdownOptions:
+            - dropdownOptions
+            - dropdownOptions
+            validationCustomRegex: validationCustomRegex
+            timeFormat: timeFormat
+            name: name
+            bounds:
+              x: 0.5962134
+              width: 1.2302136
+              "y": 0.5637377
+              height: 1.7061402
+            fontSize: 0.9301444
+            lineHeight: 776546568
+            fieldType: Signature
+            isUnderLineFont: true
+            allowDeleteFormField: true
+            font: Helvetica
+          privateMessage: privateMessage
+          signerRole: signerRole
+          identityVerificationSettings:
+            type: EveryAccess
+            requireLiveCapture: true
+            requireMatchingSelfie: true
+            nameMatcher: Strict
+            holdForPrefill: true
+            maximumRetryCount: 1
+        - authenticationRetryCount: 6
+          enableQes: true
+          authenticationCode: authenticationCode
+          existingFormFields:
+          - isReadOnly: true
+            name: name
+            index: 1
+            id: id
+            value: value
+          - isReadOnly: true
+            name: name
+            index: 1
+            id: id
+            value: value
+          language: 5
+          locale: EN
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
+          signerName: signerName
+          enableEmailOTP: true
+          signerEmail: signerEmail
+          roleIndex: 4
+          phoneNumber:
+            number: number
+            countryCode: countryCode
+          deliveryMode: Email
+          signerOrder: 6
+          hostEmail: hostEmail
+          signerType: Signer
+          allowFieldConfiguration: true
+          authenticationType: None
+          formFields:
+          - conditionalRules:
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            pageNumber: 1
+            attachmentInfo:
+              acceptedFileTypes:
+              - acceptedFileTypes
+              - acceptedFileTypes
+              description: description
+              title: title
+              allowedFileTypes: allowedFileTypes
+            dateFormat: dateFormat
+            backgroundHexColor: backgroundHexColor
+            validationType: None
+            allowEditFormField: true
+            imageInfo:
+              allowedFileExtensions: allowedFileExtensions
+              description: description
+              title: title
+            tabIndex: 1586191969
+            textDirection: LTR
+            isBoldFont: true
+            isReadOnly: true
+            hyperlinkText: hyperlinkText
+            id: id
+            value: value
+            placeHolder: placeHolder
+            formulaFieldSettings:
+              formulaExpression: formulaExpression
+              decimalPrecision: 1
+            characterSpacing: 4.145608
+            isRequired: true
+            fontHexColor: fontHexColor
+            textAlign: Left
+            isItalicFont: true
+            editableDateFieldSettings:
+              minDate: 2000-01-23T04:56:07.000+00:00
+              dateFormat: dateFormat
+              maxDate: 2000-01-23T04:56:07.000+00:00
+            validationCustomRegexMessage: validationCustomRegexMessage
+            characterLimit: 435321354
+            label: label
+            dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
+            groupName: groupName
+            dropdownOptions:
+            - dropdownOptions
+            - dropdownOptions
+            validationCustomRegex: validationCustomRegex
+            timeFormat: timeFormat
+            name: name
+            bounds:
+              x: 0.5962134
+              width: 1.2302136
+              "y": 0.5637377
+              height: 1.7061402
+            fontSize: 0.9301444
+            lineHeight: 776546568
+            fieldType: Signature
+            isUnderLineFont: true
+            allowDeleteFormField: true
+            font: Helvetica
+          - conditionalRules:
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            pageNumber: 1
+            attachmentInfo:
+              acceptedFileTypes:
+              - acceptedFileTypes
+              - acceptedFileTypes
+              description: description
+              title: title
+              allowedFileTypes: allowedFileTypes
+            dateFormat: dateFormat
+            backgroundHexColor: backgroundHexColor
+            validationType: None
+            allowEditFormField: true
+            imageInfo:
+              allowedFileExtensions: allowedFileExtensions
+              description: description
+              title: title
+            tabIndex: 1586191969
+            textDirection: LTR
+            isBoldFont: true
+            isReadOnly: true
+            hyperlinkText: hyperlinkText
+            id: id
+            value: value
+            placeHolder: placeHolder
+            formulaFieldSettings:
+              formulaExpression: formulaExpression
+              decimalPrecision: 1
+            characterSpacing: 4.145608
+            isRequired: true
+            fontHexColor: fontHexColor
+            textAlign: Left
+            isItalicFont: true
+            editableDateFieldSettings:
+              minDate: 2000-01-23T04:56:07.000+00:00
+              dateFormat: dateFormat
+              maxDate: 2000-01-23T04:56:07.000+00:00
+            validationCustomRegexMessage: validationCustomRegexMessage
+            characterLimit: 435321354
+            label: label
+            dataSyncTag: dataSyncTag
+            resizeOption: GrowVertically
+            groupName: groupName
+            dropdownOptions:
+            - dropdownOptions
+            - dropdownOptions
+            validationCustomRegex: validationCustomRegex
+            timeFormat: timeFormat
+            name: name
+            bounds:
+              x: 0.5962134
+              width: 1.2302136
+              "y": 0.5637377
+              height: 1.7061402
+            fontSize: 0.9301444
+            lineHeight: 776546568
+            fieldType: Signature
+            isUnderLineFont: true
+            allowDeleteFormField: true
+            font: Helvetica
+          privateMessage: privateMessage
+          signerRole: signerRole
+          identityVerificationSettings:
+            type: EveryAccess
+            requireLiveCapture: true
+            requireMatchingSelfie: true
+            nameMatcher: Strict
+            holdForPrefill: true
+            maximumRetryCount: 1
+        onBehalfOf: onBehalfOf
+        sendLinkValidTill: 2000-01-23T04:56:07.000+00:00
+        locale: EN
+        title: title
+        hideDocumentId: true
+        showSendButton: true
+        showToolbar: true
+        disableSMS: false
+        disableEmails: true
+        metaData:
+          key: metaData
+        reminderSettings:
+          enableAutoReminder: false
+          reminderCount: 4
+          reminderDays: 1
+        removeFormFields:
+        - removeFormFields
+        - removeFormFields
+        disableExpiryAlert: true
+        isSandbox: true
+        scheduledSendTime: 5
+        cc:
+        - emailAddress: emailAddress
+        - emailAddress: emailAddress
+        enableAuditTrailLocalization: true
+        downloadFileName: downloadFileName
+        expiryValue: 6
+        templateIds:
+        - templateIds
+        - templateIds
+        sendViewOption: PreparePage
+        enablePrintAndSign: true
+        roleRemovalIndices:
+        - 1
+        - 1
+        formGroups:
+        - groupNames:
+          - groupNames
+          - groupNames
+          maximumCount: 1477050466
+          groupValidation: Minimum
+          dataSyncTag: dataSyncTag
+          minimumCount: 1455634201
+        - groupNames:
+          - groupNames
+          - groupNames
+          maximumCount: 1477050466
+          groupValidation: Minimum
+          dataSyncTag: dataSyncTag
+          minimumCount: 1455634201
+        showTooltip: true
+        expiryDateType: Days
+        fileUrls:
+        - https://openapi-generator.tech
+        - https://openapi-generator.tech
+        enableSigningOrder: true
+        message: message
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
+        enableReassign: true
+        labels:
+        - labels
+        - labels
+        documentDownloadOption: Combined
+        brandId: brandId
+        files:
+        - ""
+        - ""
+        showSaveButton: true
+        documentId: documentId
+        expiryDays: 0
+        showPreviewButton: true
+      properties:
+        files:
+          items:
+            format: binary
+            title: IFormFile
+            type: string
+          nullable: true
+          title: List`1
+          type: array
+        fileUrls:
+          items:
+            format: uri
+            title: Uri
+            type: string
+          nullable: true
+          title: "Uri[]"
+          type: array
+        redirectUrl:
+          format: uri
+          nullable: true
+          title: Uri
+          type: string
+        showToolbar:
+          title: Boolean
+          type: boolean
+        sendViewOption:
+          enum:
+          - PreparePage
+          - FillingPage
+          title: PageViewOption
+          type: string
+        showSaveButton:
+          title: Boolean
+          type: boolean
+        locale:
+          enum:
+          - EN
+          - "NO"
+          - FR
+          - DE
+          - ES
+          - BG
+          - CS
+          - DA
+          - IT
+          - NL
+          - PL
+          - PT
+          - RO
+          - RU
+          - SV
+          - Default
+          title: Locales
+          type: string
+        showSendButton:
+          title: Boolean
+          type: boolean
+        showPreviewButton:
+          title: Boolean
+          type: boolean
+        showNavigationButtons:
+          title: Boolean
+          type: boolean
+        sendLinkValidTill:
+          format: date-time
+          nullable: true
+          title: Nullable`1
+          type: string
+        showTooltip:
+          title: Boolean
+          type: boolean
+        templateIds:
+          items:
+            title: String
+            type: string
+          nullable: true
+          title: "String[]"
+          type: array
+        useTextTags:
+          title: Boolean
+          type: boolean
+        textTagDefinitions:
+          items:
+            $ref: '#/components/schemas/TextTagDefinition'
+          nullable: true
+          title: List`1
+          type: array
+        documentId:
+          nullable: true
+          title: String
+          type: string
+        title:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          title: String
+          type: string
+        message:
+          maxLength: 5000
+          minLength: 0
+          nullable: true
+          title: String
+          type: string
+        roles:
+          items:
+            $ref: '#/components/schemas/Role'
+          nullable: true
+          title: List`1
+          type: array
+        brandId:
+          nullable: true
+          title: String
+          type: string
+        labels:
+          items:
+            title: String
+            type: string
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        disableEmails:
+          title: Boolean
+          type: boolean
+        disableSMS:
+          default: false
+          title: Boolean
+          type: boolean
+        hideDocumentId:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        reminderSettings:
+          $ref: '#/components/schemas/ReminderSettings'
+        cc:
+          items:
+            $ref: '#/components/schemas/DocumentCC'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        expiryDays:
+          deprecated: true
+          format: int32
+          title: Int32
+          type: integer
+        expiryDateType:
+          enum:
+          - Days
+          - Hours
+          - SpecificDateTime
+          nullable: true
+          title: Nullable`1
+          type: string
+        expiryValue:
+          default: 60
+          format: int64
+          title: Int64
+          type: integer
+        enablePrintAndSign:
+          title: Boolean
+          type: boolean
+        enableReassign:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        enableSigningOrder:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        disableExpiryAlert:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        documentInfo:
+          items:
+            $ref: '#/components/schemas/DocumentInfo'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        onBehalfOf:
+          nullable: true
+          title: String
+          type: string
+        isSandbox:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        roleRemovalIndices:
+          items:
+            format: int32
+            title: Int32
+            type: integer
+          nullable: true
+          title: "Int32[]"
+          type: array
+        documentDownloadOption:
+          enum:
+          - Combined
+          - Individually
+          nullable: true
+          title: Nullable`1
+          type: string
+        metaData:
+          additionalProperties:
+            nullable: true
+            title: String
+            type: string
+          maxLength: 50
+          nullable: true
+          title: Dictionary`2
+          type: object
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
+        formGroups:
+          items:
+            $ref: '#/components/schemas/FormGroup'
+          nullable: true
+          title: List`1
+          type: array
+        removeFormFields:
+          items:
+            title: String
+            type: string
+          nullable: true
+          title: List`1
+          type: array
+        enableAuditTrailLocalization:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        downloadFileName:
+          maxLength: 250
+          minLength: 0
+          nullable: true
+          title: String
+          type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        allowScheduledSend:
+          default: false
+          title: Boolean
+          type: boolean
+      title: EmbeddedMergeTemplateFormRequest
+      type: object
     EmbeddedSendCreated:
       additionalProperties: false
       example:
@@ -22673,11 +25113,11 @@ components:
         allowScheduledSend: false
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         redirectUrl: https://openapi-generator.tech
@@ -22744,6 +25184,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -22789,6 +25230,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -22808,6 +25250,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -22853,6 +25296,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           signerRole: signerRole
@@ -22924,6 +25368,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -22969,6 +25414,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -22988,6 +25434,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -23033,6 +25480,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           signerRole: signerRole
@@ -23079,17 +25527,17 @@ components:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         showTooltip: true
         expiryDateType: Days
         fileUrls:
@@ -23477,6 +25925,22 @@ components:
           type: string
       title: EmbeddedTemplateEdited
       type: object
+    Error:
+      additionalProperties: false
+      example:
+        code: code
+        message: message
+      properties:
+        code:
+          nullable: true
+          title: String
+          type: string
+        message:
+          nullable: true
+          title: String
+          type: string
+      title: Error
+      type: object
     ErrorResult:
       additionalProperties: false
       example:
@@ -23576,11 +26040,14 @@ components:
     Font:
       additionalProperties: false
       example:
+        isBoldFont: true
         color: color
         size: 9.965781
         name: Helvetica
+        isItalicFont: true
         style: Regular
         lineHeight: 9
+        isUnderLineFont: true
       properties:
         name:
           enum:
@@ -23600,6 +26067,7 @@ components:
           title: Single
           type: number
         style:
+          deprecated: true
           enum:
           - Regular
           - Bold
@@ -23612,6 +26080,15 @@ components:
           format: int32
           title: Int32
           type: integer
+        isBoldFont:
+          title: Boolean
+          type: boolean
+        isItalicFont:
+          title: Boolean
+          type: boolean
+        isUnderLineFont:
+          title: Boolean
+          type: boolean
       title: Font
       type: object
     FormField:
@@ -23635,6 +26112,7 @@ components:
         dateFormat: dateFormat
         backgroundHexColor: backgroundHexColor
         validationType: None
+        allowEditFormField: true
         imageInfo:
           allowedFileExtensions: allowedFileExtensions
           description: description
@@ -23680,6 +26158,7 @@ components:
         lineHeight: 776546568
         fieldType: Signature
         isUnderLineFont: true
+        allowDeleteFormField: true
         font: Helvetica
       properties:
         id:
@@ -23867,6 +26346,14 @@ components:
           nullable: true
           title: Nullable`1
           type: string
+        allowEditFormField:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        allowDeleteFormField:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       required:
       - bounds
       - fieldType
@@ -23879,10 +26366,10 @@ components:
         groupNames:
         - groupNames
         - groupNames
-        maximumCount: 619369100
+        maximumCount: 1477050466
         groupValidation: Minimum
         dataSyncTag: dataSyncTag
-        minimumCount: 275878420
+        minimumCount: 1455634201
       properties:
         minimumCount:
           format: int32
@@ -23937,6 +26424,132 @@ components:
           title: Int32
           type: integer
       title: FormulaFieldSettings
+      type: object
+    IdDocument:
+      additionalProperties: false
+      example:
+        documentFiles:
+        - documentFiles
+        - documentFiles
+        firstName: firstName
+        lastName: lastName
+        country: country
+        issuedDate:
+          month: 6
+          year: 1
+          day: 0
+        selfieFile: selfieFile
+        address:
+          country: country
+          city: city
+          postalCode: postalCode
+          state: state
+          line2: line2
+          line1: line1
+        documentNumber: documentNumber
+        dob:
+          month: 6
+          year: 1
+          day: 0
+        type: type
+        expirationDate:
+          month: 6
+          year: 1
+          day: 0
+      properties:
+        type:
+          nullable: true
+          title: String
+          type: string
+        firstName:
+          nullable: true
+          title: String
+          type: string
+        lastName:
+          nullable: true
+          title: String
+          type: string
+        country:
+          nullable: true
+          title: String
+          type: string
+        documentNumber:
+          nullable: true
+          title: String
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        dob:
+          $ref: '#/components/schemas/Date'
+        issuedDate:
+          $ref: '#/components/schemas/Date'
+        expirationDate:
+          $ref: '#/components/schemas/Date'
+        documentFiles:
+          items:
+            title: String
+            type: string
+          nullable: true
+          title: List`1
+          type: array
+        selfieFile:
+          nullable: true
+          title: String
+          type: string
+      title: IdDocument
+      type: object
+    IdReport:
+      additionalProperties: false
+      example:
+        verificationResult: verificationResult
+        verifiedDate: 2000-01-23T04:56:07.000+00:00
+        document:
+          documentFiles:
+          - documentFiles
+          - documentFiles
+          firstName: firstName
+          lastName: lastName
+          country: country
+          issuedDate:
+            month: 6
+            year: 1
+            day: 0
+          selfieFile: selfieFile
+          address:
+            country: country
+            city: city
+            postalCode: postalCode
+            state: state
+            line2: line2
+            line1: line1
+          documentNumber: documentNumber
+          dob:
+            month: 6
+            year: 1
+            day: 0
+          type: type
+          expirationDate:
+            month: 6
+            year: 1
+            day: 0
+        error:
+          code: code
+          message: message
+      properties:
+        verificationResult:
+          nullable: true
+          title: String
+          type: string
+        verifiedDate:
+          format: date-time
+          nullable: true
+          title: Nullable`1
+          type: string
+        error:
+          $ref: '#/components/schemas/Error'
+        document:
+          $ref: '#/components/schemas/IdDocument'
+      title: IdReport
       type: object
     IdVerification:
       additionalProperties: false
@@ -24062,11 +26675,11 @@ components:
         allowScheduledSend: false
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         textTagDefinitions:
@@ -24085,6 +26698,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -24092,17 +26706,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -24114,11 +26733,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
@@ -24134,6 +26756,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -24141,17 +26764,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -24163,11 +26791,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         useTextTags: true
         roles:
         - authenticationRetryCount: 6
@@ -24231,6 +26862,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -24276,6 +26908,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -24295,6 +26928,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -24340,6 +26974,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           signerRole: signerRole
@@ -24411,6 +27046,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -24456,6 +27092,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -24475,6 +27112,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -24520,6 +27158,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           signerRole: signerRole
@@ -24564,17 +27203,17 @@ components:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         expiryDateType: Days
         fileUrls:
         - https://openapi-generator.tech
@@ -25215,6 +27854,7 @@ components:
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           validationType: None
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -25260,6 +27900,7 @@ components:
           lineHeight: 776546568
           fieldType: Signature
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: Helvetica
         - conditionalRules:
           - isChecked: true
@@ -25279,6 +27920,7 @@ components:
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           validationType: None
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -25324,6 +27966,7 @@ components:
           lineHeight: 776546568
           fieldType: Signature
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: Helvetica
         privateMessage: privateMessage
         signerRole: signerRole
@@ -25538,6 +28181,7 @@ components:
           pageNumber: 2
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -25584,6 +28228,7 @@ components:
           fontSize: 5
           fieldType: fieldType
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: font
         - conditionalRules:
           - isChecked: true
@@ -25602,6 +28247,7 @@ components:
           pageNumber: 2
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -25648,6 +28294,7 @@ components:
           fontSize: 5
           fieldType: fieldType
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: font
         enableAccessCode: true
       properties:
@@ -25792,11 +28439,11 @@ components:
         allowScheduledSend: false
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         textTagDefinitions:
@@ -25815,6 +28462,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -25822,17 +28470,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -25844,11 +28497,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         - attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
@@ -25864,6 +28520,7 @@ components:
             title: title
           tabIndex: 763901857
           type: Signature
+          textDirection: LTR
           radioGroupName: radioGroupName
           hyperlinkText: hyperlinkText
           isReadOnly: true
@@ -25871,17 +28528,22 @@ components:
           value: value
           validation:
             regex: regex
+            regexMessage: regexMessage
             type: NumberOnly
           formulaFieldSettings:
             formulaExpression: formulaExpression
             decimalPrecision: 1
           definitionId: definitionId
           fieldId: fieldId
+          characterSpacing: 6.965118
           isRequired: true
           offset:
             offsetX: 9.018348186070783
             offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
           label: label
+          dataSyncTag: dataSyncTag
           resizeOption: GrowVertically
           groupName: groupName
           dropdownOptions:
@@ -25893,11 +28555,14 @@ components:
             height: 0.8762042
           timeFormat: timeFormat
           font:
+            isBoldFont: true
             color: color
             size: 9.965781
             name: Helvetica
+            isItalicFont: true
             style: Regular
             lineHeight: 9
+            isUnderLineFont: true
         useTextTags: false
         onBehalfOf: onBehalfOf
         AutoDetectFields: false
@@ -25914,7 +28579,7 @@ components:
           reminderDays: 1
         disableExpiryAlert: true
         isSandbox: true
-        scheduledSendTime: 6
+        scheduledSendTime: 5
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
@@ -25927,17 +28592,17 @@ components:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         expiryDateType: Days
         fileUrls:
         - https://openapi-generator.tech
@@ -26011,6 +28676,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -26056,6 +28722,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -26075,6 +28742,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -26120,6 +28788,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           identityVerificationSettings:
@@ -26179,6 +28848,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -26224,6 +28894,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -26243,6 +28914,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -26288,6 +28960,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           identityVerificationSettings:
@@ -26494,11 +29167,11 @@ components:
         allowScheduledSend: false
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         roles:
@@ -26563,6 +29236,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -26608,6 +29282,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -26627,6 +29302,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -26672,6 +29348,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           signerRole: signerRole
@@ -26743,6 +29420,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -26788,6 +29466,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           - conditionalRules:
             - isChecked: true
@@ -26807,6 +29486,7 @@ components:
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
             validationType: None
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -26852,6 +29532,7 @@ components:
             lineHeight: 776546568
             fieldType: Signature
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: Helvetica
           privateMessage: privateMessage
           signerRole: signerRole
@@ -26893,17 +29574,17 @@ components:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         expiryDateType: Days
         fileUrls:
         - https://openapi-generator.tech
@@ -27109,6 +29790,17 @@ components:
           title: Boolean
           type: boolean
       title: SendForSignFromTemplateForm
+      type: object
+    SenderIdentityCreated:
+      additionalProperties: false
+      example:
+        senderIdentityId: senderIdentityId
+      properties:
+        senderIdentityId:
+          nullable: true
+          title: String
+          type: string
+      title: SenderIdentityCreated
       type: object
     SenderIdentityList:
       additionalProperties: false
@@ -27353,6 +30045,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -27400,6 +30093,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -27420,6 +30114,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -27467,6 +30162,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -27535,6 +30231,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -27582,6 +30279,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -27602,6 +30300,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -27649,6 +30348,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -27743,6 +30443,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -27790,6 +30491,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -27810,6 +30512,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -27857,6 +30560,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -27925,6 +30629,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -27972,6 +30677,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             - conditionalRules:
@@ -27992,6 +30698,7 @@ components:
               isUnderline: true
               dateFormat: dateFormat
               backgroundHexColor: backgroundHexColor
+              allowEditFormField: true
               imageInfo:
                 allowedFileExtensions: allowedFileExtensions
                 description: description
@@ -28039,6 +30746,7 @@ components:
                 height: 1.7061402
               lineHeight: 9.301444
               fontSize: 3.6160767
+              allowDeleteFormField: true
               fontColor: fontColor
               font: font
             privateMessage: privateMessage
@@ -28464,6 +31172,7 @@ components:
         pageNumber: 2
         dateFormat: dateFormat
         backgroundHexColor: backgroundHexColor
+        allowEditFormField: true
         imageInfo:
           allowedFileExtensions: allowedFileExtensions
           description: description
@@ -28510,6 +31219,7 @@ components:
         fontSize: 5
         fieldType: fieldType
         isUnderLineFont: true
+        allowDeleteFormField: true
         font: font
       properties:
         id:
@@ -28670,6 +31380,12 @@ components:
           nullable: true
           title: Nullable`1
           type: string
+        allowEditFormField:
+          title: Boolean
+          type: boolean
+        allowDeleteFormField:
+          title: Boolean
+          type: boolean
       title: TemplateFormFields
       type: object
     TemplateProperties:
@@ -28677,11 +31393,11 @@ components:
       example:
         documentInfo:
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         - description: description
-          language: 6
+          language: 2
           locale: EN
           title: title
         documentMessage: documentMessage
@@ -28742,6 +31458,7 @@ components:
             pageNumber: 2
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -28788,6 +31505,7 @@ components:
             fontSize: 5
             fieldType: fieldType
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: font
           - conditionalRules:
             - isChecked: true
@@ -28806,6 +31524,7 @@ components:
             pageNumber: 2
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -28852,6 +31571,7 @@ components:
             fontSize: 5
             fieldType: fieldType
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: font
           enableAccessCode: true
         - defaultSignerEmail: defaultSignerEmail
@@ -28907,6 +31627,7 @@ components:
             pageNumber: 2
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -28953,6 +31674,7 @@ components:
             fontSize: 5
             fieldType: fieldType
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: font
           - conditionalRules:
             - isChecked: true
@@ -28971,6 +31693,7 @@ components:
             pageNumber: 2
             dateFormat: dateFormat
             backgroundHexColor: backgroundHexColor
+            allowEditFormField: true
             imageInfo:
               allowedFileExtensions: allowedFileExtensions
               description: description
@@ -29017,6 +31740,7 @@ components:
             fontSize: 5
             fieldType: fieldType
             isUnderLineFont: true
+            allowDeleteFormField: true
             font: font
           enableAccessCode: true
         description: description
@@ -29033,17 +31757,17 @@ components:
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         - groupNames:
           - groupNames
           - groupNames
-          maximumCount: 619369100
+          maximumCount: 1477050466
           groupValidation: Minimum
           dataSyncTag: dataSyncTag
-          minimumCount: 275878420
+          minimumCount: 1455634201
         allowNewFiles: true
         behalfOf:
           emailAddress: emailAddress
@@ -29103,6 +31827,7 @@ components:
           pageNumber: 2
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -29149,6 +31874,7 @@ components:
           fontSize: 5
           fieldType: fieldType
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: font
         - conditionalRules:
           - isChecked: true
@@ -29167,6 +31893,7 @@ components:
           pageNumber: 2
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -29213,6 +31940,7 @@ components:
           fontSize: 5
           fieldType: fieldType
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: font
       properties:
         templateId:
@@ -29550,6 +32278,7 @@ components:
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           validationType: None
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -29595,6 +32324,7 @@ components:
           lineHeight: 776546568
           fieldType: Signature
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: Helvetica
         - conditionalRules:
           - isChecked: true
@@ -29614,6 +32344,7 @@ components:
           dateFormat: dateFormat
           backgroundHexColor: backgroundHexColor
           validationType: None
+          allowEditFormField: true
           imageInfo:
             allowedFileExtensions: allowedFileExtensions
             description: description
@@ -29659,6 +32390,7 @@ components:
           lineHeight: 776546568
           fieldType: Signature
           isUnderLineFont: true
+          allowDeleteFormField: true
           font: Helvetica
       properties:
         name:
@@ -30012,6 +32744,7 @@ components:
           title: title
         tabIndex: 763901857
         type: Signature
+        textDirection: LTR
         radioGroupName: radioGroupName
         hyperlinkText: hyperlinkText
         isReadOnly: true
@@ -30019,17 +32752,22 @@ components:
         value: value
         validation:
           regex: regex
+          regexMessage: regexMessage
           type: NumberOnly
         formulaFieldSettings:
           formulaExpression: formulaExpression
           decimalPrecision: 1
         definitionId: definitionId
         fieldId: fieldId
+        characterSpacing: 6.965118
         isRequired: true
         offset:
           offsetX: 9.018348186070783
           offsetY: 6.438423552598547
+        textAlign: Left
+        characterLimit: 275878420
         label: label
+        dataSyncTag: dataSyncTag
         resizeOption: GrowVertically
         groupName: groupName
         dropdownOptions:
@@ -30041,11 +32779,14 @@ components:
           height: 0.8762042
         timeFormat: timeFormat
         font:
+          isBoldFont: true
           color: color
           size: 9.965781
           name: Helvetica
+          isItalicFont: true
           style: Regular
           lineHeight: 9
+          isUnderLineFont: true
       properties:
         definitionId:
           minLength: 1
@@ -30148,6 +32889,33 @@ components:
           nullable: true
           title: Nullable`1
           type: integer
+        dataSyncTag:
+          nullable: true
+          title: String
+          type: string
+        textAlign:
+          enum:
+          - Left
+          - Center
+          - Right
+          title: TextAlign
+          type: string
+        textDirection:
+          enum:
+          - LTR
+          - RTL
+          title: TextDirection
+          type: string
+        characterSpacing:
+          format: float
+          title: Single
+          type: number
+        characterLimit:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          title: Int32
+          type: integer
         formulaFieldSettings:
           $ref: '#/components/schemas/FormulaFieldSettings'
         resizeOption:
@@ -30214,6 +32982,30 @@ components:
       required:
       - userId
       title: UpdateUser
+      type: object
+    UpdateUserMetaData:
+      additionalProperties: false
+      example:
+        metaData:
+          key: metaData
+        userId: userId
+      properties:
+        userId:
+          minLength: 1
+          title: String
+          type: string
+        metaData:
+          additionalProperties:
+            nullable: true
+            title: String
+            type: string
+          maxLength: 50
+          title: Dictionary`2
+          type: object
+      required:
+      - metaData
+      - userId
+      title: UpdateUserMetaData
       type: object
     UserPageDetails:
       additionalProperties: false
@@ -30409,6 +33201,7 @@ components:
       additionalProperties: false
       example:
         regex: regex
+        regexMessage: regexMessage
         type: NumberOnly
       properties:
         type:
@@ -30417,15 +33210,51 @@ components:
           - Email
           - Currency
           - Regex
+          - None
           title: Nullable`1
           type: string
         regex:
           nullable: true
           title: String
           type: string
+        regexMessage:
+          nullable: true
+          title: String
+          type: string
       required:
       - type
       title: Validation
+      type: object
+    VerificationDataRequest:
+      additionalProperties: false
+      example:
+        phoneNumber: phoneNumber
+        countryCode: countryCode
+        onBehalfOf: onBehalfOf
+        emailId: emailId
+        order: 0
+      properties:
+        emailId:
+          nullable: true
+          title: String
+          type: string
+        countryCode:
+          nullable: true
+          title: String
+          type: string
+        phoneNumber:
+          nullable: true
+          title: String
+          type: string
+        order:
+          format: int32
+          title: Int32
+          type: integer
+        onBehalfOf:
+          nullable: true
+          title: String
+          type: string
+      title: VerificationDataRequest
       type: object
     ViewBrandDetails:
       additionalProperties: false

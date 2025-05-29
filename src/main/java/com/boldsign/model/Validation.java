@@ -56,7 +56,9 @@ public class Validation {
     
     CURRENCY("Currency"),
     
-    REGEX("Regex");
+    REGEX("Regex"),
+    
+    NONE("None");
 
     private String value;
 
@@ -109,6 +111,10 @@ public class Validation {
   @SerializedName(SERIALIZED_NAME_REGEX)
   private String regex;
 
+  public static final String SERIALIZED_NAME_REGEX_MESSAGE = "regexMessage";
+  @SerializedName(SERIALIZED_NAME_REGEX_MESSAGE)
+  private String regexMessage;
+
   public Validation() {
   }
 
@@ -150,6 +156,25 @@ public class Validation {
   }
 
 
+  public Validation regexMessage(String regexMessage) {
+    this.regexMessage = regexMessage;
+    return this;
+  }
+
+  /**
+   * Get regexMessage
+   * @return regexMessage
+   */
+  @javax.annotation.Nullable
+  public String getRegexMessage() {
+    return regexMessage;
+  }
+
+  public void setRegexMessage(String regexMessage) {
+    this.regexMessage = regexMessage;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -161,12 +186,13 @@ public class Validation {
     }
     Validation validation = (Validation) o;
     return Objects.equals(this.type, validation.type) &&
-        Objects.equals(this.regex, validation.regex);
+        Objects.equals(this.regex, validation.regex) &&
+        Objects.equals(this.regexMessage, validation.regexMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, regex);
+    return Objects.hash(type, regex, regexMessage);
   }
 
   @Override
@@ -175,6 +201,7 @@ public class Validation {
     sb.append("class Validation {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    regex: ").append(toIndentedString(regex)).append("\n");
+    sb.append("    regexMessage: ").append(toIndentedString(regexMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -220,6 +247,26 @@ public class Validation {
         }
         else {
           map.put("regex", JSON.serialize(regex));
+        }
+    }
+    if (regexMessage != null) {
+        if (isFileTypeOrListOfFiles(regexMessage)) {
+            fileTypeFound = true;
+        }
+
+        if (regexMessage.getClass().equals(java.io.File.class) ||
+            regexMessage.getClass().equals(Integer.class) ||
+            regexMessage.getClass().equals(String.class) ||
+            regexMessage.getClass().equals(java.net.URI.class)||
+            regexMessage.getClass().isEnum()) {
+            map.put("regexMessage", regexMessage);
+        } else if (isListOfFile(regexMessage)) {
+            for(int i = 0; i< getListSize(regexMessage); i++) {
+                map.put("regexMessage", regexMessage);
+            }
+        }
+        else {
+          map.put("regexMessage", JSON.serialize(regexMessage));
         }
     }
     } catch (Exception e) {
@@ -269,6 +316,7 @@ public class Validation {
     openapiFields = new HashSet<String>();
     openapiFields.add("type");
     openapiFields.add("regex");
+    openapiFields.add("regexMessage");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -303,6 +351,9 @@ public class Validation {
       TypeEnum.validateJsonElement(jsonObj.get("type"));
       if ((jsonObj.get("regex") != null && !jsonObj.get("regex").isJsonNull()) && !jsonObj.get("regex").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `regex` to be a primitive type in the JSON string but got `%s`", jsonObj.get("regex").toString()));
+      }
+      if ((jsonObj.get("regexMessage") != null && !jsonObj.get("regexMessage").isJsonNull()) && !jsonObj.get("regexMessage").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `regexMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("regexMessage").toString()));
       }
   }
 

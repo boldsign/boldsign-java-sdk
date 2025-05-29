@@ -16,8 +16,8 @@ All URIs are relative to *https://api.boldsign.com*
 | [**downloadAuditLog**](DocumentApi.md#downloadAuditLog) | **GET** /v1/document/downloadAuditLog | Download the audit trail document. |
 | [**downloadDocument**](DocumentApi.md#downloadDocument) | **GET** /v1/document/download | Download the document. |
 | [**extendExpiry**](DocumentApi.md#extendExpiry) | **PATCH** /v1/document/extendExpiry | Extends the expiration date of the document. |
-| [**getEmbeddedSignLink**](DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign. |
 | [**getProperties**](DocumentApi.md#getProperties) | **GET** /v1/document/properties | Get summary of the document. |
+| [**getEmbeddedSignLink**](DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign. |
 | [**listDocuments**](DocumentApi.md#listDocuments) | **GET** /v1/document/list | List user documents. |
 | [**prefillFields**](DocumentApi.md#prefillFields) | **PATCH** /v1/document/prefillFields | Updates the value (prefill) of the fields in the document. |
 | [**remindDocument**](DocumentApi.md#remindDocument) | **POST** /v1/document/remind | Send reminder to pending signers. |
@@ -858,6 +858,72 @@ null (empty response body)
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 
+<a id="getProperties"></a>
+# **getProperties**
+> DocumentProperties getProperties(documentId)
+
+Get summary of the document.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.DocumentApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
+    String documentId = "documentId_example"; // String | Document Id.
+    
+    try {
+      DocumentProperties result = apiInstance.getProperties(documentId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DocumentApi#getProperties");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **documentId** | **String**| Document Id. | |
+
+### Return type
+
+[**DocumentProperties**](DocumentProperties.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
 <a id="getEmbeddedSignLink"></a>
 # **getEmbeddedSignLink**
 > EmbeddedSigningLink getEmbeddedSignLink(documentId, signerEmail, countryCode, phoneNumber, signLinkValidTill, redirectUrl)
@@ -934,72 +1000,6 @@ public class Example {
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 
-<a id="getProperties"></a>
-# **getProperties**
-> DocumentProperties getProperties(documentId)
-
-Get summary of the document.
-
-### Example
-```java
-// Import classes:
-import com.boldsign.ApiClient;
-import com.boldsign.ApiException;
-import com.boldsign.Configuration;
-import com.boldsign.auth.*;
-import com.boldsign.models.*;
-import com.boldsign.api.DocumentApi;
-
-public class Example {
-  public static void main(String[] args) {
-
-    ApiClient apiClient = Configuration.getDefaultApiClient();
-    apiClient.setApiKey("YOUR_API_KEY");
-
-    DocumentApi apiInstance = new DocumentApi(apiClient);
-
-    String documentId = "documentId_example"; // String | Document Id.
-    
-    try {
-      DocumentProperties result = apiInstance.getProperties(documentId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DocumentApi#getProperties");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
-
-### Return type
-
-[**DocumentProperties**](DocumentProperties.md)
-
-### Authorization
-
-[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-
 <a id="listDocuments"></a>
 # **listDocuments**
 > DocumentRecords listDocuments(page, sentBy, recipients, transmitType, dateFilterType, pageSize, startDate, status, endDate, searchKey, labels, nextCursor, brandIds)
@@ -1059,7 +1059,7 @@ public class Example {
 | **page** | **Integer**| Page index specified in get document list request. | [default to 1] |
 | **sentBy** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **recipients** | [**List&lt;String&gt;**](String.md)|  | [optional] |
-| **transmitType** | **String**|  | [optional] [enum: Sent, Received,  Both] |
+| **transmitType** | **String**|  | [optional] [enum: Sent, Received, Both] |
 | **dateFilterType** | **String**| Date Filter as SentBetween and ExpiresOn. | [optional] [enum: SentBetween, Expiring] |
 | **pageSize** | **Integer**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **OffsetDateTime**| Start date of the document | [optional] |
@@ -1486,7 +1486,7 @@ public class Example {
 | **page** | **Integer**| Page index specified in get document list request. | [default to 1] |
 | **userId** | [**List&lt;String&gt;**](String.md)| UserId of the  Team document. | [optional] |
 | **teamId** | [**List&lt;String&gt;**](String.md)| TeamId  of the  Team document. | [optional] |
-| **transmitType** | **String**| Transmit type as Sent, Received and Both. | [optional] [enum: Sent, Received,  Both] |
+| **transmitType** | **String**| Transmit type as Sent, Received and Both. | [optional] [enum: Sent, Received, Both] |
 | **dateFilterType** | **String**| Date Filter as SentBetween and Expiring. | [optional] [enum: SentBetween, Expiring] |
 | **pageSize** | **Integer**| Page size specified in get document list request. | [optional] [default to 10] |
 | **startDate** | **OffsetDateTime**| Start date of the document | [optional] |

@@ -45,6 +45,8 @@
 |**tabIndex** | **Integer** |  |  [optional] |
 |**formulaFieldSettings** | [**FormulaFieldSettings**](FormulaFieldSettings.md) |  |  [optional] |
 |**resizeOption** | [**ResizeOptionEnum**](#ResizeOptionEnum) |  |  [optional] |
+|**allowEditFormField** | **Boolean** |  |  [optional] |
+|**allowDeleteFormField** | **Boolean** |  |  [optional] |
 
 
 

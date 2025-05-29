@@ -31,6 +31,7 @@ import com.boldsign.model.CreateTemplateRequest;
 import com.boldsign.model.DocumentCreated;
 import com.boldsign.model.EditTemplateRequest;
 import com.boldsign.model.EmbeddedCreateTemplateRequest;
+import com.boldsign.model.EmbeddedMergeTemplateFormRequest;
 import com.boldsign.model.EmbeddedSendCreated;
 import com.boldsign.model.EmbeddedSendTemplateFormRequest;
 import com.boldsign.model.EmbeddedTemplateCreated;
@@ -700,6 +701,145 @@ public class TemplateApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteTemplate
+     * @param templateId The template id. (required)
+     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteTemplateCall(String templateId, String onBehalfOf, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/template/delete";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+
+        if (templateId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("templateId", templateId));
+        }
+
+        if (onBehalfOf != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("onBehalfOf", onBehalfOf));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-API-KEY", "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteTemplateValidateBeforeCall(String templateId, String onBehalfOf, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'templateId' is set
+        if (templateId == null) {
+            throw new ApiException("Missing the required parameter 'templateId' when calling deleteTemplate(Async)");
+        }
+
+        return deleteTemplateCall(templateId, onBehalfOf, _callback);
+
+    }
+
+    /**
+     * Deletes a template.
+     * 
+     * @param templateId The template id. (required)
+     * @param onBehalfOf The on behalfof email address. (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteTemplate(String templateId, String onBehalfOf) throws ApiException {
+        deleteTemplateWithHttpInfo(templateId, onBehalfOf);
+    }
+
+    /**
+     * Deletes a template.
+     * 
+     * @param templateId The template id. (required)
+     * @param onBehalfOf The on behalfof email address. (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteTemplateWithHttpInfo(String templateId, String onBehalfOf) throws ApiException {
+        okhttp3.Call localVarCall = deleteTemplateValidateBeforeCall(templateId, onBehalfOf, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Deletes a template. (asynchronously)
+     * 
+     * @param templateId The template id. (required)
+     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteTemplateAsync(String templateId, String onBehalfOf, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteTemplateValidateBeforeCall(templateId, onBehalfOf, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for deleteTag
      * @param templateTag Contains TemplateId and LabelNames for Adding Tags. (optional)
      * @param _callback Callback for upload/download progress
@@ -899,145 +1039,6 @@ public class TemplateApi {
     public okhttp3.Call deleteTagAsync(TemplateTag templateTag, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTagValidateBeforeCall(templateTag, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteTemplate
-     * @param templateId The template id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteTemplateCall(String templateId, String onBehalfOf, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v1/template/delete";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-        if (templateId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("templateId", templateId));
-        }
-
-        if (onBehalfOf != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("onBehalfOf", onBehalfOf));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "X-API-KEY", "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteTemplateValidateBeforeCall(String templateId, String onBehalfOf, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'templateId' is set
-        if (templateId == null) {
-            throw new ApiException("Missing the required parameter 'templateId' when calling deleteTemplate(Async)");
-        }
-
-        return deleteTemplateCall(templateId, onBehalfOf, _callback);
-
-    }
-
-    /**
-     * Deletes a template.
-     * 
-     * @param templateId The template id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteTemplate(String templateId, String onBehalfOf) throws ApiException {
-        deleteTemplateWithHttpInfo(templateId, onBehalfOf);
-    }
-
-    /**
-     * Deletes a template.
-     * 
-     * @param templateId The template id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteTemplateWithHttpInfo(String templateId, String onBehalfOf) throws ApiException {
-        okhttp3.Call localVarCall = deleteTemplateValidateBeforeCall(templateId, onBehalfOf, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Deletes a template. (asynchronously)
-     * 
-     * @param templateId The template id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteTemplateAsync(String templateId, String onBehalfOf, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteTemplateValidateBeforeCall(templateId, onBehalfOf, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -1580,7 +1581,7 @@ public class TemplateApi {
     private okhttp3.Call getPropertiesValidateBeforeCall(String templateId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'templateId' is set
         if (templateId == null) {
-            throw new ApiException("Missing the required parameter 'templateId' when calling getProperties(Async)");
+            throw new ApiException("Missing the required parameter 'templateId' when calling getTemplateProperties(Async)");
         }
 
         return getPropertiesCall(templateId, _callback);
@@ -1860,7 +1861,7 @@ public class TemplateApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
@@ -1924,36 +1925,39 @@ public class TemplateApi {
      * Send the document by merging multiple templates.
      * 
      * @param mergeAndSendForSignForm The merge and send details as JSON. (optional)
+     * @return DocumentCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public void mergeAndSend(MergeAndSendForSignForm mergeAndSendForSignForm) throws ApiException {
-        mergeAndSendWithHttpInfo(mergeAndSendForSignForm);
+    public DocumentCreated mergeAndSend(MergeAndSendForSignForm mergeAndSendForSignForm) throws ApiException {
+        ApiResponse<DocumentCreated> localVarResp = mergeAndSendWithHttpInfo(mergeAndSendForSignForm);
+        return localVarResp.getData();
     }
 
     /**
      * Send the document by merging multiple templates.
      * 
      * @param mergeAndSendForSignForm The merge and send details as JSON. (optional)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;DocumentCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> mergeAndSendWithHttpInfo(MergeAndSendForSignForm mergeAndSendForSignForm) throws ApiException {
+    public ApiResponse<DocumentCreated> mergeAndSendWithHttpInfo(MergeAndSendForSignForm mergeAndSendForSignForm) throws ApiException {
         okhttp3.Call localVarCall = mergeAndSendValidateBeforeCall(mergeAndSendForSignForm, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<DocumentCreated>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -1966,15 +1970,146 @@ public class TemplateApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call mergeAndSendAsync(MergeAndSendForSignForm mergeAndSendForSignForm, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call mergeAndSendAsync(MergeAndSendForSignForm mergeAndSendForSignForm, final ApiCallback<DocumentCreated> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = mergeAndSendValidateBeforeCall(mergeAndSendForSignForm, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<DocumentCreated>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for mergeCreateEmbeddedRequestUrlTemplate
+     * @param embeddedMergeTemplateFormRequest Embedded merge and send template json request. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call mergeCreateEmbeddedRequestUrlTemplateCall(EmbeddedMergeTemplateFormRequest embeddedMergeTemplateFormRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = embeddedMergeTemplateFormRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/template/mergeCreateEmbeddedRequestUrl";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        localVarFormParams = embeddedMergeTemplateFormRequest.createFormData();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "multipart/form-data",
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-API-KEY", "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call mergeCreateEmbeddedRequestUrlTemplateValidateBeforeCall(EmbeddedMergeTemplateFormRequest embeddedMergeTemplateFormRequest, final ApiCallback _callback) throws ApiException {
+        return mergeCreateEmbeddedRequestUrlTemplateCall(embeddedMergeTemplateFormRequest, _callback);
+
+    }
+
+    /**
+     * Generates a merge request URL using a template that combines document merging and sending processes into your application.
+     * 
+     * @param embeddedMergeTemplateFormRequest Embedded merge and send template json request. (optional)
+     * @return EmbeddedSendCreated
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmbeddedSendCreated mergeCreateEmbeddedRequestUrlTemplate(EmbeddedMergeTemplateFormRequest embeddedMergeTemplateFormRequest) throws ApiException {
+        ApiResponse<EmbeddedSendCreated> localVarResp = mergeCreateEmbeddedRequestUrlTemplateWithHttpInfo(embeddedMergeTemplateFormRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generates a merge request URL using a template that combines document merging and sending processes into your application.
+     * 
+     * @param embeddedMergeTemplateFormRequest Embedded merge and send template json request. (optional)
+     * @return ApiResponse&lt;EmbeddedSendCreated&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmbeddedSendCreated> mergeCreateEmbeddedRequestUrlTemplateWithHttpInfo(EmbeddedMergeTemplateFormRequest embeddedMergeTemplateFormRequest) throws ApiException {
+        okhttp3.Call localVarCall = mergeCreateEmbeddedRequestUrlTemplateValidateBeforeCall(embeddedMergeTemplateFormRequest, null);
+        Type localVarReturnType = new TypeToken<EmbeddedSendCreated>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generates a merge request URL using a template that combines document merging and sending processes into your application. (asynchronously)
+     * 
+     * @param embeddedMergeTemplateFormRequest Embedded merge and send template json request. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call mergeCreateEmbeddedRequestUrlTemplateAsync(EmbeddedMergeTemplateFormRequest embeddedMergeTemplateFormRequest, final ApiCallback<EmbeddedSendCreated> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = mergeCreateEmbeddedRequestUrlTemplateValidateBeforeCall(embeddedMergeTemplateFormRequest, _callback);
+        Type localVarReturnType = new TypeToken<EmbeddedSendCreated>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

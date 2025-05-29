@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userId** | **UUID** |  |  [optional] |
+|**userId** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
 |**firstName** | **String** |  |  [optional] |
 |**lastName** | **String** |  |  [optional] |
-|**teamId** | **UUID** |  |  [optional] |
+|**teamId** | **String** |  |  [optional] |
 |**teamName** | **String** |  |  [optional] |
 |**role** | **String** |  |  [optional] |
 |**userStatus** | **String** |  |  [optional] |

@@ -30,6 +30,7 @@ import java.io.IOException;
 import com.boldsign.model.CreateSenderIdentityRequest;
 import com.boldsign.model.EditSenderIdentityRequest;
 import com.boldsign.model.ErrorResult;
+import com.boldsign.model.SenderIdentityCreated;
 import com.boldsign.model.SenderIdentityList;
 
 import java.lang.reflect.Type;
@@ -192,6 +193,7 @@ public class SenderIdentitiesApi {
      * Creates sender identity.
      * 
      * @param createSenderIdentityRequest The create sender identity request. (required)
+     * @return SenderIdentityCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -202,15 +204,16 @@ public class SenderIdentitiesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public void createSenderIdentities(CreateSenderIdentityRequest createSenderIdentityRequest) throws ApiException {
-        createSenderIdentitiesWithHttpInfo(createSenderIdentityRequest);
+    public SenderIdentityCreated createSenderIdentities(CreateSenderIdentityRequest createSenderIdentityRequest) throws ApiException {
+        ApiResponse<SenderIdentityCreated> localVarResp = createSenderIdentitiesWithHttpInfo(createSenderIdentityRequest);
+        return localVarResp.getData();
     }
 
     /**
      * Creates sender identity.
      * 
      * @param createSenderIdentityRequest The create sender identity request. (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;SenderIdentityCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -221,9 +224,10 @@ public class SenderIdentitiesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> createSenderIdentitiesWithHttpInfo(CreateSenderIdentityRequest createSenderIdentityRequest) throws ApiException {
+    public ApiResponse<SenderIdentityCreated> createSenderIdentitiesWithHttpInfo(CreateSenderIdentityRequest createSenderIdentityRequest) throws ApiException {
         okhttp3.Call localVarCall = createSenderIdentitiesValidateBeforeCall(createSenderIdentityRequest, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<SenderIdentityCreated>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -242,10 +246,11 @@ public class SenderIdentitiesApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createSenderIdentitiesAsync(CreateSenderIdentityRequest createSenderIdentityRequest, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call createSenderIdentitiesAsync(CreateSenderIdentityRequest createSenderIdentityRequest, final ApiCallback<SenderIdentityCreated> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSenderIdentitiesValidateBeforeCall(createSenderIdentityRequest, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<SenderIdentityCreated>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

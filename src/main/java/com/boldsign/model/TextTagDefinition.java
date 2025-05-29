@@ -224,6 +224,132 @@ public class TextTagDefinition {
   @SerializedName(SERIALIZED_NAME_TAB_INDEX)
   private Integer tabIndex;
 
+  public static final String SERIALIZED_NAME_DATA_SYNC_TAG = "dataSyncTag";
+  @SerializedName(SERIALIZED_NAME_DATA_SYNC_TAG)
+  private String dataSyncTag;
+
+  /**
+   * Gets or Sets textAlign
+   */
+  @JsonAdapter(TextAlignEnum.Adapter.class)
+  public enum TextAlignEnum {
+    LEFT("Left"),
+    
+    CENTER("Center"),
+    
+    RIGHT("Right");
+
+    private String value;
+
+    TextAlignEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TextAlignEnum fromValue(String value) {
+      for (TextAlignEnum b : TextAlignEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TextAlignEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TextAlignEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TextAlignEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TextAlignEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TextAlignEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TEXT_ALIGN = "textAlign";
+  @SerializedName(SERIALIZED_NAME_TEXT_ALIGN)
+  private TextAlignEnum textAlign;
+
+  /**
+   * Gets or Sets textDirection
+   */
+  @JsonAdapter(TextDirectionEnum.Adapter.class)
+  public enum TextDirectionEnum {
+    LTR("LTR"),
+    
+    RTL("RTL");
+
+    private String value;
+
+    TextDirectionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TextDirectionEnum fromValue(String value) {
+      for (TextDirectionEnum b : TextDirectionEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TextDirectionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TextDirectionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TextDirectionEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TextDirectionEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TextDirectionEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TEXT_DIRECTION = "textDirection";
+  @SerializedName(SERIALIZED_NAME_TEXT_DIRECTION)
+  private TextDirectionEnum textDirection;
+
+  public static final String SERIALIZED_NAME_CHARACTER_SPACING = "characterSpacing";
+  @SerializedName(SERIALIZED_NAME_CHARACTER_SPACING)
+  private Float characterSpacing;
+
+  public static final String SERIALIZED_NAME_CHARACTER_LIMIT = "characterLimit";
+  @SerializedName(SERIALIZED_NAME_CHARACTER_LIMIT)
+  private Integer characterLimit;
+
   public static final String SERIALIZED_NAME_FORMULA_FIELD_SETTINGS = "formulaFieldSettings";
   @SerializedName(SERIALIZED_NAME_FORMULA_FIELD_SETTINGS)
   private FormulaFieldSettings formulaFieldSettings;
@@ -742,6 +868,103 @@ public class TextTagDefinition {
   }
 
 
+  public TextTagDefinition dataSyncTag(String dataSyncTag) {
+    this.dataSyncTag = dataSyncTag;
+    return this;
+  }
+
+  /**
+   * Get dataSyncTag
+   * @return dataSyncTag
+   */
+  @javax.annotation.Nullable
+  public String getDataSyncTag() {
+    return dataSyncTag;
+  }
+
+  public void setDataSyncTag(String dataSyncTag) {
+    this.dataSyncTag = dataSyncTag;
+  }
+
+
+  public TextTagDefinition textAlign(TextAlignEnum textAlign) {
+    this.textAlign = textAlign;
+    return this;
+  }
+
+  /**
+   * Get textAlign
+   * @return textAlign
+   */
+  @javax.annotation.Nullable
+  public TextAlignEnum getTextAlign() {
+    return textAlign;
+  }
+
+  public void setTextAlign(TextAlignEnum textAlign) {
+    this.textAlign = textAlign;
+  }
+
+
+  public TextTagDefinition textDirection(TextDirectionEnum textDirection) {
+    this.textDirection = textDirection;
+    return this;
+  }
+
+  /**
+   * Get textDirection
+   * @return textDirection
+   */
+  @javax.annotation.Nullable
+  public TextDirectionEnum getTextDirection() {
+    return textDirection;
+  }
+
+  public void setTextDirection(TextDirectionEnum textDirection) {
+    this.textDirection = textDirection;
+  }
+
+
+  public TextTagDefinition characterSpacing(Float characterSpacing) {
+    this.characterSpacing = characterSpacing;
+    return this;
+  }
+
+  /**
+   * Get characterSpacing
+   * @return characterSpacing
+   */
+  @javax.annotation.Nullable
+  public Float getCharacterSpacing() {
+    return characterSpacing;
+  }
+
+  public void setCharacterSpacing(Float characterSpacing) {
+    this.characterSpacing = characterSpacing;
+  }
+
+
+  public TextTagDefinition characterLimit(Integer characterLimit) {
+    this.characterLimit = characterLimit;
+    return this;
+  }
+
+  /**
+   * Get characterLimit
+   * minimum: 0
+   * maximum: 2147483647
+   * @return characterLimit
+   */
+  @javax.annotation.Nullable
+  public Integer getCharacterLimit() {
+    return characterLimit;
+  }
+
+  public void setCharacterLimit(Integer characterLimit) {
+    this.characterLimit = characterLimit;
+  }
+
+
   public TextTagDefinition formulaFieldSettings(FormulaFieldSettings formulaFieldSettings) {
     this.formulaFieldSettings = formulaFieldSettings;
     return this;
@@ -813,13 +1036,18 @@ public class TextTagDefinition {
         Objects.equals(this.offset, textTagDefinition.offset) &&
         Objects.equals(this.label, textTagDefinition.label) &&
         Objects.equals(this.tabIndex, textTagDefinition.tabIndex) &&
+        Objects.equals(this.dataSyncTag, textTagDefinition.dataSyncTag) &&
+        Objects.equals(this.textAlign, textTagDefinition.textAlign) &&
+        Objects.equals(this.textDirection, textTagDefinition.textDirection) &&
+        Objects.equals(this.characterSpacing, textTagDefinition.characterSpacing) &&
+        Objects.equals(this.characterLimit, textTagDefinition.characterLimit) &&
         Objects.equals(this.formulaFieldSettings, textTagDefinition.formulaFieldSettings) &&
         Objects.equals(this.resizeOption, textTagDefinition.resizeOption);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(definitionId, type, signerIndex, isRequired, placeholder, fieldId, font, validation, size, dateFormat, timeFormat, radioGroupName, groupName, value, dropdownOptions, imageInfo, hyperlinkText, attachmentInfo, backgroundHexColor, isReadOnly, offset, label, tabIndex, formulaFieldSettings, resizeOption);
+    return Objects.hash(definitionId, type, signerIndex, isRequired, placeholder, fieldId, font, validation, size, dateFormat, timeFormat, radioGroupName, groupName, value, dropdownOptions, imageInfo, hyperlinkText, attachmentInfo, backgroundHexColor, isReadOnly, offset, label, tabIndex, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, formulaFieldSettings, resizeOption);
   }
 
   @Override
@@ -849,6 +1077,11 @@ public class TextTagDefinition {
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    tabIndex: ").append(toIndentedString(tabIndex)).append("\n");
+    sb.append("    dataSyncTag: ").append(toIndentedString(dataSyncTag)).append("\n");
+    sb.append("    textAlign: ").append(toIndentedString(textAlign)).append("\n");
+    sb.append("    textDirection: ").append(toIndentedString(textDirection)).append("\n");
+    sb.append("    characterSpacing: ").append(toIndentedString(characterSpacing)).append("\n");
+    sb.append("    characterLimit: ").append(toIndentedString(characterLimit)).append("\n");
     sb.append("    formulaFieldSettings: ").append(toIndentedString(formulaFieldSettings)).append("\n");
     sb.append("    resizeOption: ").append(toIndentedString(resizeOption)).append("\n");
     sb.append("}");
@@ -1328,6 +1561,106 @@ public class TextTagDefinition {
           map.put("tabIndex", JSON.serialize(tabIndex));
         }
     }
+    if (dataSyncTag != null) {
+        if (isFileTypeOrListOfFiles(dataSyncTag)) {
+            fileTypeFound = true;
+        }
+
+        if (dataSyncTag.getClass().equals(java.io.File.class) ||
+            dataSyncTag.getClass().equals(Integer.class) ||
+            dataSyncTag.getClass().equals(String.class) ||
+            dataSyncTag.getClass().equals(java.net.URI.class)||
+            dataSyncTag.getClass().isEnum()) {
+            map.put("dataSyncTag", dataSyncTag);
+        } else if (isListOfFile(dataSyncTag)) {
+            for(int i = 0; i< getListSize(dataSyncTag); i++) {
+                map.put("dataSyncTag", dataSyncTag);
+            }
+        }
+        else {
+          map.put("dataSyncTag", JSON.serialize(dataSyncTag));
+        }
+    }
+    if (textAlign != null) {
+        if (isFileTypeOrListOfFiles(textAlign)) {
+            fileTypeFound = true;
+        }
+
+        if (textAlign.getClass().equals(java.io.File.class) ||
+            textAlign.getClass().equals(Integer.class) ||
+            textAlign.getClass().equals(String.class) ||
+            textAlign.getClass().equals(java.net.URI.class)||
+            textAlign.getClass().isEnum()) {
+            map.put("textAlign", textAlign);
+        } else if (isListOfFile(textAlign)) {
+            for(int i = 0; i< getListSize(textAlign); i++) {
+                map.put("textAlign", textAlign);
+            }
+        }
+        else {
+          map.put("textAlign", JSON.serialize(textAlign));
+        }
+    }
+    if (textDirection != null) {
+        if (isFileTypeOrListOfFiles(textDirection)) {
+            fileTypeFound = true;
+        }
+
+        if (textDirection.getClass().equals(java.io.File.class) ||
+            textDirection.getClass().equals(Integer.class) ||
+            textDirection.getClass().equals(String.class) ||
+            textDirection.getClass().equals(java.net.URI.class)||
+            textDirection.getClass().isEnum()) {
+            map.put("textDirection", textDirection);
+        } else if (isListOfFile(textDirection)) {
+            for(int i = 0; i< getListSize(textDirection); i++) {
+                map.put("textDirection", textDirection);
+            }
+        }
+        else {
+          map.put("textDirection", JSON.serialize(textDirection));
+        }
+    }
+    if (characterSpacing != null) {
+        if (isFileTypeOrListOfFiles(characterSpacing)) {
+            fileTypeFound = true;
+        }
+
+        if (characterSpacing.getClass().equals(java.io.File.class) ||
+            characterSpacing.getClass().equals(Integer.class) ||
+            characterSpacing.getClass().equals(String.class) ||
+            characterSpacing.getClass().equals(java.net.URI.class)||
+            characterSpacing.getClass().isEnum()) {
+            map.put("characterSpacing", characterSpacing);
+        } else if (isListOfFile(characterSpacing)) {
+            for(int i = 0; i< getListSize(characterSpacing); i++) {
+                map.put("characterSpacing", characterSpacing);
+            }
+        }
+        else {
+          map.put("characterSpacing", JSON.serialize(characterSpacing));
+        }
+    }
+    if (characterLimit != null) {
+        if (isFileTypeOrListOfFiles(characterLimit)) {
+            fileTypeFound = true;
+        }
+
+        if (characterLimit.getClass().equals(java.io.File.class) ||
+            characterLimit.getClass().equals(Integer.class) ||
+            characterLimit.getClass().equals(String.class) ||
+            characterLimit.getClass().equals(java.net.URI.class)||
+            characterLimit.getClass().isEnum()) {
+            map.put("characterLimit", characterLimit);
+        } else if (isListOfFile(characterLimit)) {
+            for(int i = 0; i< getListSize(characterLimit); i++) {
+                map.put("characterLimit", characterLimit);
+            }
+        }
+        else {
+          map.put("characterLimit", JSON.serialize(characterLimit));
+        }
+    }
     if (formulaFieldSettings != null) {
         if (isFileTypeOrListOfFiles(formulaFieldSettings)) {
             fileTypeFound = true;
@@ -1436,6 +1769,11 @@ public class TextTagDefinition {
     openapiFields.add("offset");
     openapiFields.add("label");
     openapiFields.add("tabIndex");
+    openapiFields.add("dataSyncTag");
+    openapiFields.add("textAlign");
+    openapiFields.add("textDirection");
+    openapiFields.add("characterSpacing");
+    openapiFields.add("characterLimit");
     openapiFields.add("formulaFieldSettings");
     openapiFields.add("resizeOption");
 
@@ -1532,6 +1870,23 @@ public class TextTagDefinition {
       }
       if ((jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()) && !jsonObj.get("label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
+      }
+      if ((jsonObj.get("dataSyncTag") != null && !jsonObj.get("dataSyncTag").isJsonNull()) && !jsonObj.get("dataSyncTag").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dataSyncTag` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dataSyncTag").toString()));
+      }
+      if ((jsonObj.get("textAlign") != null && !jsonObj.get("textAlign").isJsonNull()) && !jsonObj.get("textAlign").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `textAlign` to be a primitive type in the JSON string but got `%s`", jsonObj.get("textAlign").toString()));
+      }
+      // validate the optional field `textAlign`
+      if (jsonObj.get("textAlign") != null && !jsonObj.get("textAlign").isJsonNull()) {
+        TextAlignEnum.validateJsonElement(jsonObj.get("textAlign"));
+      }
+      if ((jsonObj.get("textDirection") != null && !jsonObj.get("textDirection").isJsonNull()) && !jsonObj.get("textDirection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `textDirection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("textDirection").toString()));
+      }
+      // validate the optional field `textDirection`
+      if (jsonObj.get("textDirection") != null && !jsonObj.get("textDirection").isJsonNull()) {
+        TextDirectionEnum.validateJsonElement(jsonObj.get("textDirection"));
       }
       // validate the optional field `formulaFieldSettings`
       if (jsonObj.get("formulaFieldSettings") != null && !jsonObj.get("formulaFieldSettings").isJsonNull()) {

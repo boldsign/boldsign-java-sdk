@@ -32,7 +32,7 @@
 |**allowNewRoles** | **Boolean** |  |  [optional] |
 |**allowNewFiles** | **Boolean** |  |  [optional] |
 |**enableReassign** | **Boolean** |  |  [optional] |
-|**enablePrintAndAssign** | **Boolean** |  |  [optional] |
+|**enablePrintAndSign** | **Boolean** |  |  [optional] |
 |**enableSigningOrder** | **Boolean** |  |  [optional] |
 |**documentInfo** | [**List&lt;DocumentInfo&gt;**](DocumentInfo.md) |  |  [optional] |
 |**useTextTags** | **Boolean** |  |  [optional] |

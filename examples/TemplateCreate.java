@@ -43,7 +43,7 @@ public class TemplateCreate
             CreateTemplateRequest templateRequest = new CreateTemplateRequest();
             templateRequest.setEnableReassign(true);
             templateRequest.setAllowNewRoles(true);
-            templateRequest.setEnablePrintAndAssign(false);  
+            templateRequest.setEnablePrintAndSign(false);  
             templateRequest.setDocumentMessage("document message for signers");
             templateRequest.setEnableSigningOrder(false);
             templateRequest.setUseTextTags(false);  
