@@ -15625,6 +15625,8 @@ components:
           nameMatcher: Strict
           holdForPrefill: true
           maximumRetryCount: 1
+        authenticationSettings:
+          authenticationFrequency: None
         order: 4
       properties:
         emailId:
@@ -15666,6 +15668,8 @@ components:
           nullable: true
           title: Nullable`1
           type: integer
+        authenticationSettings:
+          $ref: '#/components/schemas/AuthenticationSettings'
       required:
       - authenticationType
       title: AccessCodeDetail
@@ -15888,6 +15892,22 @@ components:
           type: integer
       title: AuditTrail
       type: object
+    AuthenticationSettings:
+      additionalProperties: false
+      example:
+        authenticationFrequency: None
+      properties:
+        authenticationFrequency:
+          enum:
+          - None
+          - EveryAccess
+          - UntilSignCompleted
+          - OncePerDocument
+          nullable: true
+          title: Nullable`1
+          type: string
+      title: AuthenticationSettings
+      type: object
     Base64File:
       additionalProperties: false
       properties:
@@ -15959,6 +15979,9 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: authenticationFrequency
+            status: status
           isAuthenticationFailed: false
           phoneNumber:
             number: number
@@ -16145,6 +16168,9 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: authenticationFrequency
+            status: status
           isAuthenticationFailed: false
           phoneNumber:
             number: number
@@ -16444,6 +16470,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -16630,6 +16659,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -16845,6 +16877,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -17031,6 +17066,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -18873,6 +18911,9 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: authenticationFrequency
+            status: status
           isAuthenticationFailed: false
           phoneNumber:
             number: number
@@ -19059,6 +19100,9 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: authenticationFrequency
+            status: status
           isAuthenticationFailed: false
           phoneNumber:
             number: number
@@ -19782,6 +19826,9 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: authenticationFrequency
+            status: status
           isAuthenticationFailed: false
           phoneNumber:
             number: number
@@ -19968,6 +20015,9 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: authenticationFrequency
+            status: status
           isAuthenticationFailed: false
           phoneNumber:
             number: number
@@ -20605,6 +20655,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -20791,6 +20844,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -21003,6 +21059,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -21189,6 +21248,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -21416,6 +21478,8 @@ components:
           reassigned: true
           completed: true
           revoked: true
+        authenticationSettings:
+          authenticationFrequency: None
         enableEmailOTP: true
         emailAddress: emailAddress
         phoneNumber:
@@ -21701,6 +21765,8 @@ components:
           nullable: true
           title: Nullable`1
           type: boolean
+        authenticationSettings:
+          $ref: '#/components/schemas/AuthenticationSettings'
       required:
       - name
       title: DocumentSigner
@@ -21745,6 +21811,9 @@ components:
           reassigned: true
           completed: true
           revoked: true
+        authenticationSettings:
+          authenticationFrequency: authenticationFrequency
+          status: status
         isAuthenticationFailed: false
         phoneNumber:
           number: number
@@ -22052,6 +22121,8 @@ components:
           - WhatsApp
           title: DeliveryMode
           type: string
+        authenticationSettings:
+          $ref: '#/components/schemas/SignerAuthenticationSettings'
       title: DocumentSignerDetails
       type: object
     DocumentTags:
@@ -23632,6 +23703,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           enableEmailOTP: true
           emailAddress: emailAddress
           phoneNumber:
@@ -23804,6 +23877,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           enableEmailOTP: true
           emailAddress: emailAddress
           phoneNumber:
@@ -24422,6 +24497,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -24606,6 +24683,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -25152,6 +25231,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -25336,6 +25417,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -26830,6 +26913,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -27014,6 +27099,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -27822,6 +27909,8 @@ components:
           reassigned: true
           completed: true
           revoked: true
+        authenticationSettings:
+          authenticationFrequency: None
         signerName: signerName
         enableEmailOTP: true
         signerEmail: signerEmail
@@ -28123,6 +28212,8 @@ components:
           nullable: true
           title: Nullable`1
           type: boolean
+        authenticationSettings:
+          $ref: '#/components/schemas/AuthenticationSettings'
       title: Role
       type: object
     Roles:
@@ -28645,6 +28736,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           enableEmailOTP: true
           emailAddress: emailAddress
           phoneNumber:
@@ -28817,6 +28910,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           enableEmailOTP: true
           emailAddress: emailAddress
           phoneNumber:
@@ -29204,6 +29299,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -29388,6 +29485,8 @@ components:
             reassigned: true
             completed: true
             revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
           signerName: signerName
           enableEmailOTP: true
           signerEmail: signerEmail
@@ -29934,6 +30033,22 @@ components:
           type: object
       title: SenderIdentityViewModel
       type: object
+    SignerAuthenticationSettings:
+      additionalProperties: false
+      example:
+        authenticationFrequency: authenticationFrequency
+        status: status
+      properties:
+        authenticationFrequency:
+          nullable: true
+          title: String
+          type: string
+        status:
+          nullable: true
+          title: String
+          type: string
+      title: SignerAuthenticationSettings
+      type: object
     Size:
       additionalProperties: false
       example:
@@ -30019,6 +30134,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -30205,6 +30323,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -30417,6 +30538,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number
@@ -30603,6 +30727,9 @@ components:
               reassigned: true
               completed: true
               revoked: true
+            authenticationSettings:
+              authenticationFrequency: authenticationFrequency
+              status: status
             isAuthenticationFailed: false
             phoneNumber:
               number: number

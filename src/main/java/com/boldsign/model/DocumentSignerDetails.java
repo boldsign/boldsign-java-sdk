@@ -18,6 +18,7 @@ import com.boldsign.model.DocumentFormFields;
 import com.boldsign.model.IdVerification;
 import com.boldsign.model.PhoneNumber;
 import com.boldsign.model.RecipientNotificationSettings;
+import com.boldsign.model.SignerAuthenticationSettings;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -543,6 +544,10 @@ public class DocumentSignerDetails {
   @SerializedName(SERIALIZED_NAME_DELIVERY_MODE)
   private DeliveryModeEnum deliveryMode;
 
+  public static final String SERIALIZED_NAME_AUTHENTICATION_SETTINGS = "authenticationSettings";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_SETTINGS)
+  private SignerAuthenticationSettings authenticationSettings;
+
   public DocumentSignerDetails() {
   }
 
@@ -1048,6 +1053,25 @@ public class DocumentSignerDetails {
   }
 
 
+  public DocumentSignerDetails authenticationSettings(SignerAuthenticationSettings authenticationSettings) {
+    this.authenticationSettings = authenticationSettings;
+    return this;
+  }
+
+  /**
+   * Get authenticationSettings
+   * @return authenticationSettings
+   */
+  @javax.annotation.Nullable
+  public SignerAuthenticationSettings getAuthenticationSettings() {
+    return authenticationSettings;
+  }
+
+  public void setAuthenticationSettings(SignerAuthenticationSettings authenticationSettings) {
+    this.authenticationSettings = authenticationSettings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1083,12 +1107,13 @@ public class DocumentSignerDetails {
         Objects.equals(this.recipientNotificationSettings, documentSignerDetails.recipientNotificationSettings) &&
         Objects.equals(this.authenticationRetryCount, documentSignerDetails.authenticationRetryCount) &&
         Objects.equals(this.enableQes, documentSignerDetails.enableQes) &&
-        Objects.equals(this.deliveryMode, documentSignerDetails.deliveryMode);
+        Objects.equals(this.deliveryMode, documentSignerDetails.deliveryMode) &&
+        Objects.equals(this.authenticationSettings, documentSignerDetails.authenticationSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signerName, signerRole, signerEmail, status, enableAccessCode, isAuthenticationFailed, enableEmailOTP, authenticationType, isDeliveryFailed, isViewed, order, signerType, hostEmail, hostName, isReassigned, privateMessage, allowFieldConfiguration, formFields, language, locale, phoneNumber, idVerification, recipientNotificationSettings, authenticationRetryCount, enableQes, deliveryMode);
+    return Objects.hash(signerName, signerRole, signerEmail, status, enableAccessCode, isAuthenticationFailed, enableEmailOTP, authenticationType, isDeliveryFailed, isViewed, order, signerType, hostEmail, hostName, isReassigned, privateMessage, allowFieldConfiguration, formFields, language, locale, phoneNumber, idVerification, recipientNotificationSettings, authenticationRetryCount, enableQes, deliveryMode, authenticationSettings);
   }
 
   @Override
@@ -1121,6 +1146,7 @@ public class DocumentSignerDetails {
     sb.append("    authenticationRetryCount: ").append(toIndentedString(authenticationRetryCount)).append("\n");
     sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
     sb.append("    deliveryMode: ").append(toIndentedString(deliveryMode)).append("\n");
+    sb.append("    authenticationSettings: ").append(toIndentedString(authenticationSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1658,6 +1684,26 @@ public class DocumentSignerDetails {
           map.put("deliveryMode", JSON.serialize(deliveryMode));
         }
     }
+    if (authenticationSettings != null) {
+        if (isFileTypeOrListOfFiles(authenticationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (authenticationSettings.getClass().equals(java.io.File.class) ||
+            authenticationSettings.getClass().equals(Integer.class) ||
+            authenticationSettings.getClass().equals(String.class) ||
+            authenticationSettings.getClass().equals(java.net.URI.class)||
+            authenticationSettings.getClass().isEnum()) {
+            map.put("authenticationSettings", authenticationSettings);
+        } else if (isListOfFile(authenticationSettings)) {
+            for(int i = 0; i< getListSize(authenticationSettings); i++) {
+                map.put("authenticationSettings", authenticationSettings);
+            }
+        }
+        else {
+          map.put("authenticationSettings", JSON.serialize(authenticationSettings));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1729,6 +1775,7 @@ public class DocumentSignerDetails {
     openapiFields.add("authenticationRetryCount");
     openapiFields.add("enableQes");
     openapiFields.add("deliveryMode");
+    openapiFields.add("authenticationSettings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1830,6 +1877,10 @@ public class DocumentSignerDetails {
       // validate the optional field `deliveryMode`
       if (jsonObj.get("deliveryMode") != null && !jsonObj.get("deliveryMode").isJsonNull()) {
         DeliveryModeEnum.validateJsonElement(jsonObj.get("deliveryMode"));
+      }
+      // validate the optional field `authenticationSettings`
+      if (jsonObj.get("authenticationSettings") != null && !jsonObj.get("authenticationSettings").isJsonNull()) {
+        SignerAuthenticationSettings.validateJsonElement(jsonObj.get("authenticationSettings"));
       }
   }
 

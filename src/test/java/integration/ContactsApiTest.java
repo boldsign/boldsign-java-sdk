@@ -70,6 +70,38 @@ public class ContactsApiTest
 
     @Test
     @Order(2)
+    public void testCreateContactWithAllFields() {
+        try {
+            String userName = "SDK Testing";
+            String email = emailId.replace("@", "+45@");
+            PhoneNumber phone = new PhoneNumber();
+            phone.setCountryCode("+91");
+            phone.setNumber("8807799764");
+
+            ContactDetails contactDetails = new ContactDetails();
+            contactDetails.setName(userName);
+            contactDetails.setEmail(email);
+            contactDetails.setPhoneNumber(phone);
+            contactDetails.setJobTitle("Software Engineer");
+            contactDetails.setCompanyName("Syncfusion Inc.");
+
+            CreateContactResponse createContactResponse = contactsApi.createContact(
+                    Collections.singletonList(contactDetails)
+            );
+
+            assertNotNull(createContactResponse, "Create contact response should not be null");
+            assertNotNull(createContactResponse.getCreatedContacts(), "Created contacts list should not be null");
+            assertFalse(createContactResponse.getCreatedContacts().isEmpty(), "Created contacts list should not be empty");
+
+        } catch (ApiException e) {
+            fail("API Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(3)
     public void testCreateContactsNegative() throws ApiException
     {
         ContactDetails contactDetails = new ContactDetails();
@@ -89,7 +121,7 @@ public class ContactsApiTest
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     public void testUpdateContactPositive() throws ApiException
     {
         String ContactId = contactId;
@@ -104,7 +136,7 @@ public class ContactsApiTest
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     public void testUpdateContactNegative()
     {
         try
@@ -124,7 +156,27 @@ public class ContactsApiTest
     }
 
     @Test
-    @Order(5)
+    @Order(6)
+    public void testUpdateContactWithInvalidEmail() {
+        try {
+
+            ContactDetails updateRequest = new ContactDetails();
+            updateRequest.setName("Updated Name");
+            updateRequest.setEmail("invalid-email");
+
+            contactsApi.updateContact(contactId, updateRequest);
+
+            Assertions.fail("Expected ApiException not thrown for invalid email");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode(), "Expected HTTP 400 Bad Request");
+            assertTrue(e.getMessage().contains("The field Email is invalid."));
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception type thrown: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(7)
     public void testGetContactPositive()
     {
         try
@@ -136,7 +188,6 @@ public class ContactsApiTest
             assertEquals(getContactResponse.getEmail(), emailId);
             assertEquals("Mohammed", getContactResponse.getName(), "Name does match expected value");
             assertEquals(emailId, getContactResponse.getEmail(), "Email does match expected value");
-            assertTrue(getContactResponse instanceof ContactsDetails, "Response should be an instance of ContactsDetails");
         }
         catch (ApiException e)
         {
@@ -145,7 +196,7 @@ public class ContactsApiTest
     }
 
     @Test
-   @Order(6)
+    @Order(8)
     public void testGetContactNegative()
     {
         try
@@ -161,9 +212,8 @@ public class ContactsApiTest
         }
     }
 
-
     @Test
-   @Order(7)
+    @Order(9)
     public void testListContactPositive()
     {
         try
@@ -175,7 +225,6 @@ public class ContactsApiTest
             ContactsList contactUserListResponse = contactsApi.contactUserList(page,pageSize,searchKey,contactType);
             assertNotNull(contactUserListResponse);
             assertNotNull(contactUserListResponse.getResult());
-            assertTrue(contactUserListResponse instanceof ContactsList);
         }
         catch (ApiException e)
         {
@@ -184,13 +233,13 @@ public class ContactsApiTest
     }
 
     @Test
-   @Order(8)
+    @Order(10)
     public void testListContactNegative()
     {
         try
         {
             int invalidPage = -1;
-            int invalidPageSize = 0;
+            int invalidPageSize = 10;
             String searchKey= "Mohammed";
             String contactType="MyContact";
             ContactsList contactUserListResponse = contactsApi.contactUserList(invalidPage,invalidPageSize,searchKey,contactType);
@@ -204,7 +253,24 @@ public class ContactsApiTest
     }
 
     @Test
-    @Order(9)
+    @Order(11)
+    public void testListContactNegativeWithInvalidPageSize() {
+        try {
+            int validPage = 1;
+            int invalidPageSize = -5;
+            String searchKey = "Mohammed";
+            String contactType = "MyContact";
+            ContactsList contactUserListResponse = contactsApi.contactUserList(validPage, invalidPageSize, searchKey, contactType);
+
+            fail("Expected ApiException due to invalid page size, but the API call succeeded.");
+        } catch (ApiException e) {
+            assertNotNull(e.getMessage(), "Exception message should not be null");
+            assertTrue(e.getMessage().contains("Provide a valid page size between 1 and 100"));
+        }
+    }
+
+    @Test
+    @Order(12)
     public void testDeleteContactsPositive()
     {
         try
@@ -218,7 +284,7 @@ public class ContactsApiTest
     }
 
     @Test
-    @Order(10)
+    @Order(13)
     public void testDeleteContactsNegative()
     {
         try

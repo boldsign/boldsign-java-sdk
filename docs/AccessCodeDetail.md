@@ -15,6 +15,7 @@
 |**phoneNumber** | [**PhoneNumber**](PhoneNumber.md) |  |  [optional] |
 |**identityVerificationSettings** | [**IdentityVerificationSettings**](IdentityVerificationSettings.md) |  |  [optional] |
 |**authenticationRetryCount** | **Integer** |  |  [optional] |
+|**authenticationSettings** | [**AuthenticationSettings**](AuthenticationSettings.md) |  |  [optional] |
 
 
 

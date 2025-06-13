@@ -14,6 +14,7 @@
 package com.boldsign.model;
 
 import java.util.Objects;
+import com.boldsign.model.AuthenticationSettings;
 import com.boldsign.model.ExistingFormField;
 import com.boldsign.model.FormField;
 import com.boldsign.model.IdentityVerificationSettings;
@@ -468,6 +469,10 @@ public class Role {
   @SerializedName(SERIALIZED_NAME_ENABLE_QES)
   private Boolean enableQes;
 
+  public static final String SERIALIZED_NAME_AUTHENTICATION_SETTINGS = "authenticationSettings";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_SETTINGS)
+  private AuthenticationSettings authenticationSettings;
+
   public Role() {
   }
 
@@ -909,6 +914,25 @@ public class Role {
   }
 
 
+  public Role authenticationSettings(AuthenticationSettings authenticationSettings) {
+    this.authenticationSettings = authenticationSettings;
+    return this;
+  }
+
+  /**
+   * Get authenticationSettings
+   * @return authenticationSettings
+   */
+  @javax.annotation.Nullable
+  public AuthenticationSettings getAuthenticationSettings() {
+    return authenticationSettings;
+  }
+
+  public void setAuthenticationSettings(AuthenticationSettings authenticationSettings) {
+    this.authenticationSettings = authenticationSettings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -940,12 +964,13 @@ public class Role {
         Objects.equals(this.locale, role.locale) &&
         Objects.equals(this.recipientNotificationSettings, role.recipientNotificationSettings) &&
         Objects.equals(this.authenticationRetryCount, role.authenticationRetryCount) &&
-        Objects.equals(this.enableQes, role.enableQes);
+        Objects.equals(this.enableQes, role.enableQes) &&
+        Objects.equals(this.authenticationSettings, role.authenticationSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleIndex, signerName, signerOrder, signerEmail, hostEmail, privateMessage, authenticationCode, enableEmailOTP, authenticationType, phoneNumber, deliveryMode, signerType, signerRole, allowFieldConfiguration, formFields, existingFormFields, identityVerificationSettings, language, locale, recipientNotificationSettings, authenticationRetryCount, enableQes);
+    return Objects.hash(roleIndex, signerName, signerOrder, signerEmail, hostEmail, privateMessage, authenticationCode, enableEmailOTP, authenticationType, phoneNumber, deliveryMode, signerType, signerRole, allowFieldConfiguration, formFields, existingFormFields, identityVerificationSettings, language, locale, recipientNotificationSettings, authenticationRetryCount, enableQes, authenticationSettings);
   }
 
   @Override
@@ -974,6 +999,7 @@ public class Role {
     sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    authenticationRetryCount: ").append(toIndentedString(authenticationRetryCount)).append("\n");
     sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
+    sb.append("    authenticationSettings: ").append(toIndentedString(authenticationSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1441,6 +1467,26 @@ public class Role {
           map.put("enableQes", JSON.serialize(enableQes));
         }
     }
+    if (authenticationSettings != null) {
+        if (isFileTypeOrListOfFiles(authenticationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (authenticationSettings.getClass().equals(java.io.File.class) ||
+            authenticationSettings.getClass().equals(Integer.class) ||
+            authenticationSettings.getClass().equals(String.class) ||
+            authenticationSettings.getClass().equals(java.net.URI.class)||
+            authenticationSettings.getClass().isEnum()) {
+            map.put("authenticationSettings", authenticationSettings);
+        } else if (isListOfFile(authenticationSettings)) {
+            for(int i = 0; i< getListSize(authenticationSettings); i++) {
+                map.put("authenticationSettings", authenticationSettings);
+            }
+        }
+        else {
+          map.put("authenticationSettings", JSON.serialize(authenticationSettings));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1508,6 +1554,7 @@ public class Role {
     openapiFields.add("recipientNotificationSettings");
     openapiFields.add("authenticationRetryCount");
     openapiFields.add("enableQes");
+    openapiFields.add("authenticationSettings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1616,6 +1663,10 @@ public class Role {
       // validate the optional field `recipientNotificationSettings`
       if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
         RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
+      }
+      // validate the optional field `authenticationSettings`
+      if (jsonObj.get("authenticationSettings") != null && !jsonObj.get("authenticationSettings").isJsonNull()) {
+        AuthenticationSettings.validateJsonElement(jsonObj.get("authenticationSettings"));
       }
   }
 

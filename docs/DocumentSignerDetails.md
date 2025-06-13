@@ -33,6 +33,7 @@
 |**authenticationRetryCount** | **Integer** |  |  [optional] |
 |**enableQes** | **Boolean** |  |  [optional] |
 |**deliveryMode** | [**DeliveryModeEnum**](#DeliveryModeEnum) |  |  [optional] |
+|**authenticationSettings** | [**SignerAuthenticationSettings**](SignerAuthenticationSettings.md) |  |  [optional] |
 
 
 

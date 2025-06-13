@@ -73,15 +73,14 @@ public class UsersApiTest {
     public void testCreateUsersNegativeWithDuplicateUsers() {
         try {
             List<CreateUser> createUserList = new ArrayList<>();
-            for (int i = 0; i < 5; i++) {
                 CreateUser createUserRequest = new CreateUser();
                 createUserRequest.setEmailId(emailId);
                 createUserList.add(createUserRequest);
-            }
+
             userApi.createUser(createUserList);
             Assertions.fail("Expected API exception due to exceeding user creation limit or invalid data.");
         } catch (ApiException e) {
-            Assertions.assertTrue(e.getMessage().contains("Duplicate users are not allowed"));
+            Assertions.assertTrue(e.getMessage().contains("This user is already on another team, or has a disposable email, which is not allowed."));
         } catch (Exception e) {
             Assertions.fail("Unexpected exception occurred: " + e.getMessage());
         } finally {
@@ -131,20 +130,35 @@ public class UsersApiTest {
     @Test
     @Order(5)
     public void testListUsersNegative() throws Exception {
-        Integer invalidPage = -1;
-        Integer invalidPageSize = 10;
+        Integer invalidPage = 100;
+        Integer invalidPageSize = 200;
         String invalidSearch = "";
         try {
             UserRecords response = userApi.listUsers(invalidPage, invalidPageSize, invalidSearch);
             Assertions.fail("Expected ApiException due to invalid page number or search term");
         } catch (ApiException e) {
             Assertions.assertEquals(400, e.getCode());
-            Assertions.assertTrue(e.getMessage().contains("Invalid page number") || e.getMessage().contains("Page number should be greater than 0"));
+            Assertions.assertTrue(e.getMessage().contains("Provide a valid page size between 1 and 100"));
         }
     }
 
     @Test
     @Order(6)
+    public void testListUsersNegativeWithNegativeValues() throws Exception {
+        Integer invalidPage = -10;
+        Integer invalidPageSize = -20;
+        String invalidSearch = "";
+        try {
+            UserRecords response = userApi.listUsers(invalidPage, invalidPageSize, invalidSearch);
+            Assertions.fail("Expected ApiException due to invalid page number or search term");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode());
+            Assertions.assertTrue(e.getMessage().contains("Page number should be greater than 0"));
+        }
+    }
+
+    @Test
+    @Order(7)
     public void testUpdateUserRoleNegative() throws Exception {
         UpdateUser updateUserRole = new UpdateUser();
         updateUserRole.setUserId("invalid-userId");
@@ -157,7 +171,7 @@ public class UsersApiTest {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     public void testGetUserPositive() throws Exception {
         String userId = UsersApiTest.userId;
         UserProperties userDetails = userApi.getUser(userId);
@@ -168,7 +182,7 @@ public class UsersApiTest {
     }
 
     @Test
-    @Order(8)
+    @Order(9)
     public void testGetUserNegative() throws Exception {
         String Userid = "invalid-userId";
         try {
@@ -182,7 +196,21 @@ public class UsersApiTest {
     }
 
     @Test
-    @Order(9)
+    @Order(10)
+    public void testGetUserNegativeWithEmptyUserId() throws Exception {
+        String Userid = "";
+        try {
+            UserProperties userDetails = userApi.getUser(Userid);
+            Assertions.fail("Expected ApiException due to invalid user ID ");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode());
+            Assertions.assertTrue(e.getMessage().contains("The userId field is required."));
+            System.out.println("Expected error occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(11)
     public void testResendInvitationPositive() throws Exception {
         String userId = UsersApiTest.userId;
         userApi.resendInvitation(userId);
@@ -190,7 +218,7 @@ public class UsersApiTest {
     }
 
     @Test
-    @Order(10)
+    @Order(12)
     public void testResendInvitationNegative() {
         String invalidUserId = "invalid-userId";
         try {
@@ -202,7 +230,19 @@ public class UsersApiTest {
     }
 
     @Test
-    @Order(11)
+    @Order(13)
+    public void testResendInvitationNegativeWithEmptyUserId() {
+        String invalidUserId = "";
+        try {
+            userApi.resendInvitation(invalidUserId);
+            Assertions.fail("Expected ApiException due to invalid user ID");
+        } catch (ApiException e) {
+            Assertions.assertTrue(e.getMessage().contains("Provide required value."));
+        }
+    }
+
+    @Test
+    @Order(14)
     public void testCancelInvitationPositive() throws Exception {
         userApi.cancelInvitation(userId);
         Assertions.assertTrue(true, "Invitation canceled successfully!");
@@ -210,14 +250,27 @@ public class UsersApiTest {
     }
 
     @Test
-    @Order(12)
+    @Order(15)
     public void testCancelInvitationNegative() throws Exception {
         String invalidUserId = "invalid-userId";
         try {
             userApi.cancelInvitation(invalidUserId);
             Assertions.fail("Expected ApiException was not thrown.");
         } catch (ApiException e) {
-            Assertions.assertTrue(e.getMessage().contains("Provide valid user id"));
+            Assertions.assertTrue(e.getMessage().contains("Provide valid user id."));
+            System.out.println("Expected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(16)
+    public void testCancelInvitationNegativeWithEmptyUserId() throws Exception {
+        String invalidUserId = "";
+        try {
+            userApi.cancelInvitation(invalidUserId);
+            Assertions.fail("Expected ApiException was not thrown.");
+        } catch (ApiException e) {
+            Assertions.assertTrue(e.getMessage().contains("Provide required value."));
             System.out.println("Expected exception occurred: " + e.getMessage());
         }
     }

@@ -11,6 +11,7 @@ docs/AccessCodeDetails.md
 docs/Address.md
 docs/AttachmentInfo.md
 docs/AuditTrail.md
+docs/AuthenticationSettings.md
 docs/Base64File.md
 docs/BehalfDocument.md
 docs/BehalfDocumentRecords.md
@@ -109,6 +110,7 @@ docs/SenderIdentitiesApi.md
 docs/SenderIdentityCreated.md
 docs/SenderIdentityList.md
 docs/SenderIdentityViewModel.md
+docs/SignerAuthenticationSettings.md
 docs/Size.md
 docs/TeamCreated.md
 docs/TeamDocumentRecords.md
@@ -187,6 +189,7 @@ src/main/java/com/boldsign/model/AccessCodeDetails.java
 src/main/java/com/boldsign/model/Address.java
 src/main/java/com/boldsign/model/AttachmentInfo.java
 src/main/java/com/boldsign/model/AuditTrail.java
+src/main/java/com/boldsign/model/AuthenticationSettings.java
 src/main/java/com/boldsign/model/Base64File.java
 src/main/java/com/boldsign/model/BehalfDocument.java
 src/main/java/com/boldsign/model/BehalfDocumentRecords.java
@@ -278,6 +281,7 @@ src/main/java/com/boldsign/model/SendForSignFromTemplateForm.java
 src/main/java/com/boldsign/model/SenderIdentityCreated.java
 src/main/java/com/boldsign/model/SenderIdentityList.java
 src/main/java/com/boldsign/model/SenderIdentityViewModel.java
+src/main/java/com/boldsign/model/SignerAuthenticationSettings.java
 src/main/java/com/boldsign/model/Size.java
 src/main/java/com/boldsign/model/TeamCreated.java
 src/main/java/com/boldsign/model/TeamDocumentRecords.java

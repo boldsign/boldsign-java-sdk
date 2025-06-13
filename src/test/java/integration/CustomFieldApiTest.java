@@ -114,7 +114,6 @@ public class CustomFieldApiTest
             );
             assertNotNull(createBrandingResponse);
             assertNotNull(createBrandingResponse.getBrandId());
-            assertTrue(createBrandingResponse instanceof BrandCreated);
             createdBrandId = createBrandingResponse.getBrandId();
         }
         catch (ApiException e)
@@ -182,7 +181,7 @@ public class CustomFieldApiTest
         brandCustomFieldDetails.setFieldName(customFieldName);
         brandCustomFieldDetails.setFieldDescription("string");
         brandCustomFieldDetails.setFieldOrder(1);
-        brandCustomFieldDetails.setBrandId("1200c48a-c97c-4933-ab73-db377bf4a7b7");
+        brandCustomFieldDetails.setBrandId("invalid-brandId");
         brandCustomFieldDetails.setSharedField(true);
         brandCustomFieldDetails.setFormField(customFormField);
         try
@@ -193,47 +192,85 @@ public class CustomFieldApiTest
         catch (ApiException e)
         {
             assertEquals(400, e.getCode(), "Expected status code 400 for Bad Request");
-            assertTrue(e.getResponseBody().contains("Invalid brand id"), "Expected error message to contain 'Invalid brand ID'");
+            assertTrue(e.getResponseBody().contains("Provide a valid brand ID"));
         }
     }
 
-        @Test
-        @Order(4)
-        public void testEditCustomFieldPositive() throws ApiException
-        {
-            CustomFormField customFormField = new CustomFormField();
-            customFormField.setFieldType(CustomFormField.FieldTypeEnum.SIGNATURE);
-            customFormField.setWidth(60f);
-            customFormField.setHeight(60f);
-            customFormField.setIsRequired(true);
-            customFormField.setIsReadOnly(true);
-            customFormField.setValue("new_value");
-            customFormField.setCharacterLimit(0);
-            customFormField.setPlaceHolder("new_placeholder");
-            customFormField.setValidationType(CustomFormField.ValidationTypeEnum.NUMBERS_ONLY);
-            customFormField.setValidationCustomRegex("new_regex");
-            customFormField.setValidationCustomRegexMessage("new validation message");
-            customFormField.setTextAlign(CustomFormField.TextAlignEnum.CENTER);
-            customFormField.setTextDirection(CustomFormField.TextDirectionEnum.LTR);
-            customFormField.setCharacterSpacing(0f);
-            customFormField.setIdPrefix("new_prefix");
-            customFormField.setRestrictIdPrefixChange(false);
-            BrandCustomFieldDetails brandCustomFieldDetails = new BrandCustomFieldDetails();
-            brandCustomFieldDetails.setFieldName("Syncfusion");
-            brandCustomFieldDetails.setFieldDescription("Newfield");
-            brandCustomFieldDetails.setFieldOrder(1);
-            brandCustomFieldDetails.setBrandId(createdBrandId);
-            brandCustomFieldDetails.setSharedField(true);
-            brandCustomFieldDetails.setFormField(customFormField);
-            String customFieldIdToEdit =createdCustomFieldId;
-            CustomFieldMessage editedCustomField = customFieldApi.editCustomField(customFieldIdToEdit, brandCustomFieldDetails);
-            Assertions.assertNotNull(editedCustomField, "CustomFieldMessage should not be null");
-            Assertions.assertEquals(customFieldIdToEdit, editedCustomField.getCustomFieldId(), "Custom Field ID should match");
-            System.out.println("Custom field edited successfully: " + editedCustomField.getCustomFieldId());
+    @Test
+    @Order(4)
+    public void testCreateCustomFieldNegativeWithEmptyFieldName() throws ApiException {
+        CustomFormField customFormField = new CustomFormField();
+        customFormField.setFieldType(CustomFormField.FieldTypeEnum.SIGNATURE);
+        customFormField.setWidth(60f);
+        customFormField.setHeight(60f);
+        customFormField.setIsRequired(true);
+        customFormField.setIsReadOnly(true);
+        customFormField.setValue("string");
+        customFormField.setCharacterLimit(0);
+        customFormField.setPlaceHolder("string");
+        customFormField.setValidationType(CustomFormField.ValidationTypeEnum.NUMBERS_ONLY);
+        customFormField.setValidationCustomRegex("string");
+        customFormField.setValidationCustomRegexMessage("string");
+        customFormField.setTextAlign(CustomFormField.TextAlignEnum.CENTER);
+        customFormField.setTextDirection(CustomFormField.TextDirectionEnum.LTR);
+        customFormField.setCharacterSpacing(0f);
+        customFormField.setIdPrefix("string");
+        customFormField.setRestrictIdPrefixChange(false);
+
+        BrandCustomFieldDetails brandCustomFieldDetails = new BrandCustomFieldDetails();
+        brandCustomFieldDetails.setFieldName("");
+        brandCustomFieldDetails.setFieldDescription("string");
+        brandCustomFieldDetails.setFieldOrder(1);
+        brandCustomFieldDetails.setBrandId(createdBrandId);
+        brandCustomFieldDetails.setSharedField(true);
+        brandCustomFieldDetails.setFormField(customFormField);
+
+        try {
+            CustomFieldMessage createdCustomField = customFieldApi.createCustomField(brandCustomFieldDetails);
+            Assertions.fail("Expected ApiException was not thrown for empty field name");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode(), "Expected status code 400 for Bad Request");
+            assertTrue(e.getResponseBody().contains("Field name is required"));
         }
+    }
 
     @Test
     @Order(5)
+    public void testEditCustomFieldPositive() throws ApiException
+    {
+        CustomFormField customFormField = new CustomFormField();
+        customFormField.setFieldType(CustomFormField.FieldTypeEnum.SIGNATURE);
+        customFormField.setWidth(60f);
+        customFormField.setHeight(60f);
+        customFormField.setIsRequired(true);
+        customFormField.setIsReadOnly(true);
+        customFormField.setValue("new_value");
+        customFormField.setCharacterLimit(0);
+        customFormField.setPlaceHolder("new_placeholder");
+        customFormField.setValidationType(CustomFormField.ValidationTypeEnum.NUMBERS_ONLY);
+        customFormField.setValidationCustomRegex("new_regex");
+        customFormField.setValidationCustomRegexMessage("new validation message");
+        customFormField.setTextAlign(CustomFormField.TextAlignEnum.CENTER);
+        customFormField.setTextDirection(CustomFormField.TextDirectionEnum.LTR);
+        customFormField.setCharacterSpacing(0f);
+        customFormField.setIdPrefix("new_prefix");
+        customFormField.setRestrictIdPrefixChange(false);
+        BrandCustomFieldDetails brandCustomFieldDetails = new BrandCustomFieldDetails();
+        brandCustomFieldDetails.setFieldName("Syncfusion");
+        brandCustomFieldDetails.setFieldDescription("Newfield");
+        brandCustomFieldDetails.setFieldOrder(1);
+        brandCustomFieldDetails.setBrandId(createdBrandId);
+        brandCustomFieldDetails.setSharedField(true);
+        brandCustomFieldDetails.setFormField(customFormField);
+        String customFieldIdToEdit =createdCustomFieldId;
+        CustomFieldMessage editedCustomField = customFieldApi.editCustomField(customFieldIdToEdit, brandCustomFieldDetails);
+        Assertions.assertNotNull(editedCustomField, "CustomFieldMessage should not be null");
+        Assertions.assertEquals(customFieldIdToEdit, editedCustomField.getCustomFieldId(), "Custom Field ID should match");
+        System.out.println("Custom field edited successfully: " + editedCustomField.getCustomFieldId());
+    }
+
+    @Test
+    @Order(6)
     public void testEditCustomFieldNegative()throws ApiException
     {
         CustomFormField customFormField = new CustomFormField();
@@ -274,7 +311,46 @@ public class CustomFieldApiTest
     }
 
     @Test
-    @Order(6)
+    @Order(7)
+    public void testEditCustomFieldNegativeWithInvalidBrandId() throws ApiException {
+        CustomFormField customFormField = new CustomFormField();
+        customFormField.setFieldType(CustomFormField.FieldTypeEnum.SIGNATURE);
+        customFormField.setWidth(60f);
+        customFormField.setHeight(60f);
+        customFormField.setIsRequired(true);
+        customFormField.setIsReadOnly(false);
+        customFormField.setValue("SignatureField");
+        customFormField.setCharacterLimit(100);
+        customFormField.setPlaceHolder("Sign here");
+        customFormField.setValidationType(CustomFormField.ValidationTypeEnum.NUMBERS_ONLY);
+        customFormField.setValidationCustomRegex("\\d{1,}");
+        customFormField.setValidationCustomRegexMessage("Only numbers allowed");
+        customFormField.setTextAlign(CustomFormField.TextAlignEnum.CENTER);
+        customFormField.setTextDirection(CustomFormField.TextDirectionEnum.LTR);
+        customFormField.setCharacterSpacing(1f);
+        customFormField.setIdPrefix("CF_");
+        customFormField.setRestrictIdPrefixChange(false);
+
+        BrandCustomFieldDetails brandCustomFieldDetails = new BrandCustomFieldDetails();
+        brandCustomFieldDetails.setFieldName("Syncfusion");
+        brandCustomFieldDetails.setFieldDescription("Valid description for custom field update");
+        brandCustomFieldDetails.setFieldOrder(1);
+        brandCustomFieldDetails.setBrandId("invalid-brand-id");
+        brandCustomFieldDetails.setSharedField(true);
+        brandCustomFieldDetails.setFormField(customFormField);
+
+        String customFieldIdToEdit = createdCustomFieldId;
+        try {
+            CustomFieldMessage editedCustomField = customFieldApi.editCustomField(customFieldIdToEdit, brandCustomFieldDetails);
+            Assertions.fail("Expected ApiException due to invalid brand ID, but got: " + editedCustomField);
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+            assertTrue(e.getResponseBody().contains("Provide a valid brand ID"));
+        }
+    }
+
+    @Test
+    @Order(8)
     public void testListCustomFieldsPositive() throws ApiException
     {
         String brandId =createdBrandId;
@@ -286,7 +362,7 @@ public class CustomFieldApiTest
     }
 
     @Test
-    @Order(7)
+    @Order(9)
     public void testListCustomFieldsNegative()throws ApiException
     {
         String invalidBrandId = "1200c48a-c97c-4933-ab73-db377bf4a7a8";
@@ -304,7 +380,7 @@ public class CustomFieldApiTest
     }
 
     @Test
-    @Order(8)
+    @Order(10)
     public void testCreateEmbeddedCustomFieldPositive() throws ApiException
     {
         String brandId = createdBrandId;
@@ -317,7 +393,7 @@ public class CustomFieldApiTest
     }
 
     @Test
-    @Order(9)
+    @Order(11)
     public void testCreateEmbeddedCustomFieldNegative_InvalidBrandId() throws ApiException
     {
         String brandId = "invalid-brand-id";
@@ -337,7 +413,7 @@ public class CustomFieldApiTest
     }
 
     @Test
-    @Order(10)
+    @Order(12)
     public void testDeleteCustomField() throws ApiException
     {
         String customFieldId = createdCustomFieldId;
@@ -345,7 +421,7 @@ public class CustomFieldApiTest
     }
 
     @Test
-    @Order(11)
+    @Order(13)
     public void testDeleteCustomFieldNegative()throws ApiException
     {
         String invalidCustomFieldId = "92dc14e7-dce5-4ae5-84c0-e1ffdb0aa28e";
@@ -359,5 +435,15 @@ public class CustomFieldApiTest
             Assertions.assertEquals(400, e.getCode());
             Assertions.assertTrue(e.getMessage().contains("The custom field ID you provided does not exist. Please provide a valid ID."));
         }
+    }
+
+    @Test
+    @Order(14)
+    public void testDeleteBrandPositive() throws ApiException
+    {
+        String brandId =createdBrandId;
+        BrandingMessage deleteBrandResponse = brandingApi.deleteBrand(brandId);
+        assertNotNull(deleteBrandResponse);
+        assertEquals("The brand has been deleted successfully", deleteBrandResponse.getMessage());
     }
 }

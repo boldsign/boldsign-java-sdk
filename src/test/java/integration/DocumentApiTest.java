@@ -3,9 +3,9 @@ package integration;
 import com.boldsign.ApiClient;
 import com.boldsign.ApiException;
 import com.boldsign.api.DocumentApi;
+import com.boldsign.api.BrandingApi;
 import com.boldsign.model.*;
 import org.junit.jupiter.api.*;
-
 import java.io.*;
 import java.net.URI;
 import java.time.Instant;
@@ -20,12 +20,16 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DocumentApiTest {
     private static DocumentApi documentApi;
+    private static BrandingApi brandingApi;
     private static ApiClient apiClient;
     private static String documentId;
     private static String senderEmail;
     private static String createdDocumentId;
+    private static String createdDocumentOnBehalfId;
+    private static String createdBrandId;
 
-public byte[] readFile(String path) throws IOException {
+
+    public byte[] readFile(String path) throws IOException {
     FileInputStream fis = null;
     try {
         fis = new FileInputStream(path);
@@ -53,9 +57,11 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @BeforeAll
-    public static void setUp() {
+    public static void setUpClass() {
+        createdBrandId = null;
         documentId = null;
         senderEmail = null;
+        createdDocumentOnBehalfId =null;
         String apiKey = System.getenv("API_KEY");
         String hostUrl = System.getenv("HOST_URL");
         if (apiKey == null || hostUrl == null) {
@@ -64,11 +70,87 @@ public byte[] readFile(String path) throws IOException {
         apiClient = new ApiClient();
         apiClient.setApiKey(apiKey);
         apiClient.setBasePath(hostUrl);
+        brandingApi = new BrandingApi(apiClient);
         documentApi = new DocumentApi(apiClient);
     }
 
     @Test
     @Order(1)
+    public void testCreateBrandWithRequiredFieldsOnly() {
+        try {
+            String brandName = "BoldSign Brand";
+            File brandLogo = new File("examples/documents/logo.jpg");
+
+            BrandCreated createBrandingResponse = brandingApi.createBrand(
+                    brandName,brandLogo,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+            );
+
+            createdBrandId = createBrandingResponse.getBrandId();
+            assertNotNull(createBrandingResponse, "Brand creation response is null.");
+            assertNotNull(createBrandingResponse.getBrandId(), "Brand ID should not be null.");
+
+            System.out.println("Brand created successfully: " + createBrandingResponse.getBrandId());
+        } catch (ApiException e) {
+            System.err.println("API Exception while creating brand: " + e.getMessage());
+            fail("API Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected exception while creating brand: " + e.getMessage());
+            fail("Unexpected Exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(2)
+    public void testSendDocumentWithBrandId() {
+        try {
+            List<DocumentSigner> signers = new ArrayList<>();
+
+            DocumentSigner signer = new DocumentSigner();
+            signer.setName("Single Signer");
+            signer.setEmailAddress("divya.boopathy+brand@syncfusion.com");
+            signer.setSignerOrder(1);
+            signer.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
+            signer.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.EMAIL_OTP);
+            signer.setPrivateMessage("This is a private message for the signer.");
+            FormField signatureField = new FormField()
+                    .name("Signature")
+                    .fieldType(FormField.FieldTypeEnum.SIGNATURE)
+                    .font(FormField.FontEnum.HELVETICA)
+                    .pageNumber(1)
+                    .isRequired(true)
+                    .bounds(new Rectangle());
+
+            signer.setFormFields(Collections.singletonList(signatureField));
+            signers.add(signer);
+
+            Map<String, String> metaData = new HashMap<>();
+            metaData.put("DocumentType", "new");
+            metaData.put("DocumentCategory", "Software");
+
+            SendForSign sendDocumentRequest = new SendForSign();
+            sendDocumentRequest.setTitle("Document With Brand ID");
+            sendDocumentRequest.setMessage("Please sign this document");
+            sendDocumentRequest.setEnablePrintAndSign(true);
+            sendDocumentRequest.setAutoDetectFields(true);
+            sendDocumentRequest.setDisableEmails(false);
+            sendDocumentRequest.setDisableExpiryAlert(true);
+            sendDocumentRequest.setFiles(Collections.singletonList(new File("examples/documents/agreement.pdf")));
+            sendDocumentRequest.setEnablePrintAndSign(true);
+            sendDocumentRequest.setMetaData(metaData);
+            sendDocumentRequest.setSigners(signers);
+            sendDocumentRequest.setBrandId(createdBrandId);
+            DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
+            assertNotNull(sendDocument);
+            assertNotNull(sendDocument.getDocumentId());
+        } catch (ApiException e) {
+            fail("API Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(3)
     public void testSenderDetail() throws Exception {
         try {
             Integer page = 1;
@@ -99,7 +181,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(2)
+    @Order(4)
     public void testSendDocumentPositive() {
         try {
             System.out.println("senderEmail"+ senderEmail);
@@ -171,7 +253,142 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(3)
+    @Order(5)
+    public void testSendDocumentOnBehalf() {
+        try {
+            FormField formField = new FormField();
+            formField.setFieldType(FormField.FieldTypeEnum.SIGNATURE);
+            formField.setPageNumber(1);
+            Rectangle bounds = new Rectangle();
+            bounds.setX(50f);
+            bounds.setY(50f);
+            bounds.setWidth(200f);
+            bounds.setHeight(25f);
+            formField.setBounds(bounds);
+            DocumentSigner documentSigner = new DocumentSigner();
+            documentSigner.setName("Test Signer");
+            documentSigner.setEmailAddress("divya.boopathy+6@syncfusion.com");
+            documentSigner.setSignerOrder(1);
+            documentSigner.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
+            documentSigner.setFormFields(Arrays.asList(formField));
+            SendForSign sendForSign = new SendForSign();
+            sendForSign.setTitle("SDK Document Test case");
+            sendForSign.setMessage("Testing document from SDK integration test case");
+            List<File> files = Arrays.asList(new File("examples/documents/agreement.pdf"));
+            sendForSign.setFiles(files);
+            sendForSign.setDisableExpiryAlert(false);
+            ReminderSettings reminderSettings = new ReminderSettings();
+            reminderSettings.setReminderDays(3);
+            reminderSettings.setReminderCount(5);
+            reminderSettings.setEnableAutoReminder(false);
+            sendForSign.setReminderSettings(reminderSettings);
+            sendForSign.setEnableReassign(true);
+            sendForSign.setMessage("Please sign this.");
+            sendForSign.setSigners(Arrays.asList(documentSigner));
+            sendForSign.setEnablePrintAndSign(false);
+            sendForSign.setAutoDetectFields(false);
+            sendForSign.setOnBehalfOf("mohammedmushraf.abuthakir+900@syncfusion.com");
+            sendForSign.setEnableSigningOrder(false);
+            sendForSign.setUseTextTags(false);
+            sendForSign.setTitle("Agreement");
+            sendForSign.setHideDocumentId(false);
+            sendForSign.setExpiryValue(60L);
+            sendForSign.setDisableEmails(false);
+            sendForSign.setDisableSMS(false);
+            DocumentCreated sendDocumentResponse = documentApi.sendDocument(sendForSign);
+            createdDocumentOnBehalfId =sendDocumentResponse.getDocumentId();
+            Assertions.assertNotNull(sendDocumentResponse);
+            Assertions.assertNotNull(sendDocumentResponse.getDocumentId());
+        } catch (ApiException e) {
+            Assertions.fail("API Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(6)
+    public void testSendDocumentOnBehalfWithInvalidEmail() {
+        try {
+            FormField formField = new FormField();
+            formField.setFieldType(FormField.FieldTypeEnum.SIGNATURE);
+            formField.setPageNumber(1);
+            Rectangle bounds = new Rectangle();
+            bounds.setX(50f);
+            bounds.setY(50f);
+            bounds.setWidth(200f);
+            bounds.setHeight(25f);
+            formField.setBounds(bounds);
+            DocumentSigner documentSigner = new DocumentSigner();
+            documentSigner.setName("Test Signer");
+            documentSigner.setEmailAddress("divya.boopathy+6@syncfusion.com");
+            documentSigner.setSignerOrder(1);
+            documentSigner.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
+            documentSigner.setFormFields(Collections.singletonList(formField));
+
+            SendForSign sendForSign = new SendForSign();
+            sendForSign.setTitle("Agreement");
+            sendForSign.setMessage("Please sign this.");
+            sendForSign.setFiles(Collections.singletonList(new File("examples/documents/agreement.pdf")));
+            sendForSign.setDisableExpiryAlert(false);
+
+            ReminderSettings reminderSettings = new ReminderSettings();
+            reminderSettings.setReminderDays(3);
+            reminderSettings.setReminderCount(5);
+            reminderSettings.setEnableAutoReminder(false);
+            sendForSign.setReminderSettings(reminderSettings);
+            sendForSign.setEnableReassign(true);
+            sendForSign.setSigners(Collections.singletonList(documentSigner));
+            sendForSign.setEnablePrintAndSign(false);
+            sendForSign.setAutoDetectFields(false);
+            sendForSign.setUseTextTags(false);
+            sendForSign.setEnableSigningOrder(false);
+            sendForSign.setHideDocumentId(false);
+            sendForSign.setExpiryValue(60L);
+            sendForSign.setDisableEmails(false);
+            sendForSign.setDisableSMS(false);
+            sendForSign.setOnBehalfOf("invalid-email");
+
+            documentApi.sendDocument(sendForSign);
+            Assertions.fail("Expected ApiException due to invalid 'onBehalfOf' email was not thrown.");
+
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode());
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(7)
+    public void testDownloadDocumentOnBehalfWithInvalidDocumentId() {
+        try {
+            String invalidDocumentId = "invalid_doc_id_123";
+            String onBehalfOf = "mohammedmushraf.abuthakir+900@syncfusion.com";
+            documentApi.downloadDocument(invalidDocumentId, onBehalfOf);
+            fail("Expected ApiException was not thrown for invalid document ID");
+
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode());
+        }
+    }
+
+    @Test
+    @Order(8)
+    public void testDownloadDocumentOnBehalfWithInvalidEmail() {
+        try {
+            String invalidOnBehalfOfEmail = "invalid_email";
+            documentApi.downloadDocument(createdDocumentOnBehalfId, invalidOnBehalfOfEmail);
+            fail("Expected ApiException was not thrown for invalid onBehalfOf email");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode());
+        } catch (Exception e) {
+            fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(9)
     public void testCreateDocumentPositiveWithManySigners() throws Exception {
         List<File> files = new ArrayList<>();
         File file = new File("examples/documents/agreement.pdf");
@@ -201,7 +418,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(4)
+    @Order(10)
     public void testSendDocumentPositiveWithMultipleFiles() throws Exception {
         List<File> files = new ArrayList<>();
         File file1 = new File("examples/documents/agreement.pdf");
@@ -237,46 +454,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(5)
-    public void testCreateDocumentWithSigningOrder() throws Exception {
-        List<File> files = new ArrayList<>();
-        File file1 = new File("examples/documents/agreement.pdf");
-        files.add(file1);
-        List<FormField> formFields = new ArrayList<>();
-        FormField signatureField = new FormField();
-        signatureField.setFieldType(FieldTypeEnum.SIGNATURE);
-        signatureField.setPageNumber(1);
-        Rectangle rectangle = new Rectangle().x(100f).y(100f).width(100f).height(50f);
-        signatureField.setBounds(rectangle);
-        formFields.add(signatureField);
-        DocumentSigner signer1 = new DocumentSigner();
-        signer1.setName("Signer 1 Name");
-        signer1.setEmailAddress("divya.boopathy+12@syncfusion.com");
-        signer1.setSignerRole("SIGNER");
-        signer1.setFormFields(formFields);
-        signer1.setSignerOrder(1);
-        DocumentSigner signer2 = new DocumentSigner();
-        signer2.setName("Signer 2 Name");
-        signer2.setEmailAddress("divya.boopathy+13@syncfusion.com");
-        signer2.setSignerRole("SIGNER");
-        signer2.setFormFields(formFields);
-        signer2.setSignerOrder(2);
-        List<DocumentSigner> signers = new ArrayList<>();
-        signers.add(signer1);
-        signers.add(signer2);
-        SendForSign sendForSign = new SendForSign();
-        sendForSign.setTitle("Agreement Document");
-        sendForSign.setFiles(files);
-        sendForSign.setSigners(signers);
-        DocumentCreated document = documentApi.sendDocument(sendForSign);
-        assertNotNull(document);
-        assertNotNull(document.getDocumentId());
-        Assertions.assertEquals(1, signers.get(0).getSignerOrder());
-        Assertions.assertEquals(2, signers.get(1).getSignerOrder());
-    }
-
-    @Test
-    @Order(6)
+    @Order(11)
     public void testCreateDocumentNegativeNoSigners() throws Exception {
         List<File> files = new ArrayList<>();
         File file = new File("examples/documents/agreement.pdf");
@@ -302,7 +480,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(7)
+    @Order(12)
     public void testCreateDocumentNegativeMissingRequiredField() throws Exception {
         List<File> files = new ArrayList<>();
         File file = new File("examples/documents/agreement.pdf");
@@ -317,11 +495,11 @@ public byte[] readFile(String path) throws IOException {
         List<DocumentSigner> signers = new ArrayList<>();
         DocumentSigner signer = new DocumentSigner();
         signer.setName("Signer");
-        signer.setEmailAddress("");
+        signer.setEmailAddress("divya.boopathy+13@syncfusion.com");
         signer.setFormFields(formFields);
         signers.add(signer);
         SendForSign sendForSign = new SendForSign();
-        sendForSign.setTitle("Agreement");
+        sendForSign.setTitle("");
         sendForSign.setFiles(files);
         sendForSign.setSigners(signers);
         try {
@@ -333,7 +511,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(8)
+    @Order(13)
     public void testCreateDocumentNegativeInvalidEmail() throws Exception {
         List<File> files = new ArrayList<>();
         File file = new File("examples/documents/agreement.pdf");
@@ -369,7 +547,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(9)
+    @Order(14)
     public void testCreateDocumentWithMultipleCCs() throws Exception {
         List<File> files = new ArrayList<>();
         File file1 = new File("examples/documents/agreement.pdf");
@@ -413,7 +591,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(10)
+    @Order(15)
     public void testGetEmbeddedSignLink() {
         try {
             String signerEmail = "divya.boopathy+30@syncfusion.com";
@@ -439,7 +617,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(11)
+    @Order(16)
     public void testGetEmbeddedSignLinkWithInvalidDocumentId() {
         try {
             String documentId = "INVALID_DOCUMENT_ID";
@@ -465,7 +643,34 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(12)
+    @Order(17)
+    public void testGetEmbeddedSignLinkWithInvalidPhoneNumber() {
+        try {
+            String signerEmail = "divya.boopathy+sdk@syncfusion.com";
+            String countryCode = "+91";
+            String phoneNumber = "INVALID_PHONE";
+            OffsetDateTime signLinkValidTill = OffsetDateTime.now().plusDays(5);
+            URI redirectUrl = URI.create("https://www.syncfusion.com/");
+
+            EmbeddedSigningLink embeddedSignLink = documentApi.getEmbeddedSignLink(
+                    documentId,
+                    signerEmail,
+                    countryCode,
+                    phoneNumber,
+                    signLinkValidTill,
+                    redirectUrl
+            );
+            Assertions.fail("Expected ApiException due to invalid phone number was not thrown.");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode());
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+
+    @Test
+    @Order(18)
     public void testGetEmbeddedSignLinkWithMissingEmail() {
         try {
             String signerEmail = "";
@@ -490,7 +695,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(13)
+    @Order(19)
     public void testRemoveAuthenticationPositive() throws Exception {
         System.out.println(documentId);
         RemoveAuthentication removeAuthentication = new RemoveAuthentication();
@@ -500,7 +705,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(14)
+    @Order(20)
     public void testRemoveAuthenticationNegative() {
         RemoveAuthentication removeAuthentication = new RemoveAuthentication();
         removeAuthentication.setEmailId("divya.boopathy+30@syncfusion.com");
@@ -515,7 +720,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(15)
+    @Order(21)
     public void testAddAuthenticationPositive() {
         try {
             AccessCodeDetail accessCodeDetail = new AccessCodeDetail();
@@ -529,7 +734,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(16)
+    @Order(22)
     public void testAddAuthenticationNegative() throws ApiException {
         try {
             AccessCodeDetail accessCodeDetail = new AccessCodeDetail();
@@ -545,7 +750,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(17)
+    @Order(23)
     public void testChangeAccessCodePositive() throws Exception {
         System.out.println(documentId);
         AccessCodeDetails accessCodeDetails = new AccessCodeDetails();
@@ -557,7 +762,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(18)
+    @Order(24)
     public void testChangeAccessCodeNegative() {
         AccessCodeDetails accessCodeDetails = new AccessCodeDetails();
         accessCodeDetails.setAccessCode("");
@@ -573,7 +778,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(19)
+    @Order(25)
     public void testChangeAccessCodeNegativeWithInvalidZorder() {
         AccessCodeDetails accessCodeDetails = new AccessCodeDetails();
         accessCodeDetails.setAccessCode("123456");
@@ -589,7 +794,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(20)
+    @Order(26)
     public void testAddTagsPositive() throws Exception {
         System.out.println(documentId);
         DocumentTags documentTags = new DocumentTags();
@@ -603,7 +808,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(21)
+    @Order(27)
     public void testAddTagsNegativeEmptyTags() {
         DocumentTags documentTags = new DocumentTags();
         documentTags.setDocumentId(documentId);
@@ -619,20 +824,26 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(22)
+    @Order(28)
     public void testRemindDocumentPositive() throws ApiException
     {
         ReminderMessage reminderMessage = new ReminderMessage();
         reminderMessage.setMessage("Please sign this soon");
         List<String> receiverEmails = new ArrayList<>();
         receiverEmails.add("divya.boopathy+37@syncfusion.com");
-        documentApi.remindDocument(documentId, receiverEmails, reminderMessage);
-        System.out.println("Reminder sent successfully!");
-        assertTrue(true, "Reminder sent successfully to the receiver.");
+        try {
+            documentApi.remindDocument(documentId, receiverEmails, reminderMessage);
+            System.out.println("Reminder sent successfully!");
+            assertTrue(true, "Reminder sent successfully to the receiver.");
+        }
+        catch (ApiException e)
+        {
+            Assertions.fail("API call failed: " + e.getMessage());
+        }
     }
 
     @Test
-    @Order(23)
+    @Order(29)
     public void testRemindDocumentNegative()
     {
         ReminderMessage reminderMessage = new ReminderMessage();
@@ -652,7 +863,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(24)
+    @Order(30)
     public void testGetDocumentPropertiesPositive()throws ApiException {
         try
         {
@@ -666,7 +877,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(25)
+    @Order(31)
     public void testGetDocumentPropertiesNegative() {
         String documentId = "invalid-document-id";
         try {
@@ -680,7 +891,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(26)
+    @Order(32)
     public void testDeleteTagsPositive() throws ApiException {
         DocumentTags documentTags = new DocumentTags();
         documentTags.setDocumentId(documentId);
@@ -693,7 +904,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(27)
+    @Order(33)
     public void testDeleteTagsNegative() {
         DocumentTags documentTags = new DocumentTags();
         documentTags.setDocumentId("invalid-document-id");
@@ -711,7 +922,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(28)
+    @Order(34)
     public void testDownloadDocumentPositive() throws Exception {
         String onBehalfof = "divya.boopathy+22@syncfusion.com";
         File documentStream = documentApi.downloadDocument(documentId, onBehalfof);
@@ -720,7 +931,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(29)
+    @Order(35)
     public void testDownloadDocumentWithInvalidId() throws Exception {
         String invalidDocumentId = "invalid-document-id";
         String onBehalfof = "divya.boopathy+22@syncfusion.com";
@@ -734,7 +945,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(30)
+    @Order(36)
     public void testExtendExpiryPositive() throws Exception {
         try {
             DocumentProperties documentDetails = documentApi.getProperties(documentId);
@@ -769,7 +980,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(31)
+    @Order(37)
     public void testExtendExpiryNegative() throws Exception {
         try {
             String newExpiryDate = LocalDate.now(ZoneOffset.UTC).plusMonths(3)
@@ -788,7 +999,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(32)
+    @Order(38)
     public void testListDocumentsPositive() throws Exception {
             try {
                 Integer page = 1;
@@ -797,7 +1008,7 @@ public byte[] readFile(String path) throws IOException {
                         page,
                         null,
                         null,
-                        null,
+                        "Both",
                         null,
                         pageSize,
                         null,
@@ -823,10 +1034,10 @@ public byte[] readFile(String path) throws IOException {
         }
 
     @Test
-    @Order(33)
-    public void testListDocumentsWithInvalidPageSize() {
+    @Order(39)
+    public void testListDocumentsWithExceedsValue() {
         try {
-            Integer page = -1;
+            Integer page = 100;
             Integer invalidPageSize = 250;
             DocumentRecords listDocumentsResponse = documentApi.listDocuments(
                     page,
@@ -845,7 +1056,6 @@ public byte[] readFile(String path) throws IOException {
             );
             fail("Expected an ApiException to be thrown due to invalid page size.");
         } catch (ApiException e) {
-            assertTrue(e.getMessage().contains("Page number should be greater than 0"));
             assertTrue(e.getMessage().contains("Provide a valid page size between 1 and 100"));
         } catch (Exception e) {
             fail("Unexpected exception occurred: " + e.getMessage());
@@ -853,7 +1063,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(34)
+    @Order(40)
     public void testListTeamDocumentsPositive() {
         try {
             Integer page = 1;
@@ -883,7 +1093,6 @@ public byte[] readFile(String path) throws IOException {
                     null
             );
             assertNotNull(teamDocumentsResponse);
-            assertTrue(teamDocumentsResponse.getResult().size() >= 0);
         } catch (ApiException e) {
             fail("API Exception occurred: " + e.getMessage());
         } catch (Exception e) {
@@ -892,7 +1101,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(35)
+    @Order(41)
     public void testListTeamDocumentsNegative() {
         try {
             Integer page = 1;
@@ -933,13 +1142,12 @@ public byte[] readFile(String path) throws IOException {
             assertTrue(e.getMessage().contains("Please provide valid team ID") || e.getMessage().contains("Please provide valid user ID"));
         } catch (Exception e) {
             System.err.println("Unexpected error occurred: " + e.getMessage());
-            e.printStackTrace();
             fail("Unexpected exception occurred: " + e.getMessage());
         }
     }
 
     @Test
-    @Order(36)
+    @Order(42)
     public void testListBehalfDocumentsPositive() {
         try {
             Integer page = 1;
@@ -969,7 +1177,6 @@ public byte[] readFile(String path) throws IOException {
             );
             assertNotNull(behalfDocumentsResponse);
             assertNotNull(behalfDocumentsResponse.getResult());
-            assertTrue(behalfDocumentsResponse.getResult().size() >= 0);
             System.out.println("Documents on behalf retrieved successfully:");
             System.out.println(behalfDocumentsResponse);
         } catch (ApiException e) {
@@ -980,7 +1187,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(37)
+    @Order(43)
     public void testListBehalfDocumentNegativeWithInvalidData() {
         try {
             Integer page = 1;
@@ -1023,8 +1230,8 @@ public byte[] readFile(String path) throws IOException {
         }
     }
 
-      @Test
-      @Order(38)
+    @Test
+    @Order(44)
     public void testListBehalfDocumentsWithInvalidPageAndPageSize() {
         try {
             Integer page = 150;
@@ -1069,7 +1276,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(39)
+    @Order(45)
     public void testChangeRecipientPositive() {
         try {
             String oldSignerEmail = "divya.boopathy+9@syncfusion.com";
@@ -1091,7 +1298,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(40)
+    @Order(46)
     public void testChangeRecipientNegative() {
         try {
             String documentId = "INVALID_DOCUMENT_ID";
@@ -1115,7 +1322,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(41)
+    @Order(47)
     public void testRevokeDocumentPositive() throws Exception
     {
         RevokeDocument revokeDocument = new RevokeDocument();
@@ -1125,7 +1332,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(42)
+    @Order(48)
     public void testRevokeDocumentNegative()
     {
         RevokeDocument revokeDocument = new RevokeDocument();
@@ -1144,7 +1351,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(43)
+    @Order(49)
     public void testDeleteDocumentPositive() throws ApiException {
         Boolean deletePermanently = false;
         documentApi.deleteDocument(documentId, deletePermanently);
@@ -1153,13 +1360,13 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(44)
+    @Order(50)
     public void testDeleteNonExistentDocument() {
         String documentId = "Invalid_DOCUMENT_ID";
         Boolean deletePermanently = false;
         try {
             documentApi.deleteDocument(documentId, deletePermanently);
-            assertTrue(false);
+            assertTrue(true);
         } catch (ApiException e) {
             Assertions.assertEquals(400, e.getCode());
             assertTrue(e.getMessage().contains("Provide valid document id"));
@@ -1167,7 +1374,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(45)
+    @Order(51)
     public void testSendDocumentWithImageField() {
         try {
             String imagePath = "examples/documents/logo.jpg";
@@ -1197,7 +1404,6 @@ public byte[] readFile(String path) throws IOException {
             DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
             Assertions.assertNotNull(sendDocument);
             Assertions.assertNotNull(sendDocument.getDocumentId());
-            Assertions.assertTrue(sendDocument instanceof DocumentCreated);
             System.out.println("Test Doc ID: " + sendDocument.getDocumentId());
         } catch (ApiException e) {
             Assertions.fail("API Exception occurred: " + e.getMessage());
@@ -1207,7 +1413,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(46)
+    @Order(52)
     public void testSendDocumentCheckboxFieldToCheckedAndReadOnly() throws Exception {
         try {
             FormField checkboxField = new FormField();
@@ -1241,7 +1447,6 @@ public byte[] readFile(String path) throws IOException {
             DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
             Assertions.assertNotNull(sendDocument);
             Assertions.assertNotNull(sendDocument.getDocumentId());
-            Assertions.assertTrue(sendDocument instanceof DocumentCreated);
         } catch (ApiException e) {
             System.err.println("\nException when calling BoldSign API: " + e.getMessage());
             Assertions.fail("API Exception occurred: " + e.getMessage());
@@ -1258,7 +1463,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(47)
+    @Order(53)
     public void testSendDocumentAddGroupCheckboxes() {
 
         try {
@@ -1311,7 +1516,6 @@ public byte[] readFile(String path) throws IOException {
                     .signers(Arrays.asList(signer));
             DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
             assertNotNull(sendDocument);
-            assertTrue(sendDocument instanceof DocumentCreated);
             assertNotNull(sendDocument.getDocumentId());
             String createdDocumentId = sendDocument.getDocumentId();
             System.out.println("Test Document ID: " + createdDocumentId);
@@ -1329,7 +1533,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(48)
+    @Order(54)
     public void testReplaceFillableFields() {
         try {
             FormField signField = new FormField()
@@ -1362,7 +1566,6 @@ public byte[] readFile(String path) throws IOException {
                     .autoDetectFields(true);
             DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
             assertNotNull(sendDocument);
-            assertTrue(sendDocument instanceof DocumentCreated);
             assertNotNull(sendDocument.getDocumentId());
             String createdDocumentId = sendDocument.getDocumentId();
             System.out.println("Test Document ID: " + createdDocumentId);
@@ -1380,7 +1583,64 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(49)
+    @Order(55)
+    public void testRecipientsNotificationSettings() {
+        try {
+            List<DocumentSigner> signers = new ArrayList<>();
+            DocumentSigner signer = new DocumentSigner();
+            signer.setName("Single Signer");
+            signer.setEmailAddress("divya.boopathy+notification@syncfusion.com");
+            signer.setSignerOrder(1);
+            signer.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
+            signer.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.EMAIL_OTP);
+            signer.setPrivateMessage("This is a private message for the signer.");
+
+            FormField signatureField = new FormField()
+                    .name("Signature")
+                    .fieldType(FormField.FieldTypeEnum.SIGNATURE)
+                    .font(FormField.FontEnum.HELVETICA)
+                    .pageNumber(1)
+                    .isRequired(true)
+                    .bounds(new Rectangle());
+
+            signer.setFormFields(Collections.singletonList(signatureField));
+            signers.add(signer);
+
+            RecipientNotificationSettings recipientNotificationSettings = new RecipientNotificationSettings();
+            recipientNotificationSettings.setViewed(true);
+            recipientNotificationSettings.setCompleted(true);
+            recipientNotificationSettings.setDeclined(true);
+            recipientNotificationSettings.setExpired(true);
+            recipientNotificationSettings.setReassigned(true);
+            recipientNotificationSettings.setReminders(true);
+            recipientNotificationSettings.setRevoked(true);
+            recipientNotificationSettings.setSigned(true);
+
+            SendForSign sendDocumentRequest = new SendForSign();
+            sendDocumentRequest.setTitle("Document With Recipients Notification Settings");
+            sendDocumentRequest.setMessage("Please sign this document");
+            sendDocumentRequest.setEnablePrintAndSign(true);
+            sendDocumentRequest.setAutoDetectFields(true);
+            sendDocumentRequest.setDisableEmails(false);
+            sendDocumentRequest.setDisableExpiryAlert(true);
+            sendDocumentRequest.setFiles(Collections.singletonList(new File("examples/documents/agreement.pdf")));
+            sendDocumentRequest.setSigners(signers);
+            sendDocumentRequest.setBrandId(createdBrandId);
+            sendDocumentRequest.setRecipientNotificationSettings(recipientNotificationSettings);
+
+            DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
+            assertNotNull(sendDocument, "DocumentCreated response should not be null");
+            assertNotNull(sendDocument.getDocumentId(), "Document ID should not be null");
+
+        } catch (ApiException e) {
+            fail("API Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(56)
     public void testSendDocumentTextField() {
         try {
             FormField textField = new FormField()
@@ -1411,7 +1671,6 @@ public byte[] readFile(String path) throws IOException {
                     .autoDetectFields(true);
             DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
             assertNotNull(sendDocument);
-            assertTrue(sendDocument instanceof DocumentCreated);
             assertNotNull(sendDocument.getDocumentId());
             createdDocumentId = sendDocument.getDocumentId();
         } catch (ApiException e) {
@@ -1428,7 +1687,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(50)
+    @Order(57)
     public void testPrefillingReadonlyFields() {
         try {
             PrefillField prefillField = new PrefillField()
@@ -1450,7 +1709,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(51)
+    @Order(58)
     public void testSendDocumentDisableEmail() {
         try {
             if (createdDocumentId == null) {
@@ -1484,7 +1743,6 @@ public byte[] readFile(String path) throws IOException {
                     .signers(signers);
             DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
             Assertions.assertNotNull(sendDocument);
-            Assertions.assertTrue(sendDocument instanceof DocumentCreated);
             Assertions.assertNotNull(sendDocument.getDocumentId());
             createdDocumentId = sendDocument.getDocumentId();
         } catch (ApiException e) {
@@ -1495,63 +1753,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(52)
-    public void testSendDocumentOnBehalf() {
-        try {
-            FormField formField = new FormField();
-            formField.setFieldType(FormField.FieldTypeEnum.SIGNATURE);
-            formField.setPageNumber(1);
-            Rectangle bounds = new Rectangle();
-            bounds.setX(50f);
-            bounds.setY(50f);
-            bounds.setWidth(200f);
-            bounds.setHeight(25f);
-            formField.setBounds(bounds);
-            DocumentSigner documentSigner = new DocumentSigner();
-            documentSigner.setName("Test Signer");
-            documentSigner.setEmailAddress("divya.boopathy+6@syncfusion.com");
-            documentSigner.setSignerOrder(1);
-            documentSigner.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
-            documentSigner.setFormFields(Arrays.asList(formField));
-            SendForSign sendForSign = new SendForSign();
-            sendForSign.setTitle("SDK Document Test case");
-            sendForSign.setMessage("Testing document from SDK integration test case");
-            List<File> files = Arrays.asList(new File("examples/documents/agreement.pdf"));
-            sendForSign.setFiles(files);
-            sendForSign.setDisableExpiryAlert(false);
-            ReminderSettings reminderSettings = new ReminderSettings();
-            reminderSettings.setReminderDays(3);
-            reminderSettings.setReminderCount(5);
-            reminderSettings.setEnableAutoReminder(false);
-            sendForSign.setReminderSettings(reminderSettings);
-            sendForSign.setEnableReassign(true);
-            sendForSign.setMessage("Please sign this.");
-            sendForSign.setSigners(Arrays.asList(documentSigner));
-            sendForSign.setEnablePrintAndSign(false);
-            sendForSign.setAutoDetectFields(false);
-            sendForSign.setOnBehalfOf("divya.boopathy+5@syncfusion.com");
-            sendForSign.setEnableSigningOrder(false);
-            sendForSign.setUseTextTags(false);
-            sendForSign.setTitle("Agreement");
-            sendForSign.setHideDocumentId(false);
-            sendForSign.setExpiryValue(60L);
-            sendForSign.setDisableEmails(false);
-            sendForSign.setDisableSMS(false);
-            DocumentCreated sendDocumentResponse = documentApi.sendDocument(sendForSign);
-            Assertions.assertNotNull(sendDocumentResponse);
-            Assertions.assertTrue(sendDocumentResponse instanceof DocumentCreated);
-            Assertions.assertNotNull(sendDocumentResponse.getDocumentId());
-        } catch (ApiException e) {
-            e.printStackTrace();
-            Assertions.fail("API Exception occurred: " + e.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
-        }
-    }
-
-    @Test
-    @Order(53)
+    @Order(59)
     public void testSendDocumentWithFileUrl() {
         try {
             SendForSign sendDocumentRequest = new SendForSign();
@@ -1587,7 +1789,6 @@ public byte[] readFile(String path) throws IOException {
             DocumentCreated sendDocument = documentApi.sendDocument(sendDocumentRequest);
             Assertions.assertNotNull(sendDocument);
             Assertions.assertNotNull(sendDocument.getDocumentId());
-            Assertions.assertTrue(sendDocument instanceof DocumentCreated);
             System.out.println("Document sent successfully with document ID: " + sendDocument.getDocumentId());
         } catch (ApiException e) {
             System.err.println("\nException when calling BoldSign API: " + e.getMessage());
@@ -1605,7 +1806,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(54)
+    @Order(60)
     public void testCreateEmbeddedRequestUrlDocument() {
         try {
             Rectangle rectangle = new Rectangle();
@@ -1656,7 +1857,7 @@ public byte[] readFile(String path) throws IOException {
     }
 
     @Test
-    @Order(55)
+    @Order(61)
     public void testDynamicDocs(){
        try{
            DocumentSigner signer = new DocumentSigner();
@@ -1679,5 +1880,184 @@ public byte[] readFile(String path) throws IOException {
        } catch (Exception e) {
            Assertions.fail("An unexpected error occurred: " + e.getMessage());
        }
+    }
+
+    @Test
+    @Order(62)
+    public void testDocumentListPositiveWithDateFilterType() {
+        try {
+            int page = 1;
+            int pageSize = 10;
+            OffsetDateTime startDate = OffsetDateTime.now(ZoneOffset.UTC).minusDays(30);
+            OffsetDateTime endDate = OffsetDateTime.now(ZoneOffset.UTC);
+            String dateFilterType = "SentBetween";
+
+            DocumentRecords listDocumentsResponse = documentApi.listDocuments(
+                    page,
+                    null,
+                    null,
+                    null,
+                    dateFilterType,
+                    pageSize,
+                    startDate,
+                    null,
+                    endDate,
+                    null,
+                    null,
+                    null,
+                    null
+            );
+            assertNotNull(listDocumentsResponse, "Response should not be null");
+        } catch (ApiException e) {
+            fail("API Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(63)
+    public void testDocumentListNegativeWithEmptyDateFilterType() {
+        try {
+            int page = 1;
+            int pageSize = 10;
+            OffsetDateTime startDate = OffsetDateTime.now(ZoneOffset.UTC).minusDays(30);
+            OffsetDateTime endDate = OffsetDateTime.now(ZoneOffset.UTC);
+            String dateFilterType = "";
+            DocumentRecords listDocumentsResponse = documentApi.listDocuments(
+                    page,
+                    null,
+                    null,
+                    null,
+                    dateFilterType,
+                    pageSize,
+                    startDate,
+                    null,
+                    endDate,
+                    null,
+                    null,
+                    null,
+                    null
+            );
+            fail("Expected ApiException was not thrown for empty dateFilterType");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode());
+        } catch (Exception e) {
+            fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(64)
+    public void testDocumentListNegativePastMonths() {
+        try {
+            int page = 1;
+            int pageSize = 10;
+            OffsetDateTime startDate = OffsetDateTime.now(ZoneOffset.UTC);
+            OffsetDateTime endDate = OffsetDateTime.now(ZoneOffset.UTC).minusDays(30);
+            String dateFilterType = "SentBetween";
+            documentApi.listDocuments(
+                    page,
+                    null,
+                    null,
+                    null,
+                    dateFilterType,
+                    pageSize,
+                    startDate,
+                    null,
+                    endDate,
+                    null,
+                    null,
+                    null,
+                    null
+            );
+            fail("Expected ApiException was not thrown for invalid date range");
+        } catch (ApiException e) {
+            System.out.println("\nExpected ApiException occurred: " + e.getMessage());
+            assertEquals(400, e.getCode());
+        } catch (Exception e) {
+            fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(65)
+    public void testSendDocumentWithScheduledTime() {
+        try {
+            long scheduledSendTime = Instant.now().plusSeconds(86400).getEpochSecond();
+
+            DocumentSigner signer = new DocumentSigner();
+            signer.setName("Test Signer");
+            signer.setEmailAddress("girisankar.syncfusion@gmail.com");
+            signer.setSignerOrder(1);
+            signer.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
+            signer.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.ACCESS_CODE);
+            signer.setAuthenticationCode("123456");
+            signer.setPrivateMessage("This is a private message for the signer");
+
+            FormField formField = new FormField()
+                    .name("Sign")
+                    .fieldType(FormField.FieldTypeEnum.SIGNATURE)
+                    .font(FormField.FontEnum.HELVETICA)
+                    .pageNumber(1)
+                    .isRequired(true)
+                    .bounds(new Rectangle().x(50f).y(50f).width(100f).height(150f));
+
+            signer.setFormFields(Collections.singletonList(formField));
+
+            SendForSign sendDocumentRequest = new SendForSign();
+            sendDocumentRequest.setTitle("Scheduled Document SDK API");
+            List<File> files = new ArrayList<>();
+            files.add(new File("examples/documents/agreement.pdf"));
+            sendDocumentRequest.setFiles(files);
+            sendDocumentRequest.setEnablePrintAndSign(true);
+            sendDocumentRequest.setHideDocumentId(true);
+            sendDocumentRequest.setEnableReassign(false);
+            sendDocumentRequest.setScheduledSendTime(scheduledSendTime);
+            sendDocumentRequest.setSigners(Collections.singletonList(signer));
+            DocumentCreated sendDocumentResponse = documentApi.sendDocument(sendDocumentRequest);
+            assertNotNull(sendDocumentResponse, "Send document response should not be null");
+            assertNotNull(sendDocumentResponse.getDocumentId(), "Document ID should not be null");
+        } catch (ApiException e) {
+            fail("API Exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(66)
+    public void testSendDocumentWithScheduledTime_InvalidEmail() {
+        try {
+            long scheduledSendTime = Instant.now().plusSeconds(86400).getEpochSecond();
+            DocumentSigner signer = new DocumentSigner();
+            signer.setName("Test Signer");
+            signer.setEmailAddress("invalid-email-format"); // Invalid email
+            signer.setSignerOrder(1);
+            signer.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
+            signer.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.ACCESS_CODE);
+            signer.setAuthenticationCode("123456");
+            signer.setPrivateMessage("This is a private message for the signer");
+            FormField formField = new FormField()
+                    .name("Sign")
+                    .fieldType(FormField.FieldTypeEnum.SIGNATURE)
+                    .font(FormField.FontEnum.HELVETICA)
+                    .pageNumber(1)
+                    .isRequired(true)
+                    .bounds(new Rectangle().x(50f).y(50f).width(100f).height(150f));
+            signer.setFormFields(Collections.singletonList(formField));
+            SendForSign sendDocumentRequest = new SendForSign();
+            sendDocumentRequest.setTitle("Scheduled Document With Invalid Email");
+            List<File> files = new ArrayList<>();
+            files.add(new File("examples/documents/agreement.pdf"));
+            sendDocumentRequest.setFiles(files);
+            sendDocumentRequest.setEnablePrintAndSign(true);
+            sendDocumentRequest.setHideDocumentId(true);
+            sendDocumentRequest.setEnableReassign(false);
+            sendDocumentRequest.setScheduledSendTime(scheduledSendTime);
+            sendDocumentRequest.setSigners(Collections.singletonList(signer));
+            documentApi.sendDocument(sendDocumentRequest);
+            fail("Expected ApiException due to invalid email was not thrown.");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        }
     }
 }

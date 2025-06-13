@@ -29,6 +29,7 @@
 |**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**authenticationRetryCount** | **Integer** |  |  [optional] |
 |**enableQes** | **Boolean** |  |  [optional] |
+|**authenticationSettings** | [**AuthenticationSettings**](AuthenticationSettings.md) |  |  [optional] |
 
 
 

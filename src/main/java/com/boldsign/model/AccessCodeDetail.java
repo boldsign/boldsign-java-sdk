@@ -14,6 +14,7 @@
 package com.boldsign.model;
 
 import java.util.Objects;
+import com.boldsign.model.AuthenticationSettings;
 import com.boldsign.model.IdentityVerificationSettings;
 import com.boldsign.model.PhoneNumber;
 import com.google.gson.TypeAdapter;
@@ -136,6 +137,10 @@ public class AccessCodeDetail {
   public static final String SERIALIZED_NAME_AUTHENTICATION_RETRY_COUNT = "authenticationRetryCount";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_RETRY_COUNT)
   private Integer authenticationRetryCount;
+
+  public static final String SERIALIZED_NAME_AUTHENTICATION_SETTINGS = "authenticationSettings";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_SETTINGS)
+  private AuthenticationSettings authenticationSettings;
 
   public AccessCodeDetail() {
   }
@@ -296,6 +301,25 @@ public class AccessCodeDetail {
   }
 
 
+  public AccessCodeDetail authenticationSettings(AuthenticationSettings authenticationSettings) {
+    this.authenticationSettings = authenticationSettings;
+    return this;
+  }
+
+  /**
+   * Get authenticationSettings
+   * @return authenticationSettings
+   */
+  @javax.annotation.Nullable
+  public AuthenticationSettings getAuthenticationSettings() {
+    return authenticationSettings;
+  }
+
+  public void setAuthenticationSettings(AuthenticationSettings authenticationSettings) {
+    this.authenticationSettings = authenticationSettings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -313,12 +337,13 @@ public class AccessCodeDetail {
         Objects.equals(this.onBehalfOf, accessCodeDetail.onBehalfOf) &&
         Objects.equals(this.phoneNumber, accessCodeDetail.phoneNumber) &&
         Objects.equals(this.identityVerificationSettings, accessCodeDetail.identityVerificationSettings) &&
-        Objects.equals(this.authenticationRetryCount, accessCodeDetail.authenticationRetryCount);
+        Objects.equals(this.authenticationRetryCount, accessCodeDetail.authenticationRetryCount) &&
+        Objects.equals(this.authenticationSettings, accessCodeDetail.authenticationSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationType, emailId, order, accessCode, onBehalfOf, phoneNumber, identityVerificationSettings, authenticationRetryCount);
+    return Objects.hash(authenticationType, emailId, order, accessCode, onBehalfOf, phoneNumber, identityVerificationSettings, authenticationRetryCount, authenticationSettings);
   }
 
   @Override
@@ -333,6 +358,7 @@ public class AccessCodeDetail {
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    identityVerificationSettings: ").append(toIndentedString(identityVerificationSettings)).append("\n");
     sb.append("    authenticationRetryCount: ").append(toIndentedString(authenticationRetryCount)).append("\n");
+    sb.append("    authenticationSettings: ").append(toIndentedString(authenticationSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -500,6 +526,26 @@ public class AccessCodeDetail {
           map.put("authenticationRetryCount", JSON.serialize(authenticationRetryCount));
         }
     }
+    if (authenticationSettings != null) {
+        if (isFileTypeOrListOfFiles(authenticationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (authenticationSettings.getClass().equals(java.io.File.class) ||
+            authenticationSettings.getClass().equals(Integer.class) ||
+            authenticationSettings.getClass().equals(String.class) ||
+            authenticationSettings.getClass().equals(java.net.URI.class)||
+            authenticationSettings.getClass().isEnum()) {
+            map.put("authenticationSettings", authenticationSettings);
+        } else if (isListOfFile(authenticationSettings)) {
+            for(int i = 0; i< getListSize(authenticationSettings); i++) {
+                map.put("authenticationSettings", authenticationSettings);
+            }
+        }
+        else {
+          map.put("authenticationSettings", JSON.serialize(authenticationSettings));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -553,6 +599,7 @@ public class AccessCodeDetail {
     openapiFields.add("phoneNumber");
     openapiFields.add("identityVerificationSettings");
     openapiFields.add("authenticationRetryCount");
+    openapiFields.add("authenticationSettings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -601,6 +648,10 @@ public class AccessCodeDetail {
       // validate the optional field `identityVerificationSettings`
       if (jsonObj.get("identityVerificationSettings") != null && !jsonObj.get("identityVerificationSettings").isJsonNull()) {
         IdentityVerificationSettings.validateJsonElement(jsonObj.get("identityVerificationSettings"));
+      }
+      // validate the optional field `authenticationSettings`
+      if (jsonObj.get("authenticationSettings") != null && !jsonObj.get("authenticationSettings").isJsonNull()) {
+        AuthenticationSettings.validateJsonElement(jsonObj.get("authenticationSettings"));
       }
   }
 

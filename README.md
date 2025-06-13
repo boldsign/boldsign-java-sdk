@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:1.0.1"
+     implementation "com.boldsign:boldsign-java:1.0.2"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-1.0.1.jar`
+* `target/boldsign-java-1.0.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -207,6 +207,7 @@ Class | Method | HTTP request | Description
  - [Address](docs/Address.md)
  - [AttachmentInfo](docs/AttachmentInfo.md)
  - [AuditTrail](docs/AuditTrail.md)
+ - [AuthenticationSettings](docs/AuthenticationSettings.md)
  - [Base64File](docs/Base64File.md)
  - [BehalfDocument](docs/BehalfDocument.md)
  - [BehalfDocumentRecords](docs/BehalfDocumentRecords.md)
@@ -298,6 +299,7 @@ Class | Method | HTTP request | Description
  - [SenderIdentityCreated](docs/SenderIdentityCreated.md)
  - [SenderIdentityList](docs/SenderIdentityList.md)
  - [SenderIdentityViewModel](docs/SenderIdentityViewModel.md)
+ - [SignerAuthenticationSettings](docs/SignerAuthenticationSettings.md)
  - [Size](docs/Size.md)
  - [TeamCreated](docs/TeamCreated.md)
  - [TeamDocumentRecords](docs/TeamDocumentRecords.md)

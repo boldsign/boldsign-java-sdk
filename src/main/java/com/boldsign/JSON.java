@@ -101,6 +101,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Address.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AttachmentInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AuditTrail.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AuthenticationSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Base64File.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.BehalfDocument.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.BehalfDocumentRecords.CustomTypeAdapterFactory());
@@ -192,6 +193,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.SenderIdentityCreated.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.SenderIdentityList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.SenderIdentityViewModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.SignerAuthenticationSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Size.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TeamCreated.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TeamDocumentRecords.CustomTypeAdapterFactory());

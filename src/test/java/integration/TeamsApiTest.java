@@ -68,6 +68,24 @@ public class TeamsApiTest {
 
     @Test
     @Order(3)
+    public void testCreateTeamNegativeWithEmptyTeamName() throws Exception {
+        try {
+            CreateTeamRequest createTeamRequest = new CreateTeamRequest();
+            createTeamRequest.setTeamName(""); // Empty team name to trigger validation error
+
+            teamsApi.createTeam(createTeamRequest);
+            Assertions.fail("Expected ApiException due to empty team name was not thrown.");
+        } catch (ApiException e) {
+            System.out.println("Expected exception occurred: " + e.getMessage());
+            Assertions.assertEquals(400, e.getCode(), "Expected status code 400 for Bad Request");
+            Assertions.assertTrue(e.getMessage().contains("The TeamName field is required."));
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(4)
     public void testGetTeamPositive() throws Exception {
         TeamResponse response = teamsApi.getTeam(teamId);
         Assertions.assertNotNull(response);
@@ -76,7 +94,7 @@ public class TeamsApiTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     public void testGetTeamNegative() throws Exception {
         String invalidTeamId = "invalid-team-id";
         try {
@@ -89,7 +107,40 @@ public class TeamsApiTest {
     }
 
     @Test
-    @Order(5)
+    @Order(6)
+    public void testGetTeamNegativeWithEmptyTeamId() throws Exception {
+        String emptyTeamId = "";
+        try {
+            TeamResponse response = teamsApi.getTeam(emptyTeamId);
+            Assertions.fail("Expected exception for empty team ID, but the response was returned.");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode(), "Expected 400 Bad Request for empty team ID");
+            Assertions.assertTrue(e.getMessage().contains("The teamId field is required."));
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(7)
+    public void testUpdateTeamNegativeDuplicateName() throws Exception {
+        try {
+            TeamUpdateRequest updateTeamRequest = new TeamUpdateRequest();
+            updateTeamRequest.setTeamId(teamId);
+            updateTeamRequest.setTeamName(teamName);
+            teamsApi.updateTeam(updateTeamRequest);
+
+            Assertions.fail("Expected ApiException due to duplicate team name, but API call succeeded.");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode(), "Expected status code 400 for duplicate team name.");
+            Assertions.assertTrue(e.getMessage().contains("Team Name already exists"));
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(8)
     public void testUpdateTeamPositive() throws Exception {
         TeamUpdateRequest updateTeamRequest = new TeamUpdateRequest();
         updateTeamRequest.setTeamName("update"+teamName);
@@ -99,7 +150,7 @@ public class TeamsApiTest {
     }
 
     @Test
-    @Order(6)
+    @Order(9)
     public void testUpdateTeamNegative() throws Exception {
         TeamUpdateRequest updateTeamRequest = new TeamUpdateRequest();
         updateTeamRequest.setTeamId("invalid-team-id");
@@ -111,9 +162,26 @@ public class TeamsApiTest {
             Assertions.assertTrue(e.getMessage().contains("Please provide valid team ID"));
         }
     }
-    
+
     @Test
-    @Order(7)
+    @Order(10)
+    public void testUpdateTeamNegativeEmptyName() throws Exception {
+        TeamUpdateRequest updateTeamRequest = new TeamUpdateRequest();
+        updateTeamRequest.setTeamId(teamId);
+        updateTeamRequest.setTeamName("");
+        try {
+            teamsApi.updateTeam(updateTeamRequest);
+            Assertions.fail("Expected ApiException due to empty team name was not thrown.");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode());
+            Assertions.assertTrue(e.getMessage().contains("The TeamName field is required."));
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(11)
     public void testListTeamsPositive() throws Exception {
         Integer page = 1;
         Integer pagesize = 10;
@@ -124,10 +192,10 @@ public class TeamsApiTest {
     }
 
     @Test
-    @Order(8)
+    @Order(12)
     public void testListTeamsNegative() throws Exception {
         Integer invalidPage = -1;
-        Integer invalidPageSize = 10;
+        Integer invalidPageSize = -10;
         String invalidSearch = "";
         try {
             TeamListResponse response = teamsApi.listTeams(invalidPage, invalidPageSize, invalidSearch);
@@ -136,6 +204,23 @@ public class TeamsApiTest {
             Assertions.assertEquals(400, e.getCode());
             Assertions.assertTrue(e.getMessage().contains("Invalid page number") || e.getMessage().contains("Page number should be greater than 0"));
             System.out.println("Expected error occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(13)
+    public void testListTeamsNegativeWithNullPageAndPageSize() throws Exception {
+        Integer Page = 0;
+        Integer PageSize = 0;
+        String searchKey = "";
+        try {
+            TeamListResponse response = teamsApi.listTeams(Page, PageSize, searchKey);
+            Assertions.fail("Expected ApiException due to null page and page size, but API call succeeded.");
+        } catch (ApiException e) {
+            Assertions.assertEquals(400, e.getCode(), "Expected status code 400 for Bad Request");
+            Assertions.assertTrue(e.getMessage().contains("Page number should be greater than 0"));
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
         }
     }
 }

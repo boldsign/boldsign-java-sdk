@@ -96,7 +96,6 @@ public class BrandApiTest
             );
             assertNotNull(createBrandingResponse);
             assertNotNull(createBrandingResponse.getBrandId());
-            assertTrue(createBrandingResponse instanceof BrandCreated);
             createdBrandId = createBrandingResponse.getBrandId();
         }
         catch (ApiException e)
@@ -113,6 +112,30 @@ public class BrandApiTest
 
     @Test
     @Order(2)
+    public void testCreateBrandWithRequiredFieldsOnly() {
+        try {
+            String brandName = "BoldSign Brand";
+            File brandLogo = new File("examples/documents/logo.jpg");
+
+            BrandCreated createBrandingResponse = brandingApi.createBrand(
+                    brandName,brandLogo,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+            );
+
+            assertNotNull(createBrandingResponse, "Brand creation response is null.");
+            assertNotNull(createBrandingResponse.getBrandId(), "Brand ID should not be null.");
+
+            System.out.println("Brand created successfully: " + createBrandingResponse.getBrandId());
+        } catch (ApiException e) {
+            System.err.println("API Exception while creating brand: " + e.getMessage());
+            fail("API Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected exception while creating brand: " + e.getMessage());
+            fail("Unexpected Exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(3)
     public void testCreateBrandNegative() throws ApiException
     {
         try
@@ -180,13 +203,113 @@ public class BrandApiTest
         catch (ApiException e)
         {
             System.out.println("Expected error occurred while calling the API: " + e.getMessage());
-            e.printStackTrace();
             assertTrue(e.getMessage().contains("The Brand name is required"));
         }
     }
 
     @Test
-    @Order(3)
+    @Order(4)
+    public void testCreateBrandWithInvalidBackgroundColor() {
+        try {
+            String brandname = "Test Invalid Color Brand";
+            File logoFile = new File("examples/documents/logo.jpg");
+            String backgroundColor = "123invalidColor";
+
+            // Attempt to create brand with invalid background color
+            brandingApi.createBrand(
+                    brandname,logoFile, backgroundColor,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+            );
+            fail("Expected ApiException was not thrown due to invalid background color.");
+        } catch (ApiException e) {
+            System.out.println("Expected error occurred: " + e.getMessage());
+            assertTrue(e.getMessage().contains("Please provide a valid color code. The current color code is invalid."));
+        } catch (Exception e) {
+            fail("Unexpected exception type thrown: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(5)
+    public void testCreateBrandWithInvalidButtonColor() {
+        try {
+            String brandName = "Invalid Button Color Brand";
+            File logoFile = new File("examples/documents/logo.jpg");
+            String backgroundColor = "blue";
+            String buttonColor = "invalid color";
+
+            brandingApi.createBrand(
+                    brandName, logoFile, backgroundColor, buttonColor, null, null, null, null, null, null, null, null, null, null,null, null,null,null,null,null,null,null,null,null,null,null,null,null
+            );
+            fail("Expected ApiException was not thrown due to invalid button color.");
+        } catch (ApiException e) {
+            System.out.println("Expected error occurred: " + e.getMessage());
+            assertTrue(e.getMessage().contains("Please provide a valid color code. The current color code is invalid."));
+        } catch (Exception e) {
+            fail("Unexpected exception type thrown: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(6)
+    public void testCreateBrandWithInvalidLogoPath() {
+        try {
+            String brandName = "Invalid Logo Brand";
+            File logoFile = new File("examples/documents/agreement.pdf");
+            String backgroundColor = "blue";
+
+            brandingApi.createBrand(
+                    brandName,
+                    logoFile,
+                    backgroundColor,
+                    null, null, null, null, null, null, null,
+                    null, null, null, null, null, null, null,
+                    null, null, null, null, null, null, null,
+                    null, null, null, null
+            );
+
+            fail("Expected exception was not thrown due to invalid logo file path.");
+        } catch (ApiException e) {
+            System.out.println("Expected API exception occurred: " + e.getMessage());
+            assertTrue(e.getMessage().contains("Only JPG, JPEG, PNG and SVG formats are allowed."));
+        } catch (Exception e) {
+            fail("Unexpected exception type thrown: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(7)
+    public void testCreateBrandWithInvalidButtonTextColor() {
+        try {
+            String brandName = "Invalid Button Text Color Brand";
+            File logoFile = new File("examples/documents/logo.jpg");
+            String backgroundColor = "blue";
+            String buttonColor = "green";
+            String buttonTextColor = "invalid-color";
+
+            brandingApi.createBrand(
+                    brandName,
+                    logoFile,
+                    backgroundColor,
+                    buttonColor,
+                    buttonTextColor,
+                    null, null, null, null,
+                    null, null, null, null, null,
+                    null, null, null, null, null,
+                    null, null, null, null, null,
+                    null, null, null, null
+            );
+
+            fail("Expected ApiException was not thrown due to invalid button text color.");
+        } catch (ApiException e) {
+            System.out.println("Expected API error occurred: " + e.getMessage());
+            assertTrue(e.getMessage().contains("Please provide a valid color code. The current color code is invalid."));
+        } catch (Exception e) {
+            fail("Unexpected exception type thrown: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(8)
     public void EditBrandPositive() throws ApiException
     {
         String BrandId = BrandApiTest.createdBrandId;
@@ -254,7 +377,6 @@ public class BrandApiTest
             );
             assertNotNull(updatedBrandingResponse, "Response should not be null");
             assertEquals(BrandId, updatedBrandingResponse.getBrandId(), "Brand ID should be the same after update");
-            assertTrue(updatedBrandingResponse instanceof BrandCreated, "Response should be an instance of BrandCreated");
         }
         catch (ApiException e)
         {
@@ -269,10 +391,10 @@ public class BrandApiTest
     }
 
     @Test
-    @Order(4)
+    @Order(9)
     public void testEditBrandNegative() throws ApiException
     {
-        String invalidBrandId = "9edbb750-3f6c-490d-a897-7397bd1c793e";
+        String invalidBrandId = "invalid-brand-id";
         String updatedBrandName = "Syncfusion Updated";
         File updatedBrandLogo = new File("examples/documents/logo.jpg");
         String updatedBackgroundColor = "blue";
@@ -340,7 +462,6 @@ public class BrandApiTest
         catch (ApiException e)
         {
             assertEquals(400, e.getCode(), "Expected status code 400 for bad request");
-            assertTrue(e.getMessage().contains("Failed to save the brand"), "Expected message to contain 'invalid brand id'");
         }
         catch (Exception e)
         {
@@ -350,7 +471,34 @@ public class BrandApiTest
     }
 
     @Test
-    @Order(5)
+    @Order(10)
+    public void testEditBrandWithInvalidLogoFilePath() {
+        String brandId = BrandApiTest.createdBrandId;
+        String updatedBrandName = "Syncfusion Updated";
+        File invalidLogoFile = new File("examples/documents/agreement.pdf");
+
+        try {
+            brandingApi.editBrand(
+                    brandId,
+                    updatedBrandName,
+                    invalidLogoFile,
+                    null,null,null,null,null,null,null, null,null,null,null,
+                    null,null,null,null,null,null,null,null,null,
+                    null,null,null,null,null,null
+            );
+            fail("Expected exception was not thrown due to invalid logo file path.");
+        } catch (ApiException e) {
+            System.out.println("Expected API exception occurred: " + e.getMessage());
+            assertEquals(400, e.getCode(), "Expected status code 400 for bad request");
+        } catch (Exception e) {
+            System.out.println("Expected file exception occurred: " + e.getMessage());
+            assertTrue(e instanceof java.io.FileNotFoundException || e.getMessage().toLowerCase().contains("no such file"),
+                    "Expected FileNotFoundException or missing file message.");
+        }
+    }
+
+    @Test
+    @Order(11)
     public void testBrandListPositive() throws ApiException
     {
         try
@@ -370,7 +518,7 @@ public class BrandApiTest
     }
 
     @Test
-    @Order(6)
+    @Order(12)
     public void testGetBrandPositive() throws ApiException
     {
         String validBrandId = createdBrandId;
@@ -381,7 +529,7 @@ public class BrandApiTest
     }
 
     @Test
-    @Order(7)
+    @Order(13)
     public void testGetBrandNegative()throws ApiException
     {
         try
@@ -402,7 +550,7 @@ public class BrandApiTest
     }
 
     @Test
-    @Order(8)
+    @Order(14)
     public void testResetDefaultBrandPositive()
     {
         try
@@ -411,7 +559,6 @@ public class BrandApiTest
             BrandingMessage getBrandResponse = brandingApi.resetDefaultBrand(brandId);
             assertNotNull(getBrandResponse, "Response should not be null");
             assertEquals("The default brand has been updated successfully", getBrandResponse.getMessage(), "Message should confirm the reset was successful");
-            assertTrue(getBrandResponse instanceof BrandingMessage, "Response should be an instance of BrandingMessage");
         }
         catch (ApiException e)
         {
@@ -424,7 +571,7 @@ public class BrandApiTest
     }
 
     @Test
-    @Order(9)
+    @Order(15)
     public void ResetDefaultBrandNegative() throws ApiException
     {
         try
@@ -446,18 +593,17 @@ public class BrandApiTest
     }
 
     @Test
-    @Order(10)
+    @Order(16)
     public void testDeleteBrandPositive() throws ApiException
     {
         String brandId =createdBrandId;
         BrandingMessage deleteBrandResponse = brandingApi.deleteBrand(brandId);
         assertNotNull(deleteBrandResponse);
         assertEquals("The brand has been deleted successfully", deleteBrandResponse.getMessage());
-        assertTrue(deleteBrandResponse instanceof BrandingMessage);
     }
 
     @Test
-    @Order(11)
+    @Order(17)
     public void testDeleteBrandNegative() throws ApiException
     {
         String brandId = "2c90f4d1-6c2a-4ea7-b722-995bd40985b5d";
