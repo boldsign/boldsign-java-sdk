@@ -89,6 +89,7 @@
 | GROW_BOTH | &quot;GrowBoth&quot; |
 | FIXED | &quot;Fixed&quot; |
 | AUTO_RESIZE_FONT | &quot;AutoResizeFont&quot; |
+| NULL | &quot;null&quot; |
 
 
 

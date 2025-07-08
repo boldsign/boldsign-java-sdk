@@ -15,6 +15,9 @@
 |**ipaddress** | **String** |  |  [optional] |
 |**action** | [**ActionEnum**](#ActionEnum) |  |  [optional] |
 |**timestamp** | **Long** |  |  [optional] |
+|**recipientChangeLog** | [**RecipientChangeLog**](RecipientChangeLog.md) |  |  [optional] |
+|**documentChangeLog** | [**ModificationDetails**](ModificationDetails.md) |  |  [optional] |
+|**fieldChangeLog** | [**ModificationDetails**](ModificationDetails.md) |  |  [optional] |
 
 
 

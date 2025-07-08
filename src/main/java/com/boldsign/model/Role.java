@@ -220,7 +220,9 @@ public class Role {
     
     REVIEWER("Reviewer"),
     
-    IN_PERSON_SIGNER("InPersonSigner");
+    IN_PERSON_SIGNER("InPersonSigner"),
+    
+    NULL("null");
 
     private String value;
 

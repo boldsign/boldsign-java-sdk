@@ -1251,6 +1251,11 @@ public class TemplateApiTest
             role.setSignerOrder(1);
             role.setEnableEmailOTP(false);
             role.setSignerType(Role.SignerTypeEnum.SIGNER);
+            role.setAuthenticationType(Role.AuthenticationTypeEnum.ACCESS_CODE);
+            role.setAuthenticationCode("123456");
+            AuthenticationSettings authenticationsetting = new AuthenticationSettings();
+            authenticationsetting.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.EVERY_ACCESS);
+            role.authenticationSettings(authenticationsetting);
             role.setSignerRole("Manager");
             role.setPrivateMessage("Please check and sign the document");
             role.setFormFields(Arrays.asList(formField));
@@ -1678,6 +1683,11 @@ public class TemplateApiTest
             role.setSignerEmail("divya.boopathy+9989@syncfusion.com");
             role.setSignerOrder(1);
             role.setSignerType(Role.SignerTypeEnum.SIGNER);
+            role.setAuthenticationType(Role.AuthenticationTypeEnum.ACCESS_CODE);
+            role.setAuthenticationCode("123456");
+            AuthenticationSettings authenticationsetting = new AuthenticationSettings();
+            authenticationsetting.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.UNTIL_SIGN_COMPLETED);
+            role.authenticationSettings(authenticationsetting);
             role.setSignerRole("Manager");
             role.setFormFields(Collections.singletonList(formField));
             MergeAndSendForSignForm mergeAndSendForm = new MergeAndSendForSignForm();
@@ -1912,6 +1922,11 @@ public class TemplateApiTest
             role2.setSignerEmail("david@gmail.com");
             role2.setSignerName("david");
             role2.setSignerType(Role.SignerTypeEnum.SIGNER);
+            role2.setAuthenticationType(Role.AuthenticationTypeEnum.ACCESS_CODE);
+            role2.setAuthenticationCode("123456");
+            AuthenticationSettings authenticationsetting = new AuthenticationSettings();
+            authenticationsetting.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.ONCE_PER_DOCUMENT);
+            role2.authenticationSettings(authenticationsetting);
             role2.setSignerRole("Team Lead");
             role2.setSignerOrder(2);
             role2.setRoleIndex(2);
@@ -1929,6 +1944,40 @@ public class TemplateApiTest
             System.out.println("Generated Embedded Send URL: " + sendUrl.toString());
         } catch (ApiException e) {
             Assertions.fail("API Exception occurred: " + e.getMessage());
+        }
+    }
+
+    @Test
+    @Order(47)
+    public void testMergeCreateEmbeddedRequestUrlTemplate_Negative() {
+        try {
+            Role role1 = new Role();
+            role1.setSignerEmail("sivaramani.sivaraj@syncfusion.com");
+            role1.setSignerName("sivaramani");
+            role1.setSignerType(Role.SignerTypeEnum.SIGNER);
+            role1.setSignerRole("Manager");
+            role1.setSignerOrder(1);
+            role1.setRoleIndex(1);
+            Role role2 = new Role();
+            role2.setSignerEmail("david@gmail.com");
+            role2.setSignerName("david");
+            role2.setSignerType(Role.SignerTypeEnum.SIGNER);
+            role2.setSignerRole("Team Lead");
+            role2.setSignerOrder(2);
+            role2.setRoleIndex(2);
+            File file = new File("examples/documents/agreement.pdf");
+            List<File> files = Arrays.asList(file);
+            EmbeddedMergeTemplateFormRequest request = new EmbeddedMergeTemplateFormRequest();
+            request.setFiles(files);
+            request.setTitle("Negative Test - Invalid Template IDs");
+            request.setRoles(Arrays.asList(role1, role2));
+            request.setTemplateIds(Arrays.asList("invalid-template-id-1", "invalid-template-id-2"));
+            EmbeddedSendCreated response = templateApi.mergeCreateEmbeddedRequestUrlTemplate(request);
+            Assertions.fail("Expected an ApiException to be thrown due to invalid template IDs");
+        } catch (ApiException e) {
+            assertEquals(400, e.getCode());
+        } catch (Exception e) {
+            Assertions.fail("Unexpected exception occurred: " + e.getMessage());
         }
     }
 }

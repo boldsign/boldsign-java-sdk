@@ -512,7 +512,9 @@ public class FormField {
     
     FIXED("Fixed"),
     
-    AUTO_RESIZE_FONT("AutoResizeFont");
+    AUTO_RESIZE_FONT("AutoResizeFont"),
+    
+    NULL("null");
 
     private String value;
 

@@ -32,8 +32,10 @@ import java.lang.reflect.Type;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
@@ -98,6 +100,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(File.class, fileTypeAdapter);
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AccessCodeDetail.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AccessCodeDetails.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Added.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Address.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AttachmentInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.AuditTrail.CustomTypeAdapterFactory());
@@ -175,16 +178,19 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.IdentityVerificationSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.ImageInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.MergeAndSendForSignForm.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.ModificationDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.NotificationSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.PageDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.PhoneNumber.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.PrefillField.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.PrefillFieldRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.RecipientChangeLog.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.RecipientNotificationSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Rectangle.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.ReminderMessage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.ReminderSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.RemoveAuthentication.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Removed.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.RevokeDocument.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Role.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.Roles.CustomTypeAdapterFactory());
@@ -354,6 +360,9 @@ public class JSON {
                 case NULL:
                     in.nextNull();
                     return null;
+                case NUMBER:
+					long timestamp = in.nextLong();
+					return OffsetDateTime.ofInstant(Instant.ofEpochSecond(timestamp), ZoneOffset.UTC);
                 default:
                     String date = in.nextString();
                     if (date.endsWith("+0000")) {

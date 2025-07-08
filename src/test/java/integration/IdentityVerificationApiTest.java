@@ -141,7 +141,7 @@ public class IdentityVerificationApiTest {
             imageRequest.setEmailId("girisankar.syncfusion@gmail.com");
             imageRequest.setCountryCode("+91");
             imageRequest.setPhoneNumber("87654345678");
-            imageRequest.setFileId("invalid-field-id"); // Intentionally invalid
+            imageRequest.setFileId("invalid-file-id"); // Intentionally invalid
             imageRequest.setOrder(1);
             identityVerificationApi.image(createdDocumentId, imageRequest);
             fail("Expected ApiException for invalid was not thrown");

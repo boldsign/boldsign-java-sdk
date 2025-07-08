@@ -111,6 +111,9 @@ public class DocumentApiTest {
             signer.setSignerOrder(1);
             signer.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
             signer.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.EMAIL_OTP);
+            AuthenticationSettings authenticationsetting = new AuthenticationSettings();
+            authenticationsetting.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.ONCE_PER_DOCUMENT);
+            signer.authenticationSettings(authenticationsetting);
             signer.setPrivateMessage("This is a private message for the signer.");
             FormField signatureField = new FormField()
                     .name("Signature")
@@ -193,6 +196,9 @@ public class DocumentApiTest {
             signer1.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
             signer1.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.ACCESS_CODE);
             signer1.setAuthenticationCode("123456");
+            AuthenticationSettings authenticationsetting = new AuthenticationSettings();
+            authenticationsetting.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.EVERY_ACCESS);
+            signer1.authenticationSettings(authenticationsetting);
             List<FormField> formFields1 = new ArrayList<>();
             formFields1.add(new FormField().name("Sign")
                     .fieldType(FieldTypeEnum.SIGNATURE)
@@ -209,6 +215,9 @@ public class DocumentApiTest {
             signer2.setSignerOrder(2);
             signer2.setSignerType(DocumentSigner.SignerTypeEnum.REVIEWER);
             signer2.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.EMAIL_OTP);
+            AuthenticationSettings authenticationsettings = new AuthenticationSettings();
+            authenticationsettings.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.UNTIL_SIGN_COMPLETED);
+            signer2.authenticationSettings(authenticationsettings);
             signer2.setPrivateMessage("This is private message for Reviewer");
             signers.add(signer2);
             DocumentSigner signer3 = new DocumentSigner();
@@ -218,6 +227,9 @@ public class DocumentApiTest {
             signer3.setSignerType(DocumentSigner.SignerTypeEnum.IN_PERSON_SIGNER);
             signer3.setHostEmail(senderEmail);
             signer3.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.EMAIL_OTP);
+            AuthenticationSettings authenticationSettings = new AuthenticationSettings();
+            authenticationSettings.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.NONE);
+            signer3.authenticationSettings(authenticationSettings);
             List<FormField> formFields3 = new ArrayList<>();
             formFields3.add(new FormField().name("Sign")
                     .fieldType(FieldTypeEnum.SIGNATURE)
@@ -725,6 +737,9 @@ public class DocumentApiTest {
         try {
             AccessCodeDetail accessCodeDetail = new AccessCodeDetail();
             accessCodeDetail.setAuthenticationType(AccessCodeDetail.AuthenticationTypeEnum.EMAIL_OTP);
+            AuthenticationSettings authenticationSettings = new AuthenticationSettings();
+            authenticationSettings.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.EVERY_ACCESS);
+            accessCodeDetail.authenticationSettings(authenticationSettings);
             accessCodeDetail.setEmailId("divya.boopathy+9@syncfusion.com");
             documentApi.addAuthentication(documentId, accessCodeDetail);
             assertTrue(true, "Email OTP Authentication added successfully to the document.");
@@ -1823,7 +1838,11 @@ public class DocumentApiTest {
             documentSigner.setEmailAddress("signer1@boldsign.dev");
             documentSigner.setSignerOrder(1);
             documentSigner.setSignerType(DocumentSigner.SignerTypeEnum.SIGNER);
-            documentSigner.setAuthenticationCode("1123");
+            documentSigner.setAuthenticationType(DocumentSigner.AuthenticationTypeEnum.ACCESS_CODE);
+            documentSigner.setAuthenticationCode("123456");
+            AuthenticationSettings authenticationsetting = new AuthenticationSettings();
+            authenticationsetting.setAuthenticationFrequency(AuthenticationSettings.AuthenticationFrequencyEnum.UNTIL_SIGN_COMPLETED);
+            documentSigner.authenticationSettings(authenticationsetting);
             documentSigner.setPrivateMessage("This is private message for signer");
             documentSigner.setFormFields(Arrays.asList(formField));
             documentSigner.setLocale(DocumentSigner.LocaleEnum.EN);

@@ -53,6 +53,7 @@
 | DAYS | &quot;Days&quot; |
 | HOURS | &quot;Hours&quot; |
 | SPECIFIC_DATE_TIME | &quot;SpecificDateTime&quot; |
+| NULL | &quot;null&quot; |
 
 
 
@@ -62,6 +63,7 @@
 |---- | -----|
 | COMBINED | &quot;Combined&quot; |
 | INDIVIDUALLY | &quot;Individually&quot; |
+| NULL | &quot;null&quot; |
 
 
 

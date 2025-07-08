@@ -165,7 +165,7 @@ public class Example {
 | **showSharedCustomFields** | **Boolean**|  | [optional] [default to false] |
 | **hideDecline** | **Boolean**|  | [optional] |
 | **hideSave** | **Boolean**|  | [optional] |
-| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime] |
+| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime, ] |
 | **documentExpirySettingsExpiryValue** | **Integer**|  | [optional] |
 | **documentExpirySettingsEnableDefaultExpiryAlert** | **Boolean**|  | [optional] |
 | **documentExpirySettingsEnableAutoReminder** | **Boolean**|  | [optional] |
@@ -354,7 +354,7 @@ public class Example {
 | **showSharedCustomFields** | **Boolean**|  | [optional] [default to false] |
 | **hideDecline** | **Boolean**|  | [optional] |
 | **hideSave** | **Boolean**|  | [optional] |
-| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime] |
+| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime, ] |
 | **documentExpirySettingsExpiryValue** | **Integer**|  | [optional] |
 | **documentExpirySettingsEnableDefaultExpiryAlert** | **Boolean**|  | [optional] |
 | **documentExpirySettingsEnableAutoReminder** | **Boolean**|  | [optional] |

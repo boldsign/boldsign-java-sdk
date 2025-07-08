@@ -56,7 +56,9 @@ public class Font {
     
     TIMES_ROMAN("TimesRoman"),
     
-    NOTO_SANS("NotoSans");
+    NOTO_SANS("NotoSans"),
+    
+    NULL("null");
 
     private String value;
 
@@ -124,7 +126,9 @@ public class Font {
     
     ITALIC("Italic"),
     
-    UNDERLINE("Underline");
+    UNDERLINE("Underline"),
+    
+    NULL("null");
 
     private String value;
 

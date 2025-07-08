@@ -54,7 +54,9 @@ public class DocumentExpirySettings {
     
     HOURS("Hours"),
     
-    SPECIFIC_DATE_TIME("SpecificDateTime");
+    SPECIFIC_DATE_TIME("SpecificDateTime"),
+    
+    NULL("null");
 
     private String value;
 

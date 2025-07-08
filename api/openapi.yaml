@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.4
 info:
   title: BoldSign API
   version: "1"
@@ -15651,7 +15651,7 @@ components:
           - AccessCode
           - SMSOTP
           - IdVerification
-          title: Nullable`1
+          title: AuthenticationType
           type: string
         onBehalfOf:
           nullable: true
@@ -15696,6 +15696,27 @@ components:
       required:
       - accessCode
       title: AccessCodeDetails
+      type: object
+    Added:
+      additionalProperties: false
+      example:
+        signerEmail: signerEmail
+        signerName: signerName
+        signerPhoneNumber: signerPhoneNumber
+      properties:
+        signerName:
+          nullable: true
+          title: String
+          type: string
+        signerEmail:
+          nullable: true
+          title: String
+          type: string
+        signerPhoneNumber:
+          nullable: true
+          title: String
+          type: string
+      title: Added
       type: object
     Address:
       additionalProperties: false
@@ -15772,7 +15793,28 @@ components:
       additionalProperties: false
       example:
         ipaddress: ipaddress
+        recipientChangeLog:
+          removed:
+          - signerEmail: signerEmail
+            signerName: signerName
+            signerPhoneNumber: signerPhoneNumber
+          - signerEmail: signerEmail
+            signerName: signerName
+            signerPhoneNumber: signerPhoneNumber
+          added:
+          - signerEmail: signerEmail
+            signerName: signerName
+            signerPhoneNumber: signerPhoneNumber
+          - signerEmail: signerEmail
+            signerName: signerName
+            signerPhoneNumber: signerPhoneNumber
         toName: toName
+        documentChangeLog:
+          addedCount: 2
+          removedCount: 5
+        fieldChangeLog:
+          addedCount: 2
+          removedCount: 5
         name: name
         action: Sent
         id: id
@@ -15890,6 +15932,12 @@ components:
           format: int64
           title: Int64
           type: integer
+        recipientChangeLog:
+          $ref: '#/components/schemas/RecipientChangeLog'
+        documentChangeLog:
+          $ref: '#/components/schemas/ModificationDetails'
+        fieldChangeLog:
+          $ref: '#/components/schemas/ModificationDetails'
       title: AuditTrail
       type: object
     AuthenticationSettings:
@@ -15903,6 +15951,7 @@ components:
           - EveryAccess
           - UntilSignCompleted
           - OncePerDocument
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -18816,6 +18865,7 @@ components:
           - GrowBoth
           - Fixed
           - AutoResizeFont
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -19398,6 +19448,7 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -19671,6 +19722,7 @@ components:
           - GrowBoth
           - Fixed
           - AutoResizeFont
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -19755,7 +19807,28 @@ components:
       example:
         documentHistory:
         - ipaddress: ipaddress
+          recipientChangeLog:
+            removed:
+            - signerEmail: signerEmail
+              signerName: signerName
+              signerPhoneNumber: signerPhoneNumber
+            - signerEmail: signerEmail
+              signerName: signerName
+              signerPhoneNumber: signerPhoneNumber
+            added:
+            - signerEmail: signerEmail
+              signerName: signerName
+              signerPhoneNumber: signerPhoneNumber
+            - signerEmail: signerEmail
+              signerName: signerName
+              signerPhoneNumber: signerPhoneNumber
           toName: toName
+          documentChangeLog:
+            addedCount: 2
+            removedCount: 5
+          fieldChangeLog:
+            addedCount: 2
+            removedCount: 5
           name: name
           action: Sent
           id: id
@@ -19763,7 +19836,28 @@ components:
           email: email
           timestamp: 5
         - ipaddress: ipaddress
+          recipientChangeLog:
+            removed:
+            - signerEmail: signerEmail
+              signerName: signerName
+              signerPhoneNumber: signerPhoneNumber
+            - signerEmail: signerEmail
+              signerName: signerName
+              signerPhoneNumber: signerPhoneNumber
+            added:
+            - signerEmail: signerEmail
+              signerName: signerName
+              signerPhoneNumber: signerPhoneNumber
+            - signerEmail: signerEmail
+              signerName: signerName
+              signerPhoneNumber: signerPhoneNumber
           toName: toName
+          documentChangeLog:
+            addedCount: 2
+            removedCount: 5
+          fieldChangeLog:
+            addedCount: 2
+            removedCount: 5
           name: name
           action: Sent
           id: id
@@ -19778,11 +19872,11 @@ components:
           message: message
           order: 1
         hideDocumentId: true
-        expiryDate: 9
+        expiryDate: 2
         disableEmails: true
         metaData:
           key: metaData
-        activityDate: 5
+        activityDate: 7
         isDeleted: true
         reminderSettings:
           enableAutoReminder: false
@@ -20174,7 +20268,7 @@ components:
           privateMessage: privateMessage
           isViewed: false
         activityBy: activityBy
-        scheduledSendTime: 2
+        scheduledSendTime: 7
         ccDetails:
         - emailAddress: emailAddress
           isViewed: false
@@ -20183,7 +20277,7 @@ components:
         enableAuditTrailLocalization: true
         downloadFileName: downloadFileName
         documentDescription: documentDescription
-        expiryValue: 3
+        expiryValue: 4
         enablePrintAndSign: true
         formGroups:
         - groupNames:
@@ -20225,7 +20319,7 @@ components:
         - labels
         - labels
         documentDownloadOption: Combined
-        createdDate: 2
+        createdDate: 9
         declineMessage: declineMessage
         brandId: brandId
         files:
@@ -20375,7 +20469,7 @@ components:
           allowDeleteFormField: true
           fontColor: fontColor
           font: font
-        expiryDays: 7
+        expiryDays: 3
         applicationId: applicationId
         activityAction: Viewed
         status: InProgress
@@ -24101,6 +24195,7 @@ components:
           type: boolean
         embeddedSendLinkValidTill:
           format: date-time
+          nullable: true
           title: Nullable`1
           type: string
         files:
@@ -24149,6 +24244,7 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -24241,6 +24337,7 @@ components:
           enum:
           - Combined
           - Individually
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -25072,6 +25169,7 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -25121,6 +25219,7 @@ components:
           enum:
           - Combined
           - Individually
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -25787,6 +25886,7 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -25836,6 +25936,7 @@ components:
           enum:
           - Combined
           - Individually
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -26138,6 +26239,7 @@ components:
           - Courier
           - TimesRoman
           - NotoSans
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -26156,6 +26258,7 @@ components:
           - Bold
           - Italic
           - Underline
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -26426,6 +26529,7 @@ components:
           - GrowBoth
           - Fixed
           - AutoResizeFont
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -26696,6 +26800,7 @@ components:
           - EveryAccess
           - UntilSignCompleted
           - OncePerDocument
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -26719,6 +26824,7 @@ components:
           - Strict
           - Moderate
           - Lenient
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -27426,6 +27532,7 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -27475,6 +27582,7 @@ components:
           enum:
           - Combined
           - Individually
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -27522,6 +27630,22 @@ components:
           title: Boolean
           type: boolean
       title: MergeAndSendForSignForm
+      type: object
+    ModificationDetails:
+      additionalProperties: false
+      example:
+        addedCount: 2
+        removedCount: 5
+      properties:
+        removedCount:
+          format: int32
+          title: Int32
+          type: integer
+        addedCount:
+          format: int32
+          title: Int32
+          type: integer
+      title: ModificationDetails
       type: object
     NotificationSettings:
       additionalProperties: false
@@ -27682,6 +27806,38 @@ components:
       required:
       - fields
       title: PrefillFieldRequest
+      type: object
+    RecipientChangeLog:
+      additionalProperties: false
+      example:
+        removed:
+        - signerEmail: signerEmail
+          signerName: signerName
+          signerPhoneNumber: signerPhoneNumber
+        - signerEmail: signerEmail
+          signerName: signerName
+          signerPhoneNumber: signerPhoneNumber
+        added:
+        - signerEmail: signerEmail
+          signerName: signerName
+          signerPhoneNumber: signerPhoneNumber
+        - signerEmail: signerEmail
+          signerName: signerName
+          signerPhoneNumber: signerPhoneNumber
+      properties:
+        added:
+          items:
+            $ref: '#/components/schemas/Added'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        removed:
+          items:
+            $ref: '#/components/schemas/Removed'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+      title: RecipientChangeLog
       type: object
     RecipientNotificationSettings:
       additionalProperties: false
@@ -27858,6 +28014,27 @@ components:
           title: String
           type: string
       title: RemoveAuthentication
+      type: object
+    Removed:
+      additionalProperties: false
+      example:
+        signerEmail: signerEmail
+        signerName: signerName
+        signerPhoneNumber: signerPhoneNumber
+      properties:
+        signerName:
+          nullable: true
+          title: String
+          type: string
+        signerEmail:
+          nullable: true
+          title: String
+          type: string
+        signerPhoneNumber:
+          nullable: true
+          title: String
+          type: string
+      title: Removed
       type: object
     RevokeDocument:
       additionalProperties: false
@@ -28127,6 +28304,7 @@ components:
           - Signer
           - Reviewer
           - InPersonSigner
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -29119,6 +29297,7 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -29211,6 +29390,7 @@ components:
           enum:
           - Combined
           - Individually
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -29793,6 +29973,7 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -29842,6 +30023,7 @@ components:
           enum:
           - Combined
           - Individually
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -31504,6 +31686,7 @@ components:
           - GrowBoth
           - Fixed
           - AutoResizeFont
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -32936,7 +33119,7 @@ components:
           - Title
           - Company
           - Formula
-          title: Nullable`1
+          title: FieldType
           type: string
         signerIndex:
           format: int32
@@ -33052,6 +33235,7 @@ components:
           - GrowBoth
           - Fixed
           - AutoResizeFont
+          - null
           nullable: true
           title: Nullable`1
           type: string
@@ -33338,7 +33522,7 @@ components:
           - Currency
           - Regex
           - None
-          title: Nullable`1
+          title: ValidationType
           type: string
         regex:
           nullable: true
@@ -33669,6 +33853,8 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
+          nullable: true
           title: Nullable`1
           type: string
         DocumentExpirySettings.ExpiryValue:
@@ -33780,6 +33966,8 @@ components:
           - Days
           - Hours
           - SpecificDateTime
+          - null
+          nullable: true
           title: Nullable`1
           type: string
         DocumentExpirySettings.ExpiryValue:

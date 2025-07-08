@@ -123,7 +123,9 @@ public class SendForSignFromTemplateForm {
     
     HOURS("Hours"),
     
-    SPECIFIC_DATE_TIME("SpecificDateTime");
+    SPECIFIC_DATE_TIME("SpecificDateTime"),
+    
+    NULL("null");
 
     private String value;
 
@@ -215,7 +217,9 @@ public class SendForSignFromTemplateForm {
   public enum DocumentDownloadOptionEnum {
     COMBINED("Combined"),
     
-    INDIVIDUALLY("Individually");
+    INDIVIDUALLY("Individually"),
+    
+    NULL("null");
 
     private String value;
 

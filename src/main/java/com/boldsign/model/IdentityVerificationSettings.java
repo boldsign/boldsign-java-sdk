@@ -54,7 +54,9 @@ public class IdentityVerificationSettings {
     
     UNTIL_SIGN_COMPLETED("UntilSignCompleted"),
     
-    ONCE_PER_DOCUMENT("OncePerDocument");
+    ONCE_PER_DOCUMENT("OncePerDocument"),
+    
+    NULL("null");
 
     private String value;
 
@@ -124,7 +126,9 @@ public class IdentityVerificationSettings {
     
     MODERATE("Moderate"),
     
-    LENIENT("Lenient");
+    LENIENT("Lenient"),
+    
+    NULL("null");
 
     private String value;
 

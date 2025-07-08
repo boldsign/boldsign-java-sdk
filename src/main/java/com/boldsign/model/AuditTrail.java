@@ -14,6 +14,8 @@
 package com.boldsign.model;
 
 import java.util.Objects;
+import com.boldsign.model.ModificationDetails;
+import com.boldsign.model.RecipientChangeLog;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -281,6 +283,18 @@ public class AuditTrail {
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
   private Long timestamp;
 
+  public static final String SERIALIZED_NAME_RECIPIENT_CHANGE_LOG = "recipientChangeLog";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_CHANGE_LOG)
+  private RecipientChangeLog recipientChangeLog;
+
+  public static final String SERIALIZED_NAME_DOCUMENT_CHANGE_LOG = "documentChangeLog";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_CHANGE_LOG)
+  private ModificationDetails documentChangeLog;
+
+  public static final String SERIALIZED_NAME_FIELD_CHANGE_LOG = "fieldChangeLog";
+  @SerializedName(SERIALIZED_NAME_FIELD_CHANGE_LOG)
+  private ModificationDetails fieldChangeLog;
+
   public AuditTrail() {
   }
 
@@ -436,6 +450,63 @@ public class AuditTrail {
   }
 
 
+  public AuditTrail recipientChangeLog(RecipientChangeLog recipientChangeLog) {
+    this.recipientChangeLog = recipientChangeLog;
+    return this;
+  }
+
+  /**
+   * Get recipientChangeLog
+   * @return recipientChangeLog
+   */
+  @javax.annotation.Nullable
+  public RecipientChangeLog getRecipientChangeLog() {
+    return recipientChangeLog;
+  }
+
+  public void setRecipientChangeLog(RecipientChangeLog recipientChangeLog) {
+    this.recipientChangeLog = recipientChangeLog;
+  }
+
+
+  public AuditTrail documentChangeLog(ModificationDetails documentChangeLog) {
+    this.documentChangeLog = documentChangeLog;
+    return this;
+  }
+
+  /**
+   * Get documentChangeLog
+   * @return documentChangeLog
+   */
+  @javax.annotation.Nullable
+  public ModificationDetails getDocumentChangeLog() {
+    return documentChangeLog;
+  }
+
+  public void setDocumentChangeLog(ModificationDetails documentChangeLog) {
+    this.documentChangeLog = documentChangeLog;
+  }
+
+
+  public AuditTrail fieldChangeLog(ModificationDetails fieldChangeLog) {
+    this.fieldChangeLog = fieldChangeLog;
+    return this;
+  }
+
+  /**
+   * Get fieldChangeLog
+   * @return fieldChangeLog
+   */
+  @javax.annotation.Nullable
+  public ModificationDetails getFieldChangeLog() {
+    return fieldChangeLog;
+  }
+
+  public void setFieldChangeLog(ModificationDetails fieldChangeLog) {
+    this.fieldChangeLog = fieldChangeLog;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -453,12 +524,15 @@ public class AuditTrail {
         Objects.equals(this.toEmail, auditTrail.toEmail) &&
         Objects.equals(this.ipaddress, auditTrail.ipaddress) &&
         Objects.equals(this.action, auditTrail.action) &&
-        Objects.equals(this.timestamp, auditTrail.timestamp);
+        Objects.equals(this.timestamp, auditTrail.timestamp) &&
+        Objects.equals(this.recipientChangeLog, auditTrail.recipientChangeLog) &&
+        Objects.equals(this.documentChangeLog, auditTrail.documentChangeLog) &&
+        Objects.equals(this.fieldChangeLog, auditTrail.fieldChangeLog);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, email, toName, toEmail, ipaddress, action, timestamp);
+    return Objects.hash(id, name, email, toName, toEmail, ipaddress, action, timestamp, recipientChangeLog, documentChangeLog, fieldChangeLog);
   }
 
   @Override
@@ -473,6 +547,9 @@ public class AuditTrail {
     sb.append("    ipaddress: ").append(toIndentedString(ipaddress)).append("\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    recipientChangeLog: ").append(toIndentedString(recipientChangeLog)).append("\n");
+    sb.append("    documentChangeLog: ").append(toIndentedString(documentChangeLog)).append("\n");
+    sb.append("    fieldChangeLog: ").append(toIndentedString(fieldChangeLog)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -640,6 +717,66 @@ public class AuditTrail {
           map.put("timestamp", JSON.serialize(timestamp));
         }
     }
+    if (recipientChangeLog != null) {
+        if (isFileTypeOrListOfFiles(recipientChangeLog)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientChangeLog.getClass().equals(java.io.File.class) ||
+            recipientChangeLog.getClass().equals(Integer.class) ||
+            recipientChangeLog.getClass().equals(String.class) ||
+            recipientChangeLog.getClass().equals(java.net.URI.class)||
+            recipientChangeLog.getClass().isEnum()) {
+            map.put("recipientChangeLog", recipientChangeLog);
+        } else if (isListOfFile(recipientChangeLog)) {
+            for(int i = 0; i< getListSize(recipientChangeLog); i++) {
+                map.put("recipientChangeLog", recipientChangeLog);
+            }
+        }
+        else {
+          map.put("recipientChangeLog", JSON.serialize(recipientChangeLog));
+        }
+    }
+    if (documentChangeLog != null) {
+        if (isFileTypeOrListOfFiles(documentChangeLog)) {
+            fileTypeFound = true;
+        }
+
+        if (documentChangeLog.getClass().equals(java.io.File.class) ||
+            documentChangeLog.getClass().equals(Integer.class) ||
+            documentChangeLog.getClass().equals(String.class) ||
+            documentChangeLog.getClass().equals(java.net.URI.class)||
+            documentChangeLog.getClass().isEnum()) {
+            map.put("documentChangeLog", documentChangeLog);
+        } else if (isListOfFile(documentChangeLog)) {
+            for(int i = 0; i< getListSize(documentChangeLog); i++) {
+                map.put("documentChangeLog", documentChangeLog);
+            }
+        }
+        else {
+          map.put("documentChangeLog", JSON.serialize(documentChangeLog));
+        }
+    }
+    if (fieldChangeLog != null) {
+        if (isFileTypeOrListOfFiles(fieldChangeLog)) {
+            fileTypeFound = true;
+        }
+
+        if (fieldChangeLog.getClass().equals(java.io.File.class) ||
+            fieldChangeLog.getClass().equals(Integer.class) ||
+            fieldChangeLog.getClass().equals(String.class) ||
+            fieldChangeLog.getClass().equals(java.net.URI.class)||
+            fieldChangeLog.getClass().isEnum()) {
+            map.put("fieldChangeLog", fieldChangeLog);
+        } else if (isListOfFile(fieldChangeLog)) {
+            for(int i = 0; i< getListSize(fieldChangeLog); i++) {
+                map.put("fieldChangeLog", fieldChangeLog);
+            }
+        }
+        else {
+          map.put("fieldChangeLog", JSON.serialize(fieldChangeLog));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -693,6 +830,9 @@ public class AuditTrail {
     openapiFields.add("ipaddress");
     openapiFields.add("action");
     openapiFields.add("timestamp");
+    openapiFields.add("recipientChangeLog");
+    openapiFields.add("documentChangeLog");
+    openapiFields.add("fieldChangeLog");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -736,6 +876,18 @@ public class AuditTrail {
       // validate the optional field `action`
       if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) {
         ActionEnum.validateJsonElement(jsonObj.get("action"));
+      }
+      // validate the optional field `recipientChangeLog`
+      if (jsonObj.get("recipientChangeLog") != null && !jsonObj.get("recipientChangeLog").isJsonNull()) {
+        RecipientChangeLog.validateJsonElement(jsonObj.get("recipientChangeLog"));
+      }
+      // validate the optional field `documentChangeLog`
+      if (jsonObj.get("documentChangeLog") != null && !jsonObj.get("documentChangeLog").isJsonNull()) {
+        ModificationDetails.validateJsonElement(jsonObj.get("documentChangeLog"));
+      }
+      // validate the optional field `fieldChangeLog`
+      if (jsonObj.get("fieldChangeLog") != null && !jsonObj.get("fieldChangeLog").isJsonNull()) {
+        ModificationDetails.validateJsonElement(jsonObj.get("fieldChangeLog"));
       }
   }
 

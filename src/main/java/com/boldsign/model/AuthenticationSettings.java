@@ -56,7 +56,9 @@ public class AuthenticationSettings {
     
     UNTIL_SIGN_COMPLETED("UntilSignCompleted"),
     
-    ONCE_PER_DOCUMENT("OncePerDocument");
+    ONCE_PER_DOCUMENT("OncePerDocument"),
+    
+    NULL("null");
 
     private String value;
 

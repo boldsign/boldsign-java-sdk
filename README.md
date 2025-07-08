@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:1.0.2"
+     implementation "com.boldsign:boldsign-java:1.0.3"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-1.0.2.jar`
+* `target/boldsign-java-1.0.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -204,6 +204,7 @@ Class | Method | HTTP request | Description
 
  - [AccessCodeDetail](docs/AccessCodeDetail.md)
  - [AccessCodeDetails](docs/AccessCodeDetails.md)
+ - [Added](docs/Added.md)
  - [Address](docs/Address.md)
  - [AttachmentInfo](docs/AttachmentInfo.md)
  - [AuditTrail](docs/AuditTrail.md)
@@ -281,16 +282,19 @@ Class | Method | HTTP request | Description
  - [IdentityVerificationSettings](docs/IdentityVerificationSettings.md)
  - [ImageInfo](docs/ImageInfo.md)
  - [MergeAndSendForSignForm](docs/MergeAndSendForSignForm.md)
+ - [ModificationDetails](docs/ModificationDetails.md)
  - [NotificationSettings](docs/NotificationSettings.md)
  - [PageDetails](docs/PageDetails.md)
  - [PhoneNumber](docs/PhoneNumber.md)
  - [PrefillField](docs/PrefillField.md)
  - [PrefillFieldRequest](docs/PrefillFieldRequest.md)
+ - [RecipientChangeLog](docs/RecipientChangeLog.md)
  - [RecipientNotificationSettings](docs/RecipientNotificationSettings.md)
  - [Rectangle](docs/Rectangle.md)
  - [ReminderMessage](docs/ReminderMessage.md)
  - [ReminderSettings](docs/ReminderSettings.md)
  - [RemoveAuthentication](docs/RemoveAuthentication.md)
+ - [Removed](docs/Removed.md)
  - [RevokeDocument](docs/RevokeDocument.md)
  - [Role](docs/Role.md)
  - [Roles](docs/Roles.md)
