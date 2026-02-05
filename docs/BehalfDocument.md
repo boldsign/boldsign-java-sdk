@@ -24,6 +24,8 @@
 |**cursor** | **Long** |  |  [optional] |
 |**brandId** | **String** |  |  [optional] |
 |**scheduledSendTime** | **Long** |  |  [optional] |
+|**inEditingMode** | **Boolean** |  |  [optional] |
+|**displayStatus** | **String** |  |  [optional] |
 
 
 

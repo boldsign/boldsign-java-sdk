@@ -50,6 +50,11 @@
 | RU | &quot;RU&quot; |
 | SV | &quot;SV&quot; |
 | DEFAULT | &quot;Default&quot; |
+| JA | &quot;JA&quot; |
+| TH | &quot;TH&quot; |
+| ZH_CN | &quot;ZH_CN&quot; |
+| ZH_TW | &quot;ZH_TW&quot; |
+| KO | &quot;KO&quot; |
 
 
 

@@ -58,6 +58,10 @@ public class EditableDateFieldSettings {
   @SerializedName(SERIALIZED_NAME_MAX_DATE)
   private OffsetDateTime maxDate;
 
+  public static final String SERIALIZED_NAME_TIME_FORMAT = "timeFormat";
+  @SerializedName(SERIALIZED_NAME_TIME_FORMAT)
+  private String timeFormat;
+
   public EditableDateFieldSettings() {
   }
 
@@ -118,6 +122,25 @@ public class EditableDateFieldSettings {
   }
 
 
+  public EditableDateFieldSettings timeFormat(String timeFormat) {
+    this.timeFormat = timeFormat;
+    return this;
+  }
+
+  /**
+   * Get timeFormat
+   * @return timeFormat
+   */
+  @javax.annotation.Nullable
+  public String getTimeFormat() {
+    return timeFormat;
+  }
+
+  public void setTimeFormat(String timeFormat) {
+    this.timeFormat = timeFormat;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -130,12 +153,13 @@ public class EditableDateFieldSettings {
     EditableDateFieldSettings editableDateFieldSettings = (EditableDateFieldSettings) o;
     return Objects.equals(this.dateFormat, editableDateFieldSettings.dateFormat) &&
         Objects.equals(this.minDate, editableDateFieldSettings.minDate) &&
-        Objects.equals(this.maxDate, editableDateFieldSettings.maxDate);
+        Objects.equals(this.maxDate, editableDateFieldSettings.maxDate) &&
+        Objects.equals(this.timeFormat, editableDateFieldSettings.timeFormat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dateFormat, minDate, maxDate);
+    return Objects.hash(dateFormat, minDate, maxDate, timeFormat);
   }
 
   @Override
@@ -145,6 +169,7 @@ public class EditableDateFieldSettings {
     sb.append("    dateFormat: ").append(toIndentedString(dateFormat)).append("\n");
     sb.append("    minDate: ").append(toIndentedString(minDate)).append("\n");
     sb.append("    maxDate: ").append(toIndentedString(maxDate)).append("\n");
+    sb.append("    timeFormat: ").append(toIndentedString(timeFormat)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -212,6 +237,26 @@ public class EditableDateFieldSettings {
           map.put("maxDate", JSON.serialize(maxDate));
         }
     }
+    if (timeFormat != null) {
+        if (isFileTypeOrListOfFiles(timeFormat)) {
+            fileTypeFound = true;
+        }
+
+        if (timeFormat.getClass().equals(java.io.File.class) ||
+            timeFormat.getClass().equals(Integer.class) ||
+            timeFormat.getClass().equals(String.class) ||
+            timeFormat.getClass().equals(java.net.URI.class)||
+            timeFormat.getClass().isEnum()) {
+            map.put("timeFormat", timeFormat);
+        } else if (isListOfFile(timeFormat)) {
+            for(int i = 0; i< getListSize(timeFormat); i++) {
+                map.put("timeFormat", timeFormat);
+            }
+        }
+        else {
+          map.put("timeFormat", JSON.serialize(timeFormat));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -260,6 +305,7 @@ public class EditableDateFieldSettings {
     openapiFields.add("dateFormat");
     openapiFields.add("minDate");
     openapiFields.add("maxDate");
+    openapiFields.add("timeFormat");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -289,6 +335,9 @@ public class EditableDateFieldSettings {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("dateFormat") != null && !jsonObj.get("dateFormat").isJsonNull()) && !jsonObj.get("dateFormat").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dateFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dateFormat").toString()));
+      }
+      if ((jsonObj.get("timeFormat") != null && !jsonObj.get("timeFormat").isJsonNull()) && !jsonObj.get("timeFormat").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `timeFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeFormat").toString()));
       }
   }
 

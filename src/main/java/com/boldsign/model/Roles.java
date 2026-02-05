@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.boldsign.model.PhoneNumber;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.TemplateFormFields;
+import com.boldsign.model.TemplateGroupSigner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -141,7 +142,7 @@ public class Roles {
   private String hostName;
 
   /**
-   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;/ul&gt;
+   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;li&gt;&lt;i&gt;16&lt;/i&gt; - Japanese&lt;/li&gt;&lt;li&gt;&lt;i&gt;17&lt;/i&gt; - Thai&lt;/li&gt;&lt;li&gt;&lt;i&gt;18&lt;/i&gt; - SimplifiedChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;19&lt;/i&gt; - TraditionalChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;20&lt;/i&gt; - Korean&lt;/li&gt;&lt;/ul&gt;
    */
   @JsonAdapter(LanguageEnum.Adapter.class)
   public enum LanguageEnum {
@@ -175,7 +176,17 @@ public class Roles {
     
     NUMBER_14(14),
     
-    NUMBER_15(15);
+    NUMBER_15(15),
+    
+    NUMBER_16(16),
+    
+    NUMBER_17(17),
+    
+    NUMBER_18(18),
+    
+    NUMBER_19(19),
+    
+    NUMBER_20(20);
 
     private Integer value;
 
@@ -259,7 +270,17 @@ public class Roles {
     
     SV("SV"),
     
-    DEFAULT("Default");
+    DEFAULT("Default"),
+    
+    JA("JA"),
+    
+    TH("TH"),
+    
+    ZH_CN("ZH_CN"),
+    
+    ZH_TW("ZH_TW"),
+    
+    KO("KO");
 
     private String value;
 
@@ -307,6 +328,66 @@ public class Roles {
   public static final String SERIALIZED_NAME_LOCALE = "locale";
   @SerializedName(SERIALIZED_NAME_LOCALE)
   private LocaleEnum locale;
+
+  /**
+   * Gets or Sets signType
+   */
+  @JsonAdapter(SignTypeEnum.Adapter.class)
+  public enum SignTypeEnum {
+    SINGLE("Single"),
+    
+    GROUP("Group");
+
+    private String value;
+
+    SignTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SignTypeEnum fromValue(String value) {
+      for (SignTypeEnum b : SignTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SignTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SignTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SignTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SignTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SignTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SIGN_TYPE = "signType";
+  @SerializedName(SERIALIZED_NAME_SIGN_TYPE)
+  private SignTypeEnum signType;
+
+  public static final String SERIALIZED_NAME_DEFAULT_GROUP_ID = "defaultGroupId";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_GROUP_ID)
+  private String defaultGroupId;
 
   public static final String SERIALIZED_NAME_ALLOW_ROLE_EDIT = "allowRoleEdit";
   @SerializedName(SERIALIZED_NAME_ALLOW_ROLE_EDIT)
@@ -469,6 +550,10 @@ public class Roles {
   public static final String SERIALIZED_NAME_ENABLE_QES = "enableQes";
   @SerializedName(SERIALIZED_NAME_ENABLE_QES)
   private Boolean enableQes;
+
+  public static final String SERIALIZED_NAME_GROUP_SIGNERS = "groupSigners";
+  @SerializedName(SERIALIZED_NAME_GROUP_SIGNERS)
+  private List<TemplateGroupSigner> groupSigners;
 
   public Roles() {
   }
@@ -650,7 +735,7 @@ public class Roles {
   }
 
   /**
-   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;/ul&gt;
+   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;li&gt;&lt;i&gt;16&lt;/i&gt; - Japanese&lt;/li&gt;&lt;li&gt;&lt;i&gt;17&lt;/i&gt; - Thai&lt;/li&gt;&lt;li&gt;&lt;i&gt;18&lt;/i&gt; - SimplifiedChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;19&lt;/i&gt; - TraditionalChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;20&lt;/i&gt; - Korean&lt;/li&gt;&lt;/ul&gt;
    * @return language
    */
   @javax.annotation.Nullable
@@ -679,6 +764,44 @@ public class Roles {
 
   public void setLocale(LocaleEnum locale) {
     this.locale = locale;
+  }
+
+
+  public Roles signType(SignTypeEnum signType) {
+    this.signType = signType;
+    return this;
+  }
+
+  /**
+   * Get signType
+   * @return signType
+   */
+  @javax.annotation.Nullable
+  public SignTypeEnum getSignType() {
+    return signType;
+  }
+
+  public void setSignType(SignTypeEnum signType) {
+    this.signType = signType;
+  }
+
+
+  public Roles defaultGroupId(String defaultGroupId) {
+    this.defaultGroupId = defaultGroupId;
+    return this;
+  }
+
+  /**
+   * Get defaultGroupId
+   * @return defaultGroupId
+   */
+  @javax.annotation.Nullable
+  public String getDefaultGroupId() {
+    return defaultGroupId;
+  }
+
+  public void setDefaultGroupId(String defaultGroupId) {
+    this.defaultGroupId = defaultGroupId;
   }
 
 
@@ -918,6 +1041,33 @@ public class Roles {
   }
 
 
+  public Roles groupSigners(List<TemplateGroupSigner> groupSigners) {
+    this.groupSigners = groupSigners;
+    return this;
+  }
+
+  public Roles addGroupSignersItem(TemplateGroupSigner groupSignersItem) {
+    if (this.groupSigners == null) {
+      this.groupSigners = new ArrayList<>();
+    }
+    this.groupSigners.add(groupSignersItem);
+    return this;
+  }
+
+  /**
+   * Get groupSigners
+   * @return groupSigners
+   */
+  @javax.annotation.Nullable
+  public List<TemplateGroupSigner> getGroupSigners() {
+    return groupSigners;
+  }
+
+  public void setGroupSigners(List<TemplateGroupSigner> groupSigners) {
+    this.groupSigners = groupSigners;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -939,6 +1089,8 @@ public class Roles {
         Objects.equals(this.hostName, roles.hostName) &&
         Objects.equals(this.language, roles.language) &&
         Objects.equals(this.locale, roles.locale) &&
+        Objects.equals(this.signType, roles.signType) &&
+        Objects.equals(this.defaultGroupId, roles.defaultGroupId) &&
         Objects.equals(this.allowRoleEdit, roles.allowRoleEdit) &&
         Objects.equals(this.allowRoleDelete, roles.allowRoleDelete) &&
         Objects.equals(this.enableAccessCode, roles.enableAccessCode) &&
@@ -950,12 +1102,13 @@ public class Roles {
         Objects.equals(this.enableEditRecipients, roles.enableEditRecipients) &&
         Objects.equals(this.enableDeleteRecipients, roles.enableDeleteRecipients) &&
         Objects.equals(this.recipientNotificationSettings, roles.recipientNotificationSettings) &&
-        Objects.equals(this.enableQes, roles.enableQes);
+        Objects.equals(this.enableQes, roles.enableQes) &&
+        Objects.equals(this.groupSigners, roles.groupSigners);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, index, defaultSignerName, defaultSignerEmail, phoneNumber, signerOrder, signerType, hostEmail, hostName, language, locale, allowRoleEdit, allowRoleDelete, enableAccessCode, enableEmailOTP, imposeAuthentication, deliveryMode, allowFieldConfiguration, formFields, enableEditRecipients, enableDeleteRecipients, recipientNotificationSettings, enableQes);
+    return Objects.hash(name, index, defaultSignerName, defaultSignerEmail, phoneNumber, signerOrder, signerType, hostEmail, hostName, language, locale, signType, defaultGroupId, allowRoleEdit, allowRoleDelete, enableAccessCode, enableEmailOTP, imposeAuthentication, deliveryMode, allowFieldConfiguration, formFields, enableEditRecipients, enableDeleteRecipients, recipientNotificationSettings, enableQes, groupSigners);
   }
 
   @Override
@@ -973,6 +1126,8 @@ public class Roles {
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("    signType: ").append(toIndentedString(signType)).append("\n");
+    sb.append("    defaultGroupId: ").append(toIndentedString(defaultGroupId)).append("\n");
     sb.append("    allowRoleEdit: ").append(toIndentedString(allowRoleEdit)).append("\n");
     sb.append("    allowRoleDelete: ").append(toIndentedString(allowRoleDelete)).append("\n");
     sb.append("    enableAccessCode: ").append(toIndentedString(enableAccessCode)).append("\n");
@@ -985,6 +1140,7 @@ public class Roles {
     sb.append("    enableDeleteRecipients: ").append(toIndentedString(enableDeleteRecipients)).append("\n");
     sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
+    sb.append("    groupSigners: ").append(toIndentedString(groupSigners)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1212,6 +1368,46 @@ public class Roles {
           map.put("locale", JSON.serialize(locale));
         }
     }
+    if (signType != null) {
+        if (isFileTypeOrListOfFiles(signType)) {
+            fileTypeFound = true;
+        }
+
+        if (signType.getClass().equals(java.io.File.class) ||
+            signType.getClass().equals(Integer.class) ||
+            signType.getClass().equals(String.class) ||
+            signType.getClass().equals(java.net.URI.class)||
+            signType.getClass().isEnum()) {
+            map.put("signType", signType);
+        } else if (isListOfFile(signType)) {
+            for(int i = 0; i< getListSize(signType); i++) {
+                map.put("signType", signType);
+            }
+        }
+        else {
+          map.put("signType", JSON.serialize(signType));
+        }
+    }
+    if (defaultGroupId != null) {
+        if (isFileTypeOrListOfFiles(defaultGroupId)) {
+            fileTypeFound = true;
+        }
+
+        if (defaultGroupId.getClass().equals(java.io.File.class) ||
+            defaultGroupId.getClass().equals(Integer.class) ||
+            defaultGroupId.getClass().equals(String.class) ||
+            defaultGroupId.getClass().equals(java.net.URI.class)||
+            defaultGroupId.getClass().isEnum()) {
+            map.put("defaultGroupId", defaultGroupId);
+        } else if (isListOfFile(defaultGroupId)) {
+            for(int i = 0; i< getListSize(defaultGroupId); i++) {
+                map.put("defaultGroupId", defaultGroupId);
+            }
+        }
+        else {
+          map.put("defaultGroupId", JSON.serialize(defaultGroupId));
+        }
+    }
     if (allowRoleEdit != null) {
         if (isFileTypeOrListOfFiles(allowRoleEdit)) {
             fileTypeFound = true;
@@ -1371,7 +1567,7 @@ public class Roles {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formFields) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1462,6 +1658,36 @@ public class Roles {
           map.put("enableQes", JSON.serialize(enableQes));
         }
     }
+    if (groupSigners != null) {
+        if (isFileTypeOrListOfFiles(groupSigners)) {
+            fileTypeFound = true;
+        }
+
+        if (groupSigners.getClass().equals(java.io.File.class) ||
+            groupSigners.getClass().equals(Integer.class) ||
+            groupSigners.getClass().equals(String.class) ||
+            groupSigners.getClass().equals(java.net.URI.class)||
+            groupSigners.getClass().isEnum()) {
+            map.put("groupSigners", groupSigners);
+        } else if (isListOfFile(groupSigners)) {
+            for(int i = 0; i< getListSize(groupSigners); i++) {
+                map.put("groupSigners", groupSigners);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : groupSigners) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("groupSigners", objectList);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1518,6 +1744,8 @@ public class Roles {
     openapiFields.add("hostName");
     openapiFields.add("language");
     openapiFields.add("locale");
+    openapiFields.add("signType");
+    openapiFields.add("defaultGroupId");
     openapiFields.add("allowRoleEdit");
     openapiFields.add("allowRoleDelete");
     openapiFields.add("enableAccessCode");
@@ -1530,6 +1758,7 @@ public class Roles {
     openapiFields.add("enableDeleteRecipients");
     openapiFields.add("recipientNotificationSettings");
     openapiFields.add("enableQes");
+    openapiFields.add("groupSigners");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1586,6 +1815,16 @@ public class Roles {
       if (jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) {
         LocaleEnum.validateJsonElement(jsonObj.get("locale"));
       }
+      if ((jsonObj.get("signType") != null && !jsonObj.get("signType").isJsonNull()) && !jsonObj.get("signType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signType").toString()));
+      }
+      // validate the optional field `signType`
+      if (jsonObj.get("signType") != null && !jsonObj.get("signType").isJsonNull()) {
+        SignTypeEnum.validateJsonElement(jsonObj.get("signType"));
+      }
+      if ((jsonObj.get("defaultGroupId") != null && !jsonObj.get("defaultGroupId").isJsonNull()) && !jsonObj.get("defaultGroupId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `defaultGroupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultGroupId").toString()));
+      }
       if ((jsonObj.get("imposeAuthentication") != null && !jsonObj.get("imposeAuthentication").isJsonNull()) && !jsonObj.get("imposeAuthentication").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imposeAuthentication` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imposeAuthentication").toString()));
       }
@@ -1617,6 +1856,20 @@ public class Roles {
       // validate the optional field `recipientNotificationSettings`
       if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
         RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
+      }
+      if (jsonObj.get("groupSigners") != null && !jsonObj.get("groupSigners").isJsonNull()) {
+        JsonArray jsonArraygroupSigners = jsonObj.getAsJsonArray("groupSigners");
+        if (jsonArraygroupSigners != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("groupSigners").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `groupSigners` to be an array in the JSON string but got `%s`", jsonObj.get("groupSigners").toString()));
+          }
+
+          // validate the optional field `groupSigners` (array)
+          for (int i = 0; i < jsonArraygroupSigners.size(); i++) {
+            TemplateGroupSigner.validateJsonElement(jsonArraygroupSigners.get(i));
+          };
+        }
       }
   }
 

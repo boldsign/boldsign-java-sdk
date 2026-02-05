@@ -58,7 +58,7 @@ public class Font {
     
     NOTO_SANS("NotoSans"),
     
-    NULL("null");
+    CARLITO("Carlito");
 
     private String value;
 
@@ -126,9 +126,7 @@ public class Font {
     
     ITALIC("Italic"),
     
-    UNDERLINE("Underline"),
-    
-    NULL("null");
+    UNDERLINE("Underline");
 
     private String value;
 

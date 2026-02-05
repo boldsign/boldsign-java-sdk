@@ -59,6 +59,18 @@ public class AuditTrail {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public static final String SERIALIZED_NAME_FROM_NAME = "fromName";
+  @SerializedName(SERIALIZED_NAME_FROM_NAME)
+  private String fromName;
+
+  public static final String SERIALIZED_NAME_FROM_EMAIL = "fromEmail";
+  @SerializedName(SERIALIZED_NAME_FROM_EMAIL)
+  private String fromEmail;
+
+  public static final String SERIALIZED_NAME_FROM_PHONE_NUMBER = "fromPhoneNumber";
+  @SerializedName(SERIALIZED_NAME_FROM_PHONE_NUMBER)
+  private String fromPhoneNumber;
+
   public static final String SERIALIZED_NAME_TO_NAME = "toName";
   @SerializedName(SERIALIZED_NAME_TO_NAME)
   private String toName;
@@ -66,6 +78,10 @@ public class AuditTrail {
   public static final String SERIALIZED_NAME_TO_EMAIL = "toEmail";
   @SerializedName(SERIALIZED_NAME_TO_EMAIL)
   private String toEmail;
+
+  public static final String SERIALIZED_NAME_TO_PHONE_NUMBER = "toPhoneNumber";
+  @SerializedName(SERIALIZED_NAME_TO_PHONE_NUMBER)
+  private String toPhoneNumber;
 
   public static final String SERIALIZED_NAME_IPADDRESS = "ipaddress";
   @SerializedName(SERIALIZED_NAME_IPADDRESS)
@@ -230,7 +246,11 @@ public class AuditTrail {
     
     QES_EXPIRED("QESExpired"),
     
-    QES_WITHDRAWN("QESWithdrawn");
+    QES_WITHDRAWN("QESWithdrawn"),
+    
+    RESENT_FOR_APPROVAL("ResentForApproval"),
+    
+    DOCUMENT_FIELD_MARKUP("DocumentFieldMarkup");
 
     private String value;
 
@@ -355,6 +375,63 @@ public class AuditTrail {
   }
 
 
+  public AuditTrail fromName(String fromName) {
+    this.fromName = fromName;
+    return this;
+  }
+
+  /**
+   * Get fromName
+   * @return fromName
+   */
+  @javax.annotation.Nullable
+  public String getFromName() {
+    return fromName;
+  }
+
+  public void setFromName(String fromName) {
+    this.fromName = fromName;
+  }
+
+
+  public AuditTrail fromEmail(String fromEmail) {
+    this.fromEmail = fromEmail;
+    return this;
+  }
+
+  /**
+   * Get fromEmail
+   * @return fromEmail
+   */
+  @javax.annotation.Nullable
+  public String getFromEmail() {
+    return fromEmail;
+  }
+
+  public void setFromEmail(String fromEmail) {
+    this.fromEmail = fromEmail;
+  }
+
+
+  public AuditTrail fromPhoneNumber(String fromPhoneNumber) {
+    this.fromPhoneNumber = fromPhoneNumber;
+    return this;
+  }
+
+  /**
+   * Get fromPhoneNumber
+   * @return fromPhoneNumber
+   */
+  @javax.annotation.Nullable
+  public String getFromPhoneNumber() {
+    return fromPhoneNumber;
+  }
+
+  public void setFromPhoneNumber(String fromPhoneNumber) {
+    this.fromPhoneNumber = fromPhoneNumber;
+  }
+
+
   public AuditTrail toName(String toName) {
     this.toName = toName;
     return this;
@@ -390,6 +467,25 @@ public class AuditTrail {
 
   public void setToEmail(String toEmail) {
     this.toEmail = toEmail;
+  }
+
+
+  public AuditTrail toPhoneNumber(String toPhoneNumber) {
+    this.toPhoneNumber = toPhoneNumber;
+    return this;
+  }
+
+  /**
+   * Get toPhoneNumber
+   * @return toPhoneNumber
+   */
+  @javax.annotation.Nullable
+  public String getToPhoneNumber() {
+    return toPhoneNumber;
+  }
+
+  public void setToPhoneNumber(String toPhoneNumber) {
+    this.toPhoneNumber = toPhoneNumber;
   }
 
 
@@ -520,8 +616,12 @@ public class AuditTrail {
     return Objects.equals(this.id, auditTrail.id) &&
         Objects.equals(this.name, auditTrail.name) &&
         Objects.equals(this.email, auditTrail.email) &&
+        Objects.equals(this.fromName, auditTrail.fromName) &&
+        Objects.equals(this.fromEmail, auditTrail.fromEmail) &&
+        Objects.equals(this.fromPhoneNumber, auditTrail.fromPhoneNumber) &&
         Objects.equals(this.toName, auditTrail.toName) &&
         Objects.equals(this.toEmail, auditTrail.toEmail) &&
+        Objects.equals(this.toPhoneNumber, auditTrail.toPhoneNumber) &&
         Objects.equals(this.ipaddress, auditTrail.ipaddress) &&
         Objects.equals(this.action, auditTrail.action) &&
         Objects.equals(this.timestamp, auditTrail.timestamp) &&
@@ -532,7 +632,7 @@ public class AuditTrail {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, email, toName, toEmail, ipaddress, action, timestamp, recipientChangeLog, documentChangeLog, fieldChangeLog);
+    return Objects.hash(id, name, email, fromName, fromEmail, fromPhoneNumber, toName, toEmail, toPhoneNumber, ipaddress, action, timestamp, recipientChangeLog, documentChangeLog, fieldChangeLog);
   }
 
   @Override
@@ -542,8 +642,12 @@ public class AuditTrail {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    fromName: ").append(toIndentedString(fromName)).append("\n");
+    sb.append("    fromEmail: ").append(toIndentedString(fromEmail)).append("\n");
+    sb.append("    fromPhoneNumber: ").append(toIndentedString(fromPhoneNumber)).append("\n");
     sb.append("    toName: ").append(toIndentedString(toName)).append("\n");
     sb.append("    toEmail: ").append(toIndentedString(toEmail)).append("\n");
+    sb.append("    toPhoneNumber: ").append(toIndentedString(toPhoneNumber)).append("\n");
     sb.append("    ipaddress: ").append(toIndentedString(ipaddress)).append("\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
@@ -617,6 +721,66 @@ public class AuditTrail {
           map.put("email", JSON.serialize(email));
         }
     }
+    if (fromName != null) {
+        if (isFileTypeOrListOfFiles(fromName)) {
+            fileTypeFound = true;
+        }
+
+        if (fromName.getClass().equals(java.io.File.class) ||
+            fromName.getClass().equals(Integer.class) ||
+            fromName.getClass().equals(String.class) ||
+            fromName.getClass().equals(java.net.URI.class)||
+            fromName.getClass().isEnum()) {
+            map.put("fromName", fromName);
+        } else if (isListOfFile(fromName)) {
+            for(int i = 0; i< getListSize(fromName); i++) {
+                map.put("fromName", fromName);
+            }
+        }
+        else {
+          map.put("fromName", JSON.serialize(fromName));
+        }
+    }
+    if (fromEmail != null) {
+        if (isFileTypeOrListOfFiles(fromEmail)) {
+            fileTypeFound = true;
+        }
+
+        if (fromEmail.getClass().equals(java.io.File.class) ||
+            fromEmail.getClass().equals(Integer.class) ||
+            fromEmail.getClass().equals(String.class) ||
+            fromEmail.getClass().equals(java.net.URI.class)||
+            fromEmail.getClass().isEnum()) {
+            map.put("fromEmail", fromEmail);
+        } else if (isListOfFile(fromEmail)) {
+            for(int i = 0; i< getListSize(fromEmail); i++) {
+                map.put("fromEmail", fromEmail);
+            }
+        }
+        else {
+          map.put("fromEmail", JSON.serialize(fromEmail));
+        }
+    }
+    if (fromPhoneNumber != null) {
+        if (isFileTypeOrListOfFiles(fromPhoneNumber)) {
+            fileTypeFound = true;
+        }
+
+        if (fromPhoneNumber.getClass().equals(java.io.File.class) ||
+            fromPhoneNumber.getClass().equals(Integer.class) ||
+            fromPhoneNumber.getClass().equals(String.class) ||
+            fromPhoneNumber.getClass().equals(java.net.URI.class)||
+            fromPhoneNumber.getClass().isEnum()) {
+            map.put("fromPhoneNumber", fromPhoneNumber);
+        } else if (isListOfFile(fromPhoneNumber)) {
+            for(int i = 0; i< getListSize(fromPhoneNumber); i++) {
+                map.put("fromPhoneNumber", fromPhoneNumber);
+            }
+        }
+        else {
+          map.put("fromPhoneNumber", JSON.serialize(fromPhoneNumber));
+        }
+    }
     if (toName != null) {
         if (isFileTypeOrListOfFiles(toName)) {
             fileTypeFound = true;
@@ -655,6 +819,26 @@ public class AuditTrail {
         }
         else {
           map.put("toEmail", JSON.serialize(toEmail));
+        }
+    }
+    if (toPhoneNumber != null) {
+        if (isFileTypeOrListOfFiles(toPhoneNumber)) {
+            fileTypeFound = true;
+        }
+
+        if (toPhoneNumber.getClass().equals(java.io.File.class) ||
+            toPhoneNumber.getClass().equals(Integer.class) ||
+            toPhoneNumber.getClass().equals(String.class) ||
+            toPhoneNumber.getClass().equals(java.net.URI.class)||
+            toPhoneNumber.getClass().isEnum()) {
+            map.put("toPhoneNumber", toPhoneNumber);
+        } else if (isListOfFile(toPhoneNumber)) {
+            for(int i = 0; i< getListSize(toPhoneNumber); i++) {
+                map.put("toPhoneNumber", toPhoneNumber);
+            }
+        }
+        else {
+          map.put("toPhoneNumber", JSON.serialize(toPhoneNumber));
         }
     }
     if (ipaddress != null) {
@@ -825,8 +1009,12 @@ public class AuditTrail {
     openapiFields.add("id");
     openapiFields.add("name");
     openapiFields.add("email");
+    openapiFields.add("fromName");
+    openapiFields.add("fromEmail");
+    openapiFields.add("fromPhoneNumber");
     openapiFields.add("toName");
     openapiFields.add("toEmail");
+    openapiFields.add("toPhoneNumber");
     openapiFields.add("ipaddress");
     openapiFields.add("action");
     openapiFields.add("timestamp");
@@ -861,11 +1049,23 @@ public class AuditTrail {
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
+      if ((jsonObj.get("fromName") != null && !jsonObj.get("fromName").isJsonNull()) && !jsonObj.get("fromName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromName").toString()));
+      }
+      if ((jsonObj.get("fromEmail") != null && !jsonObj.get("fromEmail").isJsonNull()) && !jsonObj.get("fromEmail").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromEmail").toString()));
+      }
+      if ((jsonObj.get("fromPhoneNumber") != null && !jsonObj.get("fromPhoneNumber").isJsonNull()) && !jsonObj.get("fromPhoneNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromPhoneNumber").toString()));
+      }
       if ((jsonObj.get("toName") != null && !jsonObj.get("toName").isJsonNull()) && !jsonObj.get("toName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `toName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("toName").toString()));
       }
       if ((jsonObj.get("toEmail") != null && !jsonObj.get("toEmail").isJsonNull()) && !jsonObj.get("toEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `toEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("toEmail").toString()));
+      }
+      if ((jsonObj.get("toPhoneNumber") != null && !jsonObj.get("toPhoneNumber").isJsonNull()) && !jsonObj.get("toPhoneNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `toPhoneNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("toPhoneNumber").toString()));
       }
       if ((jsonObj.get("ipaddress") != null && !jsonObj.get("ipaddress").isJsonNull()) && !jsonObj.get("ipaddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ipaddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ipaddress").toString()));

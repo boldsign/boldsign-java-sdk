@@ -48,6 +48,10 @@ import com.boldsign.ApiException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class SenderIdentityViewModel {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
@@ -84,8 +88,31 @@ public class SenderIdentityViewModel {
   @SerializedName(SERIALIZED_NAME_META_DATA)
   private Map<String, String> metaData;
 
+  public static final String SERIALIZED_NAME_LOCALE = "locale";
+  @SerializedName(SERIALIZED_NAME_LOCALE)
+  private String locale;
+
   public SenderIdentityViewModel() {
   }
+
+  public SenderIdentityViewModel id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public SenderIdentityViewModel name(String name) {
     this.name = name;
@@ -266,6 +293,25 @@ public class SenderIdentityViewModel {
   }
 
 
+  public SenderIdentityViewModel locale(String locale) {
+    this.locale = locale;
+    return this;
+  }
+
+  /**
+   * Get locale
+   * @return locale
+   */
+  @javax.annotation.Nullable
+  public String getLocale() {
+    return locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -276,7 +322,8 @@ public class SenderIdentityViewModel {
       return false;
     }
     SenderIdentityViewModel senderIdentityViewModel = (SenderIdentityViewModel) o;
-    return Objects.equals(this.name, senderIdentityViewModel.name) &&
+    return Objects.equals(this.id, senderIdentityViewModel.id) &&
+        Objects.equals(this.name, senderIdentityViewModel.name) &&
         Objects.equals(this.email, senderIdentityViewModel.email) &&
         Objects.equals(this.status, senderIdentityViewModel.status) &&
         Objects.equals(this.createdBy, senderIdentityViewModel.createdBy) &&
@@ -284,18 +331,20 @@ public class SenderIdentityViewModel {
         Objects.equals(this.notificationSettings, senderIdentityViewModel.notificationSettings) &&
         Objects.equals(this.brandId, senderIdentityViewModel.brandId) &&
         Objects.equals(this.redirectUrl, senderIdentityViewModel.redirectUrl) &&
-        Objects.equals(this.metaData, senderIdentityViewModel.metaData);
+        Objects.equals(this.metaData, senderIdentityViewModel.metaData) &&
+        Objects.equals(this.locale, senderIdentityViewModel.locale);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email, status, createdBy, approvedDate, notificationSettings, brandId, redirectUrl, metaData);
+    return Objects.hash(id, name, email, status, createdBy, approvedDate, notificationSettings, brandId, redirectUrl, metaData, locale);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SenderIdentityViewModel {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -305,6 +354,7 @@ public class SenderIdentityViewModel {
     sb.append("    brandId: ").append(toIndentedString(brandId)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -312,6 +362,26 @@ public class SenderIdentityViewModel {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
     try {
+    if (id != null) {
+        if (isFileTypeOrListOfFiles(id)) {
+            fileTypeFound = true;
+        }
+
+        if (id.getClass().equals(java.io.File.class) ||
+            id.getClass().equals(Integer.class) ||
+            id.getClass().equals(String.class) ||
+            id.getClass().equals(java.net.URI.class)||
+            id.getClass().isEnum()) {
+            map.put("id", id);
+        } else if (isListOfFile(id)) {
+            for(int i = 0; i< getListSize(id); i++) {
+                map.put("id", id);
+            }
+        }
+        else {
+          map.put("id", JSON.serialize(id));
+        }
+    }
     if (name != null) {
         if (isFileTypeOrListOfFiles(name)) {
             fileTypeFound = true;
@@ -489,7 +559,35 @@ public class SenderIdentityViewModel {
             }
         }
         else {
+          // Handle metaData as Map<String, String> - send each key-value pair separately
+          for (Map.Entry<String, String> entry : metaData.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (key != null && value != null) {
+              map.put("metaData[" + key + "]", value);
+            }
+          }
           map.put("metaData", JSON.serialize(metaData));
+        }
+    }
+    if (locale != null) {
+        if (isFileTypeOrListOfFiles(locale)) {
+            fileTypeFound = true;
+        }
+
+        if (locale.getClass().equals(java.io.File.class) ||
+            locale.getClass().equals(Integer.class) ||
+            locale.getClass().equals(String.class) ||
+            locale.getClass().equals(java.net.URI.class)||
+            locale.getClass().isEnum()) {
+            map.put("locale", locale);
+        } else if (isListOfFile(locale)) {
+            for(int i = 0; i< getListSize(locale); i++) {
+                map.put("locale", locale);
+            }
+        }
+        else {
+          map.put("locale", JSON.serialize(locale));
         }
     }
     } catch (Exception e) {
@@ -537,6 +635,7 @@ public class SenderIdentityViewModel {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("name");
     openapiFields.add("email");
     openapiFields.add("status");
@@ -546,6 +645,7 @@ public class SenderIdentityViewModel {
     openapiFields.add("brandId");
     openapiFields.add("redirectUrl");
     openapiFields.add("metaData");
+    openapiFields.add("locale");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -565,6 +665,9 @@ public class SenderIdentityViewModel {
       }
 	  //Ignored additional properties from response json. 
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -589,6 +692,9 @@ public class SenderIdentityViewModel {
       }
       if ((jsonObj.get("redirectUrl") != null && !jsonObj.get("redirectUrl").isJsonNull()) && !jsonObj.get("redirectUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `redirectUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirectUrl").toString()));
+      }
+      if ((jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) && !jsonObj.get("locale").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
       }
   }
 

@@ -16,7 +16,9 @@ package com.boldsign.model;
 import java.util.Objects;
 import com.boldsign.model.DocumentCC;
 import com.boldsign.model.DocumentInfo;
+import com.boldsign.model.FormFieldPermission;
 import com.boldsign.model.FormGroup;
+import com.boldsign.model.GroupSignerSettings;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.TemplateRole;
 import com.boldsign.model.TextTagDefinition;
@@ -163,7 +165,17 @@ public class EmbeddedCreateTemplateRequest {
     
     SV("SV"),
     
-    DEFAULT("Default");
+    DEFAULT("Default"),
+    
+    JA("JA"),
+    
+    TH("TH"),
+    
+    ZH_CN("ZH_CN"),
+    
+    ZH_TW("ZH_TW"),
+    
+    KO("KO");
 
     private String value;
 
@@ -325,13 +337,79 @@ public class EmbeddedCreateTemplateRequest {
   @SerializedName(SERIALIZED_NAME_TEMPLATE_LABELS)
   private List<String> templateLabels;
 
+  public static final String SERIALIZED_NAME_FORM_GROUPS = "formGroups";
+  @SerializedName(SERIALIZED_NAME_FORM_GROUPS)
+  private List<FormGroup> formGroups;
+
   public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
   private RecipientNotificationSettings recipientNotificationSettings;
 
-  public static final String SERIALIZED_NAME_FORM_GROUPS = "formGroups";
-  @SerializedName(SERIALIZED_NAME_FORM_GROUPS)
-  private List<FormGroup> formGroups;
+  /**
+   * Gets or Sets allowedSignatureTypes
+   */
+  @JsonAdapter(AllowedSignatureTypesEnum.Adapter.class)
+  public enum AllowedSignatureTypesEnum {
+    TEXT("Text"),
+    
+    DRAW("Draw"),
+    
+    IMAGE("Image");
+
+    private String value;
+
+    AllowedSignatureTypesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AllowedSignatureTypesEnum fromValue(String value) {
+      for (AllowedSignatureTypesEnum b : AllowedSignatureTypesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AllowedSignatureTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AllowedSignatureTypesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AllowedSignatureTypesEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AllowedSignatureTypesEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AllowedSignatureTypesEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ALLOWED_SIGNATURE_TYPES = "allowedSignatureTypes";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_SIGNATURE_TYPES)
+  private List<AllowedSignatureTypesEnum> allowedSignatureTypes;
+
+  public static final String SERIALIZED_NAME_FORM_FIELD_PERMISSION = "formFieldPermission";
+  @SerializedName(SERIALIZED_NAME_FORM_FIELD_PERMISSION)
+  private FormFieldPermission formFieldPermission;
+
+  public static final String SERIALIZED_NAME_GROUP_SIGNER_SETTINGS = "groupSignerSettings";
+  @SerializedName(SERIALIZED_NAME_GROUP_SIGNER_SETTINGS)
+  private GroupSignerSettings groupSignerSettings;
 
   public EmbeddedCreateTemplateRequest() {
   }
@@ -1050,25 +1128,6 @@ public class EmbeddedCreateTemplateRequest {
   }
 
 
-  public EmbeddedCreateTemplateRequest recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
-    this.recipientNotificationSettings = recipientNotificationSettings;
-    return this;
-  }
-
-  /**
-   * Get recipientNotificationSettings
-   * @return recipientNotificationSettings
-   */
-  @javax.annotation.Nullable
-  public RecipientNotificationSettings getRecipientNotificationSettings() {
-    return recipientNotificationSettings;
-  }
-
-  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
-    this.recipientNotificationSettings = recipientNotificationSettings;
-  }
-
-
   public EmbeddedCreateTemplateRequest formGroups(List<FormGroup> formGroups) {
     this.formGroups = formGroups;
     return this;
@@ -1093,6 +1152,90 @@ public class EmbeddedCreateTemplateRequest {
 
   public void setFormGroups(List<FormGroup> formGroups) {
     this.formGroups = formGroups;
+  }
+
+
+  public EmbeddedCreateTemplateRequest recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+  }
+
+
+  public EmbeddedCreateTemplateRequest allowedSignatureTypes(List<AllowedSignatureTypesEnum> allowedSignatureTypes) {
+    this.allowedSignatureTypes = allowedSignatureTypes;
+    return this;
+  }
+
+  public EmbeddedCreateTemplateRequest addAllowedSignatureTypesItem(AllowedSignatureTypesEnum allowedSignatureTypesItem) {
+    if (this.allowedSignatureTypes == null) {
+      this.allowedSignatureTypes = new ArrayList<>();
+    }
+    this.allowedSignatureTypes.add(allowedSignatureTypesItem);
+    return this;
+  }
+
+  /**
+   * Get allowedSignatureTypes
+   * @return allowedSignatureTypes
+   */
+  @javax.annotation.Nullable
+  public List<AllowedSignatureTypesEnum> getAllowedSignatureTypes() {
+    return allowedSignatureTypes;
+  }
+
+  public void setAllowedSignatureTypes(List<AllowedSignatureTypesEnum> allowedSignatureTypes) {
+    this.allowedSignatureTypes = allowedSignatureTypes;
+  }
+
+
+  public EmbeddedCreateTemplateRequest formFieldPermission(FormFieldPermission formFieldPermission) {
+    this.formFieldPermission = formFieldPermission;
+    return this;
+  }
+
+  /**
+   * Get formFieldPermission
+   * @return formFieldPermission
+   */
+  @javax.annotation.Nullable
+  public FormFieldPermission getFormFieldPermission() {
+    return formFieldPermission;
+  }
+
+  public void setFormFieldPermission(FormFieldPermission formFieldPermission) {
+    this.formFieldPermission = formFieldPermission;
+  }
+
+
+  public EmbeddedCreateTemplateRequest groupSignerSettings(GroupSignerSettings groupSignerSettings) {
+    this.groupSignerSettings = groupSignerSettings;
+    return this;
+  }
+
+  /**
+   * Get groupSignerSettings
+   * @return groupSignerSettings
+   */
+  @javax.annotation.Nullable
+  public GroupSignerSettings getGroupSignerSettings() {
+    return groupSignerSettings;
+  }
+
+  public void setGroupSignerSettings(GroupSignerSettings groupSignerSettings) {
+    this.groupSignerSettings = groupSignerSettings;
   }
 
 
@@ -1140,13 +1283,16 @@ public class EmbeddedCreateTemplateRequest {
         Objects.equals(this.onBehalfOf, embeddedCreateTemplateRequest.onBehalfOf) &&
         Objects.equals(this.labels, embeddedCreateTemplateRequest.labels) &&
         Objects.equals(this.templateLabels, embeddedCreateTemplateRequest.templateLabels) &&
+        Objects.equals(this.formGroups, embeddedCreateTemplateRequest.formGroups) &&
         Objects.equals(this.recipientNotificationSettings, embeddedCreateTemplateRequest.recipientNotificationSettings) &&
-        Objects.equals(this.formGroups, embeddedCreateTemplateRequest.formGroups);
+        Objects.equals(this.allowedSignatureTypes, embeddedCreateTemplateRequest.allowedSignatureTypes) &&
+        Objects.equals(this.formFieldPermission, embeddedCreateTemplateRequest.formFieldPermission) &&
+        Objects.equals(this.groupSignerSettings, embeddedCreateTemplateRequest.groupSignerSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, redirectUrl, showToolbar, viewOption, showSaveButton, locale, showSendButton, showCreateButton, showPreviewButton, showNavigationButtons, linkValidTill, showTooltip, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, recipientNotificationSettings, formGroups);
+    return Objects.hash(title, redirectUrl, showToolbar, viewOption, showSaveButton, locale, showSendButton, showCreateButton, showPreviewButton, showNavigationButtons, linkValidTill, showTooltip, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, formGroups, recipientNotificationSettings, allowedSignatureTypes, formFieldPermission, groupSignerSettings);
   }
 
   @Override
@@ -1187,8 +1333,11 @@ public class EmbeddedCreateTemplateRequest {
     sb.append("    onBehalfOf: ").append(toIndentedString(onBehalfOf)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    templateLabels: ").append(toIndentedString(templateLabels)).append("\n");
-    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    formGroups: ").append(toIndentedString(formGroups)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
+    sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
+    sb.append("    formFieldPermission: ").append(toIndentedString(formFieldPermission)).append("\n");
+    sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1515,7 +1664,7 @@ public class EmbeddedCreateTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : files) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1545,7 +1694,7 @@ public class EmbeddedCreateTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : fileUrls) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1575,7 +1724,7 @@ public class EmbeddedCreateTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : roles) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1625,7 +1774,7 @@ public class EmbeddedCreateTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : cc) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1795,7 +1944,7 @@ public class EmbeddedCreateTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : documentInfo) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1845,7 +1994,7 @@ public class EmbeddedCreateTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : textTagDefinitions) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1915,7 +2064,7 @@ public class EmbeddedCreateTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : labels) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1945,7 +2094,7 @@ public class EmbeddedCreateTemplateRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : templateLabels) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1954,6 +2103,36 @@ public class EmbeddedCreateTemplateRequest {
             }
           }
           map.put("templateLabels", objectList);
+        }
+    }
+    if (formGroups != null) {
+        if (isFileTypeOrListOfFiles(formGroups)) {
+            fileTypeFound = true;
+        }
+
+        if (formGroups.getClass().equals(java.io.File.class) ||
+            formGroups.getClass().equals(Integer.class) ||
+            formGroups.getClass().equals(String.class) ||
+            formGroups.getClass().equals(java.net.URI.class)||
+            formGroups.getClass().isEnum()) {
+            map.put("formGroups", formGroups);
+        } else if (isListOfFile(formGroups)) {
+            for(int i = 0; i< getListSize(formGroups); i++) {
+                map.put("formGroups", formGroups);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : formGroups) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("formGroups", objectList);
         }
     }
     if (recipientNotificationSettings != null) {
@@ -1976,26 +2155,26 @@ public class EmbeddedCreateTemplateRequest {
           map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
         }
     }
-    if (formGroups != null) {
-        if (isFileTypeOrListOfFiles(formGroups)) {
+    if (allowedSignatureTypes != null) {
+        if (isFileTypeOrListOfFiles(allowedSignatureTypes)) {
             fileTypeFound = true;
         }
 
-        if (formGroups.getClass().equals(java.io.File.class) ||
-            formGroups.getClass().equals(Integer.class) ||
-            formGroups.getClass().equals(String.class) ||
-            formGroups.getClass().equals(java.net.URI.class)||
-            formGroups.getClass().isEnum()) {
-            map.put("formGroups", formGroups);
-        } else if (isListOfFile(formGroups)) {
-            for(int i = 0; i< getListSize(formGroups); i++) {
-                map.put("formGroups", formGroups);
+        if (allowedSignatureTypes.getClass().equals(java.io.File.class) ||
+            allowedSignatureTypes.getClass().equals(Integer.class) ||
+            allowedSignatureTypes.getClass().equals(String.class) ||
+            allowedSignatureTypes.getClass().equals(java.net.URI.class)||
+            allowedSignatureTypes.getClass().isEnum()) {
+            map.put("allowedSignatureTypes", allowedSignatureTypes);
+        } else if (isListOfFile(allowedSignatureTypes)) {
+            for(int i = 0; i< getListSize(allowedSignatureTypes); i++) {
+                map.put("allowedSignatureTypes", allowedSignatureTypes);
             }
         }
         else {
           List<String> objectList = new ArrayList<String>();
-          for(Object item : formGroups) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+          for(Object item : allowedSignatureTypes) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2003,7 +2182,47 @@ public class EmbeddedCreateTemplateRequest {
               objectList.add(objectData);
             }
           }
-          map.put("formGroups", objectList);
+          map.put("allowedSignatureTypes", objectList);
+        }
+    }
+    if (formFieldPermission != null) {
+        if (isFileTypeOrListOfFiles(formFieldPermission)) {
+            fileTypeFound = true;
+        }
+
+        if (formFieldPermission.getClass().equals(java.io.File.class) ||
+            formFieldPermission.getClass().equals(Integer.class) ||
+            formFieldPermission.getClass().equals(String.class) ||
+            formFieldPermission.getClass().equals(java.net.URI.class)||
+            formFieldPermission.getClass().isEnum()) {
+            map.put("formFieldPermission", formFieldPermission);
+        } else if (isListOfFile(formFieldPermission)) {
+            for(int i = 0; i< getListSize(formFieldPermission); i++) {
+                map.put("formFieldPermission", formFieldPermission);
+            }
+        }
+        else {
+          map.put("formFieldPermission", JSON.serialize(formFieldPermission));
+        }
+    }
+    if (groupSignerSettings != null) {
+        if (isFileTypeOrListOfFiles(groupSignerSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (groupSignerSettings.getClass().equals(java.io.File.class) ||
+            groupSignerSettings.getClass().equals(Integer.class) ||
+            groupSignerSettings.getClass().equals(String.class) ||
+            groupSignerSettings.getClass().equals(java.net.URI.class)||
+            groupSignerSettings.getClass().isEnum()) {
+            map.put("groupSignerSettings", groupSignerSettings);
+        } else if (isListOfFile(groupSignerSettings)) {
+            for(int i = 0; i< getListSize(groupSignerSettings); i++) {
+                map.put("groupSignerSettings", groupSignerSettings);
+            }
+        }
+        else {
+          map.put("groupSignerSettings", JSON.serialize(groupSignerSettings));
         }
     }
     } catch (Exception e) {
@@ -2085,8 +2304,11 @@ public class EmbeddedCreateTemplateRequest {
     openapiFields.add("onBehalfOf");
     openapiFields.add("labels");
     openapiFields.add("templateLabels");
-    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("formGroups");
+    openapiFields.add("recipientNotificationSettings");
+    openapiFields.add("allowedSignatureTypes");
+    openapiFields.add("formFieldPermission");
+    openapiFields.add("groupSignerSettings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2221,10 +2443,6 @@ public class EmbeddedCreateTemplateRequest {
       if (jsonObj.get("templateLabels") != null && !jsonObj.get("templateLabels").isJsonNull() && !jsonObj.get("templateLabels").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `templateLabels` to be an array in the JSON string but got `%s`", jsonObj.get("templateLabels").toString()));
       }
-      // validate the optional field `recipientNotificationSettings`
-      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
-        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
-      }
       if (jsonObj.get("formGroups") != null && !jsonObj.get("formGroups").isJsonNull()) {
         JsonArray jsonArrayformGroups = jsonObj.getAsJsonArray("formGroups");
         if (jsonArrayformGroups != null) {
@@ -2238,6 +2456,22 @@ public class EmbeddedCreateTemplateRequest {
             FormGroup.validateJsonElement(jsonArrayformGroups.get(i));
           };
         }
+      }
+      // validate the optional field `recipientNotificationSettings`
+      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
+        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowedSignatureTypes") != null && !jsonObj.get("allowedSignatureTypes").isJsonNull() && !jsonObj.get("allowedSignatureTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowedSignatureTypes` to be an array in the JSON string but got `%s`", jsonObj.get("allowedSignatureTypes").toString()));
+      }
+      // validate the optional field `formFieldPermission`
+      if (jsonObj.get("formFieldPermission") != null && !jsonObj.get("formFieldPermission").isJsonNull()) {
+        FormFieldPermission.validateJsonElement(jsonObj.get("formFieldPermission"));
+      }
+      // validate the optional field `groupSignerSettings`
+      if (jsonObj.get("groupSignerSettings") != null && !jsonObj.get("groupSignerSettings").isJsonNull()) {
+        GroupSignerSettings.validateJsonElement(jsonObj.get("groupSignerSettings"));
       }
   }
 

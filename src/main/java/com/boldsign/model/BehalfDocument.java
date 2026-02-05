@@ -181,6 +181,14 @@ public class BehalfDocument {
   @SerializedName(SERIALIZED_NAME_SCHEDULED_SEND_TIME)
   private Long scheduledSendTime;
 
+  public static final String SERIALIZED_NAME_IN_EDITING_MODE = "inEditingMode";
+  @SerializedName(SERIALIZED_NAME_IN_EDITING_MODE)
+  private Boolean inEditingMode;
+
+  public static final String SERIALIZED_NAME_DISPLAY_STATUS = "displayStatus";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_STATUS)
+  private String displayStatus;
+
   public BehalfDocument() {
   }
 
@@ -531,6 +539,44 @@ public class BehalfDocument {
   }
 
 
+  public BehalfDocument inEditingMode(Boolean inEditingMode) {
+    this.inEditingMode = inEditingMode;
+    return this;
+  }
+
+  /**
+   * Get inEditingMode
+   * @return inEditingMode
+   */
+  @javax.annotation.Nullable
+  public Boolean getInEditingMode() {
+    return inEditingMode;
+  }
+
+  public void setInEditingMode(Boolean inEditingMode) {
+    this.inEditingMode = inEditingMode;
+  }
+
+
+  public BehalfDocument displayStatus(String displayStatus) {
+    this.displayStatus = displayStatus;
+    return this;
+  }
+
+  /**
+   * Get displayStatus
+   * @return displayStatus
+   */
+  @javax.annotation.Nullable
+  public String getDisplayStatus() {
+    return displayStatus;
+  }
+
+  public void setDisplayStatus(String displayStatus) {
+    this.displayStatus = displayStatus;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -557,12 +603,14 @@ public class BehalfDocument {
         Objects.equals(this.labels, behalfDocument.labels) &&
         Objects.equals(this.cursor, behalfDocument.cursor) &&
         Objects.equals(this.brandId, behalfDocument.brandId) &&
-        Objects.equals(this.scheduledSendTime, behalfDocument.scheduledSendTime);
+        Objects.equals(this.scheduledSendTime, behalfDocument.scheduledSendTime) &&
+        Objects.equals(this.inEditingMode, behalfDocument.inEditingMode) &&
+        Objects.equals(this.displayStatus, behalfDocument.displayStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(behalfOf, documentId, senderDetail, ccDetails, createdDate, activityDate, activityBy, messageTitle, status, signerDetails, expiryDate, enableSigningOrder, isDeleted, labels, cursor, brandId, scheduledSendTime);
+    return Objects.hash(behalfOf, documentId, senderDetail, ccDetails, createdDate, activityDate, activityBy, messageTitle, status, signerDetails, expiryDate, enableSigningOrder, isDeleted, labels, cursor, brandId, scheduledSendTime, inEditingMode, displayStatus);
   }
 
   @Override
@@ -586,6 +634,8 @@ public class BehalfDocument {
     sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
     sb.append("    brandId: ").append(toIndentedString(brandId)).append("\n");
     sb.append("    scheduledSendTime: ").append(toIndentedString(scheduledSendTime)).append("\n");
+    sb.append("    inEditingMode: ").append(toIndentedString(inEditingMode)).append("\n");
+    sb.append("    displayStatus: ").append(toIndentedString(displayStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -672,7 +722,7 @@ public class BehalfDocument {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : ccDetails) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -802,7 +852,7 @@ public class BehalfDocument {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : signerDetails) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -892,7 +942,7 @@ public class BehalfDocument {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : labels) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -963,6 +1013,46 @@ public class BehalfDocument {
           map.put("scheduledSendTime", JSON.serialize(scheduledSendTime));
         }
     }
+    if (inEditingMode != null) {
+        if (isFileTypeOrListOfFiles(inEditingMode)) {
+            fileTypeFound = true;
+        }
+
+        if (inEditingMode.getClass().equals(java.io.File.class) ||
+            inEditingMode.getClass().equals(Integer.class) ||
+            inEditingMode.getClass().equals(String.class) ||
+            inEditingMode.getClass().equals(java.net.URI.class)||
+            inEditingMode.getClass().isEnum()) {
+            map.put("inEditingMode", inEditingMode);
+        } else if (isListOfFile(inEditingMode)) {
+            for(int i = 0; i< getListSize(inEditingMode); i++) {
+                map.put("inEditingMode", inEditingMode);
+            }
+        }
+        else {
+          map.put("inEditingMode", JSON.serialize(inEditingMode));
+        }
+    }
+    if (displayStatus != null) {
+        if (isFileTypeOrListOfFiles(displayStatus)) {
+            fileTypeFound = true;
+        }
+
+        if (displayStatus.getClass().equals(java.io.File.class) ||
+            displayStatus.getClass().equals(Integer.class) ||
+            displayStatus.getClass().equals(String.class) ||
+            displayStatus.getClass().equals(java.net.URI.class)||
+            displayStatus.getClass().isEnum()) {
+            map.put("displayStatus", displayStatus);
+        } else if (isListOfFile(displayStatus)) {
+            for(int i = 0; i< getListSize(displayStatus); i++) {
+                map.put("displayStatus", displayStatus);
+            }
+        }
+        else {
+          map.put("displayStatus", JSON.serialize(displayStatus));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1025,6 +1115,8 @@ public class BehalfDocument {
     openapiFields.add("cursor");
     openapiFields.add("brandId");
     openapiFields.add("scheduledSendTime");
+    openapiFields.add("inEditingMode");
+    openapiFields.add("displayStatus");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1102,6 +1194,9 @@ public class BehalfDocument {
       }
       if ((jsonObj.get("brandId") != null && !jsonObj.get("brandId").isJsonNull()) && !jsonObj.get("brandId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `brandId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("brandId").toString()));
+      }
+      if ((jsonObj.get("displayStatus") != null && !jsonObj.get("displayStatus").isJsonNull()) && !jsonObj.get("displayStatus").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `displayStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayStatus").toString()));
       }
   }
 

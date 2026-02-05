@@ -15,7 +15,8 @@ package com.boldsign.model;
 
 import java.util.Objects;
 import com.boldsign.model.DocumentFormFields;
-import com.boldsign.model.IdVerification;
+import com.boldsign.model.GroupSigner;
+import com.boldsign.model.IdVerificationDetails;
 import com.boldsign.model.PhoneNumber;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.SignerAuthenticationSettings;
@@ -52,6 +53,10 @@ import com.boldsign.ApiException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class DocumentSignerDetails {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_SIGNER_NAME = "signerName";
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
   private String signerName;
@@ -297,7 +302,7 @@ public class DocumentSignerDetails {
   private List<DocumentFormFields> formFields;
 
   /**
-   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;/ul&gt;
+   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;li&gt;&lt;i&gt;16&lt;/i&gt; - Japanese&lt;/li&gt;&lt;li&gt;&lt;i&gt;17&lt;/i&gt; - Thai&lt;/li&gt;&lt;li&gt;&lt;i&gt;18&lt;/i&gt; - SimplifiedChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;19&lt;/i&gt; - TraditionalChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;20&lt;/i&gt; - Korean&lt;/li&gt;&lt;/ul&gt;
    */
   @JsonAdapter(LanguageEnum.Adapter.class)
   public enum LanguageEnum {
@@ -331,7 +336,17 @@ public class DocumentSignerDetails {
     
     NUMBER_14(14),
     
-    NUMBER_15(15);
+    NUMBER_15(15),
+    
+    NUMBER_16(16),
+    
+    NUMBER_17(17),
+    
+    NUMBER_18(18),
+    
+    NUMBER_19(19),
+    
+    NUMBER_20(20);
 
     private Integer value;
 
@@ -415,7 +430,17 @@ public class DocumentSignerDetails {
     
     SV("SV"),
     
-    DEFAULT("Default");
+    DEFAULT("Default"),
+    
+    JA("JA"),
+    
+    TH("TH"),
+    
+    ZH_CN("ZH_CN"),
+    
+    ZH_TW("ZH_TW"),
+    
+    KO("KO");
 
     private String value;
 
@@ -464,13 +489,73 @@ public class DocumentSignerDetails {
   @SerializedName(SERIALIZED_NAME_LOCALE)
   private LocaleEnum locale;
 
+  /**
+   * Gets or Sets signType
+   */
+  @JsonAdapter(SignTypeEnum.Adapter.class)
+  public enum SignTypeEnum {
+    SINGLE("Single"),
+    
+    GROUP("Group");
+
+    private String value;
+
+    SignTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SignTypeEnum fromValue(String value) {
+      for (SignTypeEnum b : SignTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SignTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SignTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SignTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SignTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SignTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SIGN_TYPE = "signType";
+  @SerializedName(SERIALIZED_NAME_SIGN_TYPE)
+  private SignTypeEnum signType = SignTypeEnum.SINGLE;
+
+  public static final String SERIALIZED_NAME_GROUP_ID = "groupId";
+  @SerializedName(SERIALIZED_NAME_GROUP_ID)
+  private String groupId;
+
   public static final String SERIALIZED_NAME_PHONE_NUMBER = "phoneNumber";
   @SerializedName(SERIALIZED_NAME_PHONE_NUMBER)
   private PhoneNumber phoneNumber;
 
   public static final String SERIALIZED_NAME_ID_VERIFICATION = "idVerification";
   @SerializedName(SERIALIZED_NAME_ID_VERIFICATION)
-  private IdVerification idVerification;
+  private IdVerificationDetails idVerification;
 
   public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
@@ -548,8 +633,31 @@ public class DocumentSignerDetails {
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_SETTINGS)
   private SignerAuthenticationSettings authenticationSettings;
 
+  public static final String SERIALIZED_NAME_GROUP_SIGNERS = "groupSigners";
+  @SerializedName(SERIALIZED_NAME_GROUP_SIGNERS)
+  private List<GroupSigner> groupSigners;
+
   public DocumentSignerDetails() {
   }
+
+  public DocumentSignerDetails id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public DocumentSignerDetails signerName(String signerName) {
     this.signerName = signerName;
@@ -907,7 +1015,7 @@ public class DocumentSignerDetails {
   }
 
   /**
-   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;/ul&gt;
+   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;li&gt;&lt;i&gt;16&lt;/i&gt; - Japanese&lt;/li&gt;&lt;li&gt;&lt;i&gt;17&lt;/i&gt; - Thai&lt;/li&gt;&lt;li&gt;&lt;i&gt;18&lt;/i&gt; - SimplifiedChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;19&lt;/i&gt; - TraditionalChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;20&lt;/i&gt; - Korean&lt;/li&gt;&lt;/ul&gt;
    * @return language
    */
   @javax.annotation.Nullable
@@ -939,6 +1047,44 @@ public class DocumentSignerDetails {
   }
 
 
+  public DocumentSignerDetails signType(SignTypeEnum signType) {
+    this.signType = signType;
+    return this;
+  }
+
+  /**
+   * Get signType
+   * @return signType
+   */
+  @javax.annotation.Nullable
+  public SignTypeEnum getSignType() {
+    return signType;
+  }
+
+  public void setSignType(SignTypeEnum signType) {
+    this.signType = signType;
+  }
+
+
+  public DocumentSignerDetails groupId(String groupId) {
+    this.groupId = groupId;
+    return this;
+  }
+
+  /**
+   * Get groupId
+   * @return groupId
+   */
+  @javax.annotation.Nullable
+  public String getGroupId() {
+    return groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+
   public DocumentSignerDetails phoneNumber(PhoneNumber phoneNumber) {
     this.phoneNumber = phoneNumber;
     return this;
@@ -958,7 +1104,7 @@ public class DocumentSignerDetails {
   }
 
 
-  public DocumentSignerDetails idVerification(IdVerification idVerification) {
+  public DocumentSignerDetails idVerification(IdVerificationDetails idVerification) {
     this.idVerification = idVerification;
     return this;
   }
@@ -968,11 +1114,11 @@ public class DocumentSignerDetails {
    * @return idVerification
    */
   @javax.annotation.Nullable
-  public IdVerification getIdVerification() {
+  public IdVerificationDetails getIdVerification() {
     return idVerification;
   }
 
-  public void setIdVerification(IdVerification idVerification) {
+  public void setIdVerification(IdVerificationDetails idVerification) {
     this.idVerification = idVerification;
   }
 
@@ -1072,6 +1218,33 @@ public class DocumentSignerDetails {
   }
 
 
+  public DocumentSignerDetails groupSigners(List<GroupSigner> groupSigners) {
+    this.groupSigners = groupSigners;
+    return this;
+  }
+
+  public DocumentSignerDetails addGroupSignersItem(GroupSigner groupSignersItem) {
+    if (this.groupSigners == null) {
+      this.groupSigners = new ArrayList<>();
+    }
+    this.groupSigners.add(groupSignersItem);
+    return this;
+  }
+
+  /**
+   * Get groupSigners
+   * @return groupSigners
+   */
+  @javax.annotation.Nullable
+  public List<GroupSigner> getGroupSigners() {
+    return groupSigners;
+  }
+
+  public void setGroupSigners(List<GroupSigner> groupSigners) {
+    this.groupSigners = groupSigners;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1082,7 +1255,8 @@ public class DocumentSignerDetails {
       return false;
     }
     DocumentSignerDetails documentSignerDetails = (DocumentSignerDetails) o;
-    return Objects.equals(this.signerName, documentSignerDetails.signerName) &&
+    return Objects.equals(this.id, documentSignerDetails.id) &&
+        Objects.equals(this.signerName, documentSignerDetails.signerName) &&
         Objects.equals(this.signerRole, documentSignerDetails.signerRole) &&
         Objects.equals(this.signerEmail, documentSignerDetails.signerEmail) &&
         Objects.equals(this.status, documentSignerDetails.status) &&
@@ -1102,24 +1276,28 @@ public class DocumentSignerDetails {
         Objects.equals(this.formFields, documentSignerDetails.formFields) &&
         Objects.equals(this.language, documentSignerDetails.language) &&
         Objects.equals(this.locale, documentSignerDetails.locale) &&
+        Objects.equals(this.signType, documentSignerDetails.signType) &&
+        Objects.equals(this.groupId, documentSignerDetails.groupId) &&
         Objects.equals(this.phoneNumber, documentSignerDetails.phoneNumber) &&
         Objects.equals(this.idVerification, documentSignerDetails.idVerification) &&
         Objects.equals(this.recipientNotificationSettings, documentSignerDetails.recipientNotificationSettings) &&
         Objects.equals(this.authenticationRetryCount, documentSignerDetails.authenticationRetryCount) &&
         Objects.equals(this.enableQes, documentSignerDetails.enableQes) &&
         Objects.equals(this.deliveryMode, documentSignerDetails.deliveryMode) &&
-        Objects.equals(this.authenticationSettings, documentSignerDetails.authenticationSettings);
+        Objects.equals(this.authenticationSettings, documentSignerDetails.authenticationSettings) &&
+        Objects.equals(this.groupSigners, documentSignerDetails.groupSigners);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signerName, signerRole, signerEmail, status, enableAccessCode, isAuthenticationFailed, enableEmailOTP, authenticationType, isDeliveryFailed, isViewed, order, signerType, hostEmail, hostName, isReassigned, privateMessage, allowFieldConfiguration, formFields, language, locale, phoneNumber, idVerification, recipientNotificationSettings, authenticationRetryCount, enableQes, deliveryMode, authenticationSettings);
+    return Objects.hash(id, signerName, signerRole, signerEmail, status, enableAccessCode, isAuthenticationFailed, enableEmailOTP, authenticationType, isDeliveryFailed, isViewed, order, signerType, hostEmail, hostName, isReassigned, privateMessage, allowFieldConfiguration, formFields, language, locale, signType, groupId, phoneNumber, idVerification, recipientNotificationSettings, authenticationRetryCount, enableQes, deliveryMode, authenticationSettings, groupSigners);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentSignerDetails {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
     sb.append("    signerRole: ").append(toIndentedString(signerRole)).append("\n");
     sb.append("    signerEmail: ").append(toIndentedString(signerEmail)).append("\n");
@@ -1140,6 +1318,8 @@ public class DocumentSignerDetails {
     sb.append("    formFields: ").append(toIndentedString(formFields)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("    signType: ").append(toIndentedString(signType)).append("\n");
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    idVerification: ").append(toIndentedString(idVerification)).append("\n");
     sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
@@ -1147,6 +1327,7 @@ public class DocumentSignerDetails {
     sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
     sb.append("    deliveryMode: ").append(toIndentedString(deliveryMode)).append("\n");
     sb.append("    authenticationSettings: ").append(toIndentedString(authenticationSettings)).append("\n");
+    sb.append("    groupSigners: ").append(toIndentedString(groupSigners)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1154,6 +1335,26 @@ public class DocumentSignerDetails {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
     try {
+    if (id != null) {
+        if (isFileTypeOrListOfFiles(id)) {
+            fileTypeFound = true;
+        }
+
+        if (id.getClass().equals(java.io.File.class) ||
+            id.getClass().equals(Integer.class) ||
+            id.getClass().equals(String.class) ||
+            id.getClass().equals(java.net.URI.class)||
+            id.getClass().isEnum()) {
+            map.put("id", id);
+        } else if (isListOfFile(id)) {
+            for(int i = 0; i< getListSize(id); i++) {
+                map.put("id", id);
+            }
+        }
+        else {
+          map.put("id", JSON.serialize(id));
+        }
+    }
     if (signerName != null) {
         if (isFileTypeOrListOfFiles(signerName)) {
             fileTypeFound = true;
@@ -1513,7 +1714,7 @@ public class DocumentSignerDetails {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formFields) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1562,6 +1763,46 @@ public class DocumentSignerDetails {
         }
         else {
           map.put("locale", JSON.serialize(locale));
+        }
+    }
+    if (signType != null) {
+        if (isFileTypeOrListOfFiles(signType)) {
+            fileTypeFound = true;
+        }
+
+        if (signType.getClass().equals(java.io.File.class) ||
+            signType.getClass().equals(Integer.class) ||
+            signType.getClass().equals(String.class) ||
+            signType.getClass().equals(java.net.URI.class)||
+            signType.getClass().isEnum()) {
+            map.put("signType", signType);
+        } else if (isListOfFile(signType)) {
+            for(int i = 0; i< getListSize(signType); i++) {
+                map.put("signType", signType);
+            }
+        }
+        else {
+          map.put("signType", JSON.serialize(signType));
+        }
+    }
+    if (groupId != null) {
+        if (isFileTypeOrListOfFiles(groupId)) {
+            fileTypeFound = true;
+        }
+
+        if (groupId.getClass().equals(java.io.File.class) ||
+            groupId.getClass().equals(Integer.class) ||
+            groupId.getClass().equals(String.class) ||
+            groupId.getClass().equals(java.net.URI.class)||
+            groupId.getClass().isEnum()) {
+            map.put("groupId", groupId);
+        } else if (isListOfFile(groupId)) {
+            for(int i = 0; i< getListSize(groupId); i++) {
+                map.put("groupId", groupId);
+            }
+        }
+        else {
+          map.put("groupId", JSON.serialize(groupId));
         }
     }
     if (phoneNumber != null) {
@@ -1704,6 +1945,36 @@ public class DocumentSignerDetails {
           map.put("authenticationSettings", JSON.serialize(authenticationSettings));
         }
     }
+    if (groupSigners != null) {
+        if (isFileTypeOrListOfFiles(groupSigners)) {
+            fileTypeFound = true;
+        }
+
+        if (groupSigners.getClass().equals(java.io.File.class) ||
+            groupSigners.getClass().equals(Integer.class) ||
+            groupSigners.getClass().equals(String.class) ||
+            groupSigners.getClass().equals(java.net.URI.class)||
+            groupSigners.getClass().isEnum()) {
+            map.put("groupSigners", groupSigners);
+        } else if (isListOfFile(groupSigners)) {
+            for(int i = 0; i< getListSize(groupSigners); i++) {
+                map.put("groupSigners", groupSigners);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : groupSigners) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("groupSigners", objectList);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1749,6 +2020,7 @@ public class DocumentSignerDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("signerName");
     openapiFields.add("signerRole");
     openapiFields.add("signerEmail");
@@ -1769,6 +2041,8 @@ public class DocumentSignerDetails {
     openapiFields.add("formFields");
     openapiFields.add("language");
     openapiFields.add("locale");
+    openapiFields.add("signType");
+    openapiFields.add("groupId");
     openapiFields.add("phoneNumber");
     openapiFields.add("idVerification");
     openapiFields.add("recipientNotificationSettings");
@@ -1776,6 +2050,7 @@ public class DocumentSignerDetails {
     openapiFields.add("enableQes");
     openapiFields.add("deliveryMode");
     openapiFields.add("authenticationSettings");
+    openapiFields.add("groupSigners");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1795,6 +2070,9 @@ public class DocumentSignerDetails {
       }
 	  //Ignored additional properties from response json. 
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("signerName") != null && !jsonObj.get("signerName").isJsonNull()) && !jsonObj.get("signerName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signerName").toString()));
       }
@@ -1859,13 +2137,23 @@ public class DocumentSignerDetails {
       if (jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) {
         LocaleEnum.validateJsonElement(jsonObj.get("locale"));
       }
+      if ((jsonObj.get("signType") != null && !jsonObj.get("signType").isJsonNull()) && !jsonObj.get("signType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signType").toString()));
+      }
+      // validate the optional field `signType`
+      if (jsonObj.get("signType") != null && !jsonObj.get("signType").isJsonNull()) {
+        SignTypeEnum.validateJsonElement(jsonObj.get("signType"));
+      }
+      if ((jsonObj.get("groupId") != null && !jsonObj.get("groupId").isJsonNull()) && !jsonObj.get("groupId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `groupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("groupId").toString()));
+      }
       // validate the optional field `phoneNumber`
       if (jsonObj.get("phoneNumber") != null && !jsonObj.get("phoneNumber").isJsonNull()) {
         PhoneNumber.validateJsonElement(jsonObj.get("phoneNumber"));
       }
       // validate the optional field `idVerification`
       if (jsonObj.get("idVerification") != null && !jsonObj.get("idVerification").isJsonNull()) {
-        IdVerification.validateJsonElement(jsonObj.get("idVerification"));
+        IdVerificationDetails.validateJsonElement(jsonObj.get("idVerification"));
       }
       // validate the optional field `recipientNotificationSettings`
       if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
@@ -1881,6 +2169,20 @@ public class DocumentSignerDetails {
       // validate the optional field `authenticationSettings`
       if (jsonObj.get("authenticationSettings") != null && !jsonObj.get("authenticationSettings").isJsonNull()) {
         SignerAuthenticationSettings.validateJsonElement(jsonObj.get("authenticationSettings"));
+      }
+      if (jsonObj.get("groupSigners") != null && !jsonObj.get("groupSigners").isJsonNull()) {
+        JsonArray jsonArraygroupSigners = jsonObj.getAsJsonArray("groupSigners");
+        if (jsonArraygroupSigners != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("groupSigners").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `groupSigners` to be an array in the JSON string but got `%s`", jsonObj.get("groupSigners").toString()));
+          }
+
+          // validate the optional field `groupSigners` (array)
+          for (int i = 0; i < jsonArraygroupSigners.size(); i++) {
+            GroupSigner.validateJsonElement(jsonArraygroupSigners.get(i));
+          };
+        }
       }
   }
 

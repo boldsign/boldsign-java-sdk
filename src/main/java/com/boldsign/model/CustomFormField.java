@@ -167,7 +167,9 @@ public class CustomFormField {
     
     TIMES_ROMAN("TimesRoman"),
     
-    NOTO_SANS("NotoSans");
+    NOTO_SANS("NotoSans"),
+    
+    CARLITO("Carlito");
 
     private String value;
 
@@ -489,9 +491,7 @@ public class CustomFormField {
     
     FIXED("Fixed"),
     
-    AUTO_RESIZE_FONT("AutoResizeFont"),
-    
-    NULL("null");
+    AUTO_RESIZE_FONT("AutoResizeFont");
 
     private String value;
 
@@ -539,6 +539,10 @@ public class CustomFormField {
   public static final String SERIALIZED_NAME_RESIZE_OPTION = "resizeOption";
   @SerializedName(SERIALIZED_NAME_RESIZE_OPTION)
   private ResizeOptionEnum resizeOption;
+
+  public static final String SERIALIZED_NAME_IS_MASKED = "isMasked";
+  @SerializedName(SERIALIZED_NAME_IS_MASKED)
+  private Boolean isMasked = false;
 
   public CustomFormField() {
   }
@@ -1183,6 +1187,25 @@ public class CustomFormField {
   }
 
 
+  public CustomFormField isMasked(Boolean isMasked) {
+    this.isMasked = isMasked;
+    return this;
+  }
+
+  /**
+   * Get isMasked
+   * @return isMasked
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsMasked() {
+    return isMasked;
+  }
+
+  public void setIsMasked(Boolean isMasked) {
+    this.isMasked = isMasked;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1225,12 +1248,13 @@ public class CustomFormField {
         Objects.equals(this.idPrefix, customFormField.idPrefix) &&
         Objects.equals(this.restrictIdPrefixChange, customFormField.restrictIdPrefixChange) &&
         Objects.equals(this.backgroundHexColor, customFormField.backgroundHexColor) &&
-        Objects.equals(this.resizeOption, customFormField.resizeOption);
+        Objects.equals(this.resizeOption, customFormField.resizeOption) &&
+        Objects.equals(this.isMasked, customFormField.isMasked);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldType, width, height, isRequired, isReadOnly, value, fontSize, font, fontHexColor, isBoldFont, isItalicFont, isUnderLineFont, lineHeight, characterLimit, placeHolder, validationType, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, hyperlinkText, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, idPrefix, restrictIdPrefixChange, backgroundHexColor, resizeOption);
+    return Objects.hash(fieldType, width, height, isRequired, isReadOnly, value, fontSize, font, fontHexColor, isBoldFont, isItalicFont, isUnderLineFont, lineHeight, characterLimit, placeHolder, validationType, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, hyperlinkText, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, idPrefix, restrictIdPrefixChange, backgroundHexColor, resizeOption, isMasked);
   }
 
   @Override
@@ -1270,6 +1294,7 @@ public class CustomFormField {
     sb.append("    restrictIdPrefixChange: ").append(toIndentedString(restrictIdPrefixChange)).append("\n");
     sb.append("    backgroundHexColor: ").append(toIndentedString(backgroundHexColor)).append("\n");
     sb.append("    resizeOption: ").append(toIndentedString(resizeOption)).append("\n");
+    sb.append("    isMasked: ").append(toIndentedString(isMasked)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1796,7 +1821,7 @@ public class CustomFormField {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : dropdownOptions) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1947,6 +1972,26 @@ public class CustomFormField {
           map.put("resizeOption", JSON.serialize(resizeOption));
         }
     }
+    if (isMasked != null) {
+        if (isFileTypeOrListOfFiles(isMasked)) {
+            fileTypeFound = true;
+        }
+
+        if (isMasked.getClass().equals(java.io.File.class) ||
+            isMasked.getClass().equals(Integer.class) ||
+            isMasked.getClass().equals(String.class) ||
+            isMasked.getClass().equals(java.net.URI.class)||
+            isMasked.getClass().isEnum()) {
+            map.put("isMasked", isMasked);
+        } else if (isListOfFile(isMasked)) {
+            for(int i = 0; i< getListSize(isMasked); i++) {
+                map.put("isMasked", isMasked);
+            }
+        }
+        else {
+          map.put("isMasked", JSON.serialize(isMasked));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2025,6 +2070,7 @@ public class CustomFormField {
     openapiFields.add("restrictIdPrefixChange");
     openapiFields.add("backgroundHexColor");
     openapiFields.add("resizeOption");
+    openapiFields.add("isMasked");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

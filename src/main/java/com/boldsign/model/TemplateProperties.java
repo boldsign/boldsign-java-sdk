@@ -15,14 +15,17 @@ package com.boldsign.model;
 
 import java.util.Objects;
 import com.boldsign.model.BehalfOf;
-import com.boldsign.model.DocumentFiles;
 import com.boldsign.model.DocumentInfo;
+import com.boldsign.model.FormFieldPermission;
 import com.boldsign.model.FormGroup;
+import com.boldsign.model.GroupSignerSettings;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.Roles;
+import com.boldsign.model.TemplateFiles;
 import com.boldsign.model.TemplateFormFields;
 import com.boldsign.model.TemplateSenderDetail;
 import com.boldsign.model.TemplateSharedTemplateDetail;
+import com.boldsign.model.TemplateSharing;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -78,7 +81,7 @@ public class TemplateProperties {
 
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
-  private List<DocumentFiles> files;
+  private List<TemplateFiles> files;
 
   public static final String SERIALIZED_NAME_ROLES = "roles";
   @SerializedName(SERIALIZED_NAME_ROLES)
@@ -137,6 +140,7 @@ public class TemplateProperties {
   private TemplateSenderDetail createdBy;
 
   public static final String SERIALIZED_NAME_SHARED_TEMPLATE_DETAIL = "sharedTemplateDetail";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_SHARED_TEMPLATE_DETAIL)
   private List<TemplateSharedTemplateDetail> sharedTemplateDetail;
 
@@ -215,6 +219,76 @@ public class TemplateProperties {
   public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
   private RecipientNotificationSettings recipientNotificationSettings;
+
+  public static final String SERIALIZED_NAME_FORM_FIELD_PERMISSION = "formFieldPermission";
+  @SerializedName(SERIALIZED_NAME_FORM_FIELD_PERMISSION)
+  private FormFieldPermission formFieldPermission;
+
+  /**
+   * Gets or Sets allowedSignatureTypes
+   */
+  @JsonAdapter(AllowedSignatureTypesEnum.Adapter.class)
+  public enum AllowedSignatureTypesEnum {
+    TEXT("Text"),
+    
+    DRAW("Draw"),
+    
+    IMAGE("Image");
+
+    private String value;
+
+    AllowedSignatureTypesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AllowedSignatureTypesEnum fromValue(String value) {
+      for (AllowedSignatureTypesEnum b : AllowedSignatureTypesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AllowedSignatureTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AllowedSignatureTypesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AllowedSignatureTypesEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AllowedSignatureTypesEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AllowedSignatureTypesEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ALLOWED_SIGNATURE_TYPES = "allowedSignatureTypes";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_SIGNATURE_TYPES)
+  private List<AllowedSignatureTypesEnum> allowedSignatureTypes;
+
+  public static final String SERIALIZED_NAME_GROUP_SIGNER_SETTINGS = "groupSignerSettings";
+  @SerializedName(SERIALIZED_NAME_GROUP_SIGNER_SETTINGS)
+  private GroupSignerSettings groupSignerSettings;
+
+  public static final String SERIALIZED_NAME_SHARING = "sharing";
+  @SerializedName(SERIALIZED_NAME_SHARING)
+  private TemplateSharing sharing;
 
   public TemplateProperties() {
   }
@@ -314,12 +388,12 @@ public class TemplateProperties {
   }
 
 
-  public TemplateProperties files(List<DocumentFiles> files) {
+  public TemplateProperties files(List<TemplateFiles> files) {
     this.files = files;
     return this;
   }
 
-  public TemplateProperties addFilesItem(DocumentFiles filesItem) {
+  public TemplateProperties addFilesItem(TemplateFiles filesItem) {
     if (this.files == null) {
       this.files = new ArrayList<>();
     }
@@ -332,11 +406,11 @@ public class TemplateProperties {
    * @return files
    */
   @javax.annotation.Nullable
-  public List<DocumentFiles> getFiles() {
+  public List<TemplateFiles> getFiles() {
     return files;
   }
 
-  public void setFiles(List<DocumentFiles> files) {
+  public void setFiles(List<TemplateFiles> files) {
     this.files = files;
   }
 
@@ -639,6 +713,7 @@ public class TemplateProperties {
   }
 
 
+  @Deprecated
   public TemplateProperties sharedTemplateDetail(List<TemplateSharedTemplateDetail> sharedTemplateDetail) {
     this.sharedTemplateDetail = sharedTemplateDetail;
     return this;
@@ -655,12 +730,15 @@ public class TemplateProperties {
   /**
    * Get sharedTemplateDetail
    * @return sharedTemplateDetail
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public List<TemplateSharedTemplateDetail> getSharedTemplateDetail() {
     return sharedTemplateDetail;
   }
 
+  @Deprecated
   public void setSharedTemplateDetail(List<TemplateSharedTemplateDetail> sharedTemplateDetail) {
     this.sharedTemplateDetail = sharedTemplateDetail;
   }
@@ -804,6 +882,90 @@ public class TemplateProperties {
   }
 
 
+  public TemplateProperties formFieldPermission(FormFieldPermission formFieldPermission) {
+    this.formFieldPermission = formFieldPermission;
+    return this;
+  }
+
+  /**
+   * Get formFieldPermission
+   * @return formFieldPermission
+   */
+  @javax.annotation.Nullable
+  public FormFieldPermission getFormFieldPermission() {
+    return formFieldPermission;
+  }
+
+  public void setFormFieldPermission(FormFieldPermission formFieldPermission) {
+    this.formFieldPermission = formFieldPermission;
+  }
+
+
+  public TemplateProperties allowedSignatureTypes(List<AllowedSignatureTypesEnum> allowedSignatureTypes) {
+    this.allowedSignatureTypes = allowedSignatureTypes;
+    return this;
+  }
+
+  public TemplateProperties addAllowedSignatureTypesItem(AllowedSignatureTypesEnum allowedSignatureTypesItem) {
+    if (this.allowedSignatureTypes == null) {
+      this.allowedSignatureTypes = new ArrayList<>();
+    }
+    this.allowedSignatureTypes.add(allowedSignatureTypesItem);
+    return this;
+  }
+
+  /**
+   * Get allowedSignatureTypes
+   * @return allowedSignatureTypes
+   */
+  @javax.annotation.Nullable
+  public List<AllowedSignatureTypesEnum> getAllowedSignatureTypes() {
+    return allowedSignatureTypes;
+  }
+
+  public void setAllowedSignatureTypes(List<AllowedSignatureTypesEnum> allowedSignatureTypes) {
+    this.allowedSignatureTypes = allowedSignatureTypes;
+  }
+
+
+  public TemplateProperties groupSignerSettings(GroupSignerSettings groupSignerSettings) {
+    this.groupSignerSettings = groupSignerSettings;
+    return this;
+  }
+
+  /**
+   * Get groupSignerSettings
+   * @return groupSignerSettings
+   */
+  @javax.annotation.Nullable
+  public GroupSignerSettings getGroupSignerSettings() {
+    return groupSignerSettings;
+  }
+
+  public void setGroupSignerSettings(GroupSignerSettings groupSignerSettings) {
+    this.groupSignerSettings = groupSignerSettings;
+  }
+
+
+  public TemplateProperties sharing(TemplateSharing sharing) {
+    this.sharing = sharing;
+    return this;
+  }
+
+  /**
+   * Get sharing
+   * @return sharing
+   */
+  @javax.annotation.Nullable
+  public TemplateSharing getSharing() {
+    return sharing;
+  }
+
+  public void setSharing(TemplateSharing sharing) {
+    this.sharing = sharing;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -840,12 +1002,16 @@ public class TemplateProperties {
         Objects.equals(this.templateLabels, templateProperties.templateLabels) &&
         Objects.equals(this.behalfOf, templateProperties.behalfOf) &&
         Objects.equals(this.documentDownloadOption, templateProperties.documentDownloadOption) &&
-        Objects.equals(this.recipientNotificationSettings, templateProperties.recipientNotificationSettings);
+        Objects.equals(this.recipientNotificationSettings, templateProperties.recipientNotificationSettings) &&
+        Objects.equals(this.formFieldPermission, templateProperties.formFieldPermission) &&
+        Objects.equals(this.allowedSignatureTypes, templateProperties.allowedSignatureTypes) &&
+        Objects.equals(this.groupSignerSettings, templateProperties.groupSignerSettings) &&
+        Objects.equals(this.sharing, templateProperties.sharing);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId, title, description, documentTitle, documentMessage, files, roles, formGroups, commonFields, cCDetails, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, allowModifyFiles, enableReassign, enablePrintAndSign, enableSigningOrder, createdDate, createdBy, sharedTemplateDetail, documentInfo, labels, templateLabels, behalfOf, documentDownloadOption, recipientNotificationSettings);
+    return Objects.hash(templateId, title, description, documentTitle, documentMessage, files, roles, formGroups, commonFields, cCDetails, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, allowModifyFiles, enableReassign, enablePrintAndSign, enableSigningOrder, createdDate, createdBy, sharedTemplateDetail, documentInfo, labels, templateLabels, behalfOf, documentDownloadOption, recipientNotificationSettings, formFieldPermission, allowedSignatureTypes, groupSignerSettings, sharing);
   }
 
   @Override
@@ -879,6 +1045,10 @@ public class TemplateProperties {
     sb.append("    behalfOf: ").append(toIndentedString(behalfOf)).append("\n");
     sb.append("    documentDownloadOption: ").append(toIndentedString(documentDownloadOption)).append("\n");
     sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
+    sb.append("    formFieldPermission: ").append(toIndentedString(formFieldPermission)).append("\n");
+    sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
+    sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
+    sb.append("    sharing: ").append(toIndentedString(sharing)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1005,7 +1175,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : files) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1035,7 +1205,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : roles) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1065,7 +1235,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formGroups) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1095,7 +1265,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : commonFields) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1125,7 +1295,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : cCDetails) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1355,7 +1525,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : sharedTemplateDetail) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1385,7 +1555,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : documentInfo) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1415,7 +1585,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : labels) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1445,7 +1615,7 @@ public class TemplateProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : templateLabels) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1514,6 +1684,96 @@ public class TemplateProperties {
         }
         else {
           map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
+        }
+    }
+    if (formFieldPermission != null) {
+        if (isFileTypeOrListOfFiles(formFieldPermission)) {
+            fileTypeFound = true;
+        }
+
+        if (formFieldPermission.getClass().equals(java.io.File.class) ||
+            formFieldPermission.getClass().equals(Integer.class) ||
+            formFieldPermission.getClass().equals(String.class) ||
+            formFieldPermission.getClass().equals(java.net.URI.class)||
+            formFieldPermission.getClass().isEnum()) {
+            map.put("formFieldPermission", formFieldPermission);
+        } else if (isListOfFile(formFieldPermission)) {
+            for(int i = 0; i< getListSize(formFieldPermission); i++) {
+                map.put("formFieldPermission", formFieldPermission);
+            }
+        }
+        else {
+          map.put("formFieldPermission", JSON.serialize(formFieldPermission));
+        }
+    }
+    if (allowedSignatureTypes != null) {
+        if (isFileTypeOrListOfFiles(allowedSignatureTypes)) {
+            fileTypeFound = true;
+        }
+
+        if (allowedSignatureTypes.getClass().equals(java.io.File.class) ||
+            allowedSignatureTypes.getClass().equals(Integer.class) ||
+            allowedSignatureTypes.getClass().equals(String.class) ||
+            allowedSignatureTypes.getClass().equals(java.net.URI.class)||
+            allowedSignatureTypes.getClass().isEnum()) {
+            map.put("allowedSignatureTypes", allowedSignatureTypes);
+        } else if (isListOfFile(allowedSignatureTypes)) {
+            for(int i = 0; i< getListSize(allowedSignatureTypes); i++) {
+                map.put("allowedSignatureTypes", allowedSignatureTypes);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : allowedSignatureTypes) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("allowedSignatureTypes", objectList);
+        }
+    }
+    if (groupSignerSettings != null) {
+        if (isFileTypeOrListOfFiles(groupSignerSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (groupSignerSettings.getClass().equals(java.io.File.class) ||
+            groupSignerSettings.getClass().equals(Integer.class) ||
+            groupSignerSettings.getClass().equals(String.class) ||
+            groupSignerSettings.getClass().equals(java.net.URI.class)||
+            groupSignerSettings.getClass().isEnum()) {
+            map.put("groupSignerSettings", groupSignerSettings);
+        } else if (isListOfFile(groupSignerSettings)) {
+            for(int i = 0; i< getListSize(groupSignerSettings); i++) {
+                map.put("groupSignerSettings", groupSignerSettings);
+            }
+        }
+        else {
+          map.put("groupSignerSettings", JSON.serialize(groupSignerSettings));
+        }
+    }
+    if (sharing != null) {
+        if (isFileTypeOrListOfFiles(sharing)) {
+            fileTypeFound = true;
+        }
+
+        if (sharing.getClass().equals(java.io.File.class) ||
+            sharing.getClass().equals(Integer.class) ||
+            sharing.getClass().equals(String.class) ||
+            sharing.getClass().equals(java.net.URI.class)||
+            sharing.getClass().isEnum()) {
+            map.put("sharing", sharing);
+        } else if (isListOfFile(sharing)) {
+            for(int i = 0; i< getListSize(sharing); i++) {
+                map.put("sharing", sharing);
+            }
+        }
+        else {
+          map.put("sharing", JSON.serialize(sharing));
         }
     }
     } catch (Exception e) {
@@ -1588,6 +1848,10 @@ public class TemplateProperties {
     openapiFields.add("behalfOf");
     openapiFields.add("documentDownloadOption");
     openapiFields.add("recipientNotificationSettings");
+    openapiFields.add("formFieldPermission");
+    openapiFields.add("allowedSignatureTypes");
+    openapiFields.add("groupSignerSettings");
+    openapiFields.add("sharing");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1632,7 +1896,7 @@ public class TemplateProperties {
 
           // validate the optional field `files` (array)
           for (int i = 0; i < jsonArrayfiles.size(); i++) {
-            DocumentFiles.validateJsonElement(jsonArrayfiles.get(i));
+            TemplateFiles.validateJsonElement(jsonArrayfiles.get(i));
           };
         }
       }
@@ -1739,6 +2003,22 @@ public class TemplateProperties {
       // validate the optional field `recipientNotificationSettings`
       if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
         RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
+      }
+      // validate the optional field `formFieldPermission`
+      if (jsonObj.get("formFieldPermission") != null && !jsonObj.get("formFieldPermission").isJsonNull()) {
+        FormFieldPermission.validateJsonElement(jsonObj.get("formFieldPermission"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowedSignatureTypes") != null && !jsonObj.get("allowedSignatureTypes").isJsonNull() && !jsonObj.get("allowedSignatureTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowedSignatureTypes` to be an array in the JSON string but got `%s`", jsonObj.get("allowedSignatureTypes").toString()));
+      }
+      // validate the optional field `groupSignerSettings`
+      if (jsonObj.get("groupSignerSettings") != null && !jsonObj.get("groupSignerSettings").isJsonNull()) {
+        GroupSignerSettings.validateJsonElement(jsonObj.get("groupSignerSettings"));
+      }
+      // validate the optional field `sharing`
+      if (jsonObj.get("sharing") != null && !jsonObj.get("sharing").isJsonNull()) {
+        TemplateSharing.validateJsonElement(jsonObj.get("sharing"));
       }
   }
 

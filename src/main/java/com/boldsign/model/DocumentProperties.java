@@ -23,6 +23,7 @@ import com.boldsign.model.DocumentReassign;
 import com.boldsign.model.DocumentSenderDetail;
 import com.boldsign.model.DocumentSignerDetails;
 import com.boldsign.model.FormGroup;
+import com.boldsign.model.GroupSignerSettings;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.ReminderSettings;
 import com.google.gson.TypeAdapter;
@@ -471,6 +472,76 @@ public class DocumentProperties {
   public static final String SERIALIZED_NAME_SCHEDULED_SEND_TIME = "scheduledSendTime";
   @SerializedName(SERIALIZED_NAME_SCHEDULED_SEND_TIME)
   private Long scheduledSendTime;
+
+  /**
+   * Gets or Sets allowedSignatureTypes
+   */
+  @JsonAdapter(AllowedSignatureTypesEnum.Adapter.class)
+  public enum AllowedSignatureTypesEnum {
+    TEXT("Text"),
+    
+    DRAW("Draw"),
+    
+    IMAGE("Image");
+
+    private String value;
+
+    AllowedSignatureTypesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AllowedSignatureTypesEnum fromValue(String value) {
+      for (AllowedSignatureTypesEnum b : AllowedSignatureTypesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AllowedSignatureTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AllowedSignatureTypesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AllowedSignatureTypesEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AllowedSignatureTypesEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AllowedSignatureTypesEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ALLOWED_SIGNATURE_TYPES = "allowedSignatureTypes";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_SIGNATURE_TYPES)
+  private List<AllowedSignatureTypesEnum> allowedSignatureTypes;
+
+  public static final String SERIALIZED_NAME_GROUP_SIGNER_SETTINGS = "groupSignerSettings";
+  @SerializedName(SERIALIZED_NAME_GROUP_SIGNER_SETTINGS)
+  private GroupSignerSettings groupSignerSettings;
+
+  public static final String SERIALIZED_NAME_IN_EDITING_MODE = "inEditingMode";
+  @SerializedName(SERIALIZED_NAME_IN_EDITING_MODE)
+  private Boolean inEditingMode;
+
+  public static final String SERIALIZED_NAME_DISPLAY_STATUS = "displayStatus";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_STATUS)
+  private String displayStatus;
 
   public DocumentProperties() {
   }
@@ -1307,6 +1378,90 @@ public class DocumentProperties {
   }
 
 
+  public DocumentProperties allowedSignatureTypes(List<AllowedSignatureTypesEnum> allowedSignatureTypes) {
+    this.allowedSignatureTypes = allowedSignatureTypes;
+    return this;
+  }
+
+  public DocumentProperties addAllowedSignatureTypesItem(AllowedSignatureTypesEnum allowedSignatureTypesItem) {
+    if (this.allowedSignatureTypes == null) {
+      this.allowedSignatureTypes = new ArrayList<>();
+    }
+    this.allowedSignatureTypes.add(allowedSignatureTypesItem);
+    return this;
+  }
+
+  /**
+   * Get allowedSignatureTypes
+   * @return allowedSignatureTypes
+   */
+  @javax.annotation.Nullable
+  public List<AllowedSignatureTypesEnum> getAllowedSignatureTypes() {
+    return allowedSignatureTypes;
+  }
+
+  public void setAllowedSignatureTypes(List<AllowedSignatureTypesEnum> allowedSignatureTypes) {
+    this.allowedSignatureTypes = allowedSignatureTypes;
+  }
+
+
+  public DocumentProperties groupSignerSettings(GroupSignerSettings groupSignerSettings) {
+    this.groupSignerSettings = groupSignerSettings;
+    return this;
+  }
+
+  /**
+   * Get groupSignerSettings
+   * @return groupSignerSettings
+   */
+  @javax.annotation.Nullable
+  public GroupSignerSettings getGroupSignerSettings() {
+    return groupSignerSettings;
+  }
+
+  public void setGroupSignerSettings(GroupSignerSettings groupSignerSettings) {
+    this.groupSignerSettings = groupSignerSettings;
+  }
+
+
+  public DocumentProperties inEditingMode(Boolean inEditingMode) {
+    this.inEditingMode = inEditingMode;
+    return this;
+  }
+
+  /**
+   * Get inEditingMode
+   * @return inEditingMode
+   */
+  @javax.annotation.Nullable
+  public Boolean getInEditingMode() {
+    return inEditingMode;
+  }
+
+  public void setInEditingMode(Boolean inEditingMode) {
+    this.inEditingMode = inEditingMode;
+  }
+
+
+  public DocumentProperties displayStatus(String displayStatus) {
+    this.displayStatus = displayStatus;
+    return this;
+  }
+
+  /**
+   * Get displayStatus
+   * @return displayStatus
+   */
+  @javax.annotation.Nullable
+  public String getDisplayStatus() {
+    return displayStatus;
+  }
+
+  public void setDisplayStatus(String displayStatus) {
+    this.displayStatus = displayStatus;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1356,12 +1511,16 @@ public class DocumentProperties {
         Objects.equals(this.recipientNotificationSettings, documentProperties.recipientNotificationSettings) &&
         Objects.equals(this.enableAuditTrailLocalization, documentProperties.enableAuditTrailLocalization) &&
         Objects.equals(this.downloadFileName, documentProperties.downloadFileName) &&
-        Objects.equals(this.scheduledSendTime, documentProperties.scheduledSendTime);
+        Objects.equals(this.scheduledSendTime, documentProperties.scheduledSendTime) &&
+        Objects.equals(this.allowedSignatureTypes, documentProperties.allowedSignatureTypes) &&
+        Objects.equals(this.groupSignerSettings, documentProperties.groupSignerSettings) &&
+        Objects.equals(this.inEditingMode, documentProperties.inEditingMode) &&
+        Objects.equals(this.displayStatus, documentProperties.displayStatus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime);
+    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, inEditingMode, displayStatus);
   }
 
   @Override
@@ -1408,6 +1567,10 @@ public class DocumentProperties {
     sb.append("    enableAuditTrailLocalization: ").append(toIndentedString(enableAuditTrailLocalization)).append("\n");
     sb.append("    downloadFileName: ").append(toIndentedString(downloadFileName)).append("\n");
     sb.append("    scheduledSendTime: ").append(toIndentedString(scheduledSendTime)).append("\n");
+    sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
+    sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
+    sb.append("    inEditingMode: ").append(toIndentedString(inEditingMode)).append("\n");
+    sb.append("    displayStatus: ").append(toIndentedString(displayStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1534,7 +1697,7 @@ public class DocumentProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : files) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1584,7 +1747,7 @@ public class DocumentProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : signerDetails) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1614,7 +1777,7 @@ public class DocumentProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formGroups) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1644,7 +1807,7 @@ public class DocumentProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : commonFields) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1694,7 +1857,7 @@ public class DocumentProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : ccDetails) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1744,7 +1907,7 @@ public class DocumentProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : reassign) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1774,7 +1937,7 @@ public class DocumentProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : documentHistory) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2024,7 +2187,7 @@ public class DocumentProperties {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : labels) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2212,6 +2375,14 @@ public class DocumentProperties {
             }
         }
         else {
+          // Handle metaData as Map<String, String> - send each key-value pair separately
+          for (Map.Entry<String, String> entry : metaData.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (key != null && value != null) {
+              map.put("metaData[" + key + "]", value);
+            }
+          }
           map.put("metaData", JSON.serialize(metaData));
         }
     }
@@ -2293,6 +2464,96 @@ public class DocumentProperties {
         }
         else {
           map.put("scheduledSendTime", JSON.serialize(scheduledSendTime));
+        }
+    }
+    if (allowedSignatureTypes != null) {
+        if (isFileTypeOrListOfFiles(allowedSignatureTypes)) {
+            fileTypeFound = true;
+        }
+
+        if (allowedSignatureTypes.getClass().equals(java.io.File.class) ||
+            allowedSignatureTypes.getClass().equals(Integer.class) ||
+            allowedSignatureTypes.getClass().equals(String.class) ||
+            allowedSignatureTypes.getClass().equals(java.net.URI.class)||
+            allowedSignatureTypes.getClass().isEnum()) {
+            map.put("allowedSignatureTypes", allowedSignatureTypes);
+        } else if (isListOfFile(allowedSignatureTypes)) {
+            for(int i = 0; i< getListSize(allowedSignatureTypes); i++) {
+                map.put("allowedSignatureTypes", allowedSignatureTypes);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : allowedSignatureTypes) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("allowedSignatureTypes", objectList);
+        }
+    }
+    if (groupSignerSettings != null) {
+        if (isFileTypeOrListOfFiles(groupSignerSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (groupSignerSettings.getClass().equals(java.io.File.class) ||
+            groupSignerSettings.getClass().equals(Integer.class) ||
+            groupSignerSettings.getClass().equals(String.class) ||
+            groupSignerSettings.getClass().equals(java.net.URI.class)||
+            groupSignerSettings.getClass().isEnum()) {
+            map.put("groupSignerSettings", groupSignerSettings);
+        } else if (isListOfFile(groupSignerSettings)) {
+            for(int i = 0; i< getListSize(groupSignerSettings); i++) {
+                map.put("groupSignerSettings", groupSignerSettings);
+            }
+        }
+        else {
+          map.put("groupSignerSettings", JSON.serialize(groupSignerSettings));
+        }
+    }
+    if (inEditingMode != null) {
+        if (isFileTypeOrListOfFiles(inEditingMode)) {
+            fileTypeFound = true;
+        }
+
+        if (inEditingMode.getClass().equals(java.io.File.class) ||
+            inEditingMode.getClass().equals(Integer.class) ||
+            inEditingMode.getClass().equals(String.class) ||
+            inEditingMode.getClass().equals(java.net.URI.class)||
+            inEditingMode.getClass().isEnum()) {
+            map.put("inEditingMode", inEditingMode);
+        } else if (isListOfFile(inEditingMode)) {
+            for(int i = 0; i< getListSize(inEditingMode); i++) {
+                map.put("inEditingMode", inEditingMode);
+            }
+        }
+        else {
+          map.put("inEditingMode", JSON.serialize(inEditingMode));
+        }
+    }
+    if (displayStatus != null) {
+        if (isFileTypeOrListOfFiles(displayStatus)) {
+            fileTypeFound = true;
+        }
+
+        if (displayStatus.getClass().equals(java.io.File.class) ||
+            displayStatus.getClass().equals(Integer.class) ||
+            displayStatus.getClass().equals(String.class) ||
+            displayStatus.getClass().equals(java.net.URI.class)||
+            displayStatus.getClass().isEnum()) {
+            map.put("displayStatus", displayStatus);
+        } else if (isListOfFile(displayStatus)) {
+            for(int i = 0; i< getListSize(displayStatus); i++) {
+                map.put("displayStatus", displayStatus);
+            }
+        }
+        else {
+          map.put("displayStatus", JSON.serialize(displayStatus));
         }
     }
     } catch (Exception e) {
@@ -2380,6 +2641,10 @@ public class DocumentProperties {
     openapiFields.add("enableAuditTrailLocalization");
     openapiFields.add("downloadFileName");
     openapiFields.add("scheduledSendTime");
+    openapiFields.add("allowedSignatureTypes");
+    openapiFields.add("groupSignerSettings");
+    openapiFields.add("inEditingMode");
+    openapiFields.add("displayStatus");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2571,6 +2836,17 @@ public class DocumentProperties {
       }
       if ((jsonObj.get("downloadFileName") != null && !jsonObj.get("downloadFileName").isJsonNull()) && !jsonObj.get("downloadFileName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `downloadFileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("downloadFileName").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowedSignatureTypes") != null && !jsonObj.get("allowedSignatureTypes").isJsonNull() && !jsonObj.get("allowedSignatureTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowedSignatureTypes` to be an array in the JSON string but got `%s`", jsonObj.get("allowedSignatureTypes").toString()));
+      }
+      // validate the optional field `groupSignerSettings`
+      if (jsonObj.get("groupSignerSettings") != null && !jsonObj.get("groupSignerSettings").isJsonNull()) {
+        GroupSignerSettings.validateJsonElement(jsonObj.get("groupSignerSettings"));
+      }
+      if ((jsonObj.get("displayStatus") != null && !jsonObj.get("displayStatus").isJsonNull()) && !jsonObj.get("displayStatus").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `displayStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayStatus").toString()));
       }
   }
 

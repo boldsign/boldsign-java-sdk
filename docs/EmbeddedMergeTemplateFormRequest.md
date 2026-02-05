@@ -46,13 +46,15 @@
 |**roleRemovalIndices** | **List&lt;Integer&gt;** |  |  [optional] |
 |**documentDownloadOption** | [**DocumentDownloadOptionEnum**](#DocumentDownloadOptionEnum) |  |  [optional] |
 |**metaData** | **Map&lt;String, String&gt;** |  |  [optional] |
-|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**formGroups** | [**List&lt;FormGroup&gt;**](FormGroup.md) |  |  [optional] |
 |**removeFormFields** | **List&lt;String&gt;** |  |  [optional] |
+|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**enableAuditTrailLocalization** | **Boolean** |  |  [optional] |
 |**downloadFileName** | **String** |  |  [optional] |
 |**scheduledSendTime** | **Long** |  |  [optional] |
 |**allowScheduledSend** | **Boolean** |  |  [optional] |
+|**allowedSignatureTypes** | [**List&lt;AllowedSignatureTypesEnum&gt;**](#List&lt;AllowedSignatureTypesEnum&gt;) |  |  [optional] |
+|**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 
 
 
@@ -85,6 +87,11 @@
 | RU | &quot;RU&quot; |
 | SV | &quot;SV&quot; |
 | DEFAULT | &quot;Default&quot; |
+| JA | &quot;JA&quot; |
+| TH | &quot;TH&quot; |
+| ZH_CN | &quot;ZH_CN&quot; |
+| ZH_TW | &quot;ZH_TW&quot; |
+| KO | &quot;KO&quot; |
 
 
 
@@ -95,7 +102,6 @@
 | DAYS | &quot;Days&quot; |
 | HOURS | &quot;Hours&quot; |
 | SPECIFIC_DATE_TIME | &quot;SpecificDateTime&quot; |
-| NULL | &quot;null&quot; |
 
 
 
@@ -105,7 +111,16 @@
 |---- | -----|
 | COMBINED | &quot;Combined&quot; |
 | INDIVIDUALLY | &quot;Individually&quot; |
-| NULL | &quot;null&quot; |
+
+
+
+## Enum: List&lt;AllowedSignatureTypesEnum&gt;
+
+| Name | Value |
+|---- | -----|
+| TEXT | &quot;Text&quot; |
+| DRAW | &quot;Draw&quot; |
+| IMAGE | &quot;Image&quot; |
 
 
 

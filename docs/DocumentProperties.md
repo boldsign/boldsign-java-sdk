@@ -47,6 +47,10 @@
 |**enableAuditTrailLocalization** | **Boolean** |  |  [optional] |
 |**downloadFileName** | **String** |  |  [optional] |
 |**scheduledSendTime** | **Long** |  |  [optional] |
+|**allowedSignatureTypes** | [**List&lt;AllowedSignatureTypesEnum&gt;**](#List&lt;AllowedSignatureTypesEnum&gt;) |  |  [optional] |
+|**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
+|**inEditingMode** | **Boolean** |  |  [optional] |
+|**displayStatus** | **String** |  |  [optional] |
 
 
 
@@ -105,6 +109,16 @@
 |---- | -----|
 | COMBINED | &quot;Combined&quot; |
 | INDIVIDUALLY | &quot;Individually&quot; |
+
+
+
+## Enum: List&lt;AllowedSignatureTypesEnum&gt;
+
+| Name | Value |
+|---- | -----|
+| TEXT | &quot;Text&quot; |
+| DRAW | &quot;Draw&quot; |
+| IMAGE | &quot;Image&quot; |
 
 
 

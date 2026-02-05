@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**title** | **String** |  |  |
-|**allowedFileTypes** | **String** |  |  |
+|**acceptedFileTypes** | **List&lt;String&gt;** |  |  |
 |**description** | **String** |  |  [optional] |
-|**acceptedFileTypes** | **List&lt;String&gt;** |  |  [optional] |
+|**allowedFileTypes** | **String** |  |  [optional] |
 
 
 

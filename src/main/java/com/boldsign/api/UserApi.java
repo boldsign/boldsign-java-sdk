@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.boldsign.model.ChangeTeamRequest;
 import com.boldsign.model.CreateUser;
 import com.boldsign.model.ErrorResult;
 import com.boldsign.model.UpdateUser;
@@ -205,6 +206,183 @@ public class UserApi {
     public okhttp3.Call cancelInvitationAsync(String userId, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = cancelInvitationValidateBeforeCall(userId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for changeTeam
+     * @param userId user Id. (required)
+     * @param changeTeamRequest Change team request. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call changeTeamCall(String userId, ChangeTeamRequest changeTeamRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = changeTeamRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/users/changeTeam";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        localVarFormParams = changeTeamRequest.createFormData();
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json;odata.metadata=minimal;odata.streaming=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false",
+            "application/json;odata.metadata=minimal",
+            "application/json;odata.metadata=full;odata.streaming=true",
+            "application/json;odata.metadata=full;odata.streaming=false",
+            "application/json;odata.metadata=full",
+            "application/json;odata.metadata=none;odata.streaming=true",
+            "application/json;odata.metadata=none;odata.streaming=false",
+            "application/json;odata.metadata=none",
+            "application/json;odata.streaming=true",
+            "application/json;odata.streaming=false",
+            "application/json",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=false",
+            "application/json;odata.metadata=minimal;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=full;IEEE754Compatible=false",
+            "application/json;odata.metadata=full;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=false",
+            "application/json;odata.metadata=none;IEEE754Compatible=true",
+            "application/json;odata.streaming=true;IEEE754Compatible=false",
+            "application/json;odata.streaming=true;IEEE754Compatible=true",
+            "application/json;odata.streaming=false;IEEE754Compatible=false",
+            "application/json;odata.streaming=false;IEEE754Compatible=true",
+            "application/json;IEEE754Compatible=false",
+            "application/json;IEEE754Compatible=true",
+            "application/xml",
+            "text/plain",
+            "application/json-patch+json",
+            "text/json",
+            "application/*+json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-API-KEY", "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call changeTeamValidateBeforeCall(String userId, ChangeTeamRequest changeTeamRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling changeTeam(Async)");
+        }
+
+        return changeTeamCall(userId, changeTeamRequest, _callback);
+
+    }
+
+    /**
+     * Change users to other team.
+     * 
+     * @param userId user Id. (required)
+     * @param changeTeamRequest Change team request. (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public void changeTeam(String userId, ChangeTeamRequest changeTeamRequest) throws ApiException {
+        changeTeamWithHttpInfo(userId, changeTeamRequest);
+    }
+
+    /**
+     * Change users to other team.
+     * 
+     * @param userId user Id. (required)
+     * @param changeTeamRequest Change team request. (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> changeTeamWithHttpInfo(String userId, ChangeTeamRequest changeTeamRequest) throws ApiException {
+        okhttp3.Call localVarCall = changeTeamValidateBeforeCall(userId, changeTeamRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Change users to other team. (asynchronously)
+     * 
+     * @param userId user Id. (required)
+     * @param changeTeamRequest Change team request. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call changeTeamAsync(String userId, ChangeTeamRequest changeTeamRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = changeTeamValidateBeforeCall(userId, changeTeamRequest, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -514,6 +692,7 @@ public class UserApi {
      * @param page Page index specified in get user list request. (required)
      * @param pageSize Page size specified in get user list request. (optional, default to 10)
      * @param search Users can be listed by the search  based on the user ID (optional)
+     * @param userId Users can be listed by the search based on the user IDs (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -524,7 +703,7 @@ public class UserApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUsersCall(Integer page, Integer pageSize, String search, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listUsersCall(Integer page, Integer pageSize, String search, List<String> userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -562,6 +741,10 @@ public class UserApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("Search", search));
         }
 
+        if (userId != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "UserId", userId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -582,13 +765,13 @@ public class UserApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUsersValidateBeforeCall(Integer page, Integer pageSize, String search, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUsersValidateBeforeCall(Integer page, Integer pageSize, String search, List<String> userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'page' is set
         if (page == null) {
             throw new ApiException("Missing the required parameter 'page' when calling listUsers(Async)");
         }
 
-        return listUsersCall(page, pageSize, search, _callback);
+        return listUsersCall(page, pageSize, search, userId, _callback);
 
     }
 
@@ -598,6 +781,7 @@ public class UserApi {
      * @param page Page index specified in get user list request. (required)
      * @param pageSize Page size specified in get user list request. (optional, default to 10)
      * @param search Users can be listed by the search  based on the user ID (optional)
+     * @param userId Users can be listed by the search based on the user IDs (optional)
      * @return UserRecords
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -607,8 +791,8 @@ public class UserApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public UserRecords listUsers(Integer page, Integer pageSize, String search) throws ApiException {
-        ApiResponse<UserRecords> localVarResp = listUsersWithHttpInfo(page, pageSize, search);
+    public UserRecords listUsers(Integer page, Integer pageSize, String search, List<String> userId) throws ApiException {
+        ApiResponse<UserRecords> localVarResp = listUsersWithHttpInfo(page, pageSize, search, userId);
         return localVarResp.getData();
     }
 
@@ -618,6 +802,7 @@ public class UserApi {
      * @param page Page index specified in get user list request. (required)
      * @param pageSize Page size specified in get user list request. (optional, default to 10)
      * @param search Users can be listed by the search  based on the user ID (optional)
+     * @param userId Users can be listed by the search based on the user IDs (optional)
      * @return ApiResponse&lt;UserRecords&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -627,8 +812,8 @@ public class UserApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UserRecords> listUsersWithHttpInfo(Integer page, Integer pageSize, String search) throws ApiException {
-        okhttp3.Call localVarCall = listUsersValidateBeforeCall(page, pageSize, search, null);
+    public ApiResponse<UserRecords> listUsersWithHttpInfo(Integer page, Integer pageSize, String search, List<String> userId) throws ApiException {
+        okhttp3.Call localVarCall = listUsersValidateBeforeCall(page, pageSize, search, userId, null);
         Type localVarReturnType = new TypeToken<UserRecords>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -639,6 +824,7 @@ public class UserApi {
      * @param page Page index specified in get user list request. (required)
      * @param pageSize Page size specified in get user list request. (optional, default to 10)
      * @param search Users can be listed by the search  based on the user ID (optional)
+     * @param userId Users can be listed by the search based on the user IDs (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -649,9 +835,9 @@ public class UserApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUsersAsync(Integer page, Integer pageSize, String search, final ApiCallback<UserRecords> _callback) throws ApiException {
+    public okhttp3.Call listUsersAsync(Integer page, Integer pageSize, String search, List<String> userId, final ApiCallback<UserRecords> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listUsersValidateBeforeCall(page, pageSize, search, _callback);
+        okhttp3.Call localVarCall = listUsersValidateBeforeCall(page, pageSize, search, userId, _callback);
         Type localVarReturnType = new TypeToken<UserRecords>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

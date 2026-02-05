@@ -15,6 +15,7 @@ All URIs are relative to *https://api.boldsign.com*
 | [**downloadAttachment**](DocumentApi.md#downloadAttachment) | **GET** /v1/document/downloadAttachment | Download the Attachment. |
 | [**downloadAuditLog**](DocumentApi.md#downloadAuditLog) | **GET** /v1/document/downloadAuditLog | Download the audit trail document. |
 | [**downloadDocument**](DocumentApi.md#downloadDocument) | **GET** /v1/document/download | Download the document. |
+| [**draftSend**](DocumentApi.md#draftSend) | **POST** /v1/document/draftSend | Sends a draft-status document out for signature. |
 | [**extendExpiry**](DocumentApi.md#extendExpiry) | **PATCH** /v1/document/extendExpiry | Extends the expiration date of the document. |
 | [**getProperties**](DocumentApi.md#getProperties) | **GET** /v1/document/properties | Get summary of the document. |
 | [**getEmbeddedSignLink**](DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign. |
@@ -788,6 +789,71 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+<a id="draftSend"></a>
+# **draftSend**
+> draftSend(documentId)
+
+Sends a draft-status document out for signature.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.DocumentApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
+    String documentId = "documentId_example"; // String | The ID of the document to be sent.
+    
+    try {
+      apiInstance.draftSend(documentId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DocumentApi#draftSend");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **documentId** | **String**| The ID of the document to be sent. | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.boldsign.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**addTag**](TemplateApi.md#addTag) | **PATCH** /v1/template/addTags | Add the Tags in Templates. |
+| [**createEmbeddedPreviewUrl**](TemplateApi.md#createEmbeddedPreviewUrl) | **POST** /v1/template/createEmbeddedPreviewUrl | Generates a preview URL for a template to view it. |
 | [**createEmbeddedRequestUrlTemplate**](TemplateApi.md#createEmbeddedRequestUrlTemplate) | **POST** /v1/template/createEmbeddedRequestUrl | Generates a send URL using a template which embeds document sending process into your application. |
 | [**createEmbeddedTemplateUrl**](TemplateApi.md#createEmbeddedTemplateUrl) | **POST** /v1/template/createEmbeddedTemplateUrl | Generates a create URL to embeds template create process into your application. |
 | [**createTemplate**](TemplateApi.md#createTemplate) | **POST** /v1/template/create | Creates a new template. |
@@ -83,6 +84,73 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+
+<a id="createEmbeddedPreviewUrl"></a>
+# **createEmbeddedPreviewUrl**
+> EmbeddedTemplatePreview createEmbeddedPreviewUrl(templateId, embeddedTemplatePreviewJsonRequest)
+
+Generates a preview URL for a template to view it.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.TemplateApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
+    String templateId = "templateId_example"; // String | The template id.
+    EmbeddedTemplatePreviewJsonRequest embeddedTemplatePreviewJsonRequest = new EmbeddedTemplatePreviewJsonRequest(); // EmbeddedTemplatePreviewJsonRequest | The embedded template preview request body.
+    
+    try {
+      EmbeddedTemplatePreview result = apiInstance.createEmbeddedPreviewUrl(templateId, embeddedTemplatePreviewJsonRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TemplateApi#createEmbeddedPreviewUrl");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **templateId** | **String**| The template id. | |
+| **embeddedTemplatePreviewJsonRequest** | [**EmbeddedTemplatePreviewJsonRequest**](EmbeddedTemplatePreviewJsonRequest.md)| The embedded template preview request body. | [optional] |
+
+### Return type
+
+[**EmbeddedTemplatePreview**](EmbeddedTemplatePreview.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data, application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 
 <a id="createEmbeddedRequestUrlTemplate"></a>
@@ -420,7 +488,7 @@ null (empty response body)
 
 <a id="download"></a>
 # **download**
-> File download(templateId, onBehalfOf)
+> File download(templateId, onBehalfOf, includeFormFieldValues)
 
 Download the template.
 
@@ -444,9 +512,10 @@ public class Example {
 
     String templateId = "templateId_example"; // String | Template Id.
     String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    Boolean includeFormFieldValues = false; // Boolean | Include form field data.
     
     try {
-      File result = apiInstance.download(templateId, onBehalfOf);
+      File result = apiInstance.download(templateId, onBehalfOf, includeFormFieldValues);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TemplateApi#download");
@@ -465,6 +534,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **templateId** | **String**| Template Id. | |
 | **onBehalfOf** | **String**| The on behalfof email address. | [optional] |
+| **includeFormFieldValues** | **Boolean**| Include form field data. | [optional] [default to false] |
 
 ### Return type
 
@@ -690,7 +760,7 @@ public class Example {
 
 <a id="listTemplates"></a>
 # **listTemplates**
-> TemplateRecords listTemplates(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds)
+> TemplateRecords listTemplates(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, sharedWithTeamId)
 
 List all the templates.
 
@@ -722,9 +792,10 @@ public class Example {
     OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | Start date of the template
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | End date of the template
     List<String> brandIds = Arrays.asList(); // List<String> | BrandId(s) of the template.
+    List<String> sharedWithTeamId = Arrays.asList(); // List<String> | The templates can be listed by the shared teams.
     
     try {
-      TemplateRecords result = apiInstance.listTemplates(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds);
+      TemplateRecords result = apiInstance.listTemplates(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, sharedWithTeamId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TemplateApi#listTemplates");
@@ -751,6 +822,7 @@ public class Example {
 | **startDate** | **OffsetDateTime**| Start date of the template | [optional] |
 | **endDate** | **OffsetDateTime**| End date of the template | [optional] |
 | **brandIds** | [**List&lt;String&gt;**](String.md)| BrandId(s) of the template. | [optional] |
+| **sharedWithTeamId** | [**List&lt;String&gt;**](String.md)| The templates can be listed by the shared teams. | [optional] |
 
 ### Return type
 

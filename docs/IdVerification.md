@@ -15,6 +15,7 @@
 |**requireMatchingSelfie** | **Boolean** |  |  [optional] |
 |**holdForPrefill** | **Boolean** |  |  [optional] |
 |**prefillCompleted** | **Boolean** |  |  [optional] |
+|**allowedDocumentTypes** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

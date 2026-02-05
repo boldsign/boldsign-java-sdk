@@ -15,13 +15,16 @@ package com.boldsign.model;
 
 import java.util.Objects;
 import com.boldsign.model.PhoneNumber;
+import com.boldsign.model.TemplateGroupSigner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -394,6 +397,14 @@ public class TemplateSignerDetails {
   @SerializedName(SERIALIZED_NAME_SIGN_TYPE)
   private SignTypeEnum signType;
 
+  public static final String SERIALIZED_NAME_GROUP_ID = "groupId";
+  @SerializedName(SERIALIZED_NAME_GROUP_ID)
+  private String groupId;
+
+  public static final String SERIALIZED_NAME_GROUP_SIGNERS = "groupSigners";
+  @SerializedName(SERIALIZED_NAME_GROUP_SIGNERS)
+  private List<TemplateGroupSigner> groupSigners;
+
   public TemplateSignerDetails() {
   }
 
@@ -720,6 +731,52 @@ public class TemplateSignerDetails {
   }
 
 
+  public TemplateSignerDetails groupId(String groupId) {
+    this.groupId = groupId;
+    return this;
+  }
+
+  /**
+   * Get groupId
+   * @return groupId
+   */
+  @javax.annotation.Nullable
+  public String getGroupId() {
+    return groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+
+  public TemplateSignerDetails groupSigners(List<TemplateGroupSigner> groupSigners) {
+    this.groupSigners = groupSigners;
+    return this;
+  }
+
+  public TemplateSignerDetails addGroupSignersItem(TemplateGroupSigner groupSignersItem) {
+    if (this.groupSigners == null) {
+      this.groupSigners = new ArrayList<>();
+    }
+    this.groupSigners.add(groupSignersItem);
+    return this;
+  }
+
+  /**
+   * Get groupSigners
+   * @return groupSigners
+   */
+  @javax.annotation.Nullable
+  public List<TemplateGroupSigner> getGroupSigners() {
+    return groupSigners;
+  }
+
+  public void setGroupSigners(List<TemplateGroupSigner> groupSigners) {
+    this.groupSigners = groupSigners;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -746,12 +803,14 @@ public class TemplateSignerDetails {
         Objects.equals(this.hostEmail, templateSignerDetails.hostEmail) &&
         Objects.equals(this.hostName, templateSignerDetails.hostName) &&
         Objects.equals(this.hostUserId, templateSignerDetails.hostUserId) &&
-        Objects.equals(this.signType, templateSignerDetails.signType);
+        Objects.equals(this.signType, templateSignerDetails.signType) &&
+        Objects.equals(this.groupId, templateSignerDetails.groupId) &&
+        Objects.equals(this.groupSigners, templateSignerDetails.groupSigners);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signerName, signerRole, signerEmail, phoneNumber, status, enableAccessCode, enableEmailOTP, imposeAuthentication, deliveryMode, allowFieldConfiguration, userId, order, signerType, hostEmail, hostName, hostUserId, signType);
+    return Objects.hash(signerName, signerRole, signerEmail, phoneNumber, status, enableAccessCode, enableEmailOTP, imposeAuthentication, deliveryMode, allowFieldConfiguration, userId, order, signerType, hostEmail, hostName, hostUserId, signType, groupId, groupSigners);
   }
 
   @Override
@@ -775,6 +834,8 @@ public class TemplateSignerDetails {
     sb.append("    hostName: ").append(toIndentedString(hostName)).append("\n");
     sb.append("    hostUserId: ").append(toIndentedString(hostUserId)).append("\n");
     sb.append("    signType: ").append(toIndentedString(signType)).append("\n");
+    sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
+    sb.append("    groupSigners: ").append(toIndentedString(groupSigners)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1122,6 +1183,56 @@ public class TemplateSignerDetails {
           map.put("signType", JSON.serialize(signType));
         }
     }
+    if (groupId != null) {
+        if (isFileTypeOrListOfFiles(groupId)) {
+            fileTypeFound = true;
+        }
+
+        if (groupId.getClass().equals(java.io.File.class) ||
+            groupId.getClass().equals(Integer.class) ||
+            groupId.getClass().equals(String.class) ||
+            groupId.getClass().equals(java.net.URI.class)||
+            groupId.getClass().isEnum()) {
+            map.put("groupId", groupId);
+        } else if (isListOfFile(groupId)) {
+            for(int i = 0; i< getListSize(groupId); i++) {
+                map.put("groupId", groupId);
+            }
+        }
+        else {
+          map.put("groupId", JSON.serialize(groupId));
+        }
+    }
+    if (groupSigners != null) {
+        if (isFileTypeOrListOfFiles(groupSigners)) {
+            fileTypeFound = true;
+        }
+
+        if (groupSigners.getClass().equals(java.io.File.class) ||
+            groupSigners.getClass().equals(Integer.class) ||
+            groupSigners.getClass().equals(String.class) ||
+            groupSigners.getClass().equals(java.net.URI.class)||
+            groupSigners.getClass().isEnum()) {
+            map.put("groupSigners", groupSigners);
+        } else if (isListOfFile(groupSigners)) {
+            for(int i = 0; i< getListSize(groupSigners); i++) {
+                map.put("groupSigners", groupSigners);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : groupSigners) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("groupSigners", objectList);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1184,6 +1295,8 @@ public class TemplateSignerDetails {
     openapiFields.add("hostName");
     openapiFields.add("hostUserId");
     openapiFields.add("signType");
+    openapiFields.add("groupId");
+    openapiFields.add("groupSigners");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1262,6 +1375,23 @@ public class TemplateSignerDetails {
       // validate the optional field `signType`
       if (jsonObj.get("signType") != null && !jsonObj.get("signType").isJsonNull()) {
         SignTypeEnum.validateJsonElement(jsonObj.get("signType"));
+      }
+      if ((jsonObj.get("groupId") != null && !jsonObj.get("groupId").isJsonNull()) && !jsonObj.get("groupId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `groupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("groupId").toString()));
+      }
+      if (jsonObj.get("groupSigners") != null && !jsonObj.get("groupSigners").isJsonNull()) {
+        JsonArray jsonArraygroupSigners = jsonObj.getAsJsonArray("groupSigners");
+        if (jsonArraygroupSigners != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("groupSigners").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `groupSigners` to be an array in the JSON string but got `%s`", jsonObj.get("groupSigners").toString()));
+          }
+
+          // validate the optional field `groupSigners` (array)
+          for (int i = 0; i < jsonArraygroupSigners.size(); i++) {
+            TemplateGroupSigner.validateJsonElement(jsonArraygroupSigners.get(i));
+          };
+        }
       }
   }
 

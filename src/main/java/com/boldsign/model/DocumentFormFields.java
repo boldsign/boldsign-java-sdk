@@ -15,6 +15,7 @@ package com.boldsign.model;
 
 import java.util.Objects;
 import com.boldsign.model.AttachmentInfo;
+import com.boldsign.model.CollaborationSettings;
 import com.boldsign.model.ConditionalRule;
 import com.boldsign.model.EditableDateFieldSettings;
 import com.boldsign.model.FileInfo;
@@ -57,6 +58,10 @@ public class DocumentFormFields {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_FORM_FIELD_ID = "formFieldId";
+  @SerializedName(SERIALIZED_NAME_FORM_FIELD_ID)
+  private String formFieldId;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -375,9 +380,7 @@ public class DocumentFormFields {
     
     FIXED("Fixed"),
     
-    AUTO_RESIZE_FONT("AutoResizeFont"),
-    
-    NULL("null");
+    AUTO_RESIZE_FONT("AutoResizeFont");
 
     private String value;
 
@@ -434,6 +437,18 @@ public class DocumentFormFields {
   @SerializedName(SERIALIZED_NAME_ALLOW_DELETE_FORM_FIELD)
   private Boolean allowDeleteFormField;
 
+  public static final String SERIALIZED_NAME_COLLABORATION_SETTINGS = "collaborationSettings";
+  @SerializedName(SERIALIZED_NAME_COLLABORATION_SETTINGS)
+  private CollaborationSettings collaborationSettings;
+
+  public static final String SERIALIZED_NAME_HIDDEN = "hidden";
+  @SerializedName(SERIALIZED_NAME_HIDDEN)
+  private Boolean hidden;
+
+  public static final String SERIALIZED_NAME_IS_MASKED = "isMasked";
+  @SerializedName(SERIALIZED_NAME_IS_MASKED)
+  private Boolean isMasked = false;
+
   public DocumentFormFields() {
   }
 
@@ -453,6 +468,25 @@ public class DocumentFormFields {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public DocumentFormFields formFieldId(String formFieldId) {
+    this.formFieldId = formFieldId;
+    return this;
+  }
+
+  /**
+   * Get formFieldId
+   * @return formFieldId
+   */
+  @javax.annotation.Nullable
+  public String getFormFieldId() {
+    return formFieldId;
+  }
+
+  public void setFormFieldId(String formFieldId) {
+    this.formFieldId = formFieldId;
   }
 
 
@@ -1194,6 +1228,63 @@ public class DocumentFormFields {
   }
 
 
+  public DocumentFormFields collaborationSettings(CollaborationSettings collaborationSettings) {
+    this.collaborationSettings = collaborationSettings;
+    return this;
+  }
+
+  /**
+   * Get collaborationSettings
+   * @return collaborationSettings
+   */
+  @javax.annotation.Nullable
+  public CollaborationSettings getCollaborationSettings() {
+    return collaborationSettings;
+  }
+
+  public void setCollaborationSettings(CollaborationSettings collaborationSettings) {
+    this.collaborationSettings = collaborationSettings;
+  }
+
+
+  public DocumentFormFields hidden(Boolean hidden) {
+    this.hidden = hidden;
+    return this;
+  }
+
+  /**
+   * Get hidden
+   * @return hidden
+   */
+  @javax.annotation.Nullable
+  public Boolean getHidden() {
+    return hidden;
+  }
+
+  public void setHidden(Boolean hidden) {
+    this.hidden = hidden;
+  }
+
+
+  public DocumentFormFields isMasked(Boolean isMasked) {
+    this.isMasked = isMasked;
+    return this;
+  }
+
+  /**
+   * Get isMasked
+   * @return isMasked
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsMasked() {
+    return isMasked;
+  }
+
+  public void setIsMasked(Boolean isMasked) {
+    this.isMasked = isMasked;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1205,6 +1296,7 @@ public class DocumentFormFields {
     }
     DocumentFormFields documentFormFields = (DocumentFormFields) o;
     return Objects.equals(this.id, documentFormFields.id) &&
+        Objects.equals(this.formFieldId, documentFormFields.formFieldId) &&
         Objects.equals(this.type, documentFormFields.type) &&
         Objects.equals(this.value, documentFormFields.value) &&
         Objects.equals(this.font, documentFormFields.font) &&
@@ -1242,12 +1334,15 @@ public class DocumentFormFields {
         Objects.equals(this.formulaFieldSettings, documentFormFields.formulaFieldSettings) &&
         Objects.equals(this.resizeOption, documentFormFields.resizeOption) &&
         Objects.equals(this.allowEditFormField, documentFormFields.allowEditFormField) &&
-        Objects.equals(this.allowDeleteFormField, documentFormFields.allowDeleteFormField);
+        Objects.equals(this.allowDeleteFormField, documentFormFields.allowDeleteFormField) &&
+        Objects.equals(this.collaborationSettings, documentFormFields.collaborationSettings) &&
+        Objects.equals(this.hidden, documentFormFields.hidden) &&
+        Objects.equals(this.isMasked, documentFormFields.isMasked);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontColor, isUnderline, isItalic, isBold, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, fileInfo, editableDateFieldSettings, hyperlinkText, conditionalRules, bounds, pageNumber, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField);
+    return Objects.hash(id, formFieldId, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontColor, isUnderline, isItalic, isBold, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, fileInfo, editableDateFieldSettings, hyperlinkText, conditionalRules, bounds, pageNumber, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField, collaborationSettings, hidden, isMasked);
   }
 
   @Override
@@ -1255,6 +1350,7 @@ public class DocumentFormFields {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentFormFields {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    formFieldId: ").append(toIndentedString(formFieldId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    font: ").append(toIndentedString(font)).append("\n");
@@ -1293,6 +1389,9 @@ public class DocumentFormFields {
     sb.append("    resizeOption: ").append(toIndentedString(resizeOption)).append("\n");
     sb.append("    allowEditFormField: ").append(toIndentedString(allowEditFormField)).append("\n");
     sb.append("    allowDeleteFormField: ").append(toIndentedString(allowDeleteFormField)).append("\n");
+    sb.append("    collaborationSettings: ").append(toIndentedString(collaborationSettings)).append("\n");
+    sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
+    sb.append("    isMasked: ").append(toIndentedString(isMasked)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1318,6 +1417,26 @@ public class DocumentFormFields {
         }
         else {
           map.put("id", JSON.serialize(id));
+        }
+    }
+    if (formFieldId != null) {
+        if (isFileTypeOrListOfFiles(formFieldId)) {
+            fileTypeFound = true;
+        }
+
+        if (formFieldId.getClass().equals(java.io.File.class) ||
+            formFieldId.getClass().equals(Integer.class) ||
+            formFieldId.getClass().equals(String.class) ||
+            formFieldId.getClass().equals(java.net.URI.class)||
+            formFieldId.getClass().isEnum()) {
+            map.put("formFieldId", formFieldId);
+        } else if (isListOfFile(formFieldId)) {
+            for(int i = 0; i< getListSize(formFieldId); i++) {
+                map.put("formFieldId", formFieldId);
+            }
+        }
+        else {
+          map.put("formFieldId", JSON.serialize(formFieldId));
         }
     }
     if (type != null) {
@@ -1819,7 +1938,7 @@ public class DocumentFormFields {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : conditionalRules) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1909,7 +2028,7 @@ public class DocumentFormFields {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : dropdownOptions) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2100,6 +2219,66 @@ public class DocumentFormFields {
           map.put("allowDeleteFormField", JSON.serialize(allowDeleteFormField));
         }
     }
+    if (collaborationSettings != null) {
+        if (isFileTypeOrListOfFiles(collaborationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (collaborationSettings.getClass().equals(java.io.File.class) ||
+            collaborationSettings.getClass().equals(Integer.class) ||
+            collaborationSettings.getClass().equals(String.class) ||
+            collaborationSettings.getClass().equals(java.net.URI.class)||
+            collaborationSettings.getClass().isEnum()) {
+            map.put("collaborationSettings", collaborationSettings);
+        } else if (isListOfFile(collaborationSettings)) {
+            for(int i = 0; i< getListSize(collaborationSettings); i++) {
+                map.put("collaborationSettings", collaborationSettings);
+            }
+        }
+        else {
+          map.put("collaborationSettings", JSON.serialize(collaborationSettings));
+        }
+    }
+    if (hidden != null) {
+        if (isFileTypeOrListOfFiles(hidden)) {
+            fileTypeFound = true;
+        }
+
+        if (hidden.getClass().equals(java.io.File.class) ||
+            hidden.getClass().equals(Integer.class) ||
+            hidden.getClass().equals(String.class) ||
+            hidden.getClass().equals(java.net.URI.class)||
+            hidden.getClass().isEnum()) {
+            map.put("hidden", hidden);
+        } else if (isListOfFile(hidden)) {
+            for(int i = 0; i< getListSize(hidden); i++) {
+                map.put("hidden", hidden);
+            }
+        }
+        else {
+          map.put("hidden", JSON.serialize(hidden));
+        }
+    }
+    if (isMasked != null) {
+        if (isFileTypeOrListOfFiles(isMasked)) {
+            fileTypeFound = true;
+        }
+
+        if (isMasked.getClass().equals(java.io.File.class) ||
+            isMasked.getClass().equals(Integer.class) ||
+            isMasked.getClass().equals(String.class) ||
+            isMasked.getClass().equals(java.net.URI.class)||
+            isMasked.getClass().isEnum()) {
+            map.put("isMasked", isMasked);
+        } else if (isListOfFile(isMasked)) {
+            for(int i = 0; i< getListSize(isMasked); i++) {
+                map.put("isMasked", isMasked);
+            }
+        }
+        else {
+          map.put("isMasked", JSON.serialize(isMasked));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2146,6 +2325,7 @@ public class DocumentFormFields {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("formFieldId");
     openapiFields.add("type");
     openapiFields.add("value");
     openapiFields.add("font");
@@ -2184,6 +2364,9 @@ public class DocumentFormFields {
     openapiFields.add("resizeOption");
     openapiFields.add("allowEditFormField");
     openapiFields.add("allowDeleteFormField");
+    openapiFields.add("collaborationSettings");
+    openapiFields.add("hidden");
+    openapiFields.add("isMasked");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2205,6 +2388,9 @@ public class DocumentFormFields {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("formFieldId") != null && !jsonObj.get("formFieldId").isJsonNull()) && !jsonObj.get("formFieldId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `formFieldId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("formFieldId").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
@@ -2317,6 +2503,10 @@ public class DocumentFormFields {
       // validate the optional field `resizeOption`
       if (jsonObj.get("resizeOption") != null && !jsonObj.get("resizeOption").isJsonNull()) {
         ResizeOptionEnum.validateJsonElement(jsonObj.get("resizeOption"));
+      }
+      // validate the optional field `collaborationSettings`
+      if (jsonObj.get("collaborationSettings") != null && !jsonObj.get("collaborationSettings").isJsonNull()) {
+        CollaborationSettings.validateJsonElement(jsonObj.get("collaborationSettings"));
       }
   }
 
