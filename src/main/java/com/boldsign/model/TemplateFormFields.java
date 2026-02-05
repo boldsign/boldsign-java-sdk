@@ -15,6 +15,7 @@ package com.boldsign.model;
 
 import java.util.Objects;
 import com.boldsign.model.AttachmentInfo;
+import com.boldsign.model.CollaborationSettings;
 import com.boldsign.model.ConditionalRule;
 import com.boldsign.model.EditableDateFieldSettings;
 import com.boldsign.model.FormulaFieldSettings;
@@ -378,9 +379,7 @@ public class TemplateFormFields {
     
     FIXED("Fixed"),
     
-    AUTO_RESIZE_FONT("AutoResizeFont"),
-    
-    NULL("null");
+    AUTO_RESIZE_FONT("AutoResizeFont");
 
     private String value;
 
@@ -436,6 +435,14 @@ public class TemplateFormFields {
   public static final String SERIALIZED_NAME_ALLOW_DELETE_FORM_FIELD = "allowDeleteFormField";
   @SerializedName(SERIALIZED_NAME_ALLOW_DELETE_FORM_FIELD)
   private Boolean allowDeleteFormField;
+
+  public static final String SERIALIZED_NAME_COLLABORATION_SETTINGS = "collaborationSettings";
+  @SerializedName(SERIALIZED_NAME_COLLABORATION_SETTINGS)
+  private CollaborationSettings collaborationSettings;
+
+  public static final String SERIALIZED_NAME_IS_MASKED = "isMasked";
+  @SerializedName(SERIALIZED_NAME_IS_MASKED)
+  private Boolean isMasked = false;
 
   public TemplateFormFields() {
   }
@@ -1216,6 +1223,44 @@ public class TemplateFormFields {
   }
 
 
+  public TemplateFormFields collaborationSettings(CollaborationSettings collaborationSettings) {
+    this.collaborationSettings = collaborationSettings;
+    return this;
+  }
+
+  /**
+   * Get collaborationSettings
+   * @return collaborationSettings
+   */
+  @javax.annotation.Nullable
+  public CollaborationSettings getCollaborationSettings() {
+    return collaborationSettings;
+  }
+
+  public void setCollaborationSettings(CollaborationSettings collaborationSettings) {
+    this.collaborationSettings = collaborationSettings;
+  }
+
+
+  public TemplateFormFields isMasked(Boolean isMasked) {
+    this.isMasked = isMasked;
+    return this;
+  }
+
+  /**
+   * Get isMasked
+   * @return isMasked
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsMasked() {
+    return isMasked;
+  }
+
+  public void setIsMasked(Boolean isMasked) {
+    this.isMasked = isMasked;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1265,12 +1310,14 @@ public class TemplateFormFields {
         Objects.equals(this.formulaFieldSettings, templateFormFields.formulaFieldSettings) &&
         Objects.equals(this.resizeOption, templateFormFields.resizeOption) &&
         Objects.equals(this.allowEditFormField, templateFormFields.allowEditFormField) &&
-        Objects.equals(this.allowDeleteFormField, templateFormFields.allowDeleteFormField);
+        Objects.equals(this.allowDeleteFormField, templateFormFields.allowDeleteFormField) &&
+        Objects.equals(this.collaborationSettings, templateFormFields.collaborationSettings) &&
+        Objects.equals(this.isMasked, templateFormFields.isMasked);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, fieldType, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontHexColor, isUnderLineFont, isItalicFont, isBoldFont, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, dropdownOptions, bounds, pageNumber, conditionalRules, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, hyperlinkText, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField);
+    return Objects.hash(id, fieldType, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontHexColor, isUnderLineFont, isItalicFont, isBoldFont, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, dropdownOptions, bounds, pageNumber, conditionalRules, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, hyperlinkText, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField, collaborationSettings, isMasked);
   }
 
   @Override
@@ -1317,6 +1364,8 @@ public class TemplateFormFields {
     sb.append("    resizeOption: ").append(toIndentedString(resizeOption)).append("\n");
     sb.append("    allowEditFormField: ").append(toIndentedString(allowEditFormField)).append("\n");
     sb.append("    allowDeleteFormField: ").append(toIndentedString(allowDeleteFormField)).append("\n");
+    sb.append("    collaborationSettings: ").append(toIndentedString(collaborationSettings)).append("\n");
+    sb.append("    isMasked: ").append(toIndentedString(isMasked)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1823,7 +1872,7 @@ public class TemplateFormFields {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : dropdownOptions) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1893,7 +1942,7 @@ public class TemplateFormFields {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : conditionalRules) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2144,6 +2193,46 @@ public class TemplateFormFields {
           map.put("allowDeleteFormField", JSON.serialize(allowDeleteFormField));
         }
     }
+    if (collaborationSettings != null) {
+        if (isFileTypeOrListOfFiles(collaborationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (collaborationSettings.getClass().equals(java.io.File.class) ||
+            collaborationSettings.getClass().equals(Integer.class) ||
+            collaborationSettings.getClass().equals(String.class) ||
+            collaborationSettings.getClass().equals(java.net.URI.class)||
+            collaborationSettings.getClass().isEnum()) {
+            map.put("collaborationSettings", collaborationSettings);
+        } else if (isListOfFile(collaborationSettings)) {
+            for(int i = 0; i< getListSize(collaborationSettings); i++) {
+                map.put("collaborationSettings", collaborationSettings);
+            }
+        }
+        else {
+          map.put("collaborationSettings", JSON.serialize(collaborationSettings));
+        }
+    }
+    if (isMasked != null) {
+        if (isFileTypeOrListOfFiles(isMasked)) {
+            fileTypeFound = true;
+        }
+
+        if (isMasked.getClass().equals(java.io.File.class) ||
+            isMasked.getClass().equals(Integer.class) ||
+            isMasked.getClass().equals(String.class) ||
+            isMasked.getClass().equals(java.net.URI.class)||
+            isMasked.getClass().isEnum()) {
+            map.put("isMasked", isMasked);
+        } else if (isListOfFile(isMasked)) {
+            for(int i = 0; i< getListSize(isMasked); i++) {
+                map.put("isMasked", isMasked);
+            }
+        }
+        else {
+          map.put("isMasked", JSON.serialize(isMasked));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2229,6 +2318,8 @@ public class TemplateFormFields {
     openapiFields.add("resizeOption");
     openapiFields.add("allowEditFormField");
     openapiFields.add("allowDeleteFormField");
+    openapiFields.add("collaborationSettings");
+    openapiFields.add("isMasked");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2361,6 +2452,10 @@ public class TemplateFormFields {
       // validate the optional field `resizeOption`
       if (jsonObj.get("resizeOption") != null && !jsonObj.get("resizeOption").isJsonNull()) {
         ResizeOptionEnum.validateJsonElement(jsonObj.get("resizeOption"));
+      }
+      // validate the optional field `collaborationSettings`
+      if (jsonObj.get("collaborationSettings") != null && !jsonObj.get("collaborationSettings").isJsonNull()) {
+        CollaborationSettings.validateJsonElement(jsonObj.get("collaborationSettings"));
       }
   }
 

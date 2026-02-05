@@ -26,7 +26,7 @@
 | COURIER | &quot;Courier&quot; |
 | TIMES_ROMAN | &quot;TimesRoman&quot; |
 | NOTO_SANS | &quot;NotoSans&quot; |
-| NULL | &quot;null&quot; |
+| CARLITO | &quot;Carlito&quot; |
 
 
 
@@ -38,7 +38,6 @@
 | BOLD | &quot;Bold&quot; |
 | ITALIC | &quot;Italic&quot; |
 | UNDERLINE | &quot;Underline&quot; |
-| NULL | &quot;null&quot; |
 
 
 

@@ -23,7 +23,6 @@
 | DAYS | &quot;Days&quot; |
 | HOURS | &quot;Hours&quot; |
 | SPECIFIC_DATE_TIME | &quot;SpecificDateTime&quot; |
-| NULL | &quot;null&quot; |
 
 
 

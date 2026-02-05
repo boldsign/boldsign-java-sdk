@@ -12,7 +12,7 @@
 |**description** | **String** |  |  [optional] |
 |**documentTitle** | **String** |  |  [optional] |
 |**documentMessage** | **String** |  |  [optional] |
-|**files** | [**List&lt;DocumentFiles&gt;**](DocumentFiles.md) |  |  [optional] |
+|**files** | [**List&lt;TemplateFiles&gt;**](TemplateFiles.md) |  |  [optional] |
 |**roles** | [**List&lt;Roles&gt;**](Roles.md) |  |  [optional] |
 |**formGroups** | [**List&lt;FormGroup&gt;**](FormGroup.md) |  |  [optional] |
 |**commonFields** | [**List&lt;TemplateFormFields&gt;**](TemplateFormFields.md) |  |  [optional] |
@@ -34,6 +34,10 @@
 |**behalfOf** | [**BehalfOf**](BehalfOf.md) |  |  [optional] |
 |**documentDownloadOption** | [**DocumentDownloadOptionEnum**](#DocumentDownloadOptionEnum) |  |  [optional] |
 |**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
+|**formFieldPermission** | [**FormFieldPermission**](FormFieldPermission.md) |  |  [optional] |
+|**allowedSignatureTypes** | [**List&lt;AllowedSignatureTypesEnum&gt;**](#List&lt;AllowedSignatureTypesEnum&gt;) |  |  [optional] |
+|**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
+|**sharing** | [**TemplateSharing**](TemplateSharing.md) |  |  [optional] |
 
 
 
@@ -43,6 +47,16 @@
 |---- | -----|
 | COMBINED | &quot;Combined&quot; |
 | INDIVIDUALLY | &quot;Individually&quot; |
+
+
+
+## Enum: List&lt;AllowedSignatureTypesEnum&gt;
+
+| Name | Value |
+|---- | -----|
+| TEXT | &quot;Text&quot; |
+| DRAW | &quot;Draw&quot; |
+| IMAGE | &quot;Image&quot; |
 
 
 

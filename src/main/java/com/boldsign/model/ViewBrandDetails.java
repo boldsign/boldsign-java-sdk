@@ -16,6 +16,7 @@ package com.boldsign.model;
 import java.util.Objects;
 import com.boldsign.model.CustomDomainSettings;
 import com.boldsign.model.DocumentExpirySettings;
+import com.boldsign.model.SignatureFrameSettings;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -98,6 +99,10 @@ public class ViewBrandDetails {
   public static final String SERIALIZED_NAME_COMBINE_AUDIT_TRAIL = "combineAuditTrail";
   @SerializedName(SERIALIZED_NAME_COMBINE_AUDIT_TRAIL)
   private Boolean combineAuditTrail;
+
+  public static final String SERIALIZED_NAME_COMBINE_ATTACHMENTS = "combineAttachments";
+  @SerializedName(SERIALIZED_NAME_COMBINE_ATTACHMENTS)
+  private Boolean combineAttachments;
 
   public static final String SERIALIZED_NAME_EXCLUDE_AUDIT_TRAIL_FROM_EMAIL = "excludeAuditTrailFromEmail";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_AUDIT_TRAIL_FROM_EMAIL)
@@ -194,6 +199,10 @@ public class ViewBrandDetails {
   public static final String SERIALIZED_NAME_IS_DOMAIN_VERIFIED = "isDomainVerified";
   @SerializedName(SERIALIZED_NAME_IS_DOMAIN_VERIFIED)
   private Boolean isDomainVerified;
+
+  public static final String SERIALIZED_NAME_SIGNATURE_FRAME_SETTINGS = "signatureFrameSettings";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE_FRAME_SETTINGS)
+  private SignatureFrameSettings signatureFrameSettings;
 
   public ViewBrandDetails() {
   }
@@ -445,6 +454,25 @@ public class ViewBrandDetails {
   }
 
 
+  public ViewBrandDetails combineAttachments(Boolean combineAttachments) {
+    this.combineAttachments = combineAttachments;
+    return this;
+  }
+
+  /**
+   * Get combineAttachments
+   * @return combineAttachments
+   */
+  @javax.annotation.Nullable
+  public Boolean getCombineAttachments() {
+    return combineAttachments;
+  }
+
+  public void setCombineAttachments(Boolean combineAttachments) {
+    this.combineAttachments = combineAttachments;
+  }
+
+
   public ViewBrandDetails excludeAuditTrailFromEmail(Boolean excludeAuditTrailFromEmail) {
     this.excludeAuditTrailFromEmail = excludeAuditTrailFromEmail;
     return this;
@@ -654,6 +682,25 @@ public class ViewBrandDetails {
   }
 
 
+  public ViewBrandDetails signatureFrameSettings(SignatureFrameSettings signatureFrameSettings) {
+    this.signatureFrameSettings = signatureFrameSettings;
+    return this;
+  }
+
+  /**
+   * Get signatureFrameSettings
+   * @return signatureFrameSettings
+   */
+  @javax.annotation.Nullable
+  public SignatureFrameSettings getSignatureFrameSettings() {
+    return signatureFrameSettings;
+  }
+
+  public void setSignatureFrameSettings(SignatureFrameSettings signatureFrameSettings) {
+    this.signatureFrameSettings = signatureFrameSettings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -677,6 +724,7 @@ public class ViewBrandDetails {
         Objects.equals(this.isDefault, viewBrandDetails.isDefault) &&
         Objects.equals(this.canHideTagLine, viewBrandDetails.canHideTagLine) &&
         Objects.equals(this.combineAuditTrail, viewBrandDetails.combineAuditTrail) &&
+        Objects.equals(this.combineAttachments, viewBrandDetails.combineAttachments) &&
         Objects.equals(this.excludeAuditTrailFromEmail, viewBrandDetails.excludeAuditTrailFromEmail) &&
         Objects.equals(this.emailSignedDocument, viewBrandDetails.emailSignedDocument) &&
         Objects.equals(this.documentTimeZone, viewBrandDetails.documentTimeZone) &&
@@ -687,12 +735,13 @@ public class ViewBrandDetails {
         Objects.equals(this.hideSave, viewBrandDetails.hideSave) &&
         Objects.equals(this.documentExpirySettings, viewBrandDetails.documentExpirySettings) &&
         Objects.equals(this.customDomainSettings, viewBrandDetails.customDomainSettings) &&
-        Objects.equals(this.isDomainVerified, viewBrandDetails.isDomainVerified);
+        Objects.equals(this.isDomainVerified, viewBrandDetails.isDomainVerified) &&
+        Objects.equals(this.signatureFrameSettings, viewBrandDetails.signatureFrameSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brandId, brandLogo, brandName, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerTitle, disclaimerDescription, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettings, customDomainSettings, isDomainVerified);
+    return Objects.hash(brandId, brandLogo, brandName, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerTitle, disclaimerDescription, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettings, customDomainSettings, isDomainVerified, signatureFrameSettings);
   }
 
   @Override
@@ -712,6 +761,7 @@ public class ViewBrandDetails {
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    canHideTagLine: ").append(toIndentedString(canHideTagLine)).append("\n");
     sb.append("    combineAuditTrail: ").append(toIndentedString(combineAuditTrail)).append("\n");
+    sb.append("    combineAttachments: ").append(toIndentedString(combineAttachments)).append("\n");
     sb.append("    excludeAuditTrailFromEmail: ").append(toIndentedString(excludeAuditTrailFromEmail)).append("\n");
     sb.append("    emailSignedDocument: ").append(toIndentedString(emailSignedDocument)).append("\n");
     sb.append("    documentTimeZone: ").append(toIndentedString(documentTimeZone)).append("\n");
@@ -723,6 +773,7 @@ public class ViewBrandDetails {
     sb.append("    documentExpirySettings: ").append(toIndentedString(documentExpirySettings)).append("\n");
     sb.append("    customDomainSettings: ").append(toIndentedString(customDomainSettings)).append("\n");
     sb.append("    isDomainVerified: ").append(toIndentedString(isDomainVerified)).append("\n");
+    sb.append("    signatureFrameSettings: ").append(toIndentedString(signatureFrameSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -990,6 +1041,26 @@ public class ViewBrandDetails {
           map.put("combineAuditTrail", JSON.serialize(combineAuditTrail));
         }
     }
+    if (combineAttachments != null) {
+        if (isFileTypeOrListOfFiles(combineAttachments)) {
+            fileTypeFound = true;
+        }
+
+        if (combineAttachments.getClass().equals(java.io.File.class) ||
+            combineAttachments.getClass().equals(Integer.class) ||
+            combineAttachments.getClass().equals(String.class) ||
+            combineAttachments.getClass().equals(java.net.URI.class)||
+            combineAttachments.getClass().isEnum()) {
+            map.put("combineAttachments", combineAttachments);
+        } else if (isListOfFile(combineAttachments)) {
+            for(int i = 0; i< getListSize(combineAttachments); i++) {
+                map.put("combineAttachments", combineAttachments);
+            }
+        }
+        else {
+          map.put("combineAttachments", JSON.serialize(combineAttachments));
+        }
+    }
     if (excludeAuditTrailFromEmail != null) {
         if (isFileTypeOrListOfFiles(excludeAuditTrailFromEmail)) {
             fileTypeFound = true;
@@ -1210,6 +1281,26 @@ public class ViewBrandDetails {
           map.put("isDomainVerified", JSON.serialize(isDomainVerified));
         }
     }
+    if (signatureFrameSettings != null) {
+        if (isFileTypeOrListOfFiles(signatureFrameSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (signatureFrameSettings.getClass().equals(java.io.File.class) ||
+            signatureFrameSettings.getClass().equals(Integer.class) ||
+            signatureFrameSettings.getClass().equals(String.class) ||
+            signatureFrameSettings.getClass().equals(java.net.URI.class)||
+            signatureFrameSettings.getClass().isEnum()) {
+            map.put("signatureFrameSettings", signatureFrameSettings);
+        } else if (isListOfFile(signatureFrameSettings)) {
+            for(int i = 0; i< getListSize(signatureFrameSettings); i++) {
+                map.put("signatureFrameSettings", signatureFrameSettings);
+            }
+        }
+        else {
+          map.put("signatureFrameSettings", JSON.serialize(signatureFrameSettings));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1268,6 +1359,7 @@ public class ViewBrandDetails {
     openapiFields.add("isDefault");
     openapiFields.add("canHideTagLine");
     openapiFields.add("combineAuditTrail");
+    openapiFields.add("combineAttachments");
     openapiFields.add("excludeAuditTrailFromEmail");
     openapiFields.add("emailSignedDocument");
     openapiFields.add("documentTimeZone");
@@ -1279,6 +1371,7 @@ public class ViewBrandDetails {
     openapiFields.add("documentExpirySettings");
     openapiFields.add("customDomainSettings");
     openapiFields.add("isDomainVerified");
+    openapiFields.add("signatureFrameSettings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1345,6 +1438,10 @@ public class ViewBrandDetails {
       // validate the optional field `customDomainSettings`
       if (jsonObj.get("customDomainSettings") != null && !jsonObj.get("customDomainSettings").isJsonNull()) {
         CustomDomainSettings.validateJsonElement(jsonObj.get("customDomainSettings"));
+      }
+      // validate the optional field `signatureFrameSettings`
+      if (jsonObj.get("signatureFrameSettings") != null && !jsonObj.get("signatureFrameSettings").isJsonNull()) {
+        SignatureFrameSettings.validateJsonElement(jsonObj.get("signatureFrameSettings"));
       }
   }
 

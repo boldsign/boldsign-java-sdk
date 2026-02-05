@@ -10,6 +10,7 @@
 |**dateFormat** | **String** |  |  |
 |**minDate** | **OffsetDateTime** |  |  [optional] |
 |**maxDate** | **OffsetDateTime** |  |  [optional] |
+|**timeFormat** | **String** |  |  [optional] |
 
 
 

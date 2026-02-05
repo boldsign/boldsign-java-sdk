@@ -213,6 +213,7 @@ public class BrandingApi {
      * @param isDefault  (optional, default to false)
      * @param canHideTagLine  (optional, default to false)
      * @param combineAuditTrail  (optional, default to false)
+     * @param combineAttachments  (optional, default to false)
      * @param excludeAuditTrailFromEmail  (optional, default to false)
      * @param emailSignedDocument  (optional, default to Attachment)
      * @param documentTimeZone  (optional)
@@ -229,6 +230,10 @@ public class BrandingApi {
      * @param documentExpirySettingsReminderCount  (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
+     * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientName  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientEmail  (optional, default to false)
+     * @param signatureFrameSettingsShowTimeStamp  (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -241,7 +246,7 @@ public class BrandingApi {
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBrandCall(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createBrandCall(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -315,6 +320,10 @@ public class BrandingApi {
             localVarFormParams.put("CombineAuditTrail", combineAuditTrail);
         }
 
+        if (combineAttachments != null) {
+            localVarFormParams.put("CombineAttachments", combineAttachments);
+        }
+
         if (excludeAuditTrailFromEmail != null) {
             localVarFormParams.put("ExcludeAuditTrailFromEmail", excludeAuditTrailFromEmail);
         }
@@ -379,6 +388,22 @@ public class BrandingApi {
             localVarFormParams.put("CustomDomainSettings.FromName", customDomainSettingsFromName);
         }
 
+        if (signatureFrameSettingsEnableSignatureFrame != null) {
+            localVarFormParams.put("SignatureFrameSettings.EnableSignatureFrame", signatureFrameSettingsEnableSignatureFrame);
+        }
+
+        if (signatureFrameSettingsShowRecipientName != null) {
+            localVarFormParams.put("SignatureFrameSettings.ShowRecipientName", signatureFrameSettingsShowRecipientName);
+        }
+
+        if (signatureFrameSettingsShowRecipientEmail != null) {
+            localVarFormParams.put("SignatureFrameSettings.ShowRecipientEmail", signatureFrameSettingsShowRecipientEmail);
+        }
+
+        if (signatureFrameSettingsShowTimeStamp != null) {
+            localVarFormParams.put("SignatureFrameSettings.ShowTimeStamp", signatureFrameSettingsShowTimeStamp);
+        }
+
         final String[] localVarAccepts = {
             "application/json;odata.metadata=minimal;odata.streaming=true",
             "application/json;odata.metadata=minimal;odata.streaming=false",
@@ -439,7 +464,7 @@ public class BrandingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createBrandValidateBeforeCall(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createBrandValidateBeforeCall(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'brandName' is set
         if (brandName == null) {
             throw new ApiException("Missing the required parameter 'brandName' when calling createBrand(Async)");
@@ -450,7 +475,7 @@ public class BrandingApi {
             throw new ApiException("Missing the required parameter 'brandLogo' when calling createBrand(Async)");
         }
 
-        return createBrandCall(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, _callback);
+        return createBrandCall(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, _callback);
 
     }
 
@@ -469,6 +494,7 @@ public class BrandingApi {
      * @param isDefault  (optional, default to false)
      * @param canHideTagLine  (optional, default to false)
      * @param combineAuditTrail  (optional, default to false)
+     * @param combineAttachments  (optional, default to false)
      * @param excludeAuditTrailFromEmail  (optional, default to false)
      * @param emailSignedDocument  (optional, default to Attachment)
      * @param documentTimeZone  (optional)
@@ -485,6 +511,10 @@ public class BrandingApi {
      * @param documentExpirySettingsReminderCount  (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
+     * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientName  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientEmail  (optional, default to false)
+     * @param signatureFrameSettingsShowTimeStamp  (optional, default to false)
      * @return BrandCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -496,8 +526,8 @@ public class BrandingApi {
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
-    public BrandCreated createBrand(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName) throws ApiException {
-        ApiResponse<BrandCreated> localVarResp = createBrandWithHttpInfo(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName);
+    public BrandCreated createBrand(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp) throws ApiException {
+        ApiResponse<BrandCreated> localVarResp = createBrandWithHttpInfo(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp);
         return localVarResp.getData();
     }
 
@@ -516,6 +546,7 @@ public class BrandingApi {
      * @param isDefault  (optional, default to false)
      * @param canHideTagLine  (optional, default to false)
      * @param combineAuditTrail  (optional, default to false)
+     * @param combineAttachments  (optional, default to false)
      * @param excludeAuditTrailFromEmail  (optional, default to false)
      * @param emailSignedDocument  (optional, default to Attachment)
      * @param documentTimeZone  (optional)
@@ -532,6 +563,10 @@ public class BrandingApi {
      * @param documentExpirySettingsReminderCount  (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
+     * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientName  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientEmail  (optional, default to false)
+     * @param signatureFrameSettingsShowTimeStamp  (optional, default to false)
      * @return ApiResponse&lt;BrandCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -543,8 +578,8 @@ public class BrandingApi {
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BrandCreated> createBrandWithHttpInfo(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName) throws ApiException {
-        okhttp3.Call localVarCall = createBrandValidateBeforeCall(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, null);
+    public ApiResponse<BrandCreated> createBrandWithHttpInfo(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp) throws ApiException {
+        okhttp3.Call localVarCall = createBrandValidateBeforeCall(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, null);
         Type localVarReturnType = new TypeToken<BrandCreated>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -564,6 +599,7 @@ public class BrandingApi {
      * @param isDefault  (optional, default to false)
      * @param canHideTagLine  (optional, default to false)
      * @param combineAuditTrail  (optional, default to false)
+     * @param combineAttachments  (optional, default to false)
      * @param excludeAuditTrailFromEmail  (optional, default to false)
      * @param emailSignedDocument  (optional, default to Attachment)
      * @param documentTimeZone  (optional)
@@ -580,6 +616,10 @@ public class BrandingApi {
      * @param documentExpirySettingsReminderCount  (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
+     * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientName  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientEmail  (optional, default to false)
+     * @param signatureFrameSettingsShowTimeStamp  (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -592,9 +632,9 @@ public class BrandingApi {
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createBrandAsync(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback<BrandCreated> _callback) throws ApiException {
+    public okhttp3.Call createBrandAsync(String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp, final ApiCallback<BrandCreated> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createBrandValidateBeforeCall(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, _callback);
+        okhttp3.Call localVarCall = createBrandValidateBeforeCall(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, _callback);
         Type localVarReturnType = new TypeToken<BrandCreated>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -788,6 +828,7 @@ public class BrandingApi {
      * @param isDefault  (optional, default to false)
      * @param canHideTagLine  (optional, default to false)
      * @param combineAuditTrail  (optional, default to false)
+     * @param combineAttachments  (optional, default to false)
      * @param excludeAuditTrailFromEmail  (optional, default to false)
      * @param emailSignedDocument  (optional, default to Attachment)
      * @param documentTimeZone  (optional)
@@ -804,6 +845,10 @@ public class BrandingApi {
      * @param documentExpirySettingsReminderCount  (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
+     * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientName  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientEmail  (optional, default to false)
+     * @param signatureFrameSettingsShowTimeStamp  (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -816,7 +861,7 @@ public class BrandingApi {
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editBrandCall(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call editBrandCall(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -890,6 +935,10 @@ public class BrandingApi {
             localVarFormParams.put("CombineAuditTrail", combineAuditTrail);
         }
 
+        if (combineAttachments != null) {
+            localVarFormParams.put("CombineAttachments", combineAttachments);
+        }
+
         if (excludeAuditTrailFromEmail != null) {
             localVarFormParams.put("ExcludeAuditTrailFromEmail", excludeAuditTrailFromEmail);
         }
@@ -952,6 +1001,22 @@ public class BrandingApi {
 
         if (customDomainSettingsFromName != null) {
             localVarFormParams.put("CustomDomainSettings.FromName", customDomainSettingsFromName);
+        }
+
+        if (signatureFrameSettingsEnableSignatureFrame != null) {
+            localVarFormParams.put("SignatureFrameSettings.EnableSignatureFrame", signatureFrameSettingsEnableSignatureFrame);
+        }
+
+        if (signatureFrameSettingsShowRecipientName != null) {
+            localVarFormParams.put("SignatureFrameSettings.ShowRecipientName", signatureFrameSettingsShowRecipientName);
+        }
+
+        if (signatureFrameSettingsShowRecipientEmail != null) {
+            localVarFormParams.put("SignatureFrameSettings.ShowRecipientEmail", signatureFrameSettingsShowRecipientEmail);
+        }
+
+        if (signatureFrameSettingsShowTimeStamp != null) {
+            localVarFormParams.put("SignatureFrameSettings.ShowTimeStamp", signatureFrameSettingsShowTimeStamp);
         }
 
         if (brandId != null) {
@@ -1018,13 +1083,13 @@ public class BrandingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call editBrandValidateBeforeCall(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call editBrandValidateBeforeCall(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'brandId' is set
         if (brandId == null) {
             throw new ApiException("Missing the required parameter 'brandId' when calling editBrand(Async)");
         }
 
-        return editBrandCall(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, _callback);
+        return editBrandCall(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, _callback);
 
     }
 
@@ -1044,6 +1109,7 @@ public class BrandingApi {
      * @param isDefault  (optional, default to false)
      * @param canHideTagLine  (optional, default to false)
      * @param combineAuditTrail  (optional, default to false)
+     * @param combineAttachments  (optional, default to false)
      * @param excludeAuditTrailFromEmail  (optional, default to false)
      * @param emailSignedDocument  (optional, default to Attachment)
      * @param documentTimeZone  (optional)
@@ -1060,6 +1126,10 @@ public class BrandingApi {
      * @param documentExpirySettingsReminderCount  (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
+     * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientName  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientEmail  (optional, default to false)
+     * @param signatureFrameSettingsShowTimeStamp  (optional, default to false)
      * @return BrandCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1071,8 +1141,8 @@ public class BrandingApi {
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
-    public BrandCreated editBrand(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName) throws ApiException {
-        ApiResponse<BrandCreated> localVarResp = editBrandWithHttpInfo(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName);
+    public BrandCreated editBrand(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp) throws ApiException {
+        ApiResponse<BrandCreated> localVarResp = editBrandWithHttpInfo(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp);
         return localVarResp.getData();
     }
 
@@ -1092,6 +1162,7 @@ public class BrandingApi {
      * @param isDefault  (optional, default to false)
      * @param canHideTagLine  (optional, default to false)
      * @param combineAuditTrail  (optional, default to false)
+     * @param combineAttachments  (optional, default to false)
      * @param excludeAuditTrailFromEmail  (optional, default to false)
      * @param emailSignedDocument  (optional, default to Attachment)
      * @param documentTimeZone  (optional)
@@ -1108,6 +1179,10 @@ public class BrandingApi {
      * @param documentExpirySettingsReminderCount  (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
+     * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientName  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientEmail  (optional, default to false)
+     * @param signatureFrameSettingsShowTimeStamp  (optional, default to false)
      * @return ApiResponse&lt;BrandCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1119,8 +1194,8 @@ public class BrandingApi {
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BrandCreated> editBrandWithHttpInfo(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName) throws ApiException {
-        okhttp3.Call localVarCall = editBrandValidateBeforeCall(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, null);
+    public ApiResponse<BrandCreated> editBrandWithHttpInfo(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp) throws ApiException {
+        okhttp3.Call localVarCall = editBrandValidateBeforeCall(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, null);
         Type localVarReturnType = new TypeToken<BrandCreated>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1141,6 +1216,7 @@ public class BrandingApi {
      * @param isDefault  (optional, default to false)
      * @param canHideTagLine  (optional, default to false)
      * @param combineAuditTrail  (optional, default to false)
+     * @param combineAttachments  (optional, default to false)
      * @param excludeAuditTrailFromEmail  (optional, default to false)
      * @param emailSignedDocument  (optional, default to Attachment)
      * @param documentTimeZone  (optional)
@@ -1157,6 +1233,10 @@ public class BrandingApi {
      * @param documentExpirySettingsReminderCount  (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
+     * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientName  (optional, default to false)
+     * @param signatureFrameSettingsShowRecipientEmail  (optional, default to false)
+     * @param signatureFrameSettingsShowTimeStamp  (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1169,9 +1249,9 @@ public class BrandingApi {
         <tr><td> 422 </td><td> Unprocessable Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call editBrandAsync(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, final ApiCallback<BrandCreated> _callback) throws ApiException {
+    public okhttp3.Call editBrandAsync(String brandId, String brandName, File brandLogo, String backgroundColor, String buttonColor, String buttonTextColor, String emailDisplayName, String disclaimerDescription, String disclaimerTitle, String redirectUrl, Boolean isDefault, Boolean canHideTagLine, Boolean combineAuditTrail, Boolean combineAttachments, Boolean excludeAuditTrailFromEmail, String emailSignedDocument, String documentTimeZone, Boolean showBuiltInFormFields, Boolean allowCustomFieldCreation, Boolean showSharedCustomFields, Boolean hideDecline, Boolean hideSave, String documentExpirySettingsExpiryDateType, Integer documentExpirySettingsExpiryValue, Boolean documentExpirySettingsEnableDefaultExpiryAlert, Boolean documentExpirySettingsEnableAutoReminder, Integer documentExpirySettingsReminderDays, Integer documentExpirySettingsReminderCount, String customDomainSettingsDomainName, String customDomainSettingsFromName, Boolean signatureFrameSettingsEnableSignatureFrame, Boolean signatureFrameSettingsShowRecipientName, Boolean signatureFrameSettingsShowRecipientEmail, Boolean signatureFrameSettingsShowTimeStamp, final ApiCallback<BrandCreated> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = editBrandValidateBeforeCall(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, _callback);
+        okhttp3.Call localVarCall = editBrandValidateBeforeCall(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, _callback);
         Type localVarReturnType = new TypeToken<BrandCreated>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

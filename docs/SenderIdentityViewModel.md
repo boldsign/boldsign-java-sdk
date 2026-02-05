@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**id** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
 |**status** | **String** |  |  [optional] |
@@ -16,6 +17,7 @@
 |**brandId** | **String** |  |  [optional] |
 |**redirectUrl** | **String** |  |  [optional] |
 |**metaData** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**locale** | **String** |  |  [optional] |
 
 
 

@@ -20,6 +20,7 @@
 |**isDefault** | **Boolean** |  |  [optional] |
 |**canHideTagLine** | **Boolean** |  |  [optional] |
 |**combineAuditTrail** | **Boolean** |  |  [optional] |
+|**combineAttachments** | **Boolean** |  |  [optional] |
 |**excludeAuditTrailFromEmail** | **Boolean** |  |  [optional] |
 |**emailSignedDocument** | [**EmailSignedDocumentEnum**](#EmailSignedDocumentEnum) |  |  [optional] |
 |**documentTimeZone** | **String** |  |  [optional] |
@@ -31,6 +32,7 @@
 |**documentExpirySettings** | [**DocumentExpirySettings**](DocumentExpirySettings.md) |  |  [optional] |
 |**customDomainSettings** | [**CustomDomainSettings**](CustomDomainSettings.md) |  |  [optional] |
 |**isDomainVerified** | **Boolean** |  |  [optional] |
+|**signatureFrameSettings** | [**SignatureFrameSettings**](SignatureFrameSettings.md) |  |  [optional] |
 
 
 

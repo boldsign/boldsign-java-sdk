@@ -76,7 +76,7 @@ This endpoint does not need any parameter.
 
 <a id="createBrand"></a>
 # **createBrand**
-> BrandCreated createBrand(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName)
+> BrandCreated createBrand(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp)
 
 Create the brand.
 
@@ -110,6 +110,7 @@ public class Example {
     Boolean isDefault = false; // Boolean | 
     Boolean canHideTagLine = false; // Boolean | 
     Boolean combineAuditTrail = false; // Boolean | 
+    Boolean combineAttachments = false; // Boolean | 
     Boolean excludeAuditTrailFromEmail = false; // Boolean | 
     String emailSignedDocument = "Attachment"; // String | 
     String documentTimeZone = "documentTimeZone_example"; // String | 
@@ -126,9 +127,13 @@ public class Example {
     Integer documentExpirySettingsReminderCount = 56; // Integer | 
     String customDomainSettingsDomainName = "customDomainSettingsDomainName_example"; // String | 
     String customDomainSettingsFromName = "customDomainSettingsFromName_example"; // String | 
+    Boolean signatureFrameSettingsEnableSignatureFrame = false; // Boolean | 
+    Boolean signatureFrameSettingsShowRecipientName = false; // Boolean | 
+    Boolean signatureFrameSettingsShowRecipientEmail = false; // Boolean | 
+    Boolean signatureFrameSettingsShowTimeStamp = false; // Boolean | 
     
     try {
-      BrandCreated result = apiInstance.createBrand(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName);
+      BrandCreated result = apiInstance.createBrand(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BrandingApi#createBrand");
@@ -157,6 +162,7 @@ public class Example {
 | **isDefault** | **Boolean**|  | [optional] [default to false] |
 | **canHideTagLine** | **Boolean**|  | [optional] [default to false] |
 | **combineAuditTrail** | **Boolean**|  | [optional] [default to false] |
+| **combineAttachments** | **Boolean**|  | [optional] [default to false] |
 | **excludeAuditTrailFromEmail** | **Boolean**|  | [optional] [default to false] |
 | **emailSignedDocument** | **String**|  | [optional] [default to Attachment] [enum: Attachment, DocumentLink] |
 | **documentTimeZone** | **String**|  | [optional] |
@@ -165,7 +171,7 @@ public class Example {
 | **showSharedCustomFields** | **Boolean**|  | [optional] [default to false] |
 | **hideDecline** | **Boolean**|  | [optional] |
 | **hideSave** | **Boolean**|  | [optional] |
-| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime, ] |
+| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime] |
 | **documentExpirySettingsExpiryValue** | **Integer**|  | [optional] |
 | **documentExpirySettingsEnableDefaultExpiryAlert** | **Boolean**|  | [optional] |
 | **documentExpirySettingsEnableAutoReminder** | **Boolean**|  | [optional] |
@@ -173,6 +179,10 @@ public class Example {
 | **documentExpirySettingsReminderCount** | **Integer**|  | [optional] |
 | **customDomainSettingsDomainName** | **String**|  | [optional] |
 | **customDomainSettingsFromName** | **String**|  | [optional] |
+| **signatureFrameSettingsEnableSignatureFrame** | **Boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowRecipientName** | **Boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowRecipientEmail** | **Boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowTimeStamp** | **Boolean**|  | [optional] [default to false] |
 
 ### Return type
 
@@ -263,7 +273,7 @@ public class Example {
 
 <a id="editBrand"></a>
 # **editBrand**
-> BrandCreated editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName)
+> BrandCreated editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp)
 
 Edit the brand.
 
@@ -298,6 +308,7 @@ public class Example {
     Boolean isDefault = false; // Boolean | 
     Boolean canHideTagLine = false; // Boolean | 
     Boolean combineAuditTrail = false; // Boolean | 
+    Boolean combineAttachments = false; // Boolean | 
     Boolean excludeAuditTrailFromEmail = false; // Boolean | 
     String emailSignedDocument = "Attachment"; // String | 
     String documentTimeZone = "documentTimeZone_example"; // String | 
@@ -314,9 +325,13 @@ public class Example {
     Integer documentExpirySettingsReminderCount = 56; // Integer | 
     String customDomainSettingsDomainName = "customDomainSettingsDomainName_example"; // String | 
     String customDomainSettingsFromName = "customDomainSettingsFromName_example"; // String | 
+    Boolean signatureFrameSettingsEnableSignatureFrame = false; // Boolean | 
+    Boolean signatureFrameSettingsShowRecipientName = false; // Boolean | 
+    Boolean signatureFrameSettingsShowRecipientEmail = false; // Boolean | 
+    Boolean signatureFrameSettingsShowTimeStamp = false; // Boolean | 
     
     try {
-      BrandCreated result = apiInstance.editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName);
+      BrandCreated result = apiInstance.editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BrandingApi#editBrand");
@@ -346,6 +361,7 @@ public class Example {
 | **isDefault** | **Boolean**|  | [optional] [default to false] |
 | **canHideTagLine** | **Boolean**|  | [optional] [default to false] |
 | **combineAuditTrail** | **Boolean**|  | [optional] [default to false] |
+| **combineAttachments** | **Boolean**|  | [optional] [default to false] |
 | **excludeAuditTrailFromEmail** | **Boolean**|  | [optional] [default to false] |
 | **emailSignedDocument** | **String**|  | [optional] [default to Attachment] [enum: Attachment, DocumentLink] |
 | **documentTimeZone** | **String**|  | [optional] |
@@ -354,7 +370,7 @@ public class Example {
 | **showSharedCustomFields** | **Boolean**|  | [optional] [default to false] |
 | **hideDecline** | **Boolean**|  | [optional] |
 | **hideSave** | **Boolean**|  | [optional] |
-| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime, ] |
+| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime] |
 | **documentExpirySettingsExpiryValue** | **Integer**|  | [optional] |
 | **documentExpirySettingsEnableDefaultExpiryAlert** | **Boolean**|  | [optional] |
 | **documentExpirySettingsEnableAutoReminder** | **Boolean**|  | [optional] |
@@ -362,6 +378,10 @@ public class Example {
 | **documentExpirySettingsReminderCount** | **Integer**|  | [optional] |
 | **customDomainSettingsDomainName** | **String**|  | [optional] |
 | **customDomainSettingsFromName** | **String**|  | [optional] |
+| **signatureFrameSettingsEnableSignatureFrame** | **Boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowRecipientName** | **Boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowRecipientEmail** | **Boolean**|  | [optional] [default to false] |
+| **signatureFrameSettingsShowTimeStamp** | **Boolean**|  | [optional] [default to false] |
 
 ### Return type
 

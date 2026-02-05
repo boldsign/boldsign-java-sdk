@@ -13,6 +13,7 @@
 |**requireMatchingSelfie** | **Boolean** |  |  [optional] |
 |**nameMatcher** | [**NameMatcherEnum**](#NameMatcherEnum) |  |  [optional] |
 |**holdForPrefill** | **Boolean** |  |  [optional] |
+|**allowedDocumentTypes** | [**List&lt;AllowedDocumentTypesEnum&gt;**](#List&lt;AllowedDocumentTypesEnum&gt;) |  |  [optional] |
 
 
 
@@ -23,7 +24,6 @@
 | EVERY_ACCESS | &quot;EveryAccess&quot; |
 | UNTIL_SIGN_COMPLETED | &quot;UntilSignCompleted&quot; |
 | ONCE_PER_DOCUMENT | &quot;OncePerDocument&quot; |
-| NULL | &quot;null&quot; |
 
 
 
@@ -34,7 +34,16 @@
 | STRICT | &quot;Strict&quot; |
 | MODERATE | &quot;Moderate&quot; |
 | LENIENT | &quot;Lenient&quot; |
-| NULL | &quot;null&quot; |
+
+
+
+## Enum: List&lt;AllowedDocumentTypesEnum&gt;
+
+| Name | Value |
+|---- | -----|
+| PASSPORT | &quot;Passport&quot; |
+| ID_CARD | &quot;IDCard&quot; |
+| DRIVER_LICENSE | &quot;DriverLicense&quot; |
 
 
 

@@ -45,6 +45,10 @@ import com.boldsign.ApiException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.8.0")
 public class DocumentFiles {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_DOCUMENT_NAME = "documentName";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_NAME)
   private String documentName;
@@ -57,8 +61,35 @@ public class DocumentFiles {
   @SerializedName(SERIALIZED_NAME_PAGE_COUNT)
   private Integer pageCount;
 
+  public static final String SERIALIZED_NAME_TEMPLATE_NAME = "templateName";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_NAME)
+  private String templateName;
+
+  public static final String SERIALIZED_NAME_TEMPLATE_ID = "templateId";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_ID)
+  private String templateId;
+
   public DocumentFiles() {
   }
+
+  public DocumentFiles id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public DocumentFiles documentName(String documentName) {
     this.documentName = documentName;
@@ -117,6 +148,44 @@ public class DocumentFiles {
   }
 
 
+  public DocumentFiles templateName(String templateName) {
+    this.templateName = templateName;
+    return this;
+  }
+
+  /**
+   * Get templateName
+   * @return templateName
+   */
+  @javax.annotation.Nullable
+  public String getTemplateName() {
+    return templateName;
+  }
+
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
+
+  public DocumentFiles templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+  /**
+   * Get templateId
+   * @return templateId
+   */
+  @javax.annotation.Nullable
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -127,23 +196,29 @@ public class DocumentFiles {
       return false;
     }
     DocumentFiles documentFiles = (DocumentFiles) o;
-    return Objects.equals(this.documentName, documentFiles.documentName) &&
+    return Objects.equals(this.id, documentFiles.id) &&
+        Objects.equals(this.documentName, documentFiles.documentName) &&
         Objects.equals(this.order, documentFiles.order) &&
-        Objects.equals(this.pageCount, documentFiles.pageCount);
+        Objects.equals(this.pageCount, documentFiles.pageCount) &&
+        Objects.equals(this.templateName, documentFiles.templateName) &&
+        Objects.equals(this.templateId, documentFiles.templateId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentName, order, pageCount);
+    return Objects.hash(id, documentName, order, pageCount, templateName, templateId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DocumentFiles {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    documentName: ").append(toIndentedString(documentName)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
+    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -151,6 +226,26 @@ public class DocumentFiles {
     Map<String, Object> map = new HashMap<>();
     boolean fileTypeFound = false;
     try {
+    if (id != null) {
+        if (isFileTypeOrListOfFiles(id)) {
+            fileTypeFound = true;
+        }
+
+        if (id.getClass().equals(java.io.File.class) ||
+            id.getClass().equals(Integer.class) ||
+            id.getClass().equals(String.class) ||
+            id.getClass().equals(java.net.URI.class)||
+            id.getClass().isEnum()) {
+            map.put("id", id);
+        } else if (isListOfFile(id)) {
+            for(int i = 0; i< getListSize(id); i++) {
+                map.put("id", id);
+            }
+        }
+        else {
+          map.put("id", JSON.serialize(id));
+        }
+    }
     if (documentName != null) {
         if (isFileTypeOrListOfFiles(documentName)) {
             fileTypeFound = true;
@@ -211,6 +306,46 @@ public class DocumentFiles {
           map.put("pageCount", JSON.serialize(pageCount));
         }
     }
+    if (templateName != null) {
+        if (isFileTypeOrListOfFiles(templateName)) {
+            fileTypeFound = true;
+        }
+
+        if (templateName.getClass().equals(java.io.File.class) ||
+            templateName.getClass().equals(Integer.class) ||
+            templateName.getClass().equals(String.class) ||
+            templateName.getClass().equals(java.net.URI.class)||
+            templateName.getClass().isEnum()) {
+            map.put("templateName", templateName);
+        } else if (isListOfFile(templateName)) {
+            for(int i = 0; i< getListSize(templateName); i++) {
+                map.put("templateName", templateName);
+            }
+        }
+        else {
+          map.put("templateName", JSON.serialize(templateName));
+        }
+    }
+    if (templateId != null) {
+        if (isFileTypeOrListOfFiles(templateId)) {
+            fileTypeFound = true;
+        }
+
+        if (templateId.getClass().equals(java.io.File.class) ||
+            templateId.getClass().equals(Integer.class) ||
+            templateId.getClass().equals(String.class) ||
+            templateId.getClass().equals(java.net.URI.class)||
+            templateId.getClass().isEnum()) {
+            map.put("templateId", templateId);
+        } else if (isListOfFile(templateId)) {
+            for(int i = 0; i< getListSize(templateId); i++) {
+                map.put("templateId", templateId);
+            }
+        }
+        else {
+          map.put("templateId", JSON.serialize(templateId));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -256,9 +391,12 @@ public class DocumentFiles {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("documentName");
     openapiFields.add("order");
     openapiFields.add("pageCount");
+    openapiFields.add("templateName");
+    openapiFields.add("templateId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -278,8 +416,17 @@ public class DocumentFiles {
       }
 	  //Ignored additional properties from response json. 
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
       if ((jsonObj.get("documentName") != null && !jsonObj.get("documentName").isJsonNull()) && !jsonObj.get("documentName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `documentName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentName").toString()));
+      }
+      if ((jsonObj.get("templateName") != null && !jsonObj.get("templateName").isJsonNull()) && !jsonObj.get("templateName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `templateName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("templateName").toString()));
+      }
+      if ((jsonObj.get("templateId") != null && !jsonObj.get("templateId").isJsonNull()) && !jsonObj.get("templateId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `templateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("templateId").toString()));
       }
   }
 

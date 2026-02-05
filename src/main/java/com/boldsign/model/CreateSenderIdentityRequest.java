@@ -73,6 +73,100 @@ public class CreateSenderIdentityRequest {
   @SerializedName(SERIALIZED_NAME_META_DATA)
   private Map<String, String> metaData;
 
+  /**
+   * Gets or Sets locale
+   */
+  @JsonAdapter(LocaleEnum.Adapter.class)
+  public enum LocaleEnum {
+    EN("EN"),
+    
+    NO("NO"),
+    
+    FR("FR"),
+    
+    DE("DE"),
+    
+    ES("ES"),
+    
+    BG("BG"),
+    
+    CS("CS"),
+    
+    DA("DA"),
+    
+    IT("IT"),
+    
+    NL("NL"),
+    
+    PL("PL"),
+    
+    PT("PT"),
+    
+    RO("RO"),
+    
+    RU("RU"),
+    
+    SV("SV"),
+    
+    DEFAULT("Default"),
+    
+    JA("JA"),
+    
+    TH("TH"),
+    
+    ZH_CN("ZH_CN"),
+    
+    ZH_TW("ZH_TW"),
+    
+    KO("KO");
+
+    private String value;
+
+    LocaleEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static LocaleEnum fromValue(String value) {
+      for (LocaleEnum b : LocaleEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<LocaleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LocaleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LocaleEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return LocaleEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      LocaleEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_LOCALE = "locale";
+  @SerializedName(SERIALIZED_NAME_LOCALE)
+  private LocaleEnum locale;
+
   public CreateSenderIdentityRequest() {
   }
 
@@ -198,6 +292,25 @@ public class CreateSenderIdentityRequest {
   }
 
 
+  public CreateSenderIdentityRequest locale(LocaleEnum locale) {
+    this.locale = locale;
+    return this;
+  }
+
+  /**
+   * Get locale
+   * @return locale
+   */
+  @javax.annotation.Nullable
+  public LocaleEnum getLocale() {
+    return locale;
+  }
+
+  public void setLocale(LocaleEnum locale) {
+    this.locale = locale;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -213,12 +326,13 @@ public class CreateSenderIdentityRequest {
         Objects.equals(this.notificationSettings, createSenderIdentityRequest.notificationSettings) &&
         Objects.equals(this.brandId, createSenderIdentityRequest.brandId) &&
         Objects.equals(this.redirectUrl, createSenderIdentityRequest.redirectUrl) &&
-        Objects.equals(this.metaData, createSenderIdentityRequest.metaData);
+        Objects.equals(this.metaData, createSenderIdentityRequest.metaData) &&
+        Objects.equals(this.locale, createSenderIdentityRequest.locale);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, name, notificationSettings, brandId, redirectUrl, metaData);
+    return Objects.hash(email, name, notificationSettings, brandId, redirectUrl, metaData, locale);
   }
 
   @Override
@@ -231,6 +345,7 @@ public class CreateSenderIdentityRequest {
     sb.append("    brandId: ").append(toIndentedString(brandId)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -355,7 +470,35 @@ public class CreateSenderIdentityRequest {
             }
         }
         else {
+          // Handle metaData as Map<String, String> - send each key-value pair separately
+          for (Map.Entry<String, String> entry : metaData.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (key != null && value != null) {
+              map.put("metaData[" + key + "]", value);
+            }
+          }
           map.put("metaData", JSON.serialize(metaData));
+        }
+    }
+    if (locale != null) {
+        if (isFileTypeOrListOfFiles(locale)) {
+            fileTypeFound = true;
+        }
+
+        if (locale.getClass().equals(java.io.File.class) ||
+            locale.getClass().equals(Integer.class) ||
+            locale.getClass().equals(String.class) ||
+            locale.getClass().equals(java.net.URI.class)||
+            locale.getClass().isEnum()) {
+            map.put("locale", locale);
+        } else if (isListOfFile(locale)) {
+            for(int i = 0; i< getListSize(locale); i++) {
+                map.put("locale", locale);
+            }
+        }
+        else {
+          map.put("locale", JSON.serialize(locale));
         }
     }
     } catch (Exception e) {
@@ -409,6 +552,7 @@ public class CreateSenderIdentityRequest {
     openapiFields.add("brandId");
     openapiFields.add("redirectUrl");
     openapiFields.add("metaData");
+    openapiFields.add("locale");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -451,6 +595,13 @@ public class CreateSenderIdentityRequest {
       }
       if ((jsonObj.get("redirectUrl") != null && !jsonObj.get("redirectUrl").isJsonNull()) && !jsonObj.get("redirectUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `redirectUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirectUrl").toString()));
+      }
+      if ((jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) && !jsonObj.get("locale").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
+      }
+      // validate the optional field `locale`
+      if (jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) {
+        LocaleEnum.validateJsonElement(jsonObj.get("locale"));
       }
   }
 

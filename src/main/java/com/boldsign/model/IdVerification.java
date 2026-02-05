@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -76,6 +78,10 @@ public class IdVerification {
   public static final String SERIALIZED_NAME_PREFILL_COMPLETED = "prefillCompleted";
   @SerializedName(SERIALIZED_NAME_PREFILL_COMPLETED)
   private Boolean prefillCompleted;
+
+  public static final String SERIALIZED_NAME_ALLOWED_DOCUMENT_TYPES = "allowedDocumentTypes";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_DOCUMENT_TYPES)
+  private List<String> allowedDocumentTypes;
 
   public IdVerification() {
   }
@@ -232,6 +238,33 @@ public class IdVerification {
   }
 
 
+  public IdVerification allowedDocumentTypes(List<String> allowedDocumentTypes) {
+    this.allowedDocumentTypes = allowedDocumentTypes;
+    return this;
+  }
+
+  public IdVerification addAllowedDocumentTypesItem(String allowedDocumentTypesItem) {
+    if (this.allowedDocumentTypes == null) {
+      this.allowedDocumentTypes = new ArrayList<>();
+    }
+    this.allowedDocumentTypes.add(allowedDocumentTypesItem);
+    return this;
+  }
+
+  /**
+   * Get allowedDocumentTypes
+   * @return allowedDocumentTypes
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedDocumentTypes() {
+    return allowedDocumentTypes;
+  }
+
+  public void setAllowedDocumentTypes(List<String> allowedDocumentTypes) {
+    this.allowedDocumentTypes = allowedDocumentTypes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -249,12 +282,13 @@ public class IdVerification {
         Objects.equals(this.requireLiveCapture, idVerification.requireLiveCapture) &&
         Objects.equals(this.requireMatchingSelfie, idVerification.requireMatchingSelfie) &&
         Objects.equals(this.holdForPrefill, idVerification.holdForPrefill) &&
-        Objects.equals(this.prefillCompleted, idVerification.prefillCompleted);
+        Objects.equals(this.prefillCompleted, idVerification.prefillCompleted) &&
+        Objects.equals(this.allowedDocumentTypes, idVerification.allowedDocumentTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, maximumRetryCount, status, nameMatcher, requireLiveCapture, requireMatchingSelfie, holdForPrefill, prefillCompleted);
+    return Objects.hash(type, maximumRetryCount, status, nameMatcher, requireLiveCapture, requireMatchingSelfie, holdForPrefill, prefillCompleted, allowedDocumentTypes);
   }
 
   @Override
@@ -269,6 +303,7 @@ public class IdVerification {
     sb.append("    requireMatchingSelfie: ").append(toIndentedString(requireMatchingSelfie)).append("\n");
     sb.append("    holdForPrefill: ").append(toIndentedString(holdForPrefill)).append("\n");
     sb.append("    prefillCompleted: ").append(toIndentedString(prefillCompleted)).append("\n");
+    sb.append("    allowedDocumentTypes: ").append(toIndentedString(allowedDocumentTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -436,6 +471,36 @@ public class IdVerification {
           map.put("prefillCompleted", JSON.serialize(prefillCompleted));
         }
     }
+    if (allowedDocumentTypes != null) {
+        if (isFileTypeOrListOfFiles(allowedDocumentTypes)) {
+            fileTypeFound = true;
+        }
+
+        if (allowedDocumentTypes.getClass().equals(java.io.File.class) ||
+            allowedDocumentTypes.getClass().equals(Integer.class) ||
+            allowedDocumentTypes.getClass().equals(String.class) ||
+            allowedDocumentTypes.getClass().equals(java.net.URI.class)||
+            allowedDocumentTypes.getClass().isEnum()) {
+            map.put("allowedDocumentTypes", allowedDocumentTypes);
+        } else if (isListOfFile(allowedDocumentTypes)) {
+            for(int i = 0; i< getListSize(allowedDocumentTypes); i++) {
+                map.put("allowedDocumentTypes", allowedDocumentTypes);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : allowedDocumentTypes) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("allowedDocumentTypes", objectList);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -489,6 +554,7 @@ public class IdVerification {
     openapiFields.add("requireMatchingSelfie");
     openapiFields.add("holdForPrefill");
     openapiFields.add("prefillCompleted");
+    openapiFields.add("allowedDocumentTypes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -516,6 +582,10 @@ public class IdVerification {
       }
       if ((jsonObj.get("nameMatcher") != null && !jsonObj.get("nameMatcher").isJsonNull()) && !jsonObj.get("nameMatcher").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `nameMatcher` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nameMatcher").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowedDocumentTypes") != null && !jsonObj.get("allowedDocumentTypes").isJsonNull() && !jsonObj.get("allowedDocumentTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowedDocumentTypes` to be an array in the JSON string but got `%s`", jsonObj.get("allowedDocumentTypes").toString()));
       }
   }
 

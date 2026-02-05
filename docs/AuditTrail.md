@@ -10,8 +10,12 @@
 |**id** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
+|**fromName** | **String** |  |  [optional] |
+|**fromEmail** | **String** |  |  [optional] |
+|**fromPhoneNumber** | **String** |  |  [optional] |
 |**toName** | **String** |  |  [optional] |
 |**toEmail** | **String** |  |  [optional] |
+|**toPhoneNumber** | **String** |  |  [optional] |
 |**ipaddress** | **String** |  |  [optional] |
 |**action** | [**ActionEnum**](#ActionEnum) |  |  [optional] |
 |**timestamp** | **Long** |  |  [optional] |
@@ -103,6 +107,8 @@
 | QES_REJECTED | &quot;QESRejected&quot; |
 | QES_EXPIRED | &quot;QESExpired&quot; |
 | QES_WITHDRAWN | &quot;QESWithdrawn&quot; |
+| RESENT_FOR_APPROVAL | &quot;ResentForApproval&quot; |
+| DOCUMENT_FIELD_MARKUP | &quot;DocumentFieldMarkup&quot; |
 
 
 

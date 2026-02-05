@@ -37,6 +37,8 @@ import com.boldsign.model.EmbeddedSendTemplateFormRequest;
 import com.boldsign.model.EmbeddedTemplateCreated;
 import com.boldsign.model.EmbeddedTemplateEditRequest;
 import com.boldsign.model.EmbeddedTemplateEdited;
+import com.boldsign.model.EmbeddedTemplatePreview;
+import com.boldsign.model.EmbeddedTemplatePreviewJsonRequest;
 import com.boldsign.model.ErrorResult;
 import java.io.File;
 import com.boldsign.model.MergeAndSendForSignForm;
@@ -291,6 +293,145 @@ public class TemplateApi {
 
         okhttp3.Call localVarCall = addTagValidateBeforeCall(templateTag, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createEmbeddedPreviewUrl
+     * @param templateId The template id. (required)
+     * @param embeddedTemplatePreviewJsonRequest The embedded template preview request body. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEmbeddedPreviewUrlCall(String templateId, EmbeddedTemplatePreviewJsonRequest embeddedTemplatePreviewJsonRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = embeddedTemplatePreviewJsonRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/template/createEmbeddedPreviewUrl";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        localVarFormParams = embeddedTemplatePreviewJsonRequest.createFormData();
+
+        if (templateId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("templateId", templateId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "multipart/form-data",
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-API-KEY", "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEmbeddedPreviewUrlValidateBeforeCall(String templateId, EmbeddedTemplatePreviewJsonRequest embeddedTemplatePreviewJsonRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'templateId' is set
+        if (templateId == null) {
+            throw new ApiException("Missing the required parameter 'templateId' when calling createEmbeddedPreviewUrl(Async)");
+        }
+
+        return createEmbeddedPreviewUrlCall(templateId, embeddedTemplatePreviewJsonRequest, _callback);
+
+    }
+
+    /**
+     * Generates a preview URL for a template to view it.
+     * 
+     * @param templateId The template id. (required)
+     * @param embeddedTemplatePreviewJsonRequest The embedded template preview request body. (optional)
+     * @return EmbeddedTemplatePreview
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmbeddedTemplatePreview createEmbeddedPreviewUrl(String templateId, EmbeddedTemplatePreviewJsonRequest embeddedTemplatePreviewJsonRequest) throws ApiException {
+        ApiResponse<EmbeddedTemplatePreview> localVarResp = createEmbeddedPreviewUrlWithHttpInfo(templateId, embeddedTemplatePreviewJsonRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generates a preview URL for a template to view it.
+     * 
+     * @param templateId The template id. (required)
+     * @param embeddedTemplatePreviewJsonRequest The embedded template preview request body. (optional)
+     * @return ApiResponse&lt;EmbeddedTemplatePreview&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmbeddedTemplatePreview> createEmbeddedPreviewUrlWithHttpInfo(String templateId, EmbeddedTemplatePreviewJsonRequest embeddedTemplatePreviewJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = createEmbeddedPreviewUrlValidateBeforeCall(templateId, embeddedTemplatePreviewJsonRequest, null);
+        Type localVarReturnType = new TypeToken<EmbeddedTemplatePreview>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generates a preview URL for a template to view it. (asynchronously)
+     * 
+     * @param templateId The template id. (required)
+     * @param embeddedTemplatePreviewJsonRequest The embedded template preview request body. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEmbeddedPreviewUrlAsync(String templateId, EmbeddedTemplatePreviewJsonRequest embeddedTemplatePreviewJsonRequest, final ApiCallback<EmbeddedTemplatePreview> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createEmbeddedPreviewUrlValidateBeforeCall(templateId, embeddedTemplatePreviewJsonRequest, _callback);
+        Type localVarReturnType = new TypeToken<EmbeddedTemplatePreview>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -1046,6 +1187,7 @@ public class TemplateApi {
      * Build call for download
      * @param templateId Template Id. (required)
      * @param onBehalfOf The on behalfof email address. (optional)
+     * @param includeFormFieldValues Include form field data. (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1057,7 +1199,7 @@ public class TemplateApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadCall(String templateId, String onBehalfOf, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call downloadCall(String templateId, String onBehalfOf, Boolean includeFormFieldValues, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1091,6 +1233,10 @@ public class TemplateApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("onBehalfOf", onBehalfOf));
         }
 
+        if (includeFormFieldValues != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeFormFieldValues", includeFormFieldValues));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1111,13 +1257,13 @@ public class TemplateApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call downloadValidateBeforeCall(String templateId, String onBehalfOf, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call downloadValidateBeforeCall(String templateId, String onBehalfOf, Boolean includeFormFieldValues, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'templateId' is set
         if (templateId == null) {
             throw new ApiException("Missing the required parameter 'templateId' when calling download(Async)");
         }
 
-        return downloadCall(templateId, onBehalfOf, _callback);
+        return downloadCall(templateId, onBehalfOf, includeFormFieldValues, _callback);
 
     }
 
@@ -1126,6 +1272,7 @@ public class TemplateApi {
      * 
      * @param templateId Template Id. (required)
      * @param onBehalfOf The on behalfof email address. (optional)
+     * @param includeFormFieldValues Include form field data. (optional, default to false)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1136,8 +1283,8 @@ public class TemplateApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public File download(String templateId, String onBehalfOf) throws ApiException {
-        ApiResponse<File> localVarResp = downloadWithHttpInfo(templateId, onBehalfOf);
+    public File download(String templateId, String onBehalfOf, Boolean includeFormFieldValues) throws ApiException {
+        ApiResponse<File> localVarResp = downloadWithHttpInfo(templateId, onBehalfOf, includeFormFieldValues);
         return localVarResp.getData();
     }
 
@@ -1146,6 +1293,7 @@ public class TemplateApi {
      * 
      * @param templateId Template Id. (required)
      * @param onBehalfOf The on behalfof email address. (optional)
+     * @param includeFormFieldValues Include form field data. (optional, default to false)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1156,8 +1304,8 @@ public class TemplateApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> downloadWithHttpInfo(String templateId, String onBehalfOf) throws ApiException {
-        okhttp3.Call localVarCall = downloadValidateBeforeCall(templateId, onBehalfOf, null);
+    public ApiResponse<File> downloadWithHttpInfo(String templateId, String onBehalfOf, Boolean includeFormFieldValues) throws ApiException {
+        okhttp3.Call localVarCall = downloadValidateBeforeCall(templateId, onBehalfOf, includeFormFieldValues, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1167,6 +1315,7 @@ public class TemplateApi {
      * 
      * @param templateId Template Id. (required)
      * @param onBehalfOf The on behalfof email address. (optional)
+     * @param includeFormFieldValues Include form field data. (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1178,9 +1327,9 @@ public class TemplateApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadAsync(String templateId, String onBehalfOf, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call downloadAsync(String templateId, String onBehalfOf, Boolean includeFormFieldValues, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = downloadValidateBeforeCall(templateId, onBehalfOf, _callback);
+        okhttp3.Call localVarCall = downloadValidateBeforeCall(templateId, onBehalfOf, includeFormFieldValues, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1661,6 +1810,7 @@ public class TemplateApi {
      * @param startDate Start date of the template (optional)
      * @param endDate End date of the template (optional)
      * @param brandIds BrandId(s) of the template. (optional)
+     * @param sharedWithTeamId The templates can be listed by the shared teams. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1671,7 +1821,7 @@ public class TemplateApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTemplatesCall(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listTemplatesCall(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds, List<String> sharedWithTeamId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1737,6 +1887,10 @@ public class TemplateApi {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "BrandIds", brandIds));
         }
 
+        if (sharedWithTeamId != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "SharedWithTeamId", sharedWithTeamId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1757,13 +1911,13 @@ public class TemplateApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTemplatesValidateBeforeCall(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTemplatesValidateBeforeCall(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds, List<String> sharedWithTeamId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'page' is set
         if (page == null) {
             throw new ApiException("Missing the required parameter 'page' when calling listTemplates(Async)");
         }
 
-        return listTemplatesCall(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, _callback);
+        return listTemplatesCall(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, sharedWithTeamId, _callback);
 
     }
 
@@ -1780,6 +1934,7 @@ public class TemplateApi {
      * @param startDate Start date of the template (optional)
      * @param endDate End date of the template (optional)
      * @param brandIds BrandId(s) of the template. (optional)
+     * @param sharedWithTeamId The templates can be listed by the shared teams. (optional)
      * @return TemplateRecords
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1789,8 +1944,8 @@ public class TemplateApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public TemplateRecords listTemplates(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds) throws ApiException {
-        ApiResponse<TemplateRecords> localVarResp = listTemplatesWithHttpInfo(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds);
+    public TemplateRecords listTemplates(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds, List<String> sharedWithTeamId) throws ApiException {
+        ApiResponse<TemplateRecords> localVarResp = listTemplatesWithHttpInfo(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, sharedWithTeamId);
         return localVarResp.getData();
     }
 
@@ -1807,6 +1962,7 @@ public class TemplateApi {
      * @param startDate Start date of the template (optional)
      * @param endDate End date of the template (optional)
      * @param brandIds BrandId(s) of the template. (optional)
+     * @param sharedWithTeamId The templates can be listed by the shared teams. (optional)
      * @return ApiResponse&lt;TemplateRecords&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1816,8 +1972,8 @@ public class TemplateApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TemplateRecords> listTemplatesWithHttpInfo(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds) throws ApiException {
-        okhttp3.Call localVarCall = listTemplatesValidateBeforeCall(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, null);
+    public ApiResponse<TemplateRecords> listTemplatesWithHttpInfo(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds, List<String> sharedWithTeamId) throws ApiException {
+        okhttp3.Call localVarCall = listTemplatesValidateBeforeCall(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, sharedWithTeamId, null);
         Type localVarReturnType = new TypeToken<TemplateRecords>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1835,6 +1991,7 @@ public class TemplateApi {
      * @param startDate Start date of the template (optional)
      * @param endDate End date of the template (optional)
      * @param brandIds BrandId(s) of the template. (optional)
+     * @param sharedWithTeamId The templates can be listed by the shared teams. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1845,9 +2002,9 @@ public class TemplateApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTemplatesAsync(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds, final ApiCallback<TemplateRecords> _callback) throws ApiException {
+    public okhttp3.Call listTemplatesAsync(Integer page, String templateType, Integer pageSize, String searchKey, List<String> onBehalfOf, List<String> createdBy, List<String> templateLabels, OffsetDateTime startDate, OffsetDateTime endDate, List<String> brandIds, List<String> sharedWithTeamId, final ApiCallback<TemplateRecords> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listTemplatesValidateBeforeCall(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, _callback);
+        okhttp3.Call localVarCall = listTemplatesValidateBeforeCall(page, templateType, pageSize, searchKey, onBehalfOf, createdBy, templateLabels, startDate, endDate, brandIds, sharedWithTeamId, _callback);
         Type localVarReturnType = new TypeToken<TemplateRecords>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

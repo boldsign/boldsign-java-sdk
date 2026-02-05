@@ -24,6 +24,8 @@
 |**hostName** | **String** |  |  [optional] |
 |**hostUserId** | **String** |  |  [optional] |
 |**signType** | [**SignTypeEnum**](#SignTypeEnum) |  |  [optional] |
+|**groupId** | **String** |  |  [optional] |
+|**groupSigners** | [**List&lt;TemplateGroupSigner&gt;**](TemplateGroupSigner.md) |  |  [optional] |
 
 
 

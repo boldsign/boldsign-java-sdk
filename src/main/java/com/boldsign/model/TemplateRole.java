@@ -133,7 +133,7 @@ public class TemplateRole {
   private String hostEmail;
 
   /**
-   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;/ul&gt;
+   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;li&gt;&lt;i&gt;16&lt;/i&gt; - Japanese&lt;/li&gt;&lt;li&gt;&lt;i&gt;17&lt;/i&gt; - Thai&lt;/li&gt;&lt;li&gt;&lt;i&gt;18&lt;/i&gt; - SimplifiedChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;19&lt;/i&gt; - TraditionalChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;20&lt;/i&gt; - Korean&lt;/li&gt;&lt;/ul&gt;
    */
   @JsonAdapter(LanguageEnum.Adapter.class)
   public enum LanguageEnum {
@@ -167,7 +167,17 @@ public class TemplateRole {
     
     NUMBER_14(14),
     
-    NUMBER_15(15);
+    NUMBER_15(15),
+    
+    NUMBER_16(16),
+    
+    NUMBER_17(17),
+    
+    NUMBER_18(18),
+    
+    NUMBER_19(19),
+    
+    NUMBER_20(20);
 
     private Integer value;
 
@@ -251,7 +261,17 @@ public class TemplateRole {
     
     SV("SV"),
     
-    DEFAULT("Default");
+    DEFAULT("Default"),
+    
+    JA("JA"),
+    
+    TH("TH"),
+    
+    ZH_CN("ZH_CN"),
+    
+    ZH_TW("ZH_TW"),
+    
+    KO("KO");
 
     private String value;
 
@@ -299,6 +319,66 @@ public class TemplateRole {
   public static final String SERIALIZED_NAME_LOCALE = "locale";
   @SerializedName(SERIALIZED_NAME_LOCALE)
   private LocaleEnum locale;
+
+  /**
+   * Gets or Sets signType
+   */
+  @JsonAdapter(SignTypeEnum.Adapter.class)
+  public enum SignTypeEnum {
+    SINGLE("Single"),
+    
+    GROUP("Group");
+
+    private String value;
+
+    SignTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SignTypeEnum fromValue(String value) {
+      for (SignTypeEnum b : SignTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SignTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SignTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SignTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SignTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SignTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SIGN_TYPE = "signType";
+  @SerializedName(SERIALIZED_NAME_SIGN_TYPE)
+  private SignTypeEnum signType;
+
+  public static final String SERIALIZED_NAME_DEFAULT_GROUP_ID = "defaultGroupId";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_GROUP_ID)
+  private String defaultGroupId;
 
   /**
    * Gets or Sets imposeAuthentication
@@ -594,7 +674,7 @@ public class TemplateRole {
   }
 
   /**
-   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;/ul&gt;
+   * &lt;p&gt;Description:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;i&gt;0&lt;/i&gt; - None&lt;/li&gt;&lt;li&gt;&lt;i&gt;1&lt;/i&gt; - English&lt;/li&gt;&lt;li&gt;&lt;i&gt;2&lt;/i&gt; - Spanish&lt;/li&gt;&lt;li&gt;&lt;i&gt;3&lt;/i&gt; - German&lt;/li&gt;&lt;li&gt;&lt;i&gt;4&lt;/i&gt; - French&lt;/li&gt;&lt;li&gt;&lt;i&gt;5&lt;/i&gt; - Romanian&lt;/li&gt;&lt;li&gt;&lt;i&gt;6&lt;/i&gt; - Norwegian&lt;/li&gt;&lt;li&gt;&lt;i&gt;7&lt;/i&gt; - Bulgarian&lt;/li&gt;&lt;li&gt;&lt;i&gt;8&lt;/i&gt; - Italian&lt;/li&gt;&lt;li&gt;&lt;i&gt;9&lt;/i&gt; - Danish&lt;/li&gt;&lt;li&gt;&lt;i&gt;10&lt;/i&gt; - Polish&lt;/li&gt;&lt;li&gt;&lt;i&gt;11&lt;/i&gt; - Portuguese&lt;/li&gt;&lt;li&gt;&lt;i&gt;12&lt;/i&gt; - Czech&lt;/li&gt;&lt;li&gt;&lt;i&gt;13&lt;/i&gt; - Dutch&lt;/li&gt;&lt;li&gt;&lt;i&gt;14&lt;/i&gt; - Swedish&lt;/li&gt;&lt;li&gt;&lt;i&gt;15&lt;/i&gt; - Russian&lt;/li&gt;&lt;li&gt;&lt;i&gt;16&lt;/i&gt; - Japanese&lt;/li&gt;&lt;li&gt;&lt;i&gt;17&lt;/i&gt; - Thai&lt;/li&gt;&lt;li&gt;&lt;i&gt;18&lt;/i&gt; - SimplifiedChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;19&lt;/i&gt; - TraditionalChinese&lt;/li&gt;&lt;li&gt;&lt;i&gt;20&lt;/i&gt; - Korean&lt;/li&gt;&lt;/ul&gt;
    * @return language
    */
   @javax.annotation.Nullable
@@ -623,6 +703,44 @@ public class TemplateRole {
 
   public void setLocale(LocaleEnum locale) {
     this.locale = locale;
+  }
+
+
+  public TemplateRole signType(SignTypeEnum signType) {
+    this.signType = signType;
+    return this;
+  }
+
+  /**
+   * Get signType
+   * @return signType
+   */
+  @javax.annotation.Nullable
+  public SignTypeEnum getSignType() {
+    return signType;
+  }
+
+  public void setSignType(SignTypeEnum signType) {
+    this.signType = signType;
+  }
+
+
+  public TemplateRole defaultGroupId(String defaultGroupId) {
+    this.defaultGroupId = defaultGroupId;
+    return this;
+  }
+
+  /**
+   * Get defaultGroupId
+   * @return defaultGroupId
+   */
+  @javax.annotation.Nullable
+  public String getDefaultGroupId() {
+    return defaultGroupId;
+  }
+
+  public void setDefaultGroupId(String defaultGroupId) {
+    this.defaultGroupId = defaultGroupId;
   }
 
 
@@ -824,6 +942,8 @@ public class TemplateRole {
         Objects.equals(this.hostEmail, templateRole.hostEmail) &&
         Objects.equals(this.language, templateRole.language) &&
         Objects.equals(this.locale, templateRole.locale) &&
+        Objects.equals(this.signType, templateRole.signType) &&
+        Objects.equals(this.defaultGroupId, templateRole.defaultGroupId) &&
         Objects.equals(this.imposeAuthentication, templateRole.imposeAuthentication) &&
         Objects.equals(this.phoneNumber, templateRole.phoneNumber) &&
         Objects.equals(this.deliveryMode, templateRole.deliveryMode) &&
@@ -837,7 +957,7 @@ public class TemplateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, name, defaultSignerName, defaultSignerEmail, signerOrder, signerType, hostEmail, language, locale, imposeAuthentication, phoneNumber, deliveryMode, allowFieldConfiguration, formFields, allowRoleEdit, allowRoleDelete, recipientNotificationSettings, enableQes);
+    return Objects.hash(index, name, defaultSignerName, defaultSignerEmail, signerOrder, signerType, hostEmail, language, locale, signType, defaultGroupId, imposeAuthentication, phoneNumber, deliveryMode, allowFieldConfiguration, formFields, allowRoleEdit, allowRoleDelete, recipientNotificationSettings, enableQes);
   }
 
   @Override
@@ -853,6 +973,8 @@ public class TemplateRole {
     sb.append("    hostEmail: ").append(toIndentedString(hostEmail)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("    signType: ").append(toIndentedString(signType)).append("\n");
+    sb.append("    defaultGroupId: ").append(toIndentedString(defaultGroupId)).append("\n");
     sb.append("    imposeAuthentication: ").append(toIndentedString(imposeAuthentication)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    deliveryMode: ").append(toIndentedString(deliveryMode)).append("\n");
@@ -1049,6 +1171,46 @@ public class TemplateRole {
           map.put("locale", JSON.serialize(locale));
         }
     }
+    if (signType != null) {
+        if (isFileTypeOrListOfFiles(signType)) {
+            fileTypeFound = true;
+        }
+
+        if (signType.getClass().equals(java.io.File.class) ||
+            signType.getClass().equals(Integer.class) ||
+            signType.getClass().equals(String.class) ||
+            signType.getClass().equals(java.net.URI.class)||
+            signType.getClass().isEnum()) {
+            map.put("signType", signType);
+        } else if (isListOfFile(signType)) {
+            for(int i = 0; i< getListSize(signType); i++) {
+                map.put("signType", signType);
+            }
+        }
+        else {
+          map.put("signType", JSON.serialize(signType));
+        }
+    }
+    if (defaultGroupId != null) {
+        if (isFileTypeOrListOfFiles(defaultGroupId)) {
+            fileTypeFound = true;
+        }
+
+        if (defaultGroupId.getClass().equals(java.io.File.class) ||
+            defaultGroupId.getClass().equals(Integer.class) ||
+            defaultGroupId.getClass().equals(String.class) ||
+            defaultGroupId.getClass().equals(java.net.URI.class)||
+            defaultGroupId.getClass().isEnum()) {
+            map.put("defaultGroupId", defaultGroupId);
+        } else if (isListOfFile(defaultGroupId)) {
+            for(int i = 0; i< getListSize(defaultGroupId); i++) {
+                map.put("defaultGroupId", defaultGroupId);
+            }
+        }
+        else {
+          map.put("defaultGroupId", JSON.serialize(defaultGroupId));
+        }
+    }
     if (imposeAuthentication != null) {
         if (isFileTypeOrListOfFiles(imposeAuthentication)) {
             fileTypeFound = true;
@@ -1148,7 +1310,7 @@ public class TemplateRole {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formFields) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1293,6 +1455,8 @@ public class TemplateRole {
     openapiFields.add("hostEmail");
     openapiFields.add("language");
     openapiFields.add("locale");
+    openapiFields.add("signType");
+    openapiFields.add("defaultGroupId");
     openapiFields.add("imposeAuthentication");
     openapiFields.add("phoneNumber");
     openapiFields.add("deliveryMode");
@@ -1358,6 +1522,16 @@ public class TemplateRole {
       // validate the optional field `locale`
       if (jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) {
         LocaleEnum.validateJsonElement(jsonObj.get("locale"));
+      }
+      if ((jsonObj.get("signType") != null && !jsonObj.get("signType").isJsonNull()) && !jsonObj.get("signType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signType").toString()));
+      }
+      // validate the optional field `signType`
+      if (jsonObj.get("signType") != null && !jsonObj.get("signType").isJsonNull()) {
+        SignTypeEnum.validateJsonElement(jsonObj.get("signType"));
+      }
+      if ((jsonObj.get("defaultGroupId") != null && !jsonObj.get("defaultGroupId").isJsonNull()) && !jsonObj.get("defaultGroupId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `defaultGroupId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultGroupId").toString()));
       }
       if ((jsonObj.get("imposeAuthentication") != null && !jsonObj.get("imposeAuthentication").isJsonNull()) && !jsonObj.get("imposeAuthentication").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `imposeAuthentication` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imposeAuthentication").toString()));

@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.boldsign.model.DocumentCC;
 import com.boldsign.model.DocumentInfo;
 import com.boldsign.model.FormGroup;
+import com.boldsign.model.GroupSignerSettings;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.ReminderSettings;
 import com.boldsign.model.Role;
@@ -170,7 +171,17 @@ public class EmbeddedMergeTemplateFormRequest {
     
     SV("SV"),
     
-    DEFAULT("Default");
+    DEFAULT("Default"),
+    
+    JA("JA"),
+    
+    TH("TH"),
+    
+    ZH_CN("ZH_CN"),
+    
+    ZH_TW("ZH_TW"),
+    
+    KO("KO");
 
     private String value;
 
@@ -309,9 +320,7 @@ public class EmbeddedMergeTemplateFormRequest {
     
     HOURS("Hours"),
     
-    SPECIFIC_DATE_TIME("SpecificDateTime"),
-    
-    NULL("null");
+    SPECIFIC_DATE_TIME("SpecificDateTime");
 
     private String value;
 
@@ -403,9 +412,7 @@ public class EmbeddedMergeTemplateFormRequest {
   public enum DocumentDownloadOptionEnum {
     COMBINED("Combined"),
     
-    INDIVIDUALLY("Individually"),
-    
-    NULL("null");
+    INDIVIDUALLY("Individually");
 
     private String value;
 
@@ -458,10 +465,6 @@ public class EmbeddedMergeTemplateFormRequest {
   @SerializedName(SERIALIZED_NAME_META_DATA)
   private Map<String, String> metaData;
 
-  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
-  private RecipientNotificationSettings recipientNotificationSettings;
-
   public static final String SERIALIZED_NAME_FORM_GROUPS = "formGroups";
   @SerializedName(SERIALIZED_NAME_FORM_GROUPS)
   private List<FormGroup> formGroups;
@@ -469,6 +472,10 @@ public class EmbeddedMergeTemplateFormRequest {
   public static final String SERIALIZED_NAME_REMOVE_FORM_FIELDS = "removeFormFields";
   @SerializedName(SERIALIZED_NAME_REMOVE_FORM_FIELDS)
   private List<String> removeFormFields;
+
+  public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
+  private RecipientNotificationSettings recipientNotificationSettings;
 
   public static final String SERIALIZED_NAME_ENABLE_AUDIT_TRAIL_LOCALIZATION = "enableAuditTrailLocalization";
   @SerializedName(SERIALIZED_NAME_ENABLE_AUDIT_TRAIL_LOCALIZATION)
@@ -485,6 +492,68 @@ public class EmbeddedMergeTemplateFormRequest {
   public static final String SERIALIZED_NAME_ALLOW_SCHEDULED_SEND = "allowScheduledSend";
   @SerializedName(SERIALIZED_NAME_ALLOW_SCHEDULED_SEND)
   private Boolean allowScheduledSend = false;
+
+  /**
+   * Gets or Sets allowedSignatureTypes
+   */
+  @JsonAdapter(AllowedSignatureTypesEnum.Adapter.class)
+  public enum AllowedSignatureTypesEnum {
+    TEXT("Text"),
+    
+    DRAW("Draw"),
+    
+    IMAGE("Image");
+
+    private String value;
+
+    AllowedSignatureTypesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AllowedSignatureTypesEnum fromValue(String value) {
+      for (AllowedSignatureTypesEnum b : AllowedSignatureTypesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AllowedSignatureTypesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AllowedSignatureTypesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AllowedSignatureTypesEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AllowedSignatureTypesEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AllowedSignatureTypesEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ALLOWED_SIGNATURE_TYPES = "allowedSignatureTypes";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_SIGNATURE_TYPES)
+  private List<AllowedSignatureTypesEnum> allowedSignatureTypes;
+
+  public static final String SERIALIZED_NAME_GROUP_SIGNER_SETTINGS = "groupSignerSettings";
+  @SerializedName(SERIALIZED_NAME_GROUP_SIGNER_SETTINGS)
+  private GroupSignerSettings groupSignerSettings;
 
   public EmbeddedMergeTemplateFormRequest() {
   }
@@ -1314,25 +1383,6 @@ public class EmbeddedMergeTemplateFormRequest {
   }
 
 
-  public EmbeddedMergeTemplateFormRequest recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
-    this.recipientNotificationSettings = recipientNotificationSettings;
-    return this;
-  }
-
-  /**
-   * Get recipientNotificationSettings
-   * @return recipientNotificationSettings
-   */
-  @javax.annotation.Nullable
-  public RecipientNotificationSettings getRecipientNotificationSettings() {
-    return recipientNotificationSettings;
-  }
-
-  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
-    this.recipientNotificationSettings = recipientNotificationSettings;
-  }
-
-
   public EmbeddedMergeTemplateFormRequest formGroups(List<FormGroup> formGroups) {
     this.formGroups = formGroups;
     return this;
@@ -1384,6 +1434,25 @@ public class EmbeddedMergeTemplateFormRequest {
 
   public void setRemoveFormFields(List<String> removeFormFields) {
     this.removeFormFields = removeFormFields;
+  }
+
+
+  public EmbeddedMergeTemplateFormRequest recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
+    return this;
+  }
+
+  /**
+   * Get recipientNotificationSettings
+   * @return recipientNotificationSettings
+   */
+  @javax.annotation.Nullable
+  public RecipientNotificationSettings getRecipientNotificationSettings() {
+    return recipientNotificationSettings;
+  }
+
+  public void setRecipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
+    this.recipientNotificationSettings = recipientNotificationSettings;
   }
 
 
@@ -1463,6 +1532,52 @@ public class EmbeddedMergeTemplateFormRequest {
   }
 
 
+  public EmbeddedMergeTemplateFormRequest allowedSignatureTypes(List<AllowedSignatureTypesEnum> allowedSignatureTypes) {
+    this.allowedSignatureTypes = allowedSignatureTypes;
+    return this;
+  }
+
+  public EmbeddedMergeTemplateFormRequest addAllowedSignatureTypesItem(AllowedSignatureTypesEnum allowedSignatureTypesItem) {
+    if (this.allowedSignatureTypes == null) {
+      this.allowedSignatureTypes = new ArrayList<>();
+    }
+    this.allowedSignatureTypes.add(allowedSignatureTypesItem);
+    return this;
+  }
+
+  /**
+   * Get allowedSignatureTypes
+   * @return allowedSignatureTypes
+   */
+  @javax.annotation.Nullable
+  public List<AllowedSignatureTypesEnum> getAllowedSignatureTypes() {
+    return allowedSignatureTypes;
+  }
+
+  public void setAllowedSignatureTypes(List<AllowedSignatureTypesEnum> allowedSignatureTypes) {
+    this.allowedSignatureTypes = allowedSignatureTypes;
+  }
+
+
+  public EmbeddedMergeTemplateFormRequest groupSignerSettings(GroupSignerSettings groupSignerSettings) {
+    this.groupSignerSettings = groupSignerSettings;
+    return this;
+  }
+
+  /**
+   * Get groupSignerSettings
+   * @return groupSignerSettings
+   */
+  @javax.annotation.Nullable
+  public GroupSignerSettings getGroupSignerSettings() {
+    return groupSignerSettings;
+  }
+
+  public void setGroupSignerSettings(GroupSignerSettings groupSignerSettings) {
+    this.groupSignerSettings = groupSignerSettings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1512,18 +1627,20 @@ public class EmbeddedMergeTemplateFormRequest {
         Objects.equals(this.roleRemovalIndices, embeddedMergeTemplateFormRequest.roleRemovalIndices) &&
         Objects.equals(this.documentDownloadOption, embeddedMergeTemplateFormRequest.documentDownloadOption) &&
         Objects.equals(this.metaData, embeddedMergeTemplateFormRequest.metaData) &&
-        Objects.equals(this.recipientNotificationSettings, embeddedMergeTemplateFormRequest.recipientNotificationSettings) &&
         Objects.equals(this.formGroups, embeddedMergeTemplateFormRequest.formGroups) &&
         Objects.equals(this.removeFormFields, embeddedMergeTemplateFormRequest.removeFormFields) &&
+        Objects.equals(this.recipientNotificationSettings, embeddedMergeTemplateFormRequest.recipientNotificationSettings) &&
         Objects.equals(this.enableAuditTrailLocalization, embeddedMergeTemplateFormRequest.enableAuditTrailLocalization) &&
         Objects.equals(this.downloadFileName, embeddedMergeTemplateFormRequest.downloadFileName) &&
         Objects.equals(this.scheduledSendTime, embeddedMergeTemplateFormRequest.scheduledSendTime) &&
-        Objects.equals(this.allowScheduledSend, embeddedMergeTemplateFormRequest.allowScheduledSend);
+        Objects.equals(this.allowScheduledSend, embeddedMergeTemplateFormRequest.allowScheduledSend) &&
+        Objects.equals(this.allowedSignatureTypes, embeddedMergeTemplateFormRequest.allowedSignatureTypes) &&
+        Objects.equals(this.groupSignerSettings, embeddedMergeTemplateFormRequest.groupSignerSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, sendLinkValidTill, showTooltip, templateIds, useTextTags, textTagDefinitions, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, recipientNotificationSettings, formGroups, removeFormFields, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend);
+    return Objects.hash(files, fileUrls, redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, sendLinkValidTill, showTooltip, templateIds, useTextTags, textTagDefinitions, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend, allowedSignatureTypes, groupSignerSettings);
   }
 
   @Override
@@ -1569,13 +1686,15 @@ public class EmbeddedMergeTemplateFormRequest {
     sb.append("    roleRemovalIndices: ").append(toIndentedString(roleRemovalIndices)).append("\n");
     sb.append("    documentDownloadOption: ").append(toIndentedString(documentDownloadOption)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    formGroups: ").append(toIndentedString(formGroups)).append("\n");
     sb.append("    removeFormFields: ").append(toIndentedString(removeFormFields)).append("\n");
+    sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    enableAuditTrailLocalization: ").append(toIndentedString(enableAuditTrailLocalization)).append("\n");
     sb.append("    downloadFileName: ").append(toIndentedString(downloadFileName)).append("\n");
     sb.append("    scheduledSendTime: ").append(toIndentedString(scheduledSendTime)).append("\n");
     sb.append("    allowScheduledSend: ").append(toIndentedString(allowScheduledSend)).append("\n");
+    sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
+    sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1602,7 +1721,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : files) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1632,7 +1751,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : fileUrls) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1862,7 +1981,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : templateIds) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -1912,7 +2031,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : textTagDefinitions) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2002,7 +2121,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : roles) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2052,7 +2171,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : labels) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2162,7 +2281,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : cc) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2332,7 +2451,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : documentInfo) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2402,7 +2521,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : roleRemovalIndices) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2450,27 +2569,15 @@ public class EmbeddedMergeTemplateFormRequest {
             }
         }
         else {
-          map.put("metaData", JSON.serialize(metaData));
-        }
-    }
-    if (recipientNotificationSettings != null) {
-        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
-            fileTypeFound = true;
-        }
-
-        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
-            recipientNotificationSettings.getClass().equals(Integer.class) ||
-            recipientNotificationSettings.getClass().equals(String.class) ||
-            recipientNotificationSettings.getClass().equals(java.net.URI.class)||
-            recipientNotificationSettings.getClass().isEnum()) {
-            map.put("recipientNotificationSettings", recipientNotificationSettings);
-        } else if (isListOfFile(recipientNotificationSettings)) {
-            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
-                map.put("recipientNotificationSettings", recipientNotificationSettings);
+          // Handle metaData as Map<String, String> - send each key-value pair separately
+          for (Map.Entry<String, String> entry : metaData.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (key != null && value != null) {
+              map.put("metaData[" + key + "]", value);
             }
-        }
-        else {
-          map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
+          }
+          map.put("metaData", JSON.serialize(metaData));
         }
     }
     if (formGroups != null) {
@@ -2492,7 +2599,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : formGroups) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2522,7 +2629,7 @@ public class EmbeddedMergeTemplateFormRequest {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : removeFormFields) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {
@@ -2531,6 +2638,26 @@ public class EmbeddedMergeTemplateFormRequest {
             }
           }
           map.put("removeFormFields", objectList);
+        }
+    }
+    if (recipientNotificationSettings != null) {
+        if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (recipientNotificationSettings.getClass().equals(java.io.File.class) ||
+            recipientNotificationSettings.getClass().equals(Integer.class) ||
+            recipientNotificationSettings.getClass().equals(String.class) ||
+            recipientNotificationSettings.getClass().equals(java.net.URI.class)||
+            recipientNotificationSettings.getClass().isEnum()) {
+            map.put("recipientNotificationSettings", recipientNotificationSettings);
+        } else if (isListOfFile(recipientNotificationSettings)) {
+            for(int i = 0; i< getListSize(recipientNotificationSettings); i++) {
+                map.put("recipientNotificationSettings", recipientNotificationSettings);
+            }
+        }
+        else {
+          map.put("recipientNotificationSettings", JSON.serialize(recipientNotificationSettings));
         }
     }
     if (enableAuditTrailLocalization != null) {
@@ -2611,6 +2738,56 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           map.put("allowScheduledSend", JSON.serialize(allowScheduledSend));
+        }
+    }
+    if (allowedSignatureTypes != null) {
+        if (isFileTypeOrListOfFiles(allowedSignatureTypes)) {
+            fileTypeFound = true;
+        }
+
+        if (allowedSignatureTypes.getClass().equals(java.io.File.class) ||
+            allowedSignatureTypes.getClass().equals(Integer.class) ||
+            allowedSignatureTypes.getClass().equals(String.class) ||
+            allowedSignatureTypes.getClass().equals(java.net.URI.class)||
+            allowedSignatureTypes.getClass().isEnum()) {
+            map.put("allowedSignatureTypes", allowedSignatureTypes);
+        } else if (isListOfFile(allowedSignatureTypes)) {
+            for(int i = 0; i< getListSize(allowedSignatureTypes); i++) {
+                map.put("allowedSignatureTypes", allowedSignatureTypes);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : allowedSignatureTypes) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("allowedSignatureTypes", objectList);
+        }
+    }
+    if (groupSignerSettings != null) {
+        if (isFileTypeOrListOfFiles(groupSignerSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (groupSignerSettings.getClass().equals(java.io.File.class) ||
+            groupSignerSettings.getClass().equals(Integer.class) ||
+            groupSignerSettings.getClass().equals(String.class) ||
+            groupSignerSettings.getClass().equals(java.net.URI.class)||
+            groupSignerSettings.getClass().isEnum()) {
+            map.put("groupSignerSettings", groupSignerSettings);
+        } else if (isListOfFile(groupSignerSettings)) {
+            for(int i = 0; i< getListSize(groupSignerSettings); i++) {
+                map.put("groupSignerSettings", groupSignerSettings);
+            }
+        }
+        else {
+          map.put("groupSignerSettings", JSON.serialize(groupSignerSettings));
         }
     }
     } catch (Exception e) {
@@ -2697,13 +2874,15 @@ public class EmbeddedMergeTemplateFormRequest {
     openapiFields.add("roleRemovalIndices");
     openapiFields.add("documentDownloadOption");
     openapiFields.add("metaData");
-    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("formGroups");
     openapiFields.add("removeFormFields");
+    openapiFields.add("recipientNotificationSettings");
     openapiFields.add("enableAuditTrailLocalization");
     openapiFields.add("downloadFileName");
     openapiFields.add("scheduledSendTime");
     openapiFields.add("allowScheduledSend");
+    openapiFields.add("allowedSignatureTypes");
+    openapiFields.add("groupSignerSettings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2849,10 +3028,6 @@ public class EmbeddedMergeTemplateFormRequest {
       if (jsonObj.get("documentDownloadOption") != null && !jsonObj.get("documentDownloadOption").isJsonNull()) {
         DocumentDownloadOptionEnum.validateJsonElement(jsonObj.get("documentDownloadOption"));
       }
-      // validate the optional field `recipientNotificationSettings`
-      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
-        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
-      }
       if (jsonObj.get("formGroups") != null && !jsonObj.get("formGroups").isJsonNull()) {
         JsonArray jsonArrayformGroups = jsonObj.getAsJsonArray("formGroups");
         if (jsonArrayformGroups != null) {
@@ -2871,8 +3046,20 @@ public class EmbeddedMergeTemplateFormRequest {
       if (jsonObj.get("removeFormFields") != null && !jsonObj.get("removeFormFields").isJsonNull() && !jsonObj.get("removeFormFields").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `removeFormFields` to be an array in the JSON string but got `%s`", jsonObj.get("removeFormFields").toString()));
       }
+      // validate the optional field `recipientNotificationSettings`
+      if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {
+        RecipientNotificationSettings.validateJsonElement(jsonObj.get("recipientNotificationSettings"));
+      }
       if ((jsonObj.get("downloadFileName") != null && !jsonObj.get("downloadFileName").isJsonNull()) && !jsonObj.get("downloadFileName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `downloadFileName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("downloadFileName").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowedSignatureTypes") != null && !jsonObj.get("allowedSignatureTypes").isJsonNull() && !jsonObj.get("allowedSignatureTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowedSignatureTypes` to be an array in the JSON string but got `%s`", jsonObj.get("allowedSignatureTypes").toString()));
+      }
+      // validate the optional field `groupSignerSettings`
+      if (jsonObj.get("groupSignerSettings") != null && !jsonObj.get("groupSignerSettings").isJsonNull()) {
+        GroupSignerSettings.validateJsonElement(jsonObj.get("groupSignerSettings"));
       }
   }
 

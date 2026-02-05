@@ -5,6 +5,7 @@ All URIs are relative to *https://api.boldsign.com*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**cancelInvitation**](UserApi.md#cancelInvitation) | **POST** /v1/users/cancelInvitation | Cancel the users invitation. |
+| [**changeTeam**](UserApi.md#changeTeam) | **PUT** /v1/users/changeTeam | Change users to other team. |
 | [**createUser**](UserApi.md#createUser) | **POST** /v1/users/create | Create the user. |
 | [**getUser**](UserApi.md#getUser) | **GET** /v1/users/get | Get summary of the user. |
 | [**listUsers**](UserApi.md#listUsers) | **GET** /v1/users/list | List user documents. |
@@ -69,6 +70,73 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+<a id="changeTeam"></a>
+# **changeTeam**
+> changeTeam(userId, changeTeamRequest)
+
+Change users to other team.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.UserApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    UserApi apiInstance = new UserApi(apiClient);
+
+    String userId = "userId_example"; // String | user Id.
+    ChangeTeamRequest changeTeamRequest = new ChangeTeamRequest(); // ChangeTeamRequest | Change team request.
+    
+    try {
+      apiInstance.changeTeam(userId, changeTeamRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling UserApi#changeTeam");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**| user Id. | |
+| **changeTeamRequest** | [**ChangeTeamRequest**](ChangeTeamRequest.md)| Change team request. | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;odata.metadata=minimal;odata.streaming=true, application/json;odata.metadata=minimal;odata.streaming=false, application/json;odata.metadata=minimal, application/json;odata.metadata=full;odata.streaming=true, application/json;odata.metadata=full;odata.streaming=false, application/json;odata.metadata=full, application/json;odata.metadata=none;odata.streaming=true, application/json;odata.metadata=none;odata.streaming=false, application/json;odata.metadata=none, application/json;odata.streaming=true, application/json;odata.streaming=false, application/json, application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=minimal;IEEE754Compatible=false, application/json;odata.metadata=minimal;IEEE754Compatible=true, application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=full;IEEE754Compatible=false, application/json;odata.metadata=full;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false, application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true, application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false, application/json;odata.metadata=none;IEEE754Compatible=false, application/json;odata.metadata=none;IEEE754Compatible=true, application/json;odata.streaming=true;IEEE754Compatible=false, application/json;odata.streaming=true;IEEE754Compatible=true, application/json;odata.streaming=false;IEEE754Compatible=false, application/json;odata.streaming=false;IEEE754Compatible=true, application/json;IEEE754Compatible=false, application/json;IEEE754Compatible=true, application/xml, text/plain, application/json-patch+json, text/json, application/*+json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -211,7 +279,7 @@ public class Example {
 
 <a id="listUsers"></a>
 # **listUsers**
-> UserRecords listUsers(page, pageSize, search)
+> UserRecords listUsers(page, pageSize, search, userId)
 
 List user documents.
 
@@ -236,9 +304,10 @@ public class Example {
     Integer page = 1; // Integer | Page index specified in get user list request.
     Integer pageSize = 10; // Integer | Page size specified in get user list request.
     String search = "search_example"; // String | Users can be listed by the search  based on the user ID
+    List<String> userId = Arrays.asList(); // List<String> | Users can be listed by the search based on the user IDs
     
     try {
-      UserRecords result = apiInstance.listUsers(page, pageSize, search);
+      UserRecords result = apiInstance.listUsers(page, pageSize, search, userId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UserApi#listUsers");
@@ -258,6 +327,7 @@ public class Example {
 | **page** | **Integer**| Page index specified in get user list request. | [default to 1] |
 | **pageSize** | **Integer**| Page size specified in get user list request. | [optional] [default to 10] |
 | **search** | **String**| Users can be listed by the search  based on the user ID | [optional] |
+| **userId** | [**List&lt;String&gt;**](String.md)| Users can be listed by the search based on the user IDs | [optional] |
 
 ### Return type
 

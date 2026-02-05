@@ -41,8 +41,11 @@
 |**onBehalfOf** | **String** |  |  [optional] |
 |**labels** | **List&lt;String&gt;** |  |  [optional] |
 |**templateLabels** | **List&lt;String&gt;** |  |  [optional] |
-|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**formGroups** | [**List&lt;FormGroup&gt;**](FormGroup.md) |  |  [optional] |
+|**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
+|**allowedSignatureTypes** | [**List&lt;AllowedSignatureTypesEnum&gt;**](#List&lt;AllowedSignatureTypesEnum&gt;) |  |  [optional] |
+|**formFieldPermission** | [**FormFieldPermission**](FormFieldPermission.md) |  |  [optional] |
+|**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 
 
 
@@ -75,6 +78,21 @@
 | RU | &quot;RU&quot; |
 | SV | &quot;SV&quot; |
 | DEFAULT | &quot;Default&quot; |
+| JA | &quot;JA&quot; |
+| TH | &quot;TH&quot; |
+| ZH_CN | &quot;ZH_CN&quot; |
+| ZH_TW | &quot;ZH_TW&quot; |
+| KO | &quot;KO&quot; |
+
+
+
+## Enum: List&lt;AllowedSignatureTypesEnum&gt;
+
+| Name | Value |
+|---- | -----|
+| TEXT | &quot;Text&quot; |
+| DRAW | &quot;Draw&quot; |
+| IMAGE | &quot;Image&quot; |
 
 
 

@@ -317,6 +317,14 @@ public class CreateUser {
             }
         }
         else {
+          // Handle metaData as Map<String, String> - send each key-value pair separately
+          for (Map.Entry<String, String> entry : metaData.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (key != null && value != null) {
+              map.put("metaData[" + key + "]", value);
+            }
+          }
           map.put("metaData", JSON.serialize(metaData));
         }
     }

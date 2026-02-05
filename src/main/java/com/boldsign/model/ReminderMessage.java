@@ -221,7 +221,7 @@ public class ReminderMessage {
         else {
           List<String> objectList = new ArrayList<String>();
           for(Object item : reminderPhoneNumbers) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
             else {

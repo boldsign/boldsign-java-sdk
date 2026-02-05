@@ -6,6 +6,7 @@ All URIs are relative to *https://api.boldsign.com*
 |------------- | ------------- | -------------|
 | [**createSenderIdentities**](SenderIdentitiesApi.md#createSenderIdentities) | **POST** /v1/senderIdentities/create | Creates sender identity. |
 | [**deleteSenderIdentities**](SenderIdentitiesApi.md#deleteSenderIdentities) | **DELETE** /v1/senderIdentities/delete | Deletes sender identity. |
+| [**getSenderIdentityProperties**](SenderIdentitiesApi.md#getSenderIdentityProperties) | **GET** /v1/senderIdentities/properties | Gets sender identity by ID or email. |
 | [**listSenderIdentities**](SenderIdentitiesApi.md#listSenderIdentities) | **GET** /v1/senderIdentities/list | Lists sender identity. |
 | [**reRequestSenderIdentities**](SenderIdentitiesApi.md#reRequestSenderIdentities) | **POST** /v1/senderIdentities/rerequest | Rerequests denied sender identity. |
 | [**resendInvitationSenderIdentities**](SenderIdentitiesApi.md#resendInvitationSenderIdentities) | **POST** /v1/senderIdentities/resendInvitation | Resends sender identity invitation. |
@@ -141,6 +142,74 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+<a id="getSenderIdentityProperties"></a>
+# **getSenderIdentityProperties**
+> SenderIdentityViewModel getSenderIdentityProperties(id, email)
+
+Gets sender identity by ID or email.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.SenderIdentitiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
+
+    String id = "id_example"; // String | The sender identity id.
+    String email = "email_example"; // String | The sender identity email.
+    
+    try {
+      SenderIdentityViewModel result = apiInstance.getSenderIdentityProperties(id, email);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SenderIdentitiesApi#getSenderIdentityProperties");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **String**| The sender identity id. | [optional] |
+| **email** | **String**| The sender identity email. | [optional] |
+
+### Return type
+
+[**SenderIdentityViewModel**](SenderIdentityViewModel.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 

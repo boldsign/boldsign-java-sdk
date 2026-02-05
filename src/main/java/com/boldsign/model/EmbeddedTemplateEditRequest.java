@@ -150,7 +150,17 @@ public class EmbeddedTemplateEditRequest {
     
     SV("SV"),
     
-    DEFAULT("Default");
+    DEFAULT("Default"),
+    
+    JA("JA"),
+    
+    TH("TH"),
+    
+    ZH_CN("ZH_CN"),
+    
+    ZH_TW("ZH_TW"),
+    
+    KO("KO");
 
     private String value;
 

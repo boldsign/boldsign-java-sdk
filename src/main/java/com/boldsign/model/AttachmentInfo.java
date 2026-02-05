@@ -51,18 +51,18 @@ public class AttachmentInfo {
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
-  public static final String SERIALIZED_NAME_ALLOWED_FILE_TYPES = "allowedFileTypes";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_ALLOWED_FILE_TYPES)
-  private String allowedFileTypes;
+  public static final String SERIALIZED_NAME_ACCEPTED_FILE_TYPES = "acceptedFileTypes";
+  @SerializedName(SERIALIZED_NAME_ACCEPTED_FILE_TYPES)
+  private List<String> acceptedFileTypes;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_ACCEPTED_FILE_TYPES = "acceptedFileTypes";
-  @SerializedName(SERIALIZED_NAME_ACCEPTED_FILE_TYPES)
-  private List<String> acceptedFileTypes;
+  public static final String SERIALIZED_NAME_ALLOWED_FILE_TYPES = "allowedFileTypes";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_ALLOWED_FILE_TYPES)
+  private String allowedFileTypes;
 
   public AttachmentInfo() {
   }
@@ -83,48 +83,6 @@ public class AttachmentInfo {
 
   public void setTitle(String title) {
     this.title = title;
-  }
-
-
-  @Deprecated
-  public AttachmentInfo allowedFileTypes(String allowedFileTypes) {
-    this.allowedFileTypes = allowedFileTypes;
-    return this;
-  }
-
-  /**
-   * Get allowedFileTypes
-   * @return allowedFileTypes
-   * @deprecated
-   */
-  @Deprecated
-  @javax.annotation.Nullable
-  public String getAllowedFileTypes() {
-    return allowedFileTypes;
-  }
-
-  @Deprecated
-  public void setAllowedFileTypes(String allowedFileTypes) {
-    this.allowedFileTypes = allowedFileTypes;
-  }
-
-
-  public AttachmentInfo description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Get description
-   * @return description
-   */
-  @javax.annotation.Nullable
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
 
@@ -155,6 +113,48 @@ public class AttachmentInfo {
   }
 
 
+  public AttachmentInfo description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  @Deprecated
+  public AttachmentInfo allowedFileTypes(String allowedFileTypes) {
+    this.allowedFileTypes = allowedFileTypes;
+    return this;
+  }
+
+  /**
+   * Get allowedFileTypes
+   * @return allowedFileTypes
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public String getAllowedFileTypes() {
+    return allowedFileTypes;
+  }
+
+  @Deprecated
+  public void setAllowedFileTypes(String allowedFileTypes) {
+    this.allowedFileTypes = allowedFileTypes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -166,14 +166,14 @@ public class AttachmentInfo {
     }
     AttachmentInfo attachmentInfo = (AttachmentInfo) o;
     return Objects.equals(this.title, attachmentInfo.title) &&
-        Objects.equals(this.allowedFileTypes, attachmentInfo.allowedFileTypes) &&
+        Objects.equals(this.acceptedFileTypes, attachmentInfo.acceptedFileTypes) &&
         Objects.equals(this.description, attachmentInfo.description) &&
-        Objects.equals(this.acceptedFileTypes, attachmentInfo.acceptedFileTypes);
+        Objects.equals(this.allowedFileTypes, attachmentInfo.allowedFileTypes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, allowedFileTypes, description, acceptedFileTypes);
+    return Objects.hash(title, acceptedFileTypes, description, allowedFileTypes);
   }
 
   @Override
@@ -181,9 +181,9 @@ public class AttachmentInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachmentInfo {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    allowedFileTypes: ").append(toIndentedString(allowedFileTypes)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    acceptedFileTypes: ").append(toIndentedString(acceptedFileTypes)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    allowedFileTypes: ").append(toIndentedString(allowedFileTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -211,24 +211,34 @@ public class AttachmentInfo {
           map.put("title", JSON.serialize(title));
         }
     }
-    if (allowedFileTypes != null) {
-        if (isFileTypeOrListOfFiles(allowedFileTypes)) {
+    if (acceptedFileTypes != null) {
+        if (isFileTypeOrListOfFiles(acceptedFileTypes)) {
             fileTypeFound = true;
         }
 
-        if (allowedFileTypes.getClass().equals(java.io.File.class) ||
-            allowedFileTypes.getClass().equals(Integer.class) ||
-            allowedFileTypes.getClass().equals(String.class) ||
-            allowedFileTypes.getClass().equals(java.net.URI.class)||
-            allowedFileTypes.getClass().isEnum()) {
-            map.put("allowedFileTypes", allowedFileTypes);
-        } else if (isListOfFile(allowedFileTypes)) {
-            for(int i = 0; i< getListSize(allowedFileTypes); i++) {
-                map.put("allowedFileTypes", allowedFileTypes);
+        if (acceptedFileTypes.getClass().equals(java.io.File.class) ||
+            acceptedFileTypes.getClass().equals(Integer.class) ||
+            acceptedFileTypes.getClass().equals(String.class) ||
+            acceptedFileTypes.getClass().equals(java.net.URI.class)||
+            acceptedFileTypes.getClass().isEnum()) {
+            map.put("acceptedFileTypes", acceptedFileTypes);
+        } else if (isListOfFile(acceptedFileTypes)) {
+            for(int i = 0; i< getListSize(acceptedFileTypes); i++) {
+                map.put("acceptedFileTypes", acceptedFileTypes);
             }
         }
         else {
-          map.put("allowedFileTypes", JSON.serialize(allowedFileTypes));
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : acceptedFileTypes) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("acceptedFileTypes", objectList);
         }
     }
     if (description != null) {
@@ -251,34 +261,24 @@ public class AttachmentInfo {
           map.put("description", JSON.serialize(description));
         }
     }
-    if (acceptedFileTypes != null) {
-        if (isFileTypeOrListOfFiles(acceptedFileTypes)) {
+    if (allowedFileTypes != null) {
+        if (isFileTypeOrListOfFiles(allowedFileTypes)) {
             fileTypeFound = true;
         }
 
-        if (acceptedFileTypes.getClass().equals(java.io.File.class) ||
-            acceptedFileTypes.getClass().equals(Integer.class) ||
-            acceptedFileTypes.getClass().equals(String.class) ||
-            acceptedFileTypes.getClass().equals(java.net.URI.class)||
-            acceptedFileTypes.getClass().isEnum()) {
-            map.put("acceptedFileTypes", acceptedFileTypes);
-        } else if (isListOfFile(acceptedFileTypes)) {
-            for(int i = 0; i< getListSize(acceptedFileTypes); i++) {
-                map.put("acceptedFileTypes", acceptedFileTypes);
+        if (allowedFileTypes.getClass().equals(java.io.File.class) ||
+            allowedFileTypes.getClass().equals(Integer.class) ||
+            allowedFileTypes.getClass().equals(String.class) ||
+            allowedFileTypes.getClass().equals(java.net.URI.class)||
+            allowedFileTypes.getClass().isEnum()) {
+            map.put("allowedFileTypes", allowedFileTypes);
+        } else if (isListOfFile(allowedFileTypes)) {
+            for(int i = 0; i< getListSize(allowedFileTypes); i++) {
+                map.put("allowedFileTypes", allowedFileTypes);
             }
         }
         else {
-          List<String> objectList = new ArrayList<String>();
-          for(Object item : acceptedFileTypes) {
-            if(item instanceof URI || item instanceof String || item instanceof Integer) {
-              objectList.add(item.toString());
-            }
-            else {
-              String objectData = JSON.serialize(item);
-              objectList.add(objectData);
-            }
-          }
-          map.put("acceptedFileTypes", objectList);
+          map.put("allowedFileTypes", JSON.serialize(allowedFileTypes));
         }
     }
     } catch (Exception e) {
@@ -327,14 +327,14 @@ public class AttachmentInfo {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("title");
-    openapiFields.add("allowedFileTypes");
-    openapiFields.add("description");
     openapiFields.add("acceptedFileTypes");
+    openapiFields.add("description");
+    openapiFields.add("allowedFileTypes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("title");
-    openapiRequiredFields.add("allowedFileTypes");
+    openapiRequiredFields.add("acceptedFileTypes");
   }
 
   /**
@@ -361,15 +361,17 @@ public class AttachmentInfo {
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("allowedFileTypes") != null && !jsonObj.get("allowedFileTypes").isJsonNull()) && !jsonObj.get("allowedFileTypes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowedFileTypes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowedFileTypes").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("acceptedFileTypes") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("acceptedFileTypes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `acceptedFileTypes` to be an array in the JSON string but got `%s`", jsonObj.get("acceptedFileTypes").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("acceptedFileTypes") != null && !jsonObj.get("acceptedFileTypes").isJsonNull() && !jsonObj.get("acceptedFileTypes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `acceptedFileTypes` to be an array in the JSON string but got `%s`", jsonObj.get("acceptedFileTypes").toString()));
+      if ((jsonObj.get("allowedFileTypes") != null && !jsonObj.get("allowedFileTypes").isJsonNull()) && !jsonObj.get("allowedFileTypes").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowedFileTypes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowedFileTypes").toString()));
       }
   }
 
