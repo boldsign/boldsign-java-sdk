@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>5.0.0</version>
+  <version>5.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:5.0.0"
+     implementation "com.boldsign:boldsign-java:5.1.0"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-5.0.0.jar`
+* `target/boldsign-java-5.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -154,6 +154,7 @@ Class | Method | HTTP request | Description
 *DocumentApi* | [**downloadAuditLog**](docs/DocumentApi.md#downloadAuditLog) | **GET** /v1/document/downloadAuditLog | Download the audit trail document.
 *DocumentApi* | [**downloadDocument**](docs/DocumentApi.md#downloadDocument) | **GET** /v1/document/download | Download the document.
 *DocumentApi* | [**draftSend**](docs/DocumentApi.md#draftSend) | **POST** /v1/document/draftSend | Sends a draft-status document out for signature.
+*DocumentApi* | [**editDocument**](docs/DocumentApi.md#editDocument) | **PUT** /v1/document/edit | Edit and updates an existing document.
 *DocumentApi* | [**extendExpiry**](docs/DocumentApi.md#extendExpiry) | **PATCH** /v1/document/extendExpiry | Extends the expiration date of the document.
 *DocumentApi* | [**getProperties**](docs/DocumentApi.md#getProperties) | **GET** /v1/document/properties | Get summary of the document.
 *DocumentApi* | [**getEmbeddedSignLink**](docs/DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign.
@@ -246,6 +247,7 @@ Class | Method | HTTP request | Description
  - [DocumentCC](docs/DocumentCC.md)
  - [DocumentCcDetails](docs/DocumentCcDetails.md)
  - [DocumentCreated](docs/DocumentCreated.md)
+ - [DocumentEdited](docs/DocumentEdited.md)
  - [DocumentExpirySettings](docs/DocumentExpirySettings.md)
  - [DocumentFiles](docs/DocumentFiles.md)
  - [DocumentFormFields](docs/DocumentFormFields.md)
@@ -258,6 +260,10 @@ Class | Method | HTTP request | Description
  - [DocumentSignerDetails](docs/DocumentSignerDetails.md)
  - [DocumentTags](docs/DocumentTags.md)
  - [DownloadImageRequest](docs/DownloadImageRequest.md)
+ - [EditDocumentFile](docs/EditDocumentFile.md)
+ - [EditDocumentRequest](docs/EditDocumentRequest.md)
+ - [EditDocumentSigner](docs/EditDocumentSigner.md)
+ - [EditFormField](docs/EditFormField.md)
  - [EditSenderIdentityRequest](docs/EditSenderIdentityRequest.md)
  - [EditTemplateRequest](docs/EditTemplateRequest.md)
  - [EditableDateFieldSettings](docs/EditableDateFieldSettings.md)

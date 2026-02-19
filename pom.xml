@@ -5,7 +5,7 @@
     <artifactId>boldsign-java</artifactId>
     <packaging>jar</packaging>
     <name>boldsign-java</name>
-    <version>5.0.0</version>
+    <version>5.1.0</version>
     <url>https://github.com/boldsign/boldsign-java-sdk</url>
     <description>Easily integrate BoldSign&#39;s e-signature features into your Java applications. This package simplifies sending documents for signature, embedding signing ceremonies, tracking document status, downloading signed documents, and managing e-signature workflows.</description>
     <scm>

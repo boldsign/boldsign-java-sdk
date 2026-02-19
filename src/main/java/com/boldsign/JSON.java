@@ -138,6 +138,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentCC.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentCcDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentCreated.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentEdited.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentExpirySettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentFiles.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentFormFields.CustomTypeAdapterFactory());
@@ -150,6 +151,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentSignerDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DocumentTags.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.DownloadImageRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.EditDocumentFile.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.EditDocumentRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.EditDocumentSigner.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.EditFormField.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.EditSenderIdentityRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.EditTemplateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.EditableDateFieldSettings.CustomTypeAdapterFactory());
