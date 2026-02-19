@@ -50,6 +50,7 @@ docs/DocumentApi.md
 docs/DocumentCC.md
 docs/DocumentCcDetails.md
 docs/DocumentCreated.md
+docs/DocumentEdited.md
 docs/DocumentExpirySettings.md
 docs/DocumentFiles.md
 docs/DocumentFormFields.md
@@ -62,6 +63,10 @@ docs/DocumentSigner.md
 docs/DocumentSignerDetails.md
 docs/DocumentTags.md
 docs/DownloadImageRequest.md
+docs/EditDocumentFile.md
+docs/EditDocumentRequest.md
+docs/EditDocumentSigner.md
+docs/EditFormField.md
 docs/EditSenderIdentityRequest.md
 docs/EditTemplateRequest.md
 docs/EditableDateFieldSettings.md
@@ -240,6 +245,7 @@ src/main/java/com/boldsign/model/Document.java
 src/main/java/com/boldsign/model/DocumentCC.java
 src/main/java/com/boldsign/model/DocumentCcDetails.java
 src/main/java/com/boldsign/model/DocumentCreated.java
+src/main/java/com/boldsign/model/DocumentEdited.java
 src/main/java/com/boldsign/model/DocumentExpirySettings.java
 src/main/java/com/boldsign/model/DocumentFiles.java
 src/main/java/com/boldsign/model/DocumentFormFields.java
@@ -252,6 +258,10 @@ src/main/java/com/boldsign/model/DocumentSigner.java
 src/main/java/com/boldsign/model/DocumentSignerDetails.java
 src/main/java/com/boldsign/model/DocumentTags.java
 src/main/java/com/boldsign/model/DownloadImageRequest.java
+src/main/java/com/boldsign/model/EditDocumentFile.java
+src/main/java/com/boldsign/model/EditDocumentRequest.java
+src/main/java/com/boldsign/model/EditDocumentSigner.java
+src/main/java/com/boldsign/model/EditFormField.java
 src/main/java/com/boldsign/model/EditSenderIdentityRequest.java
 src/main/java/com/boldsign/model/EditTemplateRequest.java
 src/main/java/com/boldsign/model/EditableDateFieldSettings.java

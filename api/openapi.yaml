@@ -11323,6 +11323,68 @@ paths:
       - Document
       x-accepts:
       - application/json
+  /v1/document/edit:
+    put:
+      operationId: EditDocument
+      parameters:
+      - description: Document Id.
+        explode: true
+        in: query
+        name: documentId
+        required: true
+        schema:
+          title: String
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditDocumentRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EditDocumentRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EditDocumentRequest'
+        description: Edit document JSON request.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentEdited'
+          description: OK
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Forbidden
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unprocessable Content
+      summary: Edit and updates an existing document.
+      tags:
+      - Document
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /v1/identityVerification/report:
     post:
       operationId: Report
@@ -20367,6 +20429,19 @@ components:
           type: string
       title: DocumentCreated
       type: object
+    DocumentEdited:
+      additionalProperties: false
+      example:
+        status: Completed
+      properties:
+        status:
+          enum:
+          - Completed
+          - Queued
+          title: EditProcessStatus
+          type: string
+      title: DocumentEdited
+      type: object
     DocumentExpirySettings:
       additionalProperties: false
       example:
@@ -23733,6 +23808,1452 @@ components:
           title: String
           type: string
       title: DownloadImageRequest
+      type: object
+    EditDocumentFile:
+      additionalProperties: false
+      example:
+        file: ""
+        editAction: Add
+        fileUrl: https://openapi-generator.tech
+        id: id
+      properties:
+        editAction:
+          enum:
+          - Add
+          - Update
+          - Remove
+          title: Nullable`1
+          type: string
+        file:
+          format: binary
+          nullable: true
+          title: IFormFile
+          type: string
+        fileUrl:
+          format: uri
+          nullable: true
+          title: Uri
+          type: string
+        id:
+          nullable: true
+          title: String
+          type: string
+      required:
+      - editAction
+      title: EditDocumentFile
+      type: object
+    EditDocumentRequest:
+      additionalProperties: false
+      example:
+        documentInfo:
+        - description: description
+          language: 2
+          locale: EN
+          title: title
+        - description: description
+          language: 2
+          locale: EN
+          title: title
+        textTagDefinitions:
+        - attachmentInfo:
+            acceptedFileTypes:
+            - acceptedFileTypes
+            - acceptedFileTypes
+            description: description
+            title: title
+            allowedFileTypes: allowedFileTypes
+          dateFormat: dateFormat
+          backgroundHexColor: backgroundHexColor
+          imageInfo:
+            allowedFileExtensions: allowedFileExtensions
+            description: description
+            title: title
+          tabIndex: 763901857
+          type: Signature
+          textDirection: LTR
+          radioGroupName: radioGroupName
+          hyperlinkText: hyperlinkText
+          isReadOnly: true
+          placeholder: placeholder
+          value: value
+          validation:
+            regex: regex
+            regexMessage: regexMessage
+            type: NumberOnly
+          formulaFieldSettings:
+            formulaExpression: formulaExpression
+            decimalPrecision: 1
+          definitionId: definitionId
+          fieldId: fieldId
+          characterSpacing: 6.965118
+          isRequired: true
+          collaborationSettings:
+            isRequired: true
+            requireInitial: true
+            requireSignerApproval: true
+            allowedSigners:
+            - allowedSigners
+            - allowedSigners
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
+          label: label
+          dataSyncTag: dataSyncTag
+          isMasked: false
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
+          font:
+            isBoldFont: true
+            color: color
+            size: 9.965781
+            name: Helvetica
+            isItalicFont: true
+            style: Regular
+            lineHeight: 9
+            isUnderLineFont: true
+        - attachmentInfo:
+            acceptedFileTypes:
+            - acceptedFileTypes
+            - acceptedFileTypes
+            description: description
+            title: title
+            allowedFileTypes: allowedFileTypes
+          dateFormat: dateFormat
+          backgroundHexColor: backgroundHexColor
+          imageInfo:
+            allowedFileExtensions: allowedFileExtensions
+            description: description
+            title: title
+          tabIndex: 763901857
+          type: Signature
+          textDirection: LTR
+          radioGroupName: radioGroupName
+          hyperlinkText: hyperlinkText
+          isReadOnly: true
+          placeholder: placeholder
+          value: value
+          validation:
+            regex: regex
+            regexMessage: regexMessage
+            type: NumberOnly
+          formulaFieldSettings:
+            formulaExpression: formulaExpression
+            decimalPrecision: 1
+          definitionId: definitionId
+          fieldId: fieldId
+          characterSpacing: 6.965118
+          isRequired: true
+          collaborationSettings:
+            isRequired: true
+            requireInitial: true
+            requireSignerApproval: true
+            allowedSigners:
+            - allowedSigners
+            - allowedSigners
+          offset:
+            offsetX: 9.018348186070783
+            offsetY: 6.438423552598547
+          textAlign: Left
+          characterLimit: 275878420
+          label: label
+          dataSyncTag: dataSyncTag
+          isMasked: false
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          signerIndex: 25
+          size:
+            width: 0.66835624
+            height: 0.8762042
+          timeFormat: timeFormat
+          font:
+            isBoldFont: true
+            color: color
+            size: 9.965781
+            name: Helvetica
+            isItalicFont: true
+            style: Regular
+            lineHeight: 9
+            isUnderLineFont: true
+        groupSignerSettings:
+          allowedDirectories:
+          - allowedDirectories
+          - allowedDirectories
+          enabled: true
+        useTextTags: true
+        onBehalfOf: onBehalfOf
+        title: title
+        hideDocumentId: true
+        disableSMS: true
+        disableEmails: true
+        metaData:
+          key: metaData
+        reminderSettings:
+          enableAutoReminder: false
+          reminderCount: 4
+          reminderDays: 1
+        disableExpiryAlert: true
+        allowedSignatureTypes:
+        - Text
+        - Text
+        scheduledSendTime: 4
+        cc:
+        - emailAddress: emailAddress
+        - emailAddress: emailAddress
+        enableAuditTrailLocalization: true
+        downloadFileName: downloadFileName
+        expiryValue: 2
+        enablePrintAndSign: true
+        formGroups:
+        - groupNames:
+          - groupNames
+          - groupNames
+          maximumCount: 1477050466
+          groupValidation: Minimum
+          dataSyncTag: dataSyncTag
+          minimumCount: 1455634201
+        - groupNames:
+          - groupNames
+          - groupNames
+          maximumCount: 1477050466
+          groupValidation: Minimum
+          dataSyncTag: dataSyncTag
+          minimumCount: 1455634201
+        expiryDateType: Days
+        enableSigningOrder: true
+        message: message
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
+        enableReassign: true
+        labels:
+        - labels
+        - labels
+        signers:
+        - authenticationRetryCount: 4
+          enableQes: true
+          groupId: groupId
+          language: 9
+          locale: EN
+          enableEmailOTP: true
+          emailAddress: emailAddress
+          deliveryMode: Email
+          signerOrder: 0
+          editAction: Add
+          signerType: Signer
+          hostEmail: hostEmail
+          signType: Single
+          id: id
+          signerRole: signerRole
+          authenticationCode: authenticationCode
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
+          phoneNumber:
+            number: number
+            countryCode: countryCode
+          name: name
+          allowFieldConfiguration: true
+          authenticationType: None
+          formFields:
+          - conditionalRules:
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            pageNumber: 6
+            attachmentInfo:
+              acceptedFileTypes:
+              - acceptedFileTypes
+              - acceptedFileTypes
+              description: description
+              title: title
+              allowedFileTypes: allowedFileTypes
+            dateFormat: dateFormat
+            backgroundHexColor: backgroundHexColor
+            validationType: None
+            allowEditFormField: true
+            imageInfo:
+              allowedFileExtensions: allowedFileExtensions
+              description: description
+              title: title
+            tabIndex: 1516424368
+            textDirection: LTR
+            isBoldFont: true
+            hyperlinkText: hyperlinkText
+            isReadOnly: true
+            editAction: Add
+            id: id
+            value: value
+            placeHolder: placeHolder
+            formulaFieldSettings:
+              formulaExpression: formulaExpression
+              decimalPrecision: 1
+            characterSpacing: 2.302136
+            isRequired: true
+            fontHexColor: fontHexColor
+            textAlign: Left
+            isItalicFont: true
+            editableDateFieldSettings:
+              minDate: 2000-01-23T04:56:07.000+00:00
+              dateFormat: dateFormat
+              timeFormat: timeFormat
+              maxDate: 2000-01-23T04:56:07.000+00:00
+            validationCustomRegexMessage: validationCustomRegexMessage
+            characterLimit: 1210617418
+            label: label
+            dataSyncTag: dataSyncTag
+            isMasked: false
+            resizeOption: GrowVertically
+            groupName: groupName
+            dropdownOptions:
+            - dropdownOptions
+            - dropdownOptions
+            validationCustomRegex: validationCustomRegex
+            timeFormat: timeFormat
+            name: name
+            bounds:
+              x: 0.5962134
+              width: 1.2302136
+              "y": 0.5637377
+              height: 1.7061402
+            fontSize: 0.14658129
+            lineHeight: 1280358508
+            fieldType: Signature
+            isUnderLineFont: true
+            allowDeleteFormField: true
+            font: Helvetica
+          - conditionalRules:
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            pageNumber: 6
+            attachmentInfo:
+              acceptedFileTypes:
+              - acceptedFileTypes
+              - acceptedFileTypes
+              description: description
+              title: title
+              allowedFileTypes: allowedFileTypes
+            dateFormat: dateFormat
+            backgroundHexColor: backgroundHexColor
+            validationType: None
+            allowEditFormField: true
+            imageInfo:
+              allowedFileExtensions: allowedFileExtensions
+              description: description
+              title: title
+            tabIndex: 1516424368
+            textDirection: LTR
+            isBoldFont: true
+            hyperlinkText: hyperlinkText
+            isReadOnly: true
+            editAction: Add
+            id: id
+            value: value
+            placeHolder: placeHolder
+            formulaFieldSettings:
+              formulaExpression: formulaExpression
+              decimalPrecision: 1
+            characterSpacing: 2.302136
+            isRequired: true
+            fontHexColor: fontHexColor
+            textAlign: Left
+            isItalicFont: true
+            editableDateFieldSettings:
+              minDate: 2000-01-23T04:56:07.000+00:00
+              dateFormat: dateFormat
+              timeFormat: timeFormat
+              maxDate: 2000-01-23T04:56:07.000+00:00
+            validationCustomRegexMessage: validationCustomRegexMessage
+            characterLimit: 1210617418
+            label: label
+            dataSyncTag: dataSyncTag
+            isMasked: false
+            resizeOption: GrowVertically
+            groupName: groupName
+            dropdownOptions:
+            - dropdownOptions
+            - dropdownOptions
+            validationCustomRegex: validationCustomRegex
+            timeFormat: timeFormat
+            name: name
+            bounds:
+              x: 0.5962134
+              width: 1.2302136
+              "y": 0.5637377
+              height: 1.7061402
+            fontSize: 0.14658129
+            lineHeight: 1280358508
+            fieldType: Signature
+            isUnderLineFont: true
+            allowDeleteFormField: true
+            font: Helvetica
+          privateMessage: privateMessage
+          identityVerificationSettings:
+            allowedDocumentTypes:
+            - Passport
+            - Passport
+            type: EveryAccess
+            requireLiveCapture: true
+            requireMatchingSelfie: true
+            nameMatcher: Strict
+            holdForPrefill: true
+            maximumRetryCount: 1
+        - authenticationRetryCount: 4
+          enableQes: true
+          groupId: groupId
+          language: 9
+          locale: EN
+          enableEmailOTP: true
+          emailAddress: emailAddress
+          deliveryMode: Email
+          signerOrder: 0
+          editAction: Add
+          signerType: Signer
+          hostEmail: hostEmail
+          signType: Single
+          id: id
+          signerRole: signerRole
+          authenticationCode: authenticationCode
+          recipientNotificationSettings:
+            signatureRequest: true
+            reminders: true
+            editRecipient: true
+            editDocument: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
+            signed: true
+            reassigned: true
+            completed: true
+            revoked: true
+          authenticationSettings:
+            authenticationFrequency: None
+          phoneNumber:
+            number: number
+            countryCode: countryCode
+          name: name
+          allowFieldConfiguration: true
+          authenticationType: None
+          formFields:
+          - conditionalRules:
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            pageNumber: 6
+            attachmentInfo:
+              acceptedFileTypes:
+              - acceptedFileTypes
+              - acceptedFileTypes
+              description: description
+              title: title
+              allowedFileTypes: allowedFileTypes
+            dateFormat: dateFormat
+            backgroundHexColor: backgroundHexColor
+            validationType: None
+            allowEditFormField: true
+            imageInfo:
+              allowedFileExtensions: allowedFileExtensions
+              description: description
+              title: title
+            tabIndex: 1516424368
+            textDirection: LTR
+            isBoldFont: true
+            hyperlinkText: hyperlinkText
+            isReadOnly: true
+            editAction: Add
+            id: id
+            value: value
+            placeHolder: placeHolder
+            formulaFieldSettings:
+              formulaExpression: formulaExpression
+              decimalPrecision: 1
+            characterSpacing: 2.302136
+            isRequired: true
+            fontHexColor: fontHexColor
+            textAlign: Left
+            isItalicFont: true
+            editableDateFieldSettings:
+              minDate: 2000-01-23T04:56:07.000+00:00
+              dateFormat: dateFormat
+              timeFormat: timeFormat
+              maxDate: 2000-01-23T04:56:07.000+00:00
+            validationCustomRegexMessage: validationCustomRegexMessage
+            characterLimit: 1210617418
+            label: label
+            dataSyncTag: dataSyncTag
+            isMasked: false
+            resizeOption: GrowVertically
+            groupName: groupName
+            dropdownOptions:
+            - dropdownOptions
+            - dropdownOptions
+            validationCustomRegex: validationCustomRegex
+            timeFormat: timeFormat
+            name: name
+            bounds:
+              x: 0.5962134
+              width: 1.2302136
+              "y": 0.5637377
+              height: 1.7061402
+            fontSize: 0.14658129
+            lineHeight: 1280358508
+            fieldType: Signature
+            isUnderLineFont: true
+            allowDeleteFormField: true
+            font: Helvetica
+          - conditionalRules:
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            - isChecked: true
+              value: value
+              fieldId: fieldId
+            pageNumber: 6
+            attachmentInfo:
+              acceptedFileTypes:
+              - acceptedFileTypes
+              - acceptedFileTypes
+              description: description
+              title: title
+              allowedFileTypes: allowedFileTypes
+            dateFormat: dateFormat
+            backgroundHexColor: backgroundHexColor
+            validationType: None
+            allowEditFormField: true
+            imageInfo:
+              allowedFileExtensions: allowedFileExtensions
+              description: description
+              title: title
+            tabIndex: 1516424368
+            textDirection: LTR
+            isBoldFont: true
+            hyperlinkText: hyperlinkText
+            isReadOnly: true
+            editAction: Add
+            id: id
+            value: value
+            placeHolder: placeHolder
+            formulaFieldSettings:
+              formulaExpression: formulaExpression
+              decimalPrecision: 1
+            characterSpacing: 2.302136
+            isRequired: true
+            fontHexColor: fontHexColor
+            textAlign: Left
+            isItalicFont: true
+            editableDateFieldSettings:
+              minDate: 2000-01-23T04:56:07.000+00:00
+              dateFormat: dateFormat
+              timeFormat: timeFormat
+              maxDate: 2000-01-23T04:56:07.000+00:00
+            validationCustomRegexMessage: validationCustomRegexMessage
+            characterLimit: 1210617418
+            label: label
+            dataSyncTag: dataSyncTag
+            isMasked: false
+            resizeOption: GrowVertically
+            groupName: groupName
+            dropdownOptions:
+            - dropdownOptions
+            - dropdownOptions
+            validationCustomRegex: validationCustomRegex
+            timeFormat: timeFormat
+            name: name
+            bounds:
+              x: 0.5962134
+              width: 1.2302136
+              "y": 0.5637377
+              height: 1.7061402
+            fontSize: 0.14658129
+            lineHeight: 1280358508
+            fieldType: Signature
+            isUnderLineFont: true
+            allowDeleteFormField: true
+            font: Helvetica
+          privateMessage: privateMessage
+          identityVerificationSettings:
+            allowedDocumentTypes:
+            - Passport
+            - Passport
+            type: EveryAccess
+            requireLiveCapture: true
+            requireMatchingSelfie: true
+            nameMatcher: Strict
+            holdForPrefill: true
+            maximumRetryCount: 1
+        documentDownloadOption: Combined
+        brandId: brandId
+        files:
+        - file: ""
+          editAction: Add
+          fileUrl: https://openapi-generator.tech
+          id: id
+        - file: ""
+          editAction: Add
+          fileUrl: https://openapi-generator.tech
+          id: id
+      properties:
+        files:
+          items:
+            $ref: '#/components/schemas/EditDocumentFile'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        title:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          title: String
+          type: string
+        message:
+          maxLength: 5000
+          minLength: 0
+          nullable: true
+          title: String
+          type: string
+        signers:
+          items:
+            $ref: '#/components/schemas/EditDocumentSigner'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        cc:
+          items:
+            $ref: '#/components/schemas/DocumentCC'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        enableSigningOrder:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        enableAuditTrailLocalization:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        expiryDateType:
+          enum:
+          - Days
+          - Hours
+          - SpecificDateTime
+          nullable: true
+          title: Nullable`1
+          type: string
+        expiryValue:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        reminderSettings:
+          $ref: '#/components/schemas/ReminderSettings'
+        disableEmails:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        disableSMS:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        brandId:
+          nullable: true
+          title: String
+          type: string
+        hideDocumentId:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        labels:
+          items:
+            title: String
+            type: string
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        disableExpiryAlert:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        enablePrintAndSign:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        enableReassign:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        useTextTags:
+          title: Boolean
+          type: boolean
+        textTagDefinitions:
+          items:
+            $ref: '#/components/schemas/TextTagDefinition'
+          nullable: true
+          title: List`1
+          type: array
+        documentInfo:
+          items:
+            $ref: '#/components/schemas/DocumentInfo'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        onBehalfOf:
+          nullable: true
+          title: String
+          type: string
+        documentDownloadOption:
+          enum:
+          - Combined
+          - Individually
+          nullable: true
+          title: Nullable`1
+          type: string
+        metaData:
+          additionalProperties:
+            nullable: true
+            title: String
+            type: string
+          maxLength: 50
+          nullable: true
+          title: Dictionary`2
+          type: object
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
+        formGroups:
+          items:
+            $ref: '#/components/schemas/FormGroup'
+          nullable: true
+          title: List`1
+          type: array
+        downloadFileName:
+          maxLength: 250
+          minLength: 0
+          nullable: true
+          title: String
+          type: string
+        scheduledSendTime:
+          format: int64
+          nullable: true
+          title: Nullable`1
+          type: integer
+        allowedSignatureTypes:
+          items:
+            enum:
+            - Text
+            - Draw
+            - Image
+            title: SignatureType
+            type: string
+          nullable: true
+          title: List`1
+          type: array
+        groupSignerSettings:
+          $ref: '#/components/schemas/GroupSignerSettings'
+      title: EditDocumentRequest
+      type: object
+    EditDocumentSigner:
+      additionalProperties: false
+      example:
+        authenticationRetryCount: 4
+        enableQes: true
+        groupId: groupId
+        language: 9
+        locale: EN
+        enableEmailOTP: true
+        emailAddress: emailAddress
+        deliveryMode: Email
+        signerOrder: 0
+        editAction: Add
+        signerType: Signer
+        hostEmail: hostEmail
+        signType: Single
+        id: id
+        signerRole: signerRole
+        authenticationCode: authenticationCode
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
+        authenticationSettings:
+          authenticationFrequency: None
+        phoneNumber:
+          number: number
+          countryCode: countryCode
+        name: name
+        allowFieldConfiguration: true
+        authenticationType: None
+        formFields:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          pageNumber: 6
+          attachmentInfo:
+            acceptedFileTypes:
+            - acceptedFileTypes
+            - acceptedFileTypes
+            description: description
+            title: title
+            allowedFileTypes: allowedFileTypes
+          dateFormat: dateFormat
+          backgroundHexColor: backgroundHexColor
+          validationType: None
+          allowEditFormField: true
+          imageInfo:
+            allowedFileExtensions: allowedFileExtensions
+            description: description
+            title: title
+          tabIndex: 1516424368
+          textDirection: LTR
+          isBoldFont: true
+          hyperlinkText: hyperlinkText
+          isReadOnly: true
+          editAction: Add
+          id: id
+          value: value
+          placeHolder: placeHolder
+          formulaFieldSettings:
+            formulaExpression: formulaExpression
+            decimalPrecision: 1
+          characterSpacing: 2.302136
+          isRequired: true
+          fontHexColor: fontHexColor
+          textAlign: Left
+          isItalicFont: true
+          editableDateFieldSettings:
+            minDate: 2000-01-23T04:56:07.000+00:00
+            dateFormat: dateFormat
+            timeFormat: timeFormat
+            maxDate: 2000-01-23T04:56:07.000+00:00
+          validationCustomRegexMessage: validationCustomRegexMessage
+          characterLimit: 1210617418
+          label: label
+          dataSyncTag: dataSyncTag
+          isMasked: false
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          validationCustomRegex: validationCustomRegex
+          timeFormat: timeFormat
+          name: name
+          bounds:
+            x: 0.5962134
+            width: 1.2302136
+            "y": 0.5637377
+            height: 1.7061402
+          fontSize: 0.14658129
+          lineHeight: 1280358508
+          fieldType: Signature
+          isUnderLineFont: true
+          allowDeleteFormField: true
+          font: Helvetica
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          pageNumber: 6
+          attachmentInfo:
+            acceptedFileTypes:
+            - acceptedFileTypes
+            - acceptedFileTypes
+            description: description
+            title: title
+            allowedFileTypes: allowedFileTypes
+          dateFormat: dateFormat
+          backgroundHexColor: backgroundHexColor
+          validationType: None
+          allowEditFormField: true
+          imageInfo:
+            allowedFileExtensions: allowedFileExtensions
+            description: description
+            title: title
+          tabIndex: 1516424368
+          textDirection: LTR
+          isBoldFont: true
+          hyperlinkText: hyperlinkText
+          isReadOnly: true
+          editAction: Add
+          id: id
+          value: value
+          placeHolder: placeHolder
+          formulaFieldSettings:
+            formulaExpression: formulaExpression
+            decimalPrecision: 1
+          characterSpacing: 2.302136
+          isRequired: true
+          fontHexColor: fontHexColor
+          textAlign: Left
+          isItalicFont: true
+          editableDateFieldSettings:
+            minDate: 2000-01-23T04:56:07.000+00:00
+            dateFormat: dateFormat
+            timeFormat: timeFormat
+            maxDate: 2000-01-23T04:56:07.000+00:00
+          validationCustomRegexMessage: validationCustomRegexMessage
+          characterLimit: 1210617418
+          label: label
+          dataSyncTag: dataSyncTag
+          isMasked: false
+          resizeOption: GrowVertically
+          groupName: groupName
+          dropdownOptions:
+          - dropdownOptions
+          - dropdownOptions
+          validationCustomRegex: validationCustomRegex
+          timeFormat: timeFormat
+          name: name
+          bounds:
+            x: 0.5962134
+            width: 1.2302136
+            "y": 0.5637377
+            height: 1.7061402
+          fontSize: 0.14658129
+          lineHeight: 1280358508
+          fieldType: Signature
+          isUnderLineFont: true
+          allowDeleteFormField: true
+          font: Helvetica
+        privateMessage: privateMessage
+        identityVerificationSettings:
+          allowedDocumentTypes:
+          - Passport
+          - Passport
+          type: EveryAccess
+          requireLiveCapture: true
+          requireMatchingSelfie: true
+          nameMatcher: Strict
+          holdForPrefill: true
+          maximumRetryCount: 1
+      properties:
+        editAction:
+          enum:
+          - Add
+          - Update
+          - Remove
+          title: Nullable`1
+          type: string
+        id:
+          nullable: true
+          title: String
+          type: string
+        name:
+          nullable: true
+          title: String
+          type: string
+        emailAddress:
+          nullable: true
+          title: String
+          type: string
+        privateMessage:
+          maxLength: 5000
+          nullable: true
+          title: String
+          type: string
+        authenticationType:
+          enum:
+          - None
+          - EmailOTP
+          - AccessCode
+          - SMSOTP
+          - IdVerification
+          nullable: true
+          title: Nullable`1
+          type: string
+        phoneNumber:
+          $ref: '#/components/schemas/PhoneNumber'
+        deliveryMode:
+          enum:
+          - Email
+          - SMS
+          - EmailAndSMS
+          - WhatsApp
+          nullable: true
+          title: Nullable`1
+          type: string
+        authenticationCode:
+          maxLength: 50
+          nullable: true
+          title: String
+          type: string
+        identityVerificationSettings:
+          $ref: '#/components/schemas/IdentityVerificationSettings'
+        signerOrder:
+          format: int32
+          nullable: true
+          title: Nullable`1
+          type: integer
+        enableEmailOTP:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        signerType:
+          enum:
+          - Signer
+          - Reviewer
+          - InPersonSigner
+          nullable: true
+          title: Nullable`1
+          type: string
+        hostEmail:
+          nullable: true
+          title: String
+          type: string
+        signerRole:
+          nullable: true
+          title: String
+          type: string
+        allowFieldConfiguration:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        formFields:
+          items:
+            $ref: '#/components/schemas/EditFormField'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        language:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          format: int32
+          nullable: true
+          title: Nullable`1
+          type: integer
+        locale:
+          enum:
+          - EN
+          - "NO"
+          - FR
+          - DE
+          - ES
+          - BG
+          - CS
+          - DA
+          - IT
+          - NL
+          - PL
+          - PT
+          - RO
+          - RU
+          - SV
+          - Default
+          - JA
+          - TH
+          - ZH_CN
+          - ZH_TW
+          - KO
+          nullable: true
+          title: Nullable`1
+          type: string
+        signType:
+          enum:
+          - Single
+          - Group
+          nullable: true
+          title: Nullable`1
+          type: string
+        groupId:
+          nullable: true
+          title: String
+          type: string
+        recipientNotificationSettings:
+          $ref: '#/components/schemas/RecipientNotificationSettings'
+        authenticationRetryCount:
+          format: int32
+          maximum: 10
+          minimum: 1
+          nullable: true
+          title: Nullable`1
+          type: integer
+        enableQes:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        authenticationSettings:
+          $ref: '#/components/schemas/AuthenticationSettings'
+      required:
+      - editAction
+      title: EditDocumentSigner
+      type: object
+    EditFormField:
+      additionalProperties: false
+      example:
+        conditionalRules:
+        - isChecked: true
+          value: value
+          fieldId: fieldId
+        - isChecked: true
+          value: value
+          fieldId: fieldId
+        pageNumber: 6
+        attachmentInfo:
+          acceptedFileTypes:
+          - acceptedFileTypes
+          - acceptedFileTypes
+          description: description
+          title: title
+          allowedFileTypes: allowedFileTypes
+        dateFormat: dateFormat
+        backgroundHexColor: backgroundHexColor
+        validationType: None
+        allowEditFormField: true
+        imageInfo:
+          allowedFileExtensions: allowedFileExtensions
+          description: description
+          title: title
+        tabIndex: 1516424368
+        textDirection: LTR
+        isBoldFont: true
+        hyperlinkText: hyperlinkText
+        isReadOnly: true
+        editAction: Add
+        id: id
+        value: value
+        placeHolder: placeHolder
+        formulaFieldSettings:
+          formulaExpression: formulaExpression
+          decimalPrecision: 1
+        characterSpacing: 2.302136
+        isRequired: true
+        fontHexColor: fontHexColor
+        textAlign: Left
+        isItalicFont: true
+        editableDateFieldSettings:
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dateFormat: dateFormat
+          timeFormat: timeFormat
+          maxDate: 2000-01-23T04:56:07.000+00:00
+        validationCustomRegexMessage: validationCustomRegexMessage
+        characterLimit: 1210617418
+        label: label
+        dataSyncTag: dataSyncTag
+        isMasked: false
+        resizeOption: GrowVertically
+        groupName: groupName
+        dropdownOptions:
+        - dropdownOptions
+        - dropdownOptions
+        validationCustomRegex: validationCustomRegex
+        timeFormat: timeFormat
+        name: name
+        bounds:
+          x: 0.5962134
+          width: 1.2302136
+          "y": 0.5637377
+          height: 1.7061402
+        fontSize: 0.14658129
+        lineHeight: 1280358508
+        fieldType: Signature
+        isUnderLineFont: true
+        allowDeleteFormField: true
+        font: Helvetica
+      properties:
+        editAction:
+          enum:
+          - Add
+          - Update
+          - Remove
+          title: Nullable`1
+          type: string
+        id:
+          nullable: true
+          title: String
+          type: string
+        name:
+          nullable: true
+          title: String
+          type: string
+        fieldType:
+          enum:
+          - Signature
+          - Initial
+          - CheckBox
+          - TextBox
+          - Label
+          - DateSigned
+          - RadioButton
+          - Image
+          - Attachment
+          - EditableDate
+          - Hyperlink
+          - Dropdown
+          - Title
+          - Company
+          - Formula
+          nullable: true
+          title: Nullable`1
+          type: string
+        pageNumber:
+          format: int32
+          nullable: true
+          title: Nullable`1
+          type: integer
+        bounds:
+          $ref: '#/components/schemas/Rectangle'
+        isRequired:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        value:
+          nullable: true
+          title: String
+          type: string
+        fontSize:
+          format: float
+          minimum: 0
+          nullable: true
+          title: Nullable`1
+          type: number
+        font:
+          enum:
+          - Helvetica
+          - Courier
+          - TimesRoman
+          - NotoSans
+          - Carlito
+          nullable: true
+          title: Nullable`1
+          type: string
+        fontHexColor:
+          nullable: true
+          title: String
+          type: string
+        isBoldFont:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        isItalicFont:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        isUnderLineFont:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        lineHeight:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          title: Nullable`1
+          type: integer
+        characterLimit:
+          format: int32
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          title: Nullable`1
+          type: integer
+        groupName:
+          nullable: true
+          title: String
+          type: string
+        label:
+          nullable: true
+          title: String
+          type: string
+        placeHolder:
+          nullable: true
+          title: String
+          type: string
+        validationType:
+          enum:
+          - None
+          - NumbersOnly
+          - EmailAddress
+          - Currency
+          - CustomRegex
+          nullable: true
+          title: Nullable`1
+          type: string
+        validationCustomRegex:
+          nullable: true
+          title: String
+          type: string
+        validationCustomRegexMessage:
+          nullable: true
+          title: String
+          type: string
+        dateFormat:
+          nullable: true
+          title: String
+          type: string
+        timeFormat:
+          nullable: true
+          title: String
+          type: string
+        imageInfo:
+          $ref: '#/components/schemas/ImageInfo'
+        attachmentInfo:
+          $ref: '#/components/schemas/AttachmentInfo'
+        editableDateFieldSettings:
+          $ref: '#/components/schemas/EditableDateFieldSettings'
+        conditionalRules:
+          items:
+            $ref: '#/components/schemas/ConditionalRule'
+          nullable: true
+          title: IEnumerable`1
+          type: array
+        hyperlinkText:
+          nullable: true
+          title: String
+          type: string
+        dropdownOptions:
+          items:
+            title: String
+            type: string
+          nullable: true
+          title: "String[]"
+          type: array
+        isReadOnly:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        dataSyncTag:
+          nullable: true
+          title: String
+          type: string
+        textAlign:
+          enum:
+          - Left
+          - Center
+          - Right
+          nullable: true
+          title: Nullable`1
+          type: string
+        textDirection:
+          enum:
+          - LTR
+          - RTL
+          nullable: true
+          title: Nullable`1
+          type: string
+        characterSpacing:
+          format: float
+          nullable: true
+          title: Nullable`1
+          type: number
+        backgroundHexColor:
+          nullable: true
+          title: String
+          type: string
+        tabIndex:
+          format: int32
+          maximum: 2147483647
+          minimum: -1
+          nullable: true
+          readOnly: true
+          title: Nullable`1
+          type: integer
+        formulaFieldSettings:
+          $ref: '#/components/schemas/FormulaFieldSettings'
+        resizeOption:
+          enum:
+          - GrowVertically
+          - GrowHorizontally
+          - GrowBoth
+          - Fixed
+          - AutoResizeFont
+          nullable: true
+          title: Nullable`1
+          type: string
+        allowEditFormField:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        allowDeleteFormField:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        isMasked:
+          default: false
+          nullable: true
+          title: Nullable`1
+          type: boolean
+      required:
+      - editAction
+      title: EditFormField
       type: object
     EditSenderIdentityRequest:
       additionalProperties: false

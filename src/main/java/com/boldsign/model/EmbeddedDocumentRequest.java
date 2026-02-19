@@ -51,6 +51,7 @@ import java.util.Map;
 import java.util.Set;
 import java.lang.reflect.Field;
 import java.net.URI;
+import java.lang.reflect.Method;
 
 import com.boldsign.JSON;
 import com.boldsign.ApiException;
@@ -1880,6 +1881,23 @@ public class EmbeddedDocumentRequest {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
+            }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
@@ -1950,6 +1968,23 @@ public class EmbeddedDocumentRequest {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
+            }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
@@ -1979,6 +2014,23 @@ public class EmbeddedDocumentRequest {
           for(Object item : cc) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
+            }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
             }
             else {
               String objectData = JSON.serialize(item);
@@ -2210,6 +2262,23 @@ public class EmbeddedDocumentRequest {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
+            }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
@@ -2239,6 +2308,23 @@ public class EmbeddedDocumentRequest {
           for(Object item : fileUrls) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
+            }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
             }
             else {
               String objectData = JSON.serialize(item);
@@ -2309,6 +2395,23 @@ public class EmbeddedDocumentRequest {
           for(Object item : textTagDefinitions) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
+            }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
             }
             else {
               String objectData = JSON.serialize(item);
@@ -2399,6 +2502,23 @@ public class EmbeddedDocumentRequest {
           for(Object item : documentInfo) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
+            }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
             }
             else {
               String objectData = JSON.serialize(item);
@@ -2538,6 +2658,23 @@ public class EmbeddedDocumentRequest {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
+            }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
@@ -2667,6 +2804,23 @@ public class EmbeddedDocumentRequest {
           for(Object item : allowedSignatureTypes) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
+            }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
             }
             else {
               String objectData = JSON.serialize(item);

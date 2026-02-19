@@ -16,6 +16,7 @@ All URIs are relative to *https://api.boldsign.com*
 | [**downloadAuditLog**](DocumentApi.md#downloadAuditLog) | **GET** /v1/document/downloadAuditLog | Download the audit trail document. |
 | [**downloadDocument**](DocumentApi.md#downloadDocument) | **GET** /v1/document/download | Download the document. |
 | [**draftSend**](DocumentApi.md#draftSend) | **POST** /v1/document/draftSend | Sends a draft-status document out for signature. |
+| [**editDocument**](DocumentApi.md#editDocument) | **PUT** /v1/document/edit | Edit and updates an existing document. |
 | [**extendExpiry**](DocumentApi.md#extendExpiry) | **PATCH** /v1/document/extendExpiry | Extends the expiration date of the document. |
 | [**getProperties**](DocumentApi.md#getProperties) | **GET** /v1/document/properties | Get summary of the document. |
 | [**getEmbeddedSignLink**](DocumentApi.md#getEmbeddedSignLink) | **GET** /v1/document/getEmbeddedSignLink | Get sign link for Embedded Sign. |
@@ -856,6 +857,76 @@ null (empty response body)
 | **201** | Created |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+
+<a id="editDocument"></a>
+# **editDocument**
+> DocumentEdited editDocument(documentId, editDocumentRequest)
+
+Edit and updates an existing document.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.DocumentApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
+    String documentId = "documentId_example"; // String | Document Id.
+    EditDocumentRequest editDocumentRequest = new EditDocumentRequest(); // EditDocumentRequest | Edit document JSON request.
+    
+    try {
+      DocumentEdited result = apiInstance.editDocument(documentId, editDocumentRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DocumentApi#editDocument");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **documentId** | **String**| Document Id. | |
+| **editDocumentRequest** | [**EditDocumentRequest**](EditDocumentRequest.md)| Edit document JSON request. | [optional] |
+
+### Return type
+
+[**DocumentEdited**](DocumentEdited.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data, application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **400** | Bad Request |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="extendExpiry"></a>
 # **extendExpiry**
