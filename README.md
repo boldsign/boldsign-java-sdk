@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>5.1.0</version>
+  <version>5.1.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:5.1.0"
+     implementation "com.boldsign:boldsign-java:5.1.1"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-5.1.0.jar`
+* `target/boldsign-java-5.1.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -147,6 +147,7 @@ Class | Method | HTTP request | Description
 *DocumentApi* | [**behalfDocuments**](docs/DocumentApi.md#behalfDocuments) | **GET** /v1/document/behalfList | Gets the behalf documents.
 *DocumentApi* | [**changeAccessCode**](docs/DocumentApi.md#changeAccessCode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer.
 *DocumentApi* | [**changeRecipient**](docs/DocumentApi.md#changeRecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document.
+*DocumentApi* | [**createEmbeddedEditUrl**](docs/DocumentApi.md#createEmbeddedEditUrl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application.
 *DocumentApi* | [**createEmbeddedRequestUrlDocument**](docs/DocumentApi.md#createEmbeddedRequestUrlDocument) | **POST** /v1/document/createEmbeddedRequestUrl | Generates a send URL which embeds document sending process into your application.
 *DocumentApi* | [**deleteDocument**](docs/DocumentApi.md#deleteDocument) | **DELETE** /v1/document/delete | Delete the document.
 *DocumentApi* | [**deleteTag**](docs/DocumentApi.md#deleteTag) | **DELETE** /v1/document/deleteTags | Delete the Tags in Documents.
@@ -165,6 +166,11 @@ Class | Method | HTTP request | Description
 *DocumentApi* | [**revokeDocument**](docs/DocumentApi.md#revokeDocument) | **POST** /v1/document/revoke | Revoke the document.
 *DocumentApi* | [**sendDocument**](docs/DocumentApi.md#sendDocument) | **POST** /v1/document/send | Sends the document for sign.
 *DocumentApi* | [**teamDocuments**](docs/DocumentApi.md#teamDocuments) | **GET** /v1/document/teamlist | Get user Team documents.
+*GroupContactsApi* | [**createGroupContact**](docs/GroupContactsApi.md#createGroupContact) | **POST** /v1/contactGroups/create | Create a new Group Contact.
+*GroupContactsApi* | [**deleteGroupContact**](docs/GroupContactsApi.md#deleteGroupContact) | **DELETE** /v1/contactGroups/delete | Deletes a Group Contact.
+*GroupContactsApi* | [**getGroupContact**](docs/GroupContactsApi.md#getGroupContact) | **GET** /v1/contactGroups/get | Get Summary of the Group Contact.
+*GroupContactsApi* | [**groupContactList**](docs/GroupContactsApi.md#groupContactList) | **GET** /v1/contactGroups/list | List Group Contacts.
+*GroupContactsApi* | [**updateGroupContact**](docs/GroupContactsApi.md#updateGroupContact) | **PUT** /v1/contactGroups/update | Update the Group Contact.
 *IdentityVerificationApi* | [**createEmbeddedVerificationUrl**](docs/IdentityVerificationApi.md#createEmbeddedVerificationUrl) | **POST** /v1/identityVerification/createEmbeddedVerificationUrl | Generate a URL that embeds manual ID verification for the specified document signer into your application.
 *IdentityVerificationApi* | [**image**](docs/IdentityVerificationApi.md#image) | **POST** /v1/identityVerification/image | Retrieve the uploaded ID verification document or selfie image for the specified document signer using the file ID.
 *IdentityVerificationApi* | [**report**](docs/IdentityVerificationApi.md#report) | **POST** /v1/identityVerification/report | Retrieve the ID verification report for the specified document signer.
@@ -233,10 +239,12 @@ Class | Method | HTTP request | Description
  - [ContactsDetails](docs/ContactsDetails.md)
  - [ContactsList](docs/ContactsList.md)
  - [CreateContactResponse](docs/CreateContactResponse.md)
+ - [CreateGroupContactResponse](docs/CreateGroupContactResponse.md)
  - [CreateSenderIdentityRequest](docs/CreateSenderIdentityRequest.md)
  - [CreateTeamRequest](docs/CreateTeamRequest.md)
  - [CreateTemplateRequest](docs/CreateTemplateRequest.md)
  - [CreateUser](docs/CreateUser.md)
+ - [Creators](docs/Creators.md)
  - [CustomDomainSettings](docs/CustomDomainSettings.md)
  - [CustomFieldCollection](docs/CustomFieldCollection.md)
  - [CustomFieldMessage](docs/CustomFieldMessage.md)
@@ -269,6 +277,8 @@ Class | Method | HTTP request | Description
  - [EditableDateFieldSettings](docs/EditableDateFieldSettings.md)
  - [EmbeddedCreateTemplateRequest](docs/EmbeddedCreateTemplateRequest.md)
  - [EmbeddedCustomFieldCreated](docs/EmbeddedCustomFieldCreated.md)
+ - [EmbeddedDocumentEditJsonRequest](docs/EmbeddedDocumentEditJsonRequest.md)
+ - [EmbeddedDocumentEdited](docs/EmbeddedDocumentEdited.md)
  - [EmbeddedDocumentRequest](docs/EmbeddedDocumentRequest.md)
  - [EmbeddedFileDetails](docs/EmbeddedFileDetails.md)
  - [EmbeddedFileLink](docs/EmbeddedFileLink.md)
@@ -291,8 +301,13 @@ Class | Method | HTTP request | Description
  - [FormFieldPermission](docs/FormFieldPermission.md)
  - [FormGroup](docs/FormGroup.md)
  - [FormulaFieldSettings](docs/FormulaFieldSettings.md)
+ - [GetGroupContactDetails](docs/GetGroupContactDetails.md)
+ - [GroupContact](docs/GroupContact.md)
+ - [GroupContactDetails](docs/GroupContactDetails.md)
+ - [GroupContactsList](docs/GroupContactsList.md)
  - [GroupSigner](docs/GroupSigner.md)
  - [GroupSignerSettings](docs/GroupSignerSettings.md)
+ - [GroupUser](docs/GroupUser.md)
  - [IdDocument](docs/IdDocument.md)
  - [IdReport](docs/IdReport.md)
  - [IdVerificationDetails](docs/IdVerificationDetails.md)
@@ -349,6 +364,7 @@ Class | Method | HTTP request | Description
  - [TemplateTeamShare](docs/TemplateTeamShare.md)
  - [TextTagDefinition](docs/TextTagDefinition.md)
  - [TextTagOffset](docs/TextTagOffset.md)
+ - [UpdateGroupContact](docs/UpdateGroupContact.md)
  - [UpdateUser](docs/UpdateUser.md)
  - [UpdateUserMetaData](docs/UpdateUserMetaData.md)
  - [UserPageDetails](docs/UserPageDetails.md)
