@@ -9,6 +9,7 @@ All URIs are relative to *https://api.boldsign.com*
 | [**behalfDocuments**](DocumentApi.md#behalfDocuments) | **GET** /v1/document/behalfList | Gets the behalf documents. |
 | [**changeAccessCode**](DocumentApi.md#changeAccessCode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer. |
 | [**changeRecipient**](DocumentApi.md#changeRecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document. |
+| [**createEmbeddedEditUrl**](DocumentApi.md#createEmbeddedEditUrl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application. |
 | [**createEmbeddedRequestUrlDocument**](DocumentApi.md#createEmbeddedRequestUrlDocument) | **POST** /v1/document/createEmbeddedRequestUrl | Generates a send URL which embeds document sending process into your application. |
 | [**deleteDocument**](DocumentApi.md#deleteDocument) | **DELETE** /v1/document/delete | Delete the document. |
 | [**deleteTag**](DocumentApi.md#deleteTag) | **DELETE** /v1/document/deleteTags | Delete the Tags in Documents. |
@@ -386,6 +387,76 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+
+<a id="createEmbeddedEditUrl"></a>
+# **createEmbeddedEditUrl**
+> EmbeddedDocumentEdited createEmbeddedEditUrl(documentId, embeddedDocumentEditJsonRequest)
+
+Generates an embedded edit URL that allows the document editing process to be integrated into your application.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.DocumentApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
+    String documentId = "documentId_example"; // String | The document id.
+    EmbeddedDocumentEditJsonRequest embeddedDocumentEditJsonRequest = new EmbeddedDocumentEditJsonRequest(); // EmbeddedDocumentEditJsonRequest | The embedded edit document request body.
+    
+    try {
+      EmbeddedDocumentEdited result = apiInstance.createEmbeddedEditUrl(documentId, embeddedDocumentEditJsonRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DocumentApi#createEmbeddedEditUrl");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **documentId** | **String**| The document id. | |
+| **embeddedDocumentEditJsonRequest** | [**EmbeddedDocumentEditJsonRequest**](EmbeddedDocumentEditJsonRequest.md)| The embedded edit document request body. | [optional] |
+
+### Return type
+
+[**EmbeddedDocumentEdited**](EmbeddedDocumentEdited.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data, application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable Content |  -  |
 
 <a id="createEmbeddedRequestUrlDocument"></a>
 # **createEmbeddedRequestUrlDocument**

@@ -34,10 +34,12 @@ docs/ContactsApi.md
 docs/ContactsDetails.md
 docs/ContactsList.md
 docs/CreateContactResponse.md
+docs/CreateGroupContactResponse.md
 docs/CreateSenderIdentityRequest.md
 docs/CreateTeamRequest.md
 docs/CreateTemplateRequest.md
 docs/CreateUser.md
+docs/Creators.md
 docs/CustomDomainSettings.md
 docs/CustomFieldApi.md
 docs/CustomFieldCollection.md
@@ -72,6 +74,8 @@ docs/EditTemplateRequest.md
 docs/EditableDateFieldSettings.md
 docs/EmbeddedCreateTemplateRequest.md
 docs/EmbeddedCustomFieldCreated.md
+docs/EmbeddedDocumentEditJsonRequest.md
+docs/EmbeddedDocumentEdited.md
 docs/EmbeddedDocumentRequest.md
 docs/EmbeddedFileDetails.md
 docs/EmbeddedFileLink.md
@@ -94,8 +98,14 @@ docs/FormField.md
 docs/FormFieldPermission.md
 docs/FormGroup.md
 docs/FormulaFieldSettings.md
+docs/GetGroupContactDetails.md
+docs/GroupContact.md
+docs/GroupContactDetails.md
+docs/GroupContactsApi.md
+docs/GroupContactsList.md
 docs/GroupSigner.md
 docs/GroupSignerSettings.md
+docs/GroupUser.md
 docs/IdDocument.md
 docs/IdReport.md
 docs/IdVerificationDetails.md
@@ -157,6 +167,7 @@ docs/TemplateTag.md
 docs/TemplateTeamShare.md
 docs/TextTagDefinition.md
 docs/TextTagOffset.md
+docs/UpdateGroupContact.md
 docs/UpdateUser.md
 docs/UpdateUserMetaData.md
 docs/UserApi.md
@@ -194,6 +205,7 @@ src/main/java/com/boldsign/api/BrandingApi.java
 src/main/java/com/boldsign/api/ContactsApi.java
 src/main/java/com/boldsign/api/CustomFieldApi.java
 src/main/java/com/boldsign/api/DocumentApi.java
+src/main/java/com/boldsign/api/GroupContactsApi.java
 src/main/java/com/boldsign/api/IdentityVerificationApi.java
 src/main/java/com/boldsign/api/PlanApi.java
 src/main/java/com/boldsign/api/SenderIdentitiesApi.java
@@ -231,10 +243,12 @@ src/main/java/com/boldsign/model/ContactPageDetails.java
 src/main/java/com/boldsign/model/ContactsDetails.java
 src/main/java/com/boldsign/model/ContactsList.java
 src/main/java/com/boldsign/model/CreateContactResponse.java
+src/main/java/com/boldsign/model/CreateGroupContactResponse.java
 src/main/java/com/boldsign/model/CreateSenderIdentityRequest.java
 src/main/java/com/boldsign/model/CreateTeamRequest.java
 src/main/java/com/boldsign/model/CreateTemplateRequest.java
 src/main/java/com/boldsign/model/CreateUser.java
+src/main/java/com/boldsign/model/Creators.java
 src/main/java/com/boldsign/model/CustomDomainSettings.java
 src/main/java/com/boldsign/model/CustomFieldCollection.java
 src/main/java/com/boldsign/model/CustomFieldMessage.java
@@ -267,6 +281,8 @@ src/main/java/com/boldsign/model/EditTemplateRequest.java
 src/main/java/com/boldsign/model/EditableDateFieldSettings.java
 src/main/java/com/boldsign/model/EmbeddedCreateTemplateRequest.java
 src/main/java/com/boldsign/model/EmbeddedCustomFieldCreated.java
+src/main/java/com/boldsign/model/EmbeddedDocumentEditJsonRequest.java
+src/main/java/com/boldsign/model/EmbeddedDocumentEdited.java
 src/main/java/com/boldsign/model/EmbeddedDocumentRequest.java
 src/main/java/com/boldsign/model/EmbeddedFileDetails.java
 src/main/java/com/boldsign/model/EmbeddedFileLink.java
@@ -289,8 +305,13 @@ src/main/java/com/boldsign/model/FormField.java
 src/main/java/com/boldsign/model/FormFieldPermission.java
 src/main/java/com/boldsign/model/FormGroup.java
 src/main/java/com/boldsign/model/FormulaFieldSettings.java
+src/main/java/com/boldsign/model/GetGroupContactDetails.java
+src/main/java/com/boldsign/model/GroupContact.java
+src/main/java/com/boldsign/model/GroupContactDetails.java
+src/main/java/com/boldsign/model/GroupContactsList.java
 src/main/java/com/boldsign/model/GroupSigner.java
 src/main/java/com/boldsign/model/GroupSignerSettings.java
+src/main/java/com/boldsign/model/GroupUser.java
 src/main/java/com/boldsign/model/IdDocument.java
 src/main/java/com/boldsign/model/IdReport.java
 src/main/java/com/boldsign/model/IdVerificationDetails.java
@@ -347,6 +368,7 @@ src/main/java/com/boldsign/model/TemplateTag.java
 src/main/java/com/boldsign/model/TemplateTeamShare.java
 src/main/java/com/boldsign/model/TextTagDefinition.java
 src/main/java/com/boldsign/model/TextTagOffset.java
+src/main/java/com/boldsign/model/UpdateGroupContact.java
 src/main/java/com/boldsign/model/UpdateUser.java
 src/main/java/com/boldsign/model/UpdateUserMetaData.java
 src/main/java/com/boldsign/model/UserPageDetails.java
