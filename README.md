@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>5.1.1</version>
+  <version>5.1.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:5.1.1"
+     implementation "com.boldsign:boldsign-java:5.1.2"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-5.1.1.jar`
+* `target/boldsign-java-5.1.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
 *DocumentApi* | [**addAuthentication**](docs/DocumentApi.md#addAuthentication) | **PATCH** /v1/document/addAuthentication | The add authentication to recipient.
 *DocumentApi* | [**addTag**](docs/DocumentApi.md#addTag) | **PATCH** /v1/document/addTags | Add the Tags in Documents.
 *DocumentApi* | [**behalfDocuments**](docs/DocumentApi.md#behalfDocuments) | **GET** /v1/document/behalfList | Gets the behalf documents.
+*DocumentApi* | [**cancelEditing**](docs/DocumentApi.md#cancelEditing) | **POST** /v1/document/cancelEditing | Cancels editing for a document that is currently in edit-mode.
 *DocumentApi* | [**changeAccessCode**](docs/DocumentApi.md#changeAccessCode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer.
 *DocumentApi* | [**changeRecipient**](docs/DocumentApi.md#changeRecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document.
 *DocumentApi* | [**createEmbeddedEditUrl**](docs/DocumentApi.md#createEmbeddedEditUrl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application.

@@ -7,6 +7,7 @@ All URIs are relative to *https://api.boldsign.com*
 | [**addAuthentication**](DocumentApi.md#addAuthentication) | **PATCH** /v1/document/addAuthentication | The add authentication to recipient. |
 | [**addTag**](DocumentApi.md#addTag) | **PATCH** /v1/document/addTags | Add the Tags in Documents. |
 | [**behalfDocuments**](DocumentApi.md#behalfDocuments) | **GET** /v1/document/behalfList | Gets the behalf documents. |
+| [**cancelEditing**](DocumentApi.md#cancelEditing) | **POST** /v1/document/cancelEditing | Cancels editing for a document that is currently in edit-mode. |
 | [**changeAccessCode**](DocumentApi.md#changeAccessCode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer. |
 | [**changeRecipient**](DocumentApi.md#changeRecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document. |
 | [**createEmbeddedEditUrl**](DocumentApi.md#createEmbeddedEditUrl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application. |
@@ -249,6 +250,73 @@ public class Example {
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+
+<a id="cancelEditing"></a>
+# **cancelEditing**
+> cancelEditing(documentId, onBehalfOf)
+
+Cancels editing for a document that is currently in edit-mode.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.DocumentApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
+    String documentId = "documentId_example"; // String | The document id.
+    String onBehalfOf = "onBehalfOf_example"; // String | The onbehalfof email id.
+    
+    try {
+      apiInstance.cancelEditing(documentId, onBehalfOf);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DocumentApi#cancelEditing");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **documentId** | **String**| The document id. | |
+| **onBehalfOf** | **String**| The onbehalfof email id. | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
 
 <a id="changeAccessCode"></a>
 # **changeAccessCode**
