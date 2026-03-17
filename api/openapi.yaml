@@ -11448,6 +11448,48 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /v1/document/cancelEditing:
+    post:
+      operationId: cancelEditing
+      parameters:
+      - description: The document id.
+        explode: true
+        in: query
+        name: documentId
+        required: true
+        schema:
+          title: String
+          type: string
+        style: form
+      - description: The onbehalfof email id.
+        explode: true
+        in: query
+        name: onBehalfOf
+        required: false
+        schema:
+          title: String
+          type: string
+        style: form
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+      summary: Cancels editing for a document that is currently in edit-mode.
+      tags:
+      - Document
+      x-accepts:
+      - application/json
   /v1/contactGroups/list:
     get:
       operationId: GroupContactList
