@@ -20211,6 +20211,7 @@ components:
           - Title
           - Company
           - Formula
+          - Drawing
           title: FieldType
           type: string
         width:
@@ -25664,6 +25665,7 @@ components:
           - Title
           - Company
           - Formula
+          - Drawing
           nullable: true
           title: Nullable`1
           type: string
@@ -30516,6 +30518,7 @@ components:
           - Title
           - Company
           - Formula
+          - Drawing
           title: FieldType
           type: string
         pageNumber:
@@ -38411,6 +38414,7 @@ components:
           - Title
           - Company
           - Formula
+          - Drawing
           title: Nullable`1
           type: string
         signerIndex:

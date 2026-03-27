@@ -84,7 +84,9 @@ public class CustomFormField {
     
     COMPANY("Company"),
     
-    FORMULA("Formula");
+    FORMULA("Formula"),
+    
+    DRAWING("Drawing");
 
     private String value;
 
