@@ -88,7 +88,9 @@ public class FormField {
     
     COMPANY("Company"),
     
-    FORMULA("Formula");
+    FORMULA("Formula"),
+    
+    DRAWING("Drawing");
 
     private String value;
 
