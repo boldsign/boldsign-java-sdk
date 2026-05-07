@@ -543,6 +543,10 @@ public class EmbeddedSendTemplateFormRequest {
   @SerializedName(SERIALIZED_NAME_GROUP_SIGNER_SETTINGS)
   private GroupSignerSettings groupSignerSettings;
 
+  public static final String SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE = "enableAllowSignEverywhere";
+  @SerializedName(SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE)
+  private Boolean enableAllowSignEverywhere;
+
   public EmbeddedSendTemplateFormRequest() {
   }
 
@@ -1493,6 +1497,25 @@ public class EmbeddedSendTemplateFormRequest {
   }
 
 
+  public EmbeddedSendTemplateFormRequest enableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+    return this;
+  }
+
+  /**
+   * Get enableAllowSignEverywhere
+   * @return enableAllowSignEverywhere
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAllowSignEverywhere() {
+    return enableAllowSignEverywhere;
+  }
+
+  public void setEnableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1547,12 +1570,13 @@ public class EmbeddedSendTemplateFormRequest {
         Objects.equals(this.scheduledSendTime, embeddedSendTemplateFormRequest.scheduledSendTime) &&
         Objects.equals(this.allowScheduledSend, embeddedSendTemplateFormRequest.allowScheduledSend) &&
         Objects.equals(this.allowedSignatureTypes, embeddedSendTemplateFormRequest.allowedSignatureTypes) &&
-        Objects.equals(this.groupSignerSettings, embeddedSendTemplateFormRequest.groupSignerSettings);
+        Objects.equals(this.groupSignerSettings, embeddedSendTemplateFormRequest.groupSignerSettings) &&
+        Objects.equals(this.enableAllowSignEverywhere, embeddedSendTemplateFormRequest.enableAllowSignEverywhere);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, sendLinkValidTill, showTooltip, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend, allowedSignatureTypes, groupSignerSettings);
+    return Objects.hash(files, fileUrls, redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, sendLinkValidTill, showTooltip, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend, allowedSignatureTypes, groupSignerSettings, enableAllowSignEverywhere);
   }
 
   @Override
@@ -1604,6 +1628,7 @@ public class EmbeddedSendTemplateFormRequest {
     sb.append("    allowScheduledSend: ").append(toIndentedString(allowScheduledSend)).append("\n");
     sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
+    sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2789,6 +2814,26 @@ public class EmbeddedSendTemplateFormRequest {
           map.put("groupSignerSettings", JSON.serialize(groupSignerSettings));
         }
     }
+    if (enableAllowSignEverywhere != null) {
+        if (isFileTypeOrListOfFiles(enableAllowSignEverywhere)) {
+            fileTypeFound = true;
+        }
+
+        if (enableAllowSignEverywhere.getClass().equals(java.io.File.class) ||
+            enableAllowSignEverywhere.getClass().equals(Integer.class) ||
+            enableAllowSignEverywhere.getClass().equals(String.class) ||
+            enableAllowSignEverywhere.getClass().equals(java.net.URI.class)||
+            enableAllowSignEverywhere.getClass().isEnum()) {
+            map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+        } else if (isListOfFile(enableAllowSignEverywhere)) {
+            for(int i = 0; i< getListSize(enableAllowSignEverywhere); i++) {
+                map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+            }
+        }
+        else {
+          map.put("enableAllowSignEverywhere", JSON.serialize(enableAllowSignEverywhere));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2879,6 +2924,7 @@ public class EmbeddedSendTemplateFormRequest {
     openapiFields.add("allowScheduledSend");
     openapiFields.add("allowedSignatureTypes");
     openapiFields.add("groupSignerSettings");
+    openapiFields.add("enableAllowSignEverywhere");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

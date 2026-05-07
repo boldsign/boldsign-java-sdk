@@ -445,6 +445,10 @@ public class TemplateFormFields {
   @SerializedName(SERIALIZED_NAME_IS_MASKED)
   private Boolean isMasked = false;
 
+  public static final String SERIALIZED_NAME_IS_DEFAULT_VALUE_REQUIRED = "isDefaultValueRequired";
+  @SerializedName(SERIALIZED_NAME_IS_DEFAULT_VALUE_REQUIRED)
+  private Boolean isDefaultValueRequired;
+
   public TemplateFormFields() {
   }
 
@@ -1262,6 +1266,25 @@ public class TemplateFormFields {
   }
 
 
+  public TemplateFormFields isDefaultValueRequired(Boolean isDefaultValueRequired) {
+    this.isDefaultValueRequired = isDefaultValueRequired;
+    return this;
+  }
+
+  /**
+   * Get isDefaultValueRequired
+   * @return isDefaultValueRequired
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsDefaultValueRequired() {
+    return isDefaultValueRequired;
+  }
+
+  public void setIsDefaultValueRequired(Boolean isDefaultValueRequired) {
+    this.isDefaultValueRequired = isDefaultValueRequired;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1313,12 +1336,13 @@ public class TemplateFormFields {
         Objects.equals(this.allowEditFormField, templateFormFields.allowEditFormField) &&
         Objects.equals(this.allowDeleteFormField, templateFormFields.allowDeleteFormField) &&
         Objects.equals(this.collaborationSettings, templateFormFields.collaborationSettings) &&
-        Objects.equals(this.isMasked, templateFormFields.isMasked);
+        Objects.equals(this.isMasked, templateFormFields.isMasked) &&
+        Objects.equals(this.isDefaultValueRequired, templateFormFields.isDefaultValueRequired);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, fieldType, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontHexColor, isUnderLineFont, isItalicFont, isBoldFont, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, dropdownOptions, bounds, pageNumber, conditionalRules, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, hyperlinkText, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField, collaborationSettings, isMasked);
+    return Objects.hash(id, fieldType, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontHexColor, isUnderLineFont, isItalicFont, isBoldFont, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, dropdownOptions, bounds, pageNumber, conditionalRules, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, hyperlinkText, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField, collaborationSettings, isMasked, isDefaultValueRequired);
   }
 
   @Override
@@ -1367,6 +1391,7 @@ public class TemplateFormFields {
     sb.append("    allowDeleteFormField: ").append(toIndentedString(allowDeleteFormField)).append("\n");
     sb.append("    collaborationSettings: ").append(toIndentedString(collaborationSettings)).append("\n");
     sb.append("    isMasked: ").append(toIndentedString(isMasked)).append("\n");
+    sb.append("    isDefaultValueRequired: ").append(toIndentedString(isDefaultValueRequired)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2268,6 +2293,26 @@ public class TemplateFormFields {
           map.put("isMasked", JSON.serialize(isMasked));
         }
     }
+    if (isDefaultValueRequired != null) {
+        if (isFileTypeOrListOfFiles(isDefaultValueRequired)) {
+            fileTypeFound = true;
+        }
+
+        if (isDefaultValueRequired.getClass().equals(java.io.File.class) ||
+            isDefaultValueRequired.getClass().equals(Integer.class) ||
+            isDefaultValueRequired.getClass().equals(String.class) ||
+            isDefaultValueRequired.getClass().equals(java.net.URI.class)||
+            isDefaultValueRequired.getClass().isEnum()) {
+            map.put("isDefaultValueRequired", isDefaultValueRequired);
+        } else if (isListOfFile(isDefaultValueRequired)) {
+            for(int i = 0; i< getListSize(isDefaultValueRequired); i++) {
+                map.put("isDefaultValueRequired", isDefaultValueRequired);
+            }
+        }
+        else {
+          map.put("isDefaultValueRequired", JSON.serialize(isDefaultValueRequired));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2355,6 +2400,7 @@ public class TemplateFormFields {
     openapiFields.add("allowDeleteFormField");
     openapiFields.add("collaborationSettings");
     openapiFields.add("isMasked");
+    openapiFields.add("isDefaultValueRequired");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

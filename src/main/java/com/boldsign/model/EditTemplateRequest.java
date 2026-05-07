@@ -95,6 +95,10 @@ public class EditTemplateRequest {
   @SerializedName(SERIALIZED_NAME_ALLOW_NEW_FILES)
   private Boolean allowNewFiles;
 
+  public static final String SERIALIZED_NAME_ALLOW_MODIFY_FILES = "allowModifyFiles";
+  @SerializedName(SERIALIZED_NAME_ALLOW_MODIFY_FILES)
+  private Boolean allowModifyFiles;
+
   public static final String SERIALIZED_NAME_ENABLE_REASSIGN = "enableReassign";
   @SerializedName(SERIALIZED_NAME_ENABLE_REASSIGN)
   private Boolean enableReassign;
@@ -196,6 +200,10 @@ public class EditTemplateRequest {
   public static final String SERIALIZED_NAME_GROUP_SIGNER_SETTINGS = "groupSignerSettings";
   @SerializedName(SERIALIZED_NAME_GROUP_SIGNER_SETTINGS)
   private GroupSignerSettings groupSignerSettings;
+
+  public static final String SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE = "enableAllowSignEverywhere";
+  @SerializedName(SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE)
+  private Boolean enableAllowSignEverywhere;
 
   public EditTemplateRequest() {
   }
@@ -403,6 +411,25 @@ public class EditTemplateRequest {
 
   public void setAllowNewFiles(Boolean allowNewFiles) {
     this.allowNewFiles = allowNewFiles;
+  }
+
+
+  public EditTemplateRequest allowModifyFiles(Boolean allowModifyFiles) {
+    this.allowModifyFiles = allowModifyFiles;
+    return this;
+  }
+
+  /**
+   * Get allowModifyFiles
+   * @return allowModifyFiles
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowModifyFiles() {
+    return allowModifyFiles;
+  }
+
+  public void setAllowModifyFiles(Boolean allowModifyFiles) {
+    this.allowModifyFiles = allowModifyFiles;
   }
 
 
@@ -674,6 +701,25 @@ public class EditTemplateRequest {
   }
 
 
+  public EditTemplateRequest enableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+    return this;
+  }
+
+  /**
+   * Get enableAllowSignEverywhere
+   * @return enableAllowSignEverywhere
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAllowSignEverywhere() {
+    return enableAllowSignEverywhere;
+  }
+
+  public void setEnableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -694,6 +740,7 @@ public class EditTemplateRequest {
         Objects.equals(this.allowMessageEditing, editTemplateRequest.allowMessageEditing) &&
         Objects.equals(this.allowNewRoles, editTemplateRequest.allowNewRoles) &&
         Objects.equals(this.allowNewFiles, editTemplateRequest.allowNewFiles) &&
+        Objects.equals(this.allowModifyFiles, editTemplateRequest.allowModifyFiles) &&
         Objects.equals(this.enableReassign, editTemplateRequest.enableReassign) &&
         Objects.equals(this.enablePrintAndSign, editTemplateRequest.enablePrintAndSign) &&
         Objects.equals(this.enableSigningOrder, editTemplateRequest.enableSigningOrder) &&
@@ -705,12 +752,13 @@ public class EditTemplateRequest {
         Objects.equals(this.recipientNotificationSettings, editTemplateRequest.recipientNotificationSettings) &&
         Objects.equals(this.allowedSignatureTypes, editTemplateRequest.allowedSignatureTypes) &&
         Objects.equals(this.formFieldPermission, editTemplateRequest.formFieldPermission) &&
-        Objects.equals(this.groupSignerSettings, editTemplateRequest.groupSignerSettings);
+        Objects.equals(this.groupSignerSettings, editTemplateRequest.groupSignerSettings) &&
+        Objects.equals(this.enableAllowSignEverywhere, editTemplateRequest.enableAllowSignEverywhere);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, documentTitle, documentMessage, roles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, onBehalfOf, labels, templateLabels, formGroups, recipientNotificationSettings, allowedSignatureTypes, formFieldPermission, groupSignerSettings);
+    return Objects.hash(title, description, documentTitle, documentMessage, roles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, allowModifyFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, onBehalfOf, labels, templateLabels, formGroups, recipientNotificationSettings, allowedSignatureTypes, formFieldPermission, groupSignerSettings, enableAllowSignEverywhere);
   }
 
   @Override
@@ -727,6 +775,7 @@ public class EditTemplateRequest {
     sb.append("    allowMessageEditing: ").append(toIndentedString(allowMessageEditing)).append("\n");
     sb.append("    allowNewRoles: ").append(toIndentedString(allowNewRoles)).append("\n");
     sb.append("    allowNewFiles: ").append(toIndentedString(allowNewFiles)).append("\n");
+    sb.append("    allowModifyFiles: ").append(toIndentedString(allowModifyFiles)).append("\n");
     sb.append("    enableReassign: ").append(toIndentedString(enableReassign)).append("\n");
     sb.append("    enablePrintAndSign: ").append(toIndentedString(enablePrintAndSign)).append("\n");
     sb.append("    enableSigningOrder: ").append(toIndentedString(enableSigningOrder)).append("\n");
@@ -739,6 +788,7 @@ public class EditTemplateRequest {
     sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
     sb.append("    formFieldPermission: ").append(toIndentedString(formFieldPermission)).append("\n");
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
+    sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -998,6 +1048,26 @@ public class EditTemplateRequest {
         }
         else {
           map.put("allowNewFiles", JSON.serialize(allowNewFiles));
+        }
+    }
+    if (allowModifyFiles != null) {
+        if (isFileTypeOrListOfFiles(allowModifyFiles)) {
+            fileTypeFound = true;
+        }
+
+        if (allowModifyFiles.getClass().equals(java.io.File.class) ||
+            allowModifyFiles.getClass().equals(Integer.class) ||
+            allowModifyFiles.getClass().equals(String.class) ||
+            allowModifyFiles.getClass().equals(java.net.URI.class)||
+            allowModifyFiles.getClass().isEnum()) {
+            map.put("allowModifyFiles", allowModifyFiles);
+        } else if (isListOfFile(allowModifyFiles)) {
+            for(int i = 0; i< getListSize(allowModifyFiles); i++) {
+                map.put("allowModifyFiles", allowModifyFiles);
+            }
+        }
+        else {
+          map.put("allowModifyFiles", JSON.serialize(allowModifyFiles));
         }
     }
     if (enableReassign != null) {
@@ -1375,6 +1445,26 @@ public class EditTemplateRequest {
           map.put("groupSignerSettings", JSON.serialize(groupSignerSettings));
         }
     }
+    if (enableAllowSignEverywhere != null) {
+        if (isFileTypeOrListOfFiles(enableAllowSignEverywhere)) {
+            fileTypeFound = true;
+        }
+
+        if (enableAllowSignEverywhere.getClass().equals(java.io.File.class) ||
+            enableAllowSignEverywhere.getClass().equals(Integer.class) ||
+            enableAllowSignEverywhere.getClass().equals(String.class) ||
+            enableAllowSignEverywhere.getClass().equals(java.net.URI.class)||
+            enableAllowSignEverywhere.getClass().isEnum()) {
+            map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+        } else if (isListOfFile(enableAllowSignEverywhere)) {
+            for(int i = 0; i< getListSize(enableAllowSignEverywhere); i++) {
+                map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+            }
+        }
+        else {
+          map.put("enableAllowSignEverywhere", JSON.serialize(enableAllowSignEverywhere));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1430,6 +1520,7 @@ public class EditTemplateRequest {
     openapiFields.add("allowMessageEditing");
     openapiFields.add("allowNewRoles");
     openapiFields.add("allowNewFiles");
+    openapiFields.add("allowModifyFiles");
     openapiFields.add("enableReassign");
     openapiFields.add("enablePrintAndSign");
     openapiFields.add("enableSigningOrder");
@@ -1442,6 +1533,7 @@ public class EditTemplateRequest {
     openapiFields.add("allowedSignatureTypes");
     openapiFields.add("formFieldPermission");
     openapiFields.add("groupSignerSettings");
+    openapiFields.add("enableAllowSignEverywhere");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

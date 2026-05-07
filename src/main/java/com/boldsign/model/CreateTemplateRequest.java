@@ -224,6 +224,10 @@ public class CreateTemplateRequest {
   @SerializedName(SERIALIZED_NAME_GROUP_SIGNER_SETTINGS)
   private GroupSignerSettings groupSignerSettings;
 
+  public static final String SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE = "enableAllowSignEverywhere";
+  @SerializedName(SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE)
+  private Boolean enableAllowSignEverywhere;
+
   public CreateTemplateRequest() {
   }
 
@@ -839,6 +843,25 @@ public class CreateTemplateRequest {
   }
 
 
+  public CreateTemplateRequest enableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+    return this;
+  }
+
+  /**
+   * Get enableAllowSignEverywhere
+   * @return enableAllowSignEverywhere
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAllowSignEverywhere() {
+    return enableAllowSignEverywhere;
+  }
+
+  public void setEnableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -876,12 +899,13 @@ public class CreateTemplateRequest {
         Objects.equals(this.recipientNotificationSettings, createTemplateRequest.recipientNotificationSettings) &&
         Objects.equals(this.allowedSignatureTypes, createTemplateRequest.allowedSignatureTypes) &&
         Objects.equals(this.formFieldPermission, createTemplateRequest.formFieldPermission) &&
-        Objects.equals(this.groupSignerSettings, createTemplateRequest.groupSignerSettings);
+        Objects.equals(this.groupSignerSettings, createTemplateRequest.groupSignerSettings) &&
+        Objects.equals(this.enableAllowSignEverywhere, createTemplateRequest.enableAllowSignEverywhere);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, formGroups, recipientNotificationSettings, allowedSignatureTypes, formFieldPermission, groupSignerSettings);
+    return Objects.hash(title, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, formGroups, recipientNotificationSettings, allowedSignatureTypes, formFieldPermission, groupSignerSettings, enableAllowSignEverywhere);
   }
 
   @Override
@@ -916,6 +940,7 @@ public class CreateTemplateRequest {
     sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
     sb.append("    formFieldPermission: ").append(toIndentedString(formFieldPermission)).append("\n");
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
+    sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1753,6 +1778,26 @@ public class CreateTemplateRequest {
           map.put("groupSignerSettings", JSON.serialize(groupSignerSettings));
         }
     }
+    if (enableAllowSignEverywhere != null) {
+        if (isFileTypeOrListOfFiles(enableAllowSignEverywhere)) {
+            fileTypeFound = true;
+        }
+
+        if (enableAllowSignEverywhere.getClass().equals(java.io.File.class) ||
+            enableAllowSignEverywhere.getClass().equals(Integer.class) ||
+            enableAllowSignEverywhere.getClass().equals(String.class) ||
+            enableAllowSignEverywhere.getClass().equals(java.net.URI.class)||
+            enableAllowSignEverywhere.getClass().isEnum()) {
+            map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+        } else if (isListOfFile(enableAllowSignEverywhere)) {
+            for(int i = 0; i< getListSize(enableAllowSignEverywhere); i++) {
+                map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+            }
+        }
+        else {
+          map.put("enableAllowSignEverywhere", JSON.serialize(enableAllowSignEverywhere));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1826,6 +1871,7 @@ public class CreateTemplateRequest {
     openapiFields.add("allowedSignatureTypes");
     openapiFields.add("formFieldPermission");
     openapiFields.add("groupSignerSettings");
+    openapiFields.add("enableAllowSignEverywhere");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

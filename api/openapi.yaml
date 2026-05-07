@@ -19445,6 +19445,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -19520,6 +19521,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -19629,6 +19631,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -19704,6 +19707,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -19778,6 +19782,7 @@ components:
         labels:
         - labels
         - labels
+        enableAllowSignEverywhere: true
         brandId: brandId
         files:
         - ""
@@ -19927,6 +19932,10 @@ components:
           $ref: '#/components/schemas/FormFieldPermission'
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       required:
       - title
       title: CreateTemplateRequest
@@ -23655,6 +23664,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -23730,6 +23740,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -25031,6 +25042,7 @@ components:
             holdForPrefill: true
             maximumRetryCount: 1
         documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
         brandId: brandId
         files:
         - file: ""
@@ -25197,6 +25209,10 @@ components:
           type: array
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EditDocumentRequest
       type: object
     EditDocumentSigner:
@@ -26049,6 +26065,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -26124,6 +26141,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -26233,6 +26251,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -26308,6 +26327,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -26368,6 +26388,8 @@ components:
         labels:
         - labels
         - labels
+        allowModifyFiles: true
+        enableAllowSignEverywhere: true
         allowNewRoles: true
         brandId: brandId
         allowedSignatureTypes:
@@ -26424,6 +26446,10 @@ components:
           title: Nullable`1
           type: boolean
         allowNewFiles:
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        allowModifyFiles:
           nullable: true
           title: Nullable`1
           type: boolean
@@ -26486,6 +26512,10 @@ components:
           $ref: '#/components/schemas/FormFieldPermission'
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EditTemplateRequest
       type: object
     EditableDateFieldSettings:
@@ -26767,6 +26797,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -26842,6 +26873,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -26951,6 +26983,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -27026,6 +27059,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -27106,6 +27140,7 @@ components:
         labels:
         - labels
         - labels
+        enableAllowSignEverywhere: true
         showCreateButton: true
         brandId: brandId
         files:
@@ -27330,6 +27365,10 @@ components:
           $ref: '#/components/schemas/FormFieldPermission'
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       required:
       - title
       title: EmbeddedCreateTemplateRequest
@@ -27755,6 +27794,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -27830,6 +27870,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -27953,6 +27994,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -28028,6 +28070,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -28059,6 +28102,7 @@ components:
             maximumRetryCount: 1
           signerRole: signerRole
         documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
         brandId: brandId
         files:
         - ""
@@ -28328,6 +28372,10 @@ components:
           type: array
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EmbeddedDocumentRequest
       type: object
     EmbeddedFileDetails:
@@ -28382,6 +28430,42 @@ components:
       additionalProperties: false
       example:
         allowScheduledSend: false
+        redirectUrl: https://openapi-generator.tech
+        useTextTags: true
+        sendLinkValidTill: 2000-01-23T04:56:07.000+00:00
+        showToolbar: true
+        reminderSettings:
+          enableAutoReminder: false
+          reminderCount: 4
+          reminderDays: 1
+        removeFormFields:
+        - removeFormFields
+        - removeFormFields
+        allowedSignatureTypes:
+        - Text
+        - Text
+        isSandbox: true
+        expiryValue: 6
+        templateIds:
+        - templateIds
+        - templateIds
+        enablePrintAndSign: true
+        roleRemovalIndices:
+        - 1
+        - 1
+        fileUrls:
+        - https://openapi-generator.tech
+        - https://openapi-generator.tech
+        enableReassign: true
+        labels:
+        - labels
+        - labels
+        brandId: brandId
+        files:
+        - ""
+        - ""
+        showSaveButton: true
+        showPreviewButton: true
         documentInfo:
         - description: description
           language: 2
@@ -28391,7 +28475,6 @@ components:
           language: 2
           locale: EN
           title: title
-        redirectUrl: https://openapi-generator.tech
         textTagDefinitions:
         - attachmentInfo:
             acceptedFileTypes:
@@ -28530,7 +28613,6 @@ components:
           - allowedDirectories
           - allowedDirectories
           enabled: true
-        useTextTags: true
         showNavigationButtons: true
         roles:
         - authenticationRetryCount: 6
@@ -28638,6 +28720,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -28713,6 +28796,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -28847,6 +28931,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -28922,6 +29007,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -28952,43 +29038,22 @@ components:
             holdForPrefill: true
             maximumRetryCount: 1
         onBehalfOf: onBehalfOf
-        sendLinkValidTill: 2000-01-23T04:56:07.000+00:00
         locale: EN
         title: title
         hideDocumentId: true
         showSendButton: true
-        showToolbar: true
         disableSMS: false
         disableEmails: true
         metaData:
           key: metaData
-        reminderSettings:
-          enableAutoReminder: false
-          reminderCount: 4
-          reminderDays: 1
-        removeFormFields:
-        - removeFormFields
-        - removeFormFields
         disableExpiryAlert: true
-        allowedSignatureTypes:
-        - Text
-        - Text
-        isSandbox: true
         scheduledSendTime: 5
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
         enableAuditTrailLocalization: true
         downloadFileName: downloadFileName
-        expiryValue: 6
-        templateIds:
-        - templateIds
-        - templateIds
         sendViewOption: PreparePage
-        enablePrintAndSign: true
-        roleRemovalIndices:
-        - 1
-        - 1
         formGroups:
         - groupNames:
           - groupNames
@@ -29006,9 +29071,6 @@ components:
           minimumCount: 1455634201
         showTooltip: true
         expiryDateType: Days
-        fileUrls:
-        - https://openapi-generator.tech
-        - https://openapi-generator.tech
         enableSigningOrder: true
         message: message
         recipientNotificationSettings:
@@ -29024,19 +29086,10 @@ components:
           reassigned: true
           completed: true
           revoked: true
-        enableReassign: true
-        labels:
-        - labels
-        - labels
         documentDownloadOption: Combined
-        brandId: brandId
-        files:
-        - ""
-        - ""
-        showSaveButton: true
+        enableAllowSignEverywhere: true
         documentId: documentId
         expiryDays: 0
-        showPreviewButton: true
       properties:
         files:
           items:
@@ -29299,6 +29352,10 @@ components:
           type: array
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EmbeddedMergeTemplateFormRequest
       type: object
     EmbeddedSendCreated:
@@ -29444,6 +29501,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -29519,6 +29577,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -29653,6 +29712,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -29728,6 +29788,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -29832,6 +29893,7 @@ components:
         - labels
         - labels
         documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
         brandId: brandId
         files:
         - ""
@@ -30086,6 +30148,10 @@ components:
           type: array
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EmbeddedSendTemplateFormRequest
       type: object
     EmbeddedSigningLink:
@@ -30474,6 +30540,7 @@ components:
         dataSyncTag: dataSyncTag
         isMasked: false
         resizeOption: GrowVertically
+        isDefaultValueRequired: true
         groupName: groupName
         dropdownOptions:
         - dropdownOptions
@@ -30692,6 +30759,10 @@ components:
           $ref: '#/components/schemas/CollaborationSettings'
         isMasked:
           default: false
+          nullable: true
+          title: Nullable`1
+          type: boolean
+        isDefaultValueRequired:
           nullable: true
           title: Nullable`1
           type: boolean
@@ -31556,6 +31627,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -31631,6 +31703,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -31765,6 +31838,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -31840,6 +31914,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -31941,6 +32016,7 @@ components:
         - labels
         - labels
         documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
         brandId: brandId
         files:
         - ""
@@ -32150,6 +32226,10 @@ components:
           type: array
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: MergeAndSendForSignForm
       type: object
     ModificationDetails:
@@ -32683,6 +32763,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -32758,6 +32839,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -33064,6 +33146,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -33139,6 +33222,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -33632,6 +33716,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -33707,6 +33792,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -33830,6 +33916,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -33905,6 +33992,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -33936,6 +34024,7 @@ components:
             maximumRetryCount: 1
           signerRole: signerRole
         documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
         brandId: brandId
         files:
         - ""
@@ -34136,6 +34225,10 @@ components:
           type: array
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: SendForSign
       type: object
     SendForSignFromTemplateForm:
@@ -34262,6 +34355,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -34337,6 +34431,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -34471,6 +34566,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -34546,6 +34642,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -34644,6 +34741,7 @@ components:
         - labels
         - labels
         documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
         brandId: brandId
         files:
         - ""
@@ -34837,6 +34935,10 @@ components:
           type: array
         groupSignerSettings:
           $ref: '#/components/schemas/GroupSignerSettings'
+        enableAllowSignEverywhere:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: SendForSignFromTemplateForm
       type: object
     SenderIdentityCreated:
@@ -36555,6 +36657,7 @@ components:
         dataSyncTag: dataSyncTag
         isMasked: false
         resizeOption: GrowVertically
+        isDefaultValueRequired: true
         groupName: groupName
         dropdownOptions:
         - dropdownOptions
@@ -36743,6 +36846,9 @@ components:
           default: false
           title: Boolean
           type: boolean
+        isDefaultValueRequired:
+          title: Boolean
+          type: boolean
       title: TemplateFormFields
       type: object
     TemplateGroupSigner:
@@ -36884,6 +36990,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -36959,6 +37066,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -37078,6 +37186,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -37153,6 +37262,7 @@ components:
             dataSyncTag: dataSyncTag
             isMasked: false
             resizeOption: GrowVertically
+            isDefaultValueRequired: true
             groupName: groupName
             dropdownOptions:
             - dropdownOptions
@@ -37311,6 +37421,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -37386,6 +37497,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -37822,6 +37934,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
@@ -37897,6 +38010,7 @@ components:
           dataSyncTag: dataSyncTag
           isMasked: false
           resizeOption: GrowVertically
+          isDefaultValueRequired: true
           groupName: groupName
           dropdownOptions:
           - dropdownOptions
