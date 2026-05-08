@@ -49,6 +49,7 @@
 |**allowDeleteFormField** | **Boolean** |  |  [optional] |
 |**collaborationSettings** | [**CollaborationSettings**](CollaborationSettings.md) |  |  [optional] |
 |**isMasked** | **Boolean** |  |  [optional] |
+|**isDefaultValueRequired** | **Boolean** |  |  [optional] |
 
 
 

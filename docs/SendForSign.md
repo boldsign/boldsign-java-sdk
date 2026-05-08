@@ -44,6 +44,7 @@
 |**allowScheduledSend** | **Boolean** |  |  [optional] |
 |**allowedSignatureTypes** | [**List&lt;AllowedSignatureTypesEnum&gt;**](#List&lt;AllowedSignatureTypesEnum&gt;) |  |  [optional] |
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
+|**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
 
 
 

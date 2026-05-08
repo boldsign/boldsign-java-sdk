@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>5.1.3</version>
+  <version>5.1.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:5.1.3"
+     implementation "com.boldsign:boldsign-java:5.1.4"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-5.1.3.jar`
+* `target/boldsign-java-5.1.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

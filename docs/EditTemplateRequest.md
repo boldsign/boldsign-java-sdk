@@ -17,6 +17,7 @@
 |**allowMessageEditing** | **Boolean** |  |  [optional] |
 |**allowNewRoles** | **Boolean** |  |  [optional] |
 |**allowNewFiles** | **Boolean** |  |  [optional] |
+|**allowModifyFiles** | **Boolean** |  |  [optional] |
 |**enableReassign** | **Boolean** |  |  [optional] |
 |**enablePrintAndSign** | **Boolean** |  |  [optional] |
 |**enableSigningOrder** | **Boolean** |  |  [optional] |
@@ -29,6 +30,7 @@
 |**allowedSignatureTypes** | [**List&lt;AllowedSignatureTypesEnum&gt;**](#List&lt;AllowedSignatureTypesEnum&gt;) |  |  [optional] |
 |**formFieldPermission** | [**FormFieldPermission**](FormFieldPermission.md) |  |  [optional] |
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
+|**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
 
 
 
