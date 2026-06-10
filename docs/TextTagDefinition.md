@@ -39,6 +39,7 @@
 |**resizeOption** | [**ResizeOptionEnum**](#ResizeOptionEnum) |  |  [optional] |
 |**collaborationSettings** | [**CollaborationSettings**](CollaborationSettings.md) |  |  [optional] |
 |**isMasked** | **Boolean** |  |  [optional] |
+|**conditionalRules** | [**List&lt;ConditionalRule&gt;**](ConditionalRule.md) |  |  [optional] |
 
 
 

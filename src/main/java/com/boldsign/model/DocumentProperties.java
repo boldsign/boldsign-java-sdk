@@ -544,6 +544,18 @@ public class DocumentProperties {
   @SerializedName(SERIALIZED_NAME_DISPLAY_STATUS)
   private String displayStatus;
 
+  public static final String SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE = "enableAllowSignEverywhere";
+  @SerializedName(SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE)
+  private Boolean enableAllowSignEverywhere;
+
+  public static final String SERIALIZED_NAME_IS_COMBINED_AUDIT = "isCombinedAudit";
+  @SerializedName(SERIALIZED_NAME_IS_COMBINED_AUDIT)
+  private Boolean isCombinedAudit;
+
+  public static final String SERIALIZED_NAME_IS_COMBINED_ATTACHMENT = "isCombinedAttachment";
+  @SerializedName(SERIALIZED_NAME_IS_COMBINED_ATTACHMENT)
+  private Boolean isCombinedAttachment;
+
   public DocumentProperties() {
   }
 
@@ -1463,6 +1475,63 @@ public class DocumentProperties {
   }
 
 
+  public DocumentProperties enableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+    return this;
+  }
+
+  /**
+   * Get enableAllowSignEverywhere
+   * @return enableAllowSignEverywhere
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAllowSignEverywhere() {
+    return enableAllowSignEverywhere;
+  }
+
+  public void setEnableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+  }
+
+
+  public DocumentProperties isCombinedAudit(Boolean isCombinedAudit) {
+    this.isCombinedAudit = isCombinedAudit;
+    return this;
+  }
+
+  /**
+   * Get isCombinedAudit
+   * @return isCombinedAudit
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsCombinedAudit() {
+    return isCombinedAudit;
+  }
+
+  public void setIsCombinedAudit(Boolean isCombinedAudit) {
+    this.isCombinedAudit = isCombinedAudit;
+  }
+
+
+  public DocumentProperties isCombinedAttachment(Boolean isCombinedAttachment) {
+    this.isCombinedAttachment = isCombinedAttachment;
+    return this;
+  }
+
+  /**
+   * Get isCombinedAttachment
+   * @return isCombinedAttachment
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsCombinedAttachment() {
+    return isCombinedAttachment;
+  }
+
+  public void setIsCombinedAttachment(Boolean isCombinedAttachment) {
+    this.isCombinedAttachment = isCombinedAttachment;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1516,12 +1585,15 @@ public class DocumentProperties {
         Objects.equals(this.allowedSignatureTypes, documentProperties.allowedSignatureTypes) &&
         Objects.equals(this.groupSignerSettings, documentProperties.groupSignerSettings) &&
         Objects.equals(this.inEditingMode, documentProperties.inEditingMode) &&
-        Objects.equals(this.displayStatus, documentProperties.displayStatus);
+        Objects.equals(this.displayStatus, documentProperties.displayStatus) &&
+        Objects.equals(this.enableAllowSignEverywhere, documentProperties.enableAllowSignEverywhere) &&
+        Objects.equals(this.isCombinedAudit, documentProperties.isCombinedAudit) &&
+        Objects.equals(this.isCombinedAttachment, documentProperties.isCombinedAttachment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, inEditingMode, displayStatus);
+    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, inEditingMode, displayStatus, enableAllowSignEverywhere, isCombinedAudit, isCombinedAttachment);
   }
 
   @Override
@@ -1572,6 +1644,9 @@ public class DocumentProperties {
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
     sb.append("    inEditingMode: ").append(toIndentedString(inEditingMode)).append("\n");
     sb.append("    displayStatus: ").append(toIndentedString(displayStatus)).append("\n");
+    sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
+    sb.append("    isCombinedAudit: ").append(toIndentedString(isCombinedAudit)).append("\n");
+    sb.append("    isCombinedAttachment: ").append(toIndentedString(isCombinedAttachment)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2710,6 +2785,66 @@ public class DocumentProperties {
           map.put("displayStatus", JSON.serialize(displayStatus));
         }
     }
+    if (enableAllowSignEverywhere != null) {
+        if (isFileTypeOrListOfFiles(enableAllowSignEverywhere)) {
+            fileTypeFound = true;
+        }
+
+        if (enableAllowSignEverywhere.getClass().equals(java.io.File.class) ||
+            enableAllowSignEverywhere.getClass().equals(Integer.class) ||
+            enableAllowSignEverywhere.getClass().equals(String.class) ||
+            enableAllowSignEverywhere.getClass().equals(java.net.URI.class)||
+            enableAllowSignEverywhere.getClass().isEnum()) {
+            map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+        } else if (isListOfFile(enableAllowSignEverywhere)) {
+            for(int i = 0; i< getListSize(enableAllowSignEverywhere); i++) {
+                map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+            }
+        }
+        else {
+          map.put("enableAllowSignEverywhere", JSON.serialize(enableAllowSignEverywhere));
+        }
+    }
+    if (isCombinedAudit != null) {
+        if (isFileTypeOrListOfFiles(isCombinedAudit)) {
+            fileTypeFound = true;
+        }
+
+        if (isCombinedAudit.getClass().equals(java.io.File.class) ||
+            isCombinedAudit.getClass().equals(Integer.class) ||
+            isCombinedAudit.getClass().equals(String.class) ||
+            isCombinedAudit.getClass().equals(java.net.URI.class)||
+            isCombinedAudit.getClass().isEnum()) {
+            map.put("isCombinedAudit", isCombinedAudit);
+        } else if (isListOfFile(isCombinedAudit)) {
+            for(int i = 0; i< getListSize(isCombinedAudit); i++) {
+                map.put("isCombinedAudit", isCombinedAudit);
+            }
+        }
+        else {
+          map.put("isCombinedAudit", JSON.serialize(isCombinedAudit));
+        }
+    }
+    if (isCombinedAttachment != null) {
+        if (isFileTypeOrListOfFiles(isCombinedAttachment)) {
+            fileTypeFound = true;
+        }
+
+        if (isCombinedAttachment.getClass().equals(java.io.File.class) ||
+            isCombinedAttachment.getClass().equals(Integer.class) ||
+            isCombinedAttachment.getClass().equals(String.class) ||
+            isCombinedAttachment.getClass().equals(java.net.URI.class)||
+            isCombinedAttachment.getClass().isEnum()) {
+            map.put("isCombinedAttachment", isCombinedAttachment);
+        } else if (isListOfFile(isCombinedAttachment)) {
+            for(int i = 0; i< getListSize(isCombinedAttachment); i++) {
+                map.put("isCombinedAttachment", isCombinedAttachment);
+            }
+        }
+        else {
+          map.put("isCombinedAttachment", JSON.serialize(isCombinedAttachment));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2799,6 +2934,9 @@ public class DocumentProperties {
     openapiFields.add("groupSignerSettings");
     openapiFields.add("inEditingMode");
     openapiFields.add("displayStatus");
+    openapiFields.add("enableAllowSignEverywhere");
+    openapiFields.add("isCombinedAudit");
+    openapiFields.add("isCombinedAttachment");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

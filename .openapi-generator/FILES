@@ -89,6 +89,7 @@ docs/EmbeddedTemplateEdited.md
 docs/EmbeddedTemplatePreview.md
 docs/EmbeddedTemplatePreviewJsonRequest.md
 docs/Error.md
+docs/ErrorResponse.md
 docs/ErrorResult.md
 docs/ExistingFormField.md
 docs/ExtendExpiry.md
@@ -160,11 +161,14 @@ docs/TemplateRecords.md
 docs/TemplateRole.md
 docs/TemplateSenderDetail.md
 docs/TemplateSenderDetails.md
+docs/TemplateShareErrorResponse.md
+docs/TemplateShareRequest.md
 docs/TemplateSharedTemplateDetail.md
 docs/TemplateSharing.md
 docs/TemplateSignerDetails.md
 docs/TemplateTag.md
 docs/TemplateTeamShare.md
+docs/TemplateTeamShareRequest.md
 docs/TextTagDefinition.md
 docs/TextTagOffset.md
 docs/UpdateGroupContact.md
@@ -296,6 +300,7 @@ src/main/java/com/boldsign/model/EmbeddedTemplateEdited.java
 src/main/java/com/boldsign/model/EmbeddedTemplatePreview.java
 src/main/java/com/boldsign/model/EmbeddedTemplatePreviewJsonRequest.java
 src/main/java/com/boldsign/model/Error.java
+src/main/java/com/boldsign/model/ErrorResponse.java
 src/main/java/com/boldsign/model/ErrorResult.java
 src/main/java/com/boldsign/model/ExistingFormField.java
 src/main/java/com/boldsign/model/ExtendExpiry.java
@@ -361,11 +366,14 @@ src/main/java/com/boldsign/model/TemplateRecords.java
 src/main/java/com/boldsign/model/TemplateRole.java
 src/main/java/com/boldsign/model/TemplateSenderDetail.java
 src/main/java/com/boldsign/model/TemplateSenderDetails.java
+src/main/java/com/boldsign/model/TemplateShareErrorResponse.java
+src/main/java/com/boldsign/model/TemplateShareRequest.java
 src/main/java/com/boldsign/model/TemplateSharedTemplateDetail.java
 src/main/java/com/boldsign/model/TemplateSharing.java
 src/main/java/com/boldsign/model/TemplateSignerDetails.java
 src/main/java/com/boldsign/model/TemplateTag.java
 src/main/java/com/boldsign/model/TemplateTeamShare.java
+src/main/java/com/boldsign/model/TemplateTeamShareRequest.java
 src/main/java/com/boldsign/model/TextTagDefinition.java
 src/main/java/com/boldsign/model/TextTagOffset.java
 src/main/java/com/boldsign/model/UpdateGroupContact.java

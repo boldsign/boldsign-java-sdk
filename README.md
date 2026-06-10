@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>5.1.4</version>
+  <version>5.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:5.1.4"
+     implementation "com.boldsign:boldsign-java:5.2.0"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-5.1.4.jar`
+* `target/boldsign-java-5.2.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -202,6 +202,7 @@ Class | Method | HTTP request | Description
 *TemplateApi* | [**mergeAndSend**](docs/TemplateApi.md#mergeAndSend) | **POST** /v1/template/mergeAndSend | Send the document by merging multiple templates.
 *TemplateApi* | [**mergeCreateEmbeddedRequestUrlTemplate**](docs/TemplateApi.md#mergeCreateEmbeddedRequestUrlTemplate) | **POST** /v1/template/mergeCreateEmbeddedRequestUrl | Generates a merge request URL using a template that combines document merging and sending processes into your application.
 *TemplateApi* | [**sendUsingTemplate**](docs/TemplateApi.md#sendUsingTemplate) | **POST** /v1/template/send | Send a document for signature using a Template.
+*TemplateApi* | [**shareTemplate**](docs/TemplateApi.md#shareTemplate) | **PATCH** /v1/template/share | Share a template with teams and manage permissions.
 *UserApi* | [**cancelInvitation**](docs/UserApi.md#cancelInvitation) | **POST** /v1/users/cancelInvitation | Cancel the users invitation.
 *UserApi* | [**changeTeam**](docs/UserApi.md#changeTeam) | **PUT** /v1/users/changeTeam | Change users to other team.
 *UserApi* | [**createUser**](docs/UserApi.md#createUser) | **POST** /v1/users/create | Create the user.
@@ -293,6 +294,7 @@ Class | Method | HTTP request | Description
  - [EmbeddedTemplatePreview](docs/EmbeddedTemplatePreview.md)
  - [EmbeddedTemplatePreviewJsonRequest](docs/EmbeddedTemplatePreviewJsonRequest.md)
  - [Error](docs/Error.md)
+ - [ErrorResponse](docs/ErrorResponse.md)
  - [ErrorResult](docs/ErrorResult.md)
  - [ExistingFormField](docs/ExistingFormField.md)
  - [ExtendExpiry](docs/ExtendExpiry.md)
@@ -358,11 +360,14 @@ Class | Method | HTTP request | Description
  - [TemplateRole](docs/TemplateRole.md)
  - [TemplateSenderDetail](docs/TemplateSenderDetail.md)
  - [TemplateSenderDetails](docs/TemplateSenderDetails.md)
+ - [TemplateShareErrorResponse](docs/TemplateShareErrorResponse.md)
+ - [TemplateShareRequest](docs/TemplateShareRequest.md)
  - [TemplateSharedTemplateDetail](docs/TemplateSharedTemplateDetail.md)
  - [TemplateSharing](docs/TemplateSharing.md)
  - [TemplateSignerDetails](docs/TemplateSignerDetails.md)
  - [TemplateTag](docs/TemplateTag.md)
  - [TemplateTeamShare](docs/TemplateTeamShare.md)
+ - [TemplateTeamShareRequest](docs/TemplateTeamShareRequest.md)
  - [TextTagDefinition](docs/TextTagDefinition.md)
  - [TextTagOffset](docs/TextTagOffset.md)
  - [UpdateGroupContact](docs/UpdateGroupContact.md)

@@ -38,6 +38,7 @@
 |**allowedSignatureTypes** | [**List&lt;AllowedSignatureTypesEnum&gt;**](#List&lt;AllowedSignatureTypesEnum&gt;) |  |  [optional] |
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 |**sharing** | [**TemplateSharing**](TemplateSharing.md) |  |  [optional] |
+|**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
 
 
 

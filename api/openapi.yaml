@@ -15632,6 +15632,179 @@ paths:
       - application/xml
       - text/json
       - text/plain
+  /v1/template/share:
+    patch:
+      operationId: ShareTemplate
+      parameters:
+      - description: Template Id.
+        explode: true
+        in: query
+        name: templateId
+        required: true
+        schema:
+          title: String
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json;odata.metadata=minimal;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=minimal:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.streaming=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.streaming=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=minimal;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=minimal;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=minimal;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=full;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.metadata=none;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.streaming=true;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.streaming=true;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.streaming=false;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;odata.streaming=false;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;IEEE754Compatible=false:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json;IEEE754Compatible=true:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          text/plain:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TemplateShareRequest'
+        description: Permissions request.
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateShareErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateShareErrorResponse'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Unauthorized
+      summary: Share a template with teams and manage permissions.
+      tags:
+      - Template
+      x-content-type: application/json;odata.metadata=minimal;odata.streaming=true
+      x-accepts:
+      - application/json
   /v1/template/createEmbeddedPreviewUrl:
     post:
       operationId: createEmbeddedPreviewUrl
@@ -19211,7 +19384,14 @@ components:
           locale: EN
           title: title
         textTagDefinitions:
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -19277,7 +19457,14 @@ components:
             style: Regular
             lineHeight: 9
             isUnderLineFont: true
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -21482,6 +21669,7 @@ components:
           - allowedDirectories
           - allowedDirectories
           enabled: true
+        isCombinedAttachment: true
         documentHistory:
         - ipaddress: ipaddress
           recipientChangeLog:
@@ -21557,6 +21745,7 @@ components:
           message: message
           order: 1
         displayStatus: displayStatus
+        isCombinedAudit: true
         hideDocumentId: true
         expiryDate: 2
         disableEmails: true
@@ -22100,6 +22289,7 @@ components:
         - labels
         - labels
         documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
         createdDate: 9
         declineMessage: declineMessage
         brandId: brandId
@@ -22500,6 +22690,15 @@ components:
           nullable: true
           title: String
           type: string
+        enableAllowSignEverywhere:
+          title: Boolean
+          type: boolean
+        isCombinedAudit:
+          title: Boolean
+          type: boolean
+        isCombinedAttachment:
+          title: Boolean
+          type: boolean
       title: DocumentProperties
       type: object
     DocumentReassign:
@@ -24470,7 +24669,14 @@ components:
           locale: EN
           title: title
         textTagDefinitions:
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -24536,7 +24742,14 @@ components:
             style: Regular
             lineHeight: 9
             isUnderLineFont: true
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -26562,7 +26775,14 @@ components:
           title: title
         redirectUrl: https://openapi-generator.tech
         textTagDefinitions:
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -26628,7 +26848,14 @@ components:
             style: Regular
             lineHeight: 9
             isUnderLineFont: true
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -27490,7 +27717,14 @@ components:
           title: title
         redirectUrl: https://openapi-generator.tech
         textTagDefinitions:
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -27556,7 +27790,14 @@ components:
             style: Regular
             lineHeight: 9
             isUnderLineFont: true
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -28476,7 +28717,14 @@ components:
           locale: EN
           title: title
         textTagDefinitions:
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -28542,7 +28790,14 @@ components:
             style: Regular
             lineHeight: 9
             isUnderLineFont: true
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -30327,6 +30582,22 @@ components:
           type: string
       title: Error
       type: object
+    ErrorResponse:
+      additionalProperties: false
+      example:
+        errorType: errorType
+        error: error
+      properties:
+        errorType:
+          nullable: true
+          title: String
+          type: string
+        error:
+          nullable: true
+          title: String
+          type: string
+      title: ErrorResponse
+      type: object
     ErrorResult:
       additionalProperties: false
       example:
@@ -31383,7 +31654,14 @@ components:
           locale: EN
           title: title
         textTagDefinitions:
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -31449,7 +31727,14 @@ components:
             style: Regular
             lineHeight: 9
             isUnderLineFont: true
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -33419,7 +33704,14 @@ components:
           locale: EN
           title: title
         textTagDefinitions:
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -33485,7 +33777,14 @@ components:
             style: Regular
             lineHeight: 9
             isUnderLineFont: true
-        - attachmentInfo:
+        - conditionalRules:
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          - isChecked: true
+            value: value
+            fieldId: fieldId
+          attachmentInfo:
             acceptedFileTypes:
             - acceptedFileTypes
             - acceptedFileTypes
@@ -37348,6 +37647,7 @@ components:
         - labels
         - labels
         documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
         createdDate: 7
         createdBy:
           emailAddress: emailAddress
@@ -37652,6 +37952,9 @@ components:
           $ref: '#/components/schemas/GroupSignerSettings'
         sharing:
           $ref: '#/components/schemas/TemplateSharing'
+        enableAllowSignEverywhere:
+          title: Boolean
+          type: boolean
       title: TemplateProperties
       type: object
     TemplateRecords:
@@ -38219,6 +38522,56 @@ components:
           type: string
       title: TemplateSenderDetails
       type: object
+    TemplateShareErrorResponse:
+      additionalProperties: false
+      example:
+        teams:
+        - teams
+        - teams
+        errorType: errorType
+        templateId: templateId
+        error: error
+      properties:
+        teams:
+          items:
+            title: String
+            type: string
+          nullable: true
+          title: List`1
+          type: array
+        templateId:
+          nullable: true
+          title: String
+          type: string
+        errorType:
+          nullable: true
+          title: String
+          type: string
+        error:
+          nullable: true
+          title: String
+          type: string
+      title: TemplateShareErrorResponse
+      type: object
+    TemplateShareRequest:
+      additionalProperties: false
+      example:
+        teams:
+        - accessLevel: Use
+          teamId: teamId
+          action: Grant
+        - accessLevel: Use
+          teamId: teamId
+          action: Grant
+      properties:
+        teams:
+          items:
+            $ref: '#/components/schemas/TemplateTeamShareRequest'
+          nullable: true
+          title: List`1
+          type: array
+      title: TemplateShareRequest
+      type: object
     TemplateSharedTemplateDetail:
       additionalProperties: false
       example:
@@ -38437,9 +38790,45 @@ components:
           type: string
       title: TemplateTeamShare
       type: object
+    TemplateTeamShareRequest:
+      additionalProperties: false
+      example:
+        accessLevel: Use
+        teamId: teamId
+        action: Grant
+      properties:
+        teamId:
+          minLength: 1
+          title: String
+          type: string
+        action:
+          enum:
+          - Grant
+          - Revoke
+          title: Nullable`1
+          type: string
+        accessLevel:
+          enum:
+          - Use
+          - Edit
+          nullable: true
+          title: Nullable`1
+          type: string
+      required:
+      - action
+      - teamId
+      title: TemplateTeamShareRequest
+      type: object
     TextTagDefinition:
       additionalProperties: false
       example:
+        conditionalRules:
+        - isChecked: true
+          value: value
+          fieldId: fieldId
+        - isChecked: true
+          value: value
+          fieldId: fieldId
         attachmentInfo:
           acceptedFileTypes:
           - acceptedFileTypes
@@ -38655,6 +39044,12 @@ components:
           nullable: true
           title: Nullable`1
           type: boolean
+        conditionalRules:
+          items:
+            $ref: '#/components/schemas/ConditionalRule'
+          nullable: true
+          title: IEnumerable`1
+          type: array
       required:
       - definitionId
       - signerIndex
