@@ -291,6 +291,10 @@ public class TemplateProperties {
   @SerializedName(SERIALIZED_NAME_SHARING)
   private TemplateSharing sharing;
 
+  public static final String SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE = "enableAllowSignEverywhere";
+  @SerializedName(SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE)
+  private Boolean enableAllowSignEverywhere;
+
   public TemplateProperties() {
   }
 
@@ -967,6 +971,25 @@ public class TemplateProperties {
   }
 
 
+  public TemplateProperties enableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+    return this;
+  }
+
+  /**
+   * Get enableAllowSignEverywhere
+   * @return enableAllowSignEverywhere
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAllowSignEverywhere() {
+    return enableAllowSignEverywhere;
+  }
+
+  public void setEnableAllowSignEverywhere(Boolean enableAllowSignEverywhere) {
+    this.enableAllowSignEverywhere = enableAllowSignEverywhere;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1007,12 +1030,13 @@ public class TemplateProperties {
         Objects.equals(this.formFieldPermission, templateProperties.formFieldPermission) &&
         Objects.equals(this.allowedSignatureTypes, templateProperties.allowedSignatureTypes) &&
         Objects.equals(this.groupSignerSettings, templateProperties.groupSignerSettings) &&
-        Objects.equals(this.sharing, templateProperties.sharing);
+        Objects.equals(this.sharing, templateProperties.sharing) &&
+        Objects.equals(this.enableAllowSignEverywhere, templateProperties.enableAllowSignEverywhere);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId, title, description, documentTitle, documentMessage, files, roles, formGroups, commonFields, cCDetails, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, allowModifyFiles, enableReassign, enablePrintAndSign, enableSigningOrder, createdDate, createdBy, sharedTemplateDetail, documentInfo, labels, templateLabels, behalfOf, documentDownloadOption, recipientNotificationSettings, formFieldPermission, allowedSignatureTypes, groupSignerSettings, sharing);
+    return Objects.hash(templateId, title, description, documentTitle, documentMessage, files, roles, formGroups, commonFields, cCDetails, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, allowModifyFiles, enableReassign, enablePrintAndSign, enableSigningOrder, createdDate, createdBy, sharedTemplateDetail, documentInfo, labels, templateLabels, behalfOf, documentDownloadOption, recipientNotificationSettings, formFieldPermission, allowedSignatureTypes, groupSignerSettings, sharing, enableAllowSignEverywhere);
   }
 
   @Override
@@ -1050,6 +1074,7 @@ public class TemplateProperties {
     sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
     sb.append("    sharing: ").append(toIndentedString(sharing)).append("\n");
+    sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1947,6 +1972,26 @@ public class TemplateProperties {
           map.put("sharing", JSON.serialize(sharing));
         }
     }
+    if (enableAllowSignEverywhere != null) {
+        if (isFileTypeOrListOfFiles(enableAllowSignEverywhere)) {
+            fileTypeFound = true;
+        }
+
+        if (enableAllowSignEverywhere.getClass().equals(java.io.File.class) ||
+            enableAllowSignEverywhere.getClass().equals(Integer.class) ||
+            enableAllowSignEverywhere.getClass().equals(String.class) ||
+            enableAllowSignEverywhere.getClass().equals(java.net.URI.class)||
+            enableAllowSignEverywhere.getClass().isEnum()) {
+            map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+        } else if (isListOfFile(enableAllowSignEverywhere)) {
+            for(int i = 0; i< getListSize(enableAllowSignEverywhere); i++) {
+                map.put("enableAllowSignEverywhere", enableAllowSignEverywhere);
+            }
+        }
+        else {
+          map.put("enableAllowSignEverywhere", JSON.serialize(enableAllowSignEverywhere));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2023,6 +2068,7 @@ public class TemplateProperties {
     openapiFields.add("allowedSignatureTypes");
     openapiFields.add("groupSignerSettings");
     openapiFields.add("sharing");
+    openapiFields.add("enableAllowSignEverywhere");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

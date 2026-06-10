@@ -51,6 +51,9 @@
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 |**inEditingMode** | **Boolean** |  |  [optional] |
 |**displayStatus** | **String** |  |  [optional] |
+|**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
+|**isCombinedAudit** | **Boolean** |  |  [optional] |
+|**isCombinedAttachment** | **Boolean** |  |  [optional] |
 
 
 

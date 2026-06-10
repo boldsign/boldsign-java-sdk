@@ -16,6 +16,7 @@ package com.boldsign.model;
 import java.util.Objects;
 import com.boldsign.model.AttachmentInfo;
 import com.boldsign.model.CollaborationSettings;
+import com.boldsign.model.ConditionalRule;
 import com.boldsign.model.Font;
 import com.boldsign.model.FormulaFieldSettings;
 import com.boldsign.model.ImageInfo;
@@ -427,6 +428,10 @@ public class TextTagDefinition {
   public static final String SERIALIZED_NAME_IS_MASKED = "isMasked";
   @SerializedName(SERIALIZED_NAME_IS_MASKED)
   private Boolean isMasked = false;
+
+  public static final String SERIALIZED_NAME_CONDITIONAL_RULES = "conditionalRules";
+  @SerializedName(SERIALIZED_NAME_CONDITIONAL_RULES)
+  private List<ConditionalRule> conditionalRules;
 
   public TextTagDefinition() {
   }
@@ -1053,6 +1058,33 @@ public class TextTagDefinition {
   }
 
 
+  public TextTagDefinition conditionalRules(List<ConditionalRule> conditionalRules) {
+    this.conditionalRules = conditionalRules;
+    return this;
+  }
+
+  public TextTagDefinition addConditionalRulesItem(ConditionalRule conditionalRulesItem) {
+    if (this.conditionalRules == null) {
+      this.conditionalRules = new ArrayList<>();
+    }
+    this.conditionalRules.add(conditionalRulesItem);
+    return this;
+  }
+
+  /**
+   * Get conditionalRules
+   * @return conditionalRules
+   */
+  @javax.annotation.Nullable
+  public List<ConditionalRule> getConditionalRules() {
+    return conditionalRules;
+  }
+
+  public void setConditionalRules(List<ConditionalRule> conditionalRules) {
+    this.conditionalRules = conditionalRules;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1094,12 +1126,13 @@ public class TextTagDefinition {
         Objects.equals(this.formulaFieldSettings, textTagDefinition.formulaFieldSettings) &&
         Objects.equals(this.resizeOption, textTagDefinition.resizeOption) &&
         Objects.equals(this.collaborationSettings, textTagDefinition.collaborationSettings) &&
-        Objects.equals(this.isMasked, textTagDefinition.isMasked);
+        Objects.equals(this.isMasked, textTagDefinition.isMasked) &&
+        Objects.equals(this.conditionalRules, textTagDefinition.conditionalRules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(definitionId, type, signerIndex, isRequired, placeholder, fieldId, font, validation, size, dateFormat, timeFormat, radioGroupName, groupName, value, dropdownOptions, imageInfo, hyperlinkText, attachmentInfo, backgroundHexColor, isReadOnly, offset, label, tabIndex, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, formulaFieldSettings, resizeOption, collaborationSettings, isMasked);
+    return Objects.hash(definitionId, type, signerIndex, isRequired, placeholder, fieldId, font, validation, size, dateFormat, timeFormat, radioGroupName, groupName, value, dropdownOptions, imageInfo, hyperlinkText, attachmentInfo, backgroundHexColor, isReadOnly, offset, label, tabIndex, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, formulaFieldSettings, resizeOption, collaborationSettings, isMasked, conditionalRules);
   }
 
   @Override
@@ -1138,6 +1171,7 @@ public class TextTagDefinition {
     sb.append("    resizeOption: ").append(toIndentedString(resizeOption)).append("\n");
     sb.append("    collaborationSettings: ").append(toIndentedString(collaborationSettings)).append("\n");
     sb.append("    isMasked: ").append(toIndentedString(isMasked)).append("\n");
+    sb.append("    conditionalRules: ").append(toIndentedString(conditionalRules)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1812,6 +1846,53 @@ public class TextTagDefinition {
           map.put("isMasked", JSON.serialize(isMasked));
         }
     }
+    if (conditionalRules != null) {
+        if (isFileTypeOrListOfFiles(conditionalRules)) {
+            fileTypeFound = true;
+        }
+
+        if (conditionalRules.getClass().equals(java.io.File.class) ||
+            conditionalRules.getClass().equals(Integer.class) ||
+            conditionalRules.getClass().equals(String.class) ||
+            conditionalRules.getClass().equals(java.net.URI.class)||
+            conditionalRules.getClass().isEnum()) {
+            map.put("conditionalRules", conditionalRules);
+        } else if (isListOfFile(conditionalRules)) {
+            for(int i = 0; i< getListSize(conditionalRules); i++) {
+                map.put("conditionalRules", conditionalRules);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : conditionalRules) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("conditionalRules", objectList);
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1889,6 +1970,7 @@ public class TextTagDefinition {
     openapiFields.add("resizeOption");
     openapiFields.add("collaborationSettings");
     openapiFields.add("isMasked");
+    openapiFields.add("conditionalRules");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2015,6 +2097,20 @@ public class TextTagDefinition {
       // validate the optional field `collaborationSettings`
       if (jsonObj.get("collaborationSettings") != null && !jsonObj.get("collaborationSettings").isJsonNull()) {
         CollaborationSettings.validateJsonElement(jsonObj.get("collaborationSettings"));
+      }
+      if (jsonObj.get("conditionalRules") != null && !jsonObj.get("conditionalRules").isJsonNull()) {
+        JsonArray jsonArrayconditionalRules = jsonObj.getAsJsonArray("conditionalRules");
+        if (jsonArrayconditionalRules != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("conditionalRules").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `conditionalRules` to be an array in the JSON string but got `%s`", jsonObj.get("conditionalRules").toString()));
+          }
+
+          // validate the optional field `conditionalRules` (array)
+          for (int i = 0; i < jsonArrayconditionalRules.size(); i++) {
+            ConditionalRule.validateJsonElement(jsonArrayconditionalRules.get(i));
+          };
+        }
       }
   }
 
