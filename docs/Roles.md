@@ -120,6 +120,7 @@
 | ACCESS_CODE | &quot;AccessCode&quot; |
 | SMSOTP | &quot;SMSOTP&quot; |
 | ID_VERIFICATION | &quot;IdVerification&quot; |
+| KBA | &quot;KBA&quot; |
 
 
 

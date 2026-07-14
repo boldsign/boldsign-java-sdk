@@ -15,7 +15,9 @@ package com.boldsign.model;
 
 import java.util.Objects;
 import com.boldsign.model.AttachmentInfo;
+import com.boldsign.model.CheckboxValidationSettings;
 import com.boldsign.model.EditableDateFieldSettings;
+import com.boldsign.model.GroupOption;
 import com.boldsign.model.ImageInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -220,6 +222,14 @@ public class CustomFormField {
   public static final String SERIALIZED_NAME_FONT = "font";
   @SerializedName(SERIALIZED_NAME_FONT)
   private FontEnum font;
+
+  public static final String SERIALIZED_NAME_GROUP_OPTIONS = "groupOptions";
+  @SerializedName(SERIALIZED_NAME_GROUP_OPTIONS)
+  private List<GroupOption> groupOptions;
+
+  public static final String SERIALIZED_NAME_CHECKBOX_VALIDATION_SETTINGS = "checkboxValidationSettings";
+  @SerializedName(SERIALIZED_NAME_CHECKBOX_VALIDATION_SETTINGS)
+  private CheckboxValidationSettings checkboxValidationSettings;
 
   public static final String SERIALIZED_NAME_FONT_HEX_COLOR = "fontHexColor";
   @SerializedName(SERIALIZED_NAME_FONT_HEX_COLOR)
@@ -700,6 +710,52 @@ public class CustomFormField {
 
   public void setFont(FontEnum font) {
     this.font = font;
+  }
+
+
+  public CustomFormField groupOptions(List<GroupOption> groupOptions) {
+    this.groupOptions = groupOptions;
+    return this;
+  }
+
+  public CustomFormField addGroupOptionsItem(GroupOption groupOptionsItem) {
+    if (this.groupOptions == null) {
+      this.groupOptions = new ArrayList<>();
+    }
+    this.groupOptions.add(groupOptionsItem);
+    return this;
+  }
+
+  /**
+   * Get groupOptions
+   * @return groupOptions
+   */
+  @javax.annotation.Nullable
+  public List<GroupOption> getGroupOptions() {
+    return groupOptions;
+  }
+
+  public void setGroupOptions(List<GroupOption> groupOptions) {
+    this.groupOptions = groupOptions;
+  }
+
+
+  public CustomFormField checkboxValidationSettings(CheckboxValidationSettings checkboxValidationSettings) {
+    this.checkboxValidationSettings = checkboxValidationSettings;
+    return this;
+  }
+
+  /**
+   * Get checkboxValidationSettings
+   * @return checkboxValidationSettings
+   */
+  @javax.annotation.Nullable
+  public CheckboxValidationSettings getCheckboxValidationSettings() {
+    return checkboxValidationSettings;
+  }
+
+  public void setCheckboxValidationSettings(CheckboxValidationSettings checkboxValidationSettings) {
+    this.checkboxValidationSettings = checkboxValidationSettings;
   }
 
 
@@ -1227,6 +1283,8 @@ public class CustomFormField {
         Objects.equals(this.value, customFormField.value) &&
         Objects.equals(this.fontSize, customFormField.fontSize) &&
         Objects.equals(this.font, customFormField.font) &&
+        Objects.equals(this.groupOptions, customFormField.groupOptions) &&
+        Objects.equals(this.checkboxValidationSettings, customFormField.checkboxValidationSettings) &&
         Objects.equals(this.fontHexColor, customFormField.fontHexColor) &&
         Objects.equals(this.isBoldFont, customFormField.isBoldFont) &&
         Objects.equals(this.isItalicFont, customFormField.isItalicFont) &&
@@ -1257,7 +1315,7 @@ public class CustomFormField {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldType, width, height, isRequired, isReadOnly, value, fontSize, font, fontHexColor, isBoldFont, isItalicFont, isUnderLineFont, lineHeight, characterLimit, placeHolder, validationType, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, hyperlinkText, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, idPrefix, restrictIdPrefixChange, backgroundHexColor, resizeOption, isMasked);
+    return Objects.hash(fieldType, width, height, isRequired, isReadOnly, value, fontSize, font, groupOptions, checkboxValidationSettings, fontHexColor, isBoldFont, isItalicFont, isUnderLineFont, lineHeight, characterLimit, placeHolder, validationType, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, hyperlinkText, dataSyncTag, dropdownOptions, textAlign, textDirection, characterSpacing, idPrefix, restrictIdPrefixChange, backgroundHexColor, resizeOption, isMasked);
   }
 
   @Override
@@ -1272,6 +1330,8 @@ public class CustomFormField {
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
     sb.append("    font: ").append(toIndentedString(font)).append("\n");
+    sb.append("    groupOptions: ").append(toIndentedString(groupOptions)).append("\n");
+    sb.append("    checkboxValidationSettings: ").append(toIndentedString(checkboxValidationSettings)).append("\n");
     sb.append("    fontHexColor: ").append(toIndentedString(fontHexColor)).append("\n");
     sb.append("    isBoldFont: ").append(toIndentedString(isBoldFont)).append("\n");
     sb.append("    isItalicFont: ").append(toIndentedString(isItalicFont)).append("\n");
@@ -1463,6 +1523,73 @@ public class CustomFormField {
         }
         else {
           map.put("font", JSON.serialize(font));
+        }
+    }
+    if (groupOptions != null) {
+        if (isFileTypeOrListOfFiles(groupOptions)) {
+            fileTypeFound = true;
+        }
+
+        if (groupOptions.getClass().equals(java.io.File.class) ||
+            groupOptions.getClass().equals(Integer.class) ||
+            groupOptions.getClass().equals(String.class) ||
+            groupOptions.getClass().equals(java.net.URI.class)||
+            groupOptions.getClass().isEnum()) {
+            map.put("groupOptions", groupOptions);
+        } else if (isListOfFile(groupOptions)) {
+            for(int i = 0; i< getListSize(groupOptions); i++) {
+                map.put("groupOptions", groupOptions);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          for(Object item : groupOptions) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else if (item instanceof EditDocumentFile) {
+              int index = 0;
+              EditDocumentFile fileItem = (EditDocumentFile) item;
+              for (String field : EditDocumentFile.openapiFields) {
+                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+                Method getter = EditDocumentFile.class.getMethod(methodName);
+                Object value = getter.invoke(fileItem);
+                String key = "files[" + index + "]." + field;
+                if (value != null){
+                  if(field == "file"){
+                    fileTypeFound = true;
+                  }
+                map.put(key, value);
+                }
+              }
+              index++;
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+          }
+          map.put("groupOptions", objectList);
+        }
+    }
+    if (checkboxValidationSettings != null) {
+        if (isFileTypeOrListOfFiles(checkboxValidationSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (checkboxValidationSettings.getClass().equals(java.io.File.class) ||
+            checkboxValidationSettings.getClass().equals(Integer.class) ||
+            checkboxValidationSettings.getClass().equals(String.class) ||
+            checkboxValidationSettings.getClass().equals(java.net.URI.class)||
+            checkboxValidationSettings.getClass().isEnum()) {
+            map.put("checkboxValidationSettings", checkboxValidationSettings);
+        } else if (isListOfFile(checkboxValidationSettings)) {
+            for(int i = 0; i< getListSize(checkboxValidationSettings); i++) {
+                map.put("checkboxValidationSettings", checkboxValidationSettings);
+            }
+        }
+        else {
+          map.put("checkboxValidationSettings", JSON.serialize(checkboxValidationSettings));
         }
     }
     if (fontHexColor != null) {
@@ -2065,6 +2192,8 @@ public class CustomFormField {
     openapiFields.add("value");
     openapiFields.add("fontSize");
     openapiFields.add("font");
+    openapiFields.add("groupOptions");
+    openapiFields.add("checkboxValidationSettings");
     openapiFields.add("fontHexColor");
     openapiFields.add("isBoldFont");
     openapiFields.add("isItalicFont");
@@ -2132,6 +2261,24 @@ public class CustomFormField {
       // validate the optional field `font`
       if (jsonObj.get("font") != null && !jsonObj.get("font").isJsonNull()) {
         FontEnum.validateJsonElement(jsonObj.get("font"));
+      }
+      if (jsonObj.get("groupOptions") != null && !jsonObj.get("groupOptions").isJsonNull()) {
+        JsonArray jsonArraygroupOptions = jsonObj.getAsJsonArray("groupOptions");
+        if (jsonArraygroupOptions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("groupOptions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `groupOptions` to be an array in the JSON string but got `%s`", jsonObj.get("groupOptions").toString()));
+          }
+
+          // validate the optional field `groupOptions` (array)
+          for (int i = 0; i < jsonArraygroupOptions.size(); i++) {
+            GroupOption.validateJsonElement(jsonArraygroupOptions.get(i));
+          };
+        }
+      }
+      // validate the optional field `checkboxValidationSettings`
+      if (jsonObj.get("checkboxValidationSettings") != null && !jsonObj.get("checkboxValidationSettings").isJsonNull()) {
+        CheckboxValidationSettings.validateJsonElement(jsonObj.get("checkboxValidationSettings"));
       }
       if ((jsonObj.get("fontHexColor") != null && !jsonObj.get("fontHexColor").isJsonNull()) && !jsonObj.get("fontHexColor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fontHexColor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fontHexColor").toString()));

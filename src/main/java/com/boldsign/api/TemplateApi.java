@@ -30,6 +30,8 @@ import java.io.IOException;
 import com.boldsign.model.CreateTemplateRequest;
 import com.boldsign.model.DocumentCreated;
 import com.boldsign.model.EditTemplateRequest;
+import com.boldsign.model.EmbeddedCloneTemplateJsonRequest;
+import com.boldsign.model.EmbeddedClonedTemplate;
 import com.boldsign.model.EmbeddedCreateTemplateRequest;
 import com.boldsign.model.EmbeddedMergeTemplateFormRequest;
 import com.boldsign.model.EmbeddedSendCreated;
@@ -300,7 +302,7 @@ public class TemplateApi {
     }
     /**
      * Build call for createEmbeddedPreviewUrl
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedTemplatePreviewJsonRequest The embedded template preview request body. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -379,7 +381,7 @@ public class TemplateApi {
     /**
      * Generates a preview URL for a template to view it.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedTemplatePreviewJsonRequest The embedded template preview request body. (optional)
      * @return EmbeddedTemplatePreview
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -398,7 +400,7 @@ public class TemplateApi {
     /**
      * Generates a preview URL for a template to view it.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedTemplatePreviewJsonRequest The embedded template preview request body. (optional)
      * @return ApiResponse&lt;EmbeddedTemplatePreview&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -418,7 +420,7 @@ public class TemplateApi {
     /**
      * Generates a preview URL for a template to view it. (asynchronously)
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedTemplatePreviewJsonRequest The embedded template preview request body. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -439,7 +441,7 @@ public class TemplateApi {
     }
     /**
      * Build call for createEmbeddedRequestUrlTemplate
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedSendTemplateFormRequest Embedded send template json request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -519,7 +521,7 @@ public class TemplateApi {
     /**
      * Generates a send URL using a template which embeds document sending process into your application.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedSendTemplateFormRequest Embedded send template json request. (optional)
      * @return EmbeddedSendCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -539,7 +541,7 @@ public class TemplateApi {
     /**
      * Generates a send URL using a template which embeds document sending process into your application.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedSendTemplateFormRequest Embedded send template json request. (optional)
      * @return ApiResponse&lt;EmbeddedSendCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -560,7 +562,7 @@ public class TemplateApi {
     /**
      * Generates a send URL using a template which embeds document sending process into your application. (asynchronously)
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedSendTemplateFormRequest Embedded send template json request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -577,6 +579,149 @@ public class TemplateApi {
 
         okhttp3.Call localVarCall = createEmbeddedRequestUrlTemplateValidateBeforeCall(templateId, embeddedSendTemplateFormRequest, _callback);
         Type localVarReturnType = new TypeToken<EmbeddedSendCreated>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createEmbeddedTemplateCloneUrl
+     * @param templateId  (required)
+     * @param embeddedCloneTemplateJsonRequest The embedded clone template request body. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEmbeddedTemplateCloneUrlCall(String templateId, EmbeddedCloneTemplateJsonRequest embeddedCloneTemplateJsonRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = embeddedCloneTemplateJsonRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/template/createEmbeddedCloneUrl";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        localVarFormParams = embeddedCloneTemplateJsonRequest.createFormData();
+
+        if (templateId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("templateId", templateId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "multipart/form-data",
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-API-KEY", "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEmbeddedTemplateCloneUrlValidateBeforeCall(String templateId, EmbeddedCloneTemplateJsonRequest embeddedCloneTemplateJsonRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'templateId' is set
+        if (templateId == null) {
+            throw new ApiException("Missing the required parameter 'templateId' when calling createEmbeddedTemplateCloneUrl(Async)");
+        }
+
+        return createEmbeddedTemplateCloneUrlCall(templateId, embeddedCloneTemplateJsonRequest, _callback);
+
+    }
+
+    /**
+     * Generates a URL to embeds Clone template process into your application.
+     * 
+     * @param templateId  (required)
+     * @param embeddedCloneTemplateJsonRequest The embedded clone template request body. (optional)
+     * @return EmbeddedClonedTemplate
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmbeddedClonedTemplate createEmbeddedTemplateCloneUrl(String templateId, EmbeddedCloneTemplateJsonRequest embeddedCloneTemplateJsonRequest) throws ApiException {
+        ApiResponse<EmbeddedClonedTemplate> localVarResp = createEmbeddedTemplateCloneUrlWithHttpInfo(templateId, embeddedCloneTemplateJsonRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generates a URL to embeds Clone template process into your application.
+     * 
+     * @param templateId  (required)
+     * @param embeddedCloneTemplateJsonRequest The embedded clone template request body. (optional)
+     * @return ApiResponse&lt;EmbeddedClonedTemplate&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmbeddedClonedTemplate> createEmbeddedTemplateCloneUrlWithHttpInfo(String templateId, EmbeddedCloneTemplateJsonRequest embeddedCloneTemplateJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = createEmbeddedTemplateCloneUrlValidateBeforeCall(templateId, embeddedCloneTemplateJsonRequest, null);
+        Type localVarReturnType = new TypeToken<EmbeddedClonedTemplate>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generates a URL to embeds Clone template process into your application. (asynchronously)
+     * 
+     * @param templateId  (required)
+     * @param embeddedCloneTemplateJsonRequest The embedded clone template request body. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEmbeddedTemplateCloneUrlAsync(String templateId, EmbeddedCloneTemplateJsonRequest embeddedCloneTemplateJsonRequest, final ApiCallback<EmbeddedClonedTemplate> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createEmbeddedTemplateCloneUrlValidateBeforeCall(templateId, embeddedCloneTemplateJsonRequest, _callback);
+        Type localVarReturnType = new TypeToken<EmbeddedClonedTemplate>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -846,8 +991,8 @@ public class TemplateApi {
     }
     /**
      * Build call for deleteTemplate
-     * @param templateId The template id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param templateId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -926,8 +1071,8 @@ public class TemplateApi {
     /**
      * Deletes a template.
      * 
-     * @param templateId The template id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param templateId  (required)
+     * @param onBehalfOf  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -944,8 +1089,8 @@ public class TemplateApi {
     /**
      * Deletes a template.
      * 
-     * @param templateId The template id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param templateId  (required)
+     * @param onBehalfOf  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -964,8 +1109,8 @@ public class TemplateApi {
     /**
      * Deletes a template. (asynchronously)
      * 
-     * @param templateId The template id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param templateId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1188,9 +1333,9 @@ public class TemplateApi {
     }
     /**
      * Build call for download
-     * @param templateId Template Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
-     * @param includeFormFieldValues Include form field data. (optional, default to false)
+     * @param templateId  (required)
+     * @param onBehalfOf  (optional)
+     * @param includeFormFieldValues  (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1273,9 +1418,9 @@ public class TemplateApi {
     /**
      * Download the template.
      * 
-     * @param templateId Template Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
-     * @param includeFormFieldValues Include form field data. (optional, default to false)
+     * @param templateId  (required)
+     * @param onBehalfOf  (optional)
+     * @param includeFormFieldValues  (optional, default to false)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1294,9 +1439,9 @@ public class TemplateApi {
     /**
      * Download the template.
      * 
-     * @param templateId Template Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
-     * @param includeFormFieldValues Include form field data. (optional, default to false)
+     * @param templateId  (required)
+     * @param onBehalfOf  (optional)
+     * @param includeFormFieldValues  (optional, default to false)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1316,9 +1461,9 @@ public class TemplateApi {
     /**
      * Download the template. (asynchronously)
      * 
-     * @param templateId Template Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
-     * @param includeFormFieldValues Include form field data. (optional, default to false)
+     * @param templateId  (required)
+     * @param onBehalfOf  (optional)
+     * @param includeFormFieldValues  (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1339,7 +1484,7 @@ public class TemplateApi {
     }
     /**
      * Build call for editTemplate
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param editTemplateRequest The edit template request body. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1463,7 +1608,7 @@ public class TemplateApi {
     /**
      * Edit and updates an existing template.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param editTemplateRequest The edit template request body. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1482,7 +1627,7 @@ public class TemplateApi {
     /**
      * Edit and updates an existing template.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param editTemplateRequest The edit template request body. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1503,7 +1648,7 @@ public class TemplateApi {
     /**
      * Edit and updates an existing template. (asynchronously)
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param editTemplateRequest The edit template request body. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1525,7 +1670,7 @@ public class TemplateApi {
     }
     /**
      * Build call for getEmbeddedTemplateEditUrl
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedTemplateEditRequest The embedded edit template request body. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1605,7 +1750,7 @@ public class TemplateApi {
     /**
      * Generates a edit URL to embeds template edit process into your application.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedTemplateEditRequest The embedded edit template request body. (optional)
      * @return EmbeddedTemplateEdited
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1625,7 +1770,7 @@ public class TemplateApi {
     /**
      * Generates a edit URL to embeds template edit process into your application.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedTemplateEditRequest The embedded edit template request body. (optional)
      * @return ApiResponse&lt;EmbeddedTemplateEdited&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1646,7 +1791,7 @@ public class TemplateApi {
     /**
      * Generates a edit URL to embeds template edit process into your application. (asynchronously)
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param embeddedTemplateEditRequest The embedded edit template request body. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1668,7 +1813,7 @@ public class TemplateApi {
     }
     /**
      * Build call for getProperties
-     * @param templateId Template Id. (required)
+     * @param templateId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1743,7 +1888,7 @@ public class TemplateApi {
     /**
      * Get summary of the template.
      * 
-     * @param templateId Template Id. (required)
+     * @param templateId  (required)
      * @return TemplateProperties
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1762,7 +1907,7 @@ public class TemplateApi {
     /**
      * Get summary of the template.
      * 
-     * @param templateId Template Id. (required)
+     * @param templateId  (required)
      * @return ApiResponse&lt;TemplateProperties&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1782,7 +1927,7 @@ public class TemplateApi {
     /**
      * Get summary of the template. (asynchronously)
      * 
-     * @param templateId Template Id. (required)
+     * @param templateId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2274,7 +2419,7 @@ public class TemplateApi {
     }
     /**
      * Build call for sendUsingTemplate
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param sendForSignFromTemplateForm The send template details as JSON. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2354,7 +2499,7 @@ public class TemplateApi {
     /**
      * Send a document for signature using a Template.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param sendForSignFromTemplateForm The send template details as JSON. (optional)
      * @return DocumentCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2374,7 +2519,7 @@ public class TemplateApi {
     /**
      * Send a document for signature using a Template.
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param sendForSignFromTemplateForm The send template details as JSON. (optional)
      * @return ApiResponse&lt;DocumentCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2395,7 +2540,7 @@ public class TemplateApi {
     /**
      * Send a document for signature using a Template. (asynchronously)
      * 
-     * @param templateId The template id. (required)
+     * @param templateId  (required)
      * @param sendForSignFromTemplateForm The send template details as JSON. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2417,7 +2562,7 @@ public class TemplateApi {
     }
     /**
      * Build call for shareTemplate
-     * @param templateId Template Id. (required)
+     * @param templateId  (required)
      * @param templateShareRequest Permissions request. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2542,7 +2687,7 @@ public class TemplateApi {
     /**
      * Share a template with teams and manage permissions.
      * 
-     * @param templateId Template Id. (required)
+     * @param templateId  (required)
      * @param templateShareRequest Permissions request. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2562,7 +2707,7 @@ public class TemplateApi {
     /**
      * Share a template with teams and manage permissions.
      * 
-     * @param templateId Template Id. (required)
+     * @param templateId  (required)
      * @param templateShareRequest Permissions request. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2584,7 +2729,7 @@ public class TemplateApi {
     /**
      * Share a template with teams and manage permissions. (asynchronously)
      * 
-     * @param templateId Template Id. (required)
+     * @param templateId  (required)
      * @param templateShareRequest Permissions request. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

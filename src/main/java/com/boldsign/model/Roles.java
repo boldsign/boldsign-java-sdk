@@ -419,7 +419,9 @@ public class Roles {
     
     SMSOTP("SMSOTP"),
     
-    ID_VERIFICATION("IdVerification");
+    ID_VERIFICATION("IdVerification"),
+    
+    KBA("KBA");
 
     private String value;
 

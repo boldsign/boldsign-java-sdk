@@ -32,6 +32,7 @@
 |**groupId** | **String** |  |  [optional] |
 |**phoneNumber** | [**PhoneNumber**](PhoneNumber.md) |  |  [optional] |
 |**idVerification** | [**IdVerificationDetails**](IdVerificationDetails.md) |  |  [optional] |
+|**kba** | [**KbaDetails**](KbaDetails.md) |  |  [optional] |
 |**recipientNotificationSettings** | [**RecipientNotificationSettings**](RecipientNotificationSettings.md) |  |  [optional] |
 |**authenticationRetryCount** | **Integer** |  |  [optional] |
 |**enableQes** | **Boolean** |  |  [optional] |
@@ -63,6 +64,7 @@
 | ACCESS_CODE | &quot;AccessCode&quot; |
 | SMSOTP | &quot;SMSOTP&quot; |
 | ID_VERIFICATION | &quot;IdVerification&quot; |
+| KBA | &quot;KBA&quot; |
 
 
 

@@ -14,6 +14,7 @@
 |**onBehalfOf** | **String** |  |  [optional] |
 |**phoneNumber** | [**PhoneNumber**](PhoneNumber.md) |  |  [optional] |
 |**identityVerificationSettings** | [**IdentityVerificationSettings**](IdentityVerificationSettings.md) |  |  [optional] |
+|**kbaSettings** | [**KbaSettings**](KbaSettings.md) |  |  [optional] |
 |**authenticationRetryCount** | **Integer** |  |  [optional] |
 |**authenticationSettings** | [**AuthenticationSettings**](AuthenticationSettings.md) |  |  [optional] |
 
@@ -28,6 +29,7 @@
 | ACCESS_CODE | &quot;AccessCode&quot; |
 | SMSOTP | &quot;SMSOTP&quot; |
 | ID_VERIFICATION | &quot;IdVerification&quot; |
+| KBA | &quot;KBA&quot; |
 
 
 

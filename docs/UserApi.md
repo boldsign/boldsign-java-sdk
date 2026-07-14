@@ -103,7 +103,7 @@ public class Example {
 
     UserApi apiInstance = new UserApi(apiClient);
 
-    String userId = "userId_example"; // String | user Id.
+    String userId = "userId_example"; // String | 
     ChangeTeamRequest changeTeamRequest = new ChangeTeamRequest(); // ChangeTeamRequest | Change team request.
     
     try {
@@ -123,7 +123,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| user Id. | |
+| **userId** | **String**|  | |
 | **changeTeamRequest** | [**ChangeTeamRequest**](ChangeTeamRequest.md)| Change team request. | [optional] |
 
 ### Return type
@@ -235,7 +235,7 @@ public class Example {
 
     UserApi apiInstance = new UserApi(apiClient);
 
-    String userId = "userId_example"; // String | User Id.
+    String userId = "userId_example"; // String | 
     
     try {
       UserProperties result = apiInstance.getUser(userId);
@@ -255,7 +255,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| User Id. | |
+| **userId** | **String**|  | |
 
 ### Return type
 

@@ -256,7 +256,7 @@ public class SenderIdentitiesApi {
     }
     /**
      * Build call for deleteSenderIdentities
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -331,7 +331,7 @@ public class SenderIdentitiesApi {
     /**
      * Deletes sender identity.
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -348,7 +348,7 @@ public class SenderIdentitiesApi {
     /**
      * Deletes sender identity.
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -367,7 +367,7 @@ public class SenderIdentitiesApi {
     /**
      * Deletes sender identity. (asynchronously)
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -387,8 +387,8 @@ public class SenderIdentitiesApi {
     }
     /**
      * Build call for getSenderIdentityProperties
-     * @param id The sender identity id. (optional)
-     * @param email The sender identity email. (optional)
+     * @param id  (optional)
+     * @param email  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -462,8 +462,8 @@ public class SenderIdentitiesApi {
     /**
      * Gets sender identity by ID or email.
      * 
-     * @param id The sender identity id. (optional)
-     * @param email The sender identity email. (optional)
+     * @param id  (optional)
+     * @param email  (optional)
      * @return SenderIdentityViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -482,8 +482,8 @@ public class SenderIdentitiesApi {
     /**
      * Gets sender identity by ID or email.
      * 
-     * @param id The sender identity id. (optional)
-     * @param email The sender identity email. (optional)
+     * @param id  (optional)
+     * @param email  (optional)
      * @return ApiResponse&lt;SenderIdentityViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -503,8 +503,8 @@ public class SenderIdentitiesApi {
     /**
      * Gets sender identity by ID or email. (asynchronously)
      * 
-     * @param id The sender identity id. (optional)
-     * @param email The sender identity email. (optional)
+     * @param id  (optional)
+     * @param email  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -684,7 +684,7 @@ public class SenderIdentitiesApi {
     }
     /**
      * Build call for reRequestSenderIdentities
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -759,7 +759,7 @@ public class SenderIdentitiesApi {
     /**
      * Rerequests denied sender identity.
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -776,7 +776,7 @@ public class SenderIdentitiesApi {
     /**
      * Rerequests denied sender identity.
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -795,7 +795,7 @@ public class SenderIdentitiesApi {
     /**
      * Rerequests denied sender identity. (asynchronously)
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -815,7 +815,7 @@ public class SenderIdentitiesApi {
     }
     /**
      * Build call for resendInvitationSenderIdentities
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -890,7 +890,7 @@ public class SenderIdentitiesApi {
     /**
      * Resends sender identity invitation.
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -907,7 +907,7 @@ public class SenderIdentitiesApi {
     /**
      * Resends sender identity invitation.
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -926,7 +926,7 @@ public class SenderIdentitiesApi {
     /**
      * Resends sender identity invitation. (asynchronously)
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -946,7 +946,7 @@ public class SenderIdentitiesApi {
     }
     /**
      * Build call for updateSenderIdentities
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param editSenderIdentityRequest The create sender identity request. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1069,7 +1069,7 @@ public class SenderIdentitiesApi {
     /**
      * Updates sender identity.
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param editSenderIdentityRequest The create sender identity request. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1087,7 +1087,7 @@ public class SenderIdentitiesApi {
     /**
      * Updates sender identity.
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param editSenderIdentityRequest The create sender identity request. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1107,7 +1107,7 @@ public class SenderIdentitiesApi {
     /**
      * Updates sender identity. (asynchronously)
      * 
-     * @param email The email address. (required)
+     * @param email  (required)
      * @param editSenderIdentityRequest The create sender identity request. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

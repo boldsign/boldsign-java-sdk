@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.boldsign.model.DocumentFormFields;
 import com.boldsign.model.GroupSigner;
 import com.boldsign.model.IdVerificationDetails;
+import com.boldsign.model.KbaDetails;
 import com.boldsign.model.PhoneNumber;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.SignerAuthenticationSettings;
@@ -159,7 +160,9 @@ public class DocumentSignerDetails {
     
     SMSOTP("SMSOTP"),
     
-    ID_VERIFICATION("IdVerification");
+    ID_VERIFICATION("IdVerification"),
+    
+    KBA("KBA");
 
     private String value;
 
@@ -557,6 +560,10 @@ public class DocumentSignerDetails {
   public static final String SERIALIZED_NAME_ID_VERIFICATION = "idVerification";
   @SerializedName(SERIALIZED_NAME_ID_VERIFICATION)
   private IdVerificationDetails idVerification;
+
+  public static final String SERIALIZED_NAME_KBA = "kba";
+  @SerializedName(SERIALIZED_NAME_KBA)
+  private KbaDetails kba;
 
   public static final String SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS = "recipientNotificationSettings";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_NOTIFICATION_SETTINGS)
@@ -1124,6 +1131,25 @@ public class DocumentSignerDetails {
   }
 
 
+  public DocumentSignerDetails kba(KbaDetails kba) {
+    this.kba = kba;
+    return this;
+  }
+
+  /**
+   * Get kba
+   * @return kba
+   */
+  @javax.annotation.Nullable
+  public KbaDetails getKba() {
+    return kba;
+  }
+
+  public void setKba(KbaDetails kba) {
+    this.kba = kba;
+  }
+
+
   public DocumentSignerDetails recipientNotificationSettings(RecipientNotificationSettings recipientNotificationSettings) {
     this.recipientNotificationSettings = recipientNotificationSettings;
     return this;
@@ -1281,6 +1307,7 @@ public class DocumentSignerDetails {
         Objects.equals(this.groupId, documentSignerDetails.groupId) &&
         Objects.equals(this.phoneNumber, documentSignerDetails.phoneNumber) &&
         Objects.equals(this.idVerification, documentSignerDetails.idVerification) &&
+        Objects.equals(this.kba, documentSignerDetails.kba) &&
         Objects.equals(this.recipientNotificationSettings, documentSignerDetails.recipientNotificationSettings) &&
         Objects.equals(this.authenticationRetryCount, documentSignerDetails.authenticationRetryCount) &&
         Objects.equals(this.enableQes, documentSignerDetails.enableQes) &&
@@ -1291,7 +1318,7 @@ public class DocumentSignerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, signerName, signerRole, signerEmail, status, enableAccessCode, isAuthenticationFailed, enableEmailOTP, authenticationType, isDeliveryFailed, isViewed, order, signerType, hostEmail, hostName, isReassigned, privateMessage, allowFieldConfiguration, formFields, language, locale, signType, groupId, phoneNumber, idVerification, recipientNotificationSettings, authenticationRetryCount, enableQes, deliveryMode, authenticationSettings, groupSigners);
+    return Objects.hash(id, signerName, signerRole, signerEmail, status, enableAccessCode, isAuthenticationFailed, enableEmailOTP, authenticationType, isDeliveryFailed, isViewed, order, signerType, hostEmail, hostName, isReassigned, privateMessage, allowFieldConfiguration, formFields, language, locale, signType, groupId, phoneNumber, idVerification, kba, recipientNotificationSettings, authenticationRetryCount, enableQes, deliveryMode, authenticationSettings, groupSigners);
   }
 
   @Override
@@ -1323,6 +1350,7 @@ public class DocumentSignerDetails {
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    idVerification: ").append(toIndentedString(idVerification)).append("\n");
+    sb.append("    kba: ").append(toIndentedString(kba)).append("\n");
     sb.append("    recipientNotificationSettings: ").append(toIndentedString(recipientNotificationSettings)).append("\n");
     sb.append("    authenticationRetryCount: ").append(toIndentedString(authenticationRetryCount)).append("\n");
     sb.append("    enableQes: ").append(toIndentedString(enableQes)).append("\n");
@@ -1863,6 +1891,26 @@ public class DocumentSignerDetails {
           map.put("idVerification", JSON.serialize(idVerification));
         }
     }
+    if (kba != null) {
+        if (isFileTypeOrListOfFiles(kba)) {
+            fileTypeFound = true;
+        }
+
+        if (kba.getClass().equals(java.io.File.class) ||
+            kba.getClass().equals(Integer.class) ||
+            kba.getClass().equals(String.class) ||
+            kba.getClass().equals(java.net.URI.class)||
+            kba.getClass().isEnum()) {
+            map.put("kba", kba);
+        } else if (isListOfFile(kba)) {
+            for(int i = 0; i< getListSize(kba); i++) {
+                map.put("kba", kba);
+            }
+        }
+        else {
+          map.put("kba", JSON.serialize(kba));
+        }
+    }
     if (recipientNotificationSettings != null) {
         if (isFileTypeOrListOfFiles(recipientNotificationSettings)) {
             fileTypeFound = true;
@@ -2080,6 +2128,7 @@ public class DocumentSignerDetails {
     openapiFields.add("groupId");
     openapiFields.add("phoneNumber");
     openapiFields.add("idVerification");
+    openapiFields.add("kba");
     openapiFields.add("recipientNotificationSettings");
     openapiFields.add("authenticationRetryCount");
     openapiFields.add("enableQes");
@@ -2189,6 +2238,10 @@ public class DocumentSignerDetails {
       // validate the optional field `idVerification`
       if (jsonObj.get("idVerification") != null && !jsonObj.get("idVerification").isJsonNull()) {
         IdVerificationDetails.validateJsonElement(jsonObj.get("idVerification"));
+      }
+      // validate the optional field `kba`
+      if (jsonObj.get("kba") != null && !jsonObj.get("kba").isJsonNull()) {
+        KbaDetails.validateJsonElement(jsonObj.get("kba"));
       }
       // validate the optional field `recipientNotificationSettings`
       if (jsonObj.get("recipientNotificationSettings") != null && !jsonObj.get("recipientNotificationSettings").isJsonNull()) {

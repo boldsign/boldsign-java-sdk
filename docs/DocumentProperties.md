@@ -54,6 +54,7 @@
 |**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
 |**isCombinedAudit** | **Boolean** |  |  [optional] |
 |**isCombinedAttachment** | **Boolean** |  |  [optional] |
+|**documentTimeZone** | **String** |  |  [optional] |
 
 
 

@@ -102,7 +102,7 @@ public class Example {
 
     CustomFieldApi apiInstance = new CustomFieldApi(apiClient);
 
-    String brandId = "brandId_example"; // String | The brand id.
+    String brandId = "brandId_example"; // String | 
     
     try {
       CustomFieldCollection result = apiInstance.customFieldsList(brandId);
@@ -122,7 +122,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **brandId** | **String**| The brand id. | |
+| **brandId** | **String**|  | |
 
 ### Return type
 
@@ -168,7 +168,7 @@ public class Example {
 
     CustomFieldApi apiInstance = new CustomFieldApi(apiClient);
 
-    String customFieldId = "customFieldId_example"; // String | The custom field id.
+    String customFieldId = "customFieldId_example"; // String | 
     
     try {
       DeleteCustomFieldReply result = apiInstance.deleteCustomField(customFieldId);
@@ -188,7 +188,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customFieldId** | **String**| The custom field id. | |
+| **customFieldId** | **String**|  | |
 
 ### Return type
 
@@ -235,7 +235,7 @@ public class Example {
 
     CustomFieldApi apiInstance = new CustomFieldApi(apiClient);
 
-    String customFieldId = "customFieldId_example"; // String | The custom field id.
+    String customFieldId = "customFieldId_example"; // String | 
     BrandCustomFieldDetails brandCustomFieldDetails = new BrandCustomFieldDetails(); // BrandCustomFieldDetails | The custom field details.
     
     try {
@@ -256,7 +256,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customFieldId** | **String**| The custom field id. | |
+| **customFieldId** | **String**|  | |
 | **brandCustomFieldDetails** | [**BrandCustomFieldDetails**](BrandCustomFieldDetails.md)| The custom field details. | |
 
 ### Return type

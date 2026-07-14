@@ -101,7 +101,7 @@ public class Example {
 
     GroupContactsApi apiInstance = new GroupContactsApi(apiClient);
 
-    String groupId = "groupId_example"; // String | The group contact id.
+    String groupId = "groupId_example"; // String | 
     
     try {
       apiInstance.deleteGroupContact(groupId);
@@ -120,7 +120,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **groupId** | **String**| The group contact id. | |
+| **groupId** | **String**|  | |
 
 ### Return type
 
@@ -166,7 +166,7 @@ public class Example {
 
     GroupContactsApi apiInstance = new GroupContactsApi(apiClient);
 
-    String groupId = "groupId_example"; // String | Group Contact Id.
+    String groupId = "groupId_example"; // String | 
     
     try {
       GetGroupContactDetails result = apiInstance.getGroupContact(groupId);
@@ -186,7 +186,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **groupId** | **String**| Group Contact Id. | |
+| **groupId** | **String**|  | |
 
 ### Return type
 
@@ -305,7 +305,7 @@ public class Example {
 
     GroupContactsApi apiInstance = new GroupContactsApi(apiClient);
 
-    String groupId = "groupId_example"; // String | The group contact ID.
+    String groupId = "groupId_example"; // String | 
     UpdateGroupContact updateGroupContact = new UpdateGroupContact(); // UpdateGroupContact | The group contact details.
     
     try {
@@ -325,7 +325,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **groupId** | **String**| The group contact ID. | |
+| **groupId** | **String**|  | |
 | **updateGroupContact** | [**UpdateGroupContact**](UpdateGroupContact.md)| The group contact details. | |
 
 ### Return type

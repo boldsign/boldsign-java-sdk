@@ -16,6 +16,7 @@
 |**deliveryMode** | [**DeliveryModeEnum**](#DeliveryModeEnum) |  |  [optional] |
 |**authenticationCode** | **String** |  |  [optional] |
 |**identityVerificationSettings** | [**IdentityVerificationSettings**](IdentityVerificationSettings.md) |  |  [optional] |
+|**kbaSettings** | [**KbaSettings**](KbaSettings.md) |  |  [optional] |
 |**signerOrder** | **Integer** |  |  [optional] |
 |**enableEmailOTP** | **Boolean** |  |  [optional] |
 |**signerType** | [**SignerTypeEnum**](#SignerTypeEnum) |  |  [optional] |
@@ -43,6 +44,7 @@
 | ACCESS_CODE | &quot;AccessCode&quot; |
 | SMSOTP | &quot;SMSOTP&quot; |
 | ID_VERIFICATION | &quot;IdVerification&quot; |
+| KBA | &quot;KBA&quot; |
 
 
 

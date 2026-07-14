@@ -7,6 +7,7 @@ All URIs are relative to *https://api.boldsign.com*
 | [**addTag**](TemplateApi.md#addTag) | **PATCH** /v1/template/addTags | Add the Tags in Templates. |
 | [**createEmbeddedPreviewUrl**](TemplateApi.md#createEmbeddedPreviewUrl) | **POST** /v1/template/createEmbeddedPreviewUrl | Generates a preview URL for a template to view it. |
 | [**createEmbeddedRequestUrlTemplate**](TemplateApi.md#createEmbeddedRequestUrlTemplate) | **POST** /v1/template/createEmbeddedRequestUrl | Generates a send URL using a template which embeds document sending process into your application. |
+| [**createEmbeddedTemplateCloneUrl**](TemplateApi.md#createEmbeddedTemplateCloneUrl) | **POST** /v1/template/createEmbeddedCloneUrl | Generates a URL to embeds Clone template process into your application. |
 | [**createEmbeddedTemplateUrl**](TemplateApi.md#createEmbeddedTemplateUrl) | **POST** /v1/template/createEmbeddedTemplateUrl | Generates a create URL to embeds template create process into your application. |
 | [**createTemplate**](TemplateApi.md#createTemplate) | **POST** /v1/template/create | Creates a new template. |
 | [**deleteTemplate**](TemplateApi.md#deleteTemplate) | **DELETE** /v1/template/delete | Deletes a template. |
@@ -111,7 +112,7 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | The template id.
+    String templateId = "templateId_example"; // String | 
     EmbeddedTemplatePreviewJsonRequest embeddedTemplatePreviewJsonRequest = new EmbeddedTemplatePreviewJsonRequest(); // EmbeddedTemplatePreviewJsonRequest | The embedded template preview request body.
     
     try {
@@ -132,7 +133,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| The template id. | |
+| **templateId** | **String**|  | |
 | **embeddedTemplatePreviewJsonRequest** | [**EmbeddedTemplatePreviewJsonRequest**](EmbeddedTemplatePreviewJsonRequest.md)| The embedded template preview request body. | [optional] |
 
 ### Return type
@@ -178,7 +179,7 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | The template id.
+    String templateId = "templateId_example"; // String | 
     EmbeddedSendTemplateFormRequest embeddedSendTemplateFormRequest = new EmbeddedSendTemplateFormRequest(); // EmbeddedSendTemplateFormRequest | Embedded send template json request.
     
     try {
@@ -199,7 +200,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| The template id. | |
+| **templateId** | **String**|  | |
 | **embeddedSendTemplateFormRequest** | [**EmbeddedSendTemplateFormRequest**](EmbeddedSendTemplateFormRequest.md)| Embedded send template json request. | [optional] |
 
 ### Return type
@@ -221,6 +222,74 @@ public class Example {
 | **201** | Created |  -  |
 | **422** | Unprocessable Content |  -  |
 | **401** | Unauthorized |  -  |
+
+<a id="createEmbeddedTemplateCloneUrl"></a>
+# **createEmbeddedTemplateCloneUrl**
+> EmbeddedClonedTemplate createEmbeddedTemplateCloneUrl(templateId, embeddedCloneTemplateJsonRequest)
+
+Generates a URL to embeds Clone template process into your application.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.TemplateApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    TemplateApi apiInstance = new TemplateApi(apiClient);
+
+    String templateId = "templateId_example"; // String | 
+    EmbeddedCloneTemplateJsonRequest embeddedCloneTemplateJsonRequest = new EmbeddedCloneTemplateJsonRequest(); // EmbeddedCloneTemplateJsonRequest | The embedded clone template request body.
+    
+    try {
+      EmbeddedClonedTemplate result = apiInstance.createEmbeddedTemplateCloneUrl(templateId, embeddedCloneTemplateJsonRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TemplateApi#createEmbeddedTemplateCloneUrl");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **templateId** | **String**|  | |
+| **embeddedCloneTemplateJsonRequest** | [**EmbeddedCloneTemplateJsonRequest**](EmbeddedCloneTemplateJsonRequest.md)| The embedded clone template request body. | [optional] |
+
+### Return type
+
+[**EmbeddedClonedTemplate**](EmbeddedClonedTemplate.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data, application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
 
 <a id="createEmbeddedTemplateUrl"></a>
 # **createEmbeddedTemplateUrl**
@@ -379,8 +448,8 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | The template id.
-    String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    String templateId = "templateId_example"; // String | 
+    String onBehalfOf = "onBehalfOf_example"; // String | 
     
     try {
       apiInstance.deleteTemplate(templateId, onBehalfOf);
@@ -399,8 +468,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| The template id. | |
-| **onBehalfOf** | **String**| The on behalfof email address. | [optional] |
+| **templateId** | **String**|  | |
+| **onBehalfOf** | **String**|  | [optional] |
 
 ### Return type
 
@@ -511,9 +580,9 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | Template Id.
-    String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
-    Boolean includeFormFieldValues = false; // Boolean | Include form field data.
+    String templateId = "templateId_example"; // String | 
+    String onBehalfOf = "onBehalfOf_example"; // String | 
+    Boolean includeFormFieldValues = false; // Boolean | 
     
     try {
       File result = apiInstance.download(templateId, onBehalfOf, includeFormFieldValues);
@@ -533,9 +602,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| Template Id. | |
-| **onBehalfOf** | **String**| The on behalfof email address. | [optional] |
-| **includeFormFieldValues** | **Boolean**| Include form field data. | [optional] [default to false] |
+| **templateId** | **String**|  | |
+| **onBehalfOf** | **String**|  | [optional] |
+| **includeFormFieldValues** | **Boolean**|  | [optional] [default to false] |
 
 ### Return type
 
@@ -581,7 +650,7 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | The template id.
+    String templateId = "templateId_example"; // String | 
     EditTemplateRequest editTemplateRequest = new EditTemplateRequest(); // EditTemplateRequest | The edit template request body.
     
     try {
@@ -601,7 +670,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| The template id. | |
+| **templateId** | **String**|  | |
 | **editTemplateRequest** | [**EditTemplateRequest**](EditTemplateRequest.md)| The edit template request body. | |
 
 ### Return type
@@ -649,7 +718,7 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | The template id.
+    String templateId = "templateId_example"; // String | 
     EmbeddedTemplateEditRequest embeddedTemplateEditRequest = new EmbeddedTemplateEditRequest(); // EmbeddedTemplateEditRequest | The embedded edit template request body.
     
     try {
@@ -670,7 +739,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| The template id. | |
+| **templateId** | **String**|  | |
 | **embeddedTemplateEditRequest** | [**EmbeddedTemplateEditRequest**](EmbeddedTemplateEditRequest.md)| The embedded edit template request body. | [optional] |
 
 ### Return type
@@ -717,7 +786,7 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | Template Id.
+    String templateId = "templateId_example"; // String | 
     
     try {
       TemplateProperties result = apiInstance.getProperties(templateId);
@@ -737,7 +806,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| Template Id. | |
+| **templateId** | **String**|  | |
 
 ### Return type
 
@@ -1000,7 +1069,7 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | The template id.
+    String templateId = "templateId_example"; // String | 
     SendForSignFromTemplateForm sendForSignFromTemplateForm = new SendForSignFromTemplateForm(); // SendForSignFromTemplateForm | The send template details as JSON.
     
     try {
@@ -1021,7 +1090,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| The template id. | |
+| **templateId** | **String**|  | |
 | **sendForSignFromTemplateForm** | [**SendForSignFromTemplateForm**](SendForSignFromTemplateForm.md)| The send template details as JSON. | [optional] |
 
 ### Return type
@@ -1068,7 +1137,7 @@ public class Example {
 
     TemplateApi apiInstance = new TemplateApi(apiClient);
 
-    String templateId = "templateId_example"; // String | Template Id.
+    String templateId = "templateId_example"; // String | 
     TemplateShareRequest templateShareRequest = new TemplateShareRequest(); // TemplateShareRequest | Permissions request.
     
     try {
@@ -1088,7 +1157,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **templateId** | **String**| Template Id. | |
+| **templateId** | **String**|  | |
 | **templateShareRequest** | [**TemplateShareRequest**](TemplateShareRequest.md)| Permissions request. | |
 
 ### Return type

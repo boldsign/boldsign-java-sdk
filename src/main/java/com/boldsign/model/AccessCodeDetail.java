@@ -16,6 +16,7 @@ package com.boldsign.model;
 import java.util.Objects;
 import com.boldsign.model.AuthenticationSettings;
 import com.boldsign.model.IdentityVerificationSettings;
+import com.boldsign.model.KbaSettings;
 import com.boldsign.model.PhoneNumber;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -62,7 +63,9 @@ public class AccessCodeDetail {
     
     SMSOTP("SMSOTP"),
     
-    ID_VERIFICATION("IdVerification");
+    ID_VERIFICATION("IdVerification"),
+    
+    KBA("KBA");
 
     private String value;
 
@@ -134,6 +137,10 @@ public class AccessCodeDetail {
   public static final String SERIALIZED_NAME_IDENTITY_VERIFICATION_SETTINGS = "identityVerificationSettings";
   @SerializedName(SERIALIZED_NAME_IDENTITY_VERIFICATION_SETTINGS)
   private IdentityVerificationSettings identityVerificationSettings;
+
+  public static final String SERIALIZED_NAME_KBA_SETTINGS = "kbaSettings";
+  @SerializedName(SERIALIZED_NAME_KBA_SETTINGS)
+  private KbaSettings kbaSettings;
 
   public static final String SERIALIZED_NAME_AUTHENTICATION_RETRY_COUNT = "authenticationRetryCount";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_RETRY_COUNT)
@@ -281,6 +288,25 @@ public class AccessCodeDetail {
   }
 
 
+  public AccessCodeDetail kbaSettings(KbaSettings kbaSettings) {
+    this.kbaSettings = kbaSettings;
+    return this;
+  }
+
+  /**
+   * Get kbaSettings
+   * @return kbaSettings
+   */
+  @javax.annotation.Nullable
+  public KbaSettings getKbaSettings() {
+    return kbaSettings;
+  }
+
+  public void setKbaSettings(KbaSettings kbaSettings) {
+    this.kbaSettings = kbaSettings;
+  }
+
+
   public AccessCodeDetail authenticationRetryCount(Integer authenticationRetryCount) {
     this.authenticationRetryCount = authenticationRetryCount;
     return this;
@@ -338,13 +364,14 @@ public class AccessCodeDetail {
         Objects.equals(this.onBehalfOf, accessCodeDetail.onBehalfOf) &&
         Objects.equals(this.phoneNumber, accessCodeDetail.phoneNumber) &&
         Objects.equals(this.identityVerificationSettings, accessCodeDetail.identityVerificationSettings) &&
+        Objects.equals(this.kbaSettings, accessCodeDetail.kbaSettings) &&
         Objects.equals(this.authenticationRetryCount, accessCodeDetail.authenticationRetryCount) &&
         Objects.equals(this.authenticationSettings, accessCodeDetail.authenticationSettings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationType, emailId, order, accessCode, onBehalfOf, phoneNumber, identityVerificationSettings, authenticationRetryCount, authenticationSettings);
+    return Objects.hash(authenticationType, emailId, order, accessCode, onBehalfOf, phoneNumber, identityVerificationSettings, kbaSettings, authenticationRetryCount, authenticationSettings);
   }
 
   @Override
@@ -358,6 +385,7 @@ public class AccessCodeDetail {
     sb.append("    onBehalfOf: ").append(toIndentedString(onBehalfOf)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    identityVerificationSettings: ").append(toIndentedString(identityVerificationSettings)).append("\n");
+    sb.append("    kbaSettings: ").append(toIndentedString(kbaSettings)).append("\n");
     sb.append("    authenticationRetryCount: ").append(toIndentedString(authenticationRetryCount)).append("\n");
     sb.append("    authenticationSettings: ").append(toIndentedString(authenticationSettings)).append("\n");
     sb.append("}");
@@ -507,6 +535,26 @@ public class AccessCodeDetail {
           map.put("identityVerificationSettings", JSON.serialize(identityVerificationSettings));
         }
     }
+    if (kbaSettings != null) {
+        if (isFileTypeOrListOfFiles(kbaSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (kbaSettings.getClass().equals(java.io.File.class) ||
+            kbaSettings.getClass().equals(Integer.class) ||
+            kbaSettings.getClass().equals(String.class) ||
+            kbaSettings.getClass().equals(java.net.URI.class)||
+            kbaSettings.getClass().isEnum()) {
+            map.put("kbaSettings", kbaSettings);
+        } else if (isListOfFile(kbaSettings)) {
+            for(int i = 0; i< getListSize(kbaSettings); i++) {
+                map.put("kbaSettings", kbaSettings);
+            }
+        }
+        else {
+          map.put("kbaSettings", JSON.serialize(kbaSettings));
+        }
+    }
     if (authenticationRetryCount != null) {
         if (isFileTypeOrListOfFiles(authenticationRetryCount)) {
             fileTypeFound = true;
@@ -599,6 +647,7 @@ public class AccessCodeDetail {
     openapiFields.add("onBehalfOf");
     openapiFields.add("phoneNumber");
     openapiFields.add("identityVerificationSettings");
+    openapiFields.add("kbaSettings");
     openapiFields.add("authenticationRetryCount");
     openapiFields.add("authenticationSettings");
 
@@ -649,6 +698,10 @@ public class AccessCodeDetail {
       // validate the optional field `identityVerificationSettings`
       if (jsonObj.get("identityVerificationSettings") != null && !jsonObj.get("identityVerificationSettings").isJsonNull()) {
         IdentityVerificationSettings.validateJsonElement(jsonObj.get("identityVerificationSettings"));
+      }
+      // validate the optional field `kbaSettings`
+      if (jsonObj.get("kbaSettings") != null && !jsonObj.get("kbaSettings").isJsonNull()) {
+        KbaSettings.validateJsonElement(jsonObj.get("kbaSettings"));
       }
       // validate the optional field `authenticationSettings`
       if (jsonObj.get("authenticationSettings") != null && !jsonObj.get("authenticationSettings").isJsonNull()) {

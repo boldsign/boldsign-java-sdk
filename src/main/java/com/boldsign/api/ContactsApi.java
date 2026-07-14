@@ -407,7 +407,7 @@ public class ContactsApi {
     }
     /**
      * Build call for deleteContacts
-     * @param id The contact id. (required)
+     * @param id  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -482,7 +482,7 @@ public class ContactsApi {
     /**
      * Deletes a contact.
      * 
-     * @param id The contact id. (required)
+     * @param id  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -499,7 +499,7 @@ public class ContactsApi {
     /**
      * Deletes a contact.
      * 
-     * @param id The contact id. (required)
+     * @param id  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -518,7 +518,7 @@ public class ContactsApi {
     /**
      * Deletes a contact. (asynchronously)
      * 
-     * @param id The contact id. (required)
+     * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -538,7 +538,7 @@ public class ContactsApi {
     }
     /**
      * Build call for getContact
-     * @param id Contact Id. (required)
+     * @param id  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -613,7 +613,7 @@ public class ContactsApi {
     /**
      * Get summary of the contact.
      * 
-     * @param id Contact Id. (required)
+     * @param id  (required)
      * @return ContactsDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -632,7 +632,7 @@ public class ContactsApi {
     /**
      * Get summary of the contact.
      * 
-     * @param id Contact Id. (required)
+     * @param id  (required)
      * @return ApiResponse&lt;ContactsDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -652,7 +652,7 @@ public class ContactsApi {
     /**
      * Get summary of the contact. (asynchronously)
      * 
-     * @param id Contact Id. (required)
+     * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -673,7 +673,7 @@ public class ContactsApi {
     }
     /**
      * Build call for updateContact
-     * @param id The contactId. (optional)
+     * @param id  (optional)
      * @param contactDetails The contact details. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -786,7 +786,7 @@ public class ContactsApi {
     /**
      * Update the contact.
      * 
-     * @param id The contactId. (optional)
+     * @param id  (optional)
      * @param contactDetails The contact details. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -804,7 +804,7 @@ public class ContactsApi {
     /**
      * Update the contact.
      * 
-     * @param id The contactId. (optional)
+     * @param id  (optional)
      * @param contactDetails The contact details. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -824,7 +824,7 @@ public class ContactsApi {
     /**
      * Update the contact. (asynchronously)
      * 
-     * @param id The contactId. (optional)
+     * @param id  (optional)
      * @param contactDetails The contact details. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

@@ -556,6 +556,10 @@ public class DocumentProperties {
   @SerializedName(SERIALIZED_NAME_IS_COMBINED_ATTACHMENT)
   private Boolean isCombinedAttachment;
 
+  public static final String SERIALIZED_NAME_DOCUMENT_TIME_ZONE = "documentTimeZone";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_TIME_ZONE)
+  private String documentTimeZone;
+
   public DocumentProperties() {
   }
 
@@ -1532,6 +1536,25 @@ public class DocumentProperties {
   }
 
 
+  public DocumentProperties documentTimeZone(String documentTimeZone) {
+    this.documentTimeZone = documentTimeZone;
+    return this;
+  }
+
+  /**
+   * Get documentTimeZone
+   * @return documentTimeZone
+   */
+  @javax.annotation.Nullable
+  public String getDocumentTimeZone() {
+    return documentTimeZone;
+  }
+
+  public void setDocumentTimeZone(String documentTimeZone) {
+    this.documentTimeZone = documentTimeZone;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1588,12 +1611,13 @@ public class DocumentProperties {
         Objects.equals(this.displayStatus, documentProperties.displayStatus) &&
         Objects.equals(this.enableAllowSignEverywhere, documentProperties.enableAllowSignEverywhere) &&
         Objects.equals(this.isCombinedAudit, documentProperties.isCombinedAudit) &&
-        Objects.equals(this.isCombinedAttachment, documentProperties.isCombinedAttachment);
+        Objects.equals(this.isCombinedAttachment, documentProperties.isCombinedAttachment) &&
+        Objects.equals(this.documentTimeZone, documentProperties.documentTimeZone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, inEditingMode, displayStatus, enableAllowSignEverywhere, isCombinedAudit, isCombinedAttachment);
+    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, inEditingMode, displayStatus, enableAllowSignEverywhere, isCombinedAudit, isCombinedAttachment, documentTimeZone);
   }
 
   @Override
@@ -1647,6 +1671,7 @@ public class DocumentProperties {
     sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
     sb.append("    isCombinedAudit: ").append(toIndentedString(isCombinedAudit)).append("\n");
     sb.append("    isCombinedAttachment: ").append(toIndentedString(isCombinedAttachment)).append("\n");
+    sb.append("    documentTimeZone: ").append(toIndentedString(documentTimeZone)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2845,6 +2870,26 @@ public class DocumentProperties {
           map.put("isCombinedAttachment", JSON.serialize(isCombinedAttachment));
         }
     }
+    if (documentTimeZone != null) {
+        if (isFileTypeOrListOfFiles(documentTimeZone)) {
+            fileTypeFound = true;
+        }
+
+        if (documentTimeZone.getClass().equals(java.io.File.class) ||
+            documentTimeZone.getClass().equals(Integer.class) ||
+            documentTimeZone.getClass().equals(String.class) ||
+            documentTimeZone.getClass().equals(java.net.URI.class)||
+            documentTimeZone.getClass().isEnum()) {
+            map.put("documentTimeZone", documentTimeZone);
+        } else if (isListOfFile(documentTimeZone)) {
+            for(int i = 0; i< getListSize(documentTimeZone); i++) {
+                map.put("documentTimeZone", documentTimeZone);
+            }
+        }
+        else {
+          map.put("documentTimeZone", JSON.serialize(documentTimeZone));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2937,6 +2982,7 @@ public class DocumentProperties {
     openapiFields.add("enableAllowSignEverywhere");
     openapiFields.add("isCombinedAudit");
     openapiFields.add("isCombinedAttachment");
+    openapiFields.add("documentTimeZone");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -3139,6 +3185,9 @@ public class DocumentProperties {
       }
       if ((jsonObj.get("displayStatus") != null && !jsonObj.get("displayStatus").isJsonNull()) && !jsonObj.get("displayStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `displayStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayStatus").toString()));
+      }
+      if ((jsonObj.get("documentTimeZone") != null && !jsonObj.get("documentTimeZone").isJsonNull()) && !jsonObj.get("documentTimeZone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `documentTimeZone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentTimeZone").toString()));
       }
   }
 

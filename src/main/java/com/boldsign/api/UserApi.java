@@ -211,7 +211,7 @@ public class UserApi {
     }
     /**
      * Build call for changeTeam
-     * @param userId user Id. (required)
+     * @param userId  (required)
      * @param changeTeamRequest Change team request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -329,7 +329,7 @@ public class UserApi {
     /**
      * Change users to other team.
      * 
-     * @param userId user Id. (required)
+     * @param userId  (required)
      * @param changeTeamRequest Change team request. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -347,7 +347,7 @@ public class UserApi {
     /**
      * Change users to other team.
      * 
-     * @param userId user Id. (required)
+     * @param userId  (required)
      * @param changeTeamRequest Change team request. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -367,7 +367,7 @@ public class UserApi {
     /**
      * Change users to other team. (asynchronously)
      * 
-     * @param userId user Id. (required)
+     * @param userId  (required)
      * @param changeTeamRequest Change team request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -554,7 +554,7 @@ public class UserApi {
     }
     /**
      * Build call for getUser
-     * @param userId User Id. (required)
+     * @param userId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -629,7 +629,7 @@ public class UserApi {
     /**
      * Get summary of the user.
      * 
-     * @param userId User Id. (required)
+     * @param userId  (required)
      * @return UserProperties
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -648,7 +648,7 @@ public class UserApi {
     /**
      * Get summary of the user.
      * 
-     * @param userId User Id. (required)
+     * @param userId  (required)
      * @return ApiResponse&lt;UserProperties&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -668,7 +668,7 @@ public class UserApi {
     /**
      * Get summary of the user. (asynchronously)
      * 
-     * @param userId User Id. (required)
+     * @param userId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

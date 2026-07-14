@@ -173,7 +173,7 @@ public class Example {
 
     ContactsApi apiInstance = new ContactsApi(apiClient);
 
-    String id = "id_example"; // String | The contact id.
+    String id = "id_example"; // String | 
     
     try {
       apiInstance.deleteContacts(id);
@@ -192,7 +192,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The contact id. | |
+| **id** | **String**|  | |
 
 ### Return type
 
@@ -238,7 +238,7 @@ public class Example {
 
     ContactsApi apiInstance = new ContactsApi(apiClient);
 
-    String id = "id_example"; // String | Contact Id.
+    String id = "id_example"; // String | 
     
     try {
       ContactsDetails result = apiInstance.getContact(id);
@@ -258,7 +258,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| Contact Id. | |
+| **id** | **String**|  | |
 
 ### Return type
 
@@ -304,7 +304,7 @@ public class Example {
 
     ContactsApi apiInstance = new ContactsApi(apiClient);
 
-    String id = "id_example"; // String | The contactId.
+    String id = "id_example"; // String | 
     ContactDetails contactDetails = new ContactDetails(); // ContactDetails | The contact details.
     
     try {
@@ -324,7 +324,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The contactId. | [optional] |
+| **id** | **String**|  | [optional] |
 | **contactDetails** | [**ContactDetails**](ContactDetails.md)| The contact details. | [optional] |
 
 ### Return type

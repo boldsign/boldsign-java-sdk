@@ -117,14 +117,14 @@ public class Example {
     Boolean showBuiltInFormFields = true; // Boolean | 
     Boolean allowCustomFieldCreation = false; // Boolean | 
     Boolean showSharedCustomFields = false; // Boolean | 
-    Boolean hideDecline = true; // Boolean | 
-    Boolean hideSave = true; // Boolean | 
-    String documentExpirySettingsExpiryDateType = "Days"; // String | 
-    Integer documentExpirySettingsExpiryValue = 56; // Integer | 
-    Boolean documentExpirySettingsEnableDefaultExpiryAlert = true; // Boolean | 
-    Boolean documentExpirySettingsEnableAutoReminder = true; // Boolean | 
-    Integer documentExpirySettingsReminderDays = 56; // Integer | 
-    Integer documentExpirySettingsReminderCount = 56; // Integer | 
+    Boolean hideDecline = true; // Boolean | This option prevents signers to decline the document during the signing process.
+    Boolean hideSave = true; // Boolean | This option prevents signers to save their changes during the signing process and continue signing later.
+    String documentExpirySettingsExpiryDateType = "Days"; // String | This property represents the type for the expiry date
+    Integer documentExpirySettingsExpiryValue = 56; // Integer | This property is used to set the expiry value based on the expiry type
+    Boolean documentExpirySettingsEnableDefaultExpiryAlert = true; // Boolean | This property will send the expiry alert email before the day of expiry for the pending signers.
+    Boolean documentExpirySettingsEnableAutoReminder = true; // Boolean | When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders.
+    Integer documentExpirySettingsReminderDays = 56; // Integer | Remind in terms of days.
+    Integer documentExpirySettingsReminderCount = 56; // Integer | Number of reminder count.
     String customDomainSettingsDomainName = "customDomainSettingsDomainName_example"; // String | 
     String customDomainSettingsFromName = "customDomainSettingsFromName_example"; // String | 
     Boolean signatureFrameSettingsEnableSignatureFrame = false; // Boolean | 
@@ -169,14 +169,14 @@ public class Example {
 | **showBuiltInFormFields** | **Boolean**|  | [optional] [default to true] |
 | **allowCustomFieldCreation** | **Boolean**|  | [optional] [default to false] |
 | **showSharedCustomFields** | **Boolean**|  | [optional] [default to false] |
-| **hideDecline** | **Boolean**|  | [optional] |
-| **hideSave** | **Boolean**|  | [optional] |
-| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime] |
-| **documentExpirySettingsExpiryValue** | **Integer**|  | [optional] |
-| **documentExpirySettingsEnableDefaultExpiryAlert** | **Boolean**|  | [optional] |
-| **documentExpirySettingsEnableAutoReminder** | **Boolean**|  | [optional] |
-| **documentExpirySettingsReminderDays** | **Integer**|  | [optional] |
-| **documentExpirySettingsReminderCount** | **Integer**|  | [optional] |
+| **hideDecline** | **Boolean**| This option prevents signers to decline the document during the signing process. | [optional] |
+| **hideSave** | **Boolean**| This option prevents signers to save their changes during the signing process and continue signing later. | [optional] |
+| **documentExpirySettingsExpiryDateType** | **String**| This property represents the type for the expiry date | [optional] [enum: Days, Hours, SpecificDateTime] |
+| **documentExpirySettingsExpiryValue** | **Integer**| This property is used to set the expiry value based on the expiry type | [optional] |
+| **documentExpirySettingsEnableDefaultExpiryAlert** | **Boolean**| This property will send the expiry alert email before the day of expiry for the pending signers. | [optional] |
+| **documentExpirySettingsEnableAutoReminder** | **Boolean**| When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. | [optional] |
+| **documentExpirySettingsReminderDays** | **Integer**| Remind in terms of days. | [optional] |
+| **documentExpirySettingsReminderCount** | **Integer**| Number of reminder count. | [optional] |
 | **customDomainSettingsDomainName** | **String**|  | [optional] |
 | **customDomainSettingsFromName** | **String**|  | [optional] |
 | **signatureFrameSettingsEnableSignatureFrame** | **Boolean**|  | [optional] [default to false] |
@@ -229,7 +229,7 @@ public class Example {
 
     BrandingApi apiInstance = new BrandingApi(apiClient);
 
-    String brandId = "brandId_example"; // String | brand Id.
+    String brandId = "brandId_example"; // String | 
     
     try {
       BrandingMessage result = apiInstance.deleteBrand(brandId);
@@ -249,7 +249,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **brandId** | **String**| brand Id. | |
+| **brandId** | **String**|  | |
 
 ### Return type
 
@@ -295,7 +295,7 @@ public class Example {
 
     BrandingApi apiInstance = new BrandingApi(apiClient);
 
-    String brandId = "brandId_example"; // String | The brand id.
+    String brandId = "brandId_example"; // String | 
     String brandName = "brandName_example"; // String | 
     File brandLogo = new File("/path/to/file"); // File | 
     String backgroundColor = "backgroundColor_example"; // String | 
@@ -315,14 +315,14 @@ public class Example {
     Boolean showBuiltInFormFields = true; // Boolean | 
     Boolean allowCustomFieldCreation = false; // Boolean | 
     Boolean showSharedCustomFields = false; // Boolean | 
-    Boolean hideDecline = true; // Boolean | 
-    Boolean hideSave = true; // Boolean | 
-    String documentExpirySettingsExpiryDateType = "Days"; // String | 
-    Integer documentExpirySettingsExpiryValue = 56; // Integer | 
-    Boolean documentExpirySettingsEnableDefaultExpiryAlert = true; // Boolean | 
-    Boolean documentExpirySettingsEnableAutoReminder = true; // Boolean | 
-    Integer documentExpirySettingsReminderDays = 56; // Integer | 
-    Integer documentExpirySettingsReminderCount = 56; // Integer | 
+    Boolean hideDecline = true; // Boolean | This option prevents signers to decline the document during the signing process.
+    Boolean hideSave = true; // Boolean | This option prevents signers to save their changes during the signing process and continue signing later.
+    String documentExpirySettingsExpiryDateType = "Days"; // String | This property represents the type for the expiry date
+    Integer documentExpirySettingsExpiryValue = 56; // Integer | This property is used to set the expiry value based on the expiry type
+    Boolean documentExpirySettingsEnableDefaultExpiryAlert = true; // Boolean | This property will send the expiry alert email before the day of expiry for the pending signers.
+    Boolean documentExpirySettingsEnableAutoReminder = true; // Boolean | When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders.
+    Integer documentExpirySettingsReminderDays = 56; // Integer | Remind in terms of days.
+    Integer documentExpirySettingsReminderCount = 56; // Integer | Number of reminder count.
     String customDomainSettingsDomainName = "customDomainSettingsDomainName_example"; // String | 
     String customDomainSettingsFromName = "customDomainSettingsFromName_example"; // String | 
     Boolean signatureFrameSettingsEnableSignatureFrame = false; // Boolean | 
@@ -348,7 +348,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **brandId** | **String**| The brand id. | |
+| **brandId** | **String**|  | |
 | **brandName** | **String**|  | [optional] |
 | **brandLogo** | **File**|  | [optional] |
 | **backgroundColor** | **String**|  | [optional] |
@@ -368,14 +368,14 @@ public class Example {
 | **showBuiltInFormFields** | **Boolean**|  | [optional] [default to true] |
 | **allowCustomFieldCreation** | **Boolean**|  | [optional] [default to false] |
 | **showSharedCustomFields** | **Boolean**|  | [optional] [default to false] |
-| **hideDecline** | **Boolean**|  | [optional] |
-| **hideSave** | **Boolean**|  | [optional] |
-| **documentExpirySettingsExpiryDateType** | **String**|  | [optional] [enum: Days, Hours, SpecificDateTime] |
-| **documentExpirySettingsExpiryValue** | **Integer**|  | [optional] |
-| **documentExpirySettingsEnableDefaultExpiryAlert** | **Boolean**|  | [optional] |
-| **documentExpirySettingsEnableAutoReminder** | **Boolean**|  | [optional] |
-| **documentExpirySettingsReminderDays** | **Integer**|  | [optional] |
-| **documentExpirySettingsReminderCount** | **Integer**|  | [optional] |
+| **hideDecline** | **Boolean**| This option prevents signers to decline the document during the signing process. | [optional] |
+| **hideSave** | **Boolean**| This option prevents signers to save their changes during the signing process and continue signing later. | [optional] |
+| **documentExpirySettingsExpiryDateType** | **String**| This property represents the type for the expiry date | [optional] [enum: Days, Hours, SpecificDateTime] |
+| **documentExpirySettingsExpiryValue** | **Integer**| This property is used to set the expiry value based on the expiry type | [optional] |
+| **documentExpirySettingsEnableDefaultExpiryAlert** | **Boolean**| This property will send the expiry alert email before the day of expiry for the pending signers. | [optional] |
+| **documentExpirySettingsEnableAutoReminder** | **Boolean**| When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. | [optional] |
+| **documentExpirySettingsReminderDays** | **Integer**| Remind in terms of days. | [optional] |
+| **documentExpirySettingsReminderCount** | **Integer**| Number of reminder count. | [optional] |
 | **customDomainSettingsDomainName** | **String**|  | [optional] |
 | **customDomainSettingsFromName** | **String**|  | [optional] |
 | **signatureFrameSettingsEnableSignatureFrame** | **Boolean**|  | [optional] [default to false] |
@@ -428,7 +428,7 @@ public class Example {
 
     BrandingApi apiInstance = new BrandingApi(apiClient);
 
-    String brandId = "brandId_example"; // String | The brand id.
+    String brandId = "brandId_example"; // String | 
     
     try {
       ViewBrandDetails result = apiInstance.getBrand(brandId);
@@ -448,7 +448,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **brandId** | **String**| The brand id. | |
+| **brandId** | **String**|  | |
 
 ### Return type
 
@@ -495,7 +495,7 @@ public class Example {
 
     BrandingApi apiInstance = new BrandingApi(apiClient);
 
-    String brandId = "brandId_example"; // String | brand Id.
+    String brandId = "brandId_example"; // String | 
     
     try {
       BrandingMessage result = apiInstance.resetDefaultBrand(brandId);
@@ -515,7 +515,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **brandId** | **String**| brand Id. | |
+| **brandId** | **String**|  | |
 
 ### Return type
 
