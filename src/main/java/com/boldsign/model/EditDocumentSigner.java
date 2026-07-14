@@ -17,6 +17,7 @@ import java.util.Objects;
 import com.boldsign.model.AuthenticationSettings;
 import com.boldsign.model.EditFormField;
 import com.boldsign.model.IdentityVerificationSettings;
+import com.boldsign.model.KbaSettings;
 import com.boldsign.model.PhoneNumber;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.google.gson.TypeAdapter;
@@ -140,7 +141,9 @@ public class EditDocumentSigner {
     
     SMSOTP("SMSOTP"),
     
-    ID_VERIFICATION("IdVerification");
+    ID_VERIFICATION("IdVerification"),
+    
+    KBA("KBA");
 
     private String value;
 
@@ -260,6 +263,10 @@ public class EditDocumentSigner {
   public static final String SERIALIZED_NAME_IDENTITY_VERIFICATION_SETTINGS = "identityVerificationSettings";
   @SerializedName(SERIALIZED_NAME_IDENTITY_VERIFICATION_SETTINGS)
   private IdentityVerificationSettings identityVerificationSettings;
+
+  public static final String SERIALIZED_NAME_KBA_SETTINGS = "kbaSettings";
+  @SerializedName(SERIALIZED_NAME_KBA_SETTINGS)
+  private KbaSettings kbaSettings;
 
   public static final String SERIALIZED_NAME_SIGNER_ORDER = "signerOrder";
   @SerializedName(SERIALIZED_NAME_SIGNER_ORDER)
@@ -800,6 +807,25 @@ public class EditDocumentSigner {
   }
 
 
+  public EditDocumentSigner kbaSettings(KbaSettings kbaSettings) {
+    this.kbaSettings = kbaSettings;
+    return this;
+  }
+
+  /**
+   * Get kbaSettings
+   * @return kbaSettings
+   */
+  @javax.annotation.Nullable
+  public KbaSettings getKbaSettings() {
+    return kbaSettings;
+  }
+
+  public void setKbaSettings(KbaSettings kbaSettings) {
+    this.kbaSettings = kbaSettings;
+  }
+
+
   public EditDocumentSigner signerOrder(Integer signerOrder) {
     this.signerOrder = signerOrder;
     return this;
@@ -1115,6 +1141,7 @@ public class EditDocumentSigner {
         Objects.equals(this.deliveryMode, editDocumentSigner.deliveryMode) &&
         Objects.equals(this.authenticationCode, editDocumentSigner.authenticationCode) &&
         Objects.equals(this.identityVerificationSettings, editDocumentSigner.identityVerificationSettings) &&
+        Objects.equals(this.kbaSettings, editDocumentSigner.kbaSettings) &&
         Objects.equals(this.signerOrder, editDocumentSigner.signerOrder) &&
         Objects.equals(this.enableEmailOTP, editDocumentSigner.enableEmailOTP) &&
         Objects.equals(this.signerType, editDocumentSigner.signerType) &&
@@ -1134,7 +1161,7 @@ public class EditDocumentSigner {
 
   @Override
   public int hashCode() {
-    return Objects.hash(editAction, id, name, emailAddress, privateMessage, authenticationType, phoneNumber, deliveryMode, authenticationCode, identityVerificationSettings, signerOrder, enableEmailOTP, signerType, hostEmail, signerRole, allowFieldConfiguration, formFields, language, locale, signType, groupId, recipientNotificationSettings, authenticationRetryCount, enableQes, authenticationSettings);
+    return Objects.hash(editAction, id, name, emailAddress, privateMessage, authenticationType, phoneNumber, deliveryMode, authenticationCode, identityVerificationSettings, kbaSettings, signerOrder, enableEmailOTP, signerType, hostEmail, signerRole, allowFieldConfiguration, formFields, language, locale, signType, groupId, recipientNotificationSettings, authenticationRetryCount, enableQes, authenticationSettings);
   }
 
   @Override
@@ -1151,6 +1178,7 @@ public class EditDocumentSigner {
     sb.append("    deliveryMode: ").append(toIndentedString(deliveryMode)).append("\n");
     sb.append("    authenticationCode: ").append(toIndentedString(authenticationCode)).append("\n");
     sb.append("    identityVerificationSettings: ").append(toIndentedString(identityVerificationSettings)).append("\n");
+    sb.append("    kbaSettings: ").append(toIndentedString(kbaSettings)).append("\n");
     sb.append("    signerOrder: ").append(toIndentedString(signerOrder)).append("\n");
     sb.append("    enableEmailOTP: ").append(toIndentedString(enableEmailOTP)).append("\n");
     sb.append("    signerType: ").append(toIndentedString(signerType)).append("\n");
@@ -1371,6 +1399,26 @@ public class EditDocumentSigner {
         }
         else {
           map.put("identityVerificationSettings", JSON.serialize(identityVerificationSettings));
+        }
+    }
+    if (kbaSettings != null) {
+        if (isFileTypeOrListOfFiles(kbaSettings)) {
+            fileTypeFound = true;
+        }
+
+        if (kbaSettings.getClass().equals(java.io.File.class) ||
+            kbaSettings.getClass().equals(Integer.class) ||
+            kbaSettings.getClass().equals(String.class) ||
+            kbaSettings.getClass().equals(java.net.URI.class)||
+            kbaSettings.getClass().isEnum()) {
+            map.put("kbaSettings", kbaSettings);
+        } else if (isListOfFile(kbaSettings)) {
+            for(int i = 0; i< getListSize(kbaSettings); i++) {
+                map.put("kbaSettings", kbaSettings);
+            }
+        }
+        else {
+          map.put("kbaSettings", JSON.serialize(kbaSettings));
         }
     }
     if (signerOrder != null) {
@@ -1755,6 +1803,7 @@ public class EditDocumentSigner {
     openapiFields.add("deliveryMode");
     openapiFields.add("authenticationCode");
     openapiFields.add("identityVerificationSettings");
+    openapiFields.add("kbaSettings");
     openapiFields.add("signerOrder");
     openapiFields.add("enableEmailOTP");
     openapiFields.add("signerType");
@@ -1838,6 +1887,10 @@ public class EditDocumentSigner {
       // validate the optional field `identityVerificationSettings`
       if (jsonObj.get("identityVerificationSettings") != null && !jsonObj.get("identityVerificationSettings").isJsonNull()) {
         IdentityVerificationSettings.validateJsonElement(jsonObj.get("identityVerificationSettings"));
+      }
+      // validate the optional field `kbaSettings`
+      if (jsonObj.get("kbaSettings") != null && !jsonObj.get("kbaSettings").isJsonNull()) {
+        KbaSettings.validateJsonElement(jsonObj.get("kbaSettings"));
       }
       if ((jsonObj.get("signerType") != null && !jsonObj.get("signerType").isJsonNull()) && !jsonObj.get("signerType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `signerType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signerType").toString()));

@@ -39,6 +39,7 @@
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 |**sharing** | [**TemplateSharing**](TemplateSharing.md) |  |  [optional] |
 |**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
+|**documentTimeZone** | **String** |  |  [optional] |
 
 
 

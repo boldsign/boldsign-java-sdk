@@ -59,6 +59,10 @@ public class TemplateFormFields {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
 
+  public static final String SERIALIZED_NAME_FORM_FIELD_ID = "formFieldId";
+  @SerializedName(SERIALIZED_NAME_FORM_FIELD_ID)
+  private String formFieldId;
+
   public static final String SERIALIZED_NAME_FIELD_TYPE = "fieldType";
   @SerializedName(SERIALIZED_NAME_FIELD_TYPE)
   private String fieldType;
@@ -468,6 +472,25 @@ public class TemplateFormFields {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public TemplateFormFields formFieldId(String formFieldId) {
+    this.formFieldId = formFieldId;
+    return this;
+  }
+
+  /**
+   * Get formFieldId
+   * @return formFieldId
+   */
+  @javax.annotation.Nullable
+  public String getFormFieldId() {
+    return formFieldId;
+  }
+
+  public void setFormFieldId(String formFieldId) {
+    this.formFieldId = formFieldId;
   }
 
 
@@ -1296,6 +1319,7 @@ public class TemplateFormFields {
     }
     TemplateFormFields templateFormFields = (TemplateFormFields) o;
     return Objects.equals(this.id, templateFormFields.id) &&
+        Objects.equals(this.formFieldId, templateFormFields.formFieldId) &&
         Objects.equals(this.fieldType, templateFormFields.fieldType) &&
         Objects.equals(this.type, templateFormFields.type) &&
         Objects.equals(this.value, templateFormFields.value) &&
@@ -1342,7 +1366,7 @@ public class TemplateFormFields {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, fieldType, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontHexColor, isUnderLineFont, isItalicFont, isBoldFont, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, dropdownOptions, bounds, pageNumber, conditionalRules, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, hyperlinkText, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField, collaborationSettings, isMasked, isDefaultValueRequired);
+    return Objects.hash(id, formFieldId, fieldType, type, value, font, isRequired, isReadOnly, lineHeight, fontSize, fontHexColor, isUnderLineFont, isItalicFont, isBoldFont, groupName, label, placeholder, validationtype, validationCustomRegex, validationCustomRegexMessage, dateFormat, timeFormat, imageInfo, attachmentInfo, editableDateFieldSettings, dropdownOptions, bounds, pageNumber, conditionalRules, dataSyncTag, textAlign, textDirection, characterSpacing, characterLimit, hyperlinkText, backgroundHexColor, tabIndex, formulaFieldSettings, resizeOption, allowEditFormField, allowDeleteFormField, collaborationSettings, isMasked, isDefaultValueRequired);
   }
 
   @Override
@@ -1350,6 +1374,7 @@ public class TemplateFormFields {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateFormFields {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    formFieldId: ").append(toIndentedString(formFieldId)).append("\n");
     sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
@@ -1417,6 +1442,26 @@ public class TemplateFormFields {
         }
         else {
           map.put("id", JSON.serialize(id));
+        }
+    }
+    if (formFieldId != null) {
+        if (isFileTypeOrListOfFiles(formFieldId)) {
+            fileTypeFound = true;
+        }
+
+        if (formFieldId.getClass().equals(java.io.File.class) ||
+            formFieldId.getClass().equals(Integer.class) ||
+            formFieldId.getClass().equals(String.class) ||
+            formFieldId.getClass().equals(java.net.URI.class)||
+            formFieldId.getClass().isEnum()) {
+            map.put("formFieldId", formFieldId);
+        } else if (isListOfFile(formFieldId)) {
+            for(int i = 0; i< getListSize(formFieldId); i++) {
+                map.put("formFieldId", formFieldId);
+            }
+        }
+        else {
+          map.put("formFieldId", JSON.serialize(formFieldId));
         }
     }
     if (fieldType != null) {
@@ -2359,6 +2404,7 @@ public class TemplateFormFields {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("formFieldId");
     openapiFields.add("fieldType");
     openapiFields.add("type");
     openapiFields.add("value");
@@ -2422,6 +2468,9 @@ public class TemplateFormFields {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("formFieldId") != null && !jsonObj.get("formFieldId").isJsonNull()) && !jsonObj.get("formFieldId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `formFieldId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("formFieldId").toString()));
       }
       if ((jsonObj.get("fieldType") != null && !jsonObj.get("fieldType").isJsonNull()) && !jsonObj.get("fieldType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fieldType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fieldType").toString()));

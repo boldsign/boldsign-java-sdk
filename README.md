@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.boldsign</groupId>
   <artifactId>boldsign-java</artifactId>
-  <version>5.2.0</version>
+  <version>5.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -48,7 +48,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.boldsign:boldsign-java:5.2.0"
+     implementation "com.boldsign:boldsign-java:5.3.0"
   }
 ```
 
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/boldsign-java-5.2.0.jar`
+* `target/boldsign-java-5.3.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -148,6 +148,7 @@ Class | Method | HTTP request | Description
 *DocumentApi* | [**cancelEditing**](docs/DocumentApi.md#cancelEditing) | **POST** /v1/document/cancelEditing | Cancels editing for a document that is currently in edit-mode.
 *DocumentApi* | [**changeAccessCode**](docs/DocumentApi.md#changeAccessCode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer.
 *DocumentApi* | [**changeRecipient**](docs/DocumentApi.md#changeRecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document.
+*DocumentApi* | [**createEmbeddedDocumentCloneUrl**](docs/DocumentApi.md#createEmbeddedDocumentCloneUrl) | **POST** /v1/document/createEmbeddedCloneUrl | Generates a URL to embeds Clone document process into your application.
 *DocumentApi* | [**createEmbeddedEditUrl**](docs/DocumentApi.md#createEmbeddedEditUrl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application.
 *DocumentApi* | [**createEmbeddedRequestUrlDocument**](docs/DocumentApi.md#createEmbeddedRequestUrlDocument) | **POST** /v1/document/createEmbeddedRequestUrl | Generates a send URL which embeds document sending process into your application.
 *DocumentApi* | [**deleteDocument**](docs/DocumentApi.md#deleteDocument) | **DELETE** /v1/document/delete | Delete the document.
@@ -190,6 +191,7 @@ Class | Method | HTTP request | Description
 *TemplateApi* | [**addTag**](docs/TemplateApi.md#addTag) | **PATCH** /v1/template/addTags | Add the Tags in Templates.
 *TemplateApi* | [**createEmbeddedPreviewUrl**](docs/TemplateApi.md#createEmbeddedPreviewUrl) | **POST** /v1/template/createEmbeddedPreviewUrl | Generates a preview URL for a template to view it.
 *TemplateApi* | [**createEmbeddedRequestUrlTemplate**](docs/TemplateApi.md#createEmbeddedRequestUrlTemplate) | **POST** /v1/template/createEmbeddedRequestUrl | Generates a send URL using a template which embeds document sending process into your application.
+*TemplateApi* | [**createEmbeddedTemplateCloneUrl**](docs/TemplateApi.md#createEmbeddedTemplateCloneUrl) | **POST** /v1/template/createEmbeddedCloneUrl | Generates a URL to embeds Clone template process into your application.
 *TemplateApi* | [**createEmbeddedTemplateUrl**](docs/TemplateApi.md#createEmbeddedTemplateUrl) | **POST** /v1/template/createEmbeddedTemplateUrl | Generates a create URL to embeds template create process into your application.
 *TemplateApi* | [**createTemplate**](docs/TemplateApi.md#createTemplate) | **POST** /v1/template/create | Creates a new template.
 *TemplateApi* | [**deleteTemplate**](docs/TemplateApi.md#deleteTemplate) | **DELETE** /v1/template/delete | Deletes a template.
@@ -226,6 +228,7 @@ Class | Method | HTTP request | Description
  - [BehalfDocument](docs/BehalfDocument.md)
  - [BehalfDocumentRecords](docs/BehalfDocumentRecords.md)
  - [BehalfOf](docs/BehalfOf.md)
+ - [BehalfOfWebhookModel](docs/BehalfOfWebhookModel.md)
  - [BillingViewModel](docs/BillingViewModel.md)
  - [BrandCreated](docs/BrandCreated.md)
  - [BrandCustomFieldDetails](docs/BrandCustomFieldDetails.md)
@@ -233,6 +236,7 @@ Class | Method | HTTP request | Description
  - [BrandingRecords](docs/BrandingRecords.md)
  - [ChangeRecipient](docs/ChangeRecipient.md)
  - [ChangeTeamRequest](docs/ChangeTeamRequest.md)
+ - [CheckboxValidationSettings](docs/CheckboxValidationSettings.md)
  - [CollaborationSettings](docs/CollaborationSettings.md)
  - [ConditionalRule](docs/ConditionalRule.md)
  - [ContactCreated](docs/ContactCreated.md)
@@ -256,27 +260,37 @@ Class | Method | HTTP request | Description
  - [Document](docs/Document.md)
  - [DocumentCC](docs/DocumentCC.md)
  - [DocumentCcDetails](docs/DocumentCcDetails.md)
+ - [DocumentCcWebhookModel](docs/DocumentCcWebhookModel.md)
  - [DocumentCreated](docs/DocumentCreated.md)
  - [DocumentEdited](docs/DocumentEdited.md)
+ - [DocumentEvent](docs/DocumentEvent.md)
  - [DocumentExpirySettings](docs/DocumentExpirySettings.md)
  - [DocumentFiles](docs/DocumentFiles.md)
  - [DocumentFormFields](docs/DocumentFormFields.md)
+ - [DocumentGroupSignerWebhookModel](docs/DocumentGroupSignerWebhookModel.md)
  - [DocumentInfo](docs/DocumentInfo.md)
  - [DocumentProperties](docs/DocumentProperties.md)
  - [DocumentReassign](docs/DocumentReassign.md)
  - [DocumentRecords](docs/DocumentRecords.md)
+ - [DocumentSender](docs/DocumentSender.md)
  - [DocumentSenderDetail](docs/DocumentSenderDetail.md)
  - [DocumentSigner](docs/DocumentSigner.md)
  - [DocumentSignerDetails](docs/DocumentSignerDetails.md)
+ - [DocumentSignerWebhookModel](docs/DocumentSignerWebhookModel.md)
  - [DocumentTags](docs/DocumentTags.md)
  - [DownloadImageRequest](docs/DownloadImageRequest.md)
  - [EditDocumentFile](docs/EditDocumentFile.md)
+ - [EditDocumentJsonFile](docs/EditDocumentJsonFile.md)
  - [EditDocumentRequest](docs/EditDocumentRequest.md)
  - [EditDocumentSigner](docs/EditDocumentSigner.md)
  - [EditFormField](docs/EditFormField.md)
  - [EditSenderIdentityRequest](docs/EditSenderIdentityRequest.md)
  - [EditTemplateRequest](docs/EditTemplateRequest.md)
  - [EditableDateFieldSettings](docs/EditableDateFieldSettings.md)
+ - [EmbeddedCloneDocumentJsonRequest](docs/EmbeddedCloneDocumentJsonRequest.md)
+ - [EmbeddedCloneTemplateJsonRequest](docs/EmbeddedCloneTemplateJsonRequest.md)
+ - [EmbeddedClonedDocument](docs/EmbeddedClonedDocument.md)
+ - [EmbeddedClonedTemplate](docs/EmbeddedClonedTemplate.md)
  - [EmbeddedCreateTemplateRequest](docs/EmbeddedCreateTemplateRequest.md)
  - [EmbeddedCustomFieldCreated](docs/EmbeddedCustomFieldCreated.md)
  - [EmbeddedDocumentEditJsonRequest](docs/EmbeddedDocumentEditJsonRequest.md)
@@ -302,25 +316,36 @@ Class | Method | HTTP request | Description
  - [Font](docs/Font.md)
  - [FormField](docs/FormField.md)
  - [FormFieldPermission](docs/FormFieldPermission.md)
+ - [FormFieldPermissionWebhookModel](docs/FormFieldPermissionWebhookModel.md)
  - [FormGroup](docs/FormGroup.md)
  - [FormulaFieldSettings](docs/FormulaFieldSettings.md)
  - [GetGroupContactDetails](docs/GetGroupContactDetails.md)
  - [GroupContact](docs/GroupContact.md)
  - [GroupContactDetails](docs/GroupContactDetails.md)
  - [GroupContactsList](docs/GroupContactsList.md)
+ - [GroupOption](docs/GroupOption.md)
  - [GroupSigner](docs/GroupSigner.md)
  - [GroupSignerSettings](docs/GroupSignerSettings.md)
+ - [GroupSignerSettingsWebhookModel](docs/GroupSignerSettingsWebhookModel.md)
  - [GroupUser](docs/GroupUser.md)
+ - [IWebhookData](docs/IWebhookData.md)
  - [IdDocument](docs/IdDocument.md)
  - [IdReport](docs/IdReport.md)
  - [IdVerificationDetails](docs/IdVerificationDetails.md)
+ - [IdVerificationSignerWebhookModel](docs/IdVerificationSignerWebhookModel.md)
+ - [IdentityVerificationEvent](docs/IdentityVerificationEvent.md)
  - [IdentityVerificationSettings](docs/IdentityVerificationSettings.md)
  - [ImageInfo](docs/ImageInfo.md)
+ - [KbaAuthenticationEvent](docs/KbaAuthenticationEvent.md)
+ - [KbaDetails](docs/KbaDetails.md)
+ - [KbaSettings](docs/KbaSettings.md)
+ - [KbaSignerWebhookModel](docs/KbaSignerWebhookModel.md)
  - [MergeAndSendForSignForm](docs/MergeAndSendForSignForm.md)
  - [ModificationDetails](docs/ModificationDetails.md)
  - [NotificationSettings](docs/NotificationSettings.md)
  - [PageDetails](docs/PageDetails.md)
  - [PhoneNumber](docs/PhoneNumber.md)
+ - [PhoneNumberWebhookModel](docs/PhoneNumberWebhookModel.md)
  - [PrefillField](docs/PrefillField.md)
  - [PrefillFieldRequest](docs/PrefillFieldRequest.md)
  - [RecipientChangeLog](docs/RecipientChangeLog.md)
@@ -336,10 +361,13 @@ Class | Method | HTTP request | Description
  - [SendForSign](docs/SendForSign.md)
  - [SendForSignFromTemplateForm](docs/SendForSignFromTemplateForm.md)
  - [SenderIdentityCreated](docs/SenderIdentityCreated.md)
+ - [SenderIdentityCreator](docs/SenderIdentityCreator.md)
+ - [SenderIdentityEvent](docs/SenderIdentityEvent.md)
  - [SenderIdentityList](docs/SenderIdentityList.md)
  - [SenderIdentityViewModel](docs/SenderIdentityViewModel.md)
  - [SignatureFrameSettings](docs/SignatureFrameSettings.md)
  - [SignerAuthenticationSettings](docs/SignerAuthenticationSettings.md)
+ - [SignerAuthenticationWebhookModel](docs/SignerAuthenticationWebhookModel.md)
  - [Size](docs/Size.md)
  - [TeamCreated](docs/TeamCreated.md)
  - [TeamDocumentRecords](docs/TeamDocumentRecords.md)
@@ -351,19 +379,24 @@ Class | Method | HTTP request | Description
  - [Teams](docs/Teams.md)
  - [Template](docs/Template.md)
  - [TemplateCC](docs/TemplateCC.md)
+ - [TemplateCcWebhookModel](docs/TemplateCcWebhookModel.md)
  - [TemplateCreated](docs/TemplateCreated.md)
+ - [TemplateEvent](docs/TemplateEvent.md)
  - [TemplateFiles](docs/TemplateFiles.md)
  - [TemplateFormFields](docs/TemplateFormFields.md)
  - [TemplateGroupSigner](docs/TemplateGroupSigner.md)
+ - [TemplateGroupSignerWebhookModel](docs/TemplateGroupSignerWebhookModel.md)
  - [TemplateProperties](docs/TemplateProperties.md)
  - [TemplateRecords](docs/TemplateRecords.md)
  - [TemplateRole](docs/TemplateRole.md)
+ - [TemplateSender](docs/TemplateSender.md)
  - [TemplateSenderDetail](docs/TemplateSenderDetail.md)
  - [TemplateSenderDetails](docs/TemplateSenderDetails.md)
  - [TemplateShareErrorResponse](docs/TemplateShareErrorResponse.md)
  - [TemplateShareRequest](docs/TemplateShareRequest.md)
  - [TemplateSharedTemplateDetail](docs/TemplateSharedTemplateDetail.md)
  - [TemplateSharing](docs/TemplateSharing.md)
+ - [TemplateSigner](docs/TemplateSigner.md)
  - [TemplateSignerDetails](docs/TemplateSignerDetails.md)
  - [TemplateTag](docs/TemplateTag.md)
  - [TemplateTeamShare](docs/TemplateTeamShare.md)
@@ -381,6 +414,10 @@ Class | Method | HTTP request | Description
  - [VerificationDataRequest](docs/VerificationDataRequest.md)
  - [ViewBrandDetails](docs/ViewBrandDetails.md)
  - [ViewCustomFieldDetails](docs/ViewCustomFieldDetails.md)
+ - [WebhookActorDetails](docs/WebhookActorDetails.md)
+ - [WebhookContext](docs/WebhookContext.md)
+ - [WebhookEvent](docs/WebhookEvent.md)
+ - [WebhookEventMetadata](docs/WebhookEventMetadata.md)
 
 
 <a id="documentation-for-authorization"></a>

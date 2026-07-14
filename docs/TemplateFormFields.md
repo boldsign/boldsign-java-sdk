@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
+|**formFieldId** | **String** |  |  [optional] |
 |**fieldType** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
 |**value** | **String** |  |  [optional] |

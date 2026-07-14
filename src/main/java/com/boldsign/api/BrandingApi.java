@@ -220,14 +220,14 @@ public class BrandingApi {
      * @param showBuiltInFormFields  (optional, default to true)
      * @param allowCustomFieldCreation  (optional, default to false)
      * @param showSharedCustomFields  (optional, default to false)
-     * @param hideDecline  (optional)
-     * @param hideSave  (optional)
-     * @param documentExpirySettingsExpiryDateType  (optional)
-     * @param documentExpirySettingsExpiryValue  (optional)
-     * @param documentExpirySettingsEnableDefaultExpiryAlert  (optional)
-     * @param documentExpirySettingsEnableAutoReminder  (optional)
-     * @param documentExpirySettingsReminderDays  (optional)
-     * @param documentExpirySettingsReminderCount  (optional)
+     * @param hideDecline This option prevents signers to decline the document during the signing process. (optional)
+     * @param hideSave This option prevents signers to save their changes during the signing process and continue signing later. (optional)
+     * @param documentExpirySettingsExpiryDateType This property represents the type for the expiry date (optional)
+     * @param documentExpirySettingsExpiryValue This property is used to set the expiry value based on the expiry type (optional)
+     * @param documentExpirySettingsEnableDefaultExpiryAlert This property will send the expiry alert email before the day of expiry for the pending signers. (optional)
+     * @param documentExpirySettingsEnableAutoReminder When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. (optional)
+     * @param documentExpirySettingsReminderDays Remind in terms of days. (optional)
+     * @param documentExpirySettingsReminderCount Number of reminder count. (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
      * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
@@ -501,14 +501,14 @@ public class BrandingApi {
      * @param showBuiltInFormFields  (optional, default to true)
      * @param allowCustomFieldCreation  (optional, default to false)
      * @param showSharedCustomFields  (optional, default to false)
-     * @param hideDecline  (optional)
-     * @param hideSave  (optional)
-     * @param documentExpirySettingsExpiryDateType  (optional)
-     * @param documentExpirySettingsExpiryValue  (optional)
-     * @param documentExpirySettingsEnableDefaultExpiryAlert  (optional)
-     * @param documentExpirySettingsEnableAutoReminder  (optional)
-     * @param documentExpirySettingsReminderDays  (optional)
-     * @param documentExpirySettingsReminderCount  (optional)
+     * @param hideDecline This option prevents signers to decline the document during the signing process. (optional)
+     * @param hideSave This option prevents signers to save their changes during the signing process and continue signing later. (optional)
+     * @param documentExpirySettingsExpiryDateType This property represents the type for the expiry date (optional)
+     * @param documentExpirySettingsExpiryValue This property is used to set the expiry value based on the expiry type (optional)
+     * @param documentExpirySettingsEnableDefaultExpiryAlert This property will send the expiry alert email before the day of expiry for the pending signers. (optional)
+     * @param documentExpirySettingsEnableAutoReminder When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. (optional)
+     * @param documentExpirySettingsReminderDays Remind in terms of days. (optional)
+     * @param documentExpirySettingsReminderCount Number of reminder count. (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
      * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
@@ -553,14 +553,14 @@ public class BrandingApi {
      * @param showBuiltInFormFields  (optional, default to true)
      * @param allowCustomFieldCreation  (optional, default to false)
      * @param showSharedCustomFields  (optional, default to false)
-     * @param hideDecline  (optional)
-     * @param hideSave  (optional)
-     * @param documentExpirySettingsExpiryDateType  (optional)
-     * @param documentExpirySettingsExpiryValue  (optional)
-     * @param documentExpirySettingsEnableDefaultExpiryAlert  (optional)
-     * @param documentExpirySettingsEnableAutoReminder  (optional)
-     * @param documentExpirySettingsReminderDays  (optional)
-     * @param documentExpirySettingsReminderCount  (optional)
+     * @param hideDecline This option prevents signers to decline the document during the signing process. (optional)
+     * @param hideSave This option prevents signers to save their changes during the signing process and continue signing later. (optional)
+     * @param documentExpirySettingsExpiryDateType This property represents the type for the expiry date (optional)
+     * @param documentExpirySettingsExpiryValue This property is used to set the expiry value based on the expiry type (optional)
+     * @param documentExpirySettingsEnableDefaultExpiryAlert This property will send the expiry alert email before the day of expiry for the pending signers. (optional)
+     * @param documentExpirySettingsEnableAutoReminder When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. (optional)
+     * @param documentExpirySettingsReminderDays Remind in terms of days. (optional)
+     * @param documentExpirySettingsReminderCount Number of reminder count. (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
      * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
@@ -606,14 +606,14 @@ public class BrandingApi {
      * @param showBuiltInFormFields  (optional, default to true)
      * @param allowCustomFieldCreation  (optional, default to false)
      * @param showSharedCustomFields  (optional, default to false)
-     * @param hideDecline  (optional)
-     * @param hideSave  (optional)
-     * @param documentExpirySettingsExpiryDateType  (optional)
-     * @param documentExpirySettingsExpiryValue  (optional)
-     * @param documentExpirySettingsEnableDefaultExpiryAlert  (optional)
-     * @param documentExpirySettingsEnableAutoReminder  (optional)
-     * @param documentExpirySettingsReminderDays  (optional)
-     * @param documentExpirySettingsReminderCount  (optional)
+     * @param hideDecline This option prevents signers to decline the document during the signing process. (optional)
+     * @param hideSave This option prevents signers to save their changes during the signing process and continue signing later. (optional)
+     * @param documentExpirySettingsExpiryDateType This property represents the type for the expiry date (optional)
+     * @param documentExpirySettingsExpiryValue This property is used to set the expiry value based on the expiry type (optional)
+     * @param documentExpirySettingsEnableDefaultExpiryAlert This property will send the expiry alert email before the day of expiry for the pending signers. (optional)
+     * @param documentExpirySettingsEnableAutoReminder When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. (optional)
+     * @param documentExpirySettingsReminderDays Remind in terms of days. (optional)
+     * @param documentExpirySettingsReminderCount Number of reminder count. (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
      * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
@@ -641,7 +641,7 @@ public class BrandingApi {
     }
     /**
      * Build call for deleteBrand
-     * @param brandId brand Id. (required)
+     * @param brandId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -755,7 +755,7 @@ public class BrandingApi {
     /**
      * Delete the brand.
      * 
-     * @param brandId brand Id. (required)
+     * @param brandId  (required)
      * @return BrandingMessage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -774,7 +774,7 @@ public class BrandingApi {
     /**
      * Delete the brand.
      * 
-     * @param brandId brand Id. (required)
+     * @param brandId  (required)
      * @return ApiResponse&lt;BrandingMessage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -794,7 +794,7 @@ public class BrandingApi {
     /**
      * Delete the brand. (asynchronously)
      * 
-     * @param brandId brand Id. (required)
+     * @param brandId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -815,7 +815,7 @@ public class BrandingApi {
     }
     /**
      * Build call for editBrand
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @param brandName  (optional)
      * @param brandLogo  (optional)
      * @param backgroundColor  (optional)
@@ -835,14 +835,14 @@ public class BrandingApi {
      * @param showBuiltInFormFields  (optional, default to true)
      * @param allowCustomFieldCreation  (optional, default to false)
      * @param showSharedCustomFields  (optional, default to false)
-     * @param hideDecline  (optional)
-     * @param hideSave  (optional)
-     * @param documentExpirySettingsExpiryDateType  (optional)
-     * @param documentExpirySettingsExpiryValue  (optional)
-     * @param documentExpirySettingsEnableDefaultExpiryAlert  (optional)
-     * @param documentExpirySettingsEnableAutoReminder  (optional)
-     * @param documentExpirySettingsReminderDays  (optional)
-     * @param documentExpirySettingsReminderCount  (optional)
+     * @param hideDecline This option prevents signers to decline the document during the signing process. (optional)
+     * @param hideSave This option prevents signers to save their changes during the signing process and continue signing later. (optional)
+     * @param documentExpirySettingsExpiryDateType This property represents the type for the expiry date (optional)
+     * @param documentExpirySettingsExpiryValue This property is used to set the expiry value based on the expiry type (optional)
+     * @param documentExpirySettingsEnableDefaultExpiryAlert This property will send the expiry alert email before the day of expiry for the pending signers. (optional)
+     * @param documentExpirySettingsEnableAutoReminder When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. (optional)
+     * @param documentExpirySettingsReminderDays Remind in terms of days. (optional)
+     * @param documentExpirySettingsReminderCount Number of reminder count. (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
      * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
@@ -1096,7 +1096,7 @@ public class BrandingApi {
     /**
      * Edit the brand.
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @param brandName  (optional)
      * @param brandLogo  (optional)
      * @param backgroundColor  (optional)
@@ -1116,14 +1116,14 @@ public class BrandingApi {
      * @param showBuiltInFormFields  (optional, default to true)
      * @param allowCustomFieldCreation  (optional, default to false)
      * @param showSharedCustomFields  (optional, default to false)
-     * @param hideDecline  (optional)
-     * @param hideSave  (optional)
-     * @param documentExpirySettingsExpiryDateType  (optional)
-     * @param documentExpirySettingsExpiryValue  (optional)
-     * @param documentExpirySettingsEnableDefaultExpiryAlert  (optional)
-     * @param documentExpirySettingsEnableAutoReminder  (optional)
-     * @param documentExpirySettingsReminderDays  (optional)
-     * @param documentExpirySettingsReminderCount  (optional)
+     * @param hideDecline This option prevents signers to decline the document during the signing process. (optional)
+     * @param hideSave This option prevents signers to save their changes during the signing process and continue signing later. (optional)
+     * @param documentExpirySettingsExpiryDateType This property represents the type for the expiry date (optional)
+     * @param documentExpirySettingsExpiryValue This property is used to set the expiry value based on the expiry type (optional)
+     * @param documentExpirySettingsEnableDefaultExpiryAlert This property will send the expiry alert email before the day of expiry for the pending signers. (optional)
+     * @param documentExpirySettingsEnableAutoReminder When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. (optional)
+     * @param documentExpirySettingsReminderDays Remind in terms of days. (optional)
+     * @param documentExpirySettingsReminderCount Number of reminder count. (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
      * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
@@ -1149,7 +1149,7 @@ public class BrandingApi {
     /**
      * Edit the brand.
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @param brandName  (optional)
      * @param brandLogo  (optional)
      * @param backgroundColor  (optional)
@@ -1169,14 +1169,14 @@ public class BrandingApi {
      * @param showBuiltInFormFields  (optional, default to true)
      * @param allowCustomFieldCreation  (optional, default to false)
      * @param showSharedCustomFields  (optional, default to false)
-     * @param hideDecline  (optional)
-     * @param hideSave  (optional)
-     * @param documentExpirySettingsExpiryDateType  (optional)
-     * @param documentExpirySettingsExpiryValue  (optional)
-     * @param documentExpirySettingsEnableDefaultExpiryAlert  (optional)
-     * @param documentExpirySettingsEnableAutoReminder  (optional)
-     * @param documentExpirySettingsReminderDays  (optional)
-     * @param documentExpirySettingsReminderCount  (optional)
+     * @param hideDecline This option prevents signers to decline the document during the signing process. (optional)
+     * @param hideSave This option prevents signers to save their changes during the signing process and continue signing later. (optional)
+     * @param documentExpirySettingsExpiryDateType This property represents the type for the expiry date (optional)
+     * @param documentExpirySettingsExpiryValue This property is used to set the expiry value based on the expiry type (optional)
+     * @param documentExpirySettingsEnableDefaultExpiryAlert This property will send the expiry alert email before the day of expiry for the pending signers. (optional)
+     * @param documentExpirySettingsEnableAutoReminder When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. (optional)
+     * @param documentExpirySettingsReminderDays Remind in terms of days. (optional)
+     * @param documentExpirySettingsReminderCount Number of reminder count. (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
      * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
@@ -1203,7 +1203,7 @@ public class BrandingApi {
     /**
      * Edit the brand. (asynchronously)
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @param brandName  (optional)
      * @param brandLogo  (optional)
      * @param backgroundColor  (optional)
@@ -1223,14 +1223,14 @@ public class BrandingApi {
      * @param showBuiltInFormFields  (optional, default to true)
      * @param allowCustomFieldCreation  (optional, default to false)
      * @param showSharedCustomFields  (optional, default to false)
-     * @param hideDecline  (optional)
-     * @param hideSave  (optional)
-     * @param documentExpirySettingsExpiryDateType  (optional)
-     * @param documentExpirySettingsExpiryValue  (optional)
-     * @param documentExpirySettingsEnableDefaultExpiryAlert  (optional)
-     * @param documentExpirySettingsEnableAutoReminder  (optional)
-     * @param documentExpirySettingsReminderDays  (optional)
-     * @param documentExpirySettingsReminderCount  (optional)
+     * @param hideDecline This option prevents signers to decline the document during the signing process. (optional)
+     * @param hideSave This option prevents signers to save their changes during the signing process and continue signing later. (optional)
+     * @param documentExpirySettingsExpiryDateType This property represents the type for the expiry date (optional)
+     * @param documentExpirySettingsExpiryValue This property is used to set the expiry value based on the expiry type (optional)
+     * @param documentExpirySettingsEnableDefaultExpiryAlert This property will send the expiry alert email before the day of expiry for the pending signers. (optional)
+     * @param documentExpirySettingsEnableAutoReminder When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders. (optional)
+     * @param documentExpirySettingsReminderDays Remind in terms of days. (optional)
+     * @param documentExpirySettingsReminderCount Number of reminder count. (optional)
      * @param customDomainSettingsDomainName  (optional)
      * @param customDomainSettingsFromName  (optional)
      * @param signatureFrameSettingsEnableSignatureFrame  (optional, default to false)
@@ -1258,7 +1258,7 @@ public class BrandingApi {
     }
     /**
      * Build call for getBrand
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1334,7 +1334,7 @@ public class BrandingApi {
     /**
      * Get the specific brand details.
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @return ViewBrandDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1354,7 +1354,7 @@ public class BrandingApi {
     /**
      * Get the specific brand details.
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @return ApiResponse&lt;ViewBrandDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1375,7 +1375,7 @@ public class BrandingApi {
     /**
      * Get the specific brand details. (asynchronously)
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1397,7 +1397,7 @@ public class BrandingApi {
     }
     /**
      * Build call for resetDefaultBrand
-     * @param brandId brand Id. (required)
+     * @param brandId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1511,7 +1511,7 @@ public class BrandingApi {
     /**
      * Reset default brand.
      * 
-     * @param brandId brand Id. (required)
+     * @param brandId  (required)
      * @return BrandingMessage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1530,7 +1530,7 @@ public class BrandingApi {
     /**
      * Reset default brand.
      * 
-     * @param brandId brand Id. (required)
+     * @param brandId  (required)
      * @return ApiResponse&lt;BrandingMessage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1550,7 +1550,7 @@ public class BrandingApi {
     /**
      * Reset default brand. (asynchronously)
      * 
-     * @param brandId brand Id. (required)
+     * @param brandId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

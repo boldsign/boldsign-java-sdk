@@ -10,6 +10,7 @@ All URIs are relative to *https://api.boldsign.com*
 | [**cancelEditing**](DocumentApi.md#cancelEditing) | **POST** /v1/document/cancelEditing | Cancels editing for a document that is currently in edit-mode. |
 | [**changeAccessCode**](DocumentApi.md#changeAccessCode) | **PATCH** /v1/document/changeAccessCode | Changes the access code for the given document signer. |
 | [**changeRecipient**](DocumentApi.md#changeRecipient) | **PATCH** /v1/document/changeRecipient | Change recipient details of a document. |
+| [**createEmbeddedDocumentCloneUrl**](DocumentApi.md#createEmbeddedDocumentCloneUrl) | **POST** /v1/document/createEmbeddedCloneUrl | Generates a URL to embeds Clone document process into your application. |
 | [**createEmbeddedEditUrl**](DocumentApi.md#createEmbeddedEditUrl) | **POST** /v1/document/createEmbeddedEditUrl | Generates an embedded edit URL that allows the document editing process to be integrated into your application. |
 | [**createEmbeddedRequestUrlDocument**](DocumentApi.md#createEmbeddedRequestUrlDocument) | **POST** /v1/document/createEmbeddedRequestUrl | Generates a send URL which embeds document sending process into your application. |
 | [**deleteDocument**](DocumentApi.md#deleteDocument) | **DELETE** /v1/document/delete | Delete the document. |
@@ -55,7 +56,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The DocumentId.
+    String documentId = "documentId_example"; // String | 
     AccessCodeDetail accessCodeDetail = new AccessCodeDetail(); // AccessCodeDetail | Access code details.
     
     try {
@@ -75,7 +76,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The DocumentId. | |
+| **documentId** | **String**|  | |
 | **accessCodeDetail** | [**AccessCodeDetail**](AccessCodeDetail.md)| Access code details. | [optional] |
 
 ### Return type
@@ -275,8 +276,8 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The document id.
-    String onBehalfOf = "onBehalfOf_example"; // String | The onbehalfof email id.
+    String documentId = "documentId_example"; // String | 
+    String onBehalfOf = "onBehalfOf_example"; // String | 
     
     try {
       apiInstance.cancelEditing(documentId, onBehalfOf);
@@ -295,8 +296,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The document id. | |
-| **onBehalfOf** | **String**| The onbehalfof email id. | [optional] |
+| **documentId** | **String**|  | |
+| **onBehalfOf** | **String**|  | [optional] |
 
 ### Return type
 
@@ -413,7 +414,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The documentID details.
+    String documentId = "documentId_example"; // String | 
     ChangeRecipient changeRecipient = new ChangeRecipient(); // ChangeRecipient | The new recipient details.
     
     try {
@@ -433,7 +434,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The documentID details. | |
+| **documentId** | **String**|  | |
 | **changeRecipient** | [**ChangeRecipient**](ChangeRecipient.md)| The new recipient details. | |
 
 ### Return type
@@ -455,6 +456,74 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+
+<a id="createEmbeddedDocumentCloneUrl"></a>
+# **createEmbeddedDocumentCloneUrl**
+> EmbeddedClonedDocument createEmbeddedDocumentCloneUrl(documentId, embeddedCloneDocumentJsonRequest)
+
+Generates a URL to embeds Clone document process into your application.
+
+### Example
+```java
+// Import classes:
+import com.boldsign.ApiClient;
+import com.boldsign.ApiException;
+import com.boldsign.Configuration;
+import com.boldsign.auth.*;
+import com.boldsign.models.*;
+import com.boldsign.api.DocumentApi;
+
+public class Example {
+  public static void main(String[] args) {
+
+    ApiClient apiClient = Configuration.getDefaultApiClient();
+    apiClient.setApiKey("YOUR_API_KEY");
+
+    DocumentApi apiInstance = new DocumentApi(apiClient);
+
+    String documentId = "documentId_example"; // String | 
+    EmbeddedCloneDocumentJsonRequest embeddedCloneDocumentJsonRequest = new EmbeddedCloneDocumentJsonRequest(); // EmbeddedCloneDocumentJsonRequest | The embedded clone document request body.
+    
+    try {
+      EmbeddedClonedDocument result = apiInstance.createEmbeddedDocumentCloneUrl(documentId, embeddedCloneDocumentJsonRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DocumentApi#createEmbeddedDocumentCloneUrl");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **documentId** | **String**|  | |
+| **embeddedCloneDocumentJsonRequest** | [**EmbeddedCloneDocumentJsonRequest**](EmbeddedCloneDocumentJsonRequest.md)| The embedded clone document request body. | [optional] |
+
+### Return type
+
+[**EmbeddedClonedDocument**](EmbeddedClonedDocument.md)
+
+### Authorization
+
+[X-API-KEY](../README.md#X-API-KEY), [Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data, application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **401** | Unauthorized |  -  |
+| **400** | Bad Request |  -  |
 
 <a id="createEmbeddedEditUrl"></a>
 # **createEmbeddedEditUrl**
@@ -480,7 +549,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The document id.
+    String documentId = "documentId_example"; // String | 
     EmbeddedDocumentEditJsonRequest embeddedDocumentEditJsonRequest = new EmbeddedDocumentEditJsonRequest(); // EmbeddedDocumentEditJsonRequest | The embedded edit document request body.
     
     try {
@@ -501,7 +570,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The document id. | |
+| **documentId** | **String**|  | |
 | **embeddedDocumentEditJsonRequest** | [**EmbeddedDocumentEditJsonRequest**](EmbeddedDocumentEditJsonRequest.md)| The embedded edit document request body. | [optional] |
 
 ### Return type
@@ -618,8 +687,8 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
-    Boolean deletePermanently = false; // Boolean | Delete Permanently.
+    String documentId = "documentId_example"; // String | 
+    Boolean deletePermanently = false; // Boolean | 
     
     try {
       apiInstance.deleteDocument(documentId, deletePermanently);
@@ -638,8 +707,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
-| **deletePermanently** | **Boolean**| Delete Permanently. | [optional] [default to false] |
+| **documentId** | **String**|  | |
+| **deletePermanently** | **Boolean**|  | [optional] [default to false] |
 
 ### Return type
 
@@ -750,9 +819,9 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
-    String attachmentId = "attachmentId_example"; // String | Attachment Id(Get attachment ID from Properties API).
-    String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    String documentId = "documentId_example"; // String | 
+    String attachmentId = "attachmentId_example"; // String | 
+    String onBehalfOf = "onBehalfOf_example"; // String | 
     
     try {
       File result = apiInstance.downloadAttachment(documentId, attachmentId, onBehalfOf);
@@ -772,9 +841,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
-| **attachmentId** | **String**| Attachment Id(Get attachment ID from Properties API). | |
-| **onBehalfOf** | **String**| The on behalfof email address. | [optional] |
+| **documentId** | **String**|  | |
+| **attachmentId** | **String**|  | |
+| **onBehalfOf** | **String**|  | [optional] |
 
 ### Return type
 
@@ -820,8 +889,8 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
-    String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    String documentId = "documentId_example"; // String | 
+    String onBehalfOf = "onBehalfOf_example"; // String | 
     
     try {
       File result = apiInstance.downloadAuditLog(documentId, onBehalfOf);
@@ -841,8 +910,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
-| **onBehalfOf** | **String**| The on behalfof email address. | [optional] |
+| **documentId** | **String**|  | |
+| **onBehalfOf** | **String**|  | [optional] |
 
 ### Return type
 
@@ -888,8 +957,8 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
-    String onBehalfOf = "onBehalfOf_example"; // String | The on behalfof email address.
+    String documentId = "documentId_example"; // String | 
+    String onBehalfOf = "onBehalfOf_example"; // String | 
     
     try {
       File result = apiInstance.downloadDocument(documentId, onBehalfOf);
@@ -909,8 +978,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
-| **onBehalfOf** | **String**| The on behalfof email address. | [optional] |
+| **documentId** | **String**|  | |
+| **onBehalfOf** | **String**|  | [optional] |
 
 ### Return type
 
@@ -956,7 +1025,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The ID of the document to be sent.
+    String documentId = "documentId_example"; // String | 
     
     try {
       apiInstance.draftSend(documentId);
@@ -975,7 +1044,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The ID of the document to be sent. | |
+| **documentId** | **String**|  | |
 
 ### Return type
 
@@ -1021,7 +1090,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
+    String documentId = "documentId_example"; // String | 
     EditDocumentRequest editDocumentRequest = new EditDocumentRequest(); // EditDocumentRequest | Edit document JSON request.
     
     try {
@@ -1042,7 +1111,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
+| **documentId** | **String**|  | |
 | **editDocumentRequest** | [**EditDocumentRequest**](EditDocumentRequest.md)| Edit document JSON request. | [optional] |
 
 ### Return type
@@ -1091,7 +1160,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
+    String documentId = "documentId_example"; // String | 
     ExtendExpiry extendExpiry = new ExtendExpiry(); // ExtendExpiry | The new expiry value should be specified in yyyy-MM-dd format for days type, ISO date time format for specific date time and integer for hours type.
     
     try {
@@ -1111,7 +1180,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
+| **documentId** | **String**|  | |
 | **extendExpiry** | [**ExtendExpiry**](ExtendExpiry.md)| The new expiry value should be specified in yyyy-MM-dd format for days type, ISO date time format for specific date time and integer for hours type. | [optional] |
 
 ### Return type
@@ -1158,7 +1227,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
+    String documentId = "documentId_example"; // String | 
     
     try {
       DocumentProperties result = apiInstance.getProperties(documentId);
@@ -1178,7 +1247,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
+| **documentId** | **String**|  | |
 
 ### Return type
 
@@ -1389,7 +1458,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The DocumentId.
+    String documentId = "documentId_example"; // String | 
     PrefillFieldRequest prefillFieldRequest = new PrefillFieldRequest(); // PrefillFieldRequest | The prefill field request.
     
     try {
@@ -1409,7 +1478,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The DocumentId. | |
+| **documentId** | **String**|  | |
 | **prefillFieldRequest** | [**PrefillFieldRequest**](PrefillFieldRequest.md)| The prefill field request. | |
 
 ### Return type
@@ -1456,8 +1525,8 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
-    List<String> receiverEmails = Arrays.asList(); // List<String> | Signer emails.
+    String documentId = "documentId_example"; // String | 
+    List<String> receiverEmails = Arrays.asList(); // List<String> | 
     ReminderMessage reminderMessage = new ReminderMessage(); // ReminderMessage | Reminder Message for signers.
     
     try {
@@ -1477,8 +1546,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
-| **receiverEmails** | [**List&lt;String&gt;**](String.md)| Signer emails. | [optional] |
+| **documentId** | **String**|  | |
+| **receiverEmails** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **reminderMessage** | [**ReminderMessage**](ReminderMessage.md)| Reminder Message for signers. | [optional] |
 
 ### Return type
@@ -1592,7 +1661,7 @@ public class Example {
 
     DocumentApi apiInstance = new DocumentApi(apiClient);
 
-    String documentId = "documentId_example"; // String | Document Id.
+    String documentId = "documentId_example"; // String | 
     RevokeDocument revokeDocument = new RevokeDocument(); // RevokeDocument | RevokeDetails.
     
     try {
@@ -1612,7 +1681,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| Document Id. | |
+| **documentId** | **String**|  | |
 | **revokeDocument** | [**RevokeDocument**](RevokeDocument.md)| RevokeDetails. | |
 
 ### Return type

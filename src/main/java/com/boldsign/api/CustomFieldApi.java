@@ -296,7 +296,7 @@ public class CustomFieldApi {
     }
     /**
      * Build call for customFieldsList
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -371,7 +371,7 @@ public class CustomFieldApi {
     /**
      * List the custom fields respective to the brand id.
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @return CustomFieldCollection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -390,7 +390,7 @@ public class CustomFieldApi {
     /**
      * List the custom fields respective to the brand id.
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @return ApiResponse&lt;CustomFieldCollection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -410,7 +410,7 @@ public class CustomFieldApi {
     /**
      * List the custom fields respective to the brand id. (asynchronously)
      * 
-     * @param brandId The brand id. (required)
+     * @param brandId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -431,7 +431,7 @@ public class CustomFieldApi {
     }
     /**
      * Build call for deleteCustomField
-     * @param customFieldId The custom field id. (required)
+     * @param customFieldId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -546,7 +546,7 @@ public class CustomFieldApi {
     /**
      * Delete the custom field.
      * 
-     * @param customFieldId The custom field id. (required)
+     * @param customFieldId  (required)
      * @return DeleteCustomFieldReply
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -566,7 +566,7 @@ public class CustomFieldApi {
     /**
      * Delete the custom field.
      * 
-     * @param customFieldId The custom field id. (required)
+     * @param customFieldId  (required)
      * @return ApiResponse&lt;DeleteCustomFieldReply&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -587,7 +587,7 @@ public class CustomFieldApi {
     /**
      * Delete the custom field. (asynchronously)
      * 
-     * @param customFieldId The custom field id. (required)
+     * @param customFieldId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -609,7 +609,7 @@ public class CustomFieldApi {
     }
     /**
      * Build call for editCustomField
-     * @param customFieldId The custom field id. (required)
+     * @param customFieldId  (required)
      * @param brandCustomFieldDetails The custom field details. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -772,7 +772,7 @@ public class CustomFieldApi {
     /**
      * Edit the custom field.
      * 
-     * @param customFieldId The custom field id. (required)
+     * @param customFieldId  (required)
      * @param brandCustomFieldDetails The custom field details. (required)
      * @return CustomFieldMessage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -793,7 +793,7 @@ public class CustomFieldApi {
     /**
      * Edit the custom field.
      * 
-     * @param customFieldId The custom field id. (required)
+     * @param customFieldId  (required)
      * @param brandCustomFieldDetails The custom field details. (required)
      * @return ApiResponse&lt;CustomFieldMessage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -815,7 +815,7 @@ public class CustomFieldApi {
     /**
      * Edit the custom field. (asynchronously)
      * 
-     * @param customFieldId The custom field id. (required)
+     * @param customFieldId  (required)
      * @param brandCustomFieldDetails The custom field details. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

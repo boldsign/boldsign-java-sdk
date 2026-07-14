@@ -364,6 +364,10 @@ public class SendForSignFromTemplateForm {
   @SerializedName(SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE)
   private Boolean enableAllowSignEverywhere;
 
+  public static final String SERIALIZED_NAME_DOCUMENT_TIME_ZONE = "documentTimeZone";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_TIME_ZONE)
+  private String documentTimeZone;
+
   public SendForSignFromTemplateForm() {
   }
 
@@ -1143,6 +1147,25 @@ public class SendForSignFromTemplateForm {
   }
 
 
+  public SendForSignFromTemplateForm documentTimeZone(String documentTimeZone) {
+    this.documentTimeZone = documentTimeZone;
+    return this;
+  }
+
+  /**
+   * Get documentTimeZone
+   * @return documentTimeZone
+   */
+  @javax.annotation.Nullable
+  public String getDocumentTimeZone() {
+    return documentTimeZone;
+  }
+
+  public void setDocumentTimeZone(String documentTimeZone) {
+    this.documentTimeZone = documentTimeZone;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1188,12 +1211,13 @@ public class SendForSignFromTemplateForm {
         Objects.equals(this.allowScheduledSend, sendForSignFromTemplateForm.allowScheduledSend) &&
         Objects.equals(this.allowedSignatureTypes, sendForSignFromTemplateForm.allowedSignatureTypes) &&
         Objects.equals(this.groupSignerSettings, sendForSignFromTemplateForm.groupSignerSettings) &&
-        Objects.equals(this.enableAllowSignEverywhere, sendForSignFromTemplateForm.enableAllowSignEverywhere);
+        Objects.equals(this.enableAllowSignEverywhere, sendForSignFromTemplateForm.enableAllowSignEverywhere) &&
+        Objects.equals(this.documentTimeZone, sendForSignFromTemplateForm.documentTimeZone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend, allowedSignatureTypes, groupSignerSettings, enableAllowSignEverywhere);
+    return Objects.hash(files, fileUrls, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend, allowedSignatureTypes, groupSignerSettings, enableAllowSignEverywhere, documentTimeZone);
   }
 
   @Override
@@ -1236,6 +1260,7 @@ public class SendForSignFromTemplateForm {
     sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
     sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
+    sb.append("    documentTimeZone: ").append(toIndentedString(documentTimeZone)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2241,6 +2266,26 @@ public class SendForSignFromTemplateForm {
           map.put("enableAllowSignEverywhere", JSON.serialize(enableAllowSignEverywhere));
         }
     }
+    if (documentTimeZone != null) {
+        if (isFileTypeOrListOfFiles(documentTimeZone)) {
+            fileTypeFound = true;
+        }
+
+        if (documentTimeZone.getClass().equals(java.io.File.class) ||
+            documentTimeZone.getClass().equals(Integer.class) ||
+            documentTimeZone.getClass().equals(String.class) ||
+            documentTimeZone.getClass().equals(java.net.URI.class)||
+            documentTimeZone.getClass().isEnum()) {
+            map.put("documentTimeZone", documentTimeZone);
+        } else if (isListOfFile(documentTimeZone)) {
+            for(int i = 0; i< getListSize(documentTimeZone); i++) {
+                map.put("documentTimeZone", documentTimeZone);
+            }
+        }
+        else {
+          map.put("documentTimeZone", JSON.serialize(documentTimeZone));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2322,6 +2367,7 @@ public class SendForSignFromTemplateForm {
     openapiFields.add("allowedSignatureTypes");
     openapiFields.add("groupSignerSettings");
     openapiFields.add("enableAllowSignEverywhere");
+    openapiFields.add("documentTimeZone");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2464,6 +2510,9 @@ public class SendForSignFromTemplateForm {
       // validate the optional field `groupSignerSettings`
       if (jsonObj.get("groupSignerSettings") != null && !jsonObj.get("groupSignerSettings").isJsonNull()) {
         GroupSignerSettings.validateJsonElement(jsonObj.get("groupSignerSettings"));
+      }
+      if ((jsonObj.get("documentTimeZone") != null && !jsonObj.get("documentTimeZone").isJsonNull()) && !jsonObj.get("documentTimeZone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `documentTimeZone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentTimeZone").toString()));
       }
   }
 

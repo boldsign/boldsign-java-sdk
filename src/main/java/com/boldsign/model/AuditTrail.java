@@ -251,7 +251,19 @@ public class AuditTrail {
     
     RESENT_FOR_APPROVAL("ResentForApproval"),
     
-    DOCUMENT_FIELD_MARKUP("DocumentFieldMarkup");
+    DOCUMENT_FIELD_MARKUP("DocumentFieldMarkup"),
+    
+    KBA_INITIATED("KBAInitiated"),
+    
+    KBA_COMPLETED("KBACompleted"),
+    
+    KBA_FAILED("KBAFailed"),
+    
+    KBA_RESET("KBAReset"),
+    
+    KBA_ADDED("KBAAdded"),
+    
+    KBA_REMOVED("KBARemoved");
 
     private String value;
 

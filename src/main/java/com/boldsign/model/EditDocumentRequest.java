@@ -343,6 +343,10 @@ public class EditDocumentRequest {
   @SerializedName(SERIALIZED_NAME_ENABLE_ALLOW_SIGN_EVERYWHERE)
   private Boolean enableAllowSignEverywhere;
 
+  public static final String SERIALIZED_NAME_DOCUMENT_TIME_ZONE = "documentTimeZone";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_TIME_ZONE)
+  private String documentTimeZone;
+
   public EditDocumentRequest() {
   }
 
@@ -1007,6 +1011,25 @@ public class EditDocumentRequest {
   }
 
 
+  public EditDocumentRequest documentTimeZone(String documentTimeZone) {
+    this.documentTimeZone = documentTimeZone;
+    return this;
+  }
+
+  /**
+   * Get documentTimeZone
+   * @return documentTimeZone
+   */
+  @javax.annotation.Nullable
+  public String getDocumentTimeZone() {
+    return documentTimeZone;
+  }
+
+  public void setDocumentTimeZone(String documentTimeZone) {
+    this.documentTimeZone = documentTimeZone;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1047,12 +1070,13 @@ public class EditDocumentRequest {
         Objects.equals(this.scheduledSendTime, editDocumentRequest.scheduledSendTime) &&
         Objects.equals(this.allowedSignatureTypes, editDocumentRequest.allowedSignatureTypes) &&
         Objects.equals(this.groupSignerSettings, editDocumentRequest.groupSignerSettings) &&
-        Objects.equals(this.enableAllowSignEverywhere, editDocumentRequest.enableAllowSignEverywhere);
+        Objects.equals(this.enableAllowSignEverywhere, editDocumentRequest.enableAllowSignEverywhere) &&
+        Objects.equals(this.documentTimeZone, editDocumentRequest.documentTimeZone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, title, message, signers, cc, enableSigningOrder, enableAuditTrailLocalization, expiryDateType, expiryValue, reminderSettings, disableEmails, disableSMS, brandId, hideDocumentId, labels, disableExpiryAlert, enablePrintAndSign, enableReassign, useTextTags, textTagDefinitions, documentInfo, onBehalfOf, documentDownloadOption, metaData, recipientNotificationSettings, formGroups, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, enableAllowSignEverywhere);
+    return Objects.hash(files, title, message, signers, cc, enableSigningOrder, enableAuditTrailLocalization, expiryDateType, expiryValue, reminderSettings, disableEmails, disableSMS, brandId, hideDocumentId, labels, disableExpiryAlert, enablePrintAndSign, enableReassign, useTextTags, textTagDefinitions, documentInfo, onBehalfOf, documentDownloadOption, metaData, recipientNotificationSettings, formGroups, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, enableAllowSignEverywhere, documentTimeZone);
   }
 
   @Override
@@ -1090,6 +1114,7 @@ public class EditDocumentRequest {
     sb.append("    allowedSignatureTypes: ").append(toIndentedString(allowedSignatureTypes)).append("\n");
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
     sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
+    sb.append("    documentTimeZone: ").append(toIndentedString(documentTimeZone)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1941,6 +1966,26 @@ public class EditDocumentRequest {
           map.put("enableAllowSignEverywhere", JSON.serialize(enableAllowSignEverywhere));
         }
     }
+    if (documentTimeZone != null) {
+        if (isFileTypeOrListOfFiles(documentTimeZone)) {
+            fileTypeFound = true;
+        }
+
+        if (documentTimeZone.getClass().equals(java.io.File.class) ||
+            documentTimeZone.getClass().equals(Integer.class) ||
+            documentTimeZone.getClass().equals(String.class) ||
+            documentTimeZone.getClass().equals(java.net.URI.class)||
+            documentTimeZone.getClass().isEnum()) {
+            map.put("documentTimeZone", documentTimeZone);
+        } else if (isListOfFile(documentTimeZone)) {
+            for(int i = 0; i< getListSize(documentTimeZone); i++) {
+                map.put("documentTimeZone", documentTimeZone);
+            }
+        }
+        else {
+          map.put("documentTimeZone", JSON.serialize(documentTimeZone));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -2017,6 +2062,7 @@ public class EditDocumentRequest {
     openapiFields.add("allowedSignatureTypes");
     openapiFields.add("groupSignerSettings");
     openapiFields.add("enableAllowSignEverywhere");
+    openapiFields.add("documentTimeZone");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2168,6 +2214,9 @@ public class EditDocumentRequest {
       // validate the optional field `groupSignerSettings`
       if (jsonObj.get("groupSignerSettings") != null && !jsonObj.get("groupSignerSettings").isJsonNull()) {
         GroupSignerSettings.validateJsonElement(jsonObj.get("groupSignerSettings"));
+      }
+      if ((jsonObj.get("documentTimeZone") != null && !jsonObj.get("documentTimeZone").isJsonNull()) && !jsonObj.get("documentTimeZone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `documentTimeZone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentTimeZone").toString()));
       }
   }
 

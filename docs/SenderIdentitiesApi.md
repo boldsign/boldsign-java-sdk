@@ -104,7 +104,7 @@ public class Example {
 
     SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
 
-    String email = "email_example"; // String | The email address.
+    String email = "email_example"; // String | 
     
     try {
       apiInstance.deleteSenderIdentities(email);
@@ -123,7 +123,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **email** | **String**| The email address. | |
+| **email** | **String**|  | |
 
 ### Return type
 
@@ -169,8 +169,8 @@ public class Example {
 
     SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
 
-    String id = "id_example"; // String | The sender identity id.
-    String email = "email_example"; // String | The sender identity email.
+    String id = "id_example"; // String | 
+    String email = "email_example"; // String | 
     
     try {
       SenderIdentityViewModel result = apiInstance.getSenderIdentityProperties(id, email);
@@ -190,8 +190,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **id** | **String**| The sender identity id. | [optional] |
-| **email** | **String**| The sender identity email. | [optional] |
+| **id** | **String**|  | [optional] |
+| **email** | **String**|  | [optional] |
 
 ### Return type
 
@@ -309,7 +309,7 @@ public class Example {
 
     SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
 
-    String email = "email_example"; // String | The email address.
+    String email = "email_example"; // String | 
     
     try {
       apiInstance.reRequestSenderIdentities(email);
@@ -328,7 +328,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **email** | **String**| The email address. | |
+| **email** | **String**|  | |
 
 ### Return type
 
@@ -374,7 +374,7 @@ public class Example {
 
     SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
 
-    String email = "email_example"; // String | The email address.
+    String email = "email_example"; // String | 
     
     try {
       apiInstance.resendInvitationSenderIdentities(email);
@@ -393,7 +393,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **email** | **String**| The email address. | |
+| **email** | **String**|  | |
 
 ### Return type
 
@@ -439,7 +439,7 @@ public class Example {
 
     SenderIdentitiesApi apiInstance = new SenderIdentitiesApi(apiClient);
 
-    String email = "email_example"; // String | The email address.
+    String email = "email_example"; // String | 
     EditSenderIdentityRequest editSenderIdentityRequest = new EditSenderIdentityRequest(); // EditSenderIdentityRequest | The create sender identity request.
     
     try {
@@ -459,7 +459,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **email** | **String**| The email address. | |
+| **email** | **String**|  | |
 | **editSenderIdentityRequest** | [**EditSenderIdentityRequest**](EditSenderIdentityRequest.md)| The create sender identity request. | |
 
 ### Return type

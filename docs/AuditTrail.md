@@ -109,6 +109,12 @@
 | QES_WITHDRAWN | &quot;QESWithdrawn&quot; |
 | RESENT_FOR_APPROVAL | &quot;ResentForApproval&quot; |
 | DOCUMENT_FIELD_MARKUP | &quot;DocumentFieldMarkup&quot; |
+| KBA_INITIATED | &quot;KBAInitiated&quot; |
+| KBA_COMPLETED | &quot;KBACompleted&quot; |
+| KBA_FAILED | &quot;KBAFailed&quot; |
+| KBA_RESET | &quot;KBAReset&quot; |
+| KBA_ADDED | &quot;KBAAdded&quot; |
+| KBA_REMOVED | &quot;KBARemoved&quot; |
 
 
 

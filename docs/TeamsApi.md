@@ -100,7 +100,7 @@ public class Example {
 
     TeamsApi apiInstance = new TeamsApi(apiClient);
 
-    String teamId = "teamId_example"; // String | Team Id.
+    String teamId = "teamId_example"; // String | 
     
     try {
       TeamResponse result = apiInstance.getTeam(teamId);
@@ -120,7 +120,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **teamId** | **String**| Team Id. | |
+| **teamId** | **String**|  | |
 
 ### Return type
 

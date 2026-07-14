@@ -37,6 +37,8 @@ import com.boldsign.model.DocumentProperties;
 import com.boldsign.model.DocumentRecords;
 import com.boldsign.model.DocumentTags;
 import com.boldsign.model.EditDocumentRequest;
+import com.boldsign.model.EmbeddedCloneDocumentJsonRequest;
+import com.boldsign.model.EmbeddedClonedDocument;
 import com.boldsign.model.EmbeddedDocumentEditJsonRequest;
 import com.boldsign.model.EmbeddedDocumentEdited;
 import com.boldsign.model.EmbeddedDocumentRequest;
@@ -99,7 +101,7 @@ public class DocumentApi {
 
     /**
      * Build call for addAuthentication
-     * @param documentId The DocumentId. (required)
+     * @param documentId  (required)
      * @param accessCodeDetail Access code details. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -217,7 +219,7 @@ public class DocumentApi {
     /**
      * The add authentication to recipient.
      * 
-     * @param documentId The DocumentId. (required)
+     * @param documentId  (required)
      * @param accessCodeDetail Access code details. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -235,7 +237,7 @@ public class DocumentApi {
     /**
      * The add authentication to recipient.
      * 
-     * @param documentId The DocumentId. (required)
+     * @param documentId  (required)
      * @param accessCodeDetail Access code details. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -255,7 +257,7 @@ public class DocumentApi {
     /**
      * The add authentication to recipient. (asynchronously)
      * 
-     * @param documentId The DocumentId. (required)
+     * @param documentId  (required)
      * @param accessCodeDetail Access code details. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -702,8 +704,8 @@ public class DocumentApi {
     }
     /**
      * Build call for cancelEditing
-     * @param documentId The document id. (required)
-     * @param onBehalfOf The onbehalfof email id. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -782,8 +784,8 @@ public class DocumentApi {
     /**
      * Cancels editing for a document that is currently in edit-mode.
      * 
-     * @param documentId The document id. (required)
-     * @param onBehalfOf The onbehalfof email id. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -800,8 +802,8 @@ public class DocumentApi {
     /**
      * Cancels editing for a document that is currently in edit-mode.
      * 
-     * @param documentId The document id. (required)
-     * @param onBehalfOf The onbehalfof email id. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -820,8 +822,8 @@ public class DocumentApi {
     /**
      * Cancels editing for a document that is currently in edit-mode. (asynchronously)
      * 
-     * @param documentId The document id. (required)
-     * @param onBehalfOf The onbehalfof email id. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1078,7 +1080,7 @@ public class DocumentApi {
     }
     /**
      * Build call for changeRecipient
-     * @param documentId The documentID details. (required)
+     * @param documentId  (required)
      * @param changeRecipient The new recipient details. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1240,7 +1242,7 @@ public class DocumentApi {
     /**
      * Change recipient details of a document.
      * 
-     * @param documentId The documentID details. (required)
+     * @param documentId  (required)
      * @param changeRecipient The new recipient details. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1258,7 +1260,7 @@ public class DocumentApi {
     /**
      * Change recipient details of a document.
      * 
-     * @param documentId The documentID details. (required)
+     * @param documentId  (required)
      * @param changeRecipient The new recipient details. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1278,7 +1280,7 @@ public class DocumentApi {
     /**
      * Change recipient details of a document. (asynchronously)
      * 
-     * @param documentId The documentID details. (required)
+     * @param documentId  (required)
      * @param changeRecipient The new recipient details. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1298,8 +1300,151 @@ public class DocumentApi {
         return localVarCall;
     }
     /**
+     * Build call for createEmbeddedDocumentCloneUrl
+     * @param documentId  (required)
+     * @param embeddedCloneDocumentJsonRequest The embedded clone document request body. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEmbeddedDocumentCloneUrlCall(String documentId, EmbeddedCloneDocumentJsonRequest embeddedCloneDocumentJsonRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = embeddedCloneDocumentJsonRequest;
+
+        // create path and map variables
+        String localVarPath = "/v1/document/createEmbeddedCloneUrl";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        localVarFormParams = embeddedCloneDocumentJsonRequest.createFormData();
+
+        if (documentId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("documentId", documentId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json",
+            "multipart/form-data",
+            "application/x-www-form-urlencoded"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-API-KEY", "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEmbeddedDocumentCloneUrlValidateBeforeCall(String documentId, EmbeddedCloneDocumentJsonRequest embeddedCloneDocumentJsonRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'documentId' is set
+        if (documentId == null) {
+            throw new ApiException("Missing the required parameter 'documentId' when calling createEmbeddedDocumentCloneUrl(Async)");
+        }
+
+        return createEmbeddedDocumentCloneUrlCall(documentId, embeddedCloneDocumentJsonRequest, _callback);
+
+    }
+
+    /**
+     * Generates a URL to embeds Clone document process into your application.
+     * 
+     * @param documentId  (required)
+     * @param embeddedCloneDocumentJsonRequest The embedded clone document request body. (optional)
+     * @return EmbeddedClonedDocument
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public EmbeddedClonedDocument createEmbeddedDocumentCloneUrl(String documentId, EmbeddedCloneDocumentJsonRequest embeddedCloneDocumentJsonRequest) throws ApiException {
+        ApiResponse<EmbeddedClonedDocument> localVarResp = createEmbeddedDocumentCloneUrlWithHttpInfo(documentId, embeddedCloneDocumentJsonRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generates a URL to embeds Clone document process into your application.
+     * 
+     * @param documentId  (required)
+     * @param embeddedCloneDocumentJsonRequest The embedded clone document request body. (optional)
+     * @return ApiResponse&lt;EmbeddedClonedDocument&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EmbeddedClonedDocument> createEmbeddedDocumentCloneUrlWithHttpInfo(String documentId, EmbeddedCloneDocumentJsonRequest embeddedCloneDocumentJsonRequest) throws ApiException {
+        okhttp3.Call localVarCall = createEmbeddedDocumentCloneUrlValidateBeforeCall(documentId, embeddedCloneDocumentJsonRequest, null);
+        Type localVarReturnType = new TypeToken<EmbeddedClonedDocument>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generates a URL to embeds Clone document process into your application. (asynchronously)
+     * 
+     * @param documentId  (required)
+     * @param embeddedCloneDocumentJsonRequest The embedded clone document request body. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEmbeddedDocumentCloneUrlAsync(String documentId, EmbeddedCloneDocumentJsonRequest embeddedCloneDocumentJsonRequest, final ApiCallback<EmbeddedClonedDocument> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createEmbeddedDocumentCloneUrlValidateBeforeCall(documentId, embeddedCloneDocumentJsonRequest, _callback);
+        Type localVarReturnType = new TypeToken<EmbeddedClonedDocument>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createEmbeddedEditUrl
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param embeddedDocumentEditJsonRequest The embedded edit document request body. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1381,7 +1526,7 @@ public class DocumentApi {
     /**
      * Generates an embedded edit URL that allows the document editing process to be integrated into your application.
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param embeddedDocumentEditJsonRequest The embedded edit document request body. (optional)
      * @return EmbeddedDocumentEdited
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1403,7 +1548,7 @@ public class DocumentApi {
     /**
      * Generates an embedded edit URL that allows the document editing process to be integrated into your application.
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param embeddedDocumentEditJsonRequest The embedded edit document request body. (optional)
      * @return ApiResponse&lt;EmbeddedDocumentEdited&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1426,7 +1571,7 @@ public class DocumentApi {
     /**
      * Generates an embedded edit URL that allows the document editing process to be integrated into your application. (asynchronously)
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param embeddedDocumentEditJsonRequest The embedded edit document request body. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1588,8 +1733,8 @@ public class DocumentApi {
     }
     /**
      * Build call for deleteDocument
-     * @param documentId Document Id. (required)
-     * @param deletePermanently Delete Permanently. (optional, default to false)
+     * @param documentId  (required)
+     * @param deletePermanently  (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1707,8 +1852,8 @@ public class DocumentApi {
     /**
      * Delete the document.
      * 
-     * @param documentId Document Id. (required)
-     * @param deletePermanently Delete Permanently. (optional, default to false)
+     * @param documentId  (required)
+     * @param deletePermanently  (optional, default to false)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1725,8 +1870,8 @@ public class DocumentApi {
     /**
      * Delete the document.
      * 
-     * @param documentId Document Id. (required)
-     * @param deletePermanently Delete Permanently. (optional, default to false)
+     * @param documentId  (required)
+     * @param deletePermanently  (optional, default to false)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1745,8 +1890,8 @@ public class DocumentApi {
     /**
      * Delete the document. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
-     * @param deletePermanently Delete Permanently. (optional, default to false)
+     * @param documentId  (required)
+     * @param deletePermanently  (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1969,9 +2114,9 @@ public class DocumentApi {
     }
     /**
      * Build call for downloadAttachment
-     * @param documentId Document Id. (required)
-     * @param attachmentId Attachment Id(Get attachment ID from Properties API). (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param attachmentId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2098,9 +2243,9 @@ public class DocumentApi {
     /**
      * Download the Attachment.
      * 
-     * @param documentId Document Id. (required)
-     * @param attachmentId Attachment Id(Get attachment ID from Properties API). (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param attachmentId  (required)
+     * @param onBehalfOf  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2119,9 +2264,9 @@ public class DocumentApi {
     /**
      * Download the Attachment.
      * 
-     * @param documentId Document Id. (required)
-     * @param attachmentId Attachment Id(Get attachment ID from Properties API). (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param attachmentId  (required)
+     * @param onBehalfOf  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2141,9 +2286,9 @@ public class DocumentApi {
     /**
      * Download the Attachment. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
-     * @param attachmentId Attachment Id(Get attachment ID from Properties API). (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param attachmentId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2164,8 +2309,8 @@ public class DocumentApi {
     }
     /**
      * Build call for downloadAuditLog
-     * @param documentId Document Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2283,8 +2428,8 @@ public class DocumentApi {
     /**
      * Download the audit trail document.
      * 
-     * @param documentId Document Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2303,8 +2448,8 @@ public class DocumentApi {
     /**
      * Download the audit trail document.
      * 
-     * @param documentId Document Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2324,8 +2469,8 @@ public class DocumentApi {
     /**
      * Download the audit trail document. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2346,8 +2491,8 @@ public class DocumentApi {
     }
     /**
      * Build call for downloadDocument
-     * @param documentId Document Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2465,8 +2610,8 @@ public class DocumentApi {
     /**
      * Download the document.
      * 
-     * @param documentId Document Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2485,8 +2630,8 @@ public class DocumentApi {
     /**
      * Download the document.
      * 
-     * @param documentId Document Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2506,8 +2651,8 @@ public class DocumentApi {
     /**
      * Download the document. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
-     * @param onBehalfOf The on behalfof email address. (optional)
+     * @param documentId  (required)
+     * @param onBehalfOf  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2528,7 +2673,7 @@ public class DocumentApi {
     }
     /**
      * Build call for draftSend
-     * @param documentId The ID of the document to be sent. (required)
+     * @param documentId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2603,7 +2748,7 @@ public class DocumentApi {
     /**
      * Sends a draft-status document out for signature.
      * 
-     * @param documentId The ID of the document to be sent. (required)
+     * @param documentId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2620,7 +2765,7 @@ public class DocumentApi {
     /**
      * Sends a draft-status document out for signature.
      * 
-     * @param documentId The ID of the document to be sent. (required)
+     * @param documentId  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2639,7 +2784,7 @@ public class DocumentApi {
     /**
      * Sends a draft-status document out for signature. (asynchronously)
      * 
-     * @param documentId The ID of the document to be sent. (required)
+     * @param documentId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2659,7 +2804,7 @@ public class DocumentApi {
     }
     /**
      * Build call for editDocument
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param editDocumentRequest Edit document JSON request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2741,7 +2886,7 @@ public class DocumentApi {
     /**
      * Edit and updates an existing document.
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param editDocumentRequest Edit document JSON request. (optional)
      * @return DocumentEdited
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2763,7 +2908,7 @@ public class DocumentApi {
     /**
      * Edit and updates an existing document.
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param editDocumentRequest Edit document JSON request. (optional)
      * @return ApiResponse&lt;DocumentEdited&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2786,7 +2931,7 @@ public class DocumentApi {
     /**
      * Edit and updates an existing document. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param editDocumentRequest Edit document JSON request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2810,7 +2955,7 @@ public class DocumentApi {
     }
     /**
      * Build call for extendExpiry
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param extendExpiry The new expiry value should be specified in yyyy-MM-dd format for days type, ISO date time format for specific date time and integer for hours type. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2967,7 +3112,7 @@ public class DocumentApi {
     /**
      * Extends the expiration date of the document.
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param extendExpiry The new expiry value should be specified in yyyy-MM-dd format for days type, ISO date time format for specific date time and integer for hours type. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2985,7 +3130,7 @@ public class DocumentApi {
     /**
      * Extends the expiration date of the document.
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param extendExpiry The new expiry value should be specified in yyyy-MM-dd format for days type, ISO date time format for specific date time and integer for hours type. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3005,7 +3150,7 @@ public class DocumentApi {
     /**
      * Extends the expiration date of the document. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param extendExpiry The new expiry value should be specified in yyyy-MM-dd format for days type, ISO date time format for specific date time and integer for hours type. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3026,7 +3171,7 @@ public class DocumentApi {
     }
     /**
      * Build call for getProperties
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3101,7 +3246,7 @@ public class DocumentApi {
     /**
      * Get summary of the document.
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @return DocumentProperties
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3120,7 +3265,7 @@ public class DocumentApi {
     /**
      * Get summary of the document.
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @return ApiResponse&lt;DocumentProperties&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3140,7 +3285,7 @@ public class DocumentApi {
     /**
      * Get summary of the document. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3602,7 +3747,7 @@ public class DocumentApi {
     }
     /**
      * Build call for prefillFields
-     * @param documentId The DocumentId. (required)
+     * @param documentId  (required)
      * @param prefillFieldRequest The prefill field request. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3725,7 +3870,7 @@ public class DocumentApi {
     /**
      * Updates the value (prefill) of the fields in the document.
      * 
-     * @param documentId The DocumentId. (required)
+     * @param documentId  (required)
      * @param prefillFieldRequest The prefill field request. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3743,7 +3888,7 @@ public class DocumentApi {
     /**
      * Updates the value (prefill) of the fields in the document.
      * 
-     * @param documentId The DocumentId. (required)
+     * @param documentId  (required)
      * @param prefillFieldRequest The prefill field request. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3763,7 +3908,7 @@ public class DocumentApi {
     /**
      * Updates the value (prefill) of the fields in the document. (asynchronously)
      * 
-     * @param documentId The DocumentId. (required)
+     * @param documentId  (required)
      * @param prefillFieldRequest The prefill field request. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3784,8 +3929,8 @@ public class DocumentApi {
     }
     /**
      * Build call for remindDocument
-     * @param documentId Document Id. (required)
-     * @param receiverEmails Signer emails. (optional)
+     * @param documentId  (required)
+     * @param receiverEmails  (optional)
      * @param reminderMessage Reminder Message for signers. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3946,8 +4091,8 @@ public class DocumentApi {
     /**
      * Send reminder to pending signers.
      * 
-     * @param documentId Document Id. (required)
-     * @param receiverEmails Signer emails. (optional)
+     * @param documentId  (required)
+     * @param receiverEmails  (optional)
      * @param reminderMessage Reminder Message for signers. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3965,8 +4110,8 @@ public class DocumentApi {
     /**
      * Send reminder to pending signers.
      * 
-     * @param documentId Document Id. (required)
-     * @param receiverEmails Signer emails. (optional)
+     * @param documentId  (required)
+     * @param receiverEmails  (optional)
      * @param reminderMessage Reminder Message for signers. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3986,8 +4131,8 @@ public class DocumentApi {
     /**
      * Send reminder to pending signers. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
-     * @param receiverEmails Signer emails. (optional)
+     * @param documentId  (required)
+     * @param receiverEmails  (optional)
      * @param reminderMessage Reminder Message for signers. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4224,7 +4369,7 @@ public class DocumentApi {
     }
     /**
      * Build call for revokeDocument
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param revokeDocument RevokeDetails. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4347,7 +4492,7 @@ public class DocumentApi {
     /**
      * Revoke the document.
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param revokeDocument RevokeDetails. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4365,7 +4510,7 @@ public class DocumentApi {
     /**
      * Revoke the document.
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param revokeDocument RevokeDetails. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4385,7 +4530,7 @@ public class DocumentApi {
     /**
      * Revoke the document. (asynchronously)
      * 
-     * @param documentId Document Id. (required)
+     * @param documentId  (required)
      * @param revokeDocument RevokeDetails. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

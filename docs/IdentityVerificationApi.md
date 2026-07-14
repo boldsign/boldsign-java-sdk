@@ -33,7 +33,7 @@ public class Example {
 
     IdentityVerificationApi apiInstance = new IdentityVerificationApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The document id.
+    String documentId = "documentId_example"; // String | 
     EmbeddedFileDetails embeddedFileDetails = new EmbeddedFileDetails(); // EmbeddedFileDetails | The embedded verification link request.
     
     try {
@@ -54,7 +54,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The document id. | |
+| **documentId** | **String**|  | |
 | **embeddedFileDetails** | [**EmbeddedFileDetails**](EmbeddedFileDetails.md)| The embedded verification link request. | [optional] |
 
 ### Return type
@@ -101,7 +101,7 @@ public class Example {
 
     IdentityVerificationApi apiInstance = new IdentityVerificationApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The document id.
+    String documentId = "documentId_example"; // String | 
     DownloadImageRequest downloadImageRequest = new DownloadImageRequest(); // DownloadImageRequest | The download image request.
     
     try {
@@ -122,7 +122,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The document id. | |
+| **documentId** | **String**|  | |
 | **downloadImageRequest** | [**DownloadImageRequest**](DownloadImageRequest.md)| The download image request. | |
 
 ### Return type
@@ -170,7 +170,7 @@ public class Example {
 
     IdentityVerificationApi apiInstance = new IdentityVerificationApi(apiClient);
 
-    String documentId = "documentId_example"; // String | The document id.
+    String documentId = "documentId_example"; // String | 
     VerificationDataRequest verificationDataRequest = new VerificationDataRequest(); // VerificationDataRequest | The download image request.
     
     try {
@@ -191,7 +191,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **documentId** | **String**| The document id. | |
+| **documentId** | **String**|  | |
 | **verificationDataRequest** | [**VerificationDataRequest**](VerificationDataRequest.md)| The download image request. | |
 
 ### Return type

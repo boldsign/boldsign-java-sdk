@@ -80,7 +80,7 @@ public class IdentityVerificationApi {
 
     /**
      * Build call for createEmbeddedVerificationUrl
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param embeddedFileDetails The embedded verification link request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -198,7 +198,7 @@ public class IdentityVerificationApi {
     /**
      * Generate a URL that embeds manual ID verification for the specified document signer into your application.
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param embeddedFileDetails The embedded verification link request. (optional)
      * @return EmbeddedFileLink
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -218,7 +218,7 @@ public class IdentityVerificationApi {
     /**
      * Generate a URL that embeds manual ID verification for the specified document signer into your application.
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param embeddedFileDetails The embedded verification link request. (optional)
      * @return ApiResponse&lt;EmbeddedFileLink&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -239,7 +239,7 @@ public class IdentityVerificationApi {
     /**
      * Generate a URL that embeds manual ID verification for the specified document signer into your application. (asynchronously)
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param embeddedFileDetails The embedded verification link request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -261,7 +261,7 @@ public class IdentityVerificationApi {
     }
     /**
      * Build call for image
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param downloadImageRequest The download image request. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -424,7 +424,7 @@ public class IdentityVerificationApi {
     /**
      * Retrieve the uploaded ID verification document or selfie image for the specified document signer using the file ID.
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param downloadImageRequest The download image request. (required)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -445,7 +445,7 @@ public class IdentityVerificationApi {
     /**
      * Retrieve the uploaded ID verification document or selfie image for the specified document signer using the file ID.
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param downloadImageRequest The download image request. (required)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -467,7 +467,7 @@ public class IdentityVerificationApi {
     /**
      * Retrieve the uploaded ID verification document or selfie image for the specified document signer using the file ID. (asynchronously)
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param downloadImageRequest The download image request. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -490,7 +490,7 @@ public class IdentityVerificationApi {
     }
     /**
      * Build call for report
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param verificationDataRequest The download image request. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -614,7 +614,7 @@ public class IdentityVerificationApi {
     /**
      * Retrieve the ID verification report for the specified document signer.
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param verificationDataRequest The download image request. (required)
      * @return IdReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -635,7 +635,7 @@ public class IdentityVerificationApi {
     /**
      * Retrieve the ID verification report for the specified document signer.
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param verificationDataRequest The download image request. (required)
      * @return ApiResponse&lt;IdReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -657,7 +657,7 @@ public class IdentityVerificationApi {
     /**
      * Retrieve the ID verification report for the specified document signer. (asynchronously)
      * 
-     * @param documentId The document id. (required)
+     * @param documentId  (required)
      * @param verificationDataRequest The download image request. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

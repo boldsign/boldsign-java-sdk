@@ -15,6 +15,8 @@
 |**value** | **String** |  |  [optional] |
 |**fontSize** | **Float** |  |  [optional] |
 |**font** | [**FontEnum**](#FontEnum) |  |  [optional] |
+|**groupOptions** | [**List&lt;GroupOption&gt;**](GroupOption.md) |  |  [optional] |
+|**checkboxValidationSettings** | [**CheckboxValidationSettings**](CheckboxValidationSettings.md) |  |  [optional] |
 |**fontHexColor** | **String** |  |  [optional] |
 |**isBoldFont** | **Boolean** |  |  [optional] |
 |**isItalicFont** | **Boolean** |  |  [optional] |

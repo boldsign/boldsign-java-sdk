@@ -47,6 +47,7 @@
 |**formFieldPermission** | [**FormFieldPermission**](FormFieldPermission.md) |  |  [optional] |
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 |**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
+|**documentTimeZone** | **String** |  |  [optional] |
 
 
 
