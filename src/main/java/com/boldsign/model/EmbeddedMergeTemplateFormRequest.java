@@ -413,7 +413,9 @@ public class EmbeddedMergeTemplateFormRequest {
   public enum DocumentDownloadOptionEnum {
     COMBINED("Combined"),
     
-    INDIVIDUALLY("Individually");
+    INDIVIDUALLY("Individually"),
+    
+    USER_PREFERENCE("UserPreference");
 
     private String value;
 

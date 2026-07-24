@@ -110,6 +110,7 @@
 |---- | -----|
 | COMBINED | &quot;Combined&quot; |
 | INDIVIDUALLY | &quot;Individually&quot; |
+| USER_PREFERENCE | &quot;UserPreference&quot; |
 
 
 

@@ -935,7 +935,7 @@ public class Example {
 
 <a id="downloadDocument"></a>
 # **downloadDocument**
-> File downloadDocument(documentId, onBehalfOf)
+> File downloadDocument(documentId, onBehalfOf, format)
 
 Download the document.
 
@@ -959,9 +959,10 @@ public class Example {
 
     String documentId = "documentId_example"; // String | 
     String onBehalfOf = "onBehalfOf_example"; // String | 
+    String format = "Combined"; // String | 
     
     try {
-      File result = apiInstance.downloadDocument(documentId, onBehalfOf);
+      File result = apiInstance.downloadDocument(documentId, onBehalfOf, format);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DocumentApi#downloadDocument");
@@ -980,6 +981,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **documentId** | **String**|  | |
 | **onBehalfOf** | **String**|  | [optional] |
+| **format** | **String**|  | [optional] [enum: Combined, Individually] |
 
 ### Return type
 

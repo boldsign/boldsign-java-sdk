@@ -5988,6 +5988,17 @@ paths:
           title: String
           type: string
         style: form
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - Combined
+          - Individually
+          title: Nullable`1
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -11742,6 +11753,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Forbidden
         "400":
           content:
             application/json:
@@ -11902,6 +11919,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResult'
           description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+          description: Forbidden
         "400":
           content:
             application/json:
@@ -23040,6 +23063,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           title: DocumentDownloadOption
           type: string
         metaData:
@@ -25976,6 +26000,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           nullable: true
           title: Nullable`1
           type: string
@@ -29405,6 +29430,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           nullable: true
           title: Nullable`1
           type: string
@@ -30409,6 +30435,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           nullable: true
           title: Nullable`1
           type: string
@@ -31218,6 +31245,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           nullable: true
           title: Nullable`1
           type: string
@@ -33584,6 +33612,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           nullable: true
           title: Nullable`1
           type: string
@@ -35636,6 +35665,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           nullable: true
           title: Nullable`1
           type: string
@@ -36356,6 +36386,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           nullable: true
           title: Nullable`1
           type: string
@@ -39394,6 +39425,7 @@ components:
           enum:
           - Combined
           - Individually
+          - UserPreference
           title: DocumentDownloadOption
           type: string
         recipientNotificationSettings:
