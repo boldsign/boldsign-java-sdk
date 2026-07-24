@@ -75,6 +75,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **400** | Bad Request |  -  |
 
 <a id="deleteGroupContact"></a>
@@ -346,5 +347,6 @@ null (empty response body)
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
 | **400** | Bad Request |  -  |
 

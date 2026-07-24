@@ -2493,6 +2493,7 @@ public class DocumentApi {
      * Build call for downloadDocument
      * @param documentId  (required)
      * @param onBehalfOf  (optional)
+     * @param format  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2504,7 +2505,7 @@ public class DocumentApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadDocumentCall(String documentId, String onBehalfOf, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call downloadDocumentCall(String documentId, String onBehalfOf, String format, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2536,6 +2537,10 @@ public class DocumentApi {
 
         if (onBehalfOf != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("onBehalfOf", onBehalfOf));
+        }
+
+        if (format != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("format", format));
         }
 
         final String[] localVarAccepts = {
@@ -2597,13 +2602,13 @@ public class DocumentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call downloadDocumentValidateBeforeCall(String documentId, String onBehalfOf, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call downloadDocumentValidateBeforeCall(String documentId, String onBehalfOf, String format, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'documentId' is set
         if (documentId == null) {
             throw new ApiException("Missing the required parameter 'documentId' when calling downloadDocument(Async)");
         }
 
-        return downloadDocumentCall(documentId, onBehalfOf, _callback);
+        return downloadDocumentCall(documentId, onBehalfOf, format, _callback);
 
     }
 
@@ -2612,6 +2617,7 @@ public class DocumentApi {
      * 
      * @param documentId  (required)
      * @param onBehalfOf  (optional)
+     * @param format  (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2622,8 +2628,8 @@ public class DocumentApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public File downloadDocument(String documentId, String onBehalfOf) throws ApiException {
-        ApiResponse<File> localVarResp = downloadDocumentWithHttpInfo(documentId, onBehalfOf);
+    public File downloadDocument(String documentId, String onBehalfOf, String format) throws ApiException {
+        ApiResponse<File> localVarResp = downloadDocumentWithHttpInfo(documentId, onBehalfOf, format);
         return localVarResp.getData();
     }
 
@@ -2632,6 +2638,7 @@ public class DocumentApi {
      * 
      * @param documentId  (required)
      * @param onBehalfOf  (optional)
+     * @param format  (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2642,8 +2649,8 @@ public class DocumentApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> downloadDocumentWithHttpInfo(String documentId, String onBehalfOf) throws ApiException {
-        okhttp3.Call localVarCall = downloadDocumentValidateBeforeCall(documentId, onBehalfOf, null);
+    public ApiResponse<File> downloadDocumentWithHttpInfo(String documentId, String onBehalfOf, String format) throws ApiException {
+        okhttp3.Call localVarCall = downloadDocumentValidateBeforeCall(documentId, onBehalfOf, format, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2653,6 +2660,7 @@ public class DocumentApi {
      * 
      * @param documentId  (required)
      * @param onBehalfOf  (optional)
+     * @param format  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2664,9 +2672,9 @@ public class DocumentApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadDocumentAsync(String documentId, String onBehalfOf, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call downloadDocumentAsync(String documentId, String onBehalfOf, String format, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = downloadDocumentValidateBeforeCall(documentId, onBehalfOf, _callback);
+        okhttp3.Call localVarCall = downloadDocumentValidateBeforeCall(documentId, onBehalfOf, format, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
