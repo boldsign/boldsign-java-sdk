@@ -205,6 +205,10 @@ public class ViewBrandDetails {
   @SerializedName(SERIALIZED_NAME_SIGNATURE_FRAME_SETTINGS)
   private SignatureFrameSettings signatureFrameSettings;
 
+  public static final String SERIALIZED_NAME_HIDE_REASSIGN = "hideReassign";
+  @SerializedName(SERIALIZED_NAME_HIDE_REASSIGN)
+  private Boolean hideReassign = false;
+
   public ViewBrandDetails() {
   }
 
@@ -702,6 +706,25 @@ public class ViewBrandDetails {
   }
 
 
+  public ViewBrandDetails hideReassign(Boolean hideReassign) {
+    this.hideReassign = hideReassign;
+    return this;
+  }
+
+  /**
+   * Get hideReassign
+   * @return hideReassign
+   */
+  @javax.annotation.Nullable
+  public Boolean getHideReassign() {
+    return hideReassign;
+  }
+
+  public void setHideReassign(Boolean hideReassign) {
+    this.hideReassign = hideReassign;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -737,12 +760,13 @@ public class ViewBrandDetails {
         Objects.equals(this.documentExpirySettings, viewBrandDetails.documentExpirySettings) &&
         Objects.equals(this.customDomainSettings, viewBrandDetails.customDomainSettings) &&
         Objects.equals(this.isDomainVerified, viewBrandDetails.isDomainVerified) &&
-        Objects.equals(this.signatureFrameSettings, viewBrandDetails.signatureFrameSettings);
+        Objects.equals(this.signatureFrameSettings, viewBrandDetails.signatureFrameSettings) &&
+        Objects.equals(this.hideReassign, viewBrandDetails.hideReassign);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brandId, brandLogo, brandName, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerTitle, disclaimerDescription, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettings, customDomainSettings, isDomainVerified, signatureFrameSettings);
+    return Objects.hash(brandId, brandLogo, brandName, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerTitle, disclaimerDescription, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettings, customDomainSettings, isDomainVerified, signatureFrameSettings, hideReassign);
   }
 
   @Override
@@ -775,6 +799,7 @@ public class ViewBrandDetails {
     sb.append("    customDomainSettings: ").append(toIndentedString(customDomainSettings)).append("\n");
     sb.append("    isDomainVerified: ").append(toIndentedString(isDomainVerified)).append("\n");
     sb.append("    signatureFrameSettings: ").append(toIndentedString(signatureFrameSettings)).append("\n");
+    sb.append("    hideReassign: ").append(toIndentedString(hideReassign)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1302,6 +1327,26 @@ public class ViewBrandDetails {
           map.put("signatureFrameSettings", JSON.serialize(signatureFrameSettings));
         }
     }
+    if (hideReassign != null) {
+        if (isFileTypeOrListOfFiles(hideReassign)) {
+            fileTypeFound = true;
+        }
+
+        if (hideReassign.getClass().equals(java.io.File.class) ||
+            hideReassign.getClass().equals(Integer.class) ||
+            hideReassign.getClass().equals(String.class) ||
+            hideReassign.getClass().equals(java.net.URI.class)||
+            hideReassign.getClass().isEnum()) {
+            map.put("hideReassign", hideReassign);
+        } else if (isListOfFile(hideReassign)) {
+            for(int i = 0; i< getListSize(hideReassign); i++) {
+                map.put("hideReassign", hideReassign);
+            }
+        }
+        else {
+          map.put("hideReassign", JSON.serialize(hideReassign));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -1373,6 +1418,7 @@ public class ViewBrandDetails {
     openapiFields.add("customDomainSettings");
     openapiFields.add("isDomainVerified");
     openapiFields.add("signatureFrameSettings");
+    openapiFields.add("hideReassign");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

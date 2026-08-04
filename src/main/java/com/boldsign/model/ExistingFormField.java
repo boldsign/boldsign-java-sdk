@@ -67,6 +67,10 @@ public class ExistingFormField {
   @SerializedName(SERIALIZED_NAME_IS_READ_ONLY)
   private Boolean isReadOnly;
 
+  public static final String SERIALIZED_NAME_TEMPLATE_ORDER = "templateOrder";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_ORDER)
+  private Integer templateOrder;
+
   public ExistingFormField() {
   }
 
@@ -169,6 +173,25 @@ public class ExistingFormField {
   }
 
 
+  public ExistingFormField templateOrder(Integer templateOrder) {
+    this.templateOrder = templateOrder;
+    return this;
+  }
+
+  /**
+   * Used to apply a prefilled form field value to a specific occurrence of a template when the same template is included multiple times. Values start at 1. Supported only by the Merge and Send API.
+   * @return templateOrder
+   */
+  @javax.annotation.Nullable
+  public Integer getTemplateOrder() {
+    return templateOrder;
+  }
+
+  public void setTemplateOrder(Integer templateOrder) {
+    this.templateOrder = templateOrder;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -183,12 +206,13 @@ public class ExistingFormField {
         Objects.equals(this.name, existingFormField.name) &&
         Objects.equals(this.id, existingFormField.id) &&
         Objects.equals(this.value, existingFormField.value) &&
-        Objects.equals(this.isReadOnly, existingFormField.isReadOnly);
+        Objects.equals(this.isReadOnly, existingFormField.isReadOnly) &&
+        Objects.equals(this.templateOrder, existingFormField.templateOrder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, name, id, value, isReadOnly);
+    return Objects.hash(index, name, id, value, isReadOnly, templateOrder);
   }
 
   @Override
@@ -200,6 +224,7 @@ public class ExistingFormField {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    isReadOnly: ").append(toIndentedString(isReadOnly)).append("\n");
+    sb.append("    templateOrder: ").append(toIndentedString(templateOrder)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -307,6 +332,26 @@ public class ExistingFormField {
           map.put("isReadOnly", JSON.serialize(isReadOnly));
         }
     }
+    if (templateOrder != null) {
+        if (isFileTypeOrListOfFiles(templateOrder)) {
+            fileTypeFound = true;
+        }
+
+        if (templateOrder.getClass().equals(java.io.File.class) ||
+            templateOrder.getClass().equals(Integer.class) ||
+            templateOrder.getClass().equals(String.class) ||
+            templateOrder.getClass().equals(java.net.URI.class)||
+            templateOrder.getClass().isEnum()) {
+            map.put("templateOrder", templateOrder);
+        } else if (isListOfFile(templateOrder)) {
+            for(int i = 0; i< getListSize(templateOrder); i++) {
+                map.put("templateOrder", templateOrder);
+            }
+        }
+        else {
+          map.put("templateOrder", JSON.serialize(templateOrder));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
@@ -357,6 +402,7 @@ public class ExistingFormField {
     openapiFields.add("id");
     openapiFields.add("value");
     openapiFields.add("isReadOnly");
+    openapiFields.add("templateOrder");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

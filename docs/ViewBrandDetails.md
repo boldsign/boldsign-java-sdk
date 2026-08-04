@@ -33,6 +33,7 @@
 |**customDomainSettings** | [**CustomDomainSettings**](CustomDomainSettings.md) |  |  [optional] |
 |**isDomainVerified** | **Boolean** |  |  [optional] |
 |**signatureFrameSettings** | [**SignatureFrameSettings**](SignatureFrameSettings.md) |  |  [optional] |
+|**hideReassign** | **Boolean** |  |  [optional] |
 
 
 
