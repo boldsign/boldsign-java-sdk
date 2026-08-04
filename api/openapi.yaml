@@ -93,6 +93,8 @@ paths:
                 style: form
               SignatureFrameSettings.ShowTimeStamp:
                 style: form
+              HideReassign:
+                style: form
             schema:
               $ref: '#/components/schemas/CreateBrand_request'
       responses:
@@ -714,6 +716,8 @@ paths:
               SignatureFrameSettings.ShowRecipientEmail:
                 style: form
               SignatureFrameSettings.ShowTimeStamp:
+                style: form
+              HideReassign:
                 style: form
             schema:
               $ref: '#/components/schemas/EditBrand_request'
@@ -19060,6 +19064,7 @@ components:
             showRecipientEmail: false
             showRecipientName: false
           documentTimeZone: documentTimeZone
+          hideReassign: false
           showBuiltInFormFields: true
           isDefault: true
           emailDisplayName: emailDisplayName
@@ -19098,6 +19103,7 @@ components:
             showRecipientEmail: false
             showRecipientName: false
           documentTimeZone: documentTimeZone
+          hideReassign: false
           showBuiltInFormFields: true
           isDefault: true
           emailDisplayName: emailDisplayName
@@ -29748,7 +29754,7 @@ components:
           enabled: true
         showNavigationButtons: true
         roles:
-        - authenticationRetryCount: 6
+        - authenticationRetryCount: 3
           enableQes: true
           groupId: groupId
           language: 5
@@ -29769,11 +29775,13 @@ components:
           authenticationCode: authenticationCode
           existingFormFields:
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
             value: value
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
@@ -29963,7 +29971,7 @@ components:
             nameMatcher: Strict
             holdForPrefill: true
             maximumRetryCount: 1
-        - authenticationRetryCount: 6
+        - authenticationRetryCount: 3
           enableQes: true
           groupId: groupId
           language: 5
@@ -29984,11 +29992,13 @@ components:
           authenticationCode: authenticationCode
           existingFormFields:
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
             value: value
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
@@ -30543,7 +30553,7 @@ components:
           enabled: true
         showNavigationButtons: true
         roles:
-        - authenticationRetryCount: 6
+        - authenticationRetryCount: 3
           enableQes: true
           groupId: groupId
           language: 5
@@ -30564,11 +30574,13 @@ components:
           authenticationCode: authenticationCode
           existingFormFields:
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
             value: value
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
@@ -30758,7 +30770,7 @@ components:
             nameMatcher: Strict
             holdForPrefill: true
             maximumRetryCount: 1
-        - authenticationRetryCount: 6
+        - authenticationRetryCount: 3
           enableQes: true
           groupId: groupId
           language: 5
@@ -30779,11 +30791,13 @@ components:
           authenticationCode: authenticationCode
           existingFormFields:
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
             value: value
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
@@ -31519,6 +31533,7 @@ components:
       additionalProperties: false
       example:
         isReadOnly: true
+        templateOrder: 5
         name: name
         index: 1
         id: id
@@ -31545,6 +31560,14 @@ components:
           nullable: true
           title: Nullable`1
           type: boolean
+        templateOrder:
+          description: Used to apply a prefilled form field value to a specific occurrence
+            of a template when the same template is included multiple times. Values
+            start at 1. Supported only by the Merge and Send API.
+          format: int32
+          nullable: true
+          title: Nullable`1
+          type: integer
       title: ExistingFormField
       type: object
     ExtendExpiry:
@@ -32958,7 +32981,7 @@ components:
           enabled: true
         useTextTags: true
         roles:
-        - authenticationRetryCount: 6
+        - authenticationRetryCount: 3
           enableQes: true
           groupId: groupId
           language: 5
@@ -32979,11 +33002,13 @@ components:
           authenticationCode: authenticationCode
           existingFormFields:
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
             value: value
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
@@ -33173,7 +33198,7 @@ components:
             nameMatcher: Strict
             holdForPrefill: true
             maximumRetryCount: 1
-        - authenticationRetryCount: 6
+        - authenticationRetryCount: 3
           enableQes: true
           groupId: groupId
           language: 5
@@ -33194,11 +33219,13 @@ components:
           authenticationCode: authenticationCode
           existingFormFields:
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
             value: value
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
@@ -34121,7 +34148,7 @@ components:
     Role:
       additionalProperties: false
       example:
-        authenticationRetryCount: 6
+        authenticationRetryCount: 3
         enableQes: true
         groupId: groupId
         language: 5
@@ -34142,11 +34169,13 @@ components:
         authenticationCode: authenticationCode
         existingFormFields:
         - isReadOnly: true
+          templateOrder: 5
           name: name
           index: 1
           id: id
           value: value
         - isReadOnly: true
+          templateOrder: 5
           name: name
           index: 1
           id: id
@@ -35751,7 +35780,7 @@ components:
           - allowedDirectories
           enabled: true
         roles:
-        - authenticationRetryCount: 6
+        - authenticationRetryCount: 3
           enableQes: true
           groupId: groupId
           language: 5
@@ -35772,11 +35801,13 @@ components:
           authenticationCode: authenticationCode
           existingFormFields:
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
             value: value
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
@@ -35966,7 +35997,7 @@ components:
             nameMatcher: Strict
             holdForPrefill: true
             maximumRetryCount: 1
-        - authenticationRetryCount: 6
+        - authenticationRetryCount: 3
           enableQes: true
           groupId: groupId
           language: 5
@@ -35987,11 +36018,13 @@ components:
           authenticationCode: authenticationCode
           existingFormFields:
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
             value: value
           - isReadOnly: true
+            templateOrder: 5
             name: name
             index: 1
             id: id
@@ -36200,17 +36233,17 @@ components:
         - Text
         - Text
         isSandbox: true
-        scheduledSendTime: 3
+        scheduledSendTime: 2
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
         enableAuditTrailLocalization: true
         downloadFileName: downloadFileName
-        expiryValue: 7
+        expiryValue: 9
         enablePrintAndSign: true
         roleRemovalIndices:
-        - 9
-        - 9
+        - 3
+        - 3
         formGroups:
         - groupNames:
           - groupNames
@@ -36257,7 +36290,7 @@ components:
         - ""
         - ""
         documentId: documentId
-        expiryDays: 2
+        expiryDays: 7
       properties:
         files:
           items:
@@ -41054,6 +41087,7 @@ components:
           showRecipientEmail: false
           showRecipientName: false
         documentTimeZone: documentTimeZone
+        hideReassign: false
         showBuiltInFormFields: true
         isDefault: true
         emailDisplayName: emailDisplayName
@@ -41151,6 +41185,10 @@ components:
           type: boolean
         signatureFrameSettings:
           $ref: '#/components/schemas/SignatureFrameSettings'
+        hideReassign:
+          default: false
+          title: Boolean
+          type: boolean
       title: ViewBrandDetails
       type: object
     ViewCustomFieldDetails:
@@ -41534,6 +41572,12 @@ components:
           default: false
           title: Boolean
           type: boolean
+        HideReassign:
+          default: false
+          description: Enabling this option disables reassignment for all new documents.
+            This setting cannot be changed during document creation.
+          title: Nullable`1
+          type: boolean
       required:
       - BrandLogo
       - BrandName
@@ -41678,6 +41722,12 @@ components:
         SignatureFrameSettings.ShowTimeStamp:
           default: false
           title: Boolean
+          type: boolean
+        HideReassign:
+          default: false
+          description: Enabling this option disables reassignment for all new documents.
+            This setting cannot be changed during document creation.
+          title: Nullable`1
           type: boolean
       type: object
     IWebhookData:
