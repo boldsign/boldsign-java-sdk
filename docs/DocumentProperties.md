@@ -35,6 +35,7 @@
 |**applicationId** | **String** |  |  [optional] |
 |**labels** | **List&lt;String&gt;** |  |  [optional] |
 |**disableEmails** | **Boolean** |  |  [optional] |
+|**disableSMS** | **Boolean** |  |  [optional] |
 |**enablePrintAndSign** | **Boolean** |  |  [optional] |
 |**enableReassign** | **Boolean** |  |  [optional] |
 |**disableExpiryAlert** | **Boolean** |  |  [optional] |
