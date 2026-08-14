@@ -22076,11 +22076,6 @@ components:
       additionalProperties: false
       example:
         inEditingMode: true
-        groupSignerSettings:
-          allowedDirectories:
-          - allowedDirectories
-          - allowedDirectories
-          enabled: true
         isCombinedAttachment: true
         documentHistory:
         - ipaddress: ipaddress
@@ -22149,22 +22144,6 @@ components:
           toEmail: toEmail
           email: email
           timestamp: 5
-        reassign:
-        - signerEmail: signerEmail
-          message: message
-          order: 1
-        - signerEmail: signerEmail
-          message: message
-          order: 1
-        displayStatus: displayStatus
-        isCombinedAudit: true
-        hideDocumentId: true
-        expiryDate: 2
-        disableEmails: true
-        metaData:
-          key: metaData
-        activityDate: 7
-        isDeleted: true
         reminderSettings:
           enableAutoReminder: false
           reminderCount: 5
@@ -22650,7 +22629,6 @@ components:
           privateMessage: privateMessage
           enableAccessCode: true
           status: None
-        disableExpiryAlert: true
         senderDetail:
           emailAddress: emailAddress
           name: name
@@ -22659,61 +22637,13 @@ components:
         allowedSignatureTypes:
         - Text
         - Text
-        activityBy: activityBy
-        scheduledSendTime: 7
-        ccDetails:
-        - emailAddress: emailAddress
-          isViewed: false
-        - emailAddress: emailAddress
-          isViewed: false
-        enableAuditTrailLocalization: true
-        downloadFileName: downloadFileName
-        documentDescription: documentDescription
         expiryValue: 4
         enablePrintAndSign: true
-        formGroups:
-        - groupNames:
-          - groupNames
-          - groupNames
-          maximumCount: 1276656610
-          groupValidation: Minimum
-          dataSyncTag: dataSyncTag
-          minimumCount: 1477050466
-        - groupNames:
-          - groupNames
-          - groupNames
-          maximumCount: 1276656610
-          groupValidation: Minimum
-          dataSyncTag: dataSyncTag
-          minimumCount: 1477050466
-        behalfOf:
-          emailAddress: emailAddress
-          name: name
-        revokeMessage: revokeMessage
-        expiryDateType: Days
         messageTitle: messageTitle
-        enableSigningOrder: true
-        documentTimeZone: documentTimeZone
-        recipientNotificationSettings:
-          signatureRequest: true
-          reminders: true
-          editRecipient: true
-          editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
-          signed: true
-          reassigned: true
-          completed: true
-          revoked: true
         enableReassign: true
         labels:
         - labels
         - labels
-        documentDownloadOption: Combined
-        enableAllowSignEverywhere: true
-        createdDate: 9
         declineMessage: declineMessage
         brandId: brandId
         files:
@@ -22729,7 +22659,6 @@ components:
           documentName: documentName
           templateId: templateId
           order: 0
-        documentId: documentId
         commonFields:
         - conditionalRules:
           - isChecked: true
@@ -22891,10 +22820,82 @@ components:
           allowDeleteFormField: true
           fontColor: fontColor
           font: font
-        expiryDays: 3
         applicationId: applicationId
-        activityAction: Viewed
         status: InProgress
+        groupSignerSettings:
+          allowedDirectories:
+          - allowedDirectories
+          - allowedDirectories
+          enabled: true
+        reassign:
+        - signerEmail: signerEmail
+          message: message
+          order: 1
+        - signerEmail: signerEmail
+          message: message
+          order: 1
+        displayStatus: displayStatus
+        isCombinedAudit: true
+        hideDocumentId: true
+        expiryDate: 2
+        disableSMS: true
+        disableEmails: true
+        metaData:
+          key: metaData
+        activityDate: 7
+        isDeleted: true
+        disableExpiryAlert: true
+        activityBy: activityBy
+        scheduledSendTime: 7
+        ccDetails:
+        - emailAddress: emailAddress
+          isViewed: false
+        - emailAddress: emailAddress
+          isViewed: false
+        enableAuditTrailLocalization: true
+        downloadFileName: downloadFileName
+        documentDescription: documentDescription
+        formGroups:
+        - groupNames:
+          - groupNames
+          - groupNames
+          maximumCount: 1276656610
+          groupValidation: Minimum
+          dataSyncTag: dataSyncTag
+          minimumCount: 1477050466
+        - groupNames:
+          - groupNames
+          - groupNames
+          maximumCount: 1276656610
+          groupValidation: Minimum
+          dataSyncTag: dataSyncTag
+          minimumCount: 1477050466
+        behalfOf:
+          emailAddress: emailAddress
+          name: name
+        revokeMessage: revokeMessage
+        expiryDateType: Days
+        enableSigningOrder: true
+        documentTimeZone: documentTimeZone
+        recipientNotificationSettings:
+          signatureRequest: true
+          reminders: true
+          editRecipient: true
+          editDocument: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
+          signed: true
+          reassigned: true
+          completed: true
+          revoked: true
+        documentDownloadOption: Combined
+        enableAllowSignEverywhere: true
+        createdDate: 9
+        documentId: documentId
+        expiryDays: 3
+        activityAction: Viewed
       properties:
         documentId:
           nullable: true
@@ -23040,6 +23041,9 @@ components:
           title: IEnumerable`1
           type: array
         disableEmails:
+          title: Boolean
+          type: boolean
+        disableSMS:
           title: Boolean
           type: boolean
         enablePrintAndSign:
@@ -34400,7 +34404,8 @@ components:
           title: String
           type: string
         enableEmailOTP:
-          title: Boolean
+          nullable: true
+          title: Nullable`1
           type: boolean
         authenticationType:
           enum:

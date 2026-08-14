@@ -320,6 +320,10 @@ public class DocumentProperties {
   @SerializedName(SERIALIZED_NAME_DISABLE_EMAILS)
   private Boolean disableEmails;
 
+  public static final String SERIALIZED_NAME_DISABLE_S_M_S = "disableSMS";
+  @SerializedName(SERIALIZED_NAME_DISABLE_S_M_S)
+  private Boolean disableSMS;
+
   public static final String SERIALIZED_NAME_ENABLE_PRINT_AND_SIGN = "enablePrintAndSign";
   @SerializedName(SERIALIZED_NAME_ENABLE_PRINT_AND_SIGN)
   private Boolean enablePrintAndSign;
@@ -1161,6 +1165,25 @@ public class DocumentProperties {
   }
 
 
+  public DocumentProperties disableSMS(Boolean disableSMS) {
+    this.disableSMS = disableSMS;
+    return this;
+  }
+
+  /**
+   * Get disableSMS
+   * @return disableSMS
+   */
+  @javax.annotation.Nullable
+  public Boolean getDisableSMS() {
+    return disableSMS;
+  }
+
+  public void setDisableSMS(Boolean disableSMS) {
+    this.disableSMS = disableSMS;
+  }
+
+
   public DocumentProperties enablePrintAndSign(Boolean enablePrintAndSign) {
     this.enablePrintAndSign = enablePrintAndSign;
     return this;
@@ -1595,6 +1618,7 @@ public class DocumentProperties {
         Objects.equals(this.applicationId, documentProperties.applicationId) &&
         Objects.equals(this.labels, documentProperties.labels) &&
         Objects.equals(this.disableEmails, documentProperties.disableEmails) &&
+        Objects.equals(this.disableSMS, documentProperties.disableSMS) &&
         Objects.equals(this.enablePrintAndSign, documentProperties.enablePrintAndSign) &&
         Objects.equals(this.enableReassign, documentProperties.enableReassign) &&
         Objects.equals(this.disableExpiryAlert, documentProperties.disableExpiryAlert) &&
@@ -1619,7 +1643,7 @@ public class DocumentProperties {
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, inEditingMode, displayStatus, enableAllowSignEverywhere, isCombinedAudit, isCombinedAttachment, documentTimeZone);
+    return Objects.hash(documentId, brandId, messageTitle, documentDescription, status, files, senderDetail, signerDetails, formGroups, commonFields, behalfOf, ccDetails, reminderSettings, reassign, documentHistory, activityBy, activityDate, activityAction, createdDate, expiryDays, expiryDate, enableSigningOrder, isDeleted, revokeMessage, declineMessage, applicationId, labels, disableEmails, disableSMS, enablePrintAndSign, enableReassign, disableExpiryAlert, hideDocumentId, expiryDateType, expiryValue, documentDownloadOption, metaData, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowedSignatureTypes, groupSignerSettings, inEditingMode, displayStatus, enableAllowSignEverywhere, isCombinedAudit, isCombinedAttachment, documentTimeZone);
   }
 
   @Override
@@ -1654,6 +1678,7 @@ public class DocumentProperties {
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    disableEmails: ").append(toIndentedString(disableEmails)).append("\n");
+    sb.append("    disableSMS: ").append(toIndentedString(disableSMS)).append("\n");
     sb.append("    enablePrintAndSign: ").append(toIndentedString(enablePrintAndSign)).append("\n");
     sb.append("    enableReassign: ").append(toIndentedString(enableReassign)).append("\n");
     sb.append("    disableExpiryAlert: ").append(toIndentedString(disableExpiryAlert)).append("\n");
@@ -2457,6 +2482,26 @@ public class DocumentProperties {
           map.put("disableEmails", JSON.serialize(disableEmails));
         }
     }
+    if (disableSMS != null) {
+        if (isFileTypeOrListOfFiles(disableSMS)) {
+            fileTypeFound = true;
+        }
+
+        if (disableSMS.getClass().equals(java.io.File.class) ||
+            disableSMS.getClass().equals(Integer.class) ||
+            disableSMS.getClass().equals(String.class) ||
+            disableSMS.getClass().equals(java.net.URI.class)||
+            disableSMS.getClass().isEnum()) {
+            map.put("disableSMS", disableSMS);
+        } else if (isListOfFile(disableSMS)) {
+            for(int i = 0; i< getListSize(disableSMS); i++) {
+                map.put("disableSMS", disableSMS);
+            }
+        }
+        else {
+          map.put("disableSMS", JSON.serialize(disableSMS));
+        }
+    }
     if (enablePrintAndSign != null) {
         if (isFileTypeOrListOfFiles(enablePrintAndSign)) {
             fileTypeFound = true;
@@ -2965,6 +3010,7 @@ public class DocumentProperties {
     openapiFields.add("applicationId");
     openapiFields.add("labels");
     openapiFields.add("disableEmails");
+    openapiFields.add("disableSMS");
     openapiFields.add("enablePrintAndSign");
     openapiFields.add("enableReassign");
     openapiFields.add("disableExpiryAlert");
