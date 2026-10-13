@@ -350,6 +350,10 @@ public class JSON {
      * @return String representation of the JSON
      */
     public static String serialize(Object obj) {
+        if (obj instanceof OffsetDateTime) {
+            return obj.toString();
+        }
+
         return gson.toJson(obj);
     }
 
