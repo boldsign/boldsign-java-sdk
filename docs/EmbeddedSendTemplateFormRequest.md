@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**fileChanges** | [**List&lt;TemplateFileChangeForm&gt;**](TemplateFileChangeForm.md) |  |  [optional] |
 |**files** | **List&lt;File&gt;** |  |  [optional] |
 |**fileUrls** | **List&lt;URI&gt;** |  |  [optional] |
 |**redirectUrl** | **URI** |  |  [optional] |
@@ -54,6 +55,7 @@
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 |**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
 |**documentTimeZone** | **String** |  |  [optional] |
+|**allowCommenting** | **Boolean** |  |  [optional] |
 
 
 

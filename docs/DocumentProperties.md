@@ -56,6 +56,7 @@
 |**isCombinedAudit** | **Boolean** |  |  [optional] |
 |**isCombinedAttachment** | **Boolean** |  |  [optional] |
 |**documentTimeZone** | **String** |  |  [optional] |
+|**allowCommenting** | **Boolean** |  |  [optional] |
 
 
 
@@ -95,6 +96,7 @@
 | EDITING_CANCELLED | &quot;EditingCancelled&quot; |
 | EDITING_COMPLETED | &quot;EditingCompleted&quot; |
 | DOCUMENT_SCHEDULED | &quot;DocumentScheduled&quot; |
+| COMMENT_ADDED | &quot;CommentAdded&quot; |
 
 
 

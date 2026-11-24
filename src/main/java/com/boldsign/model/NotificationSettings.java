@@ -34,7 +34,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
 import java.net.URI;
 import java.lang.reflect.Method;
 
@@ -93,6 +92,10 @@ public class NotificationSettings {
   public static final String SERIALIZED_NAME_ATTACH_SIGNED_DOCUMENT = "attachSignedDocument";
   @SerializedName(SERIALIZED_NAME_ATTACH_SIGNED_DOCUMENT)
   private Boolean attachSignedDocument = false;
+
+  public static final String SERIALIZED_NAME_COMMENT_ON_DOCUMENT = "commentOnDocument";
+  @SerializedName(SERIALIZED_NAME_COMMENT_ON_DOCUMENT)
+  private Boolean commentOnDocument = true;
 
   public NotificationSettings() {
   }
@@ -325,6 +328,25 @@ public class NotificationSettings {
   }
 
 
+  public NotificationSettings commentOnDocument(Boolean commentOnDocument) {
+    this.commentOnDocument = commentOnDocument;
+    return this;
+  }
+
+  /**
+   * Get commentOnDocument
+   * @return commentOnDocument
+   */
+  @javax.annotation.Nullable
+  public Boolean getCommentOnDocument() {
+    return commentOnDocument;
+  }
+
+  public void setCommentOnDocument(Boolean commentOnDocument) {
+    this.commentOnDocument = commentOnDocument;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -346,12 +368,13 @@ public class NotificationSettings {
         Objects.equals(this.expired, notificationSettings.expired) &&
         Objects.equals(this.authenticationFailed, notificationSettings.authenticationFailed) &&
         Objects.equals(this.reminders, notificationSettings.reminders) &&
-        Objects.equals(this.attachSignedDocument, notificationSettings.attachSignedDocument);
+        Objects.equals(this.attachSignedDocument, notificationSettings.attachSignedDocument) &&
+        Objects.equals(this.commentOnDocument, notificationSettings.commentOnDocument);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(viewed, sent, deliveryFailed, declined, revoked, reassigned, completed, signed, expired, authenticationFailed, reminders, attachSignedDocument);
+    return Objects.hash(viewed, sent, deliveryFailed, declined, revoked, reassigned, completed, signed, expired, authenticationFailed, reminders, attachSignedDocument, commentOnDocument);
   }
 
   @Override
@@ -370,6 +393,7 @@ public class NotificationSettings {
     sb.append("    authenticationFailed: ").append(toIndentedString(authenticationFailed)).append("\n");
     sb.append("    reminders: ").append(toIndentedString(reminders)).append("\n");
     sb.append("    attachSignedDocument: ").append(toIndentedString(attachSignedDocument)).append("\n");
+    sb.append("    commentOnDocument: ").append(toIndentedString(commentOnDocument)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -617,10 +641,46 @@ public class NotificationSettings {
           map.put("attachSignedDocument", JSON.serialize(attachSignedDocument));
         }
     }
+    if (commentOnDocument != null) {
+        if (isFileTypeOrListOfFiles(commentOnDocument)) {
+            fileTypeFound = true;
+        }
+
+        if (commentOnDocument.getClass().equals(java.io.File.class) ||
+            commentOnDocument.getClass().equals(Integer.class) ||
+            commentOnDocument.getClass().equals(String.class) ||
+            commentOnDocument.getClass().equals(java.net.URI.class)||
+            commentOnDocument.getClass().isEnum()) {
+            map.put("commentOnDocument", commentOnDocument);
+        } else if (isListOfFile(commentOnDocument)) {
+            for(int i = 0; i< getListSize(commentOnDocument); i++) {
+                map.put("commentOnDocument", commentOnDocument);
+            }
+        }
+        else {
+          map.put("commentOnDocument", JSON.serialize(commentOnDocument));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
     return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean hasFileField(Class<?> clazz) {
+    try {
+      @SuppressWarnings("unchecked")
+      Set<String> fields = (Set<String>) clazz.getField("openapiFields").get(null);
+      for (String field : fields) {
+        Method getter = clazz.getMethod("get" + field.substring(0, 1).toUpperCase() + field.substring(1));
+        if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+          return true;
+        }
+      }
+    } catch (Exception e) {
+      // not a generated model (no openapiFields) -> no file fields
+    }
+    return false;
   }
 
   private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
@@ -674,6 +734,7 @@ public class NotificationSettings {
     openapiFields.add("authenticationFailed");
     openapiFields.add("reminders");
     openapiFields.add("attachSignedDocument");
+    openapiFields.add("commentOnDocument");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

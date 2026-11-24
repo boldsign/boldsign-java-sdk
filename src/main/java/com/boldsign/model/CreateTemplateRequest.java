@@ -46,7 +46,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
 import java.net.URI;
 import java.lang.reflect.Method;
 
@@ -231,6 +230,10 @@ public class CreateTemplateRequest {
   public static final String SERIALIZED_NAME_DOCUMENT_TIME_ZONE = "documentTimeZone";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_TIME_ZONE)
   private String documentTimeZone;
+
+  public static final String SERIALIZED_NAME_ALLOW_COMMENTING = "allowCommenting";
+  @SerializedName(SERIALIZED_NAME_ALLOW_COMMENTING)
+  private Boolean allowCommenting;
 
   public CreateTemplateRequest() {
   }
@@ -885,6 +888,25 @@ public class CreateTemplateRequest {
   }
 
 
+  public CreateTemplateRequest allowCommenting(Boolean allowCommenting) {
+    this.allowCommenting = allowCommenting;
+    return this;
+  }
+
+  /**
+   * Get allowCommenting
+   * @return allowCommenting
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowCommenting() {
+    return allowCommenting;
+  }
+
+  public void setAllowCommenting(Boolean allowCommenting) {
+    this.allowCommenting = allowCommenting;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -924,12 +946,13 @@ public class CreateTemplateRequest {
         Objects.equals(this.formFieldPermission, createTemplateRequest.formFieldPermission) &&
         Objects.equals(this.groupSignerSettings, createTemplateRequest.groupSignerSettings) &&
         Objects.equals(this.enableAllowSignEverywhere, createTemplateRequest.enableAllowSignEverywhere) &&
-        Objects.equals(this.documentTimeZone, createTemplateRequest.documentTimeZone);
+        Objects.equals(this.documentTimeZone, createTemplateRequest.documentTimeZone) &&
+        Objects.equals(this.allowCommenting, createTemplateRequest.allowCommenting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, formGroups, recipientNotificationSettings, allowedSignatureTypes, formFieldPermission, groupSignerSettings, enableAllowSignEverywhere, documentTimeZone);
+    return Objects.hash(title, description, documentTitle, documentMessage, files, fileUrls, roles, allowModifyFiles, cc, brandId, allowMessageEditing, allowNewRoles, allowNewFiles, enableReassign, enablePrintAndSign, enableSigningOrder, documentInfo, useTextTags, textTagDefinitions, autoDetectFields, onBehalfOf, labels, templateLabels, formGroups, recipientNotificationSettings, allowedSignatureTypes, formFieldPermission, groupSignerSettings, enableAllowSignEverywhere, documentTimeZone, allowCommenting);
   }
 
   @Override
@@ -966,6 +989,7 @@ public class CreateTemplateRequest {
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
     sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
     sb.append("    documentTimeZone: ").append(toIndentedString(documentTimeZone)).append("\n");
+    sb.append("    allowCommenting: ").append(toIndentedString(allowCommenting)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1071,33 +1095,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : files) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "files[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("files", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("files", objectList);
+          }
         }
     }
     if (fileUrls != null) {
@@ -1118,33 +1156,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : fileUrls) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "fileUrls[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("fileUrls", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("fileUrls", objectList);
+          }
         }
     }
     if (roles != null) {
@@ -1165,33 +1217,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : roles) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "roles[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("roles", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("roles", objectList);
+          }
         }
     }
     if (allowModifyFiles != null) {
@@ -1232,33 +1298,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : cc) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "cc[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("cc", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("cc", objectList);
+          }
         }
     }
     if (brandId != null) {
@@ -1419,33 +1499,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : documentInfo) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "documentInfo[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("documentInfo", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("documentInfo", objectList);
+          }
         }
     }
     if (useTextTags != null) {
@@ -1486,33 +1580,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : textTagDefinitions) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "textTagDefinitions[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("textTagDefinitions", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("textTagDefinitions", objectList);
+          }
         }
     }
     if (autoDetectFields != null) {
@@ -1573,33 +1681,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : labels) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "labels[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("labels", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("labels", objectList);
+          }
         }
     }
     if (templateLabels != null) {
@@ -1620,33 +1742,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : templateLabels) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "templateLabels[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("templateLabels", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("templateLabels", objectList);
+          }
         }
     }
     if (formGroups != null) {
@@ -1667,33 +1803,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : formGroups) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "formGroups[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("formGroups", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("formGroups", objectList);
+          }
         }
     }
     if (recipientNotificationSettings != null) {
@@ -1734,33 +1884,47 @@ public class CreateTemplateRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : allowedSignatureTypes) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "allowedSignatureTypes[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("allowedSignatureTypes", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("allowedSignatureTypes", objectList);
+          }
         }
     }
     if (formFieldPermission != null) {
@@ -1843,10 +2007,46 @@ public class CreateTemplateRequest {
           map.put("documentTimeZone", JSON.serialize(documentTimeZone));
         }
     }
+    if (allowCommenting != null) {
+        if (isFileTypeOrListOfFiles(allowCommenting)) {
+            fileTypeFound = true;
+        }
+
+        if (allowCommenting.getClass().equals(java.io.File.class) ||
+            allowCommenting.getClass().equals(Integer.class) ||
+            allowCommenting.getClass().equals(String.class) ||
+            allowCommenting.getClass().equals(java.net.URI.class)||
+            allowCommenting.getClass().isEnum()) {
+            map.put("allowCommenting", allowCommenting);
+        } else if (isListOfFile(allowCommenting)) {
+            for(int i = 0; i< getListSize(allowCommenting); i++) {
+                map.put("allowCommenting", allowCommenting);
+            }
+        }
+        else {
+          map.put("allowCommenting", JSON.serialize(allowCommenting));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
     return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean hasFileField(Class<?> clazz) {
+    try {
+      @SuppressWarnings("unchecked")
+      Set<String> fields = (Set<String>) clazz.getField("openapiFields").get(null);
+      for (String field : fields) {
+        Method getter = clazz.getMethod("get" + field.substring(0, 1).toUpperCase() + field.substring(1));
+        if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+          return true;
+        }
+      }
+    } catch (Exception e) {
+      // not a generated model (no openapiFields) -> no file fields
+    }
+    return false;
   }
 
   private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
@@ -1918,6 +2118,7 @@ public class CreateTemplateRequest {
     openapiFields.add("groupSignerSettings");
     openapiFields.add("enableAllowSignEverywhere");
     openapiFields.add("documentTimeZone");
+    openapiFields.add("allowCommenting");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

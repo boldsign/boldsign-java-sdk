@@ -95,6 +95,8 @@ paths:
                 style: form
               HideReassign:
                 style: form
+              HideCommenting:
+                style: form
             schema:
               $ref: '#/components/schemas/CreateBrand_request'
       responses:
@@ -718,6 +720,8 @@ paths:
               SignatureFrameSettings.ShowTimeStamp:
                 style: form
               HideReassign:
+                style: form
+              HideCommenting:
                 style: form
             schema:
               $ref: '#/components/schemas/EditBrand_request'
@@ -13106,6 +13110,10 @@ paths:
       - application/json
   /v1/plan/apiCreditsCount:
     get:
+      deprecated: true
+      description: "Deprecated: use /v1-beta/plan/credits instead. The response and\
+        \ behaviour of this operation are unchanged and will be removed in a future\
+        \ version."
       operationId: ApiCreditsCount
       responses:
         "200":
@@ -17248,6 +17256,7 @@ components:
         createdDate: 0
         activityDate: 6
         isDeleted: true
+        allowCommenting: true
         brandId: brandId
         documentId: documentId
         signerDetails:
@@ -17290,18 +17299,19 @@ components:
             maximumRetryCount: 6
             status: status
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: authenticationFrequency
             status: status
@@ -17530,18 +17540,19 @@ components:
             maximumRetryCount: 6
             status: status
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: authenticationFrequency
             status: status
@@ -17829,6 +17840,9 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          title: Boolean
+          type: boolean
       title: BehalfDocument
       type: object
     BehalfDocumentRecords:
@@ -17850,6 +17864,7 @@ components:
           createdDate: 0
           activityDate: 6
           isDeleted: true
+          allowCommenting: true
           brandId: brandId
           documentId: documentId
           signerDetails:
@@ -17892,18 +17907,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -18132,18 +18148,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -18361,6 +18378,7 @@ components:
           createdDate: 0
           activityDate: 6
           isDeleted: true
+          allowCommenting: true
           brandId: brandId
           documentId: documentId
           signerDetails:
@@ -18403,18 +18421,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -18643,18 +18662,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -19063,6 +19083,7 @@ components:
             showTimeStamp: false
             showRecipientEmail: false
             showRecipientName: false
+          hideCommenting: true
           documentTimeZone: documentTimeZone
           hideReassign: false
           showBuiltInFormFields: true
@@ -19102,6 +19123,7 @@ components:
             showTimeStamp: false
             showRecipientEmail: false
             showRecipientName: false
+          hideCommenting: true
           documentTimeZone: documentTimeZone
           hideReassign: false
           showBuiltInFormFields: true
@@ -19457,17 +19479,18 @@ components:
         email: email
         notificationSettings:
           reminders: true
-          deliveryFailed: true
-          declined: true
-          expired: true
+          commentOnDocument: true
           attachSignedDocument: false
-          viewed: true
           authenticationFailed: true
           reassigned: true
           signed: true
           completed: true
           revoked: true
           sent: false
+          deliveryFailed: true
+          declined: true
+          expired: true
+          viewed: true
       properties:
         name:
           maxLength: 80
@@ -19496,7 +19519,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -19724,18 +19747,19 @@ components:
           language: 1
           locale: EN
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -19910,18 +19934,19 @@ components:
           language: 1
           locale: EN
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -20126,23 +20151,25 @@ components:
         documentTimeZone: documentTimeZone
         allowMessageEditing: true
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         enableReassign: true
         labels:
         - labels
         - labels
         enableAllowSignEverywhere: true
+        allowCommenting: true
         brandId: brandId
         files:
         - ""
@@ -20300,6 +20327,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       required:
       - title
       title: CreateTemplateRequest
@@ -20333,7 +20364,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -20830,6 +20861,7 @@ components:
         createdDate: 5
         activityDate: 2
         isDeleted: true
+        allowCommenting: true
         brandId: brandId
         documentId: documentId
         signerDetails:
@@ -20872,18 +20904,19 @@ components:
             maximumRetryCount: 6
             status: status
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: authenticationFrequency
             status: status
@@ -21112,18 +21145,19 @@ components:
             maximumRetryCount: 6
             status: status
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: authenticationFrequency
             status: status
@@ -21409,6 +21443,9 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          title: Boolean
+          type: boolean
       title: Document
       type: object
     DocumentCC:
@@ -21609,6 +21646,9 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          title: Boolean
+          type: boolean
       title: DocumentEvent
       type: object
     DocumentExpirySettings:
@@ -22188,18 +22228,19 @@ components:
             maximumRetryCount: 6
             status: status
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: authenticationFrequency
             status: status
@@ -22428,18 +22469,19 @@ components:
             maximumRetryCount: 6
             status: status
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: authenticationFrequency
             status: status
@@ -22878,21 +22920,23 @@ components:
         enableSigningOrder: true
         documentTimeZone: documentTimeZone
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         documentDownloadOption: Combined
         enableAllowSignEverywhere: true
         createdDate: 9
+        allowCommenting: true
         documentId: documentId
         expiryDays: 3
         activityAction: Viewed
@@ -23000,6 +23044,7 @@ components:
           - EditingCancelled
           - EditingCompleted
           - DocumentScheduled
+          - CommentAdded
           title: ActivityAction
           type: string
         createdDate:
@@ -23131,6 +23176,9 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          title: Boolean
+          type: boolean
       title: DocumentProperties
       type: object
     DocumentReassign:
@@ -23171,6 +23219,7 @@ components:
           createdDate: 5
           activityDate: 2
           isDeleted: true
+          allowCommenting: true
           brandId: brandId
           documentId: documentId
           signerDetails:
@@ -23213,18 +23262,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -23453,18 +23503,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -23679,6 +23730,7 @@ components:
           createdDate: 5
           activityDate: 2
           isDeleted: true
+          allowCommenting: true
           brandId: brandId
           documentId: documentId
           signerDetails:
@@ -23721,18 +23773,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -23961,18 +24014,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -24263,18 +24317,19 @@ components:
         signerRole: signerRole
         authenticationCode: authenticationCode
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         authenticationSettings:
           authenticationFrequency: None
         phoneNumber:
@@ -24653,18 +24708,19 @@ components:
           maximumRetryCount: 6
           status: status
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         authenticationSettings:
           authenticationFrequency: authenticationFrequency
           status: status
@@ -25487,18 +25543,19 @@ components:
         documentTimeZone: documentTimeZone
         message: message
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         enableReassign: true
         labels:
         - labels
@@ -25525,18 +25582,19 @@ components:
           signerRole: signerRole
           authenticationCode: authenticationCode
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
           phoneNumber:
@@ -25716,18 +25774,19 @@ components:
           signerRole: signerRole
           authenticationCode: authenticationCode
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
           phoneNumber:
@@ -25888,6 +25947,7 @@ components:
             maximumRetryCount: 1
         documentDownloadOption: Combined
         enableAllowSignEverywhere: true
+        allowCommenting: true
         brandId: brandId
         files:
         - file: ""
@@ -26019,7 +26079,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -26063,6 +26123,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EditDocumentRequest
       type: object
     EditDocumentSigner:
@@ -26089,18 +26153,19 @@ components:
         signerRole: signerRole
         authenticationCode: authenticationCode
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         authenticationSettings:
           authenticationFrequency: None
         phoneNumber:
@@ -26743,17 +26808,18 @@ components:
         locale: EN
         notificationSettings:
           reminders: true
-          deliveryFailed: true
-          declined: true
-          expired: true
+          commentOnDocument: true
           attachSignedDocument: false
-          viewed: true
           authenticationFailed: true
           reassigned: true
           signed: true
           completed: true
           revoked: true
           sent: false
+          deliveryFailed: true
+          declined: true
+          expired: true
+          viewed: true
       properties:
         name:
           maxLength: 80
@@ -26773,7 +26839,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -26838,18 +26904,19 @@ components:
           language: 1
           locale: EN
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -27024,18 +27091,19 @@ components:
           language: 1
           locale: EN
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -27236,23 +27304,25 @@ components:
         documentTimeZone: documentTimeZone
         allowMessageEditing: true
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         enableReassign: true
         labels:
         - labels
         - labels
         enableAllowSignEverywhere: true
+        allowCommenting: true
         brandId: brandId
       properties:
         title:
@@ -27378,6 +27448,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EditTemplateRequest
       type: object
     EditableDateFieldSettings:
@@ -27813,18 +27887,19 @@ components:
           language: 1
           locale: EN
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -27999,18 +28074,19 @@ components:
           language: 1
           locale: EN
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -28221,24 +28297,26 @@ components:
         documentTimeZone: documentTimeZone
         allowMessageEditing: true
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         enableReassign: true
         labels:
         - labels
         - labels
         enableAllowSignEverywhere: true
         showCreateButton: true
+        allowCommenting: true
         brandId: brandId
         files:
         - ""
@@ -28470,6 +28548,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       required:
       - title
       title: EmbeddedCreateTemplateRequest
@@ -28810,18 +28892,19 @@ components:
         documentTimeZone: documentTimeZone
         message: message
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         signers:
         - authenticationRetryCount: 7
           enableQes: true
@@ -28843,18 +28926,19 @@ components:
           signerRole: signerRole
           authenticationCode: authenticationCode
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
           phoneNumber:
@@ -29047,18 +29131,19 @@ components:
           signerRole: signerRole
           authenticationCode: authenticationCode
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
           phoneNumber:
@@ -29233,6 +29318,7 @@ components:
             maximumRetryCount: 1
         documentDownloadOption: Combined
         enableAllowSignEverywhere: true
+        allowCommenting: true
         expiryDays: 0
       properties:
         redirectUrl:
@@ -29453,7 +29539,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -29505,6 +29591,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EmbeddedDocumentRequest
       type: object
     EmbeddedFileDetails:
@@ -29574,6 +29664,13 @@ components:
         - Text
         - Text
         isSandbox: true
+        fileChanges:
+        - editAction: Add
+          fileOrder: 0
+          id: id
+        - editAction: Add
+          fileOrder: 0
+          id: id
         expiryValue: 6
         templateIds:
         - templateIds
@@ -29758,10 +29855,10 @@ components:
           enabled: true
         showNavigationButtons: true
         roles:
-        - authenticationRetryCount: 3
+        - authenticationRetryCount: 7
           enableQes: true
           groupId: groupId
-          language: 5
+          language: 2
           locale: EN
           signerName: signerName
           enableEmailOTP: true
@@ -29771,7 +29868,7 @@ components:
             nameMatcher: None
             maximumRetryCount: 2
           deliveryMode: Email
-          signerOrder: 6
+          signerOrder: 1
           hostEmail: hostEmail
           signerType: Signer
           signType: Single
@@ -29781,31 +29878,32 @@ components:
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
-          roleIndex: 4
+          roleIndex: 30
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -29975,10 +30073,10 @@ components:
             nameMatcher: Strict
             holdForPrefill: true
             maximumRetryCount: 1
-        - authenticationRetryCount: 3
+        - authenticationRetryCount: 7
           enableQes: true
           groupId: groupId
-          language: 5
+          language: 2
           locale: EN
           signerName: signerName
           enableEmailOTP: true
@@ -29988,7 +30086,7 @@ components:
             nameMatcher: None
             maximumRetryCount: 2
           deliveryMode: Email
-          signerOrder: 6
+          signerOrder: 1
           hostEmail: hostEmail
           signerType: Signer
           signType: Single
@@ -29998,31 +30096,32 @@ components:
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
-          roleIndex: 4
+          roleIndex: 30
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -30230,20 +30329,22 @@ components:
         documentTimeZone: documentTimeZone
         message: message
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         documentDownloadOption: Combined
         enableAllowSignEverywhere: true
+        allowCommenting: true
         documentId: documentId
         expiryDays: 0
       properties:
@@ -30338,6 +30439,12 @@ components:
           nullable: true
           title: List`1
           type: array
+        fileChanges:
+          items:
+            $ref: '#/components/schemas/TemplateFileChange'
+          nullable: true
+          title: List`1
+          type: array
         documentId:
           nullable: true
           title: String
@@ -30458,7 +30565,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -30517,6 +30624,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EmbeddedMergeTemplateFormRequest
       type: object
     EmbeddedSendCreated:
@@ -30540,6 +30651,49 @@ components:
       additionalProperties: false
       example:
         allowScheduledSend: false
+        redirectUrl: https://openapi-generator.tech
+        sendLinkValidTill: 2000-01-23T04:56:07.000+00:00
+        showToolbar: true
+        reminderSettings:
+          enableAutoReminder: false
+          reminderCount: 5
+          reminderDays: 4
+        removeFormFields:
+        - removeFormFields
+        - removeFormFields
+        allowedSignatureTypes:
+        - Text
+        - Text
+        isSandbox: true
+        fileChanges:
+        - file: ""
+          editAction: Add
+          fileUrl: https://openapi-generator.tech
+          fileOrder: 0
+          id: id
+        - file: ""
+          editAction: Add
+          fileUrl: https://openapi-generator.tech
+          fileOrder: 0
+          id: id
+        expiryValue: 6
+        enablePrintAndSign: true
+        roleRemovalIndices:
+        - 1
+        - 1
+        fileUrls:
+        - https://openapi-generator.tech
+        - https://openapi-generator.tech
+        enableReassign: true
+        labels:
+        - labels
+        - labels
+        brandId: brandId
+        files:
+        - ""
+        - ""
+        showSaveButton: true
+        showPreviewButton: true
         documentInfo:
         - description: description
           language: 6
@@ -30549,7 +30703,6 @@ components:
           language: 6
           locale: EN
           title: title
-        redirectUrl: https://openapi-generator.tech
         groupSignerSettings:
           allowedDirectories:
           - allowedDirectories
@@ -30557,10 +30710,10 @@ components:
           enabled: true
         showNavigationButtons: true
         roles:
-        - authenticationRetryCount: 3
+        - authenticationRetryCount: 7
           enableQes: true
           groupId: groupId
-          language: 5
+          language: 2
           locale: EN
           signerName: signerName
           enableEmailOTP: true
@@ -30570,7 +30723,7 @@ components:
             nameMatcher: None
             maximumRetryCount: 2
           deliveryMode: Email
-          signerOrder: 6
+          signerOrder: 1
           hostEmail: hostEmail
           signerType: Signer
           signType: Single
@@ -30580,31 +30733,32 @@ components:
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
-          roleIndex: 4
+          roleIndex: 30
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -30774,10 +30928,10 @@ components:
             nameMatcher: Strict
             holdForPrefill: true
             maximumRetryCount: 1
-        - authenticationRetryCount: 3
+        - authenticationRetryCount: 7
           enableQes: true
           groupId: groupId
-          language: 5
+          language: 2
           locale: EN
           signerName: signerName
           enableEmailOTP: true
@@ -30787,7 +30941,7 @@ components:
             nameMatcher: None
             maximumRetryCount: 2
           deliveryMode: Email
-          signerOrder: 6
+          signerOrder: 1
           hostEmail: hostEmail
           signerType: Signer
           signType: Single
@@ -30797,31 +30951,32 @@ components:
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
-          roleIndex: 4
+          roleIndex: 30
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -30992,40 +31147,22 @@ components:
             holdForPrefill: true
             maximumRetryCount: 1
         onBehalfOf: onBehalfOf
-        sendLinkValidTill: 2000-01-23T04:56:07.000+00:00
         locale: EN
         title: title
         hideDocumentId: true
         showSendButton: true
-        showToolbar: true
         disableSMS: false
         disableEmails: true
         metaData:
           key: metaData
-        reminderSettings:
-          enableAutoReminder: false
-          reminderCount: 5
-          reminderDays: 4
-        removeFormFields:
-        - removeFormFields
-        - removeFormFields
         disableExpiryAlert: true
-        allowedSignatureTypes:
-        - Text
-        - Text
-        isSandbox: true
         scheduledSendTime: 5
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
         enableAuditTrailLocalization: true
         downloadFileName: downloadFileName
-        expiryValue: 6
         sendViewOption: PreparePage
-        enablePrintAndSign: true
-        roleRemovalIndices:
-        - 1
-        - 1
         formGroups:
         - groupNames:
           - groupNames
@@ -31043,40 +31180,35 @@ components:
           minimumCount: 1477050466
         showTooltip: true
         expiryDateType: Days
-        fileUrls:
-        - https://openapi-generator.tech
-        - https://openapi-generator.tech
         enableSigningOrder: true
         documentTimeZone: documentTimeZone
         message: message
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
-        enableReassign: true
-        labels:
-        - labels
-        - labels
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         documentDownloadOption: Combined
         enableAllowSignEverywhere: true
-        brandId: brandId
-        files:
-        - ""
-        - ""
-        showSaveButton: true
+        allowCommenting: true
         documentId: documentId
         expiryDays: 0
-        showPreviewButton: true
       properties:
+        fileChanges:
+          items:
+            $ref: '#/components/schemas/TemplateFileChangeForm'
+          nullable: true
+          title: List`1
+          type: array
         files:
           items:
             format: binary
@@ -31272,7 +31404,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -31331,6 +31463,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: EmbeddedSendTemplateFormRequest
       type: object
     EmbeddedSigningLink:
@@ -31539,7 +31675,7 @@ components:
         isReadOnly: true
         templateOrder: 5
         name: name
-        index: 1
+        index: 5
         id: id
         value: value
       properties:
@@ -32985,10 +33121,10 @@ components:
           enabled: true
         useTextTags: true
         roles:
-        - authenticationRetryCount: 3
+        - authenticationRetryCount: 7
           enableQes: true
           groupId: groupId
-          language: 5
+          language: 2
           locale: EN
           signerName: signerName
           enableEmailOTP: true
@@ -32998,7 +33134,7 @@ components:
             nameMatcher: None
             maximumRetryCount: 2
           deliveryMode: Email
-          signerOrder: 6
+          signerOrder: 1
           hostEmail: hostEmail
           signerType: Signer
           signType: Single
@@ -33008,31 +33144,32 @@ components:
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
-          roleIndex: 4
+          roleIndex: 30
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -33202,10 +33339,10 @@ components:
             nameMatcher: Strict
             holdForPrefill: true
             maximumRetryCount: 1
-        - authenticationRetryCount: 3
+        - authenticationRetryCount: 7
           enableQes: true
           groupId: groupId
-          language: 5
+          language: 2
           locale: EN
           signerName: signerName
           enableEmailOTP: true
@@ -33215,7 +33352,7 @@ components:
             nameMatcher: None
             maximumRetryCount: 2
           deliveryMode: Email
-          signerOrder: 6
+          signerOrder: 1
           hostEmail: hostEmail
           signerType: Signer
           signType: Single
@@ -33225,31 +33362,32 @@ components:
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
-          roleIndex: 4
+          roleIndex: 30
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -33439,19 +33577,26 @@ components:
         - Text
         isSandbox: true
         scheduledSendTime: 5
+        fileChanges:
+        - editAction: Add
+          fileOrder: 0
+          id: id
+        - editAction: Add
+          fileOrder: 0
+          id: id
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
         enableAuditTrailLocalization: true
         downloadFileName: downloadFileName
-        expiryValue: 6
+        expiryValue: 1
         templateIds:
         - templateIds
         - templateIds
         enablePrintAndSign: true
         roleRemovalIndices:
-        - 1
-        - 1
+        - 5
+        - 5
         formGroups:
         - groupNames:
           - groupNames
@@ -33475,30 +33620,32 @@ components:
         documentTimeZone: documentTimeZone
         message: message
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         enableReassign: true
         labels:
         - labels
         - labels
         documentDownloadOption: Combined
         enableAllowSignEverywhere: true
+        allowCommenting: true
         brandId: brandId
         files:
         - ""
         - ""
         documentId: documentId
-        expiryDays: 0
+        expiryDays: 6
       properties:
         files:
           items:
@@ -33529,6 +33676,12 @@ components:
         textTagDefinitions:
           items:
             $ref: '#/components/schemas/TextTagDefinition'
+          nullable: true
+          title: List`1
+          type: array
+        fileChanges:
+          items:
+            $ref: '#/components/schemas/TemplateFileChange'
           nullable: true
           title: List`1
           type: array
@@ -33652,7 +33805,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -33711,6 +33864,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: MergeAndSendForSignForm
       type: object
     ModificationDetails:
@@ -33733,17 +33890,18 @@ components:
       additionalProperties: false
       example:
         reminders: true
-        deliveryFailed: true
-        declined: true
-        expired: true
+        commentOnDocument: true
         attachSignedDocument: false
-        viewed: true
         authenticationFailed: true
         reassigned: true
         signed: true
         completed: true
         revoked: true
         sent: false
+        deliveryFailed: true
+        declined: true
+        expired: true
+        viewed: true
       properties:
         viewed:
           default: true
@@ -33791,6 +33949,10 @@ components:
           type: boolean
         attachSignedDocument:
           default: false
+          title: Boolean
+          type: boolean
+        commentOnDocument:
+          default: true
           title: Boolean
           type: boolean
       title: NotificationSettings
@@ -33937,18 +34099,19 @@ components:
     RecipientNotificationSettings:
       additionalProperties: false
       example:
-        signatureRequest: true
         reminders: true
-        editRecipient: true
         editDocument: true
-        declined: true
-        expired: true
-        deleted: true
-        viewed: true
+        commentOnDocument: true
         signed: true
         reassigned: true
         completed: true
         revoked: true
+        signatureRequest: true
+        editRecipient: true
+        declined: true
+        expired: true
+        deleted: true
+        viewed: true
       properties:
         signatureRequest:
           default: true
@@ -33995,6 +34158,10 @@ components:
           title: Boolean
           type: boolean
         viewed:
+          title: Boolean
+          type: boolean
+        commentOnDocument:
+          default: true
           title: Boolean
           type: boolean
       title: RecipientNotificationSettings
@@ -34152,10 +34319,10 @@ components:
     Role:
       additionalProperties: false
       example:
-        authenticationRetryCount: 3
+        authenticationRetryCount: 7
         enableQes: true
         groupId: groupId
-        language: 5
+        language: 2
         locale: EN
         signerName: signerName
         enableEmailOTP: true
@@ -34165,7 +34332,7 @@ components:
           nameMatcher: None
           maximumRetryCount: 2
         deliveryMode: Email
-        signerOrder: 6
+        signerOrder: 1
         hostEmail: hostEmail
         signerType: Signer
         signType: Single
@@ -34175,31 +34342,32 @@ components:
         - isReadOnly: true
           templateOrder: 5
           name: name
-          index: 1
+          index: 5
           id: id
           value: value
         - isReadOnly: true
           templateOrder: 5
           name: name
-          index: 1
+          index: 5
           id: id
           value: value
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         authenticationSettings:
           authenticationFrequency: None
-        roleIndex: 4
+        roleIndex: 30
         phoneNumber:
           number: number
           countryCode: countryCode
@@ -34569,18 +34737,19 @@ components:
         index: 1
         enableDeleteRecipients: true
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         groupSigners:
         - signerEmail: signerEmail
           signerName: signerName
@@ -35128,18 +35297,19 @@ components:
         documentTimeZone: documentTimeZone
         message: message
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         enableReassign: true
         labels:
         - labels
@@ -35165,18 +35335,19 @@ components:
           signerRole: signerRole
           authenticationCode: authenticationCode
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
           phoneNumber:
@@ -35369,18 +35540,19 @@ components:
           signerRole: signerRole
           authenticationCode: authenticationCode
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
           phoneNumber:
@@ -35555,6 +35727,7 @@ components:
             maximumRetryCount: 1
         documentDownloadOption: Combined
         enableAllowSignEverywhere: true
+        allowCommenting: true
         brandId: brandId
         files:
         - ""
@@ -35712,7 +35885,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -35764,6 +35937,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: SendForSign
       type: object
     SendForSignFromTemplateForm:
@@ -35785,10 +35962,10 @@ components:
           - allowedDirectories
           enabled: true
         roles:
-        - authenticationRetryCount: 3
+        - authenticationRetryCount: 7
           enableQes: true
           groupId: groupId
-          language: 5
+          language: 2
           locale: EN
           signerName: signerName
           enableEmailOTP: true
@@ -35798,7 +35975,7 @@ components:
             nameMatcher: None
             maximumRetryCount: 2
           deliveryMode: Email
-          signerOrder: 6
+          signerOrder: 1
           hostEmail: hostEmail
           signerType: Signer
           signType: Single
@@ -35808,31 +35985,32 @@ components:
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
-          roleIndex: 4
+          roleIndex: 30
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -36002,10 +36180,10 @@ components:
             nameMatcher: Strict
             holdForPrefill: true
             maximumRetryCount: 1
-        - authenticationRetryCount: 3
+        - authenticationRetryCount: 7
           enableQes: true
           groupId: groupId
-          language: 5
+          language: 2
           locale: EN
           signerName: signerName
           enableEmailOTP: true
@@ -36015,7 +36193,7 @@ components:
             nameMatcher: None
             maximumRetryCount: 2
           deliveryMode: Email
-          signerOrder: 6
+          signerOrder: 1
           hostEmail: hostEmail
           signerType: Signer
           signType: Single
@@ -36025,31 +36203,32 @@ components:
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           - isReadOnly: true
             templateOrder: 5
             name: name
-            index: 1
+            index: 5
             id: id
             value: value
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           authenticationSettings:
             authenticationFrequency: None
-          roleIndex: 4
+          roleIndex: 30
           phoneNumber:
             number: number
             countryCode: countryCode
@@ -36238,17 +36417,28 @@ components:
         - Text
         - Text
         isSandbox: true
-        scheduledSendTime: 2
+        scheduledSendTime: 4
+        fileChanges:
+        - file: ""
+          editAction: Add
+          fileUrl: https://openapi-generator.tech
+          fileOrder: 0
+          id: id
+        - file: ""
+          editAction: Add
+          fileUrl: https://openapi-generator.tech
+          fileOrder: 0
+          id: id
         cc:
         - emailAddress: emailAddress
         - emailAddress: emailAddress
         enableAuditTrailLocalization: true
         downloadFileName: downloadFileName
-        expiryValue: 9
+        expiryValue: 3
         enablePrintAndSign: true
         roleRemovalIndices:
-        - 3
-        - 3
+        - 2
+        - 2
         formGroups:
         - groupNames:
           - groupNames
@@ -36272,31 +36462,39 @@ components:
         documentTimeZone: documentTimeZone
         message: message
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         enableReassign: true
         labels:
         - labels
         - labels
         documentDownloadOption: Combined
         enableAllowSignEverywhere: true
+        allowCommenting: true
         brandId: brandId
         files:
         - ""
         - ""
         documentId: documentId
-        expiryDays: 7
+        expiryDays: 9
       properties:
+        fileChanges:
+          items:
+            $ref: '#/components/schemas/TemplateFileChangeForm'
+          nullable: true
+          title: List`1
+          type: array
         files:
           items:
             format: binary
@@ -36433,7 +36631,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           nullable: true
           title: Dictionary`2
           type: object
@@ -36492,6 +36690,10 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          nullable: true
+          title: Nullable`1
+          type: boolean
       title: SendForSignFromTemplateForm
       type: object
     SenderIdentityCreated:
@@ -36606,17 +36808,18 @@ components:
           status: status
           notificationSettings:
             reminders: true
-            deliveryFailed: true
-            declined: true
-            expired: true
+            commentOnDocument: true
             attachSignedDocument: false
-            viewed: true
             authenticationFailed: true
             reassigned: true
             signed: true
             completed: true
             revoked: true
             sent: false
+            deliveryFailed: true
+            declined: true
+            expired: true
+            viewed: true
         - approvedDate: approvedDate
           metaData:
             key: metaData
@@ -36630,17 +36833,18 @@ components:
           status: status
           notificationSettings:
             reminders: true
-            deliveryFailed: true
-            declined: true
-            expired: true
+            commentOnDocument: true
             attachSignedDocument: false
-            viewed: true
             authenticationFailed: true
             reassigned: true
             signed: true
             completed: true
             revoked: true
             sent: false
+            deliveryFailed: true
+            declined: true
+            expired: true
+            viewed: true
         pageDetails:
           sortDirection: sortDirection
           sortedColumn: sortedColumn
@@ -36675,17 +36879,18 @@ components:
         status: status
         notificationSettings:
           reminders: true
-          deliveryFailed: true
-          declined: true
-          expired: true
+          commentOnDocument: true
           attachSignedDocument: false
-          viewed: true
           authenticationFailed: true
           reassigned: true
           signed: true
           completed: true
           revoked: true
           sent: false
+          deliveryFailed: true
+          declined: true
+          expired: true
+          viewed: true
       properties:
         id:
           nullable: true
@@ -36837,6 +37042,7 @@ components:
           createdDate: 5
           activityDate: 2
           isDeleted: true
+          allowCommenting: true
           brandId: brandId
           documentId: documentId
           signerDetails:
@@ -36879,18 +37085,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -37119,18 +37326,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -37345,6 +37553,7 @@ components:
           createdDate: 5
           activityDate: 2
           isDeleted: true
+          allowCommenting: true
           brandId: brandId
           documentId: documentId
           signerDetails:
@@ -37387,18 +37596,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -37627,18 +37837,19 @@ components:
               maximumRetryCount: 6
               status: status
             recipientNotificationSettings:
-              signatureRequest: true
               reminders: true
-              editRecipient: true
               editDocument: true
-              declined: true
-              expired: true
-              deleted: true
-              viewed: true
+              commentOnDocument: true
               signed: true
               reassigned: true
               completed: true
               revoked: true
+              signatureRequest: true
+              editRecipient: true
+              declined: true
+              expired: true
+              deleted: true
+              viewed: true
             authenticationSettings:
               authenticationFrequency: authenticationFrequency
               status: status
@@ -38054,6 +38265,7 @@ components:
         activityDate: 6
         templateName: templateName
         isTemplate: false
+        allowCommenting: true
         templateDescription: templateDescription
         brandId: brandId
         documentId: documentId
@@ -38211,6 +38423,9 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          title: Boolean
+          type: boolean
       title: Template
       type: object
     TemplateCC:
@@ -38376,15 +38591,113 @@ components:
           type: string
       title: TemplateEvent
       type: object
+    TemplateFileChange:
+      additionalProperties: false
+      example:
+        editAction: Add
+        fileOrder: 0
+        id: id
+      properties:
+        editAction:
+          enum:
+          - Add
+          - Update
+          - Remove
+          nullable: true
+          title: Nullable`1
+          type: string
+        id:
+          nullable: true
+          title: String
+          type: string
+        fileOrder:
+          format: int32
+          nullable: true
+          title: Nullable`1
+          type: integer
+      title: TemplateFileChange
+      type: object
+    TemplateFileChangeForm:
+      additionalProperties: false
+      example:
+        file: ""
+        editAction: Add
+        fileUrl: https://openapi-generator.tech
+        fileOrder: 0
+        id: id
+      properties:
+        file:
+          format: binary
+          nullable: true
+          title: IFormFile
+          type: string
+        fileUrl:
+          format: uri
+          nullable: true
+          title: Uri
+          type: string
+        editAction:
+          enum:
+          - Add
+          - Update
+          - Remove
+          nullable: true
+          title: Nullable`1
+          type: string
+        id:
+          nullable: true
+          title: String
+          type: string
+        fileOrder:
+          format: int32
+          nullable: true
+          title: Nullable`1
+          type: integer
+      title: TemplateFileChangeForm
+      type: object
+    TemplateFileChangeJson:
+      additionalProperties: false
+      properties:
+        file:
+          $ref: '#/components/schemas/Base64File'
+        fileUrl:
+          format: uri
+          nullable: true
+          title: Uri
+          type: string
+        editAction:
+          enum:
+          - Add
+          - Update
+          - Remove
+          nullable: true
+          title: Nullable`1
+          type: string
+        id:
+          nullable: true
+          title: String
+          type: string
+        fileOrder:
+          format: int32
+          nullable: true
+          title: Nullable`1
+          type: integer
+      title: TemplateFileChangeJson
+      type: object
     TemplateFiles:
       additionalProperties: false
       example:
         pageCount: 6
         documentId: documentId
+        id: id
         documentName: documentName
         order: 0
       properties:
         documentId:
+          nullable: true
+          title: String
+          type: string
+        id:
           nullable: true
           title: String
           type: string
@@ -38733,18 +39046,19 @@ components:
           index: 1
           enableDeleteRecipients: true
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           groupSigners:
           - signerEmail: signerEmail
             signerName: signerName
@@ -38931,18 +39245,19 @@ components:
           index: 1
           enableDeleteRecipients: true
           recipientNotificationSettings:
-            signatureRequest: true
             reminders: true
-            editRecipient: true
             editDocument: true
-            declined: true
-            expired: true
-            deleted: true
-            viewed: true
+            commentOnDocument: true
             signed: true
             reassigned: true
             completed: true
             revoked: true
+            signatureRequest: true
+            editRecipient: true
+            declined: true
+            expired: true
+            deleted: true
+            viewed: true
           groupSigners:
           - signerEmail: signerEmail
             signerName: signerName
@@ -39154,18 +39469,19 @@ components:
         documentTimeZone: documentTimeZone
         allowMessageEditing: true
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         sharing:
           teams:
           - accessType: Use
@@ -39182,14 +39498,17 @@ components:
         createdBy:
           emailAddress: emailAddress
           name: name
+        allowCommenting: true
         brandId: brandId
         files:
         - pageCount: 6
           documentId: documentId
+          id: id
           documentName: documentName
           order: 0
         - pageCount: 6
           documentId: documentId
+          id: id
           documentName: documentName
           order: 0
         commonFields:
@@ -39492,6 +39811,9 @@ components:
           nullable: true
           title: String
           type: string
+        allowCommenting:
+          title: Boolean
+          type: boolean
       title: TemplateProperties
       type: object
     TemplateRecords:
@@ -39515,6 +39837,7 @@ components:
           activityDate: 6
           templateName: templateName
           isTemplate: false
+          allowCommenting: true
           templateDescription: templateDescription
           brandId: brandId
           documentId: documentId
@@ -39597,6 +39920,7 @@ components:
           activityDate: 6
           templateName: templateName
           isTemplate: false
+          allowCommenting: true
           templateDescription: templateDescription
           brandId: brandId
           documentId: documentId
@@ -39694,18 +40018,19 @@ components:
         language: 1
         locale: EN
         recipientNotificationSettings:
-          signatureRequest: true
           reminders: true
-          editRecipient: true
           editDocument: true
-          declined: true
-          expired: true
-          deleted: true
-          viewed: true
+          commentOnDocument: true
           signed: true
           reassigned: true
           completed: true
           revoked: true
+          signatureRequest: true
+          editRecipient: true
+          declined: true
+          expired: true
+          deleted: true
+          viewed: true
         phoneNumber:
           number: number
           countryCode: countryCode
@@ -40801,7 +41126,7 @@ components:
             nullable: true
             title: String
             type: string
-          maxLength: 50
+          maxProperties: 50
           title: Dictionary`2
           type: object
       required:
@@ -41091,6 +41416,7 @@ components:
           showTimeStamp: false
           showRecipientEmail: false
           showRecipientName: false
+        hideCommenting: true
         documentTimeZone: documentTimeZone
         hideReassign: false
         showBuiltInFormFields: true
@@ -41192,6 +41518,10 @@ components:
           $ref: '#/components/schemas/SignatureFrameSettings'
         hideReassign:
           default: false
+          title: Boolean
+          type: boolean
+        hideCommenting:
+          default: true
           title: Boolean
           type: boolean
       title: ViewBrandDetails
@@ -41583,6 +41913,10 @@ components:
             This setting cannot be changed during document creation.
           title: Nullable`1
           type: boolean
+        HideCommenting:
+          default: true
+          title: Nullable`1
+          type: boolean
       required:
       - BrandLogo
       - BrandName
@@ -41732,6 +42066,10 @@ components:
           default: false
           description: Enabling this option disables reassignment for all new documents.
             This setting cannot be changed during document creation.
+          title: Nullable`1
+          type: boolean
+        HideCommenting:
+          default: true
           title: Nullable`1
           type: boolean
       type: object

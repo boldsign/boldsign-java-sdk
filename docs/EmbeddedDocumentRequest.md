@@ -56,6 +56,7 @@
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 |**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
 |**documentTimeZone** | **String** |  |  [optional] |
+|**allowCommenting** | **Boolean** |  |  [optional] |
 
 
 

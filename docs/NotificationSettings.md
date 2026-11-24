@@ -19,6 +19,7 @@
 |**authenticationFailed** | **Boolean** |  |  [optional] |
 |**reminders** | **Boolean** |  |  [optional] |
 |**attachSignedDocument** | **Boolean** |  |  [optional] |
+|**commentOnDocument** | **Boolean** |  |  [optional] |
 
 
 

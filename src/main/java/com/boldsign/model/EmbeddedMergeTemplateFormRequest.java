@@ -21,6 +21,7 @@ import com.boldsign.model.GroupSignerSettings;
 import com.boldsign.model.RecipientNotificationSettings;
 import com.boldsign.model.ReminderSettings;
 import com.boldsign.model.Role;
+import com.boldsign.model.TemplateFileChange;
 import com.boldsign.model.TextTagDefinition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -49,7 +50,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
 import java.net.URI;
 import java.lang.reflect.Method;
 
@@ -262,6 +262,10 @@ public class EmbeddedMergeTemplateFormRequest {
   public static final String SERIALIZED_NAME_TEXT_TAG_DEFINITIONS = "textTagDefinitions";
   @SerializedName(SERIALIZED_NAME_TEXT_TAG_DEFINITIONS)
   private List<TextTagDefinition> textTagDefinitions;
+
+  public static final String SERIALIZED_NAME_FILE_CHANGES = "fileChanges";
+  @SerializedName(SERIALIZED_NAME_FILE_CHANGES)
+  private List<TemplateFileChange> fileChanges;
 
   public static final String SERIALIZED_NAME_DOCUMENT_ID = "documentId";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_ID)
@@ -565,6 +569,10 @@ public class EmbeddedMergeTemplateFormRequest {
   public static final String SERIALIZED_NAME_DOCUMENT_TIME_ZONE = "documentTimeZone";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_TIME_ZONE)
   private String documentTimeZone;
+
+  public static final String SERIALIZED_NAME_ALLOW_COMMENTING = "allowCommenting";
+  @SerializedName(SERIALIZED_NAME_ALLOW_COMMENTING)
+  private Boolean allowCommenting;
 
   public EmbeddedMergeTemplateFormRequest() {
   }
@@ -883,6 +891,33 @@ public class EmbeddedMergeTemplateFormRequest {
 
   public void setTextTagDefinitions(List<TextTagDefinition> textTagDefinitions) {
     this.textTagDefinitions = textTagDefinitions;
+  }
+
+
+  public EmbeddedMergeTemplateFormRequest fileChanges(List<TemplateFileChange> fileChanges) {
+    this.fileChanges = fileChanges;
+    return this;
+  }
+
+  public EmbeddedMergeTemplateFormRequest addFileChangesItem(TemplateFileChange fileChangesItem) {
+    if (this.fileChanges == null) {
+      this.fileChanges = new ArrayList<>();
+    }
+    this.fileChanges.add(fileChangesItem);
+    return this;
+  }
+
+  /**
+   * Get fileChanges
+   * @return fileChanges
+   */
+  @javax.annotation.Nullable
+  public List<TemplateFileChange> getFileChanges() {
+    return fileChanges;
+  }
+
+  public void setFileChanges(List<TemplateFileChange> fileChanges) {
+    this.fileChanges = fileChanges;
   }
 
 
@@ -1627,6 +1662,25 @@ public class EmbeddedMergeTemplateFormRequest {
   }
 
 
+  public EmbeddedMergeTemplateFormRequest allowCommenting(Boolean allowCommenting) {
+    this.allowCommenting = allowCommenting;
+    return this;
+  }
+
+  /**
+   * Get allowCommenting
+   * @return allowCommenting
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowCommenting() {
+    return allowCommenting;
+  }
+
+  public void setAllowCommenting(Boolean allowCommenting) {
+    this.allowCommenting = allowCommenting;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1652,6 +1706,7 @@ public class EmbeddedMergeTemplateFormRequest {
         Objects.equals(this.templateIds, embeddedMergeTemplateFormRequest.templateIds) &&
         Objects.equals(this.useTextTags, embeddedMergeTemplateFormRequest.useTextTags) &&
         Objects.equals(this.textTagDefinitions, embeddedMergeTemplateFormRequest.textTagDefinitions) &&
+        Objects.equals(this.fileChanges, embeddedMergeTemplateFormRequest.fileChanges) &&
         Objects.equals(this.documentId, embeddedMergeTemplateFormRequest.documentId) &&
         Objects.equals(this.title, embeddedMergeTemplateFormRequest.title) &&
         Objects.equals(this.message, embeddedMergeTemplateFormRequest.message) &&
@@ -1686,12 +1741,13 @@ public class EmbeddedMergeTemplateFormRequest {
         Objects.equals(this.allowedSignatureTypes, embeddedMergeTemplateFormRequest.allowedSignatureTypes) &&
         Objects.equals(this.groupSignerSettings, embeddedMergeTemplateFormRequest.groupSignerSettings) &&
         Objects.equals(this.enableAllowSignEverywhere, embeddedMergeTemplateFormRequest.enableAllowSignEverywhere) &&
-        Objects.equals(this.documentTimeZone, embeddedMergeTemplateFormRequest.documentTimeZone);
+        Objects.equals(this.documentTimeZone, embeddedMergeTemplateFormRequest.documentTimeZone) &&
+        Objects.equals(this.allowCommenting, embeddedMergeTemplateFormRequest.allowCommenting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(files, fileUrls, redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, sendLinkValidTill, showTooltip, templateIds, useTextTags, textTagDefinitions, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend, allowedSignatureTypes, groupSignerSettings, enableAllowSignEverywhere, documentTimeZone);
+    return Objects.hash(files, fileUrls, redirectUrl, showToolbar, sendViewOption, showSaveButton, locale, showSendButton, showPreviewButton, showNavigationButtons, sendLinkValidTill, showTooltip, templateIds, useTextTags, textTagDefinitions, fileChanges, documentId, title, message, roles, brandId, labels, disableEmails, disableSMS, hideDocumentId, reminderSettings, cc, expiryDays, expiryDateType, expiryValue, enablePrintAndSign, enableReassign, enableSigningOrder, disableExpiryAlert, documentInfo, onBehalfOf, isSandbox, roleRemovalIndices, documentDownloadOption, metaData, formGroups, removeFormFields, recipientNotificationSettings, enableAuditTrailLocalization, downloadFileName, scheduledSendTime, allowScheduledSend, allowedSignatureTypes, groupSignerSettings, enableAllowSignEverywhere, documentTimeZone, allowCommenting);
   }
 
   @Override
@@ -1713,6 +1769,7 @@ public class EmbeddedMergeTemplateFormRequest {
     sb.append("    templateIds: ").append(toIndentedString(templateIds)).append("\n");
     sb.append("    useTextTags: ").append(toIndentedString(useTextTags)).append("\n");
     sb.append("    textTagDefinitions: ").append(toIndentedString(textTagDefinitions)).append("\n");
+    sb.append("    fileChanges: ").append(toIndentedString(fileChanges)).append("\n");
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -1748,6 +1805,7 @@ public class EmbeddedMergeTemplateFormRequest {
     sb.append("    groupSignerSettings: ").append(toIndentedString(groupSignerSettings)).append("\n");
     sb.append("    enableAllowSignEverywhere: ").append(toIndentedString(enableAllowSignEverywhere)).append("\n");
     sb.append("    documentTimeZone: ").append(toIndentedString(documentTimeZone)).append("\n");
+    sb.append("    allowCommenting: ").append(toIndentedString(allowCommenting)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1773,33 +1831,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : files) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "files[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("files", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("files", objectList);
+          }
         }
     }
     if (fileUrls != null) {
@@ -1820,33 +1892,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : fileUrls) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "fileUrls[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("fileUrls", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("fileUrls", objectList);
+          }
         }
     }
     if (redirectUrl != null) {
@@ -2067,33 +2153,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : templateIds) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "templateIds[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("templateIds", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("templateIds", objectList);
+          }
         }
     }
     if (useTextTags != null) {
@@ -2134,33 +2234,108 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : textTagDefinitions) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "textTagDefinitions[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("textTagDefinitions", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("textTagDefinitions", objectList);
+          }
+        }
+    }
+    if (fileChanges != null) {
+        if (isFileTypeOrListOfFiles(fileChanges)) {
+            fileTypeFound = true;
+        }
+
+        if (fileChanges.getClass().equals(java.io.File.class) ||
+            fileChanges.getClass().equals(Integer.class) ||
+            fileChanges.getClass().equals(String.class) ||
+            fileChanges.getClass().equals(java.net.URI.class)||
+            fileChanges.getClass().isEnum()) {
+            map.put("fileChanges", fileChanges);
+        } else if (isListOfFile(fileChanges)) {
+            for(int i = 0; i< getListSize(fileChanges); i++) {
+                map.put("fileChanges", fileChanges);
+            }
+        }
+        else {
+          List<String> objectList = new ArrayList<String>();
+          int index = 0;
+          for(Object item : fileChanges) {
+            if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
+              objectList.add(item.toString());
+            }
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "fileChanges[" + index + "]." + field,
+                          value
+                      );
+                  }
+              }
+            }
+            else {
+              String objectData = JSON.serialize(item);
+              objectList.add(objectData);
+            }
+            index++;
+          }
+          if (!objectList.isEmpty()) {
+            map.put("fileChanges", objectList);
+          }
         }
     }
     if (documentId != null) {
@@ -2241,33 +2416,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : roles) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "roles[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("roles", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("roles", objectList);
+          }
         }
     }
     if (brandId != null) {
@@ -2308,33 +2497,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : labels) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "labels[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("labels", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("labels", objectList);
+          }
         }
     }
     if (disableEmails != null) {
@@ -2435,33 +2638,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : cc) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "cc[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("cc", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("cc", objectList);
+          }
         }
     }
     if (expiryDays != null) {
@@ -2622,33 +2839,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : documentInfo) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "documentInfo[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("documentInfo", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("documentInfo", objectList);
+          }
         }
     }
     if (onBehalfOf != null) {
@@ -2709,33 +2940,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : roleRemovalIndices) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "roleRemovalIndices[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("roleRemovalIndices", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("roleRemovalIndices", objectList);
+          }
         }
     }
     if (documentDownloadOption != null) {
@@ -2804,33 +3049,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : formGroups) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "formGroups[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("formGroups", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("formGroups", objectList);
+          }
         }
     }
     if (removeFormFields != null) {
@@ -2851,33 +3110,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : removeFormFields) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "removeFormFields[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("removeFormFields", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("removeFormFields", objectList);
+          }
         }
     }
     if (recipientNotificationSettings != null) {
@@ -2998,33 +3271,47 @@ public class EmbeddedMergeTemplateFormRequest {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : allowedSignatureTypes) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "allowedSignatureTypes[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("allowedSignatureTypes", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("allowedSignatureTypes", objectList);
+          }
         }
     }
     if (groupSignerSettings != null) {
@@ -3087,10 +3374,46 @@ public class EmbeddedMergeTemplateFormRequest {
           map.put("documentTimeZone", JSON.serialize(documentTimeZone));
         }
     }
+    if (allowCommenting != null) {
+        if (isFileTypeOrListOfFiles(allowCommenting)) {
+            fileTypeFound = true;
+        }
+
+        if (allowCommenting.getClass().equals(java.io.File.class) ||
+            allowCommenting.getClass().equals(Integer.class) ||
+            allowCommenting.getClass().equals(String.class) ||
+            allowCommenting.getClass().equals(java.net.URI.class)||
+            allowCommenting.getClass().isEnum()) {
+            map.put("allowCommenting", allowCommenting);
+        } else if (isListOfFile(allowCommenting)) {
+            for(int i = 0; i< getListSize(allowCommenting); i++) {
+                map.put("allowCommenting", allowCommenting);
+            }
+        }
+        else {
+          map.put("allowCommenting", JSON.serialize(allowCommenting));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
     return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean hasFileField(Class<?> clazz) {
+    try {
+      @SuppressWarnings("unchecked")
+      Set<String> fields = (Set<String>) clazz.getField("openapiFields").get(null);
+      for (String field : fields) {
+        Method getter = clazz.getMethod("get" + field.substring(0, 1).toUpperCase() + field.substring(1));
+        if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+          return true;
+        }
+      }
+    } catch (Exception e) {
+      // not a generated model (no openapiFields) -> no file fields
+    }
+    return false;
   }
 
   private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
@@ -3147,6 +3470,7 @@ public class EmbeddedMergeTemplateFormRequest {
     openapiFields.add("templateIds");
     openapiFields.add("useTextTags");
     openapiFields.add("textTagDefinitions");
+    openapiFields.add("fileChanges");
     openapiFields.add("documentId");
     openapiFields.add("title");
     openapiFields.add("message");
@@ -3182,6 +3506,7 @@ public class EmbeddedMergeTemplateFormRequest {
     openapiFields.add("groupSignerSettings");
     openapiFields.add("enableAllowSignEverywhere");
     openapiFields.add("documentTimeZone");
+    openapiFields.add("allowCommenting");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -3241,6 +3566,20 @@ public class EmbeddedMergeTemplateFormRequest {
           // validate the optional field `textTagDefinitions` (array)
           for (int i = 0; i < jsonArraytextTagDefinitions.size(); i++) {
             TextTagDefinition.validateJsonElement(jsonArraytextTagDefinitions.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("fileChanges") != null && !jsonObj.get("fileChanges").isJsonNull()) {
+        JsonArray jsonArrayfileChanges = jsonObj.getAsJsonArray("fileChanges");
+        if (jsonArrayfileChanges != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("fileChanges").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `fileChanges` to be an array in the JSON string but got `%s`", jsonObj.get("fileChanges").toString()));
+          }
+
+          // validate the optional field `fileChanges` (array)
+          for (int i = 0; i < jsonArrayfileChanges.size(); i++) {
+            TemplateFileChange.validateJsonElement(jsonArrayfileChanges.get(i));
           };
         }
       }

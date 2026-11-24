@@ -282,6 +282,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateCcWebhookModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateCreated.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateEvent.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateFileChange.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateFileChangeForm.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateFileChangeJson.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateFiles.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateFormFields.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.boldsign.model.TemplateGroupSigner.CustomTypeAdapterFactory());
@@ -350,10 +353,6 @@ public class JSON {
      * @return String representation of the JSON
      */
     public static String serialize(Object obj) {
-        if (obj instanceof OffsetDateTime) {
-            return obj.toString();
-        }
-
         return gson.toJson(obj);
     }
 

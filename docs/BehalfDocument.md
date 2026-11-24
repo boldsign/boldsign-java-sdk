@@ -26,6 +26,7 @@
 |**scheduledSendTime** | **Long** |  |  [optional] |
 |**inEditingMode** | **Boolean** |  |  [optional] |
 |**displayStatus** | **String** |  |  [optional] |
+|**allowCommenting** | **Boolean** |  |  [optional] |
 
 
 

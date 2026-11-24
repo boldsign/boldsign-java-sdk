@@ -34,7 +34,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
 import java.net.URI;
 import java.lang.reflect.Method;
 
@@ -49,6 +48,10 @@ public class TemplateFiles {
   public static final String SERIALIZED_NAME_DOCUMENT_ID = "documentId";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_ID)
   private String documentId;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
   public static final String SERIALIZED_NAME_DOCUMENT_NAME = "documentName";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_NAME)
@@ -81,6 +84,25 @@ public class TemplateFiles {
 
   public void setDocumentId(String documentId) {
     this.documentId = documentId;
+  }
+
+
+  public TemplateFiles id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -152,6 +174,7 @@ public class TemplateFiles {
     }
     TemplateFiles templateFiles = (TemplateFiles) o;
     return Objects.equals(this.documentId, templateFiles.documentId) &&
+        Objects.equals(this.id, templateFiles.id) &&
         Objects.equals(this.documentName, templateFiles.documentName) &&
         Objects.equals(this.order, templateFiles.order) &&
         Objects.equals(this.pageCount, templateFiles.pageCount);
@@ -159,7 +182,7 @@ public class TemplateFiles {
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, documentName, order, pageCount);
+    return Objects.hash(documentId, id, documentName, order, pageCount);
   }
 
   @Override
@@ -167,6 +190,7 @@ public class TemplateFiles {
     StringBuilder sb = new StringBuilder();
     sb.append("class TemplateFiles {\n");
     sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    documentName: ").append(toIndentedString(documentName)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
@@ -195,6 +219,26 @@ public class TemplateFiles {
         }
         else {
           map.put("documentId", JSON.serialize(documentId));
+        }
+    }
+    if (id != null) {
+        if (isFileTypeOrListOfFiles(id)) {
+            fileTypeFound = true;
+        }
+
+        if (id.getClass().equals(java.io.File.class) ||
+            id.getClass().equals(Integer.class) ||
+            id.getClass().equals(String.class) ||
+            id.getClass().equals(java.net.URI.class)||
+            id.getClass().isEnum()) {
+            map.put("id", id);
+        } else if (isListOfFile(id)) {
+            for(int i = 0; i< getListSize(id); i++) {
+                map.put("id", id);
+            }
+        }
+        else {
+          map.put("id", JSON.serialize(id));
         }
     }
     if (documentName != null) {
@@ -263,6 +307,22 @@ public class TemplateFiles {
     return fileTypeFound ? map : new HashMap<>();
   }
 
+  private boolean hasFileField(Class<?> clazz) {
+    try {
+      @SuppressWarnings("unchecked")
+      Set<String> fields = (Set<String>) clazz.getField("openapiFields").get(null);
+      for (String field : fields) {
+        Method getter = clazz.getMethod("get" + field.substring(0, 1).toUpperCase() + field.substring(1));
+        if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+          return true;
+        }
+      }
+    } catch (Exception e) {
+      // not a generated model (no openapiFields) -> no file fields
+    }
+    return false;
+  }
+
   private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
     return obj.getClass().equals(java.io.File.class) || isListOfFile(obj);
   }
@@ -303,6 +363,7 @@ public class TemplateFiles {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("documentId");
+    openapiFields.add("id");
     openapiFields.add("documentName");
     openapiFields.add("order");
     openapiFields.add("pageCount");
@@ -327,6 +388,9 @@ public class TemplateFiles {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("documentId") != null && !jsonObj.get("documentId").isJsonNull()) && !jsonObj.get("documentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `documentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentId").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("documentName") != null && !jsonObj.get("documentName").isJsonNull()) && !jsonObj.get("documentName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `documentName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentName").toString()));

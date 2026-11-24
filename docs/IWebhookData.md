@@ -34,6 +34,7 @@
 |**groupSignerSettings** | [**GroupSignerSettingsWebhookModel**](GroupSignerSettingsWebhookModel.md) |  |  [optional] |
 |**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
 |**documentTimeZone** | **String** |  |  [optional] |
+|**allowCommenting** | **Boolean** |  |  [optional] |
 |**id** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
