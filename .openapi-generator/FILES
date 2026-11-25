@@ -181,6 +181,9 @@ docs/TemplateCC.md
 docs/TemplateCcWebhookModel.md
 docs/TemplateCreated.md
 docs/TemplateEvent.md
+docs/TemplateFileChange.md
+docs/TemplateFileChangeForm.md
+docs/TemplateFileChangeJson.md
 docs/TemplateFiles.md
 docs/TemplateFormFields.md
 docs/TemplateGroupSigner.md
@@ -421,6 +424,9 @@ src/main/java/com/boldsign/model/TemplateCC.java
 src/main/java/com/boldsign/model/TemplateCcWebhookModel.java
 src/main/java/com/boldsign/model/TemplateCreated.java
 src/main/java/com/boldsign/model/TemplateEvent.java
+src/main/java/com/boldsign/model/TemplateFileChange.java
+src/main/java/com/boldsign/model/TemplateFileChangeForm.java
+src/main/java/com/boldsign/model/TemplateFileChangeJson.java
 src/main/java/com/boldsign/model/TemplateFiles.java
 src/main/java/com/boldsign/model/TemplateFormFields.java
 src/main/java/com/boldsign/model/TemplateGroupSigner.java

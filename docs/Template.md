@@ -26,6 +26,7 @@
 |**templateLabels** | **List&lt;String&gt;** |  |  [optional] |
 |**labels** | **List&lt;String&gt;** |  |  [optional] |
 |**brandId** | **String** |  |  [optional] |
+|**allowCommenting** | **Boolean** |  |  [optional] |
 
 
 

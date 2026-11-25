@@ -39,7 +39,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
 import java.net.URI;
 import java.lang.reflect.Method;
 
@@ -184,6 +183,10 @@ public class Document {
   public static final String SERIALIZED_NAME_DISPLAY_STATUS = "displayStatus";
   @SerializedName(SERIALIZED_NAME_DISPLAY_STATUS)
   private String displayStatus;
+
+  public static final String SERIALIZED_NAME_ALLOW_COMMENTING = "allowCommenting";
+  @SerializedName(SERIALIZED_NAME_ALLOW_COMMENTING)
+  private Boolean allowCommenting;
 
   public Document() {
   }
@@ -554,6 +557,25 @@ public class Document {
   }
 
 
+  public Document allowCommenting(Boolean allowCommenting) {
+    this.allowCommenting = allowCommenting;
+    return this;
+  }
+
+  /**
+   * Get allowCommenting
+   * @return allowCommenting
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowCommenting() {
+    return allowCommenting;
+  }
+
+  public void setAllowCommenting(Boolean allowCommenting) {
+    this.allowCommenting = allowCommenting;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -581,12 +603,13 @@ public class Document {
         Objects.equals(this.brandId, document.brandId) &&
         Objects.equals(this.scheduledSendTime, document.scheduledSendTime) &&
         Objects.equals(this.inEditingMode, document.inEditingMode) &&
-        Objects.equals(this.displayStatus, document.displayStatus);
+        Objects.equals(this.displayStatus, document.displayStatus) &&
+        Objects.equals(this.allowCommenting, document.allowCommenting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId, senderDetail, ccDetails, createdDate, activityDate, activityBy, messageTitle, status, signerDetails, expiryDate, enableSigningOrder, isDeleted, labels, cursor, brandId, scheduledSendTime, inEditingMode, displayStatus);
+    return Objects.hash(documentId, senderDetail, ccDetails, createdDate, activityDate, activityBy, messageTitle, status, signerDetails, expiryDate, enableSigningOrder, isDeleted, labels, cursor, brandId, scheduledSendTime, inEditingMode, displayStatus, allowCommenting);
   }
 
   @Override
@@ -611,6 +634,7 @@ public class Document {
     sb.append("    scheduledSendTime: ").append(toIndentedString(scheduledSendTime)).append("\n");
     sb.append("    inEditingMode: ").append(toIndentedString(inEditingMode)).append("\n");
     sb.append("    displayStatus: ").append(toIndentedString(displayStatus)).append("\n");
+    sb.append("    allowCommenting: ").append(toIndentedString(allowCommenting)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -676,33 +700,47 @@ public class Document {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : ccDetails) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "ccDetails[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("ccDetails", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("ccDetails", objectList);
+          }
         }
     }
     if (createdDate != null) {
@@ -823,33 +861,47 @@ public class Document {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : signerDetails) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "signerDetails[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("signerDetails", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("signerDetails", objectList);
+          }
         }
     }
     if (expiryDate != null) {
@@ -930,33 +982,47 @@ public class Document {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : labels) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "labels[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("labels", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("labels", objectList);
+          }
         }
     }
     if (cursor != null) {
@@ -1059,10 +1125,46 @@ public class Document {
           map.put("displayStatus", JSON.serialize(displayStatus));
         }
     }
+    if (allowCommenting != null) {
+        if (isFileTypeOrListOfFiles(allowCommenting)) {
+            fileTypeFound = true;
+        }
+
+        if (allowCommenting.getClass().equals(java.io.File.class) ||
+            allowCommenting.getClass().equals(Integer.class) ||
+            allowCommenting.getClass().equals(String.class) ||
+            allowCommenting.getClass().equals(java.net.URI.class)||
+            allowCommenting.getClass().isEnum()) {
+            map.put("allowCommenting", allowCommenting);
+        } else if (isListOfFile(allowCommenting)) {
+            for(int i = 0; i< getListSize(allowCommenting); i++) {
+                map.put("allowCommenting", allowCommenting);
+            }
+        }
+        else {
+          map.put("allowCommenting", JSON.serialize(allowCommenting));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
     return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean hasFileField(Class<?> clazz) {
+    try {
+      @SuppressWarnings("unchecked")
+      Set<String> fields = (Set<String>) clazz.getField("openapiFields").get(null);
+      for (String field : fields) {
+        Method getter = clazz.getMethod("get" + field.substring(0, 1).toUpperCase() + field.substring(1));
+        if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+          return true;
+        }
+      }
+    } catch (Exception e) {
+      // not a generated model (no openapiFields) -> no file fields
+    }
+    return false;
   }
 
   private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
@@ -1122,6 +1224,7 @@ public class Document {
     openapiFields.add("scheduledSendTime");
     openapiFields.add("inEditingMode");
     openapiFields.add("displayStatus");
+    openapiFields.add("allowCommenting");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

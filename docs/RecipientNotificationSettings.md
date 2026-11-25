@@ -19,6 +19,7 @@
 |**editRecipient** | **Boolean** |  |  [optional] |
 |**editDocument** | **Boolean** |  |  [optional] |
 |**viewed** | **Boolean** |  |  [optional] |
+|**commentOnDocument** | **Boolean** |  |  [optional] |
 
 
 

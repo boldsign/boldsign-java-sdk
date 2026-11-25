@@ -34,7 +34,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
 import java.net.URI;
 import java.lang.reflect.Method;
 
@@ -93,6 +92,10 @@ public class RecipientNotificationSettings {
   public static final String SERIALIZED_NAME_VIEWED = "viewed";
   @SerializedName(SERIALIZED_NAME_VIEWED)
   private Boolean viewed;
+
+  public static final String SERIALIZED_NAME_COMMENT_ON_DOCUMENT = "commentOnDocument";
+  @SerializedName(SERIALIZED_NAME_COMMENT_ON_DOCUMENT)
+  private Boolean commentOnDocument = true;
 
   public RecipientNotificationSettings() {
   }
@@ -325,6 +328,25 @@ public class RecipientNotificationSettings {
   }
 
 
+  public RecipientNotificationSettings commentOnDocument(Boolean commentOnDocument) {
+    this.commentOnDocument = commentOnDocument;
+    return this;
+  }
+
+  /**
+   * Get commentOnDocument
+   * @return commentOnDocument
+   */
+  @javax.annotation.Nullable
+  public Boolean getCommentOnDocument() {
+    return commentOnDocument;
+  }
+
+  public void setCommentOnDocument(Boolean commentOnDocument) {
+    this.commentOnDocument = commentOnDocument;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -346,12 +368,13 @@ public class RecipientNotificationSettings {
         Objects.equals(this.reminders, recipientNotificationSettings.reminders) &&
         Objects.equals(this.editRecipient, recipientNotificationSettings.editRecipient) &&
         Objects.equals(this.editDocument, recipientNotificationSettings.editDocument) &&
-        Objects.equals(this.viewed, recipientNotificationSettings.viewed);
+        Objects.equals(this.viewed, recipientNotificationSettings.viewed) &&
+        Objects.equals(this.commentOnDocument, recipientNotificationSettings.commentOnDocument);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signatureRequest, declined, revoked, signed, completed, expired, reassigned, deleted, reminders, editRecipient, editDocument, viewed);
+    return Objects.hash(signatureRequest, declined, revoked, signed, completed, expired, reassigned, deleted, reminders, editRecipient, editDocument, viewed, commentOnDocument);
   }
 
   @Override
@@ -370,6 +393,7 @@ public class RecipientNotificationSettings {
     sb.append("    editRecipient: ").append(toIndentedString(editRecipient)).append("\n");
     sb.append("    editDocument: ").append(toIndentedString(editDocument)).append("\n");
     sb.append("    viewed: ").append(toIndentedString(viewed)).append("\n");
+    sb.append("    commentOnDocument: ").append(toIndentedString(commentOnDocument)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -617,10 +641,46 @@ public class RecipientNotificationSettings {
           map.put("viewed", JSON.serialize(viewed));
         }
     }
+    if (commentOnDocument != null) {
+        if (isFileTypeOrListOfFiles(commentOnDocument)) {
+            fileTypeFound = true;
+        }
+
+        if (commentOnDocument.getClass().equals(java.io.File.class) ||
+            commentOnDocument.getClass().equals(Integer.class) ||
+            commentOnDocument.getClass().equals(String.class) ||
+            commentOnDocument.getClass().equals(java.net.URI.class)||
+            commentOnDocument.getClass().isEnum()) {
+            map.put("commentOnDocument", commentOnDocument);
+        } else if (isListOfFile(commentOnDocument)) {
+            for(int i = 0; i< getListSize(commentOnDocument); i++) {
+                map.put("commentOnDocument", commentOnDocument);
+            }
+        }
+        else {
+          map.put("commentOnDocument", JSON.serialize(commentOnDocument));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
     return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean hasFileField(Class<?> clazz) {
+    try {
+      @SuppressWarnings("unchecked")
+      Set<String> fields = (Set<String>) clazz.getField("openapiFields").get(null);
+      for (String field : fields) {
+        Method getter = clazz.getMethod("get" + field.substring(0, 1).toUpperCase() + field.substring(1));
+        if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+          return true;
+        }
+      }
+    } catch (Exception e) {
+      // not a generated model (no openapiFields) -> no file fields
+    }
+    return false;
   }
 
   private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
@@ -674,6 +734,7 @@ public class RecipientNotificationSettings {
     openapiFields.add("editRecipient");
     openapiFields.add("editDocument");
     openapiFields.add("viewed");
+    openapiFields.add("commentOnDocument");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

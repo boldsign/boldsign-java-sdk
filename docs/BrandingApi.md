@@ -76,7 +76,7 @@ This endpoint does not need any parameter.
 
 <a id="createBrand"></a>
 # **createBrand**
-> BrandCreated createBrand(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, hideReassign)
+> BrandCreated createBrand(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, hideReassign, hideCommenting)
 
 Create the brand.
 
@@ -132,9 +132,10 @@ public class Example {
     Boolean signatureFrameSettingsShowRecipientEmail = false; // Boolean | 
     Boolean signatureFrameSettingsShowTimeStamp = false; // Boolean | 
     Boolean hideReassign = false; // Boolean | Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation.
+    Boolean hideCommenting = true; // Boolean | 
     
     try {
-      BrandCreated result = apiInstance.createBrand(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, hideReassign);
+      BrandCreated result = apiInstance.createBrand(brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, hideReassign, hideCommenting);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BrandingApi#createBrand");
@@ -185,6 +186,7 @@ public class Example {
 | **signatureFrameSettingsShowRecipientEmail** | **Boolean**|  | [optional] [default to false] |
 | **signatureFrameSettingsShowTimeStamp** | **Boolean**|  | [optional] [default to false] |
 | **hideReassign** | **Boolean**| Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation. | [optional] [default to false] |
+| **hideCommenting** | **Boolean**|  | [optional] [default to true] |
 
 ### Return type
 
@@ -275,7 +277,7 @@ public class Example {
 
 <a id="editBrand"></a>
 # **editBrand**
-> BrandCreated editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, hideReassign)
+> BrandCreated editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, hideReassign, hideCommenting)
 
 Edit the brand.
 
@@ -332,9 +334,10 @@ public class Example {
     Boolean signatureFrameSettingsShowRecipientEmail = false; // Boolean | 
     Boolean signatureFrameSettingsShowTimeStamp = false; // Boolean | 
     Boolean hideReassign = false; // Boolean | Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation.
+    Boolean hideCommenting = true; // Boolean | 
     
     try {
-      BrandCreated result = apiInstance.editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, hideReassign);
+      BrandCreated result = apiInstance.editBrand(brandId, brandName, brandLogo, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerDescription, disclaimerTitle, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettingsExpiryDateType, documentExpirySettingsExpiryValue, documentExpirySettingsEnableDefaultExpiryAlert, documentExpirySettingsEnableAutoReminder, documentExpirySettingsReminderDays, documentExpirySettingsReminderCount, customDomainSettingsDomainName, customDomainSettingsFromName, signatureFrameSettingsEnableSignatureFrame, signatureFrameSettingsShowRecipientName, signatureFrameSettingsShowRecipientEmail, signatureFrameSettingsShowTimeStamp, hideReassign, hideCommenting);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BrandingApi#editBrand");
@@ -386,6 +389,7 @@ public class Example {
 | **signatureFrameSettingsShowRecipientEmail** | **Boolean**|  | [optional] [default to false] |
 | **signatureFrameSettingsShowTimeStamp** | **Boolean**|  | [optional] [default to false] |
 | **hideReassign** | **Boolean**| Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation. | [optional] [default to false] |
+| **hideCommenting** | **Boolean**|  | [optional] [default to true] |
 
 ### Return type
 

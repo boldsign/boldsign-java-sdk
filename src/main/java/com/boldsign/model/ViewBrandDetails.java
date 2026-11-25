@@ -37,7 +37,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
 import java.net.URI;
 import java.lang.reflect.Method;
 
@@ -208,6 +207,10 @@ public class ViewBrandDetails {
   public static final String SERIALIZED_NAME_HIDE_REASSIGN = "hideReassign";
   @SerializedName(SERIALIZED_NAME_HIDE_REASSIGN)
   private Boolean hideReassign = false;
+
+  public static final String SERIALIZED_NAME_HIDE_COMMENTING = "hideCommenting";
+  @SerializedName(SERIALIZED_NAME_HIDE_COMMENTING)
+  private Boolean hideCommenting = true;
 
   public ViewBrandDetails() {
   }
@@ -725,6 +728,25 @@ public class ViewBrandDetails {
   }
 
 
+  public ViewBrandDetails hideCommenting(Boolean hideCommenting) {
+    this.hideCommenting = hideCommenting;
+    return this;
+  }
+
+  /**
+   * Get hideCommenting
+   * @return hideCommenting
+   */
+  @javax.annotation.Nullable
+  public Boolean getHideCommenting() {
+    return hideCommenting;
+  }
+
+  public void setHideCommenting(Boolean hideCommenting) {
+    this.hideCommenting = hideCommenting;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -761,12 +783,13 @@ public class ViewBrandDetails {
         Objects.equals(this.customDomainSettings, viewBrandDetails.customDomainSettings) &&
         Objects.equals(this.isDomainVerified, viewBrandDetails.isDomainVerified) &&
         Objects.equals(this.signatureFrameSettings, viewBrandDetails.signatureFrameSettings) &&
-        Objects.equals(this.hideReassign, viewBrandDetails.hideReassign);
+        Objects.equals(this.hideReassign, viewBrandDetails.hideReassign) &&
+        Objects.equals(this.hideCommenting, viewBrandDetails.hideCommenting);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(brandId, brandLogo, brandName, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerTitle, disclaimerDescription, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettings, customDomainSettings, isDomainVerified, signatureFrameSettings, hideReassign);
+    return Objects.hash(brandId, brandLogo, brandName, backgroundColor, buttonColor, buttonTextColor, emailDisplayName, disclaimerTitle, disclaimerDescription, redirectUrl, isDefault, canHideTagLine, combineAuditTrail, combineAttachments, excludeAuditTrailFromEmail, emailSignedDocument, documentTimeZone, showBuiltInFormFields, allowCustomFieldCreation, showSharedCustomFields, hideDecline, hideSave, documentExpirySettings, customDomainSettings, isDomainVerified, signatureFrameSettings, hideReassign, hideCommenting);
   }
 
   @Override
@@ -800,6 +823,7 @@ public class ViewBrandDetails {
     sb.append("    isDomainVerified: ").append(toIndentedString(isDomainVerified)).append("\n");
     sb.append("    signatureFrameSettings: ").append(toIndentedString(signatureFrameSettings)).append("\n");
     sb.append("    hideReassign: ").append(toIndentedString(hideReassign)).append("\n");
+    sb.append("    hideCommenting: ").append(toIndentedString(hideCommenting)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1347,10 +1371,46 @@ public class ViewBrandDetails {
           map.put("hideReassign", JSON.serialize(hideReassign));
         }
     }
+    if (hideCommenting != null) {
+        if (isFileTypeOrListOfFiles(hideCommenting)) {
+            fileTypeFound = true;
+        }
+
+        if (hideCommenting.getClass().equals(java.io.File.class) ||
+            hideCommenting.getClass().equals(Integer.class) ||
+            hideCommenting.getClass().equals(String.class) ||
+            hideCommenting.getClass().equals(java.net.URI.class)||
+            hideCommenting.getClass().isEnum()) {
+            map.put("hideCommenting", hideCommenting);
+        } else if (isListOfFile(hideCommenting)) {
+            for(int i = 0; i< getListSize(hideCommenting); i++) {
+                map.put("hideCommenting", hideCommenting);
+            }
+        }
+        else {
+          map.put("hideCommenting", JSON.serialize(hideCommenting));
+        }
+    }
     } catch (Exception e) {
         throw new ApiException(e);
     }
     return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean hasFileField(Class<?> clazz) {
+    try {
+      @SuppressWarnings("unchecked")
+      Set<String> fields = (Set<String>) clazz.getField("openapiFields").get(null);
+      for (String field : fields) {
+        Method getter = clazz.getMethod("get" + field.substring(0, 1).toUpperCase() + field.substring(1));
+        if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+          return true;
+        }
+      }
+    } catch (Exception e) {
+      // not a generated model (no openapiFields) -> no file fields
+    }
+    return false;
   }
 
   private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {
@@ -1419,6 +1479,7 @@ public class ViewBrandDetails {
     openapiFields.add("isDomainVerified");
     openapiFields.add("signatureFrameSettings");
     openapiFields.add("hideReassign");
+    openapiFields.add("hideCommenting");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -34,6 +34,7 @@
 |**isDomainVerified** | **Boolean** |  |  [optional] |
 |**signatureFrameSettings** | [**SignatureFrameSettings**](SignatureFrameSettings.md) |  |  [optional] |
 |**hideReassign** | **Boolean** |  |  [optional] |
+|**hideCommenting** | **Boolean** |  |  [optional] |
 
 
 

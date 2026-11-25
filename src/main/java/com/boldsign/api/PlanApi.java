@@ -84,7 +84,9 @@ public class PlanApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call apiCreditsCountCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -130,6 +132,7 @@ public class PlanApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call apiCreditsCountValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         return apiCreditsCountCall(_callback);
@@ -138,7 +141,7 @@ public class PlanApi {
 
     /**
      * Gets the Api credits details.
-     * 
+     * Deprecated: use /v1-beta/plan/credits instead. The response and behaviour of this operation are unchanged and will be removed in a future version.
      * @return BillingViewModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -147,7 +150,9 @@ public class PlanApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BillingViewModel apiCreditsCount() throws ApiException {
         ApiResponse<BillingViewModel> localVarResp = apiCreditsCountWithHttpInfo();
         return localVarResp.getData();
@@ -155,7 +160,7 @@ public class PlanApi {
 
     /**
      * Gets the Api credits details.
-     * 
+     * Deprecated: use /v1-beta/plan/credits instead. The response and behaviour of this operation are unchanged and will be removed in a future version.
      * @return ApiResponse&lt;BillingViewModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -164,7 +169,9 @@ public class PlanApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BillingViewModel> apiCreditsCountWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = apiCreditsCountValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<BillingViewModel>(){}.getType();
@@ -173,7 +180,7 @@ public class PlanApi {
 
     /**
      * Gets the Api credits details. (asynchronously)
-     * 
+     * Deprecated: use /v1-beta/plan/credits instead. The response and behaviour of this operation are unchanged and will be removed in a future version.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -183,7 +190,9 @@ public class PlanApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call apiCreditsCountAsync(final ApiCallback<BillingViewModel> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = apiCreditsCountValidateBeforeCall(_callback);

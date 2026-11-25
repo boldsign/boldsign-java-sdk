@@ -43,7 +43,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.lang.reflect.Field;
 import java.net.URI;
 import java.lang.reflect.Method;
 
@@ -2122,33 +2121,47 @@ public class FormField {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : conditionalRules) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "conditionalRules[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("conditionalRules", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("conditionalRules", objectList);
+          }
         }
     }
     if (dataSyncTag != null) {
@@ -2189,33 +2202,47 @@ public class FormField {
         }
         else {
           List<String> objectList = new ArrayList<String>();
+          int index = 0;
           for(Object item : dropdownOptions) {
             if(item instanceof URI || item instanceof String || item instanceof Integer || item instanceof Enum) {
               objectList.add(item.toString());
             }
-            else if (item instanceof EditDocumentFile) {
-              int index = 0;
-              EditDocumentFile fileItem = (EditDocumentFile) item;
-              for (String field : EditDocumentFile.openapiFields) {
-                String methodName = "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
-                Method getter = EditDocumentFile.class.getMethod(methodName);
-                Object value = getter.invoke(fileItem);
-                String key = "files[" + index + "]." + field;
-                if (value != null){
-                  if(field == "file"){
-                    fileTypeFound = true;
+            else if (hasFileField(item.getClass())) {
+              Class<?> clazz = item.getClass();
+
+              @SuppressWarnings("unchecked")
+              Set<String> fields =
+                  (Set<String>) clazz.getField("openapiFields").get(null);
+
+              for (String field : fields) {
+                  Method getter =
+                      clazz.getMethod(
+                          "get" + field.substring(0,1).toUpperCase()
+                          + field.substring(1));
+
+                  Object value = getter.invoke(item);
+
+                  if (value != null) {
+                      if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+                          fileTypeFound = true;
+                      }
+
+                      map.put(
+                          "dropdownOptions[" + index + "]." + field,
+                          value
+                      );
                   }
-                map.put(key, value);
-                }
               }
-              index++;
             }
             else {
               String objectData = JSON.serialize(item);
               objectList.add(objectData);
             }
+            index++;
           }
-          map.put("dropdownOptions", objectList);
+          if (!objectList.isEmpty()) {
+            map.put("dropdownOptions", objectList);
+          }
         }
     }
     if (textAlign != null) {
@@ -2462,6 +2489,22 @@ public class FormField {
         throw new ApiException(e);
     }
     return fileTypeFound ? map : new HashMap<>();
+  }
+
+  private boolean hasFileField(Class<?> clazz) {
+    try {
+      @SuppressWarnings("unchecked")
+      Set<String> fields = (Set<String>) clazz.getField("openapiFields").get(null);
+      for (String field : fields) {
+        Method getter = clazz.getMethod("get" + field.substring(0, 1).toUpperCase() + field.substring(1));
+        if (java.io.File.class.isAssignableFrom(getter.getReturnType())) {
+          return true;
+        }
+      }
+    } catch (Exception e) {
+      // not a generated model (no openapiFields) -> no file fields
+    }
+    return false;
   }
 
   private boolean isFileTypeOrListOfFiles(Object obj) throws Exception {

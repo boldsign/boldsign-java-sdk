@@ -22,6 +22,7 @@
 |**templateIds** | **List&lt;String&gt;** |  |  [optional] |
 |**useTextTags** | **Boolean** |  |  [optional] |
 |**textTagDefinitions** | [**List&lt;TextTagDefinition&gt;**](TextTagDefinition.md) |  |  [optional] |
+|**fileChanges** | [**List&lt;TemplateFileChange&gt;**](TemplateFileChange.md) |  |  [optional] |
 |**documentId** | **String** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 |**message** | **String** |  |  [optional] |
@@ -57,6 +58,7 @@
 |**groupSignerSettings** | [**GroupSignerSettings**](GroupSignerSettings.md) |  |  [optional] |
 |**enableAllowSignEverywhere** | **Boolean** |  |  [optional] |
 |**documentTimeZone** | **String** |  |  [optional] |
+|**allowCommenting** | **Boolean** |  |  [optional] |
 
 
 
